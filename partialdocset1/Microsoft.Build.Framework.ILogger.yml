@@ -1,0 +1,179 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Build.Framework.ILogger
+  id: ILogger
+  children:
+  - Microsoft.Build.Framework.ILogger.Initialize(Microsoft.Build.Framework.IEventSource)
+  - Microsoft.Build.Framework.ILogger.Parameters
+  - Microsoft.Build.Framework.ILogger.Shutdown
+  - Microsoft.Build.Framework.ILogger.Verbosity
+  langs:
+  - csharp
+  name: ILogger
+  nameWithType: ILogger
+  fullName: Microsoft.Build.Framework.ILogger
+  type: Interface
+  summary: "Определяет [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] средства ведения журнала, которое подписывает на системные события построения."
+  remarks: "Все средства ведения журнала классы должны реализовывать этот интерфейс, чтобы распознаваться [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] ядра.       Вместо реализации этого интерфейса, можно наследовать класс от вспомогательного класса <xref:Microsoft.Build.Utilities.Logger>, предоставляет реализацию по умолчанию некоторые члены ILogger.</xref:Microsoft.Build.Utilities.Logger>"
+  example:
+  - "The following example shows how to write a basic logger.  \n  \n [!code-cs[msbuild_BasicLogger#1](~/add/codesnippet/csharp/msbuild_BasicLogger/msbuild_BasicLogger.cs#1)]"
+  syntax:
+    content: >-
+      [System.Runtime.InteropServices.ComVisible(true)]
+
+      public interface ILogger
+  implements: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ILogger.Initialize(Microsoft.Build.Framework.IEventSource)
+  id: Initialize(Microsoft.Build.Framework.IEventSource)
+  parent: Microsoft.Build.Framework.ILogger
+  langs:
+  - csharp
+  name: Initialize(IEventSource)
+  nameWithType: ILogger.Initialize(IEventSource)
+  fullName: Microsoft.Build.Framework.ILogger.Initialize(IEventSource)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Подписывает средства ведения журнала на определенные события. Этот метод вызывается, когда средство ведения журнала регистрируется с обработчиком построения, до каких-либо событий."
+  syntax:
+    content: public void Initialize (Microsoft.Build.Framework.IEventSource eventSource);
+    parameters:
+    - id: eventSource
+      type: Microsoft.Build.Framework.IEventSource
+      description: "События, доступные средствам ведения журнала."
+  overload: Microsoft.Build.Framework.ILogger.Initialize*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ILogger.Parameters
+  id: Parameters
+  parent: Microsoft.Build.Framework.ILogger
+  langs:
+  - csharp
+  name: Parameters
+  nameWithType: ILogger.Parameters
+  fullName: Microsoft.Build.Framework.ILogger.Parameters
+  type: Property
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Возвращает или задает пользовательские параметры средства ведения журнала."
+  remarks: "Параметры могут быть представлены в этом свойстве в любом формате. Например, для представления двух параметров и значений, можно использовать строку «параметр1 = значение1; параметр2 = значение2».       Это свойство может быть пустой ссылкой (`Nothing` в [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)])."
+  syntax:
+    content: public string Parameters { get; set; }
+    return:
+      type: System.String
+      description: "Параметры средства ведения журнала."
+  overload: Microsoft.Build.Framework.ILogger.Parameters*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ILogger.Shutdown
+  id: Shutdown
+  parent: Microsoft.Build.Framework.ILogger
+  langs:
+  - csharp
+  name: Shutdown()
+  nameWithType: ILogger.Shutdown()
+  fullName: Microsoft.Build.Framework.ILogger.Shutdown()
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Освобождает ресурсы, распределенные в средство ведения журнала во время инициализации или во время построения. Этот метод вызывается, когда средство ведения журнала отменяется из обработчика, после вызова всех событий. Множество [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] обычно отменяет регистрацию средств ведения журнала сразу же до закрытия."
+  syntax:
+    content: public void Shutdown ();
+    parameters: []
+  overload: Microsoft.Build.Framework.ILogger.Shutdown*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ILogger.Verbosity
+  id: Verbosity
+  parent: Microsoft.Build.Framework.ILogger
+  langs:
+  - csharp
+  name: Verbosity
+  nameWithType: ILogger.Verbosity
+  fullName: Microsoft.Build.Framework.ILogger.Verbosity
+  type: Property
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Возвращает или задает уровень детализации для отображения в журнале событий."
+  remarks: "Хотя средство ведения журнала можно выбрать любые события, следующие инструкции детализации создает согласованную среду работы."
+  syntax:
+    content: public Microsoft.Build.Framework.LoggerVerbosity Verbosity { get; set; }
+    return:
+      type: Microsoft.Build.Framework.LoggerVerbosity
+      description: "Одно из значений перечисления. Значение по умолчанию — <xref href=&quot;Microsoft.Build.Framework.LoggerVerbosity&quot;> </xref>."
+  overload: Microsoft.Build.Framework.ILogger.Verbosity*
+  exceptions: []
+  platform:
+  - net462
+references:
+- uid: Microsoft.Build.Framework.ILogger.Initialize(Microsoft.Build.Framework.IEventSource)
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Initialize(IEventSource)
+  nameWithType: ILogger.Initialize(IEventSource)
+  fullName: Microsoft.Build.Framework.ILogger.Initialize(IEventSource)
+- uid: Microsoft.Build.Framework.IEventSource
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: IEventSource
+  nameWithType: IEventSource
+  fullName: Microsoft.Build.Framework.IEventSource
+- uid: Microsoft.Build.Framework.ILogger.Parameters
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Parameters
+  nameWithType: ILogger.Parameters
+  fullName: Microsoft.Build.Framework.ILogger.Parameters
+- uid: System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Microsoft.Build.Framework.ILogger.Shutdown
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Shutdown()
+  nameWithType: ILogger.Shutdown()
+  fullName: Microsoft.Build.Framework.ILogger.Shutdown()
+- uid: Microsoft.Build.Framework.ILogger.Verbosity
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Verbosity
+  nameWithType: ILogger.Verbosity
+  fullName: Microsoft.Build.Framework.ILogger.Verbosity
+- uid: Microsoft.Build.Framework.LoggerVerbosity
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: LoggerVerbosity
+  nameWithType: LoggerVerbosity
+  fullName: Microsoft.Build.Framework.LoggerVerbosity
+- uid: Microsoft.Build.Framework.ILogger.Initialize*
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Initialize
+  nameWithType: ILogger.Initialize
+- uid: Microsoft.Build.Framework.ILogger.Parameters*
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Parameters
+  nameWithType: ILogger.Parameters
+- uid: Microsoft.Build.Framework.ILogger.Shutdown*
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Shutdown
+  nameWithType: ILogger.Shutdown
+- uid: Microsoft.Build.Framework.ILogger.Verbosity*
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Verbosity
+  nameWithType: ILogger.Verbosity
