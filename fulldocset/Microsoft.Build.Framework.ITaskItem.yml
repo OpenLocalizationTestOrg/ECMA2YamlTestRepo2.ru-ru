@@ -17,8 +17,8 @@ items:
   nameWithType: ITaskItem
   fullName: Microsoft.Build.Framework.ITaskItem
   type: Interface
-  summary: "Defines an [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] item that can be consumed and emitted by tasks."
-  remarks: "The number of ITaskItem objects created during a build may not correspond exactly to items declared in a project file for the following reasons:      -   Tasks sometimes create items that were not declared in the project file.      -   An item collection can be declared in the project file with wildcards, which could create many items when built."
+  summary: "Определяет [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] элемента, который может использоваться и создаваться задачами."
+  remarks: "Число объектов ITaskItem, созданных во время сборки могут не соответствовать элементов, объявленных в файле проекта по следующим причинам:-задачи иногда создают элементы, которые не были объявлены в файле проекта.      -Коллекция элементов может быть объявлен в файле проекта с помощью подстановочных знаков, которые могут создавать много элементов при построении."
   example:
   - "The following example shows the code for a task that creates one or more directories.  \n  \n [!code-cs[msbuild_MakeDirTask#1](~/add/codesnippet/csharp/msbuild_MakeDirTask/msbuild_MakeDirTask.cs#1)]"
   syntax:
@@ -43,14 +43,14 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets the collection of custom metadata."
-  remarks: "-   Does not include built-in metadata.      -   This method should return a clone of the metadata.      -   Writing to this dictionary should not be reflected in the underlying item."
+  summary: "Возвращает коллекцию пользовательских метаданных."
+  remarks: "-   Включает встроенные метаданные.      — Этот метод должен возвращать клон метаданных.      -Записей в этот словарь не должно быть отражено в базовом элементе."
   syntax:
     content: public System.Collections.IDictionary CloneCustomMetadata ();
     parameters: []
     return:
       type: System.Collections.IDictionary
-      description: "The collection of custom metadata."
+      description: "Коллекция пользовательских метаданных."
   overload: Microsoft.Build.Framework.ITaskItem.CloneCustomMetadata*
   exceptions: []
   platform:
@@ -67,14 +67,14 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Copies the custom metadata entries to another item."
-  remarks: "Follow the guidelines below when implementing this method.      -   Do not overwrite the <xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A> property.      -   Do not overwrite existing metadata entries.      -   Do not copy metadata entries that do not make sense on the destination item."
+  summary: "Копирует записи пользовательских метаданных в другой элемент."
+  remarks: "Следуйте приведенным ниже рекомендациям при реализации этого метода.      -Не перезаписывать <xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A>свойство.</xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A>      -Не перезаписывают существующие записи метаданных.      -Не копируйте записи метаданных, которые не имеют смысла в конечном элементе."
   syntax:
     content: public void CopyMetadataTo (Microsoft.Build.Framework.ITaskItem destinationItem);
     parameters:
     - id: destinationItem
       type: Microsoft.Build.Framework.ITaskItem
-      description: "The item to copy the metadata entries to."
+      description: "Копируемый элемент записи метаданных."
   overload: Microsoft.Build.Framework.ITaskItem.CopyMetadataTo*
   exceptions: []
   platform:
@@ -91,16 +91,16 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets the value of the specified metadata entry."
+  summary: "Получает значение заданной записи метаданных."
   syntax:
     content: public string GetMetadata (string metadataName);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The name of the metadata entry."
+      description: "Имя записи метаданных."
     return:
       type: System.String
-      description: "The value of the <code>attributeName</code> metadata."
+      description: "Значение <code> attributeName </code> метаданных."
   overload: Microsoft.Build.Framework.ITaskItem.GetMetadata*
   exceptions: []
   platform:
@@ -117,15 +117,15 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets or sets the item specification."
-  remarks: "The item specification is an arbitrary string. If the item represents a file on disk, the item specification will be the path of that file.       The ItemSpec for the following item declaration in a project file is `File.cs`.      ```   <ItemGroup>       <Compile Include=&quot;File.cs&quot;/>   </ItemGroup>   ```"
+  summary: "Возвращает или задает спецификацию элемента."
+  remarks: "Спецификация элемента является произвольной строкой. Если этот элемент представляет файл на диске, спецификация элемента будет путь этого файла.       Элемент для следующее объявление элемента в файле проекта `File.cs`.      ```   <ItemGroup>       <Compile Include=&quot;File.cs&quot;/>   </ItemGroup>   ```"
   example:
   - "The following example shows the code for a task that creates one or more directories.  \n  \n [!code-cs[msbuild_MakeDirTask#1](~/add/codesnippet/csharp/msbuild_MakeDirTask/msbuild_MakeDirTask.cs#1)]"
   syntax:
     content: public string ItemSpec { get; set; }
     return:
       type: System.String
-      description: "The item specification."
+      description: "Спецификация элемента."
   overload: Microsoft.Build.Framework.ITaskItem.ItemSpec*
   exceptions: []
   platform:
@@ -142,12 +142,12 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets the number of metadata entries associated with the item."
+  summary: "Возвращает число записей метаданных, связанных с элементом."
   syntax:
     content: public int MetadataCount { get; }
     return:
       type: System.Int32
-      description: "The number of metadata entries associated with the item."
+      description: "Число записей метаданных, связанный с элементом."
   overload: Microsoft.Build.Framework.ITaskItem.MetadataCount*
   exceptions: []
   platform:
@@ -164,12 +164,12 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets the names of the metadata entries associated with the item."
+  summary: "Получает имена записей метаданных, связанных с элементом."
   syntax:
     content: public System.Collections.ICollection MetadataNames { get; }
     return:
       type: System.Collections.ICollection
-      description: "The names of the metadata entries associated with the item."
+      description: "Имена записей метаданных, связанных с элементом."
   overload: Microsoft.Build.Framework.ITaskItem.MetadataNames*
   exceptions: []
   platform:
@@ -186,13 +186,13 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Removes the specified metadata entry from the item."
+  summary: "Удаляет заданную запись метаданных из элемента."
   syntax:
     content: public void RemoveMetadata (string metadataName);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The name of the metadata entry to remove."
+      description: "Имя записи метаданных для удаления."
   overload: Microsoft.Build.Framework.ITaskItem.RemoveMetadata*
   exceptions: []
   platform:
@@ -209,16 +209,16 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Adds or changes a custom metadata entry to the item."
+  summary: "Добавляет или изменяет запись пользовательских метаданных для элемента."
   syntax:
     content: public void SetMetadata (string metadataName, string metadataValue);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The name of the metadata entry."
+      description: "Имя записи метаданных."
     - id: metadataValue
       type: System.String
-      description: "The value of the metadata entry."
+      description: "Значение записи метаданных."
   overload: Microsoft.Build.Framework.ITaskItem.SetMetadata*
   exceptions: []
   platform:
