@@ -17,8 +17,8 @@ items:
   nameWithType: EndpointDiscoveryElement
   fullName: System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement
   type: Class
-  summary: "A configuration element that controls the discovery functionality of an endpoint."
-  remarks: "When added to endpoint’s behavior configuration, the EndpointDiscoveryElement element allows the discovery functionality of the endpoint to be enabled or disabled. Additionally it allows specifying custom scope URIs that can be used to filter service endpoints during discovery operations. It also allows specifying custom XML metadata that is published along with the standard discoverable metadata.      > [!NOTE] >  The EndpointDiscoveryElement is dependent on the <xref:System.ServiceModel.Discovery.Configuration.ServiceDiscoveryElement> that provides service level control of discoverability. This means that the EndpointDiscoveryElement and its settings are ignored if a <xref:System.ServiceModel.Discovery.Configuration.ServiceDiscoveryElement> element is not present.       The following example shows how to use the EndpointDiscoveryElement element and add two scope elements.      ```   <configuration>       <system.serviceModel>         <services>           <service name=&quot;Microsoft.Samples.Discovery.CalculatorService&quot;                    behaviorConfiguration=&quot;calculatorServiceBehavior&quot;>             <endpoint address=&quot;&quot;                       binding=&quot;wsHttpBinding&quot;               contract=&quot;Microsoft.Samples.Discovery.ICalculatorService&quot;                       behaviorConfiguration=&quot;ep1Behavior&quot; />           </service>         </services>         <behaviors>           <serviceBehaviors>             <behavior name=&quot;calculatorServiceBehavior&quot;>               <serviceDiscovery />             </behavior>           </serviceBehaviors>           <endpointBehaviors>             <behavior name=&quot;ep1Behavior&quot;>               <endpointDiscovery enabled=&quot;true&quot;>                 <scopes>                   <add scope=&quot;http://www.example.org/engineering/calculator&quot;/>                   <add scope=&quot;ldap:///ou=engineering,o=exampleorg,c=us&quot;/>                 </scopes>               </endpointDiscovery>             </behavior>                     </endpointBehaviors>         </behaviors>             </system.serviceModel>   </configuration>   ```"
+  summary: "Элемент конфигурации, который управляет функциями обнаружения конечной точки."
+  remarks: "При добавлении в конфигурацию поведения конечной точки, элемент EndpointDiscoveryElement позволяет функции обнаружения конечной точки, чтобы включить или отключить. Кроме того, он позволяет указывать пользовательские URI области, которые можно использовать для фильтрации конечных точек службы во время операций обнаружения. Также разрешает указывать пользовательские метаданные XML, публикуемые вместе со стандартными обнаруживаемыми метаданными.      Настроек [!NOTE] настроек EndpointDiscoveryElement зависит от <xref:System.ServiceModel.Discovery.Configuration.ServiceDiscoveryElement>, управляет уровнем обслуживания для обнаружения.</xref:System.ServiceModel.Discovery.Configuration.ServiceDiscoveryElement> Это означает, что EndpointDiscoveryElement и его параметры учитываются, если <xref:System.ServiceModel.Discovery.Configuration.ServiceDiscoveryElement>элемент не существует.</xref:System.ServiceModel.Discovery.Configuration.ServiceDiscoveryElement>       Приведенный ниже показано, как использовать элемент EndpointDiscoveryElement и добавление двух элементов области.      ```   <configuration>       <system.serviceModel>         <services>           <service name=&quot;Microsoft.Samples.Discovery.CalculatorService&quot;                    behaviorConfiguration=&quot;calculatorServiceBehavior&quot;>             <endpoint address=&quot;&quot;                       binding=&quot;wsHttpBinding&quot;               contract=&quot;Microsoft.Samples.Discovery.ICalculatorService&quot;                       behaviorConfiguration=&quot;ep1Behavior&quot; />           </service>         </services>         <behaviors>           <serviceBehaviors>             <behavior name=&quot;calculatorServiceBehavior&quot;>               <serviceDiscovery />             </behavior>           </serviceBehaviors>           <endpointBehaviors>             <behavior name=&quot;ep1Behavior&quot;>               <endpointDiscovery enabled=&quot;true&quot;>                 <scopes>                   <add scope=&quot;http://www.example.org/engineering/calculator&quot;/>                   <add scope=&quot;ldap:///ou=engineering,o=exampleorg,c=us&quot;/>                 </scopes>               </endpointDiscovery>             </behavior>                     </endpointBehaviors>         </behaviors>             </system.serviceModel>   </configuration>   ```"
   syntax:
     content: 'public sealed class EndpointDiscoveryElement : System.ServiceModel.Configuration.BehaviorExtensionElement'
   inheritance:
@@ -80,7 +80,7 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery.Configuration
-  summary: "Creates a new instance of the <xref href=&quot;System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement&quot;></xref> class."
+  summary: "Создает новый экземпляр <xref href=&quot;System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement&quot;> </xref> класса."
   syntax:
     content: public EndpointDiscoveryElement ();
     parameters: []
@@ -100,12 +100,12 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery.Configuration
-  summary: "Gets the behavior type associated with the <xref href=&quot;System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement&quot;></xref>."
+  summary: "Возвращает тип поведения, связанные с <xref href=&quot;System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement&quot;> </xref>."
   syntax:
     content: public override Type BehaviorType { get; }
     return:
       type: System.Type
-      description: "The behavior type."
+      description: "Тип поведения."
   overload: System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement.BehaviorType*
   exceptions: []
   platform:
@@ -122,12 +122,12 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery.Configuration
-  summary: "Gets the contract type names associated with the endpoint."
+  summary: "Возвращает имена типа контракта, связанного с конечной точкой."
   syntax:
     content: public System.ServiceModel.Discovery.Configuration.ContractTypeNameElementCollection ContractTypeNames { get; }
     return:
       type: System.ServiceModel.Discovery.Configuration.ContractTypeNameElementCollection
-      description: "The contract type names associated with the endpoint."
+      description: "Имена типа контракта, связанного с конечной точкой."
   overload: System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement.ContractTypeNames*
   exceptions: []
   platform:
@@ -149,7 +149,7 @@ items:
     parameters: []
     return:
       type: System.Object
-      description: "To be added."
+      description: "Для добавления."
   overload: System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement.CreateBehavior*
   exceptions: []
   platform:
@@ -166,12 +166,12 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery.Configuration
-  summary: "Gets or sets a value that indicates the discoverability of this endpoint."
+  summary: "Возвращает или задает значение, указывающее возможность обнаружения этой конечной точки."
   syntax:
     content: public bool Enabled { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the discoverability of this endpoint is enabled, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если возможность обнаружения этой конечной точки включен, в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement.Enabled*
   exceptions: []
   platform:
@@ -188,12 +188,12 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery.Configuration
-  summary: "Gets the extensions associated with the <xref href=&quot;System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement&quot;></xref>."
+  summary: "Возвращает расширения, связанные с <xref href=&quot;System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement&quot;> </xref>."
   syntax:
     content: public System.ServiceModel.Configuration.XmlElementElementCollection Extensions { get; }
     return:
       type: System.ServiceModel.Configuration.XmlElementElementCollection
-      description: "The extensions."
+      description: "Расширения."
   overload: System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement.Extensions*
   exceptions: []
   platform:
@@ -214,7 +214,7 @@ items:
     content: protected override System.Configuration.ConfigurationPropertyCollection Properties { get; }
     return:
       type: System.Configuration.ConfigurationPropertyCollection
-      description: "To be added."
+      description: "Для добавления."
   overload: System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement.Properties*
   exceptions: []
   platform:
@@ -231,13 +231,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery.Configuration
-  summary: "Gets a collection of scopes for this endpoint."
-  remarks: "A scope is any URI that can be used to group services into logical groups."
+  summary: "Возвращает коллекцию областей для этой конечной точки."
+  remarks: "Областью является любой URI, который может использоваться для разделения служб по логическим группам."
   syntax:
     content: public System.ServiceModel.Discovery.Configuration.ScopeElementCollection Scopes { get; }
     return:
       type: System.ServiceModel.Discovery.Configuration.ScopeElementCollection
-      description: "A collection of scopes associated with this endpoint."
+      description: "Коллекция областей, связанных с этой конечной точкой."
   overload: System.ServiceModel.Discovery.Configuration.EndpointDiscoveryElement.Scopes*
   exceptions: []
   platform:
