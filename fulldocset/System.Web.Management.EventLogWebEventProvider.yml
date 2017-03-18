@@ -13,8 +13,8 @@ items:
   nameWithType: EventLogWebEventProvider
   fullName: System.Web.Management.EventLogWebEventProvider
   type: Class
-  summary: "Implements an event provider that logs ASP.NET health-monitoring events into the Windows Application Event Log."
-  remarks: "ASP.NET health monitoring allows production and operations staff to manage deployed Web applications. The <xref:System.Web.Management> namespace contains the health-event types responsible for packaging application health-status data and the provider types responsible for processing this data. It also contains supporting types that help during the management of health events.       The EventLogWebEventProvider, the failure audit, and the error health-monitoring events are configured (enabled) by default. This means that the failure audit and the error health-monitoring events are logged in the Windows Application Event Log by default.      > [!NOTE] >  In most cases you will be able to use the ASP.NET health-monitoring types as implemented, and you will control the health-monitoring system by specifying values in the `healthMonitoring` configuration section. You can also derive from the health-monitoring types to create your own custom events and providers. For an example of creating a custom provider, see [How to: Implement the Health Monitoring Custom Provider Example](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Реализует поставщик событий, записывающий в журнал событий мониторинга состояния ASP.NET в журнал событий приложений Windows."
+  remarks: "Мониторинг состояния ASP.NET позволяет производства и операции персоналу управлять развернутыми веб-приложениями. <xref:System.Web.Management>Пространство имен содержит типы событий состояния, отвечающие за упаковку данных о состоянии работоспособности приложений, а также типы поставщика, ответственные за обработку этих данных.</xref:System.Web.Management> Он также содержит вспомогательные типы, которые помогут при управлении событиями состояния.       EventLogWebEventProvider, аудит отказов и наблюдение за работоспособностью события ошибок настраиваются (включено) по умолчанию. Это означает, что аудит отказов и ошибочные наблюдение за работоспособностью события регистрируются в журнале событий приложений Windows по умолчанию.      Настроек [!NOTE] настроек в большинстве случаев можно будет использовать типы мониторинга состояния ASP.NET как реализованные и управлять системой мониторинга состояния, указав значения в `healthMonitoring` раздел конфигурации. Также можно наследовать от типов наблюдение за работоспособностью, чтобы создавать собственные пользовательские события и поставщиков. Пример создания пользовательского поставщика см. в разделе [как: реализация примера мониторинга пользовательского поставщика работоспособности](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following configuration file excerpt shows how to specify a provider of type EventLogWebEventProvider to handle success audit events. The EventLogWebEventProvider and the failure audit health-event types to monitor are configured by default. To monitor the success audits, you need to configure them, as shown in the example code.  \n  \n```  \n<healthMonitoring   \n  enabled=\"true\" heartbeatInterval=\"10\">  \n  \n  <rule>  \n    <add name=\"Success Audits Default\"  \n      eventName=\"Success Audits\"  \n      provider=\"EventLogProvider\"  \n      profile=\"Default\"  \n      minInterval=\"00:01:00\" />  \n  </rule>  \n  \n</healthMonitoring>  \n```"
   syntax:
@@ -41,8 +41,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Moves events from the provider&quot;s buffer into the event log."
-  remarks: "When this method is called, all the events in the provider&quot;s buffer are immediately written to the Windows Application Event Log, regardless of how much time has elapsed since last write or how many events are in the buffer. The time of the last write is reset to the time of the flushing action. If the buffering mechanism is not enabled, calling this method does not have any effect."
+  summary: "Перемещает события из буфера поставщика в журнал событий."
+  remarks: "При вызове этого метода все события в буфере поставщика немедленно записываются в журнал приложений Windows события, независимо от того, сколько времени прошло с момента последней записи или количества событий в буфере. Время последней записи сбрасывается до времени выполнения очистки. Если механизм буферизации не включен, вызов этого метода не имеет никакого действия."
   syntax:
     content: public override void Flush ();
     parameters: []
@@ -62,17 +62,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Sets the initial values for this object."
-  remarks: "This method is called to initialize the <xref:System.Web.Management.EventLogWebEventProvider> with the configuration settings and name as specified in the configuration file."
+  summary: "Задает начальные значения для этого объекта."
+  remarks: "Этот метод вызывается для инициализации <xref:System.Web.Management.EventLogWebEventProvider>Параметры конфигурации и имени, указанного в файле конфигурации.</xref:System.Web.Management.EventLogWebEventProvider>"
   syntax:
     content: public override void Initialize (string name, System.Collections.Specialized.NameValueCollection config);
     parameters:
     - id: name
       type: System.String
-      description: "The name used in the configuration file to identify this provider."
+      description: "Имя, используемое в файле конфигурации для определения этого поставщика."
     - id: config
       type: System.Collections.Specialized.NameValueCollection
-      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;></xref> that specifies the attributes assigned for this provider in the configuration file."
+      description: "Объект <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;> </xref> , указывающий атрибутов, назначенных для этого поставщика в файле конфигурации."
   overload: System.Web.Management.EventLogWebEventProvider.Initialize*
   exceptions: []
   platform:
@@ -89,14 +89,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Processes the event passed to the provider."
-  remarks: "This is the method that ASP.NET health monitoring calls to start the processing of the event."
+  summary: "Обрабатывает событие передается поставщику."
+  remarks: "Это метод, который вызывается мониторингом состояния ASP.NET для запуска обработки события."
   syntax:
     content: public override void ProcessEvent (System.Web.Management.WebBaseEvent eventRaised);
     parameters:
     - id: eventRaised
       type: System.Web.Management.WebBaseEvent
-      description: "The <xref href=&quot;System.Web.Management.WebBaseEvent&quot;></xref> object to process."
+      description: "<xref href=&quot;System.Web.Management.WebBaseEvent&quot;> </xref> Объекта к процессу."
   overload: System.Web.Management.EventLogWebEventProvider.ProcessEvent*
   exceptions: []
   platform:
@@ -113,8 +113,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Performs tasks associated with shutting down the provider."
-  remarks: "ASP.NET calls the Shutdown method when the application domain hosting the Web application terminates. The method is called to perform tasks that will allow the application to end gracefully."
+  summary: "Выполняет задачи, связанные с завершением работы поставщика."
+  remarks: "ASP.NET вызывает метод завершения работы при завершении домен приложения, содержащий веб-приложения. Метод вызывается для выполнения задач, позволяющих приложению корректно завершить работу."
   syntax:
     content: public override void Shutdown ();
     parameters: []

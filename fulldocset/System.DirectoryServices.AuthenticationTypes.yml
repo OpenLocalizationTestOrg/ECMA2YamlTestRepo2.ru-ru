@@ -20,8 +20,8 @@ items:
   nameWithType: AuthenticationTypes
   fullName: System.DirectoryServices.AuthenticationTypes
   type: Enum
-  summary: "The AuthenticationTypes enumeration specifies the types of authentication used in <xref href=&quot;System.DirectoryServices&quot;></xref>. This enumeration has a <xref:System.FlagsAttribute> attribute that allows a bitwise combination of its member values."
-  remarks: "The Secure flag can be used in combination with other flags such as ReadonlyServer, FastBind.       Serverless binding refers to a process in which a client attempts to bind to an Active Directory Domain Services object without explicitly specifying an Active Directory Domain Services server in the binding string, for example:      ```   LDAP://CN=jsmith,DC=fabrikam,DC=Com   ```       This is possible because the Lightweight Directory Access Protocol (LDAP) provider relies on the locator services of Windows 2000 to find the best domain controller (DC) for the client. However, the client must have an account on the Active Directory Domain Services domain controller to take advantage of the serverless binding feature, and the domain controller that is used by a serverless bind will always be located in the default domain (the domain associated with the current security context of the thread that&quot;s doing the binding).      > [!NOTE] >  None of these options are supported by the Novell Netware Directory Service (NDS) system provider."
+  summary: "Перечисление AuthenticationTypes Указывает типы проверки подлинности, используемый в <xref href=&quot;System.DirectoryServices&quot;> </xref>. Это перечисление имеет <xref:System.FlagsAttribute>атрибут, допускающий поразрядную комбинацию значений его членов.</xref:System.FlagsAttribute>"
+  remarks: "Флаг Secure может использоваться в сочетании с другими флагами, например ReadonlyServer FastBind.       Привязки без относится к процессу, в которой клиент пытается привязать к объекту доменных служб Active Directory без явного указания сервера доменных служб Active Directory в строке привязки, например: ```   LDAP://CN=jsmith,DC=fabrikam,DC=Com   ``` это можно сделать, так как поставщик Lightweight Directory Access Protocol (LDAP) зависит от службы обнаружения Windows 2000 для поиска подходящего контроллера домена (DC) для клиента. Тем не менее клиент должен иметь учетную запись на контроллере домена доменных служб Active Directory, чтобы воспользоваться преимуществами доступа к функции привязки, и контроллер домена, который используется привязка без сервера всегда будет находиться в домене по умолчанию (домен, связанный с текущим контекстом безопасности потока, который выполняется привязка).      Настроек [!NOTE] настроек ни один из этих параметров не поддерживается поставщиком системы Novell Netware Directory Service (NDS)."
   syntax:
     content: >-
       [System.Flags]
@@ -43,12 +43,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "No authentication is performed."
+  summary: "Проверка подлинности не выполняется."
   syntax:
     content: Anonymous
     return:
       type: System.DirectoryServices.AuthenticationTypes
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -64,12 +64,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Enables Active Directory Services Interface (ADSI) to delegate the user&quot;s security context, which is necessary for moving objects across domains."
+  summary: "Позволяет Active Directory Services интерфейс (ADSI) для делегирования контекста безопасности пользователя."
   syntax:
     content: Delegation
     return:
       type: System.DirectoryServices.AuthenticationTypes
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -85,12 +85,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Attaches a cryptographic signature to the message that both identifies the sender and ensures that the message has not been modified in transit."
+  summary: "Присоединяет криптографической подписи сообщения, которая идентифицирует отправителя и гарантирует, что сообщение не было изменено во время передачи."
   syntax:
     content: Encryption
     return:
       type: System.DirectoryServices.AuthenticationTypes
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -106,12 +106,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Specifies that ADSI will not attempt to query the Active Directory Domain Services objectClass property.  Therefore, only the base interfaces that are supported by all ADSI objects will be exposed.  Other interfaces that the object supports will not be available. A user can use this option to boost the performance in a series of object manipulations that involve only methods of the base interfaces. However, ADSI does not verify if any of the request objects actually exist on the server. For more information, see the topic &quot;Fast Binding Option for Batch Write/Modify Operations&quot; in the MSDN Library at [http://msdn.microsoft.com/library](http://msdn.microsoft.com/library).  For more information about the objectClass property, see the &quot;Object-Class&quot; topic in the MSDN Library at [http://msdn.microsoft.com/library](http://msdn.microsoft.com/library)."
+  summary: "Указывает, что ADSI не будет пытаться свойство objectClass доменных служб Active Directory.  Таким образом будет предоставляться только базовые интерфейсы, поддерживаемые всеми объектами ADSI.  Другие интерфейсы, которые поддерживает данный объект будет недоступен. Пользователь может использовать этот параметр для повышения производительности в ряде объектами, включающих только методы базовых интерфейсов. Однако ADSI не проверяет любые объекты запроса существует на сервере. Дополнительные сведения см. в разделе «Быстрое привязки параметр для записи или изменения операций» в библиотеке MSDN по [http://msdn.microsoft.com/library](http://msdn.microsoft.com/library).  Дополнительные сведения о свойстве objectClass см. в разделе «Класс объекта» в библиотеке MSDN по [http://msdn.microsoft.com/library](http://msdn.microsoft.com/library)."
   syntax:
     content: FastBind
     return:
       type: System.DirectoryServices.AuthenticationTypes
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -127,12 +127,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Equates to zero, which means to use basic authentication (simple bind) in the LDAP provider."
+  summary: "Приравнивается к нулю, то есть использовать обычную проверку подлинности (простую привязку) в поставщике LDAP."
   syntax:
     content: None
     return:
       type: System.DirectoryServices.AuthenticationTypes
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -148,12 +148,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "For a WinNT provider, ADSI tries to connect to a domain controller. For Active Directory Domain Services, this flag indicates that a writable server is not required for a serverless binding."
+  summary: "В случае поставщика WinNT интерфейс ADSI пытается подключиться к контроллеру домена. Для доменных служб Active Directory этот флаг указывает, что для записи сервера не является обязательным для привязки без."
   syntax:
     content: ReadonlyServer
     return:
       type: System.DirectoryServices.AuthenticationTypes
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -169,12 +169,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Encrypts data using Kerberos. The Secure flag must also be set to use sealing."
+  summary: "Зашифровывает данные с помощью Kerberos. Для использования запечатывания также должен быть установлен флаг Secure."
   syntax:
     content: Sealing
     return:
       type: System.DirectoryServices.AuthenticationTypes
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -190,12 +190,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Requests secure authentication. When this flag is set, the WinNT provider uses NTLM to authenticate the client. Active Directory Domain Services uses Kerberos, and possibly NTLM, to authenticate the client. When the user name and password are a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic), ADSI binds to the object using the security context of the calling thread, which is either the security context of the user account under which the application is running or of the client user account that the calling thread is impersonating."
+  summary: "Запросы проверки подлинности. Если этот флаг установлен, поставщик WinNT использует NTLM для проверки подлинности клиента. Доменные службы Active Directory использует Kerberos и NTLM для проверки подлинности клиента. Если имя пользователя и пароль являются пустыми ссылками (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> в Visual Basic), ADSI выполняет привязку к объекту, используя контекст безопасности вызывающего потока, который может иметь контекст безопасности учетной записи пользователя, под которой запущено приложение либо учетная запись клиента, вызывающий поток выполняет олицетворение."
   syntax:
     content: Secure
     return:
       type: System.DirectoryServices.AuthenticationTypes
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -211,12 +211,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Attaches a cryptographic signature to the message that both identifies the sender and ensures that the message has not been modified in transit. Active Directory Domain Services requires the Certificate Server be installed to support Secure Sockets Layer (SSL) encryption."
+  summary: "Присоединяет криптографической подписи сообщения, которая идентифицирует отправителя и гарантирует, что сообщение не было изменено во время передачи. Доменные службы Active Directory необходимо установить сертификат сервера для поддержки шифрование Secure Sockets Layer (SSL)."
   syntax:
     content: SecureSocketsLayer
     return:
       type: System.DirectoryServices.AuthenticationTypes
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -232,12 +232,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "If your ADsPath includes a server name, specify this flag when using the LDAP provider. Do not use this flag for paths that include a domain name or for serverless paths. Specifying a server name without also specifying this flag results in unnecessary network traffic."
+  summary: "Если ADsPath включает имя сервера, этот флаг следует указывайте при использовании поставщика LDAP. Не используйте этот флаг для путей, включающие имя домена или содержит серверов. Указание имени сервера без указания этого флага приводит ненужные сетевого трафика."
   syntax:
     content: ServerBind
     return:
       type: System.DirectoryServices.AuthenticationTypes
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -253,12 +253,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices
-  summary: "Verifies data integrity to ensure that the data received is the same as the data sent. The Secure flag must also be set to use signing."
+  summary: "Проверяет целостность данных, чтобы убедиться, что полученные данные таким же, как данные, отправляемые. Для использования подписи также должен быть установлен флаг Secure."
   syntax:
     content: Signing
     return:
       type: System.DirectoryServices.AuthenticationTypes
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462

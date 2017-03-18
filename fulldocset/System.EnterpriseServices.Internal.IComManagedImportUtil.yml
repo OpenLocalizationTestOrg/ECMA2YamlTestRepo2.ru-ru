@@ -11,8 +11,8 @@ items:
   nameWithType: IComManagedImportUtil
   fullName: System.EnterpriseServices.Internal.IComManagedImportUtil
   type: Interface
-  summary: "Identifies and installs components in the COM+ catalog."
-  remarks: "See <xref:System.EnterpriseServices.Internal.ComManagedImportUtil> for the default implementation of IComManagedImportUtil.       IComManagedImportUtil is used internally by the .NET Framework. You do not need to use it directly in your code."
+  summary: "Определяет и устанавливает компоненты в каталоге COM +."
+  remarks: "В разделе <xref:System.EnterpriseServices.Internal.ComManagedImportUtil>для реализации по умолчанию IComManagedImportUtil.</xref:System.EnterpriseServices.Internal.ComManagedImportUtil>       IComManagedImportUtil используется внутренне платформой .NET Framework. Необходимо непосредственно использовать его в коде."
   syntax:
     content: >-
       [System.Runtime.InteropServices.Guid("c3f8f66b-91be-4c99-a94f-ce3b0a951039")]
@@ -33,37 +33,37 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices.Internal
-  summary: "Gets the component information from the assembly."
-  remarks: "This method is called by the COM+ catalog to identify the class identifiers (CLSIDs) and ProgIDs of the components in a DLL before it is registered."
+  summary: "Получает сведения о компоненте из сборки."
+  remarks: "Этот метод вызывается в каталоге COM + для определения идентификаторов класса (CLSID) и идентификаторы ProgID компонентов в библиотеке DLL перед его регистрацией."
   syntax:
     content: public void GetComponentInfo (string assemblyPath, out string numComponents, out string componentInfo);
     parameters:
     - id: assemblyPath
       type: System.String
-      description: "The path to the assembly."
+      description: "Путь к сборке."
     - id: numComponents
       type: System.String
-      description: "When this method returns, this parameter contains the number of components in the assembly."
+      description: "При возвращении данного метода этот параметр содержит количество компонентов в сборке."
     - id: componentInfo
       type: System.String
-      description: "When this method returns, this parameter contains the information about the components."
+      description: "При возвращении данного метода этот параметр содержит сведения о компонентах."
   overload: System.EnterpriseServices.Internal.IComManagedImportUtil.GetComponentInfo*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>assemblyPath</code> is an empty string (&quot;&quot;), contains only white space, or contains one or more invalid characters as defined by <xref:System.IO.Path.InvalidPathChars>.       -or-       The system could not retrieve the absolute path."
+    description: "<code>assemblyPath</code>является пустой строкой (&quot;»), содержащую только пробелы или содержит один или несколько недопустимых символов в соответствии с определением <xref:System.IO.Path.InvalidPathChars>.       - или - системе не удалось получить абсолютный путь."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permissions."
+    description: "Вызывающий объект не имеет необходимых разрешений."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>assemblyPath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>assemblyPath</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<code>assemblyPath</code> contains a colon (&quot;:&quot;)."
+    description: "<code>assemblyPath</code>содержит двоеточие (»:»)."
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters."
+    description: "Указанный путь и имя файла превышает максимальную длину, определенная системой. Например для платформ на основе Windows пути должна составлять менее 248 знаков и имена файлов должны быть короче 260 символов."
   platform:
   - net462
 - uid: System.EnterpriseServices.Internal.IComManagedImportUtil.InstallAssembly(System.String,System.String,System.String)
@@ -78,28 +78,28 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices.Internal
-  summary: "Installs an assembly into a COM+ application."
-  remarks: "See <xref:System.EnterpriseServices.Internal.ComManagedImportUtil.InstallAssembly%2A> for more information on the implementation of this method.       This method requires the caller to have administrative privileges on the local computer."
+  summary: "Устанавливает сборку в приложении COM +."
+  remarks: "В разделе <xref:System.EnterpriseServices.Internal.ComManagedImportUtil.InstallAssembly%2A>Дополнительные сведения о реализации этого метода.</xref:System.EnterpriseServices.Internal.ComManagedImportUtil.InstallAssembly%2A>       Этот метод вызывающая программа должна иметь права администратора на локальном компьютере."
   syntax:
     content: public void InstallAssembly (string filename, string parname, string appname);
     parameters:
     - id: filename
       type: System.String
-      description: "The path for the assembly."
+      description: "Путь для сборки."
     - id: parname
       type: System.String
-      description: "The COM+ partition name."
+      description: "Имя раздела COM +."
     - id: appname
       type: System.String
-      description: "The COM+ application name."
+      description: "Имя приложения COM +."
   overload: System.EnterpriseServices.Internal.IComManagedImportUtil.InstallAssembly*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "A caller in the call chain does not have permission to access unmanaged code."
+    description: "У вызывающего кода в цепочке вызовов нет разрешения на доступ к неуправляемому коду."
   - type: System.EnterpriseServices.RegistrationException
     commentId: T:System.EnterpriseServices.RegistrationException
-    description: "The input assembly does not have a strong name."
+    description: "Входная сборка не имеет строгого имени."
   platform:
   - net462
 references:
