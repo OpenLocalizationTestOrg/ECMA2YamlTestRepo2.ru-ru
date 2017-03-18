@@ -19,7 +19,7 @@ items:
   nameWithType: XamlTaskFactory
   fullName: Microsoft.Build.Tasks.XamlTaskFactory
   type: Class
-  summary: "The task factory provider for XAML tasks."
+  summary: "Поставщик фабрики задач для задач XAML."
   syntax:
     content: 'public class XamlTaskFactory : Microsoft.Build.Framework.ITaskFactory'
   inheritance:
@@ -41,7 +41,7 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Creates a task factory for XAML tasks."
+  summary: "Создает фабрику задач для задач XAML."
   syntax:
     content: public XamlTaskFactory ();
     parameters: []
@@ -61,14 +61,14 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Cleans up any context or state that may have been built up for a given task."
-  remarks: "Some factories may create an AppDomain as part of an individual task instance. Such factories use this method to shutdown the AppDomain."
+  summary: "Очищает все контекст или состояние, которое может быть встроены для данной задачи."
+  remarks: "Некоторые фабрики могут создавать AppDomain как часть отдельного экземпляра задачи. Такие фабрики используют этот метод для завершения работы домена приложения."
   syntax:
     content: public void CleanupTask (Microsoft.Build.Framework.ITask task);
     parameters:
     - id: task
       type: Microsoft.Build.Framework.ITask
-      description: "The task to clean up."
+      description: "Задача для очистки."
   overload: Microsoft.Build.Tasks.XamlTaskFactory.CleanupTask*
   exceptions: []
   platform:
@@ -85,16 +85,16 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Creates an instance of the task to be used."
+  summary: "Создает экземпляр задачи для использования."
   syntax:
     content: public Microsoft.Build.Framework.ITask CreateTask (Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost);
     parameters:
     - id: taskFactoryLoggingHost
       type: Microsoft.Build.Framework.IBuildEngine
-      description: "The task factory logging host that logs messages in the context of the task."
+      description: "Узел ведения журнала фабрики задач, регистрирует сообщения в контексте задачи."
     return:
       type: Microsoft.Build.Framework.ITask
-      description: "Returns the new task factory."
+      description: "Возвращает новый фабрики задач."
   overload: Microsoft.Build.Tasks.XamlTaskFactory.CreateTask*
   exceptions: []
   platform:
@@ -111,12 +111,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets the name of this task factory, to be used in error messages. For example, Task &quot;Mytask&quot; failed to load from &quot;FactoryName&quot;."
+  summary: "Получает имя этой фабрики задач для использования в сообщениях об ошибках. Например задача «Mytask» не удалось загрузить из фабрики «Имя_фабрики»."
   syntax:
     content: public string FactoryName { get; }
     return:
       type: System.String
-      description: "Returns the name of this task factory"
+      description: "Возвращает имя этой фабрики задач"
   overload: Microsoft.Build.Tasks.XamlTaskFactory.FactoryName*
   exceptions: []
   platform:
@@ -133,13 +133,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets the type information for the parameters of the task."
+  summary: "Возвращает сведения о типе для параметров задачи."
   syntax:
     content: public Microsoft.Build.Framework.TaskPropertyInfo[] GetTaskParameters ();
     parameters: []
     return:
       type: Microsoft.Build.Framework.TaskPropertyInfo[]
-      description: "Returns the type information as an array of PropertyInfo."
+      description: "Возвращает сведения о типе как массив PropertyInfo."
   overload: Microsoft.Build.Tasks.XamlTaskFactory.GetTaskParameters*
   exceptions: []
   platform:
@@ -156,25 +156,25 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Initializes the factory."
+  summary: "Инициализирует фабрику."
   syntax:
     content: public bool Initialize (string taskName, System.Collections.Generic.IDictionary<string,Microsoft.Build.Framework.TaskPropertyInfo> taskParameters, string taskElementContents, Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost);
     parameters:
     - id: taskName
       type: System.String
-      description: "The name of the task."
+      description: "Имя задачи."
     - id: taskParameters
       type: System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo}
-      description: "The parameters to pass to the task."
+      description: "Параметры для передачи в задачу."
     - id: taskElementContents
       type: System.String
-      description: "The element contents."
+      description: "Содержимое элемента."
     - id: taskFactoryLoggingHost
       type: Microsoft.Build.Framework.IBuildEngine
-      description: "The task factory logging host that logs messages in the context of the task."
+      description: "Узел ведения журнала фабрики задач, регистрирует сообщения в контексте задачи."
     return:
       type: System.Boolean
-      description: "Returns <xref:System.Boolean>."
+      description: "Возвращает <xref:System.Boolean>.</xref:System.Boolean>"
   overload: Microsoft.Build.Tasks.XamlTaskFactory.Initialize*
   exceptions: []
   platform:
@@ -191,12 +191,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the contents of the UsingTask body."
+  summary: "Возвращает или задает содержимое тела UsingTask."
   syntax:
     content: public string TaskElementContents { get; }
     return:
       type: System.String
-      description: "Returns the contents of the UsingTask body."
+      description: "Возвращает содержимое тела UsingTask."
   overload: Microsoft.Build.Tasks.XamlTaskFactory.TaskElementContents*
   exceptions: []
   platform:
@@ -213,12 +213,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the name of the task, pulled from the XAML."
+  summary: "Возвращает или задает имя задачи, извлекаемой из XAML."
   syntax:
     content: public string TaskName { get; }
     return:
       type: System.String
-      description: "Returns the name of the task."
+      description: "Возвращает имя задачи."
   overload: Microsoft.Build.Tasks.XamlTaskFactory.TaskName*
   exceptions: []
   platform:
@@ -235,12 +235,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the namespace of the task, pulled from the XAML."
+  summary: "Возвращает или задает пространство имен для задачи, извлекаемой из XAML."
   syntax:
     content: public string TaskNamespace { get; }
     return:
       type: System.String
-      description: "Returns the namespace of the task."
+      description: "Возвращает пространство имен задачи."
   overload: Microsoft.Build.Tasks.XamlTaskFactory.TaskNamespace*
   exceptions: []
   platform:
@@ -257,12 +257,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the type of the task, pulled from the XAML."
+  summary: "Возвращает или задает тип задачи, извлекаемой из XAML."
   syntax:
     content: public Type TaskType { get; }
     return:
       type: System.Type
-      description: "Returns the task type."
+      description: "Возвращает тип задачи."
   overload: Microsoft.Build.Tasks.XamlTaskFactory.TaskType*
   exceptions: []
   platform:
