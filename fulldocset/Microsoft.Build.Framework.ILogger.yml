@@ -13,8 +13,8 @@ items:
   nameWithType: ILogger
   fullName: Microsoft.Build.Framework.ILogger
   type: Interface
-  summary: "Defines an [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] logger, which subscribes to build system events."
-  remarks: "All logger classes must implement this interface to be recognized by the [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] engine.       Instead of implementing this interface directly, you can also derive your class from the helper class, <xref:Microsoft.Build.Utilities.Logger>, which provides default implementations of some ILogger members."
+  summary: "Определяет [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] средства ведения журнала, которое подписывает на системные события построения."
+  remarks: "Все классы средства ведения журнала должны реализовывать этот интерфейс, чтобы распознаваться [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] ядра.       Вместо реализации этого интерфейса напрямую, можно наследовать класс из вспомогательного класса <xref:Microsoft.Build.Utilities.Logger>, который предоставляет реализацию по умолчанию некоторые члены ILogger.</xref:Microsoft.Build.Utilities.Logger>"
   example:
   - "The following example shows how to write a basic logger.  \n  \n [!code-cs[msbuild_BasicLogger#1](~/add/codesnippet/csharp/msbuild_BasicLogger/msbuild_BasicLogger.cs#1)]"
   syntax:
@@ -37,13 +37,13 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Subscribes loggers to specific events. This method is called when the logger is registered with the build engine, before any events are raised."
+  summary: "Подписывает средства ведения журнала на определенные события. Этот метод вызывается, когда средство ведения журнала регистрируется с подсистема сборки до каких-либо событий."
   syntax:
     content: public void Initialize (Microsoft.Build.Framework.IEventSource eventSource);
     parameters:
     - id: eventSource
       type: Microsoft.Build.Framework.IEventSource
-      description: "The events available to loggers."
+      description: "События, доступные для средств ведения журнала."
   overload: Microsoft.Build.Framework.ILogger.Initialize*
   exceptions: []
   platform:
@@ -60,13 +60,13 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets or sets the user-defined parameters of the logger."
-  remarks: "Parameters may be represented in this property in any format. For example, to represent two parameters and values, you could use the string &quot;parameter1=value1;parameter2=value2&quot;.       This property can be a null reference (`Nothing` in [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)])."
+  summary: "Возвращает или задает пользовательские параметры средства ведения журнала."
+  remarks: "Параметры могут быть представлены в этом свойстве в любом формате. Например, для представления двух параметров и значений, можно использовать строку «параметр1 = значение1; параметр2 = значение2».       Это свойство может быть пустой ссылкой (`Nothing` в [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)])."
   syntax:
     content: public string Parameters { get; set; }
     return:
       type: System.String
-      description: "The logger parameters."
+      description: "Параметры средства ведения журнала."
   overload: Microsoft.Build.Framework.ILogger.Parameters*
   exceptions: []
   platform:
@@ -83,7 +83,7 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Releases the resources allocated to the logger at the time of initialization or during the build. This method is called when the logger is unregistered from the engine, after all events are raised. A host of [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] typically unregisters loggers immediately before quitting."
+  summary: "Освобождает ресурсы, выделенные средству ведения журнала во время инициализации или во время построения. Этот метод вызывается, когда средство ведения журнала отменяется из обработчика, после вызова всех событий. Целый ряд [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] обычно отменяет регистрацию средств ведения журнала непосредственно перед выходом."
   syntax:
     content: public void Shutdown ();
     parameters: []
@@ -103,13 +103,13 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets or sets the level of detail to show in the event log."
-  remarks: "While a logger is free to choose the events it logs, following the verbosity guidelines creates a consistent user experience."
+  summary: "Возвращает или задает уровень детализации для отображения в журнале событий."
+  remarks: "Хотя средство ведения журнала можно выбрать любые события, следуя инструкциям детализации создает целостное взаимодействие с пользователем."
   syntax:
     content: public Microsoft.Build.Framework.LoggerVerbosity Verbosity { get; set; }
     return:
       type: Microsoft.Build.Framework.LoggerVerbosity
-      description: "One of the enumeration values. The default is <xref href=&quot;Microsoft.Build.Framework.LoggerVerbosity&quot;></xref>."
+      description: "Одно из значений перечисления. Значение по умолчанию — <xref href=&quot;Microsoft.Build.Framework.LoggerVerbosity&quot;> </xref>."
   overload: Microsoft.Build.Framework.ILogger.Verbosity*
   exceptions: []
   platform:
