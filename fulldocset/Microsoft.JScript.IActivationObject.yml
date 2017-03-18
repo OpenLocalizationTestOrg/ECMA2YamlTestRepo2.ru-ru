@@ -14,7 +14,7 @@ items:
   nameWithType: IActivationObject
   fullName: Microsoft.JScript.IActivationObject
   type: Interface
-  summary: "Defines methods for resolving scope. This interface is implemented by all objects that take part in a scope hierarchy."
+  summary: "Определяет методы для разрешения области. Этот интерфейс реализуется всеми объектами, которые входят в состав иерархии областей."
   syntax:
     content: public interface IActivationObject
   implements: []
@@ -32,13 +32,13 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, gets the current default scope. Either the contained object of a <xref uid=&quot;langword_csharp_with&quot; name=&quot;with&quot; href=&quot;&quot;></xref> statement scope, or the global scope."
+  summary: "При реализации в классе, возвращает текущую область по умолчанию. Содержащийся объект из <xref uid=&quot;langword_csharp_with&quot; name=&quot;with&quot; href=&quot;&quot;> </xref> области оператора или глобальной области."
   syntax:
     content: public object GetDefaultThisObject ();
     parameters: []
     return:
       type: System.Object
-      description: "The current default scope."
+      description: "Текущей области по умолчанию."
   overload: Microsoft.JScript.IActivationObject.GetDefaultThisObject*
   exceptions: []
   platform:
@@ -55,20 +55,20 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, returns a field that has the specified name by searching the scope hierarchy. This method searches only the scope that is specified by the lexical level."
-  remarks: "This method applies to fields that cannot be resolved at compile time. This happens when an `eval` expression refers to a field in the outer scope. Because the `eval` expression can declare a local field with the same name, the field cannot be early bound to the outer scope field."
+  summary: "При реализации в классе, возвращает поле с указанным именем путем поиска в иерархии областей. Этот метод выполняет поиск только в области, который задается параметром лексический уровень."
+  remarks: "Этот метод применим к полям, которые не удается разрешить во время компиляции. Это происходит, когда `eval` выражение ссылается на поле во внешней области. Поскольку `eval` выражение может объявить локальное поле с тем же именем, поле не может быть раннее связывание с внешней области поля."
   syntax:
     content: public System.Reflection.FieldInfo GetField (string name, int lexLevel);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the field to search for."
+      description: "Имя поля для поиска."
     - id: lexLevel
       type: System.Int32
-      description: "The lexical level to search."
+      description: "Лексический уровень поиска."
     return:
       type: System.Reflection.FieldInfo
-      description: "A <xref:System.Reflection.FieldInfo> object that has the specified name."
+      description: "Объект <xref:System.Reflection.FieldInfo>объект с указанным именем.</xref:System.Reflection.FieldInfo>"
   overload: Microsoft.JScript.IActivationObject.GetField*
   exceptions: []
   platform:
@@ -85,13 +85,13 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, gets the global scope by searching the scope hierarchy until it finds a scope that includes static variables, for example, a module scope."
+  summary: "При реализации в классе получает глобальную область, выполняя поиск в иерархии областей, пока не найдет область, содержащая статические переменные, например, область модулей."
   syntax:
     content: public Microsoft.JScript.GlobalScope GetGlobalScope ();
     parameters: []
     return:
       type: Microsoft.JScript.GlobalScope
-      description: "The global scope."
+      description: "Глобальная область видимости."
   overload: Microsoft.JScript.IActivationObject.GetGlobalScope*
   exceptions: []
   platform:
@@ -108,16 +108,16 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, gets the local declaration of a field that has the specified name. This is used at compile time for error checking."
+  summary: "При реализации в классе получает локальное объявление поле с указанным именем. Используется во время компиляции для проверки ошибок."
   syntax:
     content: public System.Reflection.FieldInfo GetLocalField (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the field."
+      description: "Имя поля."
     return:
       type: System.Reflection.FieldInfo
-      description: "The local declaration of the field."
+      description: "Локальное объявление поля."
   overload: Microsoft.JScript.IActivationObject.GetLocalField*
   exceptions: []
   platform:
@@ -134,20 +134,20 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, gets the value of the specified member by searching the scope hierarchy. This method searches only the scope that is specified by the lexical level."
-  remarks: "This method applies to members that cannot be resolved at compile time. This occurs when an `eval` expression refers to a member in the outer scope. Because the `eval` expression can declare a local member with the same name, the member cannot be early bound to the outer scope member."
+  summary: "При реализации в классе получает значение заданного члена путем поиска в иерархии областей. Этот метод выполняет поиск только в области, который задается параметром лексический уровень."
+  remarks: "Этот метод применяется к элементам, которые не удается разрешить во время компиляции. Это происходит, когда `eval` выражение ссылается на член во внешней области. Поскольку `eval` выражение может объявить локальный член с тем же именем, элемент не может быть раннее связывание с членом во внешней области."
   syntax:
     content: public object GetMemberValue (string name, int lexlevel);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the member to search for."
+      description: "Имя элемента для поиска."
     - id: lexlevel
       type: System.Int32
-      description: "The lexical level to search."
+      description: "Лексический уровень поиска."
     return:
       type: System.Object
-      description: "The value of the member <code>name</code>."
+      description: "Значение элемента <code> name </code>."
   overload: Microsoft.JScript.IActivationObject.GetMemberValue*
   exceptions: []
   platform:
