@@ -12,8 +12,8 @@ items:
   nameWithType: SecurityStateEncoder
   fullName: System.ServiceModel.Security.SecurityStateEncoder
   type: Class
-  summary: "An abstract class that can be implemented to encode the security state."
-  remarks: "This class is used to encode and decode the content of the security context token when a binding with message security that uses a stateful security context token is used. [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)] stateful security context tokens, see [How to: Create a Security Context Token for a Secure Session](~/add/includes/ajax-current-ext-md.md) topic.       Microsoft’s version of SecurityStateEncoder is <xref:System.ServiceModel.Security.DataProtectionSecurityStateEncoder>. It uses Microsoft’s [Windows Data Protection (DPAPI)](http://go.microsoft.com/fwlink/?LinkId=96704) technology to encrypt/decrypt the cookie. You can plug in a different mechanism for encrypting and decrypting cookies by implementing this class.       The encoding of the security state must ensure that the state is signed and encrypted for the service.       This class is used by the server when sending the security state as a cookie in the `SecurityContextToken` issued to the client.       An example implementation of this class is an `X509CertificateSecurityStateEncoder` that uses the service&quot;s certificate to sign and encrypt the security state."
+  summary: "Абстрактный класс, который может быть реализован для кодирования состояния безопасности."
+  remarks: "Этот класс используется для кодирования и декодирования содержимого маркера контекста безопасности при использовании привязки безопасности сообщений, который использует маркер контекста безопасности с отслеживанием состояния. [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)]маркеры контекста безопасности с отслеживанием состояния, в разделе [как: создание токена контекста безопасности для безопасного сеанса](~/add/includes/ajax-current-ext-md.md) раздела.       Версия объект SecurityStateEncoder корпорации Майкрософт — <xref:System.ServiceModel.Security.DataProtectionSecurityStateEncoder>.</xref:System.ServiceModel.Security.DataProtectionSecurityStateEncoder> Она использует корпорации Майкрософт [защиты данных Windows (DPAPI)](http://go.microsoft.com/fwlink/?LinkId=96704) технологии для шифрования и расшифровки куки-файл. Можно подключить другой механизм шифрования и расшифровки куки-файлов при реализации этого класса.       Кодирование состояния безопасности необходимо убедиться, что состояние подписывается и шифруется для службы.       Этот класс используется сервером при отправке состояния безопасности в виде куки-файла в `SecurityContextToken` выпущенном для клиента.       Пример реализации этого класса является `X509CertificateSecurityStateEncoder` , использует сертификат службы для подписывания и шифрования состояния безопасности."
   syntax:
     content: public abstract class SecurityStateEncoder
   inheritance:
@@ -34,7 +34,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Security.SecurityStateEncoder&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.Security.SecurityStateEncoder&quot;> </xref> класса."
   syntax:
     content: protected SecurityStateEncoder ();
     parameters: []
@@ -54,16 +54,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Decodes the security state."
+  summary: "Декодирует состояние безопасности."
   syntax:
     content: protected abstract byte[] DecodeSecurityState (byte[] data);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "Security data."
+      description: "Данные безопасности."
     return:
       type: System.Byte[]
-      description: "A byte array that represents the security state."
+      description: "Массив байтов, представляющий состояние безопасности."
   overload: System.ServiceModel.Security.SecurityStateEncoder.DecodeSecurityState*
   exceptions: []
   platform:
@@ -80,16 +80,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Encodes the security state."
+  summary: "Кодирует состояние безопасности."
   syntax:
     content: protected abstract byte[] EncodeSecurityState (byte[] data);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The security state data."
+      description: "Данные состояния безопасности."
     return:
       type: System.Byte[]
-      description: "A byte array that results from encoding the security state."
+      description: "Массив байтов, закодированное состояние безопасности."
   overload: System.ServiceModel.Security.SecurityStateEncoder.EncodeSecurityState*
   exceptions: []
   platform:
