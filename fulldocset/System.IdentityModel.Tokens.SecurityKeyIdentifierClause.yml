@@ -18,8 +18,8 @@ items:
   nameWithType: SecurityKeyIdentifierClause
   fullName: System.IdentityModel.Tokens.SecurityKeyIdentifierClause
   type: Class
-  summary: "Represents an abstract base class for a key identifier clause."
-  remarks: "Typically, the SecurityKeyIdentifierClause does not need to be used, other than when a custom security token service is created. When a security token service returns a security token, the issued security token contains references to attached and unattached security tokens. Attached references refer to security tokens that are contained within the security header of a SOAP message and unattached references reference security tokens that are not included within the security header of a SOAP message. These references typically affirm the authenticity of the issued security token."
+  summary: "Представляет абстрактный базовый класс для предложения идентификатора ключа."
+  remarks: "Как правило SecurityKeyIdentifierClause не должны использоваться, отличный от при создании пользовательской службы маркеров безопасности. Когда служба маркеров безопасности возвращает маркер безопасности, выданный маркер безопасности содержит ссылки на прикрепленные и неприкрепленные маркеры безопасности. Прикрепленные ссылки указывают на маркеры безопасности, содержащиеся в заголовке безопасности сообщения SOAP, а неприкрепленные ссылки указывают на маркеры безопасности, не входящими в заголовок безопасности сообщения SOAP. Обычно эти ссылки подтверждают подлинность выданного маркера безопасности."
   syntax:
     content: public abstract class SecurityKeyIdentifierClause
   inheritance:
@@ -40,14 +40,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;></xref> class using the specified key identifier clause type."
-  remarks: "When this security key identifier is serialized into XML, the `clauseType` parameter is serialized as the `ValueType` attribute of the `<SecurityTokenReference>` element."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;> </xref> класса, используя тип предложения идентификатора ключа."
+  remarks: "При этом идентификатор ключа безопасности сериализуется в формат XML, `clauseType` сериализуется как `ValueType` атрибут `<SecurityTokenReference>` элемента."
   syntax:
     content: protected SecurityKeyIdentifierClause (string clauseType);
     parameters:
     - id: clauseType
       type: System.String
-      description: "The key identifier clause type. Sets the value of the <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.ClauseType*> property."
+      description: "Тип конструкции идентификатора ключа. Задает значение <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.ClauseType*>Свойства.</xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.ClauseType*>"
   overload: System.IdentityModel.Tokens.SecurityKeyIdentifierClause.#ctor*
   exceptions: []
   platform:
@@ -64,20 +64,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;></xref> class using the specified key identifier clause type, nonce, and the derived key length."
-  remarks: '[!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)] does not support the creation of implied derived key identifiers. However, [!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)] processes incoming SOAP messages that contain implied key identifier.'
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;> </xref> класса, используя тип предложения идентификатора ключа, специальное слово и длину производного ключа."
+  remarks: '[!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)]не поддерживает создание неявных идентификаторов производного ключа. Однако [!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)] обрабатывает входящие сообщения SOAP, содержащие неявный идентификатор ключа.'
   syntax:
     content: protected SecurityKeyIdentifierClause (string clauseType, byte[] nonce, int length);
     parameters:
     - id: clauseType
       type: System.String
-      description: "The key identifier clause type. Sets the value of the <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.ClauseType*> property."
+      description: "Тип конструкции идентификатора ключа. Задает значение <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.ClauseType*>Свойства.</xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.ClauseType*>"
     - id: nonce
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains the nonce that was used to create a derived key. Sets the value that is returned by the <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.GetDerivationNonce*> method."
+      description: "Массив <xref:System.Byte>, содержащий специальное слово, который использовался для создания производного ключа.</xref:System.Byte> Задает значение, которое возвращается <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.GetDerivationNonce*>метод.</xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.GetDerivationNonce*>"
     - id: length
       type: System.Int32
-      description: "The size of the derived key. Sets the value of the <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.DerivationLength*> property."
+      description: "Размер производного ключа. Задает значение <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.DerivationLength*>Свойства.</xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.DerivationLength*>"
   overload: System.IdentityModel.Tokens.SecurityKeyIdentifierClause.#ctor*
   exceptions: []
   platform:
@@ -94,13 +94,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets a value that indicates whether a key can be created."
-  remarks: "When a key can be created using the parameters passed into a constructor, override the CanCreateKey method to return `true` and implement the <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.CreateKey%2A> method."
+  summary: "Возвращает значение, указывающее, можно ли создать ключ."
+  remarks: "Если ключ можно создать с помощью параметров, передаваемых в конструктор, переопределите метод CanCreateKey для возврата `true` и реализовать <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.CreateKey%2A>метод.</xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.CreateKey%2A>"
   syntax:
     content: public virtual bool CanCreateKey { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a key can be created; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если можно создать ключ; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Tokens.SecurityKeyIdentifierClause.CanCreateKey*
   exceptions: []
   platform:
@@ -117,12 +117,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the key identifier clause type."
+  summary: "Возвращает тип предложения идентификатора ключа."
   syntax:
     content: public string ClauseType { get; }
     return:
       type: System.String
-      description: "The key identifier clause type."
+      description: "Тип конструкции идентификатора ключа."
   overload: System.IdentityModel.Tokens.SecurityKeyIdentifierClause.ClauseType*
   exceptions: []
   platform:
@@ -139,14 +139,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Creates a key based on the parameters passed into the constructor."
-  remarks: "When a key can be created using the parameters passed into a constructor, override the <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.CanCreateKey%2A> method to return `true` and implement the CreateKey method."
+  summary: "Создает ключ на основе параметров, переданный в конструктор."
+  remarks: "Если создать ключ с помощью параметров, передаваемых в конструктор, переопределите <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.CanCreateKey%2A>метод для возврата `true` и реализуйте метод CreateKey.</xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.CanCreateKey%2A>"
   syntax:
     content: public virtual System.IdentityModel.Tokens.SecurityKey CreateKey ();
     parameters: []
     return:
       type: System.IdentityModel.Tokens.SecurityKey
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKey&quot;></xref> that contains the created key."
+      description: "Объект <xref href=&quot;System.IdentityModel.Tokens.SecurityKey&quot;> </xref> , содержащий созданный ключ."
   overload: System.IdentityModel.Tokens.SecurityKeyIdentifierClause.CreateKey*
   exceptions: []
   platform:
@@ -163,13 +163,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the size of the derived key."
-  remarks: '[!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)] does not support the creation of implied derived key identifiers. However, [!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)] processes incoming SOAP messages that contain implied key identifier.'
+  summary: "Возвращает размер производного ключа."
+  remarks: '[!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)]не поддерживает создание неявных идентификаторов производного ключа. Однако [!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)] обрабатывает входящие сообщения SOAP, содержащие неявный идентификатор ключа.'
   syntax:
     content: public int DerivationLength { get; }
     return:
       type: System.Int32
-      description: "The size of the derived key."
+      description: "Размер производного ключа."
   overload: System.IdentityModel.Tokens.SecurityKeyIdentifierClause.DerivationLength*
   exceptions: []
   platform:
@@ -186,14 +186,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the nonce that was used to generate the derived key."
-  remarks: '[!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)] does not support the creation of implied derived key identifiers. However, [!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)] processes incoming SOAP messages that contain implied key identifier.'
+  summary: "Возвращает специальное слово, использованное для создания производного ключа."
+  remarks: '[!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)]не поддерживает создание неявных идентификаторов производного ключа. Однако [!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)] обрабатывает входящие сообщения SOAP, содержащие неявный идентификатор ключа.'
   syntax:
     content: public byte[] GetDerivationNonce ();
     parameters: []
     return:
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains the nonce that was used to generate the derived key."
+      description: "Массив <xref:System.Byte>, содержащий специальное слово, использованное для создания производного ключа.</xref:System.Byte>"
   overload: System.IdentityModel.Tokens.SecurityKeyIdentifierClause.GetDerivationNonce*
   exceptions: []
   platform:
@@ -210,13 +210,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets or sets the key identifier clause ID."
-  remarks: "When this security key identifier is serialized into XML, the Id property is serialized as the `Id` attribute of the `<SecurityTokenReference>` element. If the property is `null`, an `Id` attribute is not included in the `<SecurityTokenReference>` element."
+  summary: "Возвращает или задает идентификатор предложения идентификатора ключа."
+  remarks: "При этом идентификатор ключа безопасности сериализуется в формат XML, свойство идентификатора сериализуется как `Id` атрибут `<SecurityTokenReference>` элемента. Если свойство `null`, `Id` атрибут не включен в `<SecurityTokenReference>` элемент."
   syntax:
     content: public string Id { get; set; }
     return:
       type: System.String
-      description: "The key identifier clause ID. The default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Идентификатор предложения идентификатора ключа. Значение по умолчанию — <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Tokens.SecurityKeyIdentifierClause.Id*
   exceptions: []
   platform:
@@ -233,21 +233,21 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Returns a value that indicates whether the key identifier for this instance is equivalent to the specified key identifier clause."
+  summary: "Возвращает значение, указывающее, эквивалентен ли идентификатор ключа для этого экземпляра указанное предложение идентификатора ключа."
   syntax:
     content: public virtual bool Matches (System.IdentityModel.Tokens.SecurityKeyIdentifierClause keyIdentifierClause);
     parameters:
     - id: keyIdentifierClause
       type: System.IdentityModel.Tokens.SecurityKeyIdentifierClause
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;></xref> to compare to."
+      description: "Объект <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;> </xref> для сравнения."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>keyIdentifierClause</code> is the same instance as the current instance; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <code> keyIdentifierClause </code> является тем же экземпляром, что и текущий экземпляр; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Tokens.SecurityKeyIdentifierClause.Matches*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyIdentifierClause</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyIdentifierClause</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

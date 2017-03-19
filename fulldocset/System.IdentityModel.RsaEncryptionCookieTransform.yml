@@ -16,8 +16,8 @@ items:
   nameWithType: RsaEncryptionCookieTransform
   fullName: System.IdentityModel.RsaEncryptionCookieTransform
   type: Class
-  summary: "Encrypts a cookie using <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref>."
-  remarks: "Cookies encrypted with this transform may be decrypted by any computer that shares the same RSA private key (generally associated with an X.509 certificate).       The given data is encrypted using a random AES256 key. This key is then encrypted using RSA, and the RSA public key is sent in plain text so that when decoding the class knows which RSA key to use.      > [!IMPORTANT] >  When using the RsaEncryptionCookieTransform with a service, if a key provided by a certificate changes the service must be restarted."
+  summary: "Шифрует файл cookie с помощью <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref>."
+  remarks: "Файлы cookie, зашифрованные с помощью этого преобразования может быть расшифрованы любой компьютер, тем же закрытый ключ RSA (обычно связана с использованием сертификата X.509).       Указанные данные шифруются с помощью случайного ключа AES256. Этот ключ шифруется с помощью RSA и открытый ключ RSA отправляется в виде обычного текста, чтобы при декодировании класс известно ключ RSA, который требуется использовать.      Настроек [!IMPORTANT] настроек при с помощью RsaEncryptionCookieTransform со службой, если служба изменяет ключ, указанный в сертификат должен быть перезапущен."
   syntax:
     content: 'public class RsaEncryptionCookieTransform : System.IdentityModel.CookieTransform'
   inheritance:
@@ -39,18 +39,18 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.RsaEncryptionCookieTransform&quot;></xref> class that uses the specified key for encryption and decryption."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.IdentityModel.RsaEncryptionCookieTransform&quot;> </xref> класс, который использует указанный ключ для шифрования и расшифровки."
   syntax:
     content: public RsaEncryptionCookieTransform (System.Security.Cryptography.RSA key);
     parameters:
     - id: key
       type: System.Security.Cryptography.RSA
-      description: "The key to use as the default encryption and decryption key. Initializes the <xref:System.IdentityModel.RsaEncryptionCookieTransform.DecryptionKeys*> and <xref:System.IdentityModel.RsaEncryptionCookieTransform.EncryptionKey*> properties."
+      description: "Ключ, используемый как ключ шифрования и расшифровки по умолчанию. Инициализирует <> </> *настроек и <> </> *настроек свойств."
   overload: System.IdentityModel.RsaEncryptionCookieTransform.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>key</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>key</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.RsaEncryptionCookieTransform.#ctor(System.Security.Cryptography.X509Certificates.X509Certificate2)
@@ -65,21 +65,21 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.RsaEncryptionCookieTransform&quot;></xref> class that uses the private key of the specified X.509 certificate for encryption and decryption."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.IdentityModel.RsaEncryptionCookieTransform&quot;> </xref> класс, который использует закрытый ключ указанного сертификата X.509 для шифрования и расшифровки."
   syntax:
     content: public RsaEncryptionCookieTransform (System.Security.Cryptography.X509Certificates.X509Certificate2 certificate);
     parameters:
     - id: certificate
       type: System.Security.Cryptography.X509Certificates.X509Certificate2
-      description: "The certificate whose private key is used to encrypt and decrypt.       The certificate whose private key will be used as the default encryption and decryption key. Initializes the <xref:System.IdentityModel.RsaEncryptionCookieTransform.DecryptionKeys*> and <xref:System.IdentityModel.RsaEncryptionCookieTransform.EncryptionKey*> properties."
+      description: "Сертификат, закрытый ключ используется для шифрования и расшифровки.       Сертификат, закрытый ключ которого будет использоваться как ключ шифрования и расшифровки по умолчанию. Инициализирует <> </> *настроек и <> </> *настроек свойств."
   overload: System.IdentityModel.RsaEncryptionCookieTransform.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>certificate</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>certificate</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>certificate</code> does not have a private key.       -or-       The private key is not RSA."
+    description: "<code>certificate</code>не имеет закрытого ключа.       - или - закрытый ключ не является RSA."
   platform:
   - net462
 - uid: System.IdentityModel.RsaEncryptionCookieTransform.Decode(System.Byte[])
@@ -94,30 +94,30 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Decrypts the specified data by using the provided RSA key(s) to decrypt an AES key, which decrypts the cookie."
+  summary: "Расшифровывает указанные данные с помощью предоставленного ключи RSA для расшифровки ключа AES, который расшифровывает файл cookie."
   syntax:
     content: public override byte[] Decode (byte[] encoded);
     parameters:
     - id: encoded
       type: System.Byte[]
-      description: "The encoded data"
+      description: "Закодированные данные"
     return:
       type: System.Byte[]
-      description: "The decoded data"
+      description: "Расшифрованные данные"
   overload: System.IdentityModel.RsaEncryptionCookieTransform.Decode*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>encoded</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>encoded</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>encoded</code> contains zero bytes."
+    description: "<code>encoded</code>содержит&0; байт."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The platform does not support the requested algorithm."
+    description: "Платформа не поддерживает запрошенный алгоритм."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "There are no decryption keys or none of the keys match."
+    description: "Отсутствуют ключи расшифровки или ни один из ключей не соответствует."
   platform:
   - net462
 - uid: System.IdentityModel.RsaEncryptionCookieTransform.DecryptionKeys
@@ -132,12 +132,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets the keys used for decryption By default, this property returns a list that contains only the encryption key."
+  summary: "Возвращает ключи, используемые для расшифровки по умолчанию это свойство возвращает список, содержащий только ключ шифрования."
   syntax:
     content: protected virtual System.Collections.ObjectModel.ReadOnlyCollection<System.Security.Cryptography.RSA> DecryptionKeys { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Security.Cryptography.RSA}
-      description: "The keys to use for decryption."
+      description: "Ключи для расшифровки."
   overload: System.IdentityModel.RsaEncryptionCookieTransform.DecryptionKeys*
   exceptions: []
   platform:
@@ -154,27 +154,27 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Encodes the specified data. The data is encrypted using the default encryption algorithm (AES-256), then the AES key is encrypted using RSA and the RSA public key is appended."
+  summary: "Кодирует указанных данных. Данные шифруются с помощью алгоритма шифрования по умолчанию (AES-256), а затем AES ключ шифруется с помощью RSA и добавляются открытого ключа RSA."
   syntax:
     content: public override byte[] Encode (byte[] value);
     parameters:
     - id: value
       type: System.Byte[]
-      description: "The data to encode"
+      description: "Данные для кодирования"
     return:
       type: System.Byte[]
-      description: "The encoded data"
+      description: "Закодированные данные"
   overload: System.IdentityModel.RsaEncryptionCookieTransform.Encode*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>value</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>value</code> contains zero bytes."
+    description: "<code>value</code>содержит&0; байт."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref:System.IdentityModel.RsaEncryptionCookieTransform.EncryptionKey*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "The <xref:System.IdentityModel.RsaEncryptionCookieTransform.EncryptionKey*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.</xref:System.IdentityModel.RsaEncryptionCookieTransform.EncryptionKey*>"
   platform:
   - net462
 - uid: System.IdentityModel.RsaEncryptionCookieTransform.EncryptionKey
@@ -189,13 +189,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets or sets the RSA key used for encryption"
-  remarks: "Setting this property also sets the <xref:System.IdentityModel.RsaEncryptionCookieTransform.DecryptionKeys%2A> property to a collection that contains the same key as its only element."
+  summary: "Возвращает или задает ключ RSA, используемый для шифрования"
+  remarks: "Задание этого свойства также задает <xref:System.IdentityModel.RsaEncryptionCookieTransform.DecryptionKeys%2A>свойство коллекции, которая содержит тот же ключ в качестве единственного элемента.</xref:System.IdentityModel.RsaEncryptionCookieTransform.DecryptionKeys%2A>"
   syntax:
     content: public virtual System.Security.Cryptography.RSA EncryptionKey { get; set; }
     return:
       type: System.Security.Cryptography.RSA
-      description: "The RSA key used for encryption."
+      description: "Для шифрования используется ключ RSA."
   overload: System.IdentityModel.RsaEncryptionCookieTransform.EncryptionKey*
   exceptions: []
   platform:
@@ -212,13 +212,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets or sets the name of the hash algorithm to use."
-  remarks: "SHA256 is the default algorithm. This may require a minimum platform of Windows Server 2003 and .NET 3.5 SP1.       If SHA256 is not supported, set the HashName property to &quot;SHA1&quot;."
+  summary: "Возвращает или задает имя хэш-алгоритма для использования."
+  remarks: "SHA256 — алгоритм по умолчанию. Для этого может потребоваться минимальное платформы Windows Server 2003 и .NET 3.5 SP1.       Если SHA256 не поддерживается, укажите для свойства HashName значение «SHA1»."
   syntax:
     content: public string HashName { get; set; }
     return:
       type: System.String
-      description: "The name of the hash algorithm to use. The default is “SHA2566”."
+      description: "Имя хэш-алгоритма для использования. Значение по умолчанию — «SHA2566»."
   overload: System.IdentityModel.RsaEncryptionCookieTransform.HashName*
   exceptions: []
   platform:

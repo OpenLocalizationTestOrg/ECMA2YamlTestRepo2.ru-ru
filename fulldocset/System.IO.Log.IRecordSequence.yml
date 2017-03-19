@@ -47,8 +47,8 @@ items:
   nameWithType: IRecordSequence
   fullName: System.IO.Log.IRecordSequence
   type: Interface
-  summary: "Provides a generic interface to a sequence of records."
-  remarks: "The IRecordSequence interface provides an abstract interface to a record-oriented stream. A IRecordSequence instance can be used to read and write log records.       The IRecordSequence interface provides the following capabilities,      -   Append log records using the <xref:System.IO.Log.IRecordSequence.Append%2A> methods.      -   Read the appended records using the <xref:System.IO.Log.IRecordSequence.ReadLogRecords%2A> method.      -   Write a special restart record using the <xref:System.IO.Log.IRecordSequence.WriteRestartArea%2A> method.      -   Read restart records from the most recently written restart record using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.      -   Flush the records to durable store using the  <xref:System.IO.Log.IRecordSequence.Flush%2A> method.      -   Reserve space for appending records.      -   Free log space by advancing the base of the log.      -   Receive <xref:System.IO.Log.IRecordSequence.TailPinned> event notifications to move the base of the log to free space.       Log records are appended to a IRecordSequence instance, and each log record is given a unique sequence number. Sequence numbers are strictly monotonically increasing within a given record sequence. A log record consists of opaque data, supplied to the IRecordSequence instance in an <xref:System.Collections.IList> of ArraySegments of bytes.       The IRecordSequence interface also exposes a few basic properties which provides information about log boundaries.      -   The <xref:System.IO.Log.IRecordSequence.BaseSequenceNumber%2A> property contains the sequence number of the first valid record in the record sequence.      -   The <xref:System.IO.Log.IRecordSequence.LastSequenceNumber%2A> property contains a sequence number that is guaranteed to be larger than the sequence number of the last appended record.      -   The <xref:System.IO.Log.IRecordSequence.RestartSequenceNumber%2A> property contains the sequence number of the last written restart area.      -   The <xref:System.IO.Log.IRecordSequence.MaximumRecordLength%2A> property contains the size of the largest record that can be appended to, or read from the sequence.      -   The <xref:System.IO.Log.IRecordSequence.ReservedBytes%2A> property contains the total size of all reservations made in this record sequence.      -   If the <xref:System.IO.Log.IRecordSequence.RetryAppend%2A> property is set to `true`, and an <xref:System.IO.Log.IRecordSequence.Append%2A> operation fails because there is no space in the sequence, the record sequence will attempt to free space, and retry the Append operation."
+  summary: "Предоставляет универсальный интерфейс последовательности записей."
+  remarks: "Интерфейс IRecordSequence предоставляет абстрактный интерфейс потоку, ориентированному на записи. Экземпляр IRecordSequence может использоваться для чтения и записи в журнале.       Интерфейс IRecordSequence предоставляет следующие возможности, - Добавление журнала записываются с помощью <xref:System.IO.Log.IRecordSequence.Append%2A>методы.</xref:System.IO.Log.IRecordSequence.Append%2A>      -Считывание добавленных записей с помощью <xref:System.IO.Log.IRecordSequence.ReadLogRecords%2A>метод.</xref:System.IO.Log.IRecordSequence.ReadLogRecords%2A>      — Написание специальные записи перезапуска с помощью <xref:System.IO.Log.IRecordSequence.WriteRestartArea%2A>метод.</xref:System.IO.Log.IRecordSequence.WriteRestartArea%2A>      -Чтения перезапустите записей из последней записанной записи перезапуска с помощью <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>метод.</xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>      -Очистка записей для устойчивого хранения с помощью <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A>      -Резервирование пространства для добавления записей.      -Свободного места для журналов с помощью перемещения базы журнала.      -Receive <xref:System.IO.Log.IRecordSequence.TailPinned>уведомления о событиях для перемещения базы журнала на свободное пространство.</xref:System.IO.Log.IRecordSequence.TailPinned>       Записи журнала добавляются к экземпляру IRecordSequence, и каждая запись журнала присваивается уникальный порядковый номер. Порядковые номера увеличиваются строго монотонно в рамках определенной последовательности записей. Запись журнала состоит из непрозрачных данных, предоставляемых экземпляру IRecordSequence в <xref:System.Collections.IList>фрагментов массива байтов.</xref:System.Collections.IList>       Интерфейс IRecordSequence также предоставляет несколько базовых свойств, предоставляющих сведения о границах журнала.      - <xref:System.IO.Log.IRecordSequence.BaseSequenceNumber%2A>Свойство содержит порядковый номер первой допустимой записи в последовательности записей.</xref:System.IO.Log.IRecordSequence.BaseSequenceNumber%2A>      - <xref:System.IO.Log.IRecordSequence.LastSequenceNumber%2A>Свойство содержит порядковый номер, который гарантированно быть больше, чем порядковый номер последней добавленной записи.</xref:System.IO.Log.IRecordSequence.LastSequenceNumber%2A>      - <xref:System.IO.Log.IRecordSequence.RestartSequenceNumber%2A>Свойство содержит порядковый номер последней записанной области перезапуска.</xref:System.IO.Log.IRecordSequence.RestartSequenceNumber%2A>      - <xref:System.IO.Log.IRecordSequence.MaximumRecordLength%2A>Свойство содержит размер наибольшей записи, которую можно добавить или прочитать из последовательности.</xref:System.IO.Log.IRecordSequence.MaximumRecordLength%2A>      - <xref:System.IO.Log.IRecordSequence.ReservedBytes%2A>Свойство содержит общий размер резервирований, созданных в последовательности записей.</xref:System.IO.Log.IRecordSequence.ReservedBytes%2A>      -Если <xref:System.IO.Log.IRecordSequence.RetryAppend%2A>свойству `true`и <xref:System.IO.Log.IRecordSequence.Append%2A>операция завершается неудачей, поскольку нет места в последовательности, последовательность записей пытается освободить место и повторите операцию добавления.</xref:System.IO.Log.IRecordSequence.Append%2A> </xref:System.IO.Log.IRecordSequence.RetryAppend%2A>"
   syntax:
     content: 'public interface IRecordSequence : IDisposable'
   implements:
@@ -67,31 +67,31 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Moves the base sequence number of the log forward."
-  remarks: "When you use a <xref:System.IO.Log.LogRecordSequence> instance and try to advance the sequence number to free up space in the log, the new base sequence number must reside in a different log extent for the previous extent to be marked as empty. Freeing extents partially is not supported."
+  summary: "Выполняет переход базового порядкового номера журнала."
+  remarks: "При использовании <xref:System.IO.Log.LogRecordSequence>экземпляр и попытке переместить порядковый номер для освобождения места в журнале, новый базовый порядковый номер должен находиться в другой области журнала для Предыдущая область была помечена как пустая.</xref:System.IO.Log.LogRecordSequence> Частичное освобождение областей не поддерживается."
   syntax:
     content: public void AdvanceBaseSequenceNumber (System.IO.Log.SequenceNumber newBaseSequenceNumber);
     parameters:
     - id: newBaseSequenceNumber
       type: System.IO.Log.SequenceNumber
-      description: "The new base sequence number of the record sequence."
+      description: "Новый базовый порядковый номер в последовательности записей."
   overload: System.IO.Log.IRecordSequence.AdvanceBaseSequenceNumber*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>newBaseSequenceNumber</code> is invalid."
+    description: "<code>newBaseSequenceNumber</code>является недопустимым."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>newBaseSequenceNumber</code> is not active in the log."
+    description: "<code>newBaseSequenceNumber</code>не включен в журнал."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while modifying the sequence."
+    description: "При изменении последовательности произошла ошибка ввода-вывода."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence is full."
+    description: "Последовательность записей заполнена."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.Append(System.ArraySegment{System.Byte},System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber,System.IO.Log.RecordAppendOptions)
@@ -106,40 +106,40 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, writes a log record to the <xref href=&quot;System.IO.Log.IRecordSequence&quot;></xref>."
-  remarks: "Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
+  summary: "При переопределении в производном классе записывает запись журнала <xref href=&quot;System.IO.Log.IRecordSequence&quot;> </xref>."
+  remarks: "Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       Обычно этот метод завершает работу перед записи. Чтобы убедиться, что запись была записана, либо укажите <xref:System.IO.Log.RecordAppendOptions>флаг с помощью `recordAppendOptions` параметра, либо вызовите <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A> </xref:System.IO.Log.RecordAppendOptions>"
   syntax:
     content: public System.IO.Log.SequenceNumber Append (ArraySegment<byte> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions);
     parameters:
     - id: data
       type: System.ArraySegment{System.Byte}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: nextUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in the user-specified order."
+      description: "Порядковый номер следующей записи в порядке, заданном пользователем."
     - id: previousRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in Previous order."
+      description: "Порядковый номер следующей записи в обратном порядке."
     - id: recordAppendOptions
       type: System.IO.Log.RecordAppendOptions
-      description: "A valid value of <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;></xref> that specifies how the data should be written."
+      description: "Является допустимым значением для <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;> </xref> , указывающее, как должны записываться данные."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the appended log record."
+      description: "Порядковый номер добавленной в журнал записи."
   overload: System.IO.Log.IRecordSequence.Append*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while appending the record."
+    description: "При добавлении записи произошла ошибка ввода-вывода."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.Append(System.Collections.Generic.IList{System.ArraySegment{System.Byte}},System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber,System.IO.Log.RecordAppendOptions)
@@ -154,40 +154,40 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, appends a log record to the <xref href=&quot;System.IO.Log.IRecordSequence&quot;></xref>."
-  remarks: "Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
+  summary: "При переопределении в производном классе добавляет запись журнала для <xref href=&quot;System.IO.Log.IRecordSequence&quot;> </xref>."
+  remarks: "Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       Обычно этот метод завершает работу перед записи. Чтобы убедиться, что запись была записана, либо укажите <xref:System.IO.Log.RecordAppendOptions>флаг с помощью `recordAppendOptions` параметра, либо вызовите <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A> </xref:System.IO.Log.RecordAppendOptions>"
   syntax:
     content: public System.IO.Log.SequenceNumber Append (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions);
     parameters:
     - id: data
       type: System.Collections.Generic.IList{System.ArraySegment{System.Byte}}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: nextUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in the user-specified order."
+      description: "Порядковый номер следующей записи в порядке, заданном пользователем."
     - id: previousRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in Previous order."
+      description: "Порядковый номер следующей записи в обратном порядке."
     - id: recordAppendOptions
       type: System.IO.Log.RecordAppendOptions
-      description: "A valid value of <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;></xref> that specifies how the data should be written."
+      description: "Является допустимым значением для <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;> </xref> , указывающее, как должны записываться данные."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the appended log record."
+      description: "Порядковый номер добавленной в журнал записи."
   overload: System.IO.Log.IRecordSequence.Append*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while appending the record."
+    description: "При добавлении записи произошла ошибка ввода-вывода."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.Append(System.ArraySegment{System.Byte},System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber,System.IO.Log.RecordAppendOptions,System.IO.Log.ReservationCollection)
@@ -202,43 +202,43 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, appends a log record to the <xref href=&quot;System.IO.Log.IRecordSequence&quot;></xref>, using space previously reserved in the sequence."
-  remarks: "Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       The appended record will consume space that has been previously reserved, using a reservation specified by the `reservations` parameter. If the append succeeds, it will consume the smallest reservation area that can hold the data, and that reservation area will be removed from the collection.       Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
+  summary: "При переопределении в производном классе добавляет запись журнала для <xref href=&quot;System.IO.Log.IRecordSequence&quot;> </xref>, используя пространство, которое было ранее зарезервировано в последовательности."
+  remarks: "Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       Добавленная запись будет занимать место, ранее зарезервированное с помощью резервирования, заданного параметром `reservations` параметр. Если выполнить добавление удается, оно займет минимальную область резервирования, которая может содержать данные, а эта область резервирования будет удалена из коллекции.       Обычно этот метод завершает работу перед записи. Чтобы убедиться, что запись была записана, либо укажите <xref:System.IO.Log.RecordAppendOptions>флаг с помощью `recordAppendOptions` параметра, либо вызовите <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A> </xref:System.IO.Log.RecordAppendOptions>"
   syntax:
     content: public System.IO.Log.SequenceNumber Append (ArraySegment<byte> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservations);
     parameters:
     - id: data
       type: System.ArraySegment{System.Byte}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: nextUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in the user-specified order."
+      description: "Порядковый номер следующей записи в порядке, заданном пользователем."
     - id: previousRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in Previous order."
+      description: "Порядковый номер следующей записи в обратном порядке."
     - id: recordAppendOptions
       type: System.IO.Log.RecordAppendOptions
-      description: "A valid value of <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;></xref> that specifies how the data should be written."
+      description: "Является допустимым значением для <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;> </xref> , указывающее, как должны записываться данные."
     - id: reservations
       type: System.IO.Log.ReservationCollection
-      description: "A <xref href=&quot;System.IO.Log.ReservationCollection&quot;></xref> that contains the reservation that should be used for this record."
+      description: "Объект <xref href=&quot;System.IO.Log.ReservationCollection&quot;> </xref> , содержащая резервирование, которое следует использовать для данной записи."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the appended log record."
+      description: "Порядковый номер добавленной в журнал записи."
   overload: System.IO.Log.IRecordSequence.Append*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while appending the record."
+    description: "При добавлении записи произошла ошибка ввода-вывода."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.Append(System.Collections.Generic.IList{System.ArraySegment{System.Byte}},System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber,System.IO.Log.RecordAppendOptions,System.IO.Log.ReservationCollection)
@@ -253,43 +253,43 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, appends a log record to the <xref href=&quot;System.IO.Log.IRecordSequence&quot;></xref>, using space previously reserved in the sequence."
-  remarks: "Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       The appended record will consume space that has been previously reserved, using a reservation specified by the `reservations` parameter. If the append succeeds, it will consume the smallest reservation area that can hold the data, and that reservation area will be removed from the collection.       Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
+  summary: "При переопределении в производном классе добавляет запись журнала для <xref href=&quot;System.IO.Log.IRecordSequence&quot;> </xref>, используя пространство, которое было ранее зарезервировано в последовательности."
+  remarks: "Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       Добавленная запись будет занимать место, ранее зарезервированное с помощью резервирования, заданного параметром `reservations` параметр. Если выполнить добавление удается, оно займет минимальную область резервирования, которая может содержать данные, а эта область резервирования будет удалена из коллекции.       Обычно этот метод завершает работу перед записи. Чтобы убедиться, что запись была записана, либо укажите <xref:System.IO.Log.RecordAppendOptions>флаг с помощью `recordAppendOptions` параметра, либо вызовите <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A> </xref:System.IO.Log.RecordAppendOptions>"
   syntax:
     content: public System.IO.Log.SequenceNumber Append (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservations);
     parameters:
     - id: data
       type: System.Collections.Generic.IList{System.ArraySegment{System.Byte}}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: nextUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in the user-specified order."
+      description: "Порядковый номер следующей записи в порядке, заданном пользователем."
     - id: previousRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in Previous order."
+      description: "Порядковый номер следующей записи в обратном порядке."
     - id: recordAppendOptions
       type: System.IO.Log.RecordAppendOptions
-      description: "A valid value of <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;></xref> that specifies how the data should be written."
+      description: "Является допустимым значением для <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;> </xref> , указывающее, как должны записываться данные."
     - id: reservations
       type: System.IO.Log.ReservationCollection
-      description: "A <xref href=&quot;System.IO.Log.ReservationCollection&quot;></xref> that contains the reservation that should be used for this record."
+      description: "Объект <xref href=&quot;System.IO.Log.ReservationCollection&quot;> </xref> , содержащая резервирование, которое следует использовать для данной записи."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the appended log record."
+      description: "Порядковый номер добавленной в журнал записи."
   overload: System.IO.Log.IRecordSequence.Append*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while appending the record."
+    description: "При добавлении записи произошла ошибка ввода-вывода."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.BaseSequenceNumber
@@ -304,18 +304,18 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, gets the sequence number of the first valid record in the current <xref href=&quot;System.IO.Log.IRecordSequence&quot;></xref>."
-  remarks: "Valid sequence numbers are greater than or equal to BaseSequenceNumber and less than <xref:System.IO.Log.IRecordSequence.LastSequenceNumber%2A>.       The value of this property can be changed by calling the <xref:System.IO.Log.IRecordSequence.AdvanceBaseSequenceNumber%2A> or <xref:System.IO.Log.IRecordSequence.WriteRestartArea%2A> method."
+  summary: "При переопределении в производном классе возвращает порядковый номер первой допустимой записи в текущем <xref href=&quot;System.IO.Log.IRecordSequence&quot;> </xref>."
+  remarks: "Допустимые порядковые номера больше или равен порядковому номер BaseSequenceNumber и меньше, чем <xref:System.IO.Log.IRecordSequence.LastSequenceNumber%2A>.</xref:System.IO.Log.IRecordSequence.LastSequenceNumber%2A>       Значение этого свойства можно изменить с помощью вызова <xref:System.IO.Log.IRecordSequence.AdvanceBaseSequenceNumber%2A>или <xref:System.IO.Log.IRecordSequence.WriteRestartArea%2A>метод.</xref:System.IO.Log.IRecordSequence.WriteRestartArea%2A> </xref:System.IO.Log.IRecordSequence.AdvanceBaseSequenceNumber%2A>"
   syntax:
     content: public System.IO.Log.SequenceNumber BaseSequenceNumber { get; }
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The lowest sequence number that corresponds to a valid record in the <xref href=&quot;System.IO.Log.IRecordSequence&quot;></xref>."
+      description: "Наименьший порядковый номер, соответствующий допустимой записи в <xref href=&quot;System.IO.Log.IRecordSequence&quot;> </xref>."
   overload: System.IO.Log.IRecordSequence.BaseSequenceNumber*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The property was accessed after the sequence has been disposed of."
+    description: "Обращение к свойству был после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.BeginAppend(System.ArraySegment{System.Byte},System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber,System.IO.Log.RecordAppendOptions,System.AsyncCallback,System.Object)
@@ -330,46 +330,46 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, begins an asynchronous append operation."
-  remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method to ensure that the append operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous append, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method is called with the <xref:System.IAsyncResult> returned by this method.       Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
+  summary: "При переопределении в производном классе начинает асинхронную операцию добавления."
+  remarks: "Необходимо передать <xref:System.IAsyncResult>возвращаемый этим методом, чтобы <xref:System.IO.Log.IRecordSequence.EndAppend%2A>метод, чтобы убедиться, что завершения операции добавления и соответствующим образом освободить ресурсы.</xref:System.IO.Log.IRecordSequence.EndAppend%2A> </xref:System.IAsyncResult> Если произошла ошибка при выполнении асинхронного добавления, исключение не создается до <xref:System.IO.Log.IRecordSequence.EndAppend%2A>метод вызывается с <xref:System.IAsyncResult>возвращаемый этим методом.</xref:System.IAsyncResult> </xref:System.IO.Log.IRecordSequence.EndAppend%2A>       Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       Обычно этот метод завершает работу перед записи. Чтобы убедиться, что запись была записана, либо укажите <xref:System.IO.Log.RecordAppendOptions>флаг с помощью `recordAppendOptions` параметра, либо вызовите <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A> </xref:System.IO.Log.RecordAppendOptions>"
   syntax:
     content: public IAsyncResult BeginAppend (ArraySegment<byte> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, AsyncCallback callback, object state);
     parameters:
     - id: data
       type: System.ArraySegment{System.Byte}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: nextUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in the user-specified order."
+      description: "Порядковый номер следующей записи в порядке, заданном пользователем."
     - id: previousRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in Previous order."
+      description: "Порядковый номер следующей записи в обратном порядке."
     - id: recordAppendOptions
       type: System.IO.Log.RecordAppendOptions
-      description: "A valid value of <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;></xref> that specifies how the data should be written."
+      description: "Является допустимым значением для <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;> </xref> , указывающее, как должны записываться данные."
     - id: callback
       type: System.AsyncCallback
-      description: "An optional asynchronous callback, to be called when the append is complete."
+      description: "Необязательный асинхронный обратный вызов, вызываемый по завершении добавления."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous append request from other requests."
+      description: "Предоставляемый пользователем объект, являющийся отличительным признаком данного конкретного асинхронного запрос на добавление от других запросов."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that represents the asynchronous append, which could still be pending."
+      description: "<xref:System.IAsyncResult>, Представляющий асинхронное Добавление, все еще быть отложена.</xref:System.IAsyncResult>"
   overload: System.IO.Log.IRecordSequence.BeginAppend*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while appending the record."
+    description: "При добавлении записи произошла ошибка ввода-вывода."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.BeginAppend(System.Collections.Generic.IList{System.ArraySegment{System.Byte}},System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber,System.IO.Log.RecordAppendOptions,System.AsyncCallback,System.Object)
@@ -384,46 +384,46 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, begins an asynchronous append operation, using space previously reserved in the sequence."
-  remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method to ensure that the append operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous append, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method is called with the <xref:System.IAsyncResult> returned by this method.       Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
+  summary: "При переопределении в производном классе начинает асинхронную операцию добавления, используя пространство, которое было ранее зарезервировано в последовательности."
+  remarks: "Необходимо передать <xref:System.IAsyncResult>возвращаемый этим методом, чтобы <xref:System.IO.Log.IRecordSequence.EndAppend%2A>метод, чтобы убедиться, что завершения операции добавления и соответствующим образом освободить ресурсы.</xref:System.IO.Log.IRecordSequence.EndAppend%2A> </xref:System.IAsyncResult> Если произошла ошибка при выполнении асинхронного добавления, исключение не создается до <xref:System.IO.Log.IRecordSequence.EndAppend%2A>метод вызывается с <xref:System.IAsyncResult>возвращаемый этим методом.</xref:System.IAsyncResult> </xref:System.IO.Log.IRecordSequence.EndAppend%2A>       Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       Обычно этот метод завершает работу перед записи. Чтобы убедиться, что запись была записана, либо укажите <xref:System.IO.Log.RecordAppendOptions>флаг с помощью `recordAppendOptions` параметра, либо вызовите <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A> </xref:System.IO.Log.RecordAppendOptions>"
   syntax:
     content: public IAsyncResult BeginAppend (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, AsyncCallback callback, object state);
     parameters:
     - id: data
       type: System.Collections.Generic.IList{System.ArraySegment{System.Byte}}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: nextUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in the user-specified order."
+      description: "Порядковый номер следующей записи в порядке, заданном пользователем."
     - id: previousRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in Previous order."
+      description: "Порядковый номер следующей записи в обратном порядке."
     - id: recordAppendOptions
       type: System.IO.Log.RecordAppendOptions
-      description: "A valid value of <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;></xref> that specifies how the data should be written."
+      description: "Является допустимым значением для <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;> </xref> , указывающее, как должны записываться данные."
     - id: callback
       type: System.AsyncCallback
-      description: "An optional asynchronous callback, to be called when the append is complete."
+      description: "Необязательный асинхронный обратный вызов, вызываемый по завершении добавления."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous append request from other requests."
+      description: "Предоставляемый пользователем объект, являющийся отличительным признаком данного конкретного асинхронного запрос на добавление от других запросов."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that represents the asynchronous append, which could still be pending."
+      description: "<xref:System.IAsyncResult>, Представляющий асинхронное Добавление, все еще быть отложена.</xref:System.IAsyncResult>"
   overload: System.IO.Log.IRecordSequence.BeginAppend*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while appending the record."
+    description: "При добавлении записи произошла ошибка ввода-вывода."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.BeginAppend(System.ArraySegment{System.Byte},System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber,System.IO.Log.RecordAppendOptions,System.IO.Log.ReservationCollection,System.AsyncCallback,System.Object)
@@ -438,49 +438,49 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, begins an asynchronous append operation using space previously reserved in the sequence."
-  remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method to ensure that the append operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous append, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method is called with the <xref:System.IAsyncResult> returned by this method.       Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       The appended record will consume space that has been previously reserved, using a reservation specified by the `reservations` parameter. If the append succeeds, it will consume the smallest reservation area that can hold the data, and that reservation area will be removed from the collection.       Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
+  summary: "При переопределении в производном классе начинает асинхронную операцию добавления, используя пространство, ранее зарезервировано в последовательности."
+  remarks: "Необходимо передать <xref:System.IAsyncResult>возвращаемый этим методом, чтобы <xref:System.IO.Log.IRecordSequence.EndAppend%2A>метод, чтобы убедиться, что завершения операции добавления и соответствующим образом освободить ресурсы.</xref:System.IO.Log.IRecordSequence.EndAppend%2A> </xref:System.IAsyncResult> Если произошла ошибка при выполнении асинхронного добавления, исключение не создается до <xref:System.IO.Log.IRecordSequence.EndAppend%2A>метод вызывается с <xref:System.IAsyncResult>возвращаемый этим методом.</xref:System.IAsyncResult> </xref:System.IO.Log.IRecordSequence.EndAppend%2A>       Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       Добавленная запись будет занимать место, ранее зарезервированное с помощью резервирования, заданного параметром `reservations` параметр. Если выполнить добавление удается, оно займет минимальную область резервирования, которая может содержать данные, а эта область резервирования будет удалена из коллекции.       Обычно этот метод завершает работу перед записи. Чтобы убедиться, что запись была записана, либо укажите <xref:System.IO.Log.RecordAppendOptions>флаг с помощью `recordAppendOptions` параметра, либо вызовите <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A> </xref:System.IO.Log.RecordAppendOptions>"
   syntax:
     content: public IAsyncResult BeginAppend (ArraySegment<byte> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservations, AsyncCallback callback, object state);
     parameters:
     - id: data
       type: System.ArraySegment{System.Byte}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: nextUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in the user-specified order."
+      description: "Порядковый номер следующей записи в порядке, заданном пользователем."
     - id: previousRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in Previous order."
+      description: "Порядковый номер следующей записи в обратном порядке."
     - id: recordAppendOptions
       type: System.IO.Log.RecordAppendOptions
-      description: "A valid value of <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;></xref> that specifies how the data should be written."
+      description: "Является допустимым значением для <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;> </xref> , указывающее, как должны записываться данные."
     - id: reservations
       type: System.IO.Log.ReservationCollection
-      description: "A <xref href=&quot;System.IO.Log.ReservationCollection&quot;></xref> that contains the reservation that should be used for this record."
+      description: "Объект <xref href=&quot;System.IO.Log.ReservationCollection&quot;> </xref> , содержащая резервирование, которое следует использовать для данной записи."
     - id: callback
       type: System.AsyncCallback
-      description: "An optional asynchronous callback, to be called when the append is complete."
+      description: "Необязательный асинхронный обратный вызов, вызываемый по завершении добавления."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous append request from other requests."
+      description: "Предоставляемый пользователем объект, являющийся отличительным признаком данного конкретного асинхронного запрос на добавление от других запросов."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that represents the asynchronous append, which could still be pending."
+      description: "<xref:System.IAsyncResult>, Представляющий асинхронное Добавление, все еще быть отложена.</xref:System.IAsyncResult>"
   overload: System.IO.Log.IRecordSequence.BeginAppend*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while appending the record."
+    description: "При добавлении записи произошла ошибка ввода-вывода."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.BeginAppend(System.Collections.Generic.IList{System.ArraySegment{System.Byte}},System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber,System.IO.Log.RecordAppendOptions,System.IO.Log.ReservationCollection,System.AsyncCallback,System.Object)
@@ -495,49 +495,49 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, begins an asynchronous append operation, using space previously reserved in the sequence."
-  remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method to ensure that the append operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous append, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndAppend%2A> method is called with the <xref:System.IAsyncResult> returned by this method.       Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       The appended record will consume space that has been previously reserved, using a reservation specified by the `reservations` parameter. If the append succeeds, it will consume the smallest reservation area that can hold the data, and that reservation area will be removed from the collection.       Normally, this method completes before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
+  summary: "При переопределении в производном классе начинает асинхронную операцию добавления, используя пространство, которое было ранее зарезервировано в последовательности."
+  remarks: "Необходимо передать <xref:System.IAsyncResult>возвращаемый этим методом, чтобы <xref:System.IO.Log.IRecordSequence.EndAppend%2A>метод, чтобы убедиться, что завершения операции добавления и соответствующим образом освободить ресурсы.</xref:System.IO.Log.IRecordSequence.EndAppend%2A> </xref:System.IAsyncResult> Если произошла ошибка при выполнении асинхронного добавления, исключение не создается до <xref:System.IO.Log.IRecordSequence.EndAppend%2A>метод вызывается с <xref:System.IAsyncResult>возвращаемый этим методом.</xref:System.IAsyncResult> </xref:System.IO.Log.IRecordSequence.EndAppend%2A>       Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       Добавленная запись будет занимать место, ранее зарезервированное с помощью резервирования, заданного параметром `reservations` параметр. Если выполнить добавление удается, оно займет минимальную область резервирования, которая может содержать данные, а эта область резервирования будет удалена из коллекции.       Обычно этот метод завершает работу перед записи. Чтобы убедиться, что запись была записана, либо укажите <xref:System.IO.Log.RecordAppendOptions>флаг с помощью `recordAppendOptions` параметра, либо вызовите <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A> </xref:System.IO.Log.RecordAppendOptions>"
   syntax:
     content: public IAsyncResult BeginAppend (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousUndoRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservations, AsyncCallback callback, object state);
     parameters:
     - id: data
       type: System.Collections.Generic.IList{System.ArraySegment{System.Byte}}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: nextUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in the user-specified order."
+      description: "Порядковый номер следующей записи в порядке, заданном пользователем."
     - id: previousUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in Previous order."
+      description: "Порядковый номер следующей записи в обратном порядке."
     - id: recordAppendOptions
       type: System.IO.Log.RecordAppendOptions
-      description: "A valid value of <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;></xref> that specifies how the data should be written."
+      description: "Является допустимым значением для <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;> </xref> , указывающее, как должны записываться данные."
     - id: reservations
       type: System.IO.Log.ReservationCollection
-      description: "A <xref href=&quot;System.IO.Log.ReservationCollection&quot;></xref> that contains the reservation that should be used for this record."
+      description: "Объект <xref href=&quot;System.IO.Log.ReservationCollection&quot;> </xref> , содержащая резервирование, которое следует использовать для данной записи."
     - id: callback
       type: System.AsyncCallback
-      description: "An optional asynchronous callback, to be called when the append is complete."
+      description: "Необязательный асинхронный обратный вызов, вызываемый по завершении добавления."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous append request from other requests."
+      description: "Предоставляемый пользователем объект, являющийся отличительным признаком данного конкретного асинхронного запрос на добавление от других запросов."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that represents the asynchronous append, which could still be pending."
+      description: "<xref:System.IAsyncResult>, Представляющий асинхронное Добавление, все еще быть отложена.</xref:System.IAsyncResult>"
   overload: System.IO.Log.IRecordSequence.BeginAppend*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while appending the record."
+    description: "При добавлении записи произошла ошибка ввода-вывода."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.BeginFlush(System.IO.Log.SequenceNumber,System.AsyncCallback,System.Object)
@@ -552,34 +552,34 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, begins an asynchronous flush operation, using space previously reserved in the sequence."
-  remarks: "You should pass the <xref:System.IAsyncResult> returned by the current method to the <xref:System.IO.Log.IRecordSequence.EndFlush%2A> method to ensure that the flush completes and resources are freed appropriately. If an error occurs during an asynchronous flush, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndFlush%2A> method is called with the <xref:System.IAsyncResult> returned by this method.       Calling this method ensures that all records that have been appended to the <xref:System.IO.Log.IRecordSequence> are durably written.       If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous flush request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndFlush%2A> method is called."
+  summary: "При переопределении в производном классе начинает асинхронную операцию очистки, используя пространство, которое было ранее зарезервировано в последовательности."
+  remarks: "Необходимо передать <xref:System.IAsyncResult>возвращаемый текущим методом <xref:System.IO.Log.IRecordSequence.EndFlush%2A>метод, чтобы обеспечить завершение очистки и правильное освобождение ресурсов.</xref:System.IO.Log.IRecordSequence.EndFlush%2A> </xref:System.IAsyncResult> При возникновении ошибки во время асинхронной очистки, исключение не создается до <xref:System.IO.Log.IRecordSequence.EndFlush%2A>метод вызывается с <xref:System.IAsyncResult>возвращаемый этим методом.</xref:System.IAsyncResult> </xref:System.IO.Log.IRecordSequence.EndFlush%2A>       Вызов этого метода гарантирует выполнение устойчивых записей, добавленных в <xref:System.IO.Log.IRecordSequence>внесены.</xref:System.IO.Log.IRecordSequence>       Если последовательность записей была удалена, или если передается неверный аргумент, исключения создаются немедленно в пределах данной операции. Ошибки, произошла во время запроса асинхронной очистки, например ошибка диска в процессе запроса ввода-вывода, приводят к созданию исключений при <xref:System.IO.Log.IRecordSequence.EndFlush%2A>вызывается метод.</xref:System.IO.Log.IRecordSequence.EndFlush%2A>"
   syntax:
     content: public IAsyncResult BeginFlush (System.IO.Log.SequenceNumber sequenceNumber, AsyncCallback callback, object state);
     parameters:
     - id: sequenceNumber
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the latest record that must be written. If this <xref href=&quot;System.IO.Log.SequenceNumber&quot;></xref> is invalid, then all records must be written."
+      description: "Порядковый номер последней записи, которую требуется записать. Если этот <xref href=&quot;System.IO.Log.SequenceNumber&quot;> </xref> не является допустимым, необходимо записать все записи."
     - id: callback
       type: System.AsyncCallback
-      description: "An optional asynchronous callback, to be called when the flush is complete."
+      description: "Необязательный асинхронный обратный вызов, вызываемый после завершения сохранения на диск."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous flush request from other requests."
+      description: "Предоставляемый пользователем объект, являющийся отличительным признаком данного конкретного асинхронного запроса записи от других запросов."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that represents the asynchronous flush operation, which could still be pending."
+      description: "<xref:System.IAsyncResult>, Представляет асинхронную операцию очистки, которая может все еще быть отложена.</xref:System.IAsyncResult>"
   overload: System.IO.Log.IRecordSequence.BeginFlush*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while flushing the data."
+    description: "При очистке данных произошла ошибка ввода-вывода."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.BeginReserveAndAppend(System.ArraySegment{System.Byte},System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber,System.IO.Log.RecordAppendOptions,System.IO.Log.ReservationCollection,System.Int64[],System.AsyncCallback,System.Object)
@@ -594,52 +594,52 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, begins an asynchronous reserve and append operation."
-  remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method to ensure that the append operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous append, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method is called with the <xref:System.IAsyncResult> returned by this method.       Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       The specified reservations are added to the provided reservation collection in an atomic operation with a record append operation. If the append fails, no space is reserved.       Normally, this method may complete before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method.       If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous append request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method is called."
+  summary: "При переопределении в производном классе начинает асинхронную резерва и операцию добавления."
+  remarks: "Необходимо передать <xref:System.IAsyncResult>возвращаемый этим методом, чтобы <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>метод, чтобы убедиться, что завершения операции добавления и соответствующим образом освободить ресурсы.</xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> </xref:System.IAsyncResult> Если произошла ошибка при выполнении асинхронного добавления, исключение не создается до <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>метод вызывается с <xref:System.IAsyncResult>возвращаемый этим методом.</xref:System.IAsyncResult> </xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>       Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       Заданные резервирования добавляются предоставленный резервирования операцию добавления коллекции в атомарной операции записи. В случае добавления место не резервируется.       Как правило этот метод может завершить перед записи. Чтобы убедиться, что запись была записана, либо укажите <xref:System.IO.Log.RecordAppendOptions>флаг с помощью `recordAppendOptions` параметра, либо вызовите <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A> </xref:System.IO.Log.RecordAppendOptions>       Если последовательность записей была удалена, или если передается неверный аргумент, исключения создаются немедленно в пределах данной операции. Ошибки, возникшие при выполнении запроса асинхронного добавления, например ошибка диска в процессе запроса ввода-вывода, приведет к возникновению исключений, генерируемых при <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>вызывается метод.</xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>"
   syntax:
     content: public IAsyncResult BeginReserveAndAppend (ArraySegment<byte> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservationCollection, long[] reservations, AsyncCallback callback, object state);
     parameters:
     - id: data
       type: System.ArraySegment{System.Byte}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: nextUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in the user-specified order."
+      description: "Порядковый номер следующей записи в порядке, заданном пользователем."
     - id: previousRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in Previous order."
+      description: "Порядковый номер следующей записи в обратном порядке."
     - id: recordAppendOptions
       type: System.IO.Log.RecordAppendOptions
-      description: "A valid value of <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;></xref> that specifies how the data should be written."
+      description: "Является допустимым значением для <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;> </xref> , указывающее, как должны записываться данные."
     - id: reservationCollection
       type: System.IO.Log.ReservationCollection
-      description: "The reservation collection to make reservations in."
+      description: "Коллекция резервирования, который требуется сделать резервирования."
     - id: reservations
       type: System.Int64[]
-      description: "The reservations to make, in bytes."
+      description: "Размер необходимого резервирования, в байтах."
     - id: callback
       type: System.AsyncCallback
-      description: "An optional asynchronous callback, to be called when the append is complete."
+      description: "Необязательный асинхронный обратный вызов, вызываемый по завершении добавления."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous append request from other requests."
+      description: "Предоставляемый пользователем объект, являющийся отличительным признаком данного конкретного асинхронного запрос на добавление от других запросов."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that represents this asynchronous operation, which could still be pending."
+      description: "<xref:System.IAsyncResult>, Представляющий данную асинхронную операцию, которая может все еще быть отложена.</xref:System.IAsyncResult>"
   overload: System.IO.Log.IRecordSequence.BeginReserveAndAppend*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while appending the record."
+    description: "При добавлении записи произошла ошибка ввода-вывода."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record, or to make the reservation."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи или выполнить резервирование."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.BeginReserveAndAppend(System.Collections.Generic.IList{System.ArraySegment{System.Byte}},System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber,System.IO.Log.RecordAppendOptions,System.IO.Log.ReservationCollection,System.Int64[],System.AsyncCallback,System.Object)
@@ -654,52 +654,52 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, begins an asynchronous reserve and append operation."
-  remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method to ensure that the append operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous append, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method is called with the <xref:System.IAsyncResult> returned by this method.       Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       The specified reservations are added to the provided reservation collection in an atomic operation with a record append operation. If the append fails, no space is reserved.       Normally, this method may complete before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method.       If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous append request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method is called."
+  summary: "При переопределении в производном классе начинает асинхронную резерва и операцию добавления."
+  remarks: "Необходимо передать <xref:System.IAsyncResult>возвращаемый этим методом, чтобы <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>метод, чтобы убедиться, что завершения операции добавления и соответствующим образом освободить ресурсы.</xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> </xref:System.IAsyncResult> Если произошла ошибка при выполнении асинхронного добавления, исключение не создается до <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>метод вызывается с <xref:System.IAsyncResult>возвращаемый этим методом.</xref:System.IAsyncResult> </xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>       Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       Заданные резервирования добавляются предоставленный резервирования операцию добавления коллекции в атомарной операции записи. В случае добавления место не резервируется.       Как правило этот метод может завершить перед записи. Чтобы убедиться, что запись была записана, либо укажите <xref:System.IO.Log.RecordAppendOptions>флаг с помощью `recordAppendOptions` параметра, либо вызовите <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A> </xref:System.IO.Log.RecordAppendOptions>       Если последовательность записей была удалена, или если передается неверный аргумент, исключения создаются немедленно в пределах данной операции. Ошибки, возникшие при выполнении запроса асинхронного добавления, например ошибка диска в процессе запроса ввода-вывода, приведет к возникновению исключений, генерируемых при <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>вызывается метод.</xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>"
   syntax:
     content: public IAsyncResult BeginReserveAndAppend (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservationCollection, long[] reservations, AsyncCallback callback, object state);
     parameters:
     - id: data
       type: System.Collections.Generic.IList{System.ArraySegment{System.Byte}}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: nextUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in the user-specified order."
+      description: "Порядковый номер следующей записи в порядке, заданном пользователем."
     - id: previousRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in Previous order."
+      description: "Порядковый номер следующей записи в обратном порядке."
     - id: recordAppendOptions
       type: System.IO.Log.RecordAppendOptions
-      description: "A valid value of <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;></xref> that specifies how the data should be written."
+      description: "Является допустимым значением для <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;> </xref> , указывающее, как должны записываться данные."
     - id: reservationCollection
       type: System.IO.Log.ReservationCollection
-      description: "The reservation collection to make reservations in."
+      description: "Коллекция резервирования, который требуется сделать резервирования."
     - id: reservations
       type: System.Int64[]
-      description: "The reservations to make, in bytes."
+      description: "Размер необходимого резервирования, в байтах."
     - id: callback
       type: System.AsyncCallback
-      description: "An optional asynchronous callback, to be called when the append is complete."
+      description: "Необязательный асинхронный обратный вызов, вызываемый по завершении добавления."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous append request from other requests."
+      description: "Предоставляемый пользователем объект, являющийся отличительным признаком данного конкретного асинхронного запрос на добавление от других запросов."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that represents this asynchronous operation, which could still be pending."
+      description: "<xref:System.IAsyncResult>, Представляющий данную асинхронную операцию, которая может все еще быть отложена.</xref:System.IAsyncResult>"
   overload: System.IO.Log.IRecordSequence.BeginReserveAndAppend*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while appending the record."
+    description: "При добавлении записи произошла ошибка ввода-вывода."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record, or to make the reservation."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи или выполнить резервирование."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.BeginWriteRestartArea(System.ArraySegment{System.Byte},System.IO.Log.SequenceNumber,System.IO.Log.ReservationCollection,System.AsyncCallback,System.Object)
@@ -714,29 +714,29 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, begins an asynchronous restart area write operation, using space previously reserved in the sequence."
-  remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> method, to assure that the restart area write operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous restart area write operation, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> method is called with the <xref:System.IAsyncResult> returned by this method.       Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       When the operation successfully completes, the base sequence number has been updated. All log records with sequence numbers less than the new base sequence number are inaccessible.       If a <xref:System.IO.Log.ReservationCollection> is specified, the written restart area will consume space that has been previously reserved, using a reservation contained in the collection. If the method succeeds, it will consume the smallest reservation that can hold the data, and that reservation will be removed from the collection.       If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous append request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> method is called."
+  summary: "При переопределении в производном классе начинает асинхронную операцию записи области перезапуска, используя пространство, которое было ранее зарезервировано в последовательности."
+  remarks: "Необходимо передать <xref:System.IAsyncResult>возвращаемый этим методом, чтобы <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A>Завершение метода, чтобы убедиться, что операцию записи области перезапуска и соответствующим образом освободить ресурсы.</xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> </xref:System.IAsyncResult> Если произошла ошибка при выполнении операции записи области перезапуска, исключение не создается до <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A>метод вызывается с <xref:System.IAsyncResult>возвращаемый этим методом.</xref:System.IAsyncResult> </xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A>       Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       При успешном выполнении операции базовый порядковый номер был обновлен. Все записи журнала с порядковыми номерами меньшими, чем новый базовый порядковый номер, недоступны.       Если <xref:System.IO.Log.ReservationCollection>указан, записанная область перезапуска будет занимать место, ранее зарезервированное с помощью содержащегося в коллекции резервирования.</xref:System.IO.Log.ReservationCollection> Если метод выполнен успешно, будет занята Минимальная область резервирования, которая может содержать данные, и эта область резервирования будет удалена из коллекции.       Если последовательность записей была удалена, или если передается неверный аргумент, исключения создаются немедленно в пределах данной операции. Ошибки, возникшие при выполнении запроса асинхронного добавления, например ошибка диска в процессе запроса ввода-вывода, приведет к возникновению исключений, генерируемых при <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A>вызывается метод.</xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A>"
   syntax:
     content: public IAsyncResult BeginWriteRestartArea (ArraySegment<byte> data, System.IO.Log.SequenceNumber newBaseSequenceNumber, System.IO.Log.ReservationCollection reservation, AsyncCallback callback, object state);
     parameters:
     - id: data
       type: System.ArraySegment{System.Byte}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: newBaseSequenceNumber
       type: System.IO.Log.SequenceNumber
-      description: "The new base sequence number. The specified sequence number must be greater than or equal to the current base sequence number."
+      description: "Новый базовый порядковый номер. Указанный порядковый номер должен быть больше или равен текущему базовому порядковому номеру."
     - id: reservation
       type: System.IO.Log.ReservationCollection
-      description: "A <xref href=&quot;System.IO.Log.ReservationCollection&quot;></xref> that contains the reservation that should be used for this restart area."
+      description: "Объект <xref href=&quot;System.IO.Log.ReservationCollection&quot;> </xref> , содержащая резервирование, которое следует использовать для данной области перезапуска."
     - id: callback
       type: System.AsyncCallback
-      description: "An optional asynchronous callback, to be called when the restart area write is complete."
+      description: "Необязательный асинхронный обратный вызов, вызываемый при записи в области перезапуска."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous restart area write request from other requests."
+      description: "Предоставляемый пользователем объект, являющийся отличительным признаком данного запроса на определенной перезапуска области запись от других запросов."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that represents the asynchronous restart area write operation, which could still be pending."
+      description: "<xref:System.IAsyncResult>Представляет асинхронную перезапуска операции записи в область, которая может все еще быть отложена.</xref:System.IAsyncResult>"
   overload: System.IO.Log.IRecordSequence.BeginWriteRestartArea*
   exceptions: []
   platform:
@@ -753,43 +753,43 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, begins an asynchronous restart area write operation, using space previously reserved in the sequence."
-  remarks: "You should pass the <xref:System.IAsyncResult> returned by this method to the <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> method to ensure that the restart area write operation has completed and resources can be freed appropriately. If an error has occurred during an asynchronous restart area write operation, an exception is not thrown until the <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> method is called with the <xref:System.IAsyncResult> returned by this method.       Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       When the operation successfully completes, the base sequence number has been updated. All log records with sequence numbers less than the new base sequence number are inaccessible.       If a <xref:System.IO.Log.ReservationCollection> is specified, the written restart area will consume space that has been previously reserved, using a reservation contained in the collection. If the method succeeds, it will consume the smallest reservation that can hold the data, and that reservation will be removed from the collection.       If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous append request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> method is called."
+  summary: "При переопределении в производном классе начинает асинхронную операцию записи области перезапуска, используя пространство, которое было ранее зарезервировано в последовательности."
+  remarks: "Необходимо передать <xref:System.IAsyncResult>возвращаемый этим методом, чтобы <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A>метод, чтобы гарантировать, что операцию записи области перезапуска завершена, и соответствующим образом освободить ресурсы.</xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A> </xref:System.IAsyncResult> Если произошла ошибка при выполнении операции записи области перезапуска, исключение не создается до <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A>метод вызывается с <xref:System.IAsyncResult>возвращаемый этим методом.</xref:System.IAsyncResult> </xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A>       Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       При успешном выполнении операции базовый порядковый номер был обновлен. Все записи журнала с порядковыми номерами меньшими, чем новый базовый порядковый номер, недоступны.       Если <xref:System.IO.Log.ReservationCollection>указан, записанная область перезапуска будет занимать место, ранее зарезервированное с помощью содержащегося в коллекции резервирования.</xref:System.IO.Log.ReservationCollection> Если метод выполнен успешно, будет занята Минимальная область резервирования, которая может содержать данные, и эта область резервирования будет удалена из коллекции.       Если последовательность записей была удалена, или если передается неверный аргумент, исключения создаются немедленно в пределах данной операции. Ошибки, возникшие при выполнении запроса асинхронного добавления, например ошибка диска в процессе запроса ввода-вывода, приведет к возникновению исключений, генерируемых при <xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A>вызывается метод.</xref:System.IO.Log.IRecordSequence.EndWriteRestartArea%2A>"
   syntax:
     content: public IAsyncResult BeginWriteRestartArea (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber newBaseSequenceNumber, System.IO.Log.ReservationCollection reservation, AsyncCallback callback, object state);
     parameters:
     - id: data
       type: System.Collections.Generic.IList{System.ArraySegment{System.Byte}}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: newBaseSequenceNumber
       type: System.IO.Log.SequenceNumber
-      description: "The new base sequence number. The specified sequence number must be greater than or equal to the current base sequence number."
+      description: "Новый базовый порядковый номер. Указанный порядковый номер должен быть больше или равен текущему базовому порядковому номеру."
     - id: reservation
       type: System.IO.Log.ReservationCollection
-      description: "A <xref href=&quot;System.IO.Log.ReservationCollection&quot;></xref> that contains the reservation that should be used for this restart area."
+      description: "Объект <xref href=&quot;System.IO.Log.ReservationCollection&quot;> </xref> , содержащая резервирование, которое следует использовать для данной области перезапуска."
     - id: callback
       type: System.AsyncCallback
-      description: "An optional asynchronous callback, to be called when the restart area write is complete."
+      description: "Необязательный асинхронный обратный вызов, вызываемый при записи в области перезапуска."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous restart area write request from other requests."
+      description: "Предоставляемый пользователем объект, являющийся отличительным признаком данного запроса на определенной перезапуска области запись от других запросов."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that represents the asynchronous restart area write operation, which could still be pending."
+      description: "<xref:System.IAsyncResult>Представляет асинхронную перезапуска операции записи в область, которая может все еще быть отложена.</xref:System.IAsyncResult>"
   overload: System.IO.Log.IRecordSequence.BeginWriteRestartArea*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while writing the restart area."
+    description: "Произошла ошибка ввода-вывода при записи области перезапуска."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.CreateReservationCollection
@@ -804,18 +804,18 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, creates a new <xref href=&quot;System.IO.Log.ReservationCollection&quot;></xref>."
+  summary: "При переопределении в производном классе создает новый <xref href=&quot;System.IO.Log.ReservationCollection&quot;> </xref>."
   syntax:
     content: public System.IO.Log.ReservationCollection CreateReservationCollection ();
     parameters: []
     return:
       type: System.IO.Log.ReservationCollection
-      description: "The newly created <xref href=&quot;System.IO.Log.ReservationCollection&quot;></xref>."
+      description: "Вновь созданный <xref href=&quot;System.IO.Log.ReservationCollection&quot;> </xref>."
   overload: System.IO.Log.IRecordSequence.CreateReservationCollection*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.EndAppend(System.IAsyncResult)
@@ -830,25 +830,25 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, ends an asynchronous append operation."
-  remarks: "This method blocks until the I/O operation has completed. Errors that occur during an asynchronous write request, such as a disk failure during the I/O request, become visible when EndAppend is called.       This method must be called exactly once on every <xref:System.IAsyncResult> returned by the <xref:System.IO.Log.IRecordSequence.BeginAppend%2A> method."
+  summary: "При переопределении в производном классе завершает асинхронную операцию добавления."
+  remarks: "Этот метод блокируется до завершения операции ввода-вывода. Ошибки, возникающие при выполнении запроса асинхронной записи, например ошибка диска в процессе запроса ввода-вывода, становятся видимыми, когда вызывается EndAppend.       Этот метод должен вызываться ровно по одному разу для каждого <xref:System.IAsyncResult>возвращенных <xref:System.IO.Log.IRecordSequence.BeginAppend%2A>метод.</xref:System.IO.Log.IRecordSequence.BeginAppend%2A> </xref:System.IAsyncResult>"
   syntax:
     content: public System.IO.Log.SequenceNumber EndAppend (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the outstanding asynchronous I/O request."
+      description: "Ссылка на невыполненный асинхронный запрос ввода-вывода."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the appended log record."
+      description: "Порядковый номер добавленной в журнал записи."
   overload: System.IO.Log.IRecordSequence.EndAppend*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.EndFlush(System.IAsyncResult)
@@ -863,25 +863,25 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, ends an asynchronous flush operation."
-  remarks: "This method blocks until the I/O operation has completed. Errors that occur during an asynchronous flush request, such as a disk failure during the I/O request, become visible when EndFlush is called.       This method must be called exactly once on every <xref:System.IAsyncResult> returned by the <xref:System.IO.Log.IRecordSequence.BeginFlush%2A> method."
+  summary: "При переопределении в производном классе завершает асинхронную операцию очистки."
+  remarks: "Этот метод блокируется до завершения операции ввода-вывода. Ошибки, возникающие во время запроса асинхронной очистки, например ошибка диска в процессе запроса ввода-вывода, становятся видимыми, когда вызывается EndFlush.       Этот метод должен вызываться ровно по одному разу для каждого <xref:System.IAsyncResult>возвращенных <xref:System.IO.Log.IRecordSequence.BeginFlush%2A>метод.</xref:System.IO.Log.IRecordSequence.BeginFlush%2A> </xref:System.IAsyncResult>"
   syntax:
     content: public System.IO.Log.SequenceNumber EndFlush (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the outstanding asynchronous I/O request."
+      description: "Ссылка на невыполненный асинхронный запрос ввода-вывода."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the last record written."
+      description: "Порядковый номер последней записи, запись."
   overload: System.IO.Log.IRecordSequence.EndFlush*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.EndReserveAndAppend(System.IAsyncResult)
@@ -896,25 +896,25 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, ends an asynchronous reserve and append operation."
-  remarks: "This method blocks until the I/O operation has completed. Errors that occur during an asynchronous write request, such as a disk failure during the I/O request, become visible when EndReserveAndAppend is called.       This method must be called exactly once on every <xref:System.IAsyncResult> returned by the <xref:System.IO.Log.IRecordSequence.BeginReserveAndAppend%2A> method."
+  summary: "При переопределении в производном классе завершает асинхронную операцию резервирования и добавления."
+  remarks: "Этот метод блокируется до завершения операции ввода-вывода. Ошибки, возникающие при выполнении запроса асинхронной записи, например ошибка диска в процессе запроса ввода-вывода, становятся видимыми, когда вызывается EndReserveAndAppend.       Этот метод должен вызываться ровно по одному разу для каждого <xref:System.IAsyncResult>возвращенных <xref:System.IO.Log.IRecordSequence.BeginReserveAndAppend%2A>метод.</xref:System.IO.Log.IRecordSequence.BeginReserveAndAppend%2A> </xref:System.IAsyncResult>"
   syntax:
     content: public System.IO.Log.SequenceNumber EndReserveAndAppend (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the outstanding asynchronous I/O request."
+      description: "Ссылка на невыполненный асинхронный запрос ввода-вывода."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the appended log record."
+      description: "Порядковый номер добавленной в журнал записи."
   overload: System.IO.Log.IRecordSequence.EndReserveAndAppend*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.EndWriteRestartArea(System.IAsyncResult)
@@ -929,25 +929,25 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, ends an asynchronous restart area write operation."
-  remarks: "This method blocks until the I/O operation has completed. Errors that occur during an asynchronous write request, such as a disk failure during the I/O request, become visible when EndWriteRestartArea is called.       This method must be called exactly once on every <xref:System.IAsyncResult> returned by the <xref:System.IO.Log.IRecordSequence.BeginWriteRestartArea%2A> method."
+  summary: "При переопределении в производном классе завершает операцию записи области перезапуска."
+  remarks: "Этот метод блокируется до завершения операции ввода-вывода. Ошибки, возникающие при выполнении запроса асинхронной записи, например ошибка диска в процессе запроса ввода-вывода, становятся видимыми, когда вызывается EndWriteRestartArea.       Этот метод должен вызываться ровно по одному разу для каждого <xref:System.IAsyncResult>возвращенных <xref:System.IO.Log.IRecordSequence.BeginWriteRestartArea%2A>метод.</xref:System.IO.Log.IRecordSequence.BeginWriteRestartArea%2A> </xref:System.IAsyncResult>"
   syntax:
     content: public System.IO.Log.SequenceNumber EndWriteRestartArea (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the outstanding asynchronous I/O request."
+      description: "Ссылка на невыполненный асинхронный запрос ввода-вывода."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the written log record."
+      description: "Порядковый номер записанной в журнал записи."
   overload: System.IO.Log.IRecordSequence.EndWriteRestartArea*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.Flush
@@ -962,22 +962,22 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, ensures that all appended records have been written."
-  remarks: "Calling this method ensures that all records that have been appended to the <xref:System.IO.Log.IRecordSequence> have been durably written."
+  summary: "При переопределении в производном классе обеспечивает запись всех добавленных записей."
+  remarks: "Вызов этого метода гарантирует выполнение устойчивых записей, добавленных в <xref:System.IO.Log.IRecordSequence>устойчивую запись.</xref:System.IO.Log.IRecordSequence>"
   syntax:
     content: public System.IO.Log.SequenceNumber Flush ();
     parameters: []
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the last record written."
+      description: "Порядковый номер последней записи, запись."
   overload: System.IO.Log.IRecordSequence.Flush*
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while flushing the data."
+    description: "При очистке данных произошла ошибка ввода-вывода."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.Flush(System.IO.Log.SequenceNumber)
@@ -992,28 +992,28 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, ensures that all appended records up to and including the record with the specified sequence number have been durably written."
-  remarks: "Calling this method ensures that all records with sequence numbers up to and including the specified sequence number have been durably written."
+  summary: "При переопределении в производном классе, гарантирует, что устойчивую запись всех добавленных записей до указанного порядкового номера включительно."
+  remarks: "Вызов этого метода обеспечивает всех записей до и включая заданный порядковый номер устойчивую запись."
   syntax:
     content: public System.IO.Log.SequenceNumber Flush (System.IO.Log.SequenceNumber sequenceNumber);
     parameters:
     - id: sequenceNumber
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the latest record that must be written. If this <xref href=&quot;System.IO.Log.SequenceNumber&quot;></xref> is invalid, then all records must be written."
+      description: "Порядковый номер последней записи, которую требуется записать. Если этот <xref href=&quot;System.IO.Log.SequenceNumber&quot;> </xref> не является допустимым, необходимо записать все записи."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the last record written."
+      description: "Порядковый номер последней записи, запись."
   overload: System.IO.Log.IRecordSequence.Flush*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while flushing the data."
+    description: "При очистке данных произошла ошибка ввода-вывода."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.LastSequenceNumber
@@ -1028,18 +1028,18 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, gets the sequence number which is greater than the last record appended."
-  remarks: "This property contains a sequence number that is guaranteed to be larger than the sequence number of the last appended record. Valid sequence numbers are greater than or equal to <xref:System.IO.Log.IRecordSequence.BaseSequenceNumber%2A> and less than LastSequenceNumber.      > [!NOTE] >  When using a <xref:System.IO.Log.LogRecordSequence> instance, the <xref:System.IO.Log.LogRecordSequence.LastSequenceNumber%2A> value can become out of date until records are flushed to the log. See <xref:System.IO.Log.IRecordSequence.Flush%2A> and <xref:System.IO.Log.RecordAppendOptions> for more information on flushing records.."
+  summary: "При переопределении в производном классе возвращает порядковый номер, превышающий последнюю добавленную запись."
+  remarks: "Это свойство содержит порядковый номер, который гарантированно быть больше, чем порядковый номер последней добавленной записи. Допустимые порядковые номера больше или равно <xref:System.IO.Log.IRecordSequence.BaseSequenceNumber%2A>и меньше, чем LastSequenceNumber.</xref:System.IO.Log.IRecordSequence.BaseSequenceNumber%2A>      Настроек [!NOTE] настроек при использовании <xref:System.IO.Log.LogRecordSequence>экземпляра, <xref:System.IO.Log.LogRecordSequence.LastSequenceNumber%2A>может стать устаревшим пока записи помещены в журнал.</xref:System.IO.Log.LogRecordSequence.LastSequenceNumber%2A> </xref:System.IO.Log.LogRecordSequence> В разделе <xref:System.IO.Log.IRecordSequence.Flush%2A>и <xref:System.IO.Log.RecordAppendOptions>Дополнительные сведения об очистке записей...</xref:System.IO.Log.RecordAppendOptions> </xref:System.IO.Log.IRecordSequence.Flush%2A>"
   syntax:
     content: public System.IO.Log.SequenceNumber LastSequenceNumber { get; }
     return:
       type: System.IO.Log.SequenceNumber
-      description: "A sequence number which is greater than the last record appended."
+      description: "Порядковый номер, превышающий последнюю добавленную запись."
   overload: System.IO.Log.IRecordSequence.LastSequenceNumber*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The property was accessed after the sequence has been disposed of."
+    description: "Обращение к свойству был после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.MaximumRecordLength
@@ -1054,17 +1054,17 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, gets the size of the largest record that can be appended to or read from this sequence, in bytes."
+  summary: "При переопределении в производном классе получает размер наибольшей записи, которую можно добавить или прочитать из последовательности, в байтах."
   syntax:
     content: public long MaximumRecordLength { get; }
     return:
       type: System.Int64
-      description: "The size of the largest record that can be appended to or read from this sequence, in bytes."
+      description: "Размер наибольшей записи, которую можно добавить или прочитать из последовательности, в байтах."
   overload: System.IO.Log.IRecordSequence.MaximumRecordLength*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The property was accessed after the sequence has been disposed of."
+    description: "Обращение к свойству был после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.ReadLogRecords(System.IO.Log.SequenceNumber,System.IO.Log.LogRecordEnumeratorType)
@@ -1079,8 +1079,8 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, returns an enumerable collection of records in the sequence."
-  remarks: "When overridden in a derived class, returns an enumerable collection of records in the sequence. The order of the enumerated records depends on the value of the `logRecordEnum` parameter."
+  summary: "При переопределении в производном классе Возвращает перечисляемую коллекцию записей в последовательности."
+  remarks: "При переопределении в производном классе Возвращает перечисляемую коллекцию записей в последовательности. Порядок перечисленных записей зависит от значения `logRecordEnum` параметра."
   example:
   - "This sample demonstrates the use of the ReadLogRecords method.  \n  \n```c#  \nusing System;  \n using System.IO;  \n using System.IO.Log;  \n  \n class ReadRecordsSample  \n {  \n     static SequenceNumber AppendRecord(IRecordSequence sequence,  \n                                        string message,  \n                                        SequenceNumber user,  \n                                        SequenceNumber previous)  \n     {  \n         MemoryStream data = new MemoryStream();  \n         BinaryWriter writer = new BinaryWriter(data);  \n         writer.Write(message);  \n  \n         ArraySegment<byte>[] segments;  \n         segments = new ArraySegment<byte>[1];  \n         segments[0] = new ArraySegment(data.GetBuffer(),  \n                                        0,  \n                                        Data.Length);  \n  \n         return sequence.Append(segments,  \n                                user,  \n                                previous,  \n                                WriteFlags.None);  \n     }  \n  \n     public static void Main(string[] args)  \n     {  \n         IRecordSequence sequence;  \n         sequence = new FileIRecordSequence(args[0]);  \n  \n         SequenceNumber a, b, c, d;  \n  \n         a = AppendRecord(sequence,  \n                          \"This is record A\",  \n                          SequenceNumber.Invalid,  \n                          SequenceNumber.Invalid);  \n         Console.WriteLine(\"Record A has sequence number System.IO.Log\", a);  \n  \n         b = AppendRecord(sequence,  \n                          \"This is record B\",  \n                          a,  \n                          a);  \n         Console.WriteLine(\"Record B has sequence number System.IO.Log\", b);  \n  \n         c = AppendRecord(sequence,  \n                          \"This is record C\",  \n                          a,  \n                          a);  \n         Console.WriteLine(\"Record C has sequence number System.IO.Log\", c);  \n  \n         d = AppendRecord(sequence,  \n                          \"This is record D\",  \n                          b,  \n                          c);  \n         Console.WriteLine(\"Record D has sequence number System.IO.Log\", d);  \n  \n         foreach(LogRecord record in  \n                 sequence.ReadLogRecords(a, ReadDirection.Forward))  \n         {  \n             BinaryReader reader = new BinaryReader(record.Data);  \n             Console.WriteLine(\"System.IO.Log: T:System.IO.Log.IRecordSequence\",  \n                               record.SequenceNumber,  \n                               reader.ReadString());  \n         }  \n  \n         foreach(LogRecord record in  \n                 sequence.ReadLogRecords(d, ReadDirection.User))  \n         {  \n             BinaryReader reader = new BinaryReader(record.Data);  \n             Console.WriteLine(\"System.IO.Log: T:System.IO.Log.IRecordSequence\",  \n                               record.SequenceNumber,  \n                               reader.ReadString());  \n         }  \n  \n         foreach(LogRecord record in  \n                 sequence.ReadLogRecords(d, ReadDirection.Previous))  \n         {  \n             BinaryReader reader = new BinaryReader(record.Data);  \n             Console.WriteLine(\"System.IO.Log: T:System.IO.Log.IRecordSequence\",  \n                               record.SequenceNumber,  \n                               reader.ReadString());  \n         }  \n     }  \n       }  \n```"
   syntax:
@@ -1088,24 +1088,24 @@ items:
     parameters:
     - id: start
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the first record where the reading starts."
+      description: "Порядковый номер первой записи, в которой начинается чтение."
     - id: logRecordEnum
       type: System.IO.Log.LogRecordEnumeratorType
-      description: "A valid <xref href=&quot;System.IO.Log.LogRecordEnumeratorType&quot;></xref> value that specifies the manner (that is, forward or backward) in which records should be read from a <xref href=&quot;System.IO.Log.LogRecordSequence&quot;></xref>."
+      description: "Является допустимым <xref href=&quot;System.IO.Log.LogRecordEnumeratorType&quot;> </xref> значение, указывающее способ (то есть вперед или назад), в котором записи должны считываться из <xref href=&quot;System.IO.Log.LogRecordSequence&quot;> </xref>."
     return:
       type: System.Collections.Generic.IEnumerable{System.IO.Log.LogRecord}
-      description: "An enumerable collection of records in the sequence."
+      description: "Перечисляемая коллекция записей в последовательности."
   overload: System.IO.Log.IRecordSequence.ReadLogRecords*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while reading the record."
+    description: "Произошла ошибка ввода-вывода при чтении записи."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.ReadRestartAreas
@@ -1120,25 +1120,25 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, returns an enumerable collection of the restart areas in the sequence."
-  remarks: "The restart areas are enumerated in reverse sequence number order, that is, from the highest sequence number to the lowest sequence number. Only restart areas with sequence numbers between the last sequence number and the base sequence number are enumerated.      > [!NOTE] >  If the log extent containing the <xref:System.IO.Log.IRecordSequence.BaseSequenceNumber%2A> becomes corrupted, this method can throw an <xref:System.IO.IOException> with the error message &quot;The request could not be performed because of an unexpected I/O exception. The following error code was returned: &quot;80070026&quot;&quot;."
+  summary: "При переопределении в производном классе Возвращает перечисляемую коллекцию областей перезапуска в последовательности."
+  remarks: "Области перезапуска перечислены в обратном порядке их номеров, то есть с наибольшим порядковым номером для наименьшего порядкового номера. Выполняется перечисление базовый порядковый номер, и только областей с порядковыми номерами между порядковый номер последнего перезапуска.      Настроек [!NOTE] настроек Если области журнала, содержащей <xref:System.IO.Log.IRecordSequence.BaseSequenceNumber%2A>становится повреждены, этот метод может выдавать <xref:System.IO.IOException>сообщение об ошибке «не удалось выполнить запрос из-за непредвиденного исключения ввода-вывода.</xref:System.IO.IOException> </xref:System.IO.Log.IRecordSequence.BaseSequenceNumber%2A> Возвращен код ошибки: &quot;80070026&quot;»."
   syntax:
     content: public System.Collections.Generic.IEnumerable<System.IO.Log.LogRecord> ReadRestartAreas ();
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{System.IO.Log.LogRecord}
-      description: "An enumerable collection of the restart areas in the sequence."
+      description: "Перечисляемая коллекция областей перезапуска в последовательности."
   overload: System.IO.Log.IRecordSequence.ReadRestartAreas*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while reading the record."
+    description: "Произошла ошибка ввода-вывода при чтении записи."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.ReserveAndAppend(System.ArraySegment{System.Byte},System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber,System.IO.Log.RecordAppendOptions,System.IO.Log.ReservationCollection,System.Int64[])
@@ -1153,46 +1153,46 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, automatically makes a single reservation and appends a record to the sequence."
-  remarks: "Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       The specified reservations are added to the provided reservation collection in an atomic operation with a record append operation. If the append fails, no space is reserved.       Normally, this method may complete before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
+  summary: "При переопределении в производном классе автоматически делает одно резервирование и добавляет запись в последовательность."
+  remarks: "Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       Заданные резервирования добавляются предоставленный резервирования операцию добавления коллекции в атомарной операции записи. В случае добавления место не резервируется.       Как правило этот метод может завершить перед записи. Чтобы убедиться, что запись была записана, либо укажите <xref:System.IO.Log.RecordAppendOptions>флаг с помощью `recordAppendOptions` параметра, либо вызовите <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A> </xref:System.IO.Log.RecordAppendOptions>"
   syntax:
     content: public System.IO.Log.SequenceNumber ReserveAndAppend (ArraySegment<byte> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservationCollection, long[] reservations);
     parameters:
     - id: data
       type: System.ArraySegment{System.Byte}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: nextUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in the user-specified order."
+      description: "Порядковый номер следующей записи в порядке, заданном пользователем."
     - id: previousRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in Previous order."
+      description: "Порядковый номер следующей записи в обратном порядке."
     - id: recordAppendOptions
       type: System.IO.Log.RecordAppendOptions
-      description: "A valid value of <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;></xref> that specifies how the data should be written."
+      description: "Является допустимым значением для <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;> </xref> , указывающее, как должны записываться данные."
     - id: reservationCollection
       type: System.IO.Log.ReservationCollection
-      description: "A <xref href=&quot;System.IO.Log.ReservationCollection&quot;></xref> that contains the collection to make reservations in."
+      description: "Объект <xref href=&quot;System.IO.Log.ReservationCollection&quot;> </xref> , содержащий коллекцию требуется сделать резервирования."
     - id: reservations
       type: System.Int64[]
-      description: "The reservations to make, in bytes."
+      description: "Размер необходимого резервирования, в байтах."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the appended log record."
+      description: "Порядковый номер добавленной в журнал записи."
   overload: System.IO.Log.IRecordSequence.ReserveAndAppend*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while appending the record."
+    description: "При добавлении записи произошла ошибка ввода-вывода."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record, or to make the reservation."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи или выполнить резервирование."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.ReserveAndAppend(System.Collections.Generic.IList{System.ArraySegment{System.Byte}},System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber,System.IO.Log.RecordAppendOptions,System.IO.Log.ReservationCollection,System.Int64[])
@@ -1207,46 +1207,46 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, automatically makes a single reservation and appends a record to the sequence."
-  remarks: "Data contained in the `data` parameter will be concatenated into a single byte array for appending as the record. However, no provision is made for splitting data back into array segments when the record is read.       The specified reservations are added to the provided reservation collection in an atomic operation with a record append operation. If the append fails, no space is reserved.       Normally, this method may complete before the record has been written. To ensure that a record has been written, either specify the <xref:System.IO.Log.RecordAppendOptions> flag using the `recordAppendOptions` parameter, or call the <xref:System.IO.Log.IRecordSequence.Flush%2A> method."
+  summary: "При переопределении в производном классе автоматически делает одно резервирование и добавляет запись в последовательность."
+  remarks: "Данные, содержащиеся в `data` параметров будут объединены в единый массив байтов для добавления в качестве записи. Однако не делается допущение обратном разделении данных на фрагменты массива при чтении записи.       Заданные резервирования добавляются предоставленный резервирования операцию добавления коллекции в атомарной операции записи. В случае добавления место не резервируется.       Как правило этот метод может завершить перед записи. Чтобы убедиться, что запись была записана, либо укажите <xref:System.IO.Log.RecordAppendOptions>флаг с помощью `recordAppendOptions` параметра, либо вызовите <xref:System.IO.Log.IRecordSequence.Flush%2A>метод.</xref:System.IO.Log.IRecordSequence.Flush%2A> </xref:System.IO.Log.RecordAppendOptions>"
   syntax:
     content: public System.IO.Log.SequenceNumber ReserveAndAppend (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber nextUndoRecord, System.IO.Log.SequenceNumber previousRecord, System.IO.Log.RecordAppendOptions recordAppendOptions, System.IO.Log.ReservationCollection reservationCollection, long[] reservations);
     parameters:
     - id: data
       type: System.Collections.Generic.IList{System.ArraySegment{System.Byte}}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: nextUndoRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in the user-specified order."
+      description: "Порядковый номер следующей записи в порядке, заданном пользователем."
     - id: previousRecord
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record in Previous order."
+      description: "Порядковый номер следующей записи в обратном порядке."
     - id: recordAppendOptions
       type: System.IO.Log.RecordAppendOptions
-      description: "A valid value of <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;></xref> that specifies how the data should be written."
+      description: "Является допустимым значением для <xref href=&quot;System.IO.Log.RecordAppendOptions&quot;> </xref> , указывающее, как должны записываться данные."
     - id: reservationCollection
       type: System.IO.Log.ReservationCollection
-      description: "The reservation collection to make reservations in."
+      description: "Коллекция резервирования, который требуется сделать резервирования."
     - id: reservations
       type: System.Int64[]
-      description: "The reservations to make, in bytes."
+      description: "Размер необходимого резервирования, в байтах."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the appended log record."
+      description: "Порядковый номер добавленной в журнал записи."
   overload: System.IO.Log.IRecordSequence.ReserveAndAppend*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while appending the record."
+    description: "При добавлении записи произошла ошибка ввода-вывода."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new record, or to make the reservation."
+    description: "Последовательности записей не удалось выделить достаточно свободного места для новой записи или выполнить резервирование."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.ReservedBytes
@@ -1261,17 +1261,17 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, gets the total number of bytes that have been reserved."
+  summary: "При переопределении в производном классе возвращает общее число байтов, которые были зарезервированы."
   syntax:
     content: public long ReservedBytes { get; }
     return:
       type: System.Int64
-      description: "The total size of all reservations made in this record sequence."
+      description: "Общий размер резервирований, созданных в последовательности записей."
   overload: System.IO.Log.IRecordSequence.ReservedBytes*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The property was accessed after the sequence has been disposed of."
+    description: "Обращение к свойству был после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.RestartSequenceNumber
@@ -1286,18 +1286,18 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, gets the sequence number of the most recently written restart area."
-  remarks: "A restart area is used to temporarily store information containing a client&quot;s last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process."
+  summary: "При переопределении в производном классе возвращает порядковый номер последней записанной области перезапуска."
+  remarks: "Область перезапуска служит для временного хранения сведений, содержащих последнюю операцию контрольной точки клиента. Если во время восстановления требуется, вы можете проанализировать область перезапуска, чтобы получить все данные из последней операции контрольной точки. Эти данные инициализирует таблицу транзакций, таблицу &quot;грязных страниц&quot; и таблицу открытых файлов, чтобы их можно использовать в процессе восстановления."
   syntax:
     content: public System.IO.Log.SequenceNumber RestartSequenceNumber { get; }
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the most recently written restart area."
+      description: "Порядковый номер последней записанной области перезапуска."
   overload: System.IO.Log.IRecordSequence.RestartSequenceNumber*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The property was accessed after the sequence has been disposed of."
+    description: "Обращение к свойству был после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.RetryAppend
@@ -1312,18 +1312,18 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Gets or sets a value indicating whether appends are automatically retried if the log is full."
-  remarks: "If the value of this property is `true`, and an <xref:System.IO.Log.IRecordSequence.Append%2A> call fails because there is not enough space in the sequence, the record sequence will try to free space and retry the append."
+  summary: "Возвращает или задает значение, указывающее, является ли добавляет являются повторная автоматическая попытка добавления при заполнении журнала."
+  remarks: "Если значение этого свойства равно `true`и <xref:System.IO.Log.IRecordSequence.Append%2A>вызов завершается ошибкой, поскольку не хватает места в последовательности, последовательность записей пытается освободить место и повторите попытку добавления.</xref:System.IO.Log.IRecordSequence.Append%2A>"
   syntax:
     content: public bool RetryAppend { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if appends are automatically retried if the log is full; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если добавляет производятся автоматически в том случае, если журнал заполнен; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.IO.Log.IRecordSequence.RetryAppend*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The property was accessed after the sequence has been disposed of."
+    description: "Обращение к свойству был после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.TailPinned
@@ -1338,13 +1338,13 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Occurs when the record sequence determines that the tail must be moved forward."
-  remarks: "You can fire this event when the record sequence has run out of space. When this event is fired, the tail of the sequence (that is, the base sequence number) is moved forward to free up space."
+  summary: "Происходит, когда последовательность записей определяет, что заключительный фрагмент необходимо переместить вперед."
+  remarks: "Это событие, когда в последовательности записей закончилось свободное пространство, можно создать. При возникновении этого события завершающая часть последовательности (то есть базовый порядковый номер) перемещается вперед для освобождения места."
   syntax:
     content: public event EventHandler<System.IO.Log.TailPinnedEventArgs> TailPinned;
     return:
       type: System.EventHandler{System.IO.Log.TailPinnedEventArgs}
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -1360,31 +1360,31 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, writes a restart area to the <xref href=&quot;System.IO.Log.IRecordSequence&quot;></xref>."
-  remarks: "A restart area is used to temporarily store information containing a client&quot;s last checkpoint operation. The Common Log File System (CLFS) maintains two restart areas to guarantee that at least one valid area is always available. When a recovery is necessary, the CLFS reads its restart area and all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process.       A restart area can be read using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.       The data in the byte array segments will be concatenated into a single byte array for appending as the record. No provision is made for splitting data back into array segments when the restart area is read."
+  summary: "При переопределении в производном классе записывает область перезапуска <xref href=&quot;System.IO.Log.IRecordSequence&quot;> </xref>."
+  remarks: "Область перезапуска служит для временного хранения сведений, содержащих последнюю операцию контрольной точки клиента. Общие системы файла журнала (CLFS) поддерживает две области, чтобы гарантировать, что по крайней мере одна действительная область всегда доступен перезапуска. При необходимости во время восстановления файловая система CLFS читает область перезапуска и все данные из последней операции контрольной точки. Эти данные инициализирует таблицу транзакций, таблицу &quot;грязных страниц&quot; и таблицу открытых файлов, чтобы их можно использовать в процессе восстановления.       Чтение области перезапуска с помощью <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>метод.</xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>       Данные в этих фрагментах массива байтов будут сцеплены в единый массив байтов для добавления в качестве записи. Не делается допущение обратном разделении данных на фрагменты массива при чтении области перезапуска."
   syntax:
     content: public System.IO.Log.SequenceNumber WriteRestartArea (ArraySegment<byte> data);
     parameters:
     - id: data
       type: System.ArraySegment{System.Byte}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the written restart area."
+      description: "Порядковый номер записанной области перезапуска."
   overload: System.IO.Log.IRecordSequence.WriteRestartArea*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while writing the restart area."
+    description: "Произошла ошибка ввода-вывода при записи области перезапуска."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new restart area."
+    description: "Последовательности записей не удалось выделить достаточно свободного пространства для новой области перезапуска."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.WriteRestartArea(System.Collections.Generic.IList{System.ArraySegment{System.Byte}})
@@ -1399,31 +1399,31 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, writes a restart area to the <xref href=&quot;System.IO.Log.IRecordSequence&quot;></xref>."
-  remarks: "A restart area is used to temporarily store information containing a client&quot;s last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process. A restart area can be read using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.       The data in the byte array segments will be concatenated into a single byte array for appending as the record. No provision is made for splitting data back into array segments when the restart area is read."
+  summary: "При переопределении в производном классе записывает область перезапуска <xref href=&quot;System.IO.Log.IRecordSequence&quot;> </xref>."
+  remarks: "Область перезапуска служит для временного хранения сведений, содержащих последнюю операцию контрольной точки клиента. Если во время восстановления требуется, вы можете проанализировать область перезапуска, чтобы получить все данные из последней операции контрольной точки. Эти данные инициализирует таблицу транзакций, таблицу &quot;грязных страниц&quot; и таблицу открытых файлов, чтобы их можно использовать в процессе восстановления. Чтение области перезапуска с помощью <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>метод.</xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>       Данные в этих фрагментах массива байтов будут сцеплены в единый массив байтов для добавления в качестве записи. Не делается допущение обратном разделении данных на фрагменты массива при чтении области перезапуска."
   syntax:
     content: public System.IO.Log.SequenceNumber WriteRestartArea (System.Collections.Generic.IList<ArraySegment<byte>> data);
     parameters:
     - id: data
       type: System.Collections.Generic.IList{System.ArraySegment{System.Byte}}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the written restart area."
+      description: "Порядковый номер записанной области перезапуска."
   overload: System.IO.Log.IRecordSequence.WriteRestartArea*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while writing the restart area."
+    description: "Произошла ошибка ввода-вывода при записи области перезапуска."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new restart area."
+    description: "Последовательности записей не удалось выделить достаточно свободного пространства для новой области перезапуска."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.WriteRestartArea(System.ArraySegment{System.Byte},System.IO.Log.SequenceNumber)
@@ -1438,34 +1438,34 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, writes a restart area to the <xref href=&quot;System.IO.Log.IRecordSequence&quot;></xref> and updates the base sequence number"
-  remarks: "A restart area is used to temporarily store information containing a client&quot;s last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process. A restart area can be read using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.       When a restart area is written, the data in the byte array segments are concatenated into a single byte array for appending as the record. No provision is made for splitting data back into array segments when the restart area is read.       When this method successfully completes, the base sequence number has been updated. All log records with sequence numbers less than the new base sequence number are inaccessible."
+  summary: "При переопределении в производном классе записывает область перезапуска <xref href=&quot;System.IO.Log.IRecordSequence&quot;> </xref> и обновляет базовый порядковый номер"
+  remarks: "Область перезапуска служит для временного хранения сведений, содержащих последнюю операцию контрольной точки клиента. Если во время восстановления требуется, вы можете проанализировать область перезапуска, чтобы получить все данные из последней операции контрольной точки. Эти данные инициализирует таблицу транзакций, таблицу &quot;грязных страниц&quot; и таблицу открытых файлов, чтобы их можно использовать в процессе восстановления. Чтение области перезапуска с помощью <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>метод.</xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>       При записи области перезапуска данные в этих фрагментах массива байтов сцепляются в единый массив байтов для добавления в качестве записи. Не делается допущение обратном разделении данных на фрагменты массива при чтении области перезапуска.       При успешном выполнении этого метода базовый порядковый номер был обновлен. Все записи журнала с порядковыми номерами меньшими, чем новый базовый порядковый номер, недоступны."
   syntax:
     content: public System.IO.Log.SequenceNumber WriteRestartArea (ArraySegment<byte> data, System.IO.Log.SequenceNumber newBaseSequenceNumber);
     parameters:
     - id: data
       type: System.ArraySegment{System.Byte}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: newBaseSequenceNumber
       type: System.IO.Log.SequenceNumber
-      description: "The new base sequence number. The specified sequence number must be greater than or equal to the current base sequence number."
+      description: "Новый базовый порядковый номер. Указанный порядковый номер должен быть больше или равен текущему базовому порядковому номеру."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the written restart area."
+      description: "Порядковый номер записанной области перезапуска."
   overload: System.IO.Log.IRecordSequence.WriteRestartArea*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while writing the restart area."
+    description: "Произошла ошибка ввода-вывода при записи области перезапуска."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new restart area."
+    description: "Последовательности записей не удалось выделить достаточно свободного пространства для новой области перезапуска."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.WriteRestartArea(System.Collections.Generic.IList{System.ArraySegment{System.Byte}},System.IO.Log.SequenceNumber)
@@ -1480,34 +1480,34 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, writes a restart area to the <xref href=&quot;System.IO.Log.IRecordSequence&quot;></xref> and updates the base sequence number."
-  remarks: "A restart area is used to temporarily store information containing a client&quot;s last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process. A restart area can be read using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.       When a restart area is written, the data in the byte array segments are concatenated into a single byte array for appending as the record. No provision is made for splitting data back into array segments when the restart area is read.       When this method successfully completes, the base sequence number has been updated. All log records with sequence numbers less than the new base sequence number are inaccessible."
+  summary: "При переопределении в производном классе записывает область перезапуска <xref href=&quot;System.IO.Log.IRecordSequence&quot;> </xref> и обновляет базовый порядковый номер."
+  remarks: "Область перезапуска служит для временного хранения сведений, содержащих последнюю операцию контрольной точки клиента. Если во время восстановления требуется, вы можете проанализировать область перезапуска, чтобы получить все данные из последней операции контрольной точки. Эти данные инициализирует таблицу транзакций, таблицу &quot;грязных страниц&quot; и таблицу открытых файлов, чтобы их можно использовать в процессе восстановления. Чтение области перезапуска с помощью <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>метод.</xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>       При записи области перезапуска данные в этих фрагментах массива байтов сцепляются в единый массив байтов для добавления в качестве записи. Не делается допущение обратном разделении данных на фрагменты массива при чтении области перезапуска.       При успешном выполнении этого метода базовый порядковый номер был обновлен. Все записи журнала с порядковыми номерами меньшими, чем новый базовый порядковый номер, недоступны."
   syntax:
     content: public System.IO.Log.SequenceNumber WriteRestartArea (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber newBaseSequenceNumber);
     parameters:
     - id: data
       type: System.Collections.Generic.IList{System.ArraySegment{System.Byte}}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: newBaseSequenceNumber
       type: System.IO.Log.SequenceNumber
-      description: "The new base sequence number. The specified sequence number must be greater than or equal to the current base sequence number."
+      description: "Новый базовый порядковый номер. Указанный порядковый номер должен быть больше или равен текущему базовому порядковому номеру."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the written restart area."
+      description: "Порядковый номер записанной области перезапуска."
   overload: System.IO.Log.IRecordSequence.WriteRestartArea*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while writing the restart area."
+    description: "Произошла ошибка ввода-вывода при записи области перезапуска."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new restart area."
+    description: "Последовательности записей не удалось выделить достаточно свободного пространства для новой области перезапуска."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.WriteRestartArea(System.ArraySegment{System.Byte},System.IO.Log.SequenceNumber,System.IO.Log.ReservationCollection)
@@ -1522,37 +1522,37 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, writes a restart area to the <xref href=&quot;System.IO.Log.IRecordSequence&quot;></xref> using a reservation, and updates the base sequence number"
-  remarks: "A restart area is used to temporarily store information containing a client&quot;s last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process. A restart area can be read using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.       When a restart area is written, the data in the byte array segments are concatenated into a single byte array for appending as the record. No provision is made for splitting data back into array segments when the restart area is read.       If a reservation is specified, the written restart area will consume space that has been previously reserved, using a reservation contained in the collection. If the method succeeds, it will consume the smallest reservation that can contain the data, and that reservation will be removed from the collection.       When this method successfully completes, the base sequence number has been updated. All log records with sequence numbers less than the new base sequence number are inaccessible.       If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous append request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method is called."
+  summary: "При переопределении в производном классе записывает область перезапуска <xref href=&quot;System.IO.Log.IRecordSequence&quot;> </xref> используя резервирование и обновляет базовый порядковый номер"
+  remarks: "Область перезапуска служит для временного хранения сведений, содержащих последнюю операцию контрольной точки клиента. Если во время восстановления требуется, вы можете проанализировать область перезапуска, чтобы получить все данные из последней операции контрольной точки. Эти данные инициализирует таблицу транзакций, таблицу &quot;грязных страниц&quot; и таблицу открытых файлов, чтобы их можно использовать в процессе восстановления. Чтение области перезапуска с помощью <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>метод.</xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>       При записи области перезапуска данные в этих фрагментах массива байтов сцепляются в единый массив байтов для добавления в качестве записи. Не делается допущение обратном разделении данных на фрагменты массива при чтении области перезапуска.       Если задано резервирование, записанная область перезапуска будет занимать место, ранее зарезервированное с помощью резервирования, содержащихся в коллекции. Если метод выполнен успешно, будет занята Минимальная область резервирования, который может содержать данные, и эта область резервирования будет удалена из коллекции.       При успешном выполнении этого метода базовый порядковый номер был обновлен. Все записи журнала с порядковыми номерами меньшими, чем новый базовый порядковый номер, недоступны.       Если последовательность записей была удалена, или если передается неверный аргумент, исключения создаются немедленно в пределах данной операции. Ошибки, возникшие при выполнении запроса асинхронного добавления, например ошибка диска в процессе запроса ввода-вывода, приведет к возникновению исключений, генерируемых при <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>вызывается метод.</xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>"
   syntax:
     content: public System.IO.Log.SequenceNumber WriteRestartArea (ArraySegment<byte> data, System.IO.Log.SequenceNumber newBaseSequenceNumber, System.IO.Log.ReservationCollection reservation);
     parameters:
     - id: data
       type: System.ArraySegment{System.Byte}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: newBaseSequenceNumber
       type: System.IO.Log.SequenceNumber
-      description: "The new base sequence number. The specified sequence number must be greater than or equal to the current base sequence number."
+      description: "Новый базовый порядковый номер. Указанный порядковый номер должен быть больше или равен текущему базовому порядковому номеру."
     - id: reservation
       type: System.IO.Log.ReservationCollection
-      description: "A <xref href=&quot;System.IO.Log.ReservationCollection&quot;></xref> that contains the reservation that should be used for this restart area."
+      description: "Объект <xref href=&quot;System.IO.Log.ReservationCollection&quot;> </xref> , содержащая резервирование, которое следует использовать для данной области перезапуска."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the written restart area."
+      description: "Порядковый номер записанной области перезапуска."
   overload: System.IO.Log.IRecordSequence.WriteRestartArea*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while writing the restart area."
+    description: "Произошла ошибка ввода-вывода при записи области перезапуска."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new restart area."
+    description: "Последовательности записей не удалось выделить достаточно свободного пространства для новой области перезапуска."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 - uid: System.IO.Log.IRecordSequence.WriteRestartArea(System.Collections.Generic.IList{System.ArraySegment{System.Byte}},System.IO.Log.SequenceNumber,System.IO.Log.ReservationCollection)
@@ -1567,37 +1567,37 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, writes a restart area to the <xref href=&quot;System.IO.Log.IRecordSequence&quot;></xref> using a reservation, and updates the base sequence number."
-  remarks: "A restart area is used to temporarily store information containing a client&quot;s last checkpoint operation. When a recovery is necessary, you can parse the restart area to retrieve all the data from the last checkpoint operation. This data initializes the transaction table, dirty pages table, and open file table so they can be used in the recovery process. A restart area can be read using the <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A> method.       When a restart area is written, the data in the byte array segments are concatenated into a single byte array for appending as the record. No provision is made for splitting data back into array segments when the restart area is read.       If a reservation is specified, the written restart area will consume space that has been previously reserved, using a reservation contained in the collection. If the method succeeds, it will consume the smallest reservation that can contain the data, and that reservation will be removed from the collection.       When this method successfully completes, the base sequence number has been updated. All log records with sequence numbers less than the new base sequence number are inaccessible.       If a record sequence has been disposed of, or if you pass an invalid argument, exceptions are thrown immediately within this operation. Errors that occurred during an asynchronous append request, for example, a disk failure during the I/O request, will result in exceptions being thrown when the <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A> method is called."
+  summary: "При переопределении в производном классе записывает область перезапуска <xref href=&quot;System.IO.Log.IRecordSequence&quot;> </xref> используя резервирование и обновляет базовый порядковый номер."
+  remarks: "Область перезапуска служит для временного хранения сведений, содержащих последнюю операцию контрольной точки клиента. Если во время восстановления требуется, вы можете проанализировать область перезапуска, чтобы получить все данные из последней операции контрольной точки. Эти данные инициализирует таблицу транзакций, таблицу &quot;грязных страниц&quot; и таблицу открытых файлов, чтобы их можно использовать в процессе восстановления. Чтение области перезапуска с помощью <xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>метод.</xref:System.IO.Log.IRecordSequence.ReadRestartAreas%2A>       При записи области перезапуска данные в этих фрагментах массива байтов сцепляются в единый массив байтов для добавления в качестве записи. Не делается допущение обратном разделении данных на фрагменты массива при чтении области перезапуска.       Если задано резервирование, записанная область перезапуска будет занимать место, ранее зарезервированное с помощью резервирования, содержащихся в коллекции. Если метод выполнен успешно, будет занята Минимальная область резервирования, который может содержать данные, и эта область резервирования будет удалена из коллекции.       При успешном выполнении этого метода базовый порядковый номер был обновлен. Все записи журнала с порядковыми номерами меньшими, чем новый базовый порядковый номер, недоступны.       Если последовательность записей была удалена, или если передается неверный аргумент, исключения создаются немедленно в пределах данной операции. Ошибки, возникшие при выполнении запроса асинхронного добавления, например ошибка диска в процессе запроса ввода-вывода, приведет к возникновению исключений, генерируемых при <xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>вызывается метод.</xref:System.IO.Log.IRecordSequence.EndReserveAndAppend%2A>"
   syntax:
     content: public System.IO.Log.SequenceNumber WriteRestartArea (System.Collections.Generic.IList<ArraySegment<byte>> data, System.IO.Log.SequenceNumber newBaseSequenceNumber, System.IO.Log.ReservationCollection reservation);
     parameters:
     - id: data
       type: System.Collections.Generic.IList{System.ArraySegment{System.Byte}}
-      description: "A list of byte array segments that will be concatenated and appended as the record."
+      description: "Список фрагментов массива байтов, которые будут сцеплены и добавлены в качестве записи."
     - id: newBaseSequenceNumber
       type: System.IO.Log.SequenceNumber
-      description: "The new base sequence number. The specified sequence number must be greater than or equal to the current base sequence number."
+      description: "Новый базовый порядковый номер. Указанный порядковый номер должен быть больше или равен текущему базовому порядковому номеру."
     - id: reservation
       type: System.IO.Log.ReservationCollection
-      description: "A <xref href=&quot;System.IO.Log.ReservationCollection&quot;></xref> that contains the reservation that should be used for this restart area."
+      description: "Объект <xref href=&quot;System.IO.Log.ReservationCollection&quot;> </xref> , содержащая резервирование, которое следует использовать для данной области перезапуска."
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the written restart area."
+      description: "Порядковый номер записанной области перезапуска."
   overload: System.IO.Log.IRecordSequence.WriteRestartArea*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more of the arguments is invalid."
+    description: "Один или несколько аргументов являются недопустимыми."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred while writing the restart area."
+    description: "Произошла ошибка ввода-вывода при записи области перезапуска."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence could not make enough free space to contain the new restart area."
+    description: "Последовательности записей не удалось выделить достаточно свободного пространства для новой области перезапуска."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "Метод был вызван после удаления последовательности."
   platform:
   - net462
 references:

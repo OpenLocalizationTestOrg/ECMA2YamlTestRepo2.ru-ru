@@ -17,8 +17,8 @@ items:
   nameWithType: AxImporter
   fullName: System.Windows.Forms.Design.AxImporter
   type: Class
-  summary: "Imports ActiveX controls and generates a wrapper that can be accessed by a designer."
-  remarks: 'To generate an ActiveX wrapper for an ActiveX control, first create or obtain an instance of the AxImporter class. The AxImporter constructor accepts an <xref:System.Windows.Forms.Design.AxImporter.Options> object, which sets options for the importer, such as the filename for the wrapper .dll to generate and the output directory to generate the wrapper to. To generate the ActiveX wrapper, call the appropriate Generate method. To generate from a file, call <xref:System.Windows.Forms.Design.AxImporter.GenerateFromFile%2A>. To generate from a type library, call <xref:System.Windows.Forms.Design.AxImporter.GenerateFromTypeLibrary%2A>. The string that is returned will consist of an assembly qualified name (example: &quot;Namespace.Type,Assembly&quot;) for the type an ActiveX wrapper was generated for. The wrapper for the ActiveX control will be generated in the .dll file specified in the <xref:System.Windows.Forms.Design.AxImporter.Options.outputName> property of the <xref:System.Windows.Forms.Design.AxImporter.Options> passed to the AxImporter constructor. The type can be loaded or queried using <xref:System.Reflection> and treated as an ordinary managed type. You can also call the `GetOcx` method of the type to retrieve a COM interface to the object, if the object supports this.'
+  summary: "Импортирует элементы управления ActiveX и создает оболочку, доступную в конструкторе."
+  remarks: 'Чтобы создать оболочку ActiveX для элементов управления ActiveX, создайте или получите экземпляр класса AxImporter. Конструктор AxImporter принимает <xref:System.Windows.Forms.Design.AxImporter.Options>объекта, который задает параметры для импорта, такие как имя файла с библиотекой DLL для создания программы-оболочки и в выходной каталог для создания оболочки для.</xref:System.Windows.Forms.Design.AxImporter.Options> Чтобы создать оболочку ActiveX, вызовите соответствующий метод Generate. Для создания из файла, вызовите <xref:System.Windows.Forms.Design.AxImporter.GenerateFromFile%2A>.</xref:System.Windows.Forms.Design.AxImporter.GenerateFromFile%2A> Чтобы создать на основе библиотеки типов, вызовите <xref:System.Windows.Forms.Design.AxImporter.GenerateFromTypeLibrary%2A>.</xref:System.Windows.Forms.Design.AxImporter.GenerateFromTypeLibrary%2A> Возвращаемая строка будет состоять из полного имени сборки (пример: «Namespace.Type,Assembly») для оболочки ActiveX был создан для типа. Программы-оболочки для элемента управления ActiveX, которые будут создаваться в DLL-файл, указанный в <xref:System.Windows.Forms.Design.AxImporter.Options.outputName>свойство <xref:System.Windows.Forms.Design.AxImporter.Options>передается конструктору AxImporter.</xref:System.Windows.Forms.Design.AxImporter.Options> </xref:System.Windows.Forms.Design.AxImporter.Options.outputName> Тип может быть загружен или запрашивать с помощью <xref:System.Reflection>и рассматривается как обычный управляемый тип.</xref:System.Reflection> Можно также вызвать `GetOcx` метод для извлечения интерфейса COM в объект, если объект поддерживает эту типа.'
   syntax:
     content: public class AxImporter
   inheritance:
@@ -44,7 +44,7 @@ items:
     parameters:
     - id: options
       type: System.Windows.Forms.Design.AxImporter.Options
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Windows.Forms.Design.AxImporter.#ctor*
   exceptions: []
   platform:
@@ -61,12 +61,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Gets the names of the assemblies that are generated for the control."
+  summary: "Получает имена сборок, которые создаются для элемента управления."
   syntax:
     content: public string[] GeneratedAssemblies { get; }
     return:
       type: System.String[]
-      description: "An array of names of the generated assemblies, or an empty string array if no assemblies have been generated."
+      description: "Массив имен созданных сборок или массив пустых строк, если не были созданы сборки."
   overload: System.Windows.Forms.Design.AxImporter.GeneratedAssemblies*
   exceptions: []
   platform:
@@ -83,12 +83,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Gets the names of the source files that were generated."
+  summary: "Получает имена исходных файлов, которые были созданы."
   syntax:
     content: public string[] GeneratedSources { get; }
     return:
       type: System.String[]
-      description: "An array of file names of the generated source files, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if none exist."
+      description: "Массив имен файлов, созданных исходных файлов или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> если их нет."
   overload: System.Windows.Forms.Design.AxImporter.GeneratedSources*
   exceptions: []
   platform:
@@ -105,12 +105,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Gets the attributes for the generated type library."
+  summary: "Получает атрибуты для библиотеки сгенерированных типов."
   syntax:
     content: public System.Runtime.InteropServices.TYPELIBATTR[] GeneratedTypeLibAttributes { get; }
     return:
       type: System.Runtime.InteropServices.TYPELIBATTR[]
-      description: "An array of type <xref href=&quot;System.Runtime.InteropServices.TYPELIBATTR&quot;></xref> that indicates the attributes for the generated type library."
+      description: "Массив объектов типа <xref href=&quot;System.Runtime.InteropServices.TYPELIBATTR&quot;> </xref> указывает атрибуты для созданную библиотеку типов."
   overload: System.Windows.Forms.Design.AxImporter.GeneratedTypeLibAttributes*
   exceptions: []
   platform:
@@ -127,21 +127,21 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Generates a wrapper for an ActiveX control for use in the design-time environment."
+  summary: "Создает оболочку для элемента управления ActiveX для использования в среде времени разработки."
   syntax:
     content: public string GenerateFromFile (System.IO.FileInfo file);
     parameters:
     - id: file
       type: System.IO.FileInfo
-      description: "A <xref href=&quot;System.IO.FileInfo&quot;></xref> indicating the file that contains the control."
+      description: "Объект <xref href=&quot;System.IO.FileInfo&quot;> </xref> , указывающее файл, содержащий элемент управления."
     return:
       type: System.String
-      description: "An assembly qualified name for the type of ActiveX control for which a wrapper was generated."
+      description: "Полное имя сборки для типа элемента управления ActiveX, для которых была создана программа-оболочка."
   overload: System.Windows.Forms.Design.AxImporter.GenerateFromFile*
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "A type library could not be loaded from <code>file</code>."
+    description: "Не удалось загрузить библиотеку типов из <code> file </code>."
   platform:
   - net462
 - uid: System.Windows.Forms.Design.AxImporter.GenerateFromTypeLibrary(System.Runtime.InteropServices.UCOMITypeLib)
@@ -156,21 +156,21 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Generates a wrapper for an ActiveX control for use in the design-time environment."
+  summary: "Создает оболочку для элемента управления ActiveX для использования в среде времени разработки."
   syntax:
     content: public string GenerateFromTypeLibrary (System.Runtime.InteropServices.UCOMITypeLib typeLib);
     parameters:
     - id: typeLib
       type: System.Runtime.InteropServices.UCOMITypeLib
-      description: "A <xref href=&quot;System.Runtime.InteropServices.UCOMITypeLib&quot;></xref> that indicates the type library to generate the control from."
+      description: "Объект <xref href=&quot;System.Runtime.InteropServices.UCOMITypeLib&quot;> </xref> , указывающее, для создания элемента управления из библиотеки типов."
     return:
       type: System.String
-      description: "An assembly qualified name for the type of ActiveX control for which a wrapper was generated."
+      description: "Полное имя сборки для типа элемента управления ActiveX, для которых была создана программа-оболочка."
   overload: System.Windows.Forms.Design.AxImporter.GenerateFromTypeLibrary*
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "No registered ActiveX control was found in <code>typeLib</code>."
+    description: "Нет зарегистрированных элементов управления ActiveX был найден в <code> typeLib </code>."
   platform:
   - net462
 - uid: System.Windows.Forms.Design.AxImporter.GenerateFromTypeLibrary(System.Runtime.InteropServices.UCOMITypeLib,System.Guid)
@@ -185,24 +185,24 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Generates a wrapper for an ActiveX control for use in the design-time environment."
+  summary: "Создает оболочку для элемента управления ActiveX для использования в среде времени разработки."
   syntax:
     content: public string GenerateFromTypeLibrary (System.Runtime.InteropServices.UCOMITypeLib typeLib, Guid clsid);
     parameters:
     - id: typeLib
       type: System.Runtime.InteropServices.UCOMITypeLib
-      description: "A <xref href=&quot;System.Runtime.InteropServices.UCOMITypeLib&quot;></xref> that indicates the type library to generate the control from."
+      description: "Объект <xref href=&quot;System.Runtime.InteropServices.UCOMITypeLib&quot;> </xref> , указывающее, для создания элемента управления из библиотеки типов."
     - id: clsid
       type: System.Guid
-      description: "The <xref:System.Guid> for the control wrapper."
+      description: "<xref:System.Guid>Для управления оболочки.</xref:System.Guid>"
     return:
       type: System.String
-      description: "An assembly qualified name for the type of ActiveX control for which a wrapper was generated."
+      description: "Полное имя сборки для типа элемента управления ActiveX, для которых была создана программа-оболочка."
   overload: System.Windows.Forms.Design.AxImporter.GenerateFromTypeLibrary*
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "No registered ActiveX control was found in <code>typeLib</code>."
+    description: "Нет зарегистрированных элементов управления ActiveX был найден в <code> typeLib </code>."
   platform:
   - net462
 - uid: System.Windows.Forms.Design.AxImporter.GetFileOfTypeLib(System.Runtime.InteropServices.TYPELIBATTR@)
@@ -217,16 +217,16 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Gets the path and file name to the specified type library."
+  summary: "Возвращает путь и имя файла для указанной библиотеки типов."
   syntax:
     content: public static string GetFileOfTypeLib (ref System.Runtime.InteropServices.TYPELIBATTR tlibattr);
     parameters:
     - id: tlibattr
       type: System.Runtime.InteropServices.TYPELIBATTR
-      description: "A <xref href=&quot;System.Runtime.InteropServices.TYPELIBATTR&quot;></xref> that indicates the type library to retrieve the file name of."
+      description: "Объект <xref href=&quot;System.Runtime.InteropServices.TYPELIBATTR&quot;> </xref> , указывающее, чтобы получить имя файла библиотеки типов."
     return:
       type: System.String
-      description: "The path and file name to the specified type library, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the library could not be located."
+      description: "Путь и имя файла для заданной библиотеки типов, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> , если не удается найти библиотеку."
   overload: System.Windows.Forms.Design.AxImporter.GetFileOfTypeLib*
   exceptions: []
   platform:
