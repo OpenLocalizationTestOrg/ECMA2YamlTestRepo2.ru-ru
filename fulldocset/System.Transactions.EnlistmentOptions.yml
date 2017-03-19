@@ -11,8 +11,8 @@ items:
   nameWithType: EnlistmentOptions
   fullName: System.Transactions.EnlistmentOptions
   type: Enum
-  summary: "Determines whether the object should be enlisted during the prepare phase."
-  remarks: "This enumeration is passed into the <xref:System.Transactions.Transaction.EnlistVolatile%2A> and <xref:System.Transactions.Transaction.EnlistDurable%2A> and methods to notify the transaction manager whether the resource manager needs to create another enlistment during the Prepare phase. For more information on enlistment, see [Enlisting Resources as Participants in a Transaction](http://msdn.microsoft.com/en-us/7bf66ce7-4190-4910-89d7-df4ad43e9f31).       If EnlistDuringPrepareRequired is specified during enlistment, the resource manager indicates that it wants to receive a Prepare notification while new enlistments are still allowed for the transaction. A resource manager who acts as a cache for another durable resource, such as a backend database, would probably use this option during enlistment. When the caching resource gets its Prepare notification, it transfers its content to the durable resource. By doing so, the durable resource enlists on the transaction to become a participant of the 2 Phase Commit (2PC) protocol. Before this happens, only the caching resource (not the durable resource) was enlisted.       If None is specified, the enlistment indicates that it will not receive a Prepare notification until it is too late to create new enlistments in 2PC. In our preceding scenario, if a caching resource specifies this option during enlistment, and attempts to flush its cache during the Prepare notification, the durable resource gets an exception when it attempts on enlisting since it is too late.       None should be used as a default."
+  summary: "Определяет, должен ли объект присоединен в на этапе подготовки."
+  remarks: "Это перечисление передается в <xref:System.Transactions.Transaction.EnlistVolatile%2A>и <xref:System.Transactions.Transaction.EnlistDurable%2A>и методы для уведомления диспетчера транзакций, необходимо создать другой прикрепления на этапе подготовки диспетчера ресурсов.</xref:System.Transactions.Transaction.EnlistDurable%2A> </xref:System.Transactions.Transaction.EnlistVolatile%2A> Дополнительные сведения о присоединении см. в разделе [прикрепление ресурсов в качестве участников в транзакции](http://msdn.microsoft.com/en-us/7bf66ce7-4190-4910-89d7-df4ad43e9f31).       Указываемое EnlistDuringPrepareRequired во время прикрепления диспетчера ресурсов указывает, он хочет получать уведомления о подготовки, а новый прикреплений по-прежнему поддерживаются для операции. Этот параметр во время зачисления, вероятно, используется диспетчер ресурсов, действующий в качестве кэша для другого долговременного ресурса, например серверной базе данных. При получении кэширующим ресурсом своего предварительного уведомления, он передает его содержимое устойчивых ресурсов. Таким образом, долговременный ресурс присоединяется к транзакции, чтобы стать участником 2 протокола двухфазной фиксации (2PC). Прежде чем это происходит только кэширования ресурсов (но не долговременный ресурс) был прикреплен.       Если не указано, зачисление указывает, что он не будет получать уведомление подготовки до уже слишком поздно для создания нового прикреплений в 2PC. В нашем сценарии выше Если кэширования ресурсов указывает этот вариант в ходе присоединения и попытки очистить свой кэш при уведомлении Prepare, устойчивых ресурсов Получает исключение при на прикрепление, так как она является слишком поздно.       Не следует использовать в качестве значения по умолчанию."
   syntax:
     content: >-
       [System.Flags]
@@ -34,12 +34,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "The object must enlist during the initial phase of the commitment process."
+  summary: "Объект необходимо прикрепить во время первоначальной фазы процесса фиксации."
   syntax:
     content: EnlistDuringPrepareRequired
     return:
       type: System.Transactions.EnlistmentOptions
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -55,12 +55,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "The object does not require enlistment during the initial phase of the commitment process."
+  summary: "Объект не требуется присоединение в ходе начальной фазы процесса фиксации."
   syntax:
     content: None
     return:
       type: System.Transactions.EnlistmentOptions
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462

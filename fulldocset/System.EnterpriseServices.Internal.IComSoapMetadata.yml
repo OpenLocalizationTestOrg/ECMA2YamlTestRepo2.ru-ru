@@ -11,8 +11,8 @@ items:
   nameWithType: IComSoapMetadata
   fullName: System.EnterpriseServices.Internal.IComSoapMetadata
   type: Interface
-  summary: "Specifies methods for generating common language runtime (CLR) metadata for a COM+ component."
-  remarks: "The IComSoapMetadata interface does not need to be implemented directly in your code. It is implemented by the <xref:System.EnterpriseServices.Internal.GenerateMetadata> class in the .NET Framework infrastructure.       If necessary, IComSoapMetadata specifies that an assembly that contains CLR metadata is generated for a specified type library.       IComSoapMetadata is used internally by the .NET Framework. You do not need to use it directly in your code."
+  summary: "Определяет методы для создания метаданных CLR среды CLR для компонента COM +."
+  remarks: "Интерфейс IComSoapMetadata необязательно должен быть реализован непосредственно в коде. Она реализуется <xref:System.EnterpriseServices.Internal.GenerateMetadata>класса в платформу .NET Framework.</xref:System.EnterpriseServices.Internal.GenerateMetadata>       При необходимости IComSoapMetadata указывает, что для указанной библиотеки типов создается сборку, содержащую метаданные среды CLR.       IComSoapMetadata используется внутренне платформой .NET Framework. Необходимо непосредственно использовать его в коде."
   syntax:
     content: >-
       [System.Runtime.InteropServices.Guid("d8013ff0-730b-45e2-ba24-874b7242c425")]
@@ -33,20 +33,20 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices.Internal
-  summary: "Generates an assembly that contains common language runtime (CLR) metadata for a COM+ component represented by the specified type library."
-  remarks: "If necessary, the Generate method specifies that an assembly that contains CLR metadata is generated for a specified type library."
+  summary: "Создает сборку, содержащую метаданные среды CLR для компонента COM +, представленного указанной библиотекой типов."
+  remarks: "При необходимости сформировать метод указывает, что для указанной библиотеки типов создается сборку, содержащую метаданные среды CLR."
   syntax:
     content: public string Generate (string SrcTypeLibFileName, string OutPath);
     parameters:
     - id: SrcTypeLibFileName
       type: System.String
-      description: "The name of the type library for which to generate an assembly."
+      description: "Имя библиотеки типов, для которого требуется создать сборку."
     - id: OutPath
       type: System.String
-      description: "The folder in which to generate an assembly."
+      description: "Папка, в которой требуется создать сборку."
     return:
       type: System.String
-      description: "The generated assembly name."
+      description: "Имя создаваемой сборки."
   overload: System.EnterpriseServices.Internal.IComSoapMetadata.Generate*
   exceptions: []
   platform:
@@ -63,26 +63,26 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices.Internal
-  summary: "Generates an assembly that contains common language runtime (CLR) metadata for a COM+ component represented by the specified type library, signs the assembly with a strong-named key pair, and installs it in the global assembly cache."
-  remarks: "If necessary, the GenerateSigned method specifies that an assembly that contains CLR metadata is generated for a specified type library. Additionally, GenerateSigned generates a strong-named key pair and signs the assembly.       The `InstallGac` parameter indicates whether to install the assembly in the global assembly cache. However, the one implementation of GenerateSigned, by the <xref:System.EnterpriseServices.Internal.GenerateMetadata> class, ignores this value and always attempts to install the signed assembly in the global assembly cache."
+  summary: "Создает сборку, содержащую метаданные среды CLR для компонента COM +, представленного указанной библиотекой типов, подписывает сборку парой ключей, образующих строгое имя и устанавливает ее в глобальный кэш сборок."
+  remarks: "При необходимости этот метод GenerateSigned указывает, что для указанной библиотеки типов создается сборку, содержащую метаданные среды CLR. Кроме того GenerateSigned создает пару ключей со строгими именами и подписывает сборку.       `InstallGac` Параметр указывает, следует ли устанавливать сборки в глобальный кэш сборок. Тем не менее одна реализация GenerateSigned, по <xref:System.EnterpriseServices.Internal.GenerateMetadata>класса, игнорирует это значение и всегда пытается установить подписанную сборку в глобальный кэш сборок.</xref:System.EnterpriseServices.Internal.GenerateMetadata>"
   syntax:
     content: public string GenerateSigned (string SrcTypeLibFileName, string OutPath, bool InstallGac, out string Error);
     parameters:
     - id: SrcTypeLibFileName
       type: System.String
-      description: "The name of the type library for which to generate an assembly."
+      description: "Имя библиотеки типов, для которого требуется создать сборку."
     - id: OutPath
       type: System.String
-      description: "The folder in which to generate an assembly."
+      description: "Папка, в которой требуется создать сборку."
     - id: InstallGac
       type: System.Boolean
-      description: "A flag that indicates whether to install the assembly in the global assembly cache."
+      description: "Флаг, указывающий, следует ли устанавливать сборки в глобальный кэш сборок."
     - id: Error
       type: System.String
-      description: "A string to which an error message can be written."
+      description: "Строка, в который могут записываться сообщение об ошибке."
     return:
       type: System.String
-      description: "The generated assembly name."
+      description: "Имя создаваемой сборки."
   overload: System.EnterpriseServices.Internal.IComSoapMetadata.GenerateSigned*
   exceptions: []
   platform:

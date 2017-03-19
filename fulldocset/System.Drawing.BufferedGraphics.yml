@@ -15,8 +15,8 @@ items:
   nameWithType: BufferedGraphics
   fullName: System.Drawing.BufferedGraphics
   type: Class
-  summary: "Provides a graphics buffer for double buffering."
-  remarks: "The BufferedGraphics class allows you to implement custom double buffering for your graphics. It provides a wrapper for a graphics buffer, along with methods that you can use to write to the buffer and render its contents to an output device.       Graphics that use double buffering can reduce or eliminate flicker that is caused by redrawing a display surface. When you use double buffering, updated graphics are first drawn to a buffer in memory, and the contents of this buffer are then quickly written to some or all of the displayed surface. This relatively brief overwrite of the displayed graphics typically reduces or eliminates the flicker that sometimes occurs when graphics are updated.      > [!NOTE] >  The simplest way to use double buffering is to set the <xref:System.Windows.Forms.ControlStyles> control style flag on a control using the <xref:System.Windows.Forms.Control.SetStyle%2A> method. Setting the <xref:System.Windows.Forms.ControlStyles> flag for a control redirects all painting for the control through a default graphics buffer, without requiring any additional code. This flag is set to `true` by default.       The BufferedGraphics class has no public constructor and must be created by the <xref:System.Drawing.BufferedGraphicsContext> for an application domain using its <xref:System.Drawing.BufferedGraphicsContext.Allocate%2A> method. You can retrieve the <xref:System.Drawing.BufferedGraphicsContext> for the current application domain from the static <xref:System.Drawing.BufferedGraphicsManager.Current%2A?displayProperty=fullName> property.       The <xref:System.Drawing.BufferedGraphics.Graphics%2A> property can be used for drawing to the graphics buffer. This property provides access to the <xref:System.Drawing.Graphics> object that draws to the graphics buffer allocated for this BufferedGraphics object.       The <xref:System.Drawing.BufferedGraphics.Render%2A> method with no arguments draws the contents of the graphics buffer to the surface specified when the buffer was allocated. Other overloads of the <xref:System.Drawing.BufferedGraphics.Render%2A> method allow you to specify a <xref:System.Drawing.Graphics> object or an <xref:System.IntPtr> object that points to a device context to which to draw the contents of the graphics buffer.       For more information about drawing double-buffered graphics, see [Double Buffered Graphics](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Предоставляет графический буфер для двойной буферизации."
+  remarks: "BufferedGraphics-класс позволяет реализовать пользовательские двойной буферизации для изображений. Он предоставляет оболочку для графического буфера, а также методы, которые можно использовать для записи в буфер и отображения ее содержимого на устройстве вывода.       Графика, использующая двойную буферизацию можно сократить или устранить мерцание, вызываемое перерисовкой отображаемой области. При использовании двойной буферизации обновленная графика сначала прорисовывается буфер в памяти, и содержимое данного буфера затем быстро записываются все или некоторые из отображаемых рабочей области. Эта относительно короткая перезапись отображаемой графики обычно уменьшает или исключает мерцание, которое иногда может происходить при обновлении графики.      Настроек [!NOTE] настроек — самый простой способ использования двойной буферизации для задания <xref:System.Windows.Forms.ControlStyles>управления флаг стиль для элемента управления с помощью <xref:System.Windows.Forms.Control.SetStyle%2A>метод.</xref:System.Windows.Forms.Control.SetStyle%2A> </xref:System.Windows.Forms.ControlStyles> Параметр <xref:System.Windows.Forms.ControlStyles>флаг для элемента управления перенаправляет все рисования в элементе управления через графический буфер по умолчанию, не требует никакого дополнительного кода.</xref:System.Windows.Forms.ControlStyles> Этот флаг установлен в `true` по умолчанию.       BufferedGraphics-класс не имеет открытого конструктора и должны быть созданы с <xref:System.Drawing.BufferedGraphicsContext>для домена приложения с помощью его <xref:System.Drawing.BufferedGraphicsContext.Allocate%2A>метод.</xref:System.Drawing.BufferedGraphicsContext.Allocate%2A> </xref:System.Drawing.BufferedGraphicsContext> Вы можете получить <xref:System.Drawing.BufferedGraphicsContext>для текущего домена приложения из статического <xref:System.Drawing.BufferedGraphicsManager.Current%2A?displayProperty=fullName>свойство.</xref:System.Drawing.BufferedGraphicsManager.Current%2A?displayProperty=fullName> </xref:System.Drawing.BufferedGraphicsContext>       <xref:System.Drawing.BufferedGraphics.Graphics%2A>Свойство можно использовать для рисования в графическом буфере.</xref:System.Drawing.BufferedGraphics.Graphics%2A> Это свойство предоставляет доступ к <xref:System.Drawing.Graphics>объекта, который рисует графический буфер, выделенный для этого объекта BufferedGraphics.</xref:System.Drawing.Graphics>       <xref:System.Drawing.BufferedGraphics.Render%2A>Указан метод с без аргументов-выводит содержимое графического буфера в область, если буфер был выделен.</xref:System.Drawing.BufferedGraphics.Render%2A> Другие перегрузки <xref:System.Drawing.BufferedGraphics.Render%2A>метода позволяют указывать <xref:System.Drawing.Graphics>объекта или <xref:System.IntPtr>объект, который указывает на контекст устройства, на котором будет размещено содержимое графического буфера.</xref:System.IntPtr> </xref:System.Drawing.Graphics> </xref:System.Drawing.BufferedGraphics.Render%2A>       Дополнительные сведения о графических двойная буферизация графики см. в разделе [двойная буферизация графики](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example demonstrates using a BufferedGraphics object to draw graphics using several types of buffering implementations. Clicking the form alternately starts and stops a timer that causes draw updates. The draw updates allow you to observe the effect of double buffering. Right-clicking the form cycles through the following drawing modes:  \n  \n-   Drawing directly to the <xref:System.Windows.Forms.Control.Handle%2A> for a <xref:System.Windows.Forms.Form>.  \n  \n-   Drawing by overriding the <xref:System.Windows.Forms.Form.OnPaint%2A> method using the <xref:System.Windows.Forms.ControlStyles> control style.  \n  \n-   Drawing by overriding the <xref:System.Windows.Forms.Form.OnPaint%2A> method for the form method without using the <xref:System.Windows.Forms.ControlStyles> control style.  \n  \n In each mode, text is drawn that identifies the current mode and describes the behavior that occurs when each mouse button is pressed.  \n  \n [!code-cpp[BufferedGraphicsExample#1](~/add/codesnippet/cpp/t-system.drawing.buffere_1_1.cpp)]\n [!code-cs[BufferedGraphicsExample#1](~/add/codesnippet/csharp/t-system.drawing.buffere_1_1.cs)]\n [!code-vb[BufferedGraphicsExample#1](~/add/codesnippet/visualbasic/t-system.drawing.buffere_1_1.vb)]"
   syntax:
@@ -40,8 +40,8 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing
-  summary: "Releases all resources used by the <xref href=&quot;System.Drawing.BufferedGraphics&quot;></xref> object."
-  remarks: "Call Dispose when you are finished using the <xref:System.Drawing.BufferedGraphics> object. The Dispose method leaves the <xref:System.Drawing.BufferedGraphics> object in an unusable state. After calling Dispose, you must release all references to the <xref:System.Drawing.BufferedGraphics> object so the garbage collector can reclaim the memory that the <xref:System.Drawing.BufferedGraphics> object was occupying. For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call Dispose before you release your last reference to the <xref:System.Drawing.BufferedGraphics> object. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:System.Drawing.BufferedGraphics> object&quot;s `Finalize` method."
+  summary: "Освобождает все ресурсы, используемые <xref href=&quot;System.Drawing.BufferedGraphics&quot;> </xref> объекта."
+  remarks: "Вызывать Dispose, когда вы закончите с помощью <xref:System.Drawing.BufferedGraphics>объекта.</xref:System.Drawing.BufferedGraphics> Метод Dispose оставляет <xref:System.Drawing.BufferedGraphics>объекта окажется в неработоспособном состоянии.</xref:System.Drawing.BufferedGraphics> После вызова Dispose, необходимо освободить все ссылки на <xref:System.Drawing.BufferedGraphics>объекта, чтобы сборщик мусора может освободить память, <xref:System.Drawing.BufferedGraphics>объект занимаемую.</xref:System.Drawing.BufferedGraphics> </xref:System.Drawing.BufferedGraphics> Дополнительные сведения см. в разделе [очистки неуправляемых ресурсов](~/add/includes/ajax-current-ext-md.md) и [метода](~/add/includes/ajax-current-ext-md.md).      Настроек [!NOTE] настроек всегда вызываться перед освобождением последней ссылки на <xref:System.Drawing.BufferedGraphics>объекта.</xref:System.Drawing.BufferedGraphics> В противном случае им ресурсы не будут освобождены пока сборщик мусора не вызовет метод <xref:System.Drawing.BufferedGraphics>объекта `Finalize` метод.</xref:System.Drawing.BufferedGraphics>"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -61,7 +61,7 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing
-  summary: "Allows an object to try to free resources and perform other cleanup operations before it is reclaimed by garbage collection."
+  summary: "Позволяет объекту попытаться освободить ресурсы и выполнить другие операции очистки, прежде чем он будет удален при сборке мусора."
   syntax:
     content: ~BufferedGraphics ();
     parameters: []
@@ -81,13 +81,13 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing
-  summary: "Gets a <xref href=&quot;System.Drawing.Graphics&quot;></xref> object that outputs to the graphics buffer."
-  remarks: "This property provides a <xref:System.Drawing.Graphics> object that draws to the graphics buffer allocated for this <xref:System.Drawing.BufferedGraphics> object."
+  summary: "Возвращает <xref href=&quot;System.Drawing.Graphics&quot;> </xref> , выводящий данные в графический буфер."
+  remarks: "Это свойство предоставляет <xref:System.Drawing.Graphics>объекта, который рисует графический буфер, выделенный для данного <xref:System.Drawing.BufferedGraphics>объекта.</xref:System.Drawing.BufferedGraphics> </xref:System.Drawing.Graphics>"
   syntax:
     content: public System.Drawing.Graphics Graphics { get; }
     return:
       type: System.Drawing.Graphics
-      description: "A <xref href=&quot;System.Drawing.Graphics&quot;></xref> object that outputs to the graphics buffer."
+      description: "Объект <xref href=&quot;System.Drawing.Graphics&quot;> </xref> , выводящий данные в графический буфер."
   overload: System.Drawing.BufferedGraphics.Graphics*
   exceptions: []
   platform:
@@ -104,8 +104,8 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing
-  summary: "Writes the contents of the graphics buffer to the default device."
-  remarks: "This method writes the contents of the graphics buffer to the device specified by calling the <xref:System.Drawing.BufferedGraphicsContext.Allocate%2A> method of the <xref:System.Drawing.BufferedGraphicsContext> used to create this <xref:System.Drawing.BufferedGraphics> object."
+  summary: "Записывает содержимое графического буфера в устройство по умолчанию."
+  remarks: "Этот метод записывает содержимое графического буфера в устройство, задаются путем вызова <xref:System.Drawing.BufferedGraphicsContext.Allocate%2A>метод <xref:System.Drawing.BufferedGraphicsContext>используется для создания этого <xref:System.Drawing.BufferedGraphics>объекта.</xref:System.Drawing.BufferedGraphics> </xref:System.Drawing.BufferedGraphicsContext> </xref:System.Drawing.BufferedGraphicsContext.Allocate%2A>"
   syntax:
     content: public void Render ();
     parameters: []
@@ -125,8 +125,8 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing
-  summary: "Writes the contents of the graphics buffer to the specified <xref href=&quot;System.Drawing.Graphics&quot;></xref> object."
-  remarks: "This method writes the contents of the graphics buffer to the specified <xref:System.Drawing.Graphics> object."
+  summary: "Записывает содержимое графического буфера в заданный <xref href=&quot;System.Drawing.Graphics&quot;> </xref> объекта."
+  remarks: "Этот метод записывает содержимое графического буфера в заданный <xref:System.Drawing.Graphics>объекта.</xref:System.Drawing.Graphics>"
   example:
   - "The following code example demonstrates rendering the contents of the graphics buffer to a specified <xref:System.Drawing.Graphics> object. This code is part of a larger example provided for the <xref:System.Drawing.BufferedGraphics> class.  \n  \n [!code-cs[BufferingExamples#5](~/add/codesnippet/csharp/m-system.drawing.buffere_1_1.cs)]\n [!code-cpp[BufferingExamples#5](~/add/codesnippet/cpp/m-system.drawing.buffere_1_1.cpp)]\n [!code-vb[BufferingExamples#5](~/add/codesnippet/visualbasic/m-system.drawing.buffere_1_1.vb)]"
   syntax:
@@ -134,7 +134,7 @@ items:
     parameters:
     - id: target
       type: System.Drawing.Graphics
-      description: "A <xref href=&quot;System.Drawing.Graphics&quot;></xref> object to which to write the contents of the graphics buffer."
+      description: "Объект <xref href=&quot;System.Drawing.Graphics&quot;> </xref> объекта, в который записывается содержимое графического буфера."
   overload: System.Drawing.BufferedGraphics.Render*
   exceptions: []
   platform:
@@ -151,8 +151,8 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing
-  summary: "Writes the contents of the graphics buffer to the device context associated with the specified <xref:System.IntPtr> handle."
-  remarks: "This method writes the contents of the graphics buffer to the device context associated with the specified <xref:System.IntPtr> handle."
+  summary: "Записывает содержимое графического буфера в контекст устройства, связанный с заданным <xref:System.IntPtr>обработки.</xref:System.IntPtr>"
+  remarks: "Этот метод записывает содержимое графического буфера в контекст устройства, связанный с заданным <xref:System.IntPtr>обработки.</xref:System.IntPtr>"
   example:
   - "The following code example demonstrates how to render the contents of the graphics buffer `grafx` to a specified device context. This code is part of a larger example provided for the <xref:System.Drawing.BufferedGraphics> class.  \n  \n [!code-cs[BufferingExamples#6](~/add/codesnippet/csharp/m-system.drawing.buffere_0_1.cs)]\n [!code-cpp[BufferingExamples#6](~/add/codesnippet/cpp/m-system.drawing.buffere_0_1.cpp)]\n [!code-vb[BufferingExamples#6](~/add/codesnippet/visualbasic/m-system.drawing.buffere_0_1.vb)]"
   syntax:
@@ -160,7 +160,7 @@ items:
     parameters:
     - id: targetDC
       type: System.IntPtr
-      description: "An <xref:System.IntPtr> that points to the device context to which to write the contents of the graphics buffer."
+      description: "<xref:System.IntPtr>, Указывающий контекст устройства, в который записывается содержимое графического буфера.</xref:System.IntPtr>"
   overload: System.Drawing.BufferedGraphics.Render*
   exceptions: []
   platform:

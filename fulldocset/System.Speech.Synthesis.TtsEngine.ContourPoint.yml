@@ -18,8 +18,8 @@ items:
   nameWithType: ContourPoint
   fullName: System.Speech.Synthesis.TtsEngine.ContourPoint
   type: Struct
-  summary: "Represents changes in pitch for the speech content of a <xref href=&quot;System.Speech.Synthesis.TtsEngine.TextFragment&quot;></xref>."
-  remarks: "The pitch contour is defined as an array of targets at specified time positions in the speech output. Each target is defined by three parameters. The first value is a percentage of the period of the contained text (a number followed by &quot;%&quot;). The second value specifies the amount to raise or lower the pitch. The third value designates the unit to use for the number specified in the second value; either percentage or hertz (Hz).       ContourPoint objects are obtained by the <xref:System.Speech.Synthesis.TtsEngine.Prosody.GetContourPoints%2A> method, or used to set the pitch contour for a <xref:System.Speech.Synthesis.TtsEngine.TextFragment> by the <xref:System.Speech.Synthesis.TtsEngine.Prosody.SetContourPoints%2A> method."
+  summary: "Представляет изменения в шаг для речи, содержимое <xref href=&quot;System.Speech.Synthesis.TtsEngine.TextFragment&quot;> </xref>."
+  remarks: "Профиль шаг представляет собой массив целевых объектов в указанное время позициях в выводе речи. Каждый целевой объект определяется тремя параметрами. Первое значение — это процент от времени содержащегося текста (число, а затем «%»). Второе значение указывает степень увеличения или уменьшения голос. Третье значение определяет единицы, которые будут использоваться для числа, указанного в второе значение; в процентах или в Гц.       Объекты ContourPoint получаются путем <xref:System.Speech.Synthesis.TtsEngine.Prosody.GetContourPoints%2A>метод, или используется для задания профиль шаг <xref:System.Speech.Synthesis.TtsEngine.TextFragment>по <xref:System.Speech.Synthesis.TtsEngine.Prosody.SetContourPoints%2A>метод.</xref:System.Speech.Synthesis.TtsEngine.Prosody.SetContourPoints%2A> </xref:System.Speech.Synthesis.TtsEngine.TextFragment> </xref:System.Speech.Synthesis.TtsEngine.Prosody.GetContourPoints%2A>"
   syntax:
     content: >-
       [System.ComponentModel.ImmutableObject(true)]
@@ -43,19 +43,19 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis.TtsEngine
-  summary: "Creates a new instance of the <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> class."
+  summary: "Создает новый экземпляр <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> класса."
   syntax:
     content: public ContourPoint (float start, float change, System.Speech.Synthesis.TtsEngine.ContourPointChangeType changeType);
     parameters:
     - id: start
       type: System.Single
-      description: "A <xref:System.Single> that specifies the point at which to apply the pitch change in the <xref href=&quot;System.Speech.Synthesis.TtsEngine.TextFragment&quot;></xref>. This is expressed as the elapsed percentage of the duration of the <xref href=&quot;System.Speech.Synthesis.TtsEngine.TextFragment&quot;></xref> at that point."
+      description: "Объект <xref:System.Single>, задающий точка, в которой для применения изменений высоты в <xref href=&quot;System.Speech.Synthesis.TtsEngine.TextFragment&quot;> </xref>.</xref:System.Single> Это выражается как процент затраченного длительность <xref href=&quot;System.Speech.Synthesis.TtsEngine.TextFragment&quot;> </xref> на данный момент."
     - id: change
       type: System.Single
-      description: "A <xref:System.Single> that specifies the amount to raise or lower the pitch."
+      description: "Объект <xref:System.Single>, указывает степень увеличения или уменьшения голос.</xref:System.Single>"
     - id: changeType
       type: System.Speech.Synthesis.TtsEngine.ContourPointChangeType
-      description: "A member of <xref:System.Speech.Synthesis.TtsEngine.ContourPoint.ChangeType*> that specifies the unit to use for the number specified in the `change` parameter."
+      description: "Член <xref:System.Speech.Synthesis.TtsEngine.ContourPoint.ChangeType*>, задающий единицу измерения для числа, указанного в `change` параметр.</xref:System.Speech.Synthesis.TtsEngine.ContourPoint.ChangeType*>"
   overload: System.Speech.Synthesis.TtsEngine.ContourPoint.#ctor*
   exceptions: []
   platform:
@@ -72,13 +72,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis.TtsEngine
-  summary: "Gets the value that represents the amount to raise or lower the pitch at a point in a <xref href=&quot;System.Speech.Synthesis.TtsEngine.TextFragment&quot;></xref>."
-  remarks: "This value is combined with a value from the <xref:System.Speech.Synthesis.TtsEngine.ContourPoint.ChangeType%2A> property to define the amount to raise or lower the pitch.       If a pitch value is not defined for 0% or 100% then the nearest pitch target is copied. All relative values for the pitch are relative to the pitch value just before the contained text."
+  summary: "Возвращает значение, представляющее сумму для увеличения или уменьшения размера в точке <xref href=&quot;System.Speech.Synthesis.TtsEngine.TextFragment&quot;> </xref>."
+  remarks: "Это значение объединяется со значением от <xref:System.Speech.Synthesis.TtsEngine.ContourPoint.ChangeType%2A>свойство, чтобы определить объем для увеличения или уменьшения голос.</xref:System.Speech.Synthesis.TtsEngine.ContourPoint.ChangeType%2A>       Если не задано значение шаг 0% и 100% ближайшего целевой шаг копируется. Все относительные значения голос: относительно значения шаг перед содержащийся текст."
   syntax:
     content: public float Change { get; }
     return:
       type: System.Single
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Speech.Synthesis.TtsEngine.ContourPoint.Change*
   exceptions: []
   platform:
@@ -95,13 +95,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis.TtsEngine
-  summary: "Gets a member of ChangeType that specifies the unit to use for the number specified in the <code>change</code> parameter of a <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> object."
-  remarks: "A value from this enumeration is combined with a value from the <xref:System.Speech.Synthesis.TtsEngine.ContourPoint.Change%2A> property to define the amount to raise or lower the pitch."
+  summary: "Получает элемент, задающий единицу для числа, указанного в ChangeType <code> change </code> параметр <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> объекта."
+  remarks: "Значение из этого перечисления объединяется со значением от <xref:System.Speech.Synthesis.TtsEngine.ContourPoint.Change%2A>свойство, чтобы определить объем для увеличения или уменьшения голос.</xref:System.Speech.Synthesis.TtsEngine.ContourPoint.Change%2A>"
   syntax:
     content: public System.Speech.Synthesis.TtsEngine.ContourPointChangeType ChangeType { get; }
     return:
       type: System.Speech.Synthesis.TtsEngine.ContourPointChangeType
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Speech.Synthesis.TtsEngine.ContourPoint.ChangeType*
   exceptions: []
   platform:
@@ -118,17 +118,17 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis.TtsEngine
-  summary: "Determines if a given object is an instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> and equal to the current instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref>."
-  remarks: "The method returns false if the <xref:System.Object> provided by the `obj` argument cannot be cast to <xref:System.Speech.Synthesis.TtsEngine.ContourPoint>."
+  summary: "Определяет, является ли заданный объект экземпляром <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> и равен текущему экземпляру <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref>."
+  remarks: "Метод возвращает значение false, если <xref:System.Object>предоставляемые `obj` аргумент не может быть приведен к <xref:System.Speech.Synthesis.TtsEngine.ContourPoint>.</xref:System.Speech.Synthesis.TtsEngine.ContourPoint> </xref:System.Object>"
   syntax:
     content: public override bool Equals (object obj);
     parameters:
     - id: obj
       type: System.Object
-      description: "An object that can be cast to an instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref>."
+      description: "Объект, который может быть приведен к экземпляру <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> and that obtained from the <code>obj</code> argument are equal, otherwise returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Возвращает <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> Если текущий экземпляр <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> и, полученным из <code> obj </code> аргумента равны, в противном случае возвращает <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Speech.Synthesis.TtsEngine.ContourPoint.Equals*
   exceptions: []
   platform:
@@ -145,16 +145,16 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis.TtsEngine
-  summary: "Determines if a given instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> is equal to the current instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref>."
+  summary: "Определяет, если в заданном экземпляре <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> равен текущему экземпляру <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref>."
   syntax:
     content: public bool Equals (System.Speech.Synthesis.TtsEngine.ContourPoint other);
     parameters:
     - id: other
       type: System.Speech.Synthesis.TtsEngine.ContourPoint
-      description: "An instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> that will be compared to the current instance."
+      description: "Экземпляр <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> будет сравниваться с текущим экземпляром."
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if both the current instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> and that supplied through the <code>other</code> argument are equal, otherwise returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Возвращает <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> Если и текущий экземпляр объекта <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> и, переданный через <code> other </code> аргумента равны, в противном случае возвращает <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Speech.Synthesis.TtsEngine.ContourPoint.Equals*
   exceptions: []
   platform:
@@ -171,14 +171,14 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis.TtsEngine
-  summary: "Returns a hash code for this instance."
-  remarks: "Two <xref:System.Speech.Synthesis.TtsEngine.ContourPoint> objects might have the same hash code even though they represent different time values."
+  summary: "Возвращает хэш-код данного экземпляра."
+  remarks: "Два <xref:System.Speech.Synthesis.TtsEngine.ContourPoint>объектов может иметь одинаковые хэш-код, несмотря на то, что они представляют разные значения времени.</xref:System.Speech.Synthesis.TtsEngine.ContourPoint>"
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "A 32-bit signed integer hash code."
+      description: "Хэш-код 32-разрядное целое число со знаком."
   overload: System.Speech.Synthesis.TtsEngine.ContourPoint.GetHashCode*
   exceptions: []
   platform:
@@ -195,19 +195,19 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis.TtsEngine
-  summary: "Determines if two instances of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> are equal."
+  summary: "Определяет, если два экземпляра объекта <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> равны."
   syntax:
     content: public static bool op_Equality (System.Speech.Synthesis.TtsEngine.ContourPoint point1, System.Speech.Synthesis.TtsEngine.ContourPoint point2);
     parameters:
     - id: point1
       type: System.Speech.Synthesis.TtsEngine.ContourPoint
-      description: "An instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> to compare against the instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> provided by the `point2` argument."
+      description: "Экземпляр <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> для сравнения с экземпляром <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> , предоставляемые `point2` аргумент."
     - id: point2
       type: System.Speech.Synthesis.TtsEngine.ContourPoint
-      description: "An instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> to compare against the instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> provided by the `point1` argument."
+      description: "Экземпляр <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> для сравнения с экземпляром <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> , предоставляемые `point1` аргумент."
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> instances referenced by <code>point1</code> and <code>point2</code> are equal, otherwise returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Возвращает <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> Если <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> экземпляров ссылается <code> point1 </code> и <code> point2 </code> равны, в противном случае возвращает <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Speech.Synthesis.TtsEngine.ContourPoint.op_Equality*
   exceptions: []
   platform:
@@ -224,19 +224,19 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis.TtsEngine
-  summary: "Determines if two instances of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> are NOT equal."
+  summary: "Определяет, если два экземпляра объекта <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> , не равно."
   syntax:
     content: public static bool op_Inequality (System.Speech.Synthesis.TtsEngine.ContourPoint point1, System.Speech.Synthesis.TtsEngine.ContourPoint point2);
     parameters:
     - id: point1
       type: System.Speech.Synthesis.TtsEngine.ContourPoint
-      description: "An instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> to compare against the instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> provided by the `point2` argument."
+      description: "Экземпляр <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> для сравнения с экземпляром <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> , предоставляемые `point2` аргумент."
     - id: point2
       type: System.Speech.Synthesis.TtsEngine.ContourPoint
-      description: "An instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> to compare against the instance of <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> provided by the `point1` argument."
+      description: "Экземпляр <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> для сравнения с экземпляром <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> , предоставляемые `point1` аргумент."
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;></xref> instances referenced by <code>point1</code> and <code>point2</code> are NOT equal, otherwise returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Возвращает <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> Если <xref href=&quot;System.Speech.Synthesis.TtsEngine.ContourPoint&quot;> </xref> экземпляров ссылается <code> point1 </code> и <code> point2 </code> не равны, в противном случае возвращает <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Speech.Synthesis.TtsEngine.ContourPoint.op_Inequality*
   exceptions: []
   platform:
@@ -253,13 +253,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis.TtsEngine
-  summary: "Gets a <xref:System.Single> that specifies the point at which to apply the pitch change in a <xref href=&quot;System.Speech.Synthesis.TtsEngine.TextFragment&quot;></xref>. This is expressed as the elapsed percentage of the duration of the <xref href=&quot;System.Speech.Synthesis.TtsEngine.TextFragment&quot;></xref> at that point."
-  remarks: "Time position values less than 0% or greater than 100% are ignored."
+  summary: "Возвращает <xref:System.Single>, задающий точка, в которой для применения изменений высоты в <xref href=&quot;System.Speech.Synthesis.TtsEngine.TextFragment&quot;> </xref>.</xref:System.Single> Это выражается как процент затраченного длительность <xref href=&quot;System.Speech.Synthesis.TtsEngine.TextFragment&quot;> </xref> на данный момент."
+  remarks: "Позиция времени значения, меньшие 0% или больше 100%, игнорируются."
   syntax:
     content: public float Start { get; }
     return:
       type: System.Single
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Speech.Synthesis.TtsEngine.ContourPoint.Start*
   exceptions: []
   platform:

@@ -33,8 +33,8 @@ items:
   nameWithType: ConsoleLogger
   fullName: Microsoft.Build.Logging.ConsoleLogger
   type: Class
-  summary: "Represents the default logger that outputs event data to the console (stdout)."
-  remarks: "This class creates, wraps, and delegates to a `BaseConsoleLogger`, either `SerialConsoleLogger` or `ParallelConsoleLogger`.       This class is not thread safe."
+  summary: "Представляет средство ведения журнала по умолчанию, который выводит на консоль (stdout) данные событий."
+  remarks: "Этот класс создает заключает в оболочку и делегирует `BaseConsoleLogger`, либо `SerialConsoleLogger` или `ParallelConsoleLogger`.       Этот класс не является потокобезопасным."
   syntax:
     content: 'public class ConsoleLogger : Microsoft.Build.Framework.INodeLogger'
   inheritance:
@@ -56,7 +56,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Creates a default logger."
+  summary: "Создает средство ведения журнала по умолчанию."
   syntax:
     content: public ConsoleLogger ();
     parameters: []
@@ -76,13 +76,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Creates a logger instance with the given verbosity that logs to the default console."
+  summary: "Создает экземпляр средства ведения журнала с данной детализации, который записывает в журнал консоли по умолчанию."
   syntax:
     content: public ConsoleLogger (Microsoft.Build.Framework.LoggerVerbosity verbosity);
     parameters:
     - id: verbosity
       type: Microsoft.Build.Framework.LoggerVerbosity
-      description: "The verbosity level."
+      description: "Уровень детализации."
   overload: Microsoft.Build.Logging.ConsoleLogger.#ctor*
   exceptions: []
   platform:
@@ -99,22 +99,22 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Initializes the logger with alternate output handlers."
+  summary: "Инициализирует средство ведения журнала с альтернативными обработчиками вывода."
   syntax:
     content: public ConsoleLogger (Microsoft.Build.Framework.LoggerVerbosity verbosity, Microsoft.Build.Logging.WriteHandler write, Microsoft.Build.Logging.ColorSetter colorSet, Microsoft.Build.Logging.ColorResetter colorReset);
     parameters:
     - id: verbosity
       type: Microsoft.Build.Framework.LoggerVerbosity
-      description: "The verbosity level."
+      description: "Уровень детализации."
     - id: write
       type: Microsoft.Build.Logging.WriteHandler
-      description: "The write handler."
+      description: "Обработчик записи."
     - id: colorSet
       type: Microsoft.Build.Logging.ColorSetter
-      description: "Sets the text color."
+      description: "Задает цвет текста."
     - id: colorReset
       type: Microsoft.Build.Logging.ColorResetter
-      description: "Resets the text color."
+      description: "Сбрасывает цвет текста."
   overload: Microsoft.Build.Logging.ConsoleLogger.#ctor*
   exceptions: []
   platform:
@@ -131,17 +131,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Applies a parameter to the logger."
-  remarks: "Deprecated."
+  summary: "Применяет параметр к средству ведения журнала."
+  remarks: "Рекомендуется к использованию."
   syntax:
     content: public void ApplyParameter (string parameterName, string parameterValue);
     parameters:
     - id: parameterName
       type: System.String
-      description: "The name of the parameter."
+      description: "Имя параметра."
     - id: parameterValue
       type: System.String
-      description: "The value of the parameter."
+      description: "Значение параметра."
   overload: Microsoft.Build.Logging.ConsoleLogger.ApplyParameter*
   exceptions: []
   platform:
@@ -158,16 +158,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called when the build is finished."
+  summary: "Вызывается после завершения построения."
   syntax:
     content: public void BuildFinishedHandler (object sender, Microsoft.Build.Framework.BuildFinishedEventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The sender (should be null)."
+      description: "Отправитель (должен иметь значение null)."
     - id: e
       type: Microsoft.Build.Framework.BuildFinishedEventArgs
-      description: "The event arguments."
+      description: "Аргументы события."
   overload: Microsoft.Build.Logging.ConsoleLogger.BuildFinishedHandler*
   exceptions: []
   platform:
@@ -184,16 +184,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called when the build is started."
+  summary: "Вызывается при запуске сборки."
   syntax:
     content: public void BuildStartedHandler (object sender, Microsoft.Build.Framework.BuildStartedEventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The sender (should be null)."
+      description: "Отправитель (должен иметь значение null)."
     - id: e
       type: Microsoft.Build.Framework.BuildStartedEventArgs
-      description: "The event arguments."
+      description: "Аргументы события."
   overload: Microsoft.Build.Logging.ConsoleLogger.BuildStartedHandler*
   exceptions: []
   platform:
@@ -210,16 +210,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called to log a custom event."
+  summary: "Вызывается, чтобы журнал пользовательского события."
   syntax:
     content: public void CustomEventHandler (object sender, Microsoft.Build.Framework.CustomBuildEventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The sender of the event."
+      description: "Отправитель события."
     - id: e
       type: Microsoft.Build.Framework.CustomBuildEventArgs
-      description: "The event arguments."
+      description: "Аргументы события."
   overload: Microsoft.Build.Logging.ConsoleLogger.CustomEventHandler*
   exceptions: []
   platform:
@@ -236,16 +236,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called to log an error event."
+  summary: "Вызывается для регистрации событий ошибок."
   syntax:
     content: public void ErrorHandler (object sender, Microsoft.Build.Framework.BuildErrorEventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The sender of the event."
+      description: "Отправитель события."
     - id: e
       type: Microsoft.Build.Framework.BuildErrorEventArgs
-      description: "The event arguments."
+      description: "Аргументы события."
   overload: Microsoft.Build.Logging.ConsoleLogger.ErrorHandler*
   exceptions: []
   platform:
@@ -262,13 +262,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Signs up the console logger for the given build event."
+  summary: "Регистрирует средство ведения журнала консоли для построения данного события."
   syntax:
     content: public virtual void Initialize (Microsoft.Build.Framework.IEventSource eventSource);
     parameters:
     - id: eventSource
       type: Microsoft.Build.Framework.IEventSource
-      description: "The available events."
+      description: "Доступные события."
   overload: Microsoft.Build.Logging.ConsoleLogger.Initialize*
   exceptions: []
   platform:
@@ -285,16 +285,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Initializes the logger with the given event source and node count."
+  summary: "Инициализирует средство ведения журнала с количеством источника и узел данного события."
   syntax:
     content: public virtual void Initialize (Microsoft.Build.Framework.IEventSource eventSource, int nodeCount);
     parameters:
     - id: eventSource
       type: Microsoft.Build.Framework.IEventSource
-      description: "The event source."
+      description: "Источник события."
     - id: nodeCount
       type: System.Int32
-      description: "The node count."
+      description: "Количество узлов."
   overload: Microsoft.Build.Logging.ConsoleLogger.Initialize*
   exceptions: []
   platform:
@@ -311,16 +311,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called to log a message event."
+  summary: "Вызывается в журнал событий сообщение."
   syntax:
     content: public void MessageHandler (object sender, Microsoft.Build.Framework.BuildMessageEventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The sender of the event."
+      description: "Отправитель события."
     - id: e
       type: Microsoft.Build.Framework.BuildMessageEventArgs
-      description: "The event arguments."
+      description: "Аргументы события."
   overload: Microsoft.Build.Logging.ConsoleLogger.MessageHandler*
   exceptions: []
   platform:
@@ -337,12 +337,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Gets or sets a semicolon-delimited list of parameter key-value pairs."
+  summary: "Возвращает или задает разделенный точками с запятой список параметров пары &quot;ключ значение&quot;."
   syntax:
     content: public string Parameters { get; set; }
     return:
       type: System.String
-      description: "Returns a semicolon-delimited list of parameter key-value pairs."
+      description: "Возвращает разделенный точками с запятой список параметра пары &quot;ключ значение&quot;."
   overload: Microsoft.Build.Logging.ConsoleLogger.Parameters*
   exceptions: []
   platform:
@@ -359,16 +359,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called to log a project finished event."
+  summary: "Вызывается в журнал проекта события завершения."
   syntax:
     content: public void ProjectFinishedHandler (object sender, Microsoft.Build.Framework.ProjectFinishedEventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The sender (should be null)."
+      description: "Отправитель (должен иметь значение null)."
     - id: e
       type: Microsoft.Build.Framework.ProjectFinishedEventArgs
-      description: "The event arguments."
+      description: "Аргументы события."
   overload: Microsoft.Build.Logging.ConsoleLogger.ProjectFinishedHandler*
   exceptions: []
   platform:
@@ -385,16 +385,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called to log a project started event."
+  summary: "Вызывается в журнал проекта начала события."
   syntax:
     content: public void ProjectStartedHandler (object sender, Microsoft.Build.Framework.ProjectStartedEventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The sender (should be null)."
+      description: "Отправитель (должен иметь значение null)."
     - id: e
       type: Microsoft.Build.Framework.ProjectStartedEventArgs
-      description: "The event arguments."
+      description: "Аргументы события."
   overload: Microsoft.Build.Logging.ConsoleLogger.ProjectStartedHandler*
   exceptions: []
   platform:
@@ -411,12 +411,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Gets or sets a switch that determines whether to suppress the display of errors and the warnings summary."
+  summary: "Возвращает или задает параметр, указывающий, следует ли подавлять отображение сводки предупреждения и ошибки."
   syntax:
     content: public bool ShowSummary { get; set; }
     return:
       type: System.Boolean
-      description: "Returns a switch that determines whether to suppress the display of errors and the warnings summary."
+      description: "Возвращает ключ, определяющий, следует ли подавлять отображение сводки предупреждения и ошибки."
   overload: Microsoft.Build.Logging.ConsoleLogger.ShowSummary*
   exceptions: []
   platform:
@@ -433,8 +433,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called when the build is finished."
-  remarks: "The console logger does not need to release any resources. This method does nothing."
+  summary: "Вызывается после завершения построения."
+  remarks: "Средство ведения журнала консоли необходимо освободить все ресурсы. Этот метод не выполняет никаких действий."
   syntax:
     content: public virtual void Shutdown ();
     parameters: []
@@ -454,13 +454,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Gets or sets a switch that determines whether to suppress the display of project headers."
-  remarks: "Project headers are displayed by default unless this property is set."
+  summary: "Возвращает или задает параметр, указывающий, следует ли подавлять отображение заголовков проектов."
+  remarks: "Заголовки проектов отображаются по умолчанию, если это свойство не задано."
   syntax:
     content: public bool SkipProjectStartedText { get; set; }
     return:
       type: System.Boolean
-      description: "Returns a switch that determines whether to suppress the display of project headers."
+      description: "Возвращает ключ, определяющий, следует ли подавлять отображение заголовков проектов."
   overload: Microsoft.Build.Logging.ConsoleLogger.SkipProjectStartedText*
   exceptions: []
   platform:
@@ -477,16 +477,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called to log a target finished event."
+  summary: "Вызывается для входа на целевой объект события завершения."
   syntax:
     content: public void TargetFinishedHandler (object sender, Microsoft.Build.Framework.TargetFinishedEventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The sender (should be null)."
+      description: "Отправитель (должен иметь значение null)."
     - id: e
       type: Microsoft.Build.Framework.TargetFinishedEventArgs
-      description: "The event arguments."
+      description: "Аргументы события."
   overload: Microsoft.Build.Logging.ConsoleLogger.TargetFinishedHandler*
   exceptions: []
   platform:
@@ -503,16 +503,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called to log a target started event."
+  summary: "Вызывается для входа на целевой объект события начала."
   syntax:
     content: public void TargetStartedHandler (object sender, Microsoft.Build.Framework.TargetStartedEventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The sender (should be null)."
+      description: "Отправитель (должен иметь значение null)."
     - id: e
       type: Microsoft.Build.Framework.TargetStartedEventArgs
-      description: "The event arguments."
+      description: "Аргументы события."
   overload: Microsoft.Build.Logging.ConsoleLogger.TargetStartedHandler*
   exceptions: []
   platform:
@@ -529,16 +529,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called to log a task finished event."
+  summary: "Вызывается для входа задачу события завершения."
   syntax:
     content: public void TaskFinishedHandler (object sender, Microsoft.Build.Framework.TaskFinishedEventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The sender (should be null)."
+      description: "Отправитель (должен иметь значение null)."
     - id: e
       type: Microsoft.Build.Framework.TaskFinishedEventArgs
-      description: "The event arguments."
+      description: "Аргументы события."
   overload: Microsoft.Build.Logging.ConsoleLogger.TaskFinishedHandler*
   exceptions: []
   platform:
@@ -555,16 +555,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called to log a task started event."
+  summary: "Вызывается для входа задачи начала события."
   syntax:
     content: public void TaskStartedHandler (object sender, Microsoft.Build.Framework.TaskStartedEventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The sender (should be null)."
+      description: "Отправитель (должен иметь значение null)."
     - id: e
       type: Microsoft.Build.Framework.TaskStartedEventArgs
-      description: "The event arguments."
+      description: "Аргументы события."
   overload: Microsoft.Build.Logging.ConsoleLogger.TaskStartedHandler*
   exceptions: []
   platform:
@@ -581,12 +581,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Gets or sets the level of detail to show in the event log."
+  summary: "Возвращает или задает уровень детализации для отображения в журнале событий."
   syntax:
     content: public Microsoft.Build.Framework.LoggerVerbosity Verbosity { get; set; }
     return:
       type: Microsoft.Build.Framework.LoggerVerbosity
-      description: "Returns the level of detail to show in the event log."
+      description: "Возвращает уровень детализации для отображения в журнале событий."
   overload: Microsoft.Build.Logging.ConsoleLogger.Verbosity*
   exceptions: []
   platform:
@@ -603,16 +603,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Called to log a warning event."
+  summary: "Вызывается в журнал события предупреждения."
   syntax:
     content: public void WarningHandler (object sender, Microsoft.Build.Framework.BuildWarningEventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The sender of the event."
+      description: "Отправитель события."
     - id: e
       type: Microsoft.Build.Framework.BuildWarningEventArgs
-      description: "The event arguments."
+      description: "Аргументы события."
   overload: Microsoft.Build.Logging.ConsoleLogger.WarningHandler*
   exceptions: []
   platform:
@@ -629,12 +629,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Logging
-  summary: "Provides access to the write handler delegate so that it can be redirected if necessary (e.g. to a file)."
+  summary: "Предоставляет доступ к делегату обработчика записи, чтобы его можно перенаправить при необходимости (например, в файл)."
   syntax:
     content: protected Microsoft.Build.Logging.WriteHandler WriteHandler { get; set; }
     return:
       type: Microsoft.Build.Logging.WriteHandler
-      description: "Returns the write handler delegate."
+      description: "Возвращает делегат обработчика записи."
   overload: Microsoft.Build.Logging.ConsoleLogger.WriteHandler*
   exceptions: []
   platform:

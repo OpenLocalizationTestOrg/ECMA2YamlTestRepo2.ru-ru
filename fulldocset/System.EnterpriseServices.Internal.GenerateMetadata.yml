@@ -14,8 +14,8 @@ items:
   nameWithType: GenerateMetadata
   fullName: System.EnterpriseServices.Internal.GenerateMetadata
   type: Class
-  summary: "Generates common language runtime (CLR) metadata for a COM+ component."
-  remarks: "If necessary, the GenerateMetadata class generates an assembly that contains CLR metadata for a specified type library.       GenerateMetadata is used internally by the .NET Framework. You do not need to use the class directly in your code."
+  summary: "Создает общие метаданные языка среды CLR для компонента COM +."
+  remarks: "При необходимости GenerateMetadata создает сборку, содержащую метаданные среды CLR для указанной библиотеки типов.       GenerateMetadata используется внутренне платформой .NET Framework. Необходимо использовать класс непосредственно в коде."
   syntax:
     content: >-
       [System.Runtime.InteropServices.Guid("d8013ff1-730b-45e2-ba24-874b7242c425")]
@@ -40,7 +40,7 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices.Internal
-  summary: "Initializes a new instance of the <xref href=&quot;System.EnterpriseServices.Internal.GenerateMetadata&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.EnterpriseServices.Internal.GenerateMetadata&quot;> </xref> класса."
   syntax:
     content: public GenerateMetadata ();
     parameters: []
@@ -60,20 +60,20 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices.Internal
-  summary: "Generates, or locates, an assembly that contains common language runtime (CLR) metadata for a COM+ component represented by the specified type library."
-  remarks: "If necessary, the Generate method generates an assembly that contains CLR metadata for a specified type library. To do this processing, it calls the <xref:System.EnterpriseServices.Internal.GenerateMetadata.GenerateMetaData%2A> method.       These methods do not need to be called directly from your code."
+  summary: "Создает или находит сборку, содержащую метаданные среды CLR для компонента COM +, представленного указанной библиотекой типов."
+  remarks: "При необходимости создать метод создает сборку, содержащую метаданные среды CLR для указанной библиотеки типов. Чтобы сделать этот процесс, он вызывает <xref:System.EnterpriseServices.Internal.GenerateMetadata.GenerateMetaData%2A>метод.</xref:System.EnterpriseServices.Internal.GenerateMetadata.GenerateMetaData%2A>       Эти методы не должны вызываться напрямую из кода приложения."
   syntax:
     content: public string Generate (string strSrcTypeLib, string outPath);
     parameters:
     - id: strSrcTypeLib
       type: System.String
-      description: "The name of the type library for which to generate an assembly."
+      description: "Имя библиотеки типов, для которого требуется создать сборку."
     - id: outPath
       type: System.String
-      description: "The folder in which to generate an assembly or to locate an already existing assembly."
+      description: "Папка, в которой требуется создать сборку или найти уже существующую сборку."
     return:
       type: System.String
-      description: "The generated assembly name; otherwise, an empty string if the inputs are invalid."
+      description: "Имя создаваемой сборке; в противном случае — пустая строка, если входные данные недопустимы."
   overload: System.EnterpriseServices.Internal.GenerateMetadata.Generate*
   exceptions: []
   platform:
@@ -90,26 +90,26 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices.Internal
-  summary: "Generates, or locates, an assembly that contains common language runtime (CLR) metadata for a COM+ component represented by the specified type library, signs the assembly with a strong-named key pair, and installs it in the global assembly cache."
-  remarks: "If necessary, the GenerateMetaData method generates an assembly that contains CLR metadata for a specified type library. It does not generate an assembly if an assembly of the generated name already exists in the string `outPath` folder.       GenerateMetaData does not need to be called directly from your code. It is called by both the <xref:System.EnterpriseServices.Internal.GenerateMetadata.Generate%2A> and <xref:System.EnterpriseServices.Internal.GenerateMetadata.GenerateSigned%2A> methods.       If called by <xref:System.EnterpriseServices.Internal.GenerateMetadata.GenerateSigned%2A>, GenerateMetaData also generates a strong-named key pair, signs the assembly, and installs it in the global assembly cache."
+  summary: "Создает или находит сборку, содержащую метаданные среды CLR для компонента COM +, представленного указанной библиотекой типов, подписывает сборку парой ключей, образующих строгое имя и устанавливает ее в глобальный кэш сборок."
+  remarks: "При необходимости метод GenerateMetaData создает сборку, содержащую метаданные среды CLR для указанной библиотеки типов. Не создает сборку, если сборка сгенерированным именем уже существует в строке `outPath` папки.       GenerateMetaData не должен вызываться напрямую из кода приложения. Он вызывается как <xref:System.EnterpriseServices.Internal.GenerateMetadata.Generate%2A>и <xref:System.EnterpriseServices.Internal.GenerateMetadata.GenerateSigned%2A>методы.</xref:System.EnterpriseServices.Internal.GenerateMetadata.GenerateSigned%2A> </xref:System.EnterpriseServices.Internal.GenerateMetadata.Generate%2A>       При вызове <xref:System.EnterpriseServices.Internal.GenerateMetadata.GenerateSigned%2A>, GenerateMetaData также создает пару ключей со строгими именами, подписывает сборку и устанавливает ее в глобальный кэш сборок.</xref:System.EnterpriseServices.Internal.GenerateMetadata.GenerateSigned%2A>"
   syntax:
     content: public string GenerateMetaData (string strSrcTypeLib, string outPath, byte[] PublicKey, System.Reflection.StrongNameKeyPair KeyPair);
     parameters:
     - id: strSrcTypeLib
       type: System.String
-      description: "The name of the type library for which to generate an assembly."
+      description: "Имя библиотеки типов, для которого требуется создать сборку."
     - id: outPath
       type: System.String
-      description: "The folder in which to generate an assembly or to locate an already existing assembly."
+      description: "Папка, в которой требуется создать сборку или найти уже существующую сборку."
     - id: PublicKey
       type: System.Byte[]
-      description: "A public key used to import type library information into an assembly."
+      description: "Открытый ключ, используемый для импорта информации о библиотеке типов в сборку."
     - id: KeyPair
       type: System.Reflection.StrongNameKeyPair
-      description: "A strong-named key pair used to sign the generated assembly."
+      description: "Строгое имя пары ключей, используемой для подписи созданной сборки."
     return:
       type: System.String
-      description: "The generated assembly name; otherwise, an empty string if the inputs are invalid."
+      description: "Имя создаваемой сборке; в противном случае — пустая строка, если входные данные недопустимы."
   overload: System.EnterpriseServices.Internal.GenerateMetadata.GenerateMetaData*
   exceptions: []
   platform:
@@ -126,26 +126,26 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices.Internal
-  summary: "Generates, or locates, an assembly that contains common language runtime (CLR) metadata for a COM+ component represented by the specified type library, signs the assembly with a strong-named key pair, and installs it in the global assembly cache."
-  remarks: "If necessary, the GenerateSigned method generates an assembly that contains CLR metadata for a specified type library. It also generates a strong-named key pair and signs the assembly.       To do this processing, it calls the <xref:System.EnterpriseServices.Internal.GenerateMetadata.GenerateMetaData%2A> method. These methods do not need to be called directly from your code.       The `InstallGac` parameter indicates whether to install the assembly in the global assembly cache. However, the implementation ignores this value and always attempts to install the signed assembly in the global assembly cache."
+  summary: "Создает или находит сборку, содержащую метаданные среды CLR для компонента COM +, представленного указанной библиотекой типов, подписывает сборку парой ключей, образующих строгое имя и устанавливает ее в глобальный кэш сборок."
+  remarks: "При необходимости метод GenerateSigned создает сборку, содержащую метаданные среды CLR для указанной библиотеки типов. Он также создает пару ключей со строгими именами и подписывает сборку.       Чтобы сделать этот процесс, он вызывает <xref:System.EnterpriseServices.Internal.GenerateMetadata.GenerateMetaData%2A>метод.</xref:System.EnterpriseServices.Internal.GenerateMetadata.GenerateMetaData%2A> Эти методы не должны вызываться напрямую из кода приложения.       `InstallGac` Параметр указывает, следует ли устанавливать сборки в глобальный кэш сборок. Однако реализация игнорирует это значение и всегда пытается установить подписанную сборку в глобальный кэш сборок."
   syntax:
     content: public string GenerateSigned (string strSrcTypeLib, string outPath, bool InstallGac, out string Error);
     parameters:
     - id: strSrcTypeLib
       type: System.String
-      description: "The name of the type library for which to generate an assembly."
+      description: "Имя библиотеки типов, для которого требуется создать сборку."
     - id: outPath
       type: System.String
-      description: "The folder in which to generate an assembly or to locate an already existing assembly."
+      description: "Папка, в которой требуется создать сборку или найти уже существующую сборку."
     - id: InstallGac
       type: System.Boolean
-      description: "Ignored."
+      description: "Не обрабатывается."
     - id: Error
       type: System.String
-      description: "A string to which an error message can be written."
+      description: "Строка, в который могут записываться сообщение об ошибке."
     return:
       type: System.String
-      description: "The generated assembly name; otherwise, an empty string if the inputs are invalid."
+      description: "Имя создаваемой сборке; в противном случае — пустая строка, если входные данные недопустимы."
   overload: System.EnterpriseServices.Internal.GenerateMetadata.GenerateSigned*
   exceptions: []
   platform:
@@ -162,32 +162,32 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices.Internal
-  summary: "Searches for a specified file in a specified path."
-  remarks: "For more information, see the Platform SDK documentation about SearchPath at [http://msdn.microsoft.com/library/default.asp?url=/library/fileio/base/searchpath.asp](http://msdn.microsoft.com/library/default.asp?url=/library/fileio/base/searchpath.asp)."
+  summary: "Выполняет поиск указанного файла по указанному пути."
+  remarks: "Дополнительные сведения см. в документации Platform SDK о SearchPath в [http://msdn.microsoft.com/library/default.asp?url=/library/fileio/base/searchpath.asp](http://msdn.microsoft.com/library/default.asp?url=/library/fileio/base/searchpath.asp)."
   syntax:
     content: public static int SearchPath (string path, string fileName, string extension, int numBufferChars, string buffer, int[] filePart);
     parameters:
     - id: path
       type: System.String
-      description: "The path to be searched for the file."
+      description: "Путь для поиска файла."
     - id: fileName
       type: System.String
-      description: "The name of the file for which to search."
+      description: "Имя файла, который требуется найти."
     - id: extension
       type: System.String
-      description: "An extension to be added to the file name when searching for the file."
+      description: "Расширение для добавления к имени файла при поиске файла."
     - id: numBufferChars
       type: System.Int32
-      description: "The size of the buffer that receives the valid path and file name."
+      description: "Размер буфера, принимающего допустимый путь и имя файла."
     - id: buffer
       type: System.String
-      description: "The buffer that receives the path and file name of the file found."
+      description: "Буфер, который передается путь и имя найденного файла."
     - id: filePart
       type: System.Int32[]
-      description: "The variable that receives the address of the last component of the valid path and file name."
+      description: "Переменная, принимающая адрес последнего компонента допустимого пути и имени."
     return:
       type: System.Int32
-      description: "If the search succeeds, the return value is the length of the string copied to <code>buffer</code>. If the search fails, the return value is 0."
+      description: "Если поиск выполнен успешно, возвращается длина строки, скопированной в <code> buffer </code>. Если поиск заканчивается неудачно, возвращается 0."
   overload: System.EnterpriseServices.Internal.GenerateMetadata.SearchPath*
   exceptions: []
   platform:
