@@ -13,8 +13,8 @@ items:
   nameWithType: SecurityTokenManager
   fullName: System.IdentityModel.Selectors.SecurityTokenManager
   type: Class
-  summary: "Represents a security token manager that specifies how security tokens are provided, authenticated, and serialized."
-  remarks: "Use the SecurityTokenManager class when you need a custom security token, security token authenticator, or security token provider. Use a custom security token to handle credentials that [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] does not support. Use a custom security token authenticator when the authentication methods [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] provides are not sufficient. A SecurityTokenManager class returns a security token authenticator in the <xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenAuthenticator%28System.IdentityModel.Selectors.SecurityTokenRequirement%2CSystem.IdentityModel.Selectors.SecurityTokenResolver%40%29> method. A security token provider provides security tokens for outgoing SOAP messages. A SecurityTokenManager class returns a security token provider in the <xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenProvider%28System.IdentityModel.Selectors.SecurityTokenRequirement%29> method.       [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)] using custom security token authenticators and security token providers, see [Custom Credential and Credential Validation](~/add/includes/ajax-current-ext-md.md). [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)] creating a custom security token, see [How to: Create a Custom Token](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Представляет диспетчер маркеров безопасности, который определяет способ предоставлен, проверку подлинности и сериализации маркеров безопасности."
+  remarks: "Класс SecurityTokenManager при необходимости пользовательский маркер безопасности, проверки подлинности маркеров безопасности или поставщик маркеров безопасности. Использование пользовательского маркера безопасности для обработки учетными данными, которые [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] не поддерживает. Используйте средство проверки подлинности маркеров безопасности при методы проверки подлинности [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] предоставляет недостаточно. Класс SecurityTokenManager возвращает структуру проверки подлинности маркеров безопасности в <xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenAuthenticator%28System.IdentityModel.Selectors.SecurityTokenRequirement%2CSystem.IdentityModel.Selectors.SecurityTokenResolver%40%29>метод.</xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenAuthenticator%28System.IdentityModel.Selectors.SecurityTokenRequirement%2CSystem.IdentityModel.Selectors.SecurityTokenResolver%40%29> Поставщик маркеров безопасности предоставляет маркеры безопасности для исходящих сообщений SOAP. Класс SecurityTokenManager Возвращает поставщик маркеров безопасности в <xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenProvider%28System.IdentityModel.Selectors.SecurityTokenRequirement%29>метод.</xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenProvider%28System.IdentityModel.Selectors.SecurityTokenRequirement%29>       [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)]с помощью структур проверки подлинности маркеров безопасности и поставщики маркеров безопасности, в разделе [пользовательские учетные данные и проверки учетных данных](~/add/includes/ajax-current-ext-md.md). [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)]Создание пользовательского маркера безопасности, в разделе [как: Создание пользовательского токена](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public abstract class SecurityTokenManager
   inheritance:
@@ -55,20 +55,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Gets a security token authenticator that meets the specified security token requirements."
-  remarks: "A <xref:System.IdentityModel.Selectors.SecurityTokenManager> class provides types that can provide security tokens for outgoing SOAP messages and authenticate security tokens in incoming SOAP messages. The CreateSecurityTokenAuthenticator method returns a class that can authenticate security tokens that match the criteria specified in the `tokenRequirement` parameter."
+  summary: "Возвращает проверки подлинности маркеров безопасности, отвечающий требованиям к маркеру безопасности."
+  remarks: "Объект <xref:System.IdentityModel.Selectors.SecurityTokenManager>класс предоставляет типы, которые могут предоставлять маркеры безопасности для исходящих сообщений SOAP и проверять подлинность маркеров безопасности во входящих сообщениях SOAP.</xref:System.IdentityModel.Selectors.SecurityTokenManager> Метод CreateSecurityTokenAuthenticator возвращает класс, который может проверять подлинность маркеров безопасности, которые соответствуют критериям, указанным в `tokenRequirement` параметра."
   syntax:
     content: public abstract System.IdentityModel.Selectors.SecurityTokenAuthenticator CreateSecurityTokenAuthenticator (System.IdentityModel.Selectors.SecurityTokenRequirement tokenRequirement, out System.IdentityModel.Selectors.SecurityTokenResolver outOfBandTokenResolver);
     parameters:
     - id: tokenRequirement
       type: System.IdentityModel.Selectors.SecurityTokenRequirement
-      description: "A <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenRequirement&quot;></xref> that specifies the security token requirements."
+      description: "Объект <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenRequirement&quot;> </xref> , задающий требования к маркеру безопасности."
     - id: outOfBandTokenResolver
       type: System.IdentityModel.Selectors.SecurityTokenResolver
-      description: "A <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenResolver&quot;></xref> that determines the security token that matches the specified security token requirements."
+      description: "Объект <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenResolver&quot;> </xref> , определяющий маркер безопасности, соответствующий требованиям к маркеру безопасности."
     return:
       type: System.IdentityModel.Selectors.SecurityTokenAuthenticator
-      description: "A <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenAuthenticator&quot;></xref> that authenticates security tokens in incoming SOAP messages that meet the specified requirements."
+      description: "Объект <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenAuthenticator&quot;> </xref> , который проверяет подлинность маркеров безопасности во входящих сообщениях SOAP, которые удовлетворяют указанным требованиям."
   overload: System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenAuthenticator*
   exceptions: []
   platform:
@@ -85,17 +85,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Gets a security token provider that meets the specified security token requirements."
-  remarks: "A <xref:System.IdentityModel.Selectors.SecurityTokenManager> class provides types that can provide security tokens for outgoing SOAP messages and authenticate security tokens in incoming SOAP messages. The CreateSecurityTokenProvider method returns a class that can authenticate security tokens that can provide security tokens that match the criteria specified in the `tokenRequirement` parameter."
+  summary: "Возвращает поставщик маркеров безопасности, отвечающий требованиям к маркеру безопасности."
+  remarks: "Объект <xref:System.IdentityModel.Selectors.SecurityTokenManager>класс предоставляет типы, которые могут предоставлять маркеры безопасности для исходящих сообщений SOAP и проверять подлинность маркеров безопасности во входящих сообщениях SOAP.</xref:System.IdentityModel.Selectors.SecurityTokenManager> Метод CreateSecurityTokenProvider возвращает класс, который может проверять подлинность маркеров безопасности, которые могут предоставлять маркеры безопасности, которые соответствуют критериям, указанным в `tokenRequirement` параметра."
   syntax:
     content: public abstract System.IdentityModel.Selectors.SecurityTokenProvider CreateSecurityTokenProvider (System.IdentityModel.Selectors.SecurityTokenRequirement tokenRequirement);
     parameters:
     - id: tokenRequirement
       type: System.IdentityModel.Selectors.SecurityTokenRequirement
-      description: "A <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenRequirement&quot;></xref> that specifies the security token requirements."
+      description: "Объект <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenRequirement&quot;> </xref> , задающий требования к маркеру безопасности."
     return:
       type: System.IdentityModel.Selectors.SecurityTokenProvider
-      description: "A <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenProvider&quot;></xref> that provides security tokens that meet the specified requirements for outgoing SOAP messages."
+      description: "Объект <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenProvider&quot;> </xref> , предоставляет маркеры безопасности, которые удовлетворяют указанным требованиям для исходящих сообщений SOAP."
   overload: System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenProvider*
   exceptions: []
   platform:
@@ -112,17 +112,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Gets an XML serializer that can serialize security tokens in the specified version of the WS-* specifications."
-  remarks: "To add serialization support for a custom token, derive a class from <xref:System.ServiceModel.Security.WSSecurityTokenSerializer> and return an instance of that class for the CreateSecurityTokenSerializer method. The <xref:System.ServiceModel.Security.WSSecurityTokenSerializer> class, which derives from the <xref:System.IdentityModel.Selectors.SecurityTokenSerializer> class, is capable of serializing and deserializing the security tokens that ship with [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)]. Thus, to add support for a custom token to the serializer, override the virtual methods in the <xref:System.ServiceModel.Security.WSSecurityTokenSerializer> class, add code that checks whether the desired security token is the custom token, and, if not, call the base class method."
+  summary: "Возвращает XML-сериализатор, который может сериализовать маркеры безопасности в указанной версии WS-* спецификации."
+  remarks: "Чтобы добавить поддержку сериализации пользовательский маркер, создайте класс, производный от <xref:System.ServiceModel.Security.WSSecurityTokenSerializer>и возвратить экземпляр этого класса для метода CreateSecurityTokenSerializer.</xref:System.ServiceModel.Security.WSSecurityTokenSerializer> <xref:System.ServiceModel.Security.WSSecurityTokenSerializer>Класс, который является производным от <xref:System.IdentityModel.Selectors.SecurityTokenSerializer>класса, поддерживающего сериализацию и десериализацию маркеров безопасности, которые поставляются вместе с [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)].</xref:System.IdentityModel.Selectors.SecurityTokenSerializer> </xref:System.ServiceModel.Security.WSSecurityTokenSerializer> Таким образом, чтобы добавить поддержку пользовательского маркера в сериализатор, необходимо переопределить виртуальные методы <xref:System.ServiceModel.Security.WSSecurityTokenSerializer>Добавьте код, проверяющий является ли требуемый маркер безопасности пользовательским маркером и, если нет, вызвать метод базового класса.</xref:System.ServiceModel.Security.WSSecurityTokenSerializer>"
   syntax:
     content: public abstract System.IdentityModel.Selectors.SecurityTokenSerializer CreateSecurityTokenSerializer (System.IdentityModel.Selectors.SecurityTokenVersion version);
     parameters:
     - id: version
       type: System.IdentityModel.Selectors.SecurityTokenVersion
-      description: "A <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenVersion&quot;></xref> that specifies the WS-* specification versions that security tokens adhere to."
+      description: "Объект <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenVersion&quot;> </xref> , указывающий WS-* версий спецификации, которые соответствуют маркеры безопасности."
     return:
       type: System.IdentityModel.Selectors.SecurityTokenSerializer
-      description: "A <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenSerializer&quot;></xref> to serialize the security tokens."
+      description: "Объект <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenSerializer&quot;> </xref> для сериализации маркеров безопасности."
   overload: System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenSerializer*
   exceptions: []
   platform:

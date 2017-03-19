@@ -12,8 +12,8 @@ items:
   nameWithType: ScrollableControlDesigner
   fullName: System.Windows.Forms.Design.ScrollableControlDesigner
   type: Class
-  summary: "Base designer class for extending the design mode behavior of a <xref href=&quot;System.Windows.Forms.Control&quot;></xref> which should receive scroll messages."
-  remarks: "ScrollableControlDesigner provides a base class for designers of controls that respond to scroll messages. In addition to the methods and functionality inherited from the <xref:System.Windows.Forms.Design.ParentControlDesigner>, <xref:System.Windows.Forms.Design.ControlDesigner>, and <xref:System.ComponentModel.Design.ComponentDesigner> classes, ScrollableControlDesigner provides a <xref:System.Windows.Forms.Control.WndProc%2A> method override that passes WM_HSCROLL and WM_VSCROLL messages to the control at design time.      > [!NOTE] >  If a form has its <xref:System.Windows.Forms.Form.AutoScroll%2A> property set to active, the scroll bars are always active in the design-time environment.       You can associate a designer with a type using a <xref:System.ComponentModel.DesignerAttribute>. For an overview of customizing design time behavior, see [Extending Design-Time Support](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Базовый класс конструктора для расширения поведения режиме конструктора <xref href=&quot;System.Windows.Forms.Control&quot;> </xref> которого должен получать сообщения прокрутки."
+  remarks: "ScrollableControlDesigner предоставляет базовый класс для разработчиков элементов управления, отвечающих на прокрутите сообщения. В дополнение к методам и функциональным возможностям, унаследованные от <xref:System.Windows.Forms.Design.ParentControlDesigner>, <xref:System.Windows.Forms.Design.ControlDesigner>, и <xref:System.ComponentModel.Design.ComponentDesigner>классы ScrollableControlDesigner предоставляет <xref:System.Windows.Forms.Control.WndProc%2A>переопределяющий метод, который передает сообщения WM_HSCROLL и WM_VSCROLL элементу управления во время разработки.</xref:System.Windows.Forms.Control.WndProc%2A> </xref:System.ComponentModel.Design.ComponentDesigner> </xref:System.Windows.Forms.Design.ControlDesigner> </xref:System.Windows.Forms.Design.ParentControlDesigner>      Настроек [!NOTE] настроек Если формы с его <xref:System.Windows.Forms.Form.AutoScroll%2A>свойство активным, полосы прокрутки всегда являются активными в среде разработки.</xref:System.Windows.Forms.Form.AutoScroll%2A>       Конструктор можно связать с типом, используя <xref:System.ComponentModel.DesignerAttribute>.</xref:System.ComponentModel.DesignerAttribute> Общие сведения о настройке поведение во время разработки, в разделе [расширения поддержки времени разработки](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: 'public class ScrollableControlDesigner : System.Windows.Forms.Design.ParentControlDesigner'
   inheritance:
@@ -128,7 +128,7 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Forms.Design.ScrollableControlDesigner&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Windows.Forms.Design.ScrollableControlDesigner&quot;> </xref> класса."
   syntax:
     content: public ScrollableControlDesigner ();
     parameters: []
@@ -148,17 +148,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Indicates whether a mouse click at the specified point should be handled by the control."
-  remarks: "The GetHitTest method determines whether a click at the specified point should be passed to the control, while the control is in design mode. You can override and implement this method to enable your control to receive clicks in the design-time environment.      > [!NOTE] >  You can pass a point in screen coordinates to the <xref:System.Windows.Forms.Control.PointToClient%2A> method of the <xref:System.Windows.Forms.Control> class to obtain the coordinates of the point relative to the upper-left corner of the control."
+  summary: "Указывает, должна ли щелчка кнопкой мыши в заданной точке обрабатываться элементом управления."
+  remarks: "Метод GetHitTest определяет, следует ли передавать щелчок в указанной точке в элемент управления, когда она находится в режиме конструктора. Можно переопределить и реализовать этот метод, чтобы включить элемент управления во время разработки среды.      Настроек [!NOTE] настроек можно передать точку в координатах экрана <xref:System.Windows.Forms.Control.PointToClient%2A>метод <xref:System.Windows.Forms.Control>класса для получения координат точки относительно левого верхнего угла элемента управления.</xref:System.Windows.Forms.Control> </xref:System.Windows.Forms.Control.PointToClient%2A>"
   syntax:
     content: protected override bool GetHitTest (System.Drawing.Point pt);
     parameters:
     - id: pt
       type: System.Drawing.Point
-      description: "A <xref href=&quot;System.Drawing.Point&quot;></xref> indicating the position at which the mouse was clicked, in screen coordinates."
+      description: "Объект <xref href=&quot;System.Drawing.Point&quot;> </xref> , указывающее позицию, с которой выполнен щелчок, в экранных координатах."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a click at the specified point is to be handled by the control; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если щелчок в указанной точке должен обрабатываться элементом управления; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.Design.ScrollableControlDesigner.GetHitTest*
   exceptions: []
   platform:
@@ -175,14 +175,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Processes Windows messages and passes WM_HSCROLL and WM_VSCROLL messages to the control at design time."
-  remarks: "This override of the <xref:System.Windows.Forms.Design.ControlDesigner.WndProc%2A> method passes any WM_HSCROLL and WM_VSCROLL messages to the control at design time. All messages are first passed to the base <xref:System.Windows.Forms.Design.ControlDesigner.WndProc%2A> method."
+  summary: "Обрабатывает сообщения Windows и передает сообщения WM_HSCROLL и WM_VSCROLL элементу управления во время разработки."
+  remarks: "Это переопределение <xref:System.Windows.Forms.Design.ControlDesigner.WndProc%2A>метод передает все сообщения WM_HSCROLL и WM_VSCROLL элементу управления во время разработки.</xref:System.Windows.Forms.Design.ControlDesigner.WndProc%2A> Сначала все сообщения передаются в базу <xref:System.Windows.Forms.Design.ControlDesigner.WndProc%2A>метод.</xref:System.Windows.Forms.Design.ControlDesigner.WndProc%2A>"
   syntax:
     content: protected override void WndProc (ref System.Windows.Forms.Message m);
     parameters:
     - id: m
       type: System.Windows.Forms.Message
-      description: "The <xref href=&quot;System.Windows.Forms.Message&quot;></xref> to process."
+      description: "<xref href=&quot;System.Windows.Forms.Message&quot;> </xref> Процессу."
   overload: System.Windows.Forms.Design.ScrollableControlDesigner.WndProc*
   exceptions: []
   platform:

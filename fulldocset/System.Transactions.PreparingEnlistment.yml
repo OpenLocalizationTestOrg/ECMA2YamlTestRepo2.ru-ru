@@ -13,8 +13,8 @@ items:
   nameWithType: PreparingEnlistment
   fullName: System.Transactions.PreparingEnlistment
   type: Class
-  summary: "Facilitates communication between an enlisted transaction participant and the transaction manager during the Prepare phase of the transaction."
-  remarks: "During the initial (prepare) phase of the transaction, the transaction manager passes this type to the resource manager by calling the <xref:System.Transactions.IEnlistmentNotification.Prepare%2A> method to obtain a resource&quot;s vote on the transaction. Depending on whether it votes to commit or roll back, your implementation of the resource manager should call the <xref:System.Transactions.PreparingEnlistment.Prepared%2A> or <xref:System.Transactions.PreparingEnlistment.ForceRollback%2A> methods of this type.       The resource manager can also call the <xref:System.Transactions.Enlistment.Done%2A> method at anytime before it has called the <xref:System.Transactions.PreparingEnlistment.Prepared%2A> method. By doing so, the enlistment is casting a read only vote, meaning that it votes commit on the transaction but does not need to receive the final outcome.       Durable resource managers can retrieve the information that is be needed by the transaction manager for re-enlistment from the <xref:System.Transactions.PreparingEnlistment.RecoveryInformation%2A> property. For more information on recovery, see [Performing Recovery](http://msdn.microsoft.com/en-us/d342c5c7-da64-4a4c-8e63-b52f4fbf2691)."
+  summary: "Облегчает взаимодействие между присоединенным участником транзакции и диспетчером транзакций на этапе подготовки транзакции."
+  remarks: "Во время первоначального (Подготовка) фазы транзакции, диспетчер транзакций передает этот тип в диспетчер ресурсов путем вызова <xref:System.Transactions.IEnlistmentNotification.Prepare%2A>метод, чтобы получить голос ресурсов для данной транзакции.</xref:System.Transactions.IEnlistmentNotification.Prepare%2A> В зависимости от того, было ли голосов для фиксации или отката, реализация диспетчера ресурсов должна вызывать <xref:System.Transactions.PreparingEnlistment.Prepared%2A>или <xref:System.Transactions.PreparingEnlistment.ForceRollback%2A>методы этого типа.</xref:System.Transactions.PreparingEnlistment.ForceRollback%2A> </xref:System.Transactions.PreparingEnlistment.Prepared%2A>       Диспетчер ресурсов можно также вызвать <xref:System.Transactions.Enlistment.Done%2A>в любое время перед его вызван метод <xref:System.Transactions.PreparingEnlistment.Prepared%2A>метод.</xref:System.Transactions.PreparingEnlistment.Prepared%2A> </xref:System.Transactions.Enlistment.Done%2A> Таким образом, прикрепление является приведение чтения только голоса, это означает, что оно голосует за фиксацию транзакции, но не требуется получения окончательного результата.       Диспетчеры устойчивых ресурсов можно получить сведения, необходимые диспетчером транзакций для повторного перечисления из <xref:System.Transactions.PreparingEnlistment.RecoveryInformation%2A>свойство.</xref:System.Transactions.PreparingEnlistment.RecoveryInformation%2A> Дополнительные сведения о восстановлении см. в разделе [выполнение восстановления](http://msdn.microsoft.com/en-us/d342c5c7-da64-4a4c-8e63-b52f4fbf2691)."
   example:
   - >-
     [!code-cs[Tx_Enlist#2](~/add/codesnippet/csharp/t-system.transactions.pr_1.cs)]
@@ -41,8 +41,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Indicates that the transaction should be rolled back."
-  remarks: "An implementation of the <xref:System.Transactions.IEnlistmentNotification.Prepare%2A> method of the <xref:System.Transactions.IEnlistmentNotification> interface calls this method to indicate that the transaction must be rolled back."
+  summary: "Указывает, что следует выполнить откат транзакции."
+  remarks: "Реализация <xref:System.Transactions.IEnlistmentNotification.Prepare%2A>метод <xref:System.Transactions.IEnlistmentNotification>интерфейса вызывает этот метод, чтобы указать, что необходимо выполнить откат транзакции.</xref:System.Transactions.IEnlistmentNotification> </xref:System.Transactions.IEnlistmentNotification.Prepare%2A>"
   example:
   - >-
     [!code-cs[Tx_Enlist#2](~/add/codesnippet/csharp/m-system.transactions.pr_0_1.cs)]
@@ -66,13 +66,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Indicates that the transaction should be rolled back."
+  summary: "Указывает, что следует выполнить откат транзакции."
   syntax:
     content: public void ForceRollback (Exception e);
     parameters:
     - id: e
       type: System.Exception
-      description: "An explanation of why a rollback is triggered."
+      description: "Объяснение, почему требуется откат."
   overload: System.Transactions.PreparingEnlistment.ForceRollback*
   exceptions: []
   platform:
@@ -89,8 +89,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Indicates that the transaction can be committed."
-  remarks: "In the first (prepare) phase of a two phase commit, a resource manager implementing the <xref:System.Transactions.IEnlistmentNotification.Prepare%2A> method of the <xref:System.Transactions.IEnlistmentNotification> interface, calls this method to indicate that the transaction can be committed.       The resource manager can call the <xref:System.Transactions.Enlistment.Done%2A> method at anytime before it has called this method.  By doing so, the enlistment is casting a read only vote, meaning that it votes commit on the transaction but does not need to receive the final outcome.       Once this method is called by an enlistment and before it returns, it is possible that another thread or this same thread could make a call into the same enlistment method such as <xref:System.Transactions.IEnlistmentNotification.Rollback%2A> to perform a rollback. This can result in a deadlock situation if the resource manager implementation does not release resource locks until after this method returns."
+  summary: "Указывает, что транзакция может быть зафиксирована."
+  remarks: "В первом (Подготовка) фазы фиксации двухфазной, диспетчер ресурсов реализации <xref:System.Transactions.IEnlistmentNotification.Prepare%2A>метод <xref:System.Transactions.IEnlistmentNotification>интерфейсом, вызывает этот метод, чтобы указать, что транзакция может быть зафиксирована.</xref:System.Transactions.IEnlistmentNotification> </xref:System.Transactions.IEnlistmentNotification.Prepare%2A>       Диспетчер ресурсов может вызывать <xref:System.Transactions.Enlistment.Done%2A>метод в любое время до вызова этого метода.</xref:System.Transactions.Enlistment.Done%2A>  Таким образом, прикрепление является приведение чтения только голоса, это означает, что оно голосует за фиксацию транзакции, но не требуется получения окончательного результата.       Когда этот метод вызывается методом прикрепления в перед возвратом, возможна ситуация, другой поток или этого же потока может вызвать в один и тот же метод прикрепление таких как <xref:System.Transactions.IEnlistmentNotification.Rollback%2A>для выполнения отката.</xref:System.Transactions.IEnlistmentNotification.Rollback%2A> Это может привести к возникновению взаимоблокировки, если реализация диспетчера ресурсов не освободит блокировку ресурса до после возврата этого метода."
   example:
   - >-
     [!code-cs[Tx_Enlist#2](~/add/codesnippet/csharp/m-system.transactions.pr_1_1.cs)]
@@ -114,18 +114,18 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Gets the recovery information of an enlistment."
+  summary: "Возвращает данные для восстановления из перечисления."
   syntax:
     content: public byte[] RecoveryInformation ();
     parameters: []
     return:
       type: System.Byte[]
-      description: "The recovery information of an enlistment."
+      description: "Данные для восстановления из перечисления."
   overload: System.Transactions.PreparingEnlistment.RecoveryInformation*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt to get recovery information inside a volatile enlistment, which does not generate any recovery information."
+    description: "Попытка получить сведения о восстановлении внутри переменного присоединения, который не выдает никакой информации для восстановления."
   platform:
   - net462
 references:

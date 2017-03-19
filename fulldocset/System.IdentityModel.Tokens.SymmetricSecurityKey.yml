@@ -17,8 +17,8 @@ items:
   nameWithType: SymmetricSecurityKey
   fullName: System.IdentityModel.Tokens.SymmetricSecurityKey
   type: Class
-  summary: "Represents the abstract base class for all keys that are generated using symmetric algorithms."
-  remarks: "Typically, this class is used by the infrastructure to transform XML using a symmetric key."
+  summary: "Представляет абстрактный базовый класс для всех ключей, созданных с помощью симметричных алгоритмов."
+  remarks: "Как правило этот класс используется инфраструктурой для преобразования XML с помощью симметричного ключа."
   syntax:
     content: 'public abstract class SymmetricSecurityKey : System.IdentityModel.Tokens.SecurityKey'
   inheritance:
@@ -46,7 +46,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SymmetricSecurityKey&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.IdentityModel.Tokens.SymmetricSecurityKey&quot;> </xref> класса."
   syntax:
     content: protected SymmetricSecurityKey ();
     parameters: []
@@ -66,29 +66,29 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "When overridden in a derived class, generates a derived key using the specified cryptographic algorithm and parameters for the current key."
-  remarks: "To specify P-SHA1 as the cryptographic algorithm, use the <xref:System.IdentityModel.Tokens.SecurityAlgorithms.Psha1KeyDerivation> field."
+  summary: "При переопределении в производном классе создает производный ключ, используя указанный алгоритм шифрования и параметры для текущего ключа."
+  remarks: "Чтобы указать P-SHA1 в качестве алгоритма шифрования, используйте <xref:System.IdentityModel.Tokens.SecurityAlgorithms.Psha1KeyDerivation>поля.</xref:System.IdentityModel.Tokens.SecurityAlgorithms.Psha1KeyDerivation>"
   syntax:
     content: public abstract byte[] GenerateDerivedKey (string algorithm, byte[] label, byte[] nonce, int derivedKeyLength, int offset);
     parameters:
     - id: algorithm
       type: System.String
-      description: "A URI that represents the cryptographic algorithm to use to generate the derived key."
+      description: "URI, который представляет алгоритм шифрования, используемый для создания производного ключа."
     - id: label
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains the label parameter for the cryptographic algorithm."
+      description: "Массив <xref:System.Byte>, содержащий параметр метки для алгоритма шифрования.</xref:System.Byte>"
     - id: nonce
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains the nonce that is used to create a derived key."
+      description: "Массив <xref:System.Byte>, содержащий специальное слово, которое используется для создания производного ключа.</xref:System.Byte>"
     - id: derivedKeyLength
       type: System.Int32
-      description: "The size of the derived key."
+      description: "Размер производного ключа."
     - id: offset
       type: System.Int32
-      description: "The position at which the derived key is located in the byte array that is returned from this method."
+      description: "Позиция, с которой производный ключ находится в массив байтов, возвращаемый этим методом."
     return:
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains the derived key."
+      description: "Массив <xref:System.Byte>, содержащий производный ключ.</xref:System.Byte>"
   overload: System.IdentityModel.Tokens.SymmetricSecurityKey.GenerateDerivedKey*
   exceptions: []
   platform:
@@ -105,20 +105,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "When overridden in a derived class, gets a transform that decrypts cipher text using the specified cryptographic algorithm."
-  remarks: "Use the fields that represent decryption algorithms in the <xref:System.IdentityModel.Tokens.SecurityAlgorithms> class to specify the algorithm."
+  summary: "При переопределении в производном классе Возвращает преобразование, которое расшифровывает зашифрованный текст, с помощью указанного алгоритма шифрования."
+  remarks: "Используйте поля, представляющие алгоритмы расшифровки в <xref:System.IdentityModel.Tokens.SecurityAlgorithms>класса для задания алгоритма.</xref:System.IdentityModel.Tokens.SecurityAlgorithms>"
   syntax:
     content: public abstract System.Security.Cryptography.ICryptoTransform GetDecryptionTransform (string algorithm, byte[] iv);
     parameters:
     - id: algorithm
       type: System.String
-      description: "A cryptographic algorithm that decrypts cipher text, such as encrypted XML."
+      description: "Алгоритм шифрования, который расшифровывает текст, например, зашифрованный текст XML."
     - id: iv
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains the initialization vector (<xref uid=&quot;langword_csharp_IV&quot; name=&quot;IV&quot; href=&quot;&quot;></xref>) for the specified algorithm."
+      description: "Массив <xref:System.Byte>, содержащий вектор инициализации (<xref uid=&quot;langword_csharp_IV&quot; name=&quot;IV&quot; href=&quot;&quot;></xref>) для указанного алгоритма.</xref:System.Byte>"
     return:
       type: System.Security.Cryptography.ICryptoTransform
-      description: "An <xref href=&quot;System.Security.Cryptography.ICryptoTransform&quot;></xref> that represents the decryption transform."
+      description: "<xref href=&quot;System.Security.Cryptography.ICryptoTransform&quot;> </xref> , Представляющий преобразование расшифровки."
   overload: System.IdentityModel.Tokens.SymmetricSecurityKey.GetDecryptionTransform*
   exceptions: []
   platform:
@@ -135,20 +135,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "When overridden in a derived class, gets a transform that encrypts XML using the specified cryptographic algorithm."
-  remarks: "Use the fields that represent decryption algorithms in the <xref:System.IdentityModel.Tokens.SecurityAlgorithms> class to specify the algorithm."
+  summary: "При переопределении в производном классе Возвращает преобразование, шифрующее XML с помощью указанного алгоритма шифрования."
+  remarks: "Используйте поля, представляющие алгоритмы расшифровки в <xref:System.IdentityModel.Tokens.SecurityAlgorithms>класса для задания алгоритма.</xref:System.IdentityModel.Tokens.SecurityAlgorithms>"
   syntax:
     content: public abstract System.Security.Cryptography.ICryptoTransform GetEncryptionTransform (string algorithm, byte[] iv);
     parameters:
     - id: algorithm
       type: System.String
-      description: "A cryptographic algorithm that encrypts XML."
+      description: "Алгоритм шифрования, который шифрует XML."
     - id: iv
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains the initialization vector (<xref uid=&quot;langword_csharp_IV&quot; name=&quot;IV&quot; href=&quot;&quot;></xref>) for the specified algorithm."
+      description: "Массив <xref:System.Byte>, содержащий вектор инициализации (<xref uid=&quot;langword_csharp_IV&quot; name=&quot;IV&quot; href=&quot;&quot;></xref>) для указанного алгоритма.</xref:System.Byte>"
     return:
       type: System.Security.Cryptography.ICryptoTransform
-      description: "An <xref href=&quot;System.Security.Cryptography.ICryptoTransform&quot;></xref> that represents the encryption transform."
+      description: "<xref href=&quot;System.Security.Cryptography.ICryptoTransform&quot;> </xref> , Представляющий преобразование шифрования."
   overload: System.IdentityModel.Tokens.SymmetricSecurityKey.GetEncryptionTransform*
   exceptions: []
   platform:
@@ -165,16 +165,16 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "When overridden in a derived class, gets the size, in bits, of the initialization vector (<xref uid=&quot;langword_csharp_IV&quot; name=&quot;IV&quot; href=&quot;&quot;></xref>) that is required for the specified cryptographic algorithm."
+  summary: "При переопределении в производном классе, возвращает размер в битах для вектора инициализации (<xref uid=&quot;langword_csharp_IV&quot; name=&quot;IV&quot; href=&quot;&quot;></xref>) необходим для указанного алгоритма шифрования."
   syntax:
     content: public abstract int GetIVSize (string algorithm);
     parameters:
     - id: algorithm
       type: System.String
-      description: "The cryptographic algorithm to get the size of the initialization vector (<xref uid=&quot;langword_csharp_IV&quot; name=&quot;IV&quot; href=&quot;&quot;></xref>)."
+      description: "Алгоритм шифрования для получения размера вектора инициализации (<xref uid=&quot;langword_csharp_IV&quot; name=&quot;IV&quot; href=&quot;&quot;></xref>)."
     return:
       type: System.Int32
-      description: "The size, in bits, of the initialization vector (<xref uid=&quot;langword_csharp_IV&quot; name=&quot;IV&quot; href=&quot;&quot;></xref>) that is required for the cryptographic algorithm specified in the <code>algorithm</code> parameter."
+      description: "Размер в битах для вектора инициализации (<xref uid=&quot;langword_csharp_IV&quot; name=&quot;IV&quot; href=&quot;&quot;></xref>), не требуется для алгоритма шифрования, указанный в <code> algorithm </code> параметра."
   overload: System.IdentityModel.Tokens.SymmetricSecurityKey.GetIVSize*
   exceptions: []
   platform:
@@ -191,17 +191,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "When overridden in a derived class, gets an instance of the specified keyed hash algorithm."
-  remarks: "Use the fields that represent keyed hash algorithms in the <xref:System.IdentityModel.Tokens.SecurityAlgorithms> class to specify the algorithm."
+  summary: "При переопределении в производном классе, возвращает экземпляр указанного хэш-алгоритма."
+  remarks: "Используйте поля, представляющие алгоритмы хэширования с ключом в <xref:System.IdentityModel.Tokens.SecurityAlgorithms>класса для задания алгоритма.</xref:System.IdentityModel.Tokens.SecurityAlgorithms>"
   syntax:
     content: public abstract System.Security.Cryptography.KeyedHashAlgorithm GetKeyedHashAlgorithm (string algorithm);
     parameters:
     - id: algorithm
       type: System.String
-      description: "The keyed hash algorithm to get an instance of."
+      description: "Алгоритм хэширования с ключом для получения экземпляра."
     return:
       type: System.Security.Cryptography.KeyedHashAlgorithm
-      description: "A <xref href=&quot;System.Security.Cryptography.KeyedHashAlgorithm&quot;></xref> that represents the keyed hash algorithm."
+      description: "Объект <xref href=&quot;System.Security.Cryptography.KeyedHashAlgorithm&quot;> </xref> , представляющий хэш-алгоритма."
   overload: System.IdentityModel.Tokens.SymmetricSecurityKey.GetKeyedHashAlgorithm*
   exceptions: []
   platform:
@@ -218,17 +218,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "When overridden in a derived class, gets an instance of the specified symmetric algorithm."
-  remarks: "Use the fields that represent symmetric algorithms in the <xref:System.IdentityModel.Tokens.SecurityAlgorithms> class to specify the algorithm."
+  summary: "При переопределении в производном классе, возвращает экземпляр указанного симметричного алгоритма."
+  remarks: "Используйте поля, представляющие симметричные алгоритмы в <xref:System.IdentityModel.Tokens.SecurityAlgorithms>класса для задания алгоритма.</xref:System.IdentityModel.Tokens.SecurityAlgorithms>"
   syntax:
     content: public abstract System.Security.Cryptography.SymmetricAlgorithm GetSymmetricAlgorithm (string algorithm);
     parameters:
     - id: algorithm
       type: System.String
-      description: "The symmetric algorithm to get an instance of."
+      description: "Симметричный алгоритм для получения экземпляра."
     return:
       type: System.Security.Cryptography.SymmetricAlgorithm
-      description: "A <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;></xref> that represents the symmetric algorithm."
+      description: "Объект <xref href=&quot;System.Security.Cryptography.SymmetricAlgorithm&quot;> </xref> , представляющий симметричный алгоритм."
   overload: System.IdentityModel.Tokens.SymmetricSecurityKey.GetSymmetricAlgorithm*
   exceptions: []
   platform:
@@ -245,13 +245,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "When overridden in a derived class, gets the bytes that represent the symmetric key."
+  summary: "При переопределении в производном классе возвращает байты, представляющие симметричный ключ."
   syntax:
     content: public abstract byte[] GetSymmetricKey ();
     parameters: []
     return:
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains the symmetric key."
+      description: "Массив <xref:System.Byte>, содержащий симметричный ключ.</xref:System.Byte>"
   overload: System.IdentityModel.Tokens.SymmetricSecurityKey.GetSymmetricKey*
   exceptions: []
   platform:

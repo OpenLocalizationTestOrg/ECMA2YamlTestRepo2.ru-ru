@@ -35,7 +35,7 @@ items:
   nameWithType: HijriCalendar
   fullName: System.Globalization.HijriCalendar
   type: Class
-  summary: "Represents the Hijri calendar."
+  summary: "Представляет исламский календарь."
   remarks: "The Hijri calendar recognizes one era: A.H. (Latin \"Anno Hegirae\", which means \"the year of the migration,\" in reference to the migration of Muhammad (PBUH) from Mecca).  \n  \n> [!NOTE]\n>  For information about using the HijriCalendar class and the other calendar classes in the .NET Framework, see [Working with Calendars](~/add/includes/ajax-current-ext-md.md).  \n  \n In every 30-year cycle that ends with a year that is evenly divisible by 30, the 2nd, 5th, 7th, 10th, 13th, 16th, 18th, 21st, 24th, 26th, and 29th years are leap years. A common year has 354 days and a leap year has 355 days.  \n  \n The Hijri calendar has 12 months with 29 to 30 days each:  \n  \n|GetMonth value|Month|Days in common years|Days in leap years|  \n|--------------------|-----------|--------------------------|------------------------|  \n|1|محرم (Muharram)|30|30|  \n|2|صفر (Safar)|29|29|  \n|3|‏ربيع الاول (Rabi I)|30|30|  \n|4|‏ربيع الثاني (Rabi II)|29|29|  \n|5|جمادى الاولى (Jumada I)|30|30|  \n|6|جمادى الثانية (Jumada II)|29|29|  \n|7|رجب (Rajab)|30|30|  \n|8|شعبان (Shaban)|29|29|  \n|9|رمضان (Ramadan)|30|30|  \n|10|شوال (Shawwal)|29|29|  \n|11|ذو القعدة (Zulkadah)|30|30|  \n|12|ذو الحجة (Zulhijjah)|29|30|  \n  \n Ramadan, the month of fasting in the Muslim world, officially starts and ends according to a decree that is based on the observation of the new moon. Therefore, the number of days in Shaban and the number of days in Ramadan vary.  \n  \n The date January 1, 2001 A.D. in the Gregorian calendar is roughly equivalent to the sixth day of Shawwal in the year 1421 A.H. in the Hijri calendar.  \n  \n This implementation of the HijriCalendar class adjusts the calendar date by adding or subtracting a value from zero to two days to accommodate the variances in the start and the end of Ramadan and to accommodate the date difference between countries/regions. That value is stored in the <xref:System.Globalization.HijriCalendar.HijriAdjustment%2A> property. If <xref:System.Globalization.HijriCalendar.HijriAdjustment%2A> is not set explicitly, it derives its value from the settings in the regional and language options portion of Control Panel and is stored in the registry value HKEY_CURRENT_USER\\Control Panel\\International\\AddHijriDate. However, that information can change during the life of the <xref:System.AppDomain>. The HijriCalendar class does not detect changes in the system settings automatically.  \n  \n Each <xref:System.Globalization.CultureInfo> supports a set of calendars. The <xref:System.Globalization.CultureInfo.Calendar%2A> property returns the default calendar for the culture, and the <xref:System.Globalization.CultureInfo.OptionalCalendars%2A> property returns an array containing all the calendars supported by the culture. To change the calendar used by a <xref:System.Globalization.CultureInfo>, the application should set the <xref:System.Globalization.DateTimeFormatInfo.Calendar%2A> property of <xref:System.Globalization.CultureInfo.DateTimeFormat%2A?displayProperty=fullName> to a new <xref:System.Globalization.Calendar>."
   syntax:
     content: >-
@@ -60,7 +60,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Initializes a new instance of the <xref href=&quot;System.Globalization.HijriCalendar&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Globalization.HijriCalendar&quot;> </xref> класса."
   syntax:
     content: public HijriCalendar ();
     parameters: []
@@ -80,8 +80,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns a <xref:System.DateTime> that is the specified number of months away from the specified <xref:System.DateTime>."
-  remarks: "The day part of the resulting <xref:System.DateTime> is affected if the resulting day is not a valid day in the resulting month of the resulting year. It is changed to the last valid day in the resulting month of the resulting year. The year part of the resulting <xref:System.DateTime> is affected if the resulting month is outside the year of the specified <xref:System.DateTime>. This implementation supports only the current era. Therefore, <xref:System.ArgumentException> is thrown if the resulting year is outside the era of the specified <xref:System.DateTime>. The time-of-day part of the resulting <xref:System.DateTime> remains the same as the specified <xref:System.DateTime>.       For example, if the specified month is Zulkadah, which has 30 days, the specified day is the 30th day of that month, and the value of the `months` parameter is 3, the resulting year is one more than the specified year, the resulting month is Safar, and the resulting day is the 29th day, which is the last day in Safar.       If the value of the `months` parameter is negative, the resulting <xref:System.DateTime> is earlier than the specified <xref:System.DateTime>.       The<xref:System.DateTime.Kind%2A> property of the returned <xref:System.DateTime> value always equals <xref:System.DateTimeKind?displayProperty=fullName>. You can preserve the <xref:System.DateTime.Kind%2A> property of the `time` parameter by calling the <xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName> method, as the following example shows.       [!code-vb[System.Globalization.Calendar.AddMethods#5](~/add/codesnippet/visualbasic/m-system.globalization.h_21_1.vb)]  [!code-cs[System.Globalization.Calendar.AddMethods#5](~/add/codesnippet/csharp/m-system.globalization.h_21_1.cs)]"
+  summary: "Возвращает <xref:System.DateTime>указанный количество месяцев от указанной <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime>"
+  remarks: "Компонент дня <xref:System.DateTime>изменяется, если конечный день не является допустимым днем месяца и года.</xref:System.DateTime> Он заменяется последним допустимым днем месяца и года. Часть года полученный <xref:System.DateTime>изменяется, если конечный месяц находится вне диапазона года заданного <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime> Эта реализация поддерживает только текущую эру. Таким образом, <xref:System.ArgumentException>создается исключение, если год результата находится за пределами эры заданного <xref:System.DateTime>.</xref:System.DateTime> </xref:System.ArgumentException> Часть времени дня полученный <xref:System.DateTime>остается таким же, как указанный <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime>       Например, если указанный месяц каада, который содержит 30 дней, указанный день — 30-й день этого месяца, а значение `months` параметра равно 3, год результата сафар — на один больше указанного, месяц и день — 29-й день, который является зуль.       Если значение `months` параметр имеет отрицательное значение, <xref:System.DateTime>более ранняя, чем указанный <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime> полученный       <xref:System.DateTime.Kind%2A>Возвращаемое <xref:System.DateTime>значение всегда равно <xref:System.DateTimeKind?displayProperty=fullName>.</xref:System.DateTimeKind?displayProperty=fullName> </xref:System.DateTime> свойство</xref:System.DateTime.Kind%2A> Можно сохранить <xref:System.DateTime.Kind%2A>свойство `time` параметра путем вызова <xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName>метода, как показано в следующем примере.</xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName> </xref:System.DateTime.Kind%2A>       [!code-vb[System.Globalization.Calendar.AddMethods#5](~/add/codesnippet/visualbasic/m-system.globalization.h_21_1.vb)][!code-cs[System.Globalization.Calendar.AddMethods#5  ](~/add/codesnippet/csharp/m-system.globalization.h_21_1.cs)]"
   example:
   - "The following code example displays the values of several components of a <xref:System.DateTime> in terms of the Hijri calendar.  \n  \n [!code-cpp[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/cpp/m-system.globalization.h_21_2.cpp)]\n [!code-cs[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/csharp/m-system.globalization.h_21_2.cs)]\n [!code-vb[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/visualbasic/m-system.globalization.h_21_2.vb)]"
   syntax:
@@ -89,21 +89,21 @@ items:
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to add months to."
+      description: "<xref:System.DateTime>Добавление месяцы.</xref:System.DateTime>"
     - id: months
       type: System.Int32
-      description: "The number of months to add."
+      description: "Число месяцев для добавления."
     return:
       type: System.DateTime
-      description: "The <xref:System.DateTime> that results from adding the specified number of months to the specified <xref:System.DateTime>."
+      description: "<xref:System.DateTime>Который является результатом добавления указанное число месяцев до указанного <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime>"
   overload: System.Globalization.HijriCalendar.AddMonths*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The resulting <xref:System.DateTime>."
+    description: "Результирующее <xref:System.DateTime>.</xref:System.DateTime>"
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>months</code> is less than -120000.       -or-       <code>months</code> is greater than 120000."
+    description: "<code>months</code>— меньше -120000.       - или - <code>months</code> больше 120000."
   platform:
   - net462
 - uid: System.Globalization.HijriCalendar.AddYears(System.DateTime,System.Int32)
@@ -118,8 +118,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns a <xref:System.DateTime> that is the specified number of years away from the specified <xref:System.DateTime>."
-  remarks: "The day part of the resulting <xref:System.DateTime> is affected if the resulting day is not a valid day in the resulting month of the resulting year. It is changed to the last valid day in the resulting month of the resulting year. The month part of the resulting <xref:System.DateTime> remains the same as the specified <xref:System.DateTime>. This implementation supports only the current era. Therefore, <xref:System.ArgumentException> is thrown if the resulting year is outside the era of the specified <xref:System.DateTime>. The time-of-day part of the resulting <xref:System.DateTime> remains the same as the specified <xref:System.DateTime>.       For example, Zulhijjah has 29 days, except during leap years when it has 30 days. If the specified date is the 30th day of Zulhijjah in a leap year and the value of `years` is 1, the resulting date will be the 29th day of Zulhijjah in the following year.       If `years` is negative, the resulting <xref:System.DateTime> is earlier than the specified <xref:System.DateTime>.       The<xref:System.DateTime.Kind%2A> property of the returned <xref:System.DateTime> value always equals <xref:System.DateTimeKind?displayProperty=fullName>. You can preserve the <xref:System.DateTime.Kind%2A> property of the `time` parameter by calling the <xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName> method, as the following example shows.       [!code-vb[System.Globalization.Calendar.AddMethods#8](~/add/codesnippet/visualbasic/m-system.globalization.h_4_1.vb)]  [!code-cs[System.Globalization.Calendar.AddMethods#8](~/add/codesnippet/csharp/m-system.globalization.h_4_1.cs)]"
+  summary: "Возвращает, <xref:System.DateTime>то есть указанное число лет от указанного <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime>"
+  remarks: "Компонент дня <xref:System.DateTime>изменяется, если конечный день не является допустимым днем месяца и года.</xref:System.DateTime> Он заменяется последним допустимым днем месяца и года. Полученный <xref:System.DateTime>остается таким же, как указанный <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime> компонент месяца Эта реализация поддерживает только текущую эру. Таким образом, <xref:System.ArgumentException>создается исключение, если год результата находится за пределами эры заданного <xref:System.DateTime>.</xref:System.DateTime> </xref:System.ArgumentException> Часть времени дня полученный <xref:System.DateTime>остается таким же, как указанный <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime>       Например хиджжа 29 дней, за исключением високосного года, когда 30 дней. Если указанная дата 30-й день хиджжа високосного года и значение `years` равно 1, полученной дате будет 29-й день месяца зуль-хиджжа следующего года.       Если `years` отрицательное, полученный <xref:System.DateTime>более ранняя, чем указанный <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime>       <xref:System.DateTime.Kind%2A>Возвращаемое <xref:System.DateTime>значение всегда равно <xref:System.DateTimeKind?displayProperty=fullName>.</xref:System.DateTimeKind?displayProperty=fullName> </xref:System.DateTime> свойство</xref:System.DateTime.Kind%2A> Можно сохранить <xref:System.DateTime.Kind%2A>свойство `time` параметра путем вызова <xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName>метода, как показано в следующем примере.</xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName> </xref:System.DateTime.Kind%2A>       [!code-vb[System.Globalization.Calendar.AddMethods#8](~/add/codesnippet/visualbasic/m-system.globalization.h_4_1.vb)][!code-cs[System.Globalization.Calendar.AddMethods#8  ](~/add/codesnippet/csharp/m-system.globalization.h_4_1.cs)]"
   example:
   - "The following code example displays the values of several components of a <xref:System.DateTime> in terms of the Hijri calendar.  \n  \n [!code-cpp[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/cpp/m-system.globalization.h_4_2.cpp)]\n [!code-cs[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/csharp/m-system.globalization.h_4_2.cs)]\n [!code-vb[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/visualbasic/m-system.globalization.h_4_2.vb)]"
   syntax:
@@ -127,18 +127,18 @@ items:
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to add years to."
+      description: "<xref:System.DateTime>Добавление лет.</xref:System.DateTime>"
     - id: years
       type: System.Int32
-      description: "The number of years to add."
+      description: "Число лет для добавления."
     return:
       type: System.DateTime
-      description: "The <xref:System.DateTime> that results from adding the specified number of years to the specified <xref:System.DateTime>."
+      description: "<xref:System.DateTime>Который является результатом сложения указанного числа лет на указанный <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime>"
   overload: System.Globalization.HijriCalendar.AddYears*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The resulting <xref:System.DateTime> is outside the supported range."
+    description: "Итоговый <xref:System.DateTime>находится за пределами поддерживаемого диапазона.</xref:System.DateTime>"
   platform:
   - net462
 - uid: System.Globalization.HijriCalendar.AlgorithmType
@@ -153,7 +153,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets a value that indicates whether the current calendar is solar-based, lunar-based, or a combination of both."
+  summary: "Возвращает значение, указывающее, является ли текущий календарь солнечным, лунным или их сочетание."
   remarks: ''
   example:
   - "The following example uses reflection to instantiate each <xref:System.Globalization.Calendar> type found in the .NET Framework and displays the value of its <xref:System.Globalization.Calendar.AlgorithmType%2A> property.  \n  \n [!code-cs[System.Globalization.Calendar.AlgorithmType#1](~/add/codesnippet/csharp/p-system.globalization.h_0_1.cs)]\n [!code-vb[System.Globalization.Calendar.AlgorithmType#1](~/add/codesnippet/visualbasic/p-system.globalization.h_0_1.vb)]"
@@ -161,7 +161,7 @@ items:
     content: public override System.Globalization.CalendarAlgorithmType AlgorithmType { get; }
     return:
       type: System.Globalization.CalendarAlgorithmType
-      description: "Always returns <xref href=&quot;System.Globalization.CalendarAlgorithmType&quot;></xref>."
+      description: "Всегда возвращает <xref href=&quot;System.Globalization.CalendarAlgorithmType&quot;> </xref>."
   overload: System.Globalization.HijriCalendar.AlgorithmType*
   exceptions: []
   platform:
@@ -178,13 +178,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets the number of days in the year that precedes the year that is specified by the <xref:System.Globalization.HijriCalendar.MinSupportedDateTime*> property."
-  remarks: "This property returns a constant value of 354."
+  summary: "Возвращает число дней в году, который предшествует года, который задается параметром <xref:System.Globalization.HijriCalendar.MinSupportedDateTime*>свойство.</xref:System.Globalization.HijriCalendar.MinSupportedDateTime*>"
+  remarks: "Это свойство возвращает значение константы 354."
   syntax:
     content: protected override int DaysInYearBeforeMinSupportedYear { get; }
     return:
       type: System.Int32
-      description: "The number of days in the year that precedes the year specified by <xref:System.Globalization.HijriCalendar.MinSupportedDateTime*>."
+      description: "Число дней, в течение года, который предшествует года, указанного параметром <xref:System.Globalization.HijriCalendar.MinSupportedDateTime*>.</xref:System.Globalization.HijriCalendar.MinSupportedDateTime*>"
   overload: System.Globalization.HijriCalendar.DaysInYearBeforeMinSupportedYear*
   exceptions: []
   platform:
@@ -201,13 +201,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets the list of eras in the <xref href=&quot;System.Globalization.HijriCalendar&quot;></xref>."
-  remarks: 'The Hijri calendar recognizes one era: A.H. (Latin &quot;Anno Hegirae&quot;, which means &quot;the year of the migration,&quot; in reference to the migration of Muhammad (PBUH) from Mecca). This property always returns an array with only one element.'
+  summary: "Получает список эр в <xref href=&quot;System.Globalization.HijriCalendar&quot;> </xref>."
+  remarks: 'Календарь хиджра есть только одна эра: год хиджры. (Латиница «Anno Hegirae», что означает «год миграции,» применительно к миграции из исламском (PBUH) из Мекки). Это свойство всегда возвращает массив с единственным элементом.'
   syntax:
     content: public override int[] Eras { get; }
     return:
       type: System.Int32[]
-      description: "An array of integers that represents the eras in the <xref href=&quot;System.Globalization.HijriCalendar&quot;></xref>."
+      description: "Массив целых чисел, представляющий эры в <xref href=&quot;System.Globalization.HijriCalendar&quot;> </xref>."
   overload: System.Globalization.HijriCalendar.Eras*
   exceptions: []
   platform:
@@ -224,7 +224,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns the day of the month in the specified <xref:System.DateTime>."
+  summary: "Возвращает день месяца в указанный <xref:System.DateTime>.</xref:System.DateTime>"
   remarks: ''
   example:
   - "The following code example displays the values of several components of a <xref:System.DateTime> in terms of the Hijri calendar.  \n  \n [!code-cpp[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/cpp/m-system.globalization.h_16_1.cpp)]\n [!code-cs[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/csharp/m-system.globalization.h_16_1.cs)]\n [!code-vb[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/visualbasic/m-system.globalization.h_16_1.vb)]"
@@ -233,10 +233,10 @@ items:
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to read."
+      description: "<xref:System.DateTime>Для чтения.</xref:System.DateTime>"
     return:
       type: System.Int32
-      description: "An integer from 1 to 30 that represents the day of the month in the specified <xref:System.DateTime>."
+      description: "Целое число от 1 до 30, представляющее день месяца в указанный <xref:System.DateTime>.</xref:System.DateTime>"
   overload: System.Globalization.HijriCalendar.GetDayOfMonth*
   exceptions: []
   platform:
@@ -253,8 +253,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns the day of the week in the specified <xref:System.DateTime>."
-  remarks: "The <xref:System.DayOfWeek> values are as follows:      |DayOfWeek value|which indicates|   |---------------------|---------------------|   |Sunday|الاحد (Al-Ahad)|   |Monday|الاثنين (Al-Ithnayn)|   |Tuesday|الثلاثاء (At-Thulaathaa&quot;)|   |Wednesday|الاربعاء (Al-Arbi&quot;aa&quot;)|   |Thursday|الخميس (Al-Khamiis)|   |Friday|الجمعة (Al-Jumu&quot;ah)|   |Saturday|السبت (As-Sabt)|"
+  summary: "Возвращает день недели в указанный <xref:System.DateTime>.</xref:System.DateTime>"
+  remarks: "Ниже приведены значения <xref:System.DayOfWeek>: | Значение DayOfWeek | указывающая |   |---------------------|---------------------|   | Воскресенье | الاحد (Al Ahad) |   | Понедельник | الاثنين (Al Ithnayn) |   | Вторник | الثلاثاء (в Thulaathaa &quot;) |   | Среда | الاربعاء (Al Arbi&quot;aa &quot;) |   | Четверг | الخميس (Al Khamiis) |   | Пятница | الجمعة (Al Jumu&quot;ah) |   | Суббота | السبت (как Sabt) |</xref:System.DayOfWeek>"
   example:
   - "The following code example displays the values of several components of a <xref:System.DateTime> in terms of the Hijri calendar.  \n  \n [!code-cpp[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/cpp/m-system.globalization.h_17_1.cpp)]\n [!code-cs[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/csharp/m-system.globalization.h_17_1.cs)]\n [!code-vb[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/visualbasic/m-system.globalization.h_17_1.vb)]"
   syntax:
@@ -262,10 +262,10 @@ items:
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to read."
+      description: "<xref:System.DateTime>Для чтения.</xref:System.DateTime>"
     return:
       type: System.DayOfWeek
-      description: "A <xref:System.DayOfWeek> value that represents the day of the week in the specified <xref:System.DateTime>."
+      description: "<xref:System.DayOfWeek>Значение, представляющее день недели в указанный <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DayOfWeek>"
   overload: System.Globalization.HijriCalendar.GetDayOfWeek*
   exceptions: []
   platform:
@@ -282,8 +282,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns the day of the year in the specified <xref:System.DateTime>."
-  remarks: "The day of the year is defined as the number of days from the first day of the year. For example, GetDayOfYear for the first day of the first month returns 1, and GetDayOfYear for the last day of the last month returns the total number of days in that year, which is the same value returned by <xref:System.Globalization.HijriCalendar.GetDaysInYear%2A>."
+  summary: "Возвращает день года в указанный <xref:System.DateTime>.</xref:System.DateTime>"
+  remarks: "День года определяется как число дней с первого дня года. Например GetDayOfYear за первый день первого месяца возвращает 1, а GetDayOfYear за последний день за последний месяц возвращает общее количество дней, в этом году, то же значение, возвращаемое <xref:System.Globalization.HijriCalendar.GetDaysInYear%2A>.</xref:System.Globalization.HijriCalendar.GetDaysInYear%2A>"
   example:
   - "The following code example displays the values of several components of a <xref:System.DateTime> in terms of the Hijri calendar.  \n  \n [!code-cpp[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/cpp/m-system.globalization.h_13_1.cpp)]\n [!code-cs[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/csharp/m-system.globalization.h_13_1.cs)]\n [!code-vb[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/visualbasic/m-system.globalization.h_13_1.vb)]"
   syntax:
@@ -291,10 +291,10 @@ items:
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to read."
+      description: "<xref:System.DateTime>Для чтения.</xref:System.DateTime>"
     return:
       type: System.Int32
-      description: "An integer from 1 to 355 that represents the day of the year in the specified <xref:System.DateTime>."
+      description: "Целое число от 1 до 355, обозначающее день года в указанный <xref:System.DateTime>.</xref:System.DateTime>"
   overload: System.Globalization.HijriCalendar.GetDayOfYear*
   exceptions: []
   platform:
@@ -311,8 +311,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns the number of days in the specified month of the specified year and era."
-  remarks: "For example, this method returns 29 or 30 for Zulhijjah (`month` = 12), depending on whether `year` is a leap year."
+  summary: "Возвращает число дней в указанном месяце указанных года и эры."
+  remarks: "Например, этот метод возвращает значение 29 или 30-хиджжа (`month` = 12), в зависимости от ли `year` является високосным годом."
   example:
   - "The following code example calls `GetDaysInMonth` for the twelfth month in each of five years in each era.  \n  \n [!code-vb[System.Globalization.HijriCalendar.GetDaysInMonth#1](~/add/codesnippet/visualbasic/4f5a9e0a-9896-4180-95b7-_1.vb)]\n [!code-cs[System.Globalization.HijriCalendar.GetDaysInMonth#1](~/add/codesnippet/csharp/4f5a9e0a-9896-4180-95b7-_1.cs)]\n [!code-cpp[System.Globalization.HijriCalendar.GetDaysInMonth#1](~/add/codesnippet/cpp/4f5a9e0a-9896-4180-95b7-_1.cpp)]"
   syntax:
@@ -320,21 +320,21 @@ items:
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Целое число, представляющее год."
     - id: month
       type: System.Int32
-      description: "An integer from 1 to 12 that represents the month."
+      description: "Целое число от 1 до 12, представляющее месяц."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Целое число, представляющее эру."
     return:
       type: System.Int32
-      description: "The number of days in the specified month in the specified year in the specified era."
+      description: "Число дней в указанном месяце указанных года и эры."
   overload: System.Globalization.HijriCalendar.GetDaysInMonth*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>era</code> is outside the range supported by this calendar.       -or-       <code>year</code> is outside the range supported by this calendar.       -or-       <code>month</code> is outside the range supported by this calendar."
+    description: "<code>era</code>находится вне диапазона, поддерживаемое этим календарем.       - или - <code>year</code> выходит за пределы диапазона, поддерживаемое этим календарем.       - или - <code>month</code> выходит за пределы диапазона, поддерживаемое этим календарем."
   platform:
   - net462
 - uid: System.Globalization.HijriCalendar.GetDaysInYear(System.Int32,System.Int32)
@@ -349,7 +349,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns the number of days in the specified year and era."
+  summary: "Возвращает число дней в указанном году указанной эры."
   remarks: ''
   example:
   - "The following code example calls `GetDaysInYear` for five years in each era.  \n  \n [!code-cs[System.Globalization.HijriCalendar.GetDaysInYear#1](~/add/codesnippet/csharp/m-system.globalization.h_3_1.cs)]\n [!code-cpp[System.Globalization.HijriCalendar.GetDaysInYear#1](~/add/codesnippet/cpp/m-system.globalization.h_3_1.cpp)]\n [!code-vb[System.Globalization.HijriCalendar.GetDaysInYear#1](~/add/codesnippet/visualbasic/m-system.globalization.h_3_1.vb)]"
@@ -358,18 +358,18 @@ items:
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Целое число, представляющее год."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Целое число, представляющее эру."
     return:
       type: System.Int32
-      description: "The number of days in the specified year and era. The number of days is 354 in a common year or 355 in a leap year."
+      description: "Число дней в указанном году указанной эры. Число дней равно 354 месяцам для обычного года или 355 для високосного."
   overload: System.Globalization.HijriCalendar.GetDaysInYear*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>year</code> or <code>era</code> is outside the range supported by this calendar."
+    description: "<code>year</code>или <code>era</code> выходит за пределы диапазона, поддерживаемое этим календарем."
   platform:
   - net462
 - uid: System.Globalization.HijriCalendar.GetEra(System.DateTime)
@@ -384,8 +384,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns the era in the specified <xref:System.DateTime>."
-  remarks: 'The Hijri calendar recognizes one era: A.H. (Latin &quot;Anno Hegirae&quot;, which means &quot;the year of the migration,&quot; in reference to the migration of Muhammad (PBUH) from Mecca).'
+  summary: "Возвращает значение эры в указанный <xref:System.DateTime>.</xref:System.DateTime>"
+  remarks: 'Календарь хиджра есть только одна эра: год хиджры. (Латиница «Anno Hegirae», что означает «год миграции,» применительно к миграции из исламском (PBUH) из Мекки).'
   example:
   - "The following code example displays the values of several components of a <xref:System.DateTime> in terms of the Hijri calendar.  \n  \n [!code-cpp[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/cpp/m-system.globalization.h_14_1.cpp)]\n [!code-cs[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/csharp/m-system.globalization.h_14_1.cs)]\n [!code-vb[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/visualbasic/m-system.globalization.h_14_1.vb)]"
   syntax:
@@ -393,10 +393,10 @@ items:
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to read."
+      description: "<xref:System.DateTime>Для чтения.</xref:System.DateTime>"
     return:
       type: System.Int32
-      description: "An integer that represents the era in the specified <xref:System.DateTime>."
+      description: "Целое число, представляющее эру в указанный <xref:System.DateTime>.</xref:System.DateTime>"
   overload: System.Globalization.HijriCalendar.GetEra*
   exceptions: []
   platform:
@@ -413,25 +413,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the leap month for a specified year and era."
-  remarks: "In a calendar that supports the notion of a leap month, the leap month can occur either after a particular month or after any month in a year. For example, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> method returns a number between 1 and 13 that indicates the month associated with a specified date. If there is a leap month between the eighth and ninth months of the year, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> method returns 8 for the eighth month, 9 for the leap eighth month, and 10 for the ninth month."
+  summary: "Вычисляет високосный месяц для заданных года и эры."
+  remarks: "В календарях, поддерживает понятие високосного года високосный месяц может возникнуть после определенного месяца или после любого месяца в году. Например <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A>метод возвращает число от 1 до 13, указывающее месяц, связанные с указанной даты.</xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> Если между восьмой и девятый месяцы года, високосным месяцем <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A>метод возвращает значение 8 для восьмой месяц, 9 для високосный месяц восьмой и 10 за девятый месяц.</xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A>"
   syntax:
     content: public override int GetLeapMonth (int year, int era);
     parameters:
     - id: year
       type: System.Int32
-      description: "A year."
+      description: "Год."
     - id: era
       type: System.Int32
-      description: "An era. Specify <xref:System.Globalization.Calendar.CurrentEra> or <xref href=&quot;System.Globalization.HijriCalendar.HijriEra&quot;></xref>."
+      description: "Эра. Specify <xref:System.Globalization.Calendar.CurrentEra> or <xref href=&quot;System.Globalization.HijriCalendar.HijriEra&quot;></xref>.</xref:System.Globalization.Calendar.CurrentEra>"
     return:
       type: System.Int32
-      description: "Always 0 because the <xref href=&quot;System.Globalization.HijriCalendar&quot;></xref> type does not support the notion of a leap month."
+      description: "Всегда равно 0 из-за <xref href=&quot;System.Globalization.HijriCalendar&quot;> </xref> тип не поддерживает понятие високосного года."
   overload: System.Globalization.HijriCalendar.GetLeapMonth*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>year</code> is less than the Hijri calendar year 1 or greater than the year 9666.       -or-       <code>era</code> is not <xref:System.Globalization.Calendar.CurrentEra> or <xref href=&quot;System.Globalization.HijriCalendar.HijriEra&quot;></xref>."
+    description: "<code>year</code>меньше, чем Хиджра календарного года 1 или больше года 9666.       -or-       <code>era</code> is not <xref:System.Globalization.Calendar.CurrentEra> or <xref href=&quot;System.Globalization.HijriCalendar.HijriEra&quot;></xref>."
   platform:
   - net462
 - uid: System.Globalization.HijriCalendar.GetMonth(System.DateTime)
@@ -446,7 +446,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns the month in the specified <xref:System.DateTime>."
+  summary: "Возвращает значение месяца в указанный <xref:System.DateTime>.</xref:System.DateTime>"
   remarks: ''
   example:
   - "The following code example displays the values of several components of a <xref:System.DateTime> in terms of the Hijri calendar.  \n  \n [!code-cpp[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/cpp/m-system.globalization.h_19_1.cpp)]\n [!code-cs[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/csharp/m-system.globalization.h_19_1.cs)]\n [!code-vb[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/visualbasic/m-system.globalization.h_19_1.vb)]"
@@ -455,10 +455,10 @@ items:
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to read."
+      description: "<xref:System.DateTime>Для чтения.</xref:System.DateTime>"
     return:
       type: System.Int32
-      description: "An integer from 1 to 12 that represents the month in the specified <xref:System.DateTime>."
+      description: "Целое число от 1 до 12, представляющее месяц в указанный <xref:System.DateTime>.</xref:System.DateTime>"
   overload: System.Globalization.HijriCalendar.GetMonth*
   exceptions: []
   platform:
@@ -475,7 +475,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns the number of months in the specified year and era."
+  summary: "Возвращает число месяцев в указанном году указанной эры."
   remarks: ''
   example:
   - "The following code example calls the GetMonthsInYear method for five years in each era.  \n  \n [!code-cpp[System.Globalization.HijriCalendar.GetMonthsInYear#1](~/add/codesnippet/cpp/m-system.globalization.h_12_1.cpp)]\n [!code-vb[System.Globalization.HijriCalendar.GetMonthsInYear#1](~/add/codesnippet/visualbasic/m-system.globalization.h_12_1.vb)]\n [!code-cs[System.Globalization.HijriCalendar.GetMonthsInYear#1](~/add/codesnippet/csharp/m-system.globalization.h_12_1.cs)]"
@@ -484,18 +484,18 @@ items:
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Целое число, представляющее год."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Целое число, представляющее эру."
     return:
       type: System.Int32
-      description: "The number of months in the specified year and era."
+      description: "Число месяцев в указанном году указанной эры."
   overload: System.Globalization.HijriCalendar.GetMonthsInYear*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>era</code> is outside the range supported by this calendar.       -or-       <code>year</code> is outside the range supported by this calendar."
+    description: "<code>era</code>находится вне диапазона, поддерживаемое этим календарем.       - или - <code>year</code> выходит за пределы диапазона, поддерживаемое этим календарем."
   platform:
   - net462
 - uid: System.Globalization.HijriCalendar.GetYear(System.DateTime)
@@ -510,7 +510,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns the year in the specified <xref:System.DateTime>."
+  summary: "Возвращает год в указанный <xref:System.DateTime>.</xref:System.DateTime>"
   remarks: ''
   example:
   - "The following code example displays the values of several components of a <xref:System.DateTime> in terms of the Hijri calendar.  \n  \n [!code-cpp[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/cpp/m-system.globalization.h_9_1.cpp)]\n [!code-cs[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/csharp/m-system.globalization.h_9_1.cs)]\n [!code-vb[System.Globalization.HijriCalendar_AddGet#1](~/add/codesnippet/visualbasic/m-system.globalization.h_9_1.vb)]"
@@ -519,10 +519,10 @@ items:
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to read."
+      description: "<xref:System.DateTime>Для чтения.</xref:System.DateTime>"
     return:
       type: System.Int32
-      description: "An integer that represents the year in the specified <xref:System.DateTime>."
+      description: "Целое число, представляющее год в указанный <xref:System.DateTime>.</xref:System.DateTime>"
   overload: System.Globalization.HijriCalendar.GetYear*
   exceptions: []
   platform:
@@ -539,20 +539,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets or sets the number of days to add or subtract from the calendar to accommodate the variances in the start and the end of Ramadan and to accommodate the date difference between countries/regions."
-  remarks: "This implementation of the <xref:System.Globalization.HijriCalendar> class adjusts the calendar date by adding or subtracting a value from zero to two days to accommodate the variances in the start and the end of Ramadan and to accommodate the date difference between countries/regions. That value is stored in the HijriAdjustment property. If HijriAdjustment is not set explicitly, it derives its value from the settings in the regional and language options portion of Control Panel and is stored in the registry value HKEY_CURRENT_USER\\Control Panel\\International\\AddHijriDate. However, that information can change during the life of the <xref:System.AppDomain>. The <xref:System.Globalization.HijriCalendar> class does not detect changes in the system settings automatically."
+  summary: "Возвращает или задает количество дней, чтобы добавить или вычесть из календаря компенсировать различия в начале и конце рамазана и разницу в датах между странах и регионах."
+  remarks: "Эта реализация <xref:System.Globalization.HijriCalendar>класс календарная дата настраивается путем увеличения или уменьшения значения от нуля до двух дней, чтобы компенсировать различия в начале и конце рамазана и разницы дат между странах и регионах.</xref:System.Globalization.HijriCalendar> Это значение хранится в свойстве HijriAdjustment. Если HijriAdjustment не задано явно, он наследует его значения параметров в списке язык и региональные параметры элемента панели управления и хранится в значении реестра HKEY_CURRENT_USER\\Control Panel\\International\\AddHijriDate. Тем не менее эти данные могут измениться в течение жизни <xref:System.AppDomain>.</xref:System.AppDomain> <xref:System.Globalization.HijriCalendar>Класса не обнаруживает изменения параметров системы автоматически.</xref:System.Globalization.HijriCalendar>"
   example:
   - "The following code example shows how HijriAdjustment affects the date.  \n  \n [!code-cpp[System.Globalization.HijriCalendar.HijriAdjustment#1](~/add/codesnippet/cpp/p-system.globalization.h_2_1.cpp)]\n [!code-cs[System.Globalization.HijriCalendar.HijriAdjustment#1](~/add/codesnippet/csharp/p-system.globalization.h_2_1.cs)]\n [!code-vb[System.Globalization.HijriCalendar.HijriAdjustment#1](~/add/codesnippet/visualbasic/p-system.globalization.h_2_1.vb)]"
   syntax:
     content: public int HijriAdjustment { get; set; }
     return:
       type: System.Int32
-      description: "An integer from -2 to 2 that represents the number of days to add or subtract from the calendar."
+      description: "Целое число от -2 до 2, представляющее число дней для добавления или вычитания из календаря."
   overload: System.Globalization.HijriCalendar.HijriAdjustment*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The property is being set to an invalid value."
+    description: "Свойство задано недопустимое значение."
   platform:
   - net462
 - uid: System.Globalization.HijriCalendar.HijriEra
@@ -567,13 +567,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Represents the current era. This field is constant."
-  remarks: "The value of the HijriEra field is 1.       The Hijri calendar recognizes one era: A.H. (Latin &quot;Anno Hegirae&quot;, which means &quot;the year of the migration,&quot; in reference to the migration of Muhammad (PBUH) from Mecca)."
+  summary: "Представляет текущую эру. Это поле является константой."
+  remarks: "Значение поля HijriEra-1.       Календарь хиджра есть только одна эра: год хиджры. (Латиница «Anno Hegirae», что означает «год миграции,» применительно к миграции из исламском (PBUH) из Мекки)."
   syntax:
     content: public static readonly int HijriEra;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -589,8 +589,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Determines whether the specified date is a leap day."
-  remarks: "In every 30-year cycle that ends with a year that is evenly divisible by 30, the 2nd, 5th, 7th, 10th, 13th, 16th, 18th, 21st, 24th, 26th, and 29th years are leap years. A common year has 354 days and a leap year has 355 days.       A leap day is a day that occurs only in a leap year. In the Hijri calendar, the 30th day of Zulhijjah is the only leap day."
+  summary: "Определяет, является ли указанная дата день високосным."
+  remarks: "В каждом цикле 30 лет, который оканчивается годом, делится на 30, 2, 5, 7-й, 10-й, 13-й, 16-й, 18-й, 21-й, 24-й 26-й и 29 годы являются високосного года. Обычного года 354 дней, в високосном году 355 дней.       День високосным является день, который возникает только в високосном году. В календарь хиджра 30-й день месяца зуль-хиджжа является единственным день високосным."
   example:
   - "The following code example calls the `IsLeapDay` method for the last day of the second month (February) for five years in each of the eras.  \n  \n [!code-cs[System.Globalization.HijriCalendar.IsLeapDay#1](~/add/codesnippet/csharp/6f043d10-1d5e-45a1-ab11-_1.cs)]\n [!code-cpp[System.Globalization.HijriCalendar.IsLeapDay#1](~/add/codesnippet/cpp/6f043d10-1d5e-45a1-ab11-_1.cpp)]\n [!code-vb[System.Globalization.HijriCalendar.IsLeapDay#1](~/add/codesnippet/visualbasic/6f043d10-1d5e-45a1-ab11-_1.vb)]"
   syntax:
@@ -598,24 +598,24 @@ items:
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Целое число, представляющее год."
     - id: month
       type: System.Int32
-      description: "An integer from 1 to 12 that represents the month."
+      description: "Целое число от 1 до 12, представляющее месяц."
     - id: day
       type: System.Int32
-      description: "An integer from 1 to 30 that represents the day."
+      description: "Целое число от 1 до 30, представляющее день."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Целое число, представляющее эру."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified day is a leap day; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если указанный день — високосный день; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Globalization.HijriCalendar.IsLeapDay*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>era</code> is outside the range supported by this calendar.       -or-       <code>year</code> is outside the range supported by this calendar.       -or-       <code>month</code> is outside the range supported by this calendar.       -or-       <code>day</code> is outside the range supported by this calendar."
+    description: "<code>era</code>находится вне диапазона, поддерживаемое этим календарем.       - или - <code>year</code> выходит за пределы диапазона, поддерживаемое этим календарем.       - или - <code>month</code> выходит за пределы диапазона, поддерживаемое этим календарем.       - или - <code>day</code> выходит за пределы диапазона, поддерживаемое этим календарем."
   platform:
   - net462
 - uid: System.Globalization.HijriCalendar.IsLeapMonth(System.Int32,System.Int32,System.Int32)
@@ -630,8 +630,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Determines whether the specified month in the specified year and era is a leap month."
-  remarks: "In every 30-year cycle that ends with a year that is evenly divisible by 30, the 2nd, 5th, 7th, 10th, 13th, 16th, 18th, 21st, 24th, 26th, and 29th years are leap years. A common year has 354 days and a leap year has 355 days.       A leap month is an entire month that occurs only in a leap year. The Hijri calendar does not have any leap months."
+  summary: "Определяет, является ли указанный месяц указанных года и эры високосным месяцем."
+  remarks: "В каждом цикле 30 лет, который оканчивается годом, делится на 30, 2, 5, 7-й, 10-й, 13-й, 16-й, 18-й, 21-й, 24-й 26-й и 29 годы являются високосного года. Обычного года 354 дней, в високосном году 355 дней.       Високосный месяц — целый месяц, происходит только в високосном году. Календарь хиджра не поддерживает все месяцы високосным."
   example:
   - "The following code example calls `IsLeapMonth` for all the months in five years in the current era.  \n  \n [!code-cs[System.Globalization.HijriCalendar.IsLeapMonth#1](~/add/codesnippet/csharp/ab4078b3-e91f-4cfb-8fcf-_1.cs)]\n [!code-cpp[System.Globalization.HijriCalendar.IsLeapMonth#1](~/add/codesnippet/cpp/ab4078b3-e91f-4cfb-8fcf-_1.cpp)]\n [!code-vb[System.Globalization.HijriCalendar.IsLeapMonth#1](~/add/codesnippet/visualbasic/ab4078b3-e91f-4cfb-8fcf-_1.vb)]"
   syntax:
@@ -639,21 +639,21 @@ items:
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Целое число, представляющее год."
     - id: month
       type: System.Int32
-      description: "An integer from 1 to 12 that represents the month."
+      description: "Целое число от 1 до 12, представляющее месяц."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Целое число, представляющее эру."
     return:
       type: System.Boolean
-      description: "This method always returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Этот метод всегда возвращает <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Globalization.HijriCalendar.IsLeapMonth*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>era</code> is outside the range supported by this calendar.       -or-       <code>year</code> is outside the range supported by this calendar.       -or-       <code>month</code> is outside the range supported by this calendar."
+    description: "<code>era</code>находится вне диапазона, поддерживаемое этим календарем.       - или - <code>year</code> выходит за пределы диапазона, поддерживаемое этим календарем.       - или - <code>month</code> выходит за пределы диапазона, поддерживаемое этим календарем."
   platform:
   - net462
 - uid: System.Globalization.HijriCalendar.IsLeapYear(System.Int32,System.Int32)
@@ -668,8 +668,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Determines whether the specified year in the specified era is a leap year."
-  remarks: "In every 30-year cycle that ends with a year that is evenly divisible by 30, the 2nd, 5th, 7th, 10th, 13th, 16th, 18th, 21st, 24th, 26th, and 29th years are leap years. A common year has 354 days and a leap year has 355 days."
+  summary: "Определяет, является ли указанный год указанной эры високосным годом."
+  remarks: "В каждом цикле 30 лет, который оканчивается годом, делится на 30, 2, 5, 7-й, 10-й, 13-й, 16-й, 18-й, 21-й, 24-й 26-й и 29 годы являются високосного года. Обычного года 354 дней, в високосном году 355 дней."
   example:
   - "The following code example calls the `IsLeapYear` method for five years in each of the eras.  \n  \n [!code-cpp[System.Globalization.HijriCalendar.IsLeapYear#1](~/add/codesnippet/cpp/m-system.globalization.h_0_1.cpp)]\n [!code-cs[System.Globalization.HijriCalendar.IsLeapYear#1](~/add/codesnippet/csharp/m-system.globalization.h_0_1.cs)]\n [!code-vb[System.Globalization.HijriCalendar.IsLeapYear#1](~/add/codesnippet/visualbasic/m-system.globalization.h_0_1.vb)]"
   syntax:
@@ -677,18 +677,18 @@ items:
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Целое число, представляющее год."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Целое число, представляющее эру."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified year is a leap year; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если указанный год — високосный; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Globalization.HijriCalendar.IsLeapYear*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>era</code> is outside the range supported by this calendar.       -or-       <code>year</code> is outside the range supported by this calendar."
+    description: "<code>era</code>находится вне диапазона, поддерживаемое этим календарем.       - или - <code>year</code> выходит за пределы диапазона, поддерживаемое этим календарем."
   platform:
   - net462
 - uid: System.Globalization.HijriCalendar.MaxSupportedDateTime
@@ -703,15 +703,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets the latest date and time supported by this calendar."
-  remarks: "December 31, 9999 C.E. is equivalent to the 3rd day of the 4th month of the year 9666 in the Hijri calendar."
+  summary: "Получает самые последние дату и время, поддерживаемые этим календарем."
+  remarks: "31 декабря 9999 года нашей эры соответствует 3-й день 4-го месяца 9666 года в календаре хиджры."
   example:
   - "The following code example gets the minimum value and the maximum value of the calendar.  \n  \n [!code-cs[System.Globalization.HijriCalendar_MinMax#1](~/add/codesnippet/csharp/p-system.globalization.h_1_1.cs)]\n [!code-vb[System.Globalization.HijriCalendar_MinMax#1](~/add/codesnippet/visualbasic/p-system.globalization.h_1_1.vb)]\n [!code-cpp[System.Globalization.HijriCalendar_MinMax#1](~/add/codesnippet/cpp/p-system.globalization.h_1_1.cpp)]"
   syntax:
     content: public override DateTime MaxSupportedDateTime { get; }
     return:
       type: System.DateTime
-      description: "The latest date and time supported by the <xref href=&quot;System.Globalization.HijriCalendar&quot;></xref> type, which is equivalent to the last moment of December 31, 9999 C.E. in the Gregorian calendar."
+      description: "Самые последние дату и время, поддерживаемые <xref href=&quot;System.Globalization.HijriCalendar&quot;> </xref> тип, который эквивалентен последнему мгновению 31 декабря 9999 года нашей эры по григорианскому календарю."
   overload: System.Globalization.HijriCalendar.MaxSupportedDateTime*
   exceptions: []
   platform:
@@ -728,15 +728,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets the earliest date and time supported by this calendar."
-  remarks: "Microsoft Visual Basic represents time of day as the specified time on the minimum date  supported by the <xref:System.DateTime> type, which is January 1, 0001 C.E. However, the <xref:System.Globalization.HijriCalendar> type does not support that minimum date. Consequently, if you call a method to format the time of day using the current calendar but you do not specify a format specifier, formatting uses the ISO 8601 sortable (&quot;s&quot;) date/time pattern format specifier instead of the default general (&quot;G&quot;) date/time pattern format specifier. For more information, see [Standard Date and Time Format Strings](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Возвращает минимальное значение даты и времени, поддерживаемое этим календарем."
+  remarks: "Microsoft Visual Basic представляет время, день, что и указанное время на минимальная дата, поддерживаемый <xref:System.DateTime>тип, который является 1 января 0001 года нашей эры</xref:System.DateTime> Тем не менее <xref:System.Globalization.HijriCalendar>тип не поддерживает, минимальное значение даты.</xref:System.Globalization.HijriCalendar> Следовательно, если вызвать метод для форматирования времени дня с помощью текущего календаря, но не указать спецификатор формата, форматирования используется ISO 8601 сортируемого («s») даты/времени шаблон описатель формата, а не по умолчанию («G») даты и времени шаблон Описатель общего формата. Дополнительные сведения см. в разделе [стандартной строки даты и времени формат](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example gets the minimum value and the maximum value of the calendar.  \n  \n [!code-cs[System.Globalization.HijriCalendar_MinMax#1](~/add/codesnippet/csharp/p-system.globalization.h_3_1.cs)]\n [!code-vb[System.Globalization.HijriCalendar_MinMax#1](~/add/codesnippet/visualbasic/p-system.globalization.h_3_1.vb)]\n [!code-cpp[System.Globalization.HijriCalendar_MinMax#1](~/add/codesnippet/cpp/p-system.globalization.h_3_1.cpp)]"
   syntax:
     content: public override DateTime MinSupportedDateTime { get; }
     return:
       type: System.DateTime
-      description: "The earliest date and time supported by the <xref href=&quot;System.Globalization.HijriCalendar&quot;></xref> type, which is equivalent to the first moment of July 18, 622 C.E. in the Gregorian calendar."
+      description: "Минимальное значение даты и времени, поддерживаемое <xref href=&quot;System.Globalization.HijriCalendar&quot;> </xref> типа, что эквивалентно первому мгновению 18 июля 622 года нашей эры по григорианскому календарю."
   overload: System.Globalization.HijriCalendar.MinSupportedDateTime*
   exceptions: []
   platform:
@@ -753,42 +753,42 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns a <xref:System.DateTime> that is set to the specified date, time, and era."
+  summary: "Возвращает <xref:System.DateTime>, равным указанной даты, времени и эры.</xref:System.DateTime>"
   syntax:
     content: public override DateTime ToDateTime (int year, int month, int day, int hour, int minute, int second, int millisecond, int era);
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Целое число, представляющее год."
     - id: month
       type: System.Int32
-      description: "An integer from 1 to 12 that represents the month."
+      description: "Целое число от 1 до 12, представляющее месяц."
     - id: day
       type: System.Int32
-      description: "An integer from 1 to 30 that represents the day."
+      description: "Целое число от 1 до 30, представляющее день."
     - id: hour
       type: System.Int32
-      description: "An integer from 0 to 23 that represents the hour."
+      description: "Целое число от 0 до 23, представляющее час."
     - id: minute
       type: System.Int32
-      description: "An integer from 0 to 59 that represents the minute."
+      description: "Целое число от 0 до 59, представляющее минуту."
     - id: second
       type: System.Int32
-      description: "An integer from 0 to 59 that represents the second."
+      description: "Целое число от 0 до 59, представляющее секунду."
     - id: millisecond
       type: System.Int32
-      description: "An integer from 0 to 999 that represents the millisecond."
+      description: "Целое число от 0 до 999, представляющее миллисекунду."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Целое число, представляющее эру."
     return:
       type: System.DateTime
-      description: "The <xref:System.DateTime> that is set to the specified date and time in the current era."
+      description: "<xref:System.DateTime>, Равным указанной даты и времени в текущей эре.</xref:System.DateTime>"
   overload: System.Globalization.HijriCalendar.ToDateTime*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>era</code> is outside the range supported by this calendar.       -or-       <code>year</code> is outside the range supported by this calendar.       -or-       <code>month</code> is outside the range supported by this calendar.       -or-       <code>day</code> is outside the range supported by this calendar.       -or-       <code>hour</code> is less than zero or greater than 23.       -or-       <code>minute</code> is less than zero or greater than 59.       -or-       <code>second</code> is less than zero or greater than 59.       -or-       <code>millisecond</code> is less than zero or greater than 999."
+    description: "<code>era</code>находится вне диапазона, поддерживаемое этим календарем.       - или - <code>year</code> выходит за пределы диапазона, поддерживаемое этим календарем.       - или - <code>month</code> выходит за пределы диапазона, поддерживаемое этим календарем.       - или - <code>day</code> выходит за пределы диапазона, поддерживаемое этим календарем.       - или - <code>hour</code> меньше нуля или больше 23.       - или - <code>minute</code> меньше нуля или больше 59.       - или - <code>second</code> меньше нуля или больше 59.       - или - <code>millisecond</code> меньше нуля или больше 999."
   platform:
   - net462
 - uid: System.Globalization.HijriCalendar.ToFourDigitYear(System.Int32)
@@ -803,22 +803,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Converts the specified year to a four-digit year by using the <xref:System.Globalization.HijriCalendar.TwoDigitYearMax*> property to determine the appropriate century."
-  remarks: "<xref:System.Globalization.HijriCalendar.TwoDigitYearMax%2A> is the last year in the 100-year range that can be represented by a two-digit year. The century is determined by finding the sole occurrence of the two-digit `year` within that 100-year range. For example, if <xref:System.Globalization.HijriCalendar.TwoDigitYearMax%2A> is set to 1429, the 100-year range is from 1330 to 1429; therefore, a 2-digit value of 30 is interpreted as 1330, while a 2-digit value of 29 is interpreted as 1429.       ToFourDigitYear supports either a two-digit year or a four-digit year. Passing a two-digit year value (less than 100) causes the method to convert the value to a four-digit value according to the <xref:System.Globalization.HijriCalendar.TwoDigitYearMax%2A> value representing the appropriate century. If the application supplies a four-digit year value that is within the supported calendar range to ToFourDigitYear, the method returns the actual input value. If the application supplies a four-digit value that is outside the supported calendar range, or if it supplies a negative value, the method throws an exception."
+  summary: "Преобразует указанный год в четырехзначный год с помощью <xref:System.Globalization.HijriCalendar.TwoDigitYearMax*>для выбора века.</xref:System.Globalization.HijriCalendar.TwoDigitYearMax*>"
+  remarks: "<xref:System.Globalization.HijriCalendar.TwoDigitYearMax%2A>— за последний год в диапазоне ста лет, который может быть представлена двумя цифрами.</xref:System.Globalization.HijriCalendar.TwoDigitYearMax%2A> Век определяется путем нахождения единственного вхождение двух цифр `year` в данном диапазоне ста лет. Например если <xref:System.Globalization.HijriCalendar.TwoDigitYearMax%2A>имеет значение 1429, столетний диапазон определяется с 1330 1429; Поэтому двухзначное значение 30 представляется как 1330, а двухзначное значение 29 как 1429.</xref:System.Globalization.HijriCalendar.TwoDigitYearMax%2A>       ToFourDigitYear поддерживает двузначный год или год из четырех цифр. При передаче значения двух цифр года (меньше 100) вызывает метод для преобразования значения из четырех цифр значение в соответствии с <xref:System.Globalization.HijriCalendar.TwoDigitYearMax%2A>значение, представляющее века.</xref:System.Globalization.HijriCalendar.TwoDigitYearMax%2A> Если приложение передает значение года из четырех цифр в диапазоне поддерживаемых календаря для ToFourDigitYear, метод возвращает фактическое входное значение. Если приложение передает значение из четырех цифр, выходит за пределы поддерживаемого календарного или если он предоставляет отрицательное значение, метод создает исключение."
   syntax:
     content: public override int ToFourDigitYear (int year);
     parameters:
     - id: year
       type: System.Int32
-      description: "A two-digit or four-digit integer that represents the year to convert."
+      description: "Двузначное или четырехзначное целое число, представляющее год для преобразования."
     return:
       type: System.Int32
-      description: "An integer that contains the four-digit representation of <code>year</code>."
+      description: "Значение integer, содержащее четырехразрядное представление из <code> year </code>."
   overload: System.Globalization.HijriCalendar.ToFourDigitYear*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>year</code> is outside the range supported by this calendar."
+    description: "<code>year</code>находится вне диапазона, поддерживаемое этим календарем."
   platform:
   - net462
 - uid: System.Globalization.HijriCalendar.TwoDigitYearMax
@@ -833,21 +833,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets or sets the last year of a 100-year range that can be represented by a 2-digit year."
-  remarks: "This property allows a 2-digit year to be properly translated to a 4-digit year. For example, if this property is set to 1429, the 100-year range is from 1330 to 1429. Therefore, a 2-digit value of 30 is interpreted as 1330, while a 2-digit value of 29 is interpreted as 1429.       The initial value of this property is derived from the settings in the regional and language options portion of Control Panel. However, that information can change during the life of the <xref:System.AppDomain>. The <xref:System.Globalization.HijriCalendar> class does not detect changes in the system settings automatically.       The application should set this value to 99 to indicate that 2-digit years are to be taken literally. For example, if this property is set to 99, the 100-year range is from 0 (not a valid value for most calendars) to 99. Therefore, a 2-digit value of 30 is interpreted as 30."
+  summary: "Возвращает или задает последний год в диапазоне ста лет, который может быть представлен существует двузначное представление года."
+  remarks: "Это свойство позволяет 2 цифрами правильно преобразовать 4-значный номер года. Например если это свойство имеет значение 1429, столетний диапазон определяется с 1330 1429. 2-разрядное значение 30 интерпретируется как 1330, а двухзначное значение 29 как 1429.       Начальное значение этого свойства является производным от параметров в списке язык и региональные параметры элемента панели управления. Тем не менее эти данные могут измениться в течение жизни <xref:System.AppDomain>.</xref:System.AppDomain> <xref:System.Globalization.HijriCalendar>Класса не обнаруживает изменения параметров системы автоматически.</xref:System.Globalization.HijriCalendar>       Приложения это значение равно 99 для обозначения 2 цифрами подхода к. Например если это свойство имеет значение 99, столетний диапазон — от 0 (не является допустимым значением для большинства календарей) до 99. Поэтому двухзначное значение 30 интерпретируется как 30."
   syntax:
     content: public override int TwoDigitYearMax { get; set; }
     return:
       type: System.Int32
-      description: "The last year of a 100-year range that can be represented by a 2-digit year."
+      description: "Последний год в диапазоне ста лет, который может быть представлен существует двузначное представление года."
   overload: System.Globalization.HijriCalendar.TwoDigitYearMax*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This calendar is read-only."
+    description: "Данный календарь доступен только для чтения."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value in a set operation is less than 100 or greater than 9666."
+    description: "Значение в операции задания меньше 100 или больше, чем 9666."
   platform:
   - net462
 references:

@@ -18,8 +18,8 @@ items:
   nameWithType: XPathExpression
   fullName: System.Xml.XPath.XPathExpression
   type: Class
-  summary: "Provides a typed class that represents a compiled XPath expression."
-  remarks: "This class is returned as the result of the <xref:System.Xml.XPath.XPathNavigator.Compile%2A> method of the <xref:System.Xml.XPath.XPathNavigator> class. It is a parameter to the <xref:System.Xml.XPath.XPathNavigator.Evaluate%2A>, <xref:System.Xml.XPath.XPathNavigator.Matches%2A>, <xref:System.Xml.XPath.XPathNavigator.Select%2A>, and <xref:System.Xml.XPath.XPathNavigator.SelectSingleNode%2A> methods of the <xref:System.Xml.XPath.XPathNavigator> class."
+  summary: "Предоставляет типизированный класс, который представляет скомпилированное выражение XPath."
+  remarks: "Этот класс возвращается в виде результата <xref:System.Xml.XPath.XPathNavigator.Compile%2A>метода <xref:System.Xml.XPath.XPathNavigator>класса.</xref:System.Xml.XPath.XPathNavigator> </xref:System.Xml.XPath.XPathNavigator.Compile%2A> Это параметр для <xref:System.Xml.XPath.XPathNavigator.Evaluate%2A>, <xref:System.Xml.XPath.XPathNavigator.Matches%2A>, <xref:System.Xml.XPath.XPathNavigator.Select%2A>и <xref:System.Xml.XPath.XPathNavigator.SelectSingleNode%2A>методов этого <xref:System.Xml.XPath.XPathNavigator>класса.</xref:System.Xml.XPath.XPathNavigator> </xref:System.Xml.XPath.XPathNavigator.SelectSingleNode%2A> </xref:System.Xml.XPath.XPathNavigator.Select%2A> </xref:System.Xml.XPath.XPathNavigator.Matches%2A> </xref:System.Xml.XPath.XPathNavigator.Evaluate%2A>"
   example:
   - "The following example shows how to use the XPath return type to determine how to process the XPath expression.  \n  \n [!code-cs[XPathExpression.ReturnType#1](~/add/codesnippet/csharp/t-system.xml.xpath.xpath_0_1.cs)]\n [!code-cpp[XPathExpression.ReturnType#1](~/add/codesnippet/cpp/t-system.xml.xpath.xpath_0_1.cpp)]\n [!code-vb[XPathExpression.ReturnType#1](~/add/codesnippet/visualbasic/t-system.xml.xpath.xpath_0_1.vb)]  \n  \n The example takes the `contosoBooks.xml` file as input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -42,22 +42,22 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml.XPath
-  summary: "When overridden in a derived class, sorts the nodes selected by the XPath expression according to the specified <xref:System.Collections.IComparer> object."
-  remarks: "The AddSort method enables users to sort objects by their data type instead of by string or number. The <xref:System.Collections.IComparer> object provides an implementation of the <xref:System.Collections.IComparer.Compare%2A> method that supports sorting on user-defined classes.       In the following example, the books are sorted by ISBN number, where `isbn` is an object that implements the <xref:System.Collections.IComparer> interface.      ```vb#   Dim expression As XPathExpression = navigator.Compile(&quot;bookstore/book&quot;)   Dim isbn As ISBN = New ISBN()   expression.AddSort(&quot;@ISBN&quot;, (IComparer)isbn)   ```      ```c#   XPathExpression expression = navigator.Compile(&quot;bookstore/book&quot;);   ISBN isbn = new ISBN();   expression.AddSort(&quot;@ISBN&quot;, (IComparer)isbn);   ```       The following are important notes to consider when using the AddSort method.      -   The order in which the sorts are added provides the sort key order.      -   If the <xref:System.Xml.XPath.XPathExpression> or the sort key requires namespace resolution, you must use the <xref:System.Xml.XPath.XPathExpression.SetContext%2A> method to provide an <xref:System.Xml.XmlNamespaceManager> for namespace resolution.      -   If the <xref:System.Xml.XPath.XPathExpression> does not include a prefix, it is assumed that the namespace Uniform Resource Identifier (URI) is the empty namespace. If your XML includes a default namespace, you must still use the <xref:System.Xml.XPath.XPathExpression.SetContext%2A> method and provide an <xref:System.Xml.XmlNamespaceManager> that contains a prefix and namespace URI to handle the default namespace."
+  summary: "При переопределении в производном классе выполняет сортировку узлов, выбранных выражением XPath, согласно указанному <xref:System.Collections.IComparer>объекта.</xref:System.Collections.IComparer>"
+  remarks: "Метод AddSort позволяет пользователям сортировать объекты по типу данных, а не по строкам или числам. <xref:System.Collections.IComparer>Объект предоставляет реализацию <xref:System.Collections.IComparer.Compare%2A>метод, который поддерживает сортировку в пользовательских классах.</xref:System.Collections.IComparer.Compare%2A> </xref:System.Collections.IComparer>       В следующем примере книги сортируются по номеру ISBN, где `isbn` — это объект, реализующий <xref:System.Collections.IComparer>интерфейса.</xref:System.Collections.IComparer>      ```vb#   Dim expression As XPathExpression = navigator.Compile(&quot;bookstore/book&quot;)   Dim isbn As ISBN = New ISBN()   expression.AddSort(&quot;@ISBN&quot;, (IComparer)isbn)   ```      ```c#   XPathExpression expression = navigator.Compile(&quot;bookstore/book&quot;);   ISBN isbn = new ISBN();   expression.AddSort(&quot;@ISBN&quot;, (IComparer)isbn);   ```Ниже перечислены важные замечания, которые следует учитывать при использовании метода AddSort.      -Порядок добавления сортировок обеспечивает сортировку ключу.      -Если <xref:System.Xml.XPath.XPathExpression>или ключ сортировки необходимо разрешение пространства имен, необходимо использовать <xref:System.Xml.XPath.XPathExpression.SetContext%2A>метод для предоставления <xref:System.Xml.XmlNamespaceManager>для разрешения пространства имен.</xref:System.Xml.XmlNamespaceManager> </xref:System.Xml.XPath.XPathExpression.SetContext%2A> </xref:System.Xml.XPath.XPathExpression>      -Если <xref:System.Xml.XPath.XPathExpression>содержит префикс, предполагается, что универсальный код ресурса (URI) пространства имен является пустое пространство имен.</xref:System.Xml.XPath.XPathExpression> Если XML включает пространство имен по умолчанию, необходимо использовать <xref:System.Xml.XPath.XPathExpression.SetContext%2A>метод и предоставить <xref:System.Xml.XmlNamespaceManager>, содержащее префикс и URI пространства имен для обработки пространства имен по умолчанию.</xref:System.Xml.XmlNamespaceManager> </xref:System.Xml.XPath.XPathExpression.SetContext%2A>"
   syntax:
     content: public abstract void AddSort (object expr, System.Collections.IComparer comparer);
     parameters:
     - id: expr
       type: System.Object
-      description: "An object representing the sort key. This can be the <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;></xref> value of the node or an <xref href=&quot;System.Xml.XPath.XPathExpression&quot;></xref> object with a compiled XPath expression."
+      description: "Объект, представляющий ключ сортировки. Это может быть <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;> </xref> значение узла или <xref href=&quot;System.Xml.XPath.XPathExpression&quot;> </xref> объекта со скомпилированным выражением XPath."
     - id: comparer
       type: System.Collections.IComparer
-      description: "An <xref:System.Collections.IComparer> object that provides the specific data type comparisons for comparing two objects for equivalence."
+      description: "<xref:System.Collections.IComparer>Объект, предоставляющий сравнения типов данных для сравнения на равенство двух объектов.</xref:System.Collections.IComparer>"
   overload: System.Xml.XPath.XPathExpression.AddSort*
   exceptions:
   - type: System.Xml.XPath.XPathException
     commentId: T:System.Xml.XPath.XPathException
-    description: "The <xref href=&quot;System.Xml.XPath.XPathExpression&quot;></xref> or sort key includes a prefix and either an <xref:System.Xml.XmlNamespaceManager> is not provided, or the prefix cannot be found in the supplied <xref:System.Xml.XmlNamespaceManager>."
+    description: "<xref href=&quot;System.Xml.XPath.XPathExpression&quot;> </xref> Или ключ сортировки включает префикс и либо <xref:System.Xml.XmlNamespaceManager>отсутствует, или не удается найти префикс в предоставленных <xref:System.Xml.XmlNamespaceManager>.</xref:System.Xml.XmlNamespaceManager> </xref:System.Xml.XmlNamespaceManager>"
   platform:
   - net462
 - uid: System.Xml.XPath.XPathExpression.AddSort(System.Object,System.Xml.XPath.XmlSortOrder,System.Xml.XPath.XmlCaseOrder,System.String,System.Xml.XPath.XmlDataType)
@@ -72,8 +72,8 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml.XPath
-  summary: "When overridden in a derived class, sorts the nodes selected by the XPath expression according to the supplied parameters."
-  remarks: "-   The order in which the sorts are added provides the sort key order.      -   If the <xref:System.Xml.XPath.XPathExpression> or the sort key requires namespace resolution, you must use the <xref:System.Xml.XPath.XPathExpression.SetContext%2A> method to provide an <xref:System.Xml.XmlNamespaceManager> for namespace resolution.      -   If the <xref:System.Xml.XPath.XPathExpression> does not include a prefix, it is assumed that the namespace Uniform Resource Identifier (URI) is the empty namespace. If your XML includes a default namespace, you must still use the <xref:System.Xml.XPath.XPathExpression.SetContext%2A> method and provide an <xref:System.Xml.XmlNamespaceManager> that contains a prefix and namespace URI to handle the default namespace."
+  summary: "При переопределении в производном классе выполняет сортировку узлов, выбранных выражением XPath, согласно указанным параметрам."
+  remarks: "-   Порядок добавления сортировок обеспечивает сортировку ключу.      -Если <xref:System.Xml.XPath.XPathExpression>или ключ сортировки необходимо разрешение пространства имен, необходимо использовать <xref:System.Xml.XPath.XPathExpression.SetContext%2A>метод для предоставления <xref:System.Xml.XmlNamespaceManager>для разрешения пространства имен.</xref:System.Xml.XmlNamespaceManager> </xref:System.Xml.XPath.XPathExpression.SetContext%2A> </xref:System.Xml.XPath.XPathExpression>      -Если <xref:System.Xml.XPath.XPathExpression>содержит префикс, предполагается, что универсальный код ресурса (URI) пространства имен является пустое пространство имен.</xref:System.Xml.XPath.XPathExpression> Если XML включает пространство имен по умолчанию, необходимо использовать <xref:System.Xml.XPath.XPathExpression.SetContext%2A>метод и предоставить <xref:System.Xml.XmlNamespaceManager>, содержащее префикс и URI пространства имен для обработки пространства имен по умолчанию.</xref:System.Xml.XmlNamespaceManager> </xref:System.Xml.XPath.XPathExpression.SetContext%2A>"
   example:
   - "The following example shows how to sort the books document by price in descending order.  \n  \n [!code-vb[XPathXMLExamples#4](~/add/codesnippet/visualbasic/018cc22b-ec54-467d-9a7f-_1.vb)]  \n  \n [!code-cs[XPathXMLExamples#5](~/add/codesnippet/csharp/018cc22b-ec54-467d-9a7f-_2.cs)]  \n  \n The example takes the `books.xml` file as input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>   \n<bookstore>  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -81,24 +81,24 @@ items:
     parameters:
     - id: expr
       type: System.Object
-      description: "An object representing the sort key. This can be the <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;></xref> value of the node or an <xref href=&quot;System.Xml.XPath.XPathExpression&quot;></xref> object with a compiled XPath expression."
+      description: "Объект, представляющий ключ сортировки. Это может быть <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;> </xref> значение узла или <xref href=&quot;System.Xml.XPath.XPathExpression&quot;> </xref> объекта со скомпилированным выражением XPath."
     - id: order
       type: System.Xml.XPath.XmlSortOrder
-      description: "An <xref href=&quot;System.Xml.XPath.XmlSortOrder&quot;></xref> value indicating the sort order."
+      description: "<xref href=&quot;System.Xml.XPath.XmlSortOrder&quot;> </xref> Значение, указывающее порядок сортировки."
     - id: caseOrder
       type: System.Xml.XPath.XmlCaseOrder
-      description: "An <xref href=&quot;System.Xml.XPath.XmlCaseOrder&quot;></xref> value indicating how to sort uppercase and lowercase letters."
+      description: "<xref href=&quot;System.Xml.XPath.XmlCaseOrder&quot;> </xref> Значение, указывающее, как должны сортироваться прописные и строчные буквы."
     - id: lang
       type: System.String
-      description: "The language to use for comparison. Uses the <xref:System.Globalization.CultureInfo> class that can be passed to the <xref:System.String.Compare*> method for the language types, for example, &quot;us-en&quot; for U.S. English. If an empty string is specified, the system environment is used to determine the <xref:System.Globalization.CultureInfo>."
+      description: "Язык, используемый для сравнения. С помощью <xref:System.Globalization.CultureInfo>класса, можно передать в <xref:System.String.Compare*>метод для типов языка, например, «us-en» для США</xref:System.String.Compare*> </xref:System.Globalization.CultureInfo> английский. Если задана пустая строка, среда системы используется для определения <xref:System.Globalization.CultureInfo>.</xref:System.Globalization.CultureInfo>"
     - id: dataType
       type: System.Xml.XPath.XmlDataType
-      description: "An <xref href=&quot;System.Xml.XPath.XmlDataType&quot;></xref> value indicating the sort order for the data type."
+      description: "<xref href=&quot;System.Xml.XPath.XmlDataType&quot;> </xref> Значение, указывающее, порядок сортировки для типа данных."
   overload: System.Xml.XPath.XPathExpression.AddSort*
   exceptions:
   - type: System.Xml.XPath.XPathException
     commentId: T:System.Xml.XPath.XPathException
-    description: "The <xref href=&quot;System.Xml.XPath.XPathExpression&quot;></xref> or sort key includes a prefix and either an <xref:System.Xml.XmlNamespaceManager> is not provided, or the prefix cannot be found in the supplied <xref:System.Xml.XmlNamespaceManager>."
+    description: "<xref href=&quot;System.Xml.XPath.XPathExpression&quot;> </xref> Или ключ сортировки включает префикс и либо <xref:System.Xml.XmlNamespaceManager>отсутствует, или не удается найти префикс в предоставленных <xref:System.Xml.XmlNamespaceManager>.</xref:System.Xml.XmlNamespaceManager> </xref:System.Xml.XmlNamespaceManager>"
   platform:
   - net462
 - uid: System.Xml.XPath.XPathExpression.Clone
@@ -113,14 +113,14 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml.XPath
-  summary: "When overridden in a derived class, returns a clone of this <xref href=&quot;System.Xml.XPath.XPathExpression&quot;></xref>."
-  remarks: "When overridden in a derived class, the Clone method returns a clone of this <xref:System.Xml.XPath.XPathExpression> object with the same state as this <xref:System.Xml.XPath.XPathExpression> object."
+  summary: "При переопределении в производном классе, возвращает клон данного объекта <xref href=&quot;System.Xml.XPath.XPathExpression&quot;> </xref>."
+  remarks: "При переопределении в производном классе, метод Clone Возвращает клон данного объекта <xref:System.Xml.XPath.XPathExpression>объектов с одинаковым состоянием, как это <xref:System.Xml.XPath.XPathExpression>объекта.</xref:System.Xml.XPath.XPathExpression> </xref:System.Xml.XPath.XPathExpression>"
   syntax:
     content: public abstract System.Xml.XPath.XPathExpression Clone ();
     parameters: []
     return:
       type: System.Xml.XPath.XPathExpression
-      description: "A new <xref href=&quot;System.Xml.XPath.XPathExpression&quot;></xref> object."
+      description: "Новый <xref href=&quot;System.Xml.XPath.XPathExpression&quot;> </xref> объекта."
   overload: System.Xml.XPath.XPathExpression.Clone*
   exceptions: []
   platform:
@@ -137,8 +137,8 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml.XPath
-  summary: "Compiles the XPath expression specified and returns an <xref href=&quot;System.Xml.XPath.XPathExpression&quot;></xref> object representing the XPath expression."
-  remarks: "An XPath expression is evaluated to yield one of the following result types.      -   <xref:System.Xml.XPath.XPathResultType>      -   <xref:System.Xml.XPath.XPathResultType>      -   <xref:System.Xml.XPath.XPathResultType>      -   <xref:System.Xml.XPath.XPathResultType>      > [!NOTE] >  If a user-defined function with an invalid number of arguments (or an unimplemented user-defined function) is specified in the XPath expression, an exception occurs only at run time. User-defined functions are not checked at compile time and exceptions that result from user-defined functions occur only if execution evaluates the expression."
+  summary: "Компилирует указанное выражение XPath и возвращает <xref href=&quot;System.Xml.XPath.XPathExpression&quot;> </xref> объект, представляющий выражение XPath."
+  remarks: "Выражение XPath вычисляется для достижения одного из следующих типов результата.      - <xref:System.Xml.XPath.XPathResultType>- <xref:System.Xml.XPath.XPathResultType>- <xref:System.Xml.XPath.XPathResultType>- <xref:System.Xml.XPath.XPathResultType>Настроек [!NOTE] настроек Если определяемой пользователем функции с недопустимым числом аргументов (или нереализованная определяемой пользователем функции) указан в выражении XPath, исключение происходит только во время выполнения.</xref:System.Xml.XPath.XPathResultType> </xref:System.Xml.XPath.XPathResultType> </xref:System.Xml.XPath.XPathResultType> </xref:System.Xml.XPath.XPathResultType> Определяемые пользователем функции не проверяются во время компиляции и исключения, возникающие в результате определяемых пользователем функций возникают только в том случае, если выполнение вычисляет выражение."
   example:
   - "The following example shows how to use the XPath return type to determine how to process the XPath expression. The example uses the Compile method to return the new <xref:System.Xml.XPath.XPathExpression> objects.  \n  \n [!code-cs[XPathExpression.ReturnType#1](~/add/codesnippet/csharp/m-system.xml.xpath.xpath_24_1.cs)]\n [!code-cpp[XPathExpression.ReturnType#1](~/add/codesnippet/cpp/m-system.xml.xpath.xpath_24_1.cpp)]\n [!code-vb[XPathExpression.ReturnType#1](~/add/codesnippet/visualbasic/m-system.xml.xpath.xpath_24_1.vb)]  \n  \n The example takes the `contosoBooks.xml` file as input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -146,18 +146,18 @@ items:
     parameters:
     - id: xpath
       type: System.String
-      description: "An XPath expression."
+      description: "Выражение XPath."
     return:
       type: System.Xml.XPath.XPathExpression
-      description: "An <xref href=&quot;System.Xml.XPath.XPathExpression&quot;></xref> object."
+      description: "<xref href=&quot;System.Xml.XPath.XPathExpression&quot;> </xref> Объекта."
   overload: System.Xml.XPath.XPathExpression.Compile*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The XPath expression parameter is not a valid XPath expression."
+    description: "Параметр выражения XPath не является допустимым выражением XPath."
   - type: System.Xml.XPath.XPathException
     commentId: T:System.Xml.XPath.XPathException
-    description: "The XPath expression is not valid."
+    description: "Недопустимое выражение XPath."
   platform:
   - net462
 - uid: System.Xml.XPath.XPathExpression.Compile(System.String,System.Xml.IXmlNamespaceResolver)
@@ -172,28 +172,28 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml.XPath
-  summary: "Compiles the specified XPath expression, with the <xref:System.Xml.IXmlNamespaceResolver> object specified for namespace resolution, and returns an <xref href=&quot;System.Xml.XPath.XPathExpression&quot;></xref> object that represents the XPath expression."
-  remarks: "An XPath expression is evaluated to yield one of the following result types.      -   <xref:System.Xml.XPath.XPathResultType>      -   <xref:System.Xml.XPath.XPathResultType>      -   <xref:System.Xml.XPath.XPathResultType>      -   <xref:System.Xml.XPath.XPathResultType>      > [!NOTE] >  If a user-defined function with an invalid number of arguments (or an unimplemented user-defined function) is specified in the XPath expression, an exception occurs only at run-time. User-defined functions are not checked at compile time and exceptions resulting from user-defined functions occur only if execution evaluates the expression.      > [!NOTE] >  It is not possible to compile a <xref:System.Xml.XPath.XPathExpression> with a custom context in one step by passing an <xref:System.Xml.Xsl.XsltContext>, which implements <xref:System.Xml.IXmlNamespaceResolver>, as an argument to this method. To use a <xref:System.Xml.XPath.XPathExpression> with a custom context, you must call the <xref:System.Xml.XPath.XPathExpression.SetContext%2A> method after compiling the expression."
+  summary: "Компилирует указанное выражение XPath с <xref:System.Xml.IXmlNamespaceResolver>объект, указанный для разрешения пространства имен и возвращает <xref href=&quot;System.Xml.XPath.XPathExpression&quot;> </xref> , представляющий выражение XPath.</xref:System.Xml.IXmlNamespaceResolver>"
+  remarks: "Выражение XPath вычисляется для достижения одного из следующих типов результата.      - <xref:System.Xml.XPath.XPathResultType>- <xref:System.Xml.XPath.XPathResultType>- <xref:System.Xml.XPath.XPathResultType>- <xref:System.Xml.XPath.XPathResultType>Настроек [!NOTE] настроек Если определяемой пользователем функции с недопустимым числом аргументов (или нереализованная определяемой пользователем функции) указан в выражении XPath, исключение происходит только во время выполнения.</xref:System.Xml.XPath.XPathResultType> </xref:System.Xml.XPath.XPathResultType> </xref:System.Xml.XPath.XPathResultType> </xref:System.Xml.XPath.XPathResultType> Определяемые пользователем функции не проверяются во время компиляции и исключения, возникающие в результате определяемых пользователем функций возникают только в том случае, если выполнение вычисляет выражение.      Настроек [!NOTE] настроек невозможно компилировать <xref:System.Xml.XPath.XPathExpression>с контекстом пользовательских за один шаг, передав <xref:System.Xml.Xsl.XsltContext>, который реализует <xref:System.Xml.IXmlNamespaceResolver>, как аргумент в этот метод.</xref:System.Xml.IXmlNamespaceResolver> </xref:System.Xml.Xsl.XsltContext> </xref:System.Xml.XPath.XPathExpression> Для использования <xref:System.Xml.XPath.XPathExpression>пользовательский контекст, необходимо вызвать <xref:System.Xml.XPath.XPathExpression.SetContext%2A>метод после компиляции выражения.</xref:System.Xml.XPath.XPathExpression.SetContext%2A> </xref:System.Xml.XPath.XPathExpression>"
   syntax:
     content: public static System.Xml.XPath.XPathExpression Compile (string xpath, System.Xml.IXmlNamespaceResolver nsResolver);
     parameters:
     - id: xpath
       type: System.String
-      description: "An XPath expression."
+      description: "Выражение XPath."
     - id: nsResolver
       type: System.Xml.IXmlNamespaceResolver
-      description: "An object that implements the <xref:System.Xml.IXmlNamespaceResolver> interface for namespace resolution."
+      description: "Объект, реализующий интерфейс <xref:System.Xml.IXmlNamespaceResolver>интерфейс для разрешения пространства имен.</xref:System.Xml.IXmlNamespaceResolver>"
     return:
       type: System.Xml.XPath.XPathExpression
-      description: "An <xref href=&quot;System.Xml.XPath.XPathExpression&quot;></xref> object."
+      description: "<xref href=&quot;System.Xml.XPath.XPathExpression&quot;> </xref> Объекта."
   overload: System.Xml.XPath.XPathExpression.Compile*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The XPath expression parameter is not a valid XPath expression."
+    description: "Параметр выражения XPath не является допустимым выражением XPath."
   - type: System.Xml.XPath.XPathException
     commentId: T:System.Xml.XPath.XPathException
-    description: "The XPath expression is not valid."
+    description: "Недопустимое выражение XPath."
   platform:
   - net462
 - uid: System.Xml.XPath.XPathExpression.Expression
@@ -208,12 +208,12 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml.XPath
-  summary: "When overridden in a derived class, gets a <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;></xref> representation of the <xref href=&quot;System.Xml.XPath.XPathExpression&quot;></xref>."
+  summary: "При переопределении в производном классе получает <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;> </xref> представление <xref href=&quot;System.Xml.XPath.XPathExpression&quot;> </xref>."
   syntax:
     content: public abstract string Expression { get; }
     return:
       type: System.String
-      description: "A <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;></xref> representation of the <xref href=&quot;System.Xml.XPath.XPathExpression&quot;></xref>."
+      description: "Объект <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;> </xref> представление <xref href=&quot;System.Xml.XPath.XPathExpression&quot;> </xref>."
   overload: System.Xml.XPath.XPathExpression.Expression*
   exceptions: []
   platform:
@@ -230,7 +230,7 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml.XPath
-  summary: "When overridden in a derived class, gets the result type of the XPath expression."
+  summary: "При переопределении в производном классе получает тип результата выражения XPath."
   remarks: ''
   example:
   - "The following example shows how to use the XPath return type to determine how to process the XPath expression.  \n  \n [!code-cs[XPathExpression.ReturnType#1](~/add/codesnippet/csharp/p-system.xml.xpath.xpath_3_1.cs)]\n [!code-cpp[XPathExpression.ReturnType#1](~/add/codesnippet/cpp/p-system.xml.xpath.xpath_3_1.cpp)]\n [!code-vb[XPathExpression.ReturnType#1](~/add/codesnippet/visualbasic/p-system.xml.xpath.xpath_3_1.vb)]  \n  \n The example takes the `contosoBooks.xml` file as input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
@@ -238,7 +238,7 @@ items:
     content: public abstract System.Xml.XPath.XPathResultType ReturnType { get; }
     return:
       type: System.Xml.XPath.XPathResultType
-      description: "An <xref href=&quot;System.Xml.XPath.XPathResultType&quot;></xref> value representing the result type of the XPath expression."
+      description: "<xref href=&quot;System.Xml.XPath.XPathResultType&quot;> </xref> Значение, представляющее тип результата выражения XPath."
   overload: System.Xml.XPath.XPathExpression.ReturnType*
   exceptions: []
   platform:
@@ -255,8 +255,8 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml.XPath
-  summary: "When overridden in a derived class, specifies the <xref:System.Xml.IXmlNamespaceResolver> object to use for namespace resolution."
-  remarks: "Namespace resolution is supported using classes that implement the <xref:System.Xml.IXmlNamespaceResolver> interface, such as the <xref:System.Xml.XmlNamespaceManager> class. The <xref:System.Xml.XmlNamespaceManager> stores prefix and namespace Uniform Resource Identifier (URI) mappings. If the <xref:System.Xml.XPath.XPathExpression> requires namespace resolution, the prefix and namespace URI pair must be added to an object, such as the <xref:System.Xml.XmlNamespaceManager> class, which implements the <xref:System.Xml.IXmlNamespaceResolver> interface, and the SetContext method must be called to specify the <xref:System.Xml.IXmlNamespaceResolver> interface object to use for namespace resolution.       The following are important notes to consider when using the SetContext method.      -   If the <xref:System.Xml.XPath.XPathExpression> does not include a prefix, it is assumed that the namespace URI is the empty namespace. If your XML includes a default namespace, you must still use the SetContext method and provide an object that contains a prefix and namespace URI to handle the default namespace.      -   You can also supply an <xref:System.Xml.IXmlNamespaceResolver> interface object for namespace resolution to the <xref:System.Xml.XPath.XPathExpression.Compile%2A> method when you create your <xref:System.Xml.XPath.XPathExpression> object.      -   SetContext accepts <xref:System.Xml.Xsl.XsltContext> as a namespace resolver, so you can implement a custom context and use functions and variables based on <xref:System.Xml.Xsl.IXsltContextFunction> and <xref:System.Xml.Xsl.IXsltContextVariable>. The XPath expression will execute them. For more information, see [User Defined Functions and Variables](~/add/includes/ajax-current-ext-md.md)."
+  summary: "При переопределении в производном классе задает <xref:System.Xml.IXmlNamespaceResolver>объект, используемый для разрешения пространства имен.</xref:System.Xml.IXmlNamespaceResolver>"
+  remarks: "Разрешение пространства имен поддерживается с помощью классов, реализующих <xref:System.Xml.IXmlNamespaceResolver>интерфейс, например <xref:System.Xml.XmlNamespaceManager>класса.</xref:System.Xml.XmlNamespaceManager> </xref:System.Xml.IXmlNamespaceResolver> <xref:System.Xml.XmlNamespaceManager>Хранит универсальный код ресурса (URI) сопоставления префиксов и пространств имен.</xref:System.Xml.XmlNamespaceManager> Если <xref:System.Xml.XPath.XPathExpression>требуется URI-кодом пространства имен разрешения префикс и пространство имен должна быть добавлена в объект, такой как <xref:System.Xml.XmlNamespaceManager>класса, который реализует <xref:System.Xml.IXmlNamespaceResolver>интерфейсов и методов SetContext необходимо вызвать для указания <xref:System.Xml.IXmlNamespaceResolver>объект интерфейс, используемый для разрешения пространства имен.</xref:System.Xml.IXmlNamespaceResolver> </xref:System.Xml.IXmlNamespaceResolver> </xref:System.Xml.XmlNamespaceManager> </xref:System.Xml.XPath.XPathExpression>       Ниже перечислены важные замечания, которые следует учитывать при использовании метода SetContext.      -Если <xref:System.Xml.XPath.XPathExpression>содержит префикс, предполагается, что URI пространства имен является пустое пространство имен.</xref:System.Xml.XPath.XPathExpression> Если XML включает пространство имен по умолчанию, необходимо по-прежнему использовать метод SetContext и предоставить объект, содержащий префикс и URI пространства имен для обработки пространства имен по умолчанию.      -Можно также указать <xref:System.Xml.IXmlNamespaceResolver>объект интерфейса для разрешения пространства имен для <xref:System.Xml.XPath.XPathExpression.Compile%2A>метод при создании вашего <xref:System.Xml.XPath.XPathExpression>объекта.</xref:System.Xml.XPath.XPathExpression> </xref:System.Xml.XPath.XPathExpression.Compile%2A> </xref:System.Xml.IXmlNamespaceResolver>      -SetContext принимает в <xref:System.Xml.Xsl.XsltContext>качестве распознавателя пространства имен, поэтому можно реализовать пользовательский контекст и использование функций и переменных, основанных на <xref:System.Xml.Xsl.IXsltContextFunction>и <xref:System.Xml.Xsl.IXsltContextVariable>.</xref:System.Xml.Xsl.IXsltContextVariable> </xref:System.Xml.Xsl.IXsltContextFunction> </xref:System.Xml.Xsl.XsltContext> Их выполнит выражение XPath. Дополнительные сведения см. в разделе [определяемых пользователем функций и переменных](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example shows how to use the XPath return type to determine how to process the XPath expression, and how to use the <xref:System.Xml.XPath.XPathExpression.SetContext%2A> method to provide an <xref:System.Xml.XmlNamespaceManager> object for namespace resolution.  \n  \n [!code-cs[XPathExpression.ReturnType#1](~/add/codesnippet/csharp/m-system.xml.xpath.xpath_26_1.cs)]\n [!code-cpp[XPathExpression.ReturnType#1](~/add/codesnippet/cpp/m-system.xml.xpath.xpath_26_1.cpp)]\n [!code-vb[XPathExpression.ReturnType#1](~/add/codesnippet/visualbasic/m-system.xml.xpath.xpath_26_1.vb)]  \n  \n The example takes the `contosoBooks.xml` file as input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -264,12 +264,12 @@ items:
     parameters:
     - id: nsResolver
       type: System.Xml.IXmlNamespaceResolver
-      description: "An object that implements the <xref:System.Xml.IXmlNamespaceResolver> interface to use for namespace resolution."
+      description: "Объект, реализующий интерфейс <xref:System.Xml.IXmlNamespaceResolver>интерфейс, используемый для разрешения пространства имен.</xref:System.Xml.IXmlNamespaceResolver>"
   overload: System.Xml.XPath.XPathExpression.SetContext*
   exceptions:
   - type: System.Xml.XPath.XPathException
     commentId: T:System.Xml.XPath.XPathException
-    description: "The <xref:System.Xml.IXmlNamespaceResolver> object parameter is not derived from <xref:System.Xml.IXmlNamespaceResolver>."
+    description: "<xref:System.Xml.IXmlNamespaceResolver>Параметр объекта не является производным от <xref:System.Xml.IXmlNamespaceResolver>.</xref:System.Xml.IXmlNamespaceResolver> </xref:System.Xml.IXmlNamespaceResolver>"
   platform:
   - net462
 - uid: System.Xml.XPath.XPathExpression.SetContext(System.Xml.XmlNamespaceManager)
@@ -284,8 +284,8 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml.XPath
-  summary: "When overridden in a derived class, specifies the <xref:System.Xml.XmlNamespaceManager> object to use for namespace resolution."
-  remarks: "Namespace resolution is supported using the <xref:System.Xml.XmlNamespaceManager> class which stores prefix and namespace Uniform Resource Identifier (URI) mappings. If the <xref:System.Xml.XPath.XPathExpression> requires namespace resolution, the prefix and namespace URI pair must be added to the <xref:System.Xml.XmlNamespaceManager> object and the SetContext method must be called to specify the <xref:System.Xml.XmlNamespaceManager> object to use for namespace resolution.       The following are important notes to consider when using the SetContext method.      -   If the <xref:System.Xml.XPath.XPathExpression> does not include a prefix, it is assumed that the namespace URI is the empty namespace. If your XML includes a default namespace, you must still use the SetContext method and provide an <xref:System.Xml.XmlNamespaceManager> object that contains a prefix and namespace URI to handle the default namespace.      -   You can also supply an <xref:System.Xml.IXmlNamespaceResolver> object for namespace resolution to the <xref:System.Xml.XPath.XPathExpression.Compile%2A> method when you create your <xref:System.Xml.XPath.XPathExpression> object.      -   <xref:System.Xml.XPath.XPathExpression.SetContext%2A> accepts <xref:System.Xml.Xsl.XsltContext> as a namespace resolver, so you can implement a custom context and use functions and variables based on <xref:System.Xml.Xsl.IXsltContextFunction> and <xref:System.Xml.Xsl.IXsltContextVariable>. The XPath expression will execute them. For more information, see [User Defined Functions and Variables](~/add/includes/ajax-current-ext-md.md)."
+  summary: "При переопределении в производном классе задает <xref:System.Xml.XmlNamespaceManager>объект, используемый для разрешения пространства имен.</xref:System.Xml.XmlNamespaceManager>"
+  remarks: "Разрешение пространства имен поддерживается с помощью <xref:System.Xml.XmlNamespaceManager>класс, который хранит универсальный код ресурса (URI) сопоставлений префиксов и пространств имен.</xref:System.Xml.XmlNamespaceManager> Если <xref:System.Xml.XPath.XPathExpression>требуется URI-кодом пространства имен разрешения префикс и пространство имен должна быть добавлена в <xref:System.Xml.XmlNamespaceManager>объект и метод SetContext необходимо вызвать, чтобы указать <xref:System.Xml.XmlNamespaceManager>объект, используемый для разрешения пространства имен.</xref:System.Xml.XmlNamespaceManager> </xref:System.Xml.XmlNamespaceManager> </xref:System.Xml.XPath.XPathExpression>       Ниже перечислены важные замечания, которые следует учитывать при использовании метода SetContext.      -Если <xref:System.Xml.XPath.XPathExpression>содержит префикс, предполагается, что URI пространства имен является пустое пространство имен.</xref:System.Xml.XPath.XPathExpression> Если XML включает пространство имен по умолчанию, необходимо по-прежнему использовать метод SetContext и предоставить <xref:System.Xml.XmlNamespaceManager>, содержащий префикс и URI пространства имен для обработки пространства имен по умолчанию.</xref:System.Xml.XmlNamespaceManager>      -Можно также указать <xref:System.Xml.IXmlNamespaceResolver>объект для разрешения пространства имен для <xref:System.Xml.XPath.XPathExpression.Compile%2A>метод при создании вашего <xref:System.Xml.XPath.XPathExpression>объекта.</xref:System.Xml.XPath.XPathExpression> </xref:System.Xml.XPath.XPathExpression.Compile%2A> </xref:System.Xml.IXmlNamespaceResolver>      — <xref:System.Xml.XPath.XPathExpression.SetContext%2A>принимает в <xref:System.Xml.Xsl.XsltContext>качестве распознавателя пространства имен, поэтому можно реализовать пользовательский контекст и использование функций и переменных, основанных на <xref:System.Xml.Xsl.IXsltContextFunction>и <xref:System.Xml.Xsl.IXsltContextVariable>.</xref:System.Xml.Xsl.IXsltContextVariable> </xref:System.Xml.Xsl.IXsltContextFunction> </xref:System.Xml.Xsl.XsltContext> </xref:System.Xml.XPath.XPathExpression.SetContext%2A> Их выполнит выражение XPath. Дополнительные сведения см. в разделе [определяемых пользователем функций и переменных](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example shows how to use the XPath return type to determine how to process the XPath expression, and how to use the SetContext method to provide an <xref:System.Xml.XmlNamespaceManager> object for namespace resolution.  \n  \n [!code-cs[XPathExpression.ReturnType#1](~/add/codesnippet/csharp/m-system.xml.xpath.xpath_39_1.cs)]\n [!code-cpp[XPathExpression.ReturnType#1](~/add/codesnippet/cpp/m-system.xml.xpath.xpath_39_1.cpp)]\n [!code-vb[XPathExpression.ReturnType#1](~/add/codesnippet/visualbasic/m-system.xml.xpath.xpath_39_1.vb)]  \n  \n The example takes the `contosoBooks.xml` file as input.  \n  \n```xml  \n  \n<?xml version=\"1.0\" encoding=\"utf-8\" ?>  \n<bookstore xmlns=\"http://www.contoso.com/books\">  \n    <book genre=\"autobiography\" publicationdate=\"1981-03-22\" ISBN=\"1-861003-11-0\">  \n        <title>The Autobiography of Benjamin Franklin</title>  \n        <author>  \n            <first-name>Benjamin</first-name>  \n            <last-name>Franklin</last-name>  \n        </author>  \n        <price>8.99</price>  \n    </book>  \n    <book genre=\"novel\" publicationdate=\"1967-11-17\" ISBN=\"0-201-63361-2\">  \n        <title>The Confidence Man</title>  \n        <author>  \n            <first-name>Herman</first-name>  \n            <last-name>Melville</last-name>  \n        </author>  \n        <price>11.99</price>  \n    </book>  \n    <book genre=\"philosophy\" publicationdate=\"1991-02-15\" ISBN=\"1-861001-57-6\">  \n        <title>The Gorgias</title>  \n        <author>  \n            <name>Plato</name>  \n        </author>  \n        <price>9.99</price>  \n    </book>  \n</bookstore>  \n  \n```"
   syntax:
@@ -293,12 +293,12 @@ items:
     parameters:
     - id: nsManager
       type: System.Xml.XmlNamespaceManager
-      description: "An <xref:System.Xml.XmlNamespaceManager> object to use for namespace resolution."
+      description: "<xref:System.Xml.XmlNamespaceManager>Объект, используемый для разрешения пространства имен.</xref:System.Xml.XmlNamespaceManager>"
   overload: System.Xml.XPath.XPathExpression.SetContext*
   exceptions:
   - type: System.Xml.XPath.XPathException
     commentId: T:System.Xml.XPath.XPathException
-    description: "The <xref:System.Xml.XmlNamespaceManager> object parameter is not derived from the <xref:System.Xml.XmlNamespaceManager> class."
+    description: "<xref:System.Xml.XmlNamespaceManager>Параметр объекта не является производным от <xref:System.Xml.XmlNamespaceManager>класса.</xref:System.Xml.XmlNamespaceManager> </xref:System.Xml.XmlNamespaceManager>"
   platform:
   - net462
 references:

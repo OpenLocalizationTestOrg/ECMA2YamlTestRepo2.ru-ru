@@ -13,8 +13,8 @@ items:
   nameWithType: ReceiveErrorHandling
   fullName: System.ServiceModel.ReceiveErrorHandling
   type: Enum
-  summary: "An enumeration that specifies handling for a poison message."
-  remarks: "A poison message is a message that fails repeated attempts to deliver to the application. This is applicable only when using a Message Queuing (MSMQ)-based binding. The default value is `Fault`, which faults the listener and therefore the ServiceHost. In the case where the service was to fault because of a poison message, a <xref:System.ServiceModel.MsmqPoisonMessageException> is thrown. The exception contains the `LookupId` of the MSMQ message that can be used to move the message out of the way using System.Messaging API. Certain values of the ReceiveErrorHandling enumeration such as `Reject` and `Move` are only available on [!INCLUDE[wv](~/add/includes/wv-md.md)]. You control poison message handling by setting the <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A> property to one of the values of this enumeration."
+  summary: "Перечисление, указывающее обработку подозрительного сообщения."
+  remarks: "Сообщение считается подозрительным, множественные попытки его доставить в приложение завершаются с ошибкой. Это применимо только при использовании привязки на основе очереди сообщений MSMQ. Значение по умолчанию — `Fault`, который вызывает сбой прослушивателя и, следовательно, ServiceHost. В случае, где служба была сбоем из-за подозрительного сообщения <xref:System.ServiceModel.MsmqPoisonMessageException>возникает исключение.</xref:System.ServiceModel.MsmqPoisonMessageException> Исключение содержит `LookupId` сообщения MSMQ, который может использоваться для перемещения сообщения в сторону с помощью System.Messaging API. Определенные значения перечисления ReceiveErrorHandling, такие как `Reject` и `Move` доступны только на [!INCLUDE[wv](~/add/includes/wv-md.md)]. Можно управлять, задав обработку сообщений о сбое <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A>в одно из значений перечисления.</xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A>"
   example:
   - "The following configuration code illustrates how to set this property in the service configuration file:  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -35,13 +35,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This option drops the poison message. The message never gets delivered to the application. If the message&quot;s TTL had already expired at this point, then the message may appear in the sender&quot;s Dead Letter Queue. If not, the message does not appear anywhere. This option indicates that the user does not really care if the message is lost."
-  remarks: 'Applicable platforms: [!INCLUDE[wxp](~/add/includes/wxp-md.md)], [!INCLUDE[ws2003](~/add/includes/ws2003-md.md)], and [!INCLUDE[wv](~/add/includes/wv-md.md)].'
+  summary: "Этот параметр удаляет подозрительное сообщение. Сообщение не доставляется в приложение. Если к этому моменту срок ЖИЗНИ сообщения уже истек, сообщение может появиться в очереди недоставленных сообщений отправителя. В противном случае сообщение нигде не появляется. Этот параметр указывает, что пользователю неважно, если сообщение теряется."
+  remarks: 'Применимые платформы: [!INCLUDE[wxp](~/add/includes/wxp-md.md)], [!INCLUDE[ws2003](~/add/includes/ws2003-md.md)], и [!INCLUDE[wv](~/add/includes/wv-md.md)].'
   syntax:
     content: Drop
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -57,13 +57,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This option sends a fault to the listener that caused the ServiceHost to fault. The message must be removed from the application queue by some external mechanism before the application can continue to process messages from the queue."
-  remarks: 'Applicable platforms: Windows XP, Windows Server 2003, and Windows Vista.'
+  summary: "Этот параметр отправляет ошибку прослушивателю, который привел к сбою ServiceHost. Сообщение должно быть удалено из очереди приложения помощи внешнего механизма, прежде чем приложение сможет продолжить обрабатывать сообщения из очереди."
+  remarks: 'Применимые платформы: Windows XP, Windows Server 2003 и Windows Vista.'
   syntax:
     content: Fault
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -79,13 +79,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This moves the poison message to a Poison Message Queue for later processing by a poison message handling application."
-  remarks: 'Applicable platforms: [!INCLUDE[wv](~/add/includes/wv-md.md)] only.'
+  summary: "Подозрительное сообщение перемещается в очередь подозрительных сообщений для последующей обработки подозрительных сообщений приложения."
+  remarks: 'Применимые платформы: [!INCLUDE[wv](~/add/includes/wv-md.md)] только.'
   syntax:
     content: Move
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -101,13 +101,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This instructs MSMQ to send a negative acknowledgement back to the sending queue manager that the message cannot be received by the application. The message is placed in the sending queue manager&quot;s Dead Letter Queue."
-  remarks: 'Applicable platforms: [!INCLUDE[wv](~/add/includes/wv-md.md)] only.'
+  summary: "Это указывает, что MSMQ для отправки недоставке диспетчер передающей очереди, сообщение не может приниматься приложением. Сообщение помещается в очередь недоставленных сообщений диспетчера передающей очереди."
+  remarks: 'Применимые платформы: [!INCLUDE[wv](~/add/includes/wv-md.md)] только.'
   syntax:
     content: Reject
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462

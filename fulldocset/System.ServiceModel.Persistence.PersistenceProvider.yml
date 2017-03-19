@@ -26,8 +26,8 @@ items:
   nameWithType: PersistenceProvider
   fullName: System.ServiceModel.Persistence.PersistenceProvider
   type: Class
-  summary: "The abstract base class from which all durable service persistence providers are derived."
-  remarks: "Users can create classes derived from this type to create durable service persistence providers that use custom persistence stores, such as third-party databases, the file system, or storage systems accessed remotely. To create a system-provided implementation of this type that uses Microsoft SQL Server as a persistence store, see <xref:System.ServiceModel.Persistence.SqlPersistenceProviderFactory>.      > [!NOTE] >  When creating persistence provider implementations, it is important to maintain the thread&quot;s original identity in the new provider&quot;s methods (such as <xref:System.ServiceModel.Persistence.PersistenceProvider.Load%2A>. Otherwise, security loopholes could be created, because operations would then run under the wrong identity."
+  summary: "Абстрактный базовый класс, от которого наследуются все поставщики сохраняемости устойчивых служб."
+  remarks: "Пользователи могут создавать классы, производные от этого типа для создания поставщиков сохраняемости устойчивых служб, использующих настраиваемые хранилища сохраняемости, например баз данных сторонних разработчиков, файловой системы или системы хранения, удаленный доступ к. Для создания предоставляемых системой реализации этого типа, который использует Microsoft SQL Server в качестве хранилища сохраняемости <xref:System.ServiceModel.Persistence.SqlPersistenceProviderFactory>.</xref:System.ServiceModel.Persistence.SqlPersistenceProviderFactory> см.      Настроек [!NOTE] настроек при создании реализаций поставщика сохраняемости важно сохранить исходную идентификацию потока в новых методах поставщика (например, <xref:System.ServiceModel.Persistence.PersistenceProvider.Load%2A>.</xref:System.ServiceModel.Persistence.PersistenceProvider.Load%2A> В противном случае безопасности могут образоваться бреши, поскольку операции будут выполняться под неправильной идентификацией."
   example:
   - For an implementation of this type that uses the file system as a persistence store, see the FilePersistenceProviderFactory.cs file in the DurableServiceFactory SDK sample.
   syntax:
@@ -53,7 +53,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, initializes a new instance of the <xref href=&quot;System.ServiceModel.Persistence.PersistenceProvider&quot;></xref> class."
+  summary: "При реализации в производном классе инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.Persistence.PersistenceProvider&quot;> </xref> класса."
   remarks: ''
   example:
   - "The following code demonstrates how to use the <xref:System.ServiceModel.Persistence.PersistenceProvider> constructor. This code example is part of the DurableServiceFactory SDK sample from the FilePersistenceProviderFactory.cs file. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)]the DurableServiceFactory SDK sample.  \n  \n [!code-cs[PersistenceProvider#0](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#0)]"
@@ -62,7 +62,7 @@ items:
     parameters:
     - id: id
       type: System.Guid
-      description: "The unique identifier of the service state data being saved."
+      description: "Уникальный идентификатор сохраняемых данных о состоянии службы."
   overload: System.ServiceModel.Persistence.PersistenceProvider.#ctor*
   exceptions: []
   platform:
@@ -79,7 +79,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, represents the beginning of the Create phase. The Create phase occurs when service instance records are first created in the persistence store."
+  summary: "При реализации в производном классе представляет начало этапа Create. Этап Create наступает при первом создании записей экземпляров службы в хранилище сохраняемости."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the BeginCreate method.  \n  \n [!code-cs[PersistenceProvider#14](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#14)]"
@@ -88,19 +88,19 @@ items:
     parameters:
     - id: instance
       type: System.Object
-      description: "The actual instance state."
+      description: "Фактическое состояние экземпляра."
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the persistence provider aborts this attempt."
+      description: "Период времени, после которого поставщик сохраняемости прерывает эту попытку."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the operation is completed."
+      description: "Метод, вызываемый после завершения операции."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous operation from other operations."
+      description: "Предоставляемый пользователем объект, отличающий конкретную асинхронную операцию от других операций."
     return:
       type: System.IAsyncResult
-      description: "The state of the BeginCreate asynchronous method call."
+      description: "Состояние вызова асинхронного метода BeginCreate."
   overload: System.ServiceModel.Persistence.PersistenceProvider.BeginCreate*
   exceptions: []
   platform:
@@ -117,7 +117,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, represents the beginning of the Delete phase. The Delete phase occurs when service state data is permanently deleted from the persistence store."
+  summary: "При реализации в производном классе представляет начало этапа Delete. Этап Delete наступает при окончательном удалении данных о состоянии службы из хранилища сохраняемости."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the `BeginDelete` method. This code example is part of the DurableServiceFactory SDK sample from the FilePersistenceProviderFactory.cs file. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)]the DurableServiceFactory SDK sample.  \n  \n [!code-cs[PersistenceProvider#6](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#6)]"
@@ -126,19 +126,19 @@ items:
     parameters:
     - id: instance
       type: System.Object
-      description: "The actual instance state."
+      description: "Фактическое состояние экземпляра."
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the persistence provider aborts this attempt."
+      description: "Период времени, после которого поставщик сохраняемости прерывает эту попытку."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the operation is completed."
+      description: "Метод, вызываемый после завершения операции."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous operation from other operations."
+      description: "Предоставляемый пользователем объект, отличающий конкретную асинхронную операцию от других операций."
     return:
       type: System.IAsyncResult
-      description: "The state of the BeginDelete asynchronous method call."
+      description: "Состояние вызова асинхронного метода BeginDelete."
   overload: System.ServiceModel.Persistence.PersistenceProvider.BeginDelete*
   exceptions: []
   platform:
@@ -155,7 +155,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, represents the beginning of the Load phase. The Load phase occurs when state data is loaded into the persistence provider from the persistence store."
+  summary: "При реализации в производном классе представляет начало этапа Load. Этап Load наступает при загрузке данных о состоянии в поставщика сохраняемости из хранилища сохраняемости."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the `BeginLoad` method. This code example is part of the DurableServiceFactory SDK sample from the FilePersistenceProviderFactory.cs file. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)]the DurableServiceFactory SDK sample.  \n  \n [!code-cs[PersistenceProvider#7](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#7)]"
@@ -164,16 +164,16 @@ items:
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the persistence provider aborts this attempt."
+      description: "Период времени, после которого поставщик сохраняемости прерывает эту попытку."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the operation is completed."
+      description: "Метод, вызываемый после завершения операции."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous operation from other operations."
+      description: "Предоставляемый пользователем объект, отличающий конкретную асинхронную операцию от других операций."
     return:
       type: System.IAsyncResult
-      description: "The state of the BeginLoad asynchronous method call."
+      description: "Состояние вызова асинхронного метода BeginLoad."
   overload: System.ServiceModel.Persistence.PersistenceProvider.BeginLoad*
   exceptions: []
   platform:
@@ -190,7 +190,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, represents the beginning of the LoadIfChanged phase. The LoadIfChanged phase occurs when state data is loaded into the persistence provider from the persistence store, and the state data in the persistence store has been changed."
+  summary: "При реализации в производном классе представляет начало этапа LoadIfChanged. Этап LoadIfChanged наступает, когда данные о состоянии загружаются в поставщика сохраняемости из хранилища сохраняемости, данные о состоянии в хранилище сохраняемости были изменены."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the BeginLoadIfChanged method.  \n  \n [!code-cs[PersistenceProvider#11](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#11)]"
@@ -199,19 +199,19 @@ items:
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the persistence provider aborts this attempt."
+      description: "Период времени, после которого поставщик сохраняемости прерывает эту попытку."
     - id: instanceToken
       type: System.Object
-      description: "The token returned by a previous <xref:System.ServiceModel.Persistence.PersistenceProvider.Create*> or <xref:System.ServiceModel.Persistence.PersistenceProvider.Update*> that represents the current state held by the caller."
+      description: "Токен, возвращенный предыдущим вызовом <> </> *настроек или <> </> *настроек, представляющий текущее состояние, хранимое в вызывающем объекте."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the operation is completed."
+      description: "Метод, вызываемый после завершения операции."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous operation from other operations."
+      description: "Предоставляемый пользователем объект, отличающий конкретную асинхронную операцию от других операций."
     return:
       type: System.IAsyncResult
-      description: "The state of the BeginLoadIfChanged asynchronous method call."
+      description: "Состояние вызова асинхронного метода BeginLoadIfChanged."
   overload: System.ServiceModel.Persistence.PersistenceProvider.BeginLoadIfChanged*
   exceptions: []
   platform:
@@ -228,7 +228,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, represents the beginning of the Update phase. The Update phase occurs when service state data is updated in the persistence store."
+  summary: "При реализации в производном классе представляет начало этапа Update. Этап Update наступает при обновлении данных о состоянии службы в хранилище сохраняемости."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the BeginUpdate method.  \n  \n [!code-cs[PersistenceProvider#17](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#17)]"
@@ -237,19 +237,19 @@ items:
     parameters:
     - id: instance
       type: System.Object
-      description: "The actual instance state."
+      description: "Фактическое состояние экземпляра."
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the persistence provider aborts this attempt."
+      description: "Период времени, после которого поставщик сохраняемости прерывает эту попытку."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the operation is completed."
+      description: "Метод, вызываемый после завершения операции."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous operation from other operations."
+      description: "Предоставляемый пользователем объект, отличающий конкретную асинхронную операцию от других операций."
     return:
       type: System.IAsyncResult
-      description: "The state of the BeginUpdate asynchronous method call."
+      description: "Состояние вызова асинхронного метода BeginUpdate."
   overload: System.ServiceModel.Persistence.PersistenceProvider.BeginUpdate*
   exceptions: []
   platform:
@@ -266,7 +266,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, creates a service state record in the persistence store."
+  summary: "При реализации в производном классе, создает запись состояния службы в хранилище сохраняемости."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the Create method.  \n  \n [!code-cs[PersistenceProvider#15](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#15)]"
@@ -275,13 +275,13 @@ items:
     parameters:
     - id: instance
       type: System.Object
-      description: "The actual instance state."
+      description: "Фактическое состояние экземпляра."
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the persistence provider aborts this attempt."
+      description: "Период времени, после которого поставщик сохраняемости прерывает эту попытку."
     return:
       type: System.Object
-      description: "The instance token corresponding to the state just saved. This can be passed to <xref:System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*> to determine whether the state in the persistence store differs from the state when Create was called."
+      description: "Маркер экземпляра, соответствующий только что сохраненному состоянию. Это может быть передан <xref:System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*>для определения, отличается ли состояние в постоянном хранилище из состояния при вызове создать.</xref:System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*>"
   overload: System.ServiceModel.Persistence.PersistenceProvider.Create*
   exceptions: []
   platform:
@@ -298,7 +298,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, permanently deletes service state information from the persistence store."
+  summary: "При реализации в производном классе окончательно удаляет информацию о состоянии службы из хранилища сохраняемости."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the Delete method. This code example is part of the DurableServiceFactory SDK sample from the FilePersistenceProviderFactory.cs file. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)]the DurableServiceFactory SDK sample.  \n  \n [!code-cs[PersistenceProvider#9](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#9)]"
@@ -307,10 +307,10 @@ items:
     parameters:
     - id: instance
       type: System.Object
-      description: "The actual instance state."
+      description: "Фактическое состояние экземпляра."
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the persistence provider aborts this attempt."
+      description: "Период времени, после которого поставщик сохраняемости прерывает эту попытку."
   overload: System.ServiceModel.Persistence.PersistenceProvider.Delete*
   exceptions: []
   platform:
@@ -327,7 +327,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, represents the end of the Create phase. The Create phase occurs when service state records are first created in the persistence store."
+  summary: "При реализации в производном классе представляет конец этапа Create. Этап Create наступает при первом создании записей состояния службы в хранилище сохраняемости."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the EndCreate method.  \n  \n [!code-cs[PersistenceProvider#16](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#16)]"
@@ -336,10 +336,10 @@ items:
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the result of the operation."
+      description: "Ссылка на результат операции."
     return:
       type: System.Object
-      description: "The instance token corresponding to the state just saved. This can be passed to <xref:System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*> to determine whether the state in the persistence store differs from the state when Create was called."
+      description: "Маркер экземпляра, соответствующий только что сохраненному состоянию. Это может быть передан <xref:System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*>для определения, отличается ли состояние в постоянном хранилище из состояния при вызове создать.</xref:System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*>"
   overload: System.ServiceModel.Persistence.PersistenceProvider.EndCreate*
   exceptions: []
   platform:
@@ -356,7 +356,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, represents the end of the Delete phase. The Delete phase occurs when state data is permanently deleted from the persistence store."
+  summary: "При реализации в производном классе представляет конец этапа Delete. Этап Delete наступает при окончательном удалении данных о состоянии из хранилища сохраняемости."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the EndDelete method. This code example is part of the DurableServiceFactory SDK sample from the FilePersistenceProviderFactory.cs file. For more information, see the DurableServiceFactory SDK sample.  \n  \n [!code-cs[PersistenceProvider#5](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#5)]"
@@ -365,7 +365,7 @@ items:
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the result of the operation."
+      description: "Ссылка на результат операции."
   overload: System.ServiceModel.Persistence.PersistenceProvider.EndDelete*
   exceptions: []
   platform:
@@ -382,7 +382,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, represents the end of the Load phase. The Load phase occurs when state data is loaded into the persistence provider from the persistence store."
+  summary: "При реализации в производном классе представляет конец этапа Load. Этап Load наступает при загрузке данных о состоянии в поставщика сохраняемости из хранилища сохраняемости."
   remarks: ''
   example:
   - "The following code demonstrates how to use the `EndLoad` method. This code example is part of the DurableServiceFactory SDK sample from the FilePersistenceProviderFactory.cs file. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)]the DurableServiceFactory SDK sample.  \n  \n [!code-cs[PersistenceProvider#1](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#1)]"
@@ -391,10 +391,10 @@ items:
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the result of the operation."
+      description: "Ссылка на результат операции."
     return:
       type: System.Object
-      description: "The service state information."
+      description: "Сведения о состоянии службы."
   overload: System.ServiceModel.Persistence.PersistenceProvider.EndLoad*
   exceptions: []
   platform:
@@ -411,7 +411,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, represents the end of the LoadIfChanged phase. The LoadIfChanged phase occurs when state data is loaded into the persistence provider from the persistence store, and the state data in the persistence store has been changed."
+  summary: "При реализации в производном классе представляет конец этапа LoadIfChanged. Этап LoadIfChanged наступает, когда данные о состоянии загружаются в поставщика сохраняемости из хранилища сохраняемости, данные о состоянии в хранилище сохраняемости были изменены."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the EndLoadIfChanged method.  \n  \n [!code-cs[PersistenceProvider#12](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#12)]"
@@ -420,13 +420,13 @@ items:
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the result of the operation."
+      description: "Ссылка на результат операции."
     - id: instance
       type: System.Object
-      description: "The actual instance state."
+      description: "Фактическое состояние экземпляра."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the instance <xref uid=&quot;langword_csharp_out&quot; name=&quot;out&quot; href=&quot;&quot;></xref> parameter has been set with the latest copy from the persistence store; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the locally cached state is already up-to-date."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если экземпляр <xref uid=&quot;langword_csharp_out&quot; name=&quot;out&quot; href=&quot;&quot;> </xref> параметра было указано последней копии из постоянного хранилища; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> если локально кэшированных состояние уже актуально."
   overload: System.ServiceModel.Persistence.PersistenceProvider.EndLoadIfChanged*
   exceptions: []
   platform:
@@ -443,7 +443,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "Represents the end of the Update phase. The Update phase occurs when service state records are updated in the persistence store."
+  summary: "Представляет конец этапа Update. Этап Update наступает при обновлении записей состояния службы в хранилище сохраняемости."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the EndUpdate method.  \n  \n [!code-cs[PersistenceProvider#19](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#19)]"
@@ -452,10 +452,10 @@ items:
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the result of the operation."
+      description: "Ссылка на результат операции."
     return:
       type: System.Object
-      description: "The instance token corresponding to the state just saved. This can be passed to <xref:System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*> to determine whether the state in the persistence store differs from the state when Create was called."
+      description: "Маркер экземпляра, соответствующий только что сохраненному состоянию. Это может быть передан <xref:System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*>для определения, отличается ли состояние в постоянном хранилище из состояния при вызове создать.</xref:System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*>"
   overload: System.ServiceModel.Persistence.PersistenceProvider.EndUpdate*
   exceptions: []
   platform:
@@ -472,7 +472,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "Represents the <xref:System.Guid> associated with this instance."
+  summary: "Представляет <xref:System.Guid>связанного с данным экземпляром.</xref:System.Guid>"
   remarks: ''
   example:
   - "The following code demonstrates how to use the Id property.  \n  \n [!code-cs[PersistenceProvider#10](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#10)]"
@@ -480,7 +480,7 @@ items:
     content: public Guid Id { get; }
     return:
       type: System.Guid
-      description: "The GUID associated with this instance."
+      description: "Идентификатор GUID, связанный с данным экземпляром."
   overload: System.ServiceModel.Persistence.PersistenceProvider.Id*
   exceptions: []
   platform:
@@ -497,8 +497,8 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, loads service state information from the persistence store."
-  remarks: "Changes made to the security token in the Load method, if not reverted, stay in effect for the remainder of that message&quot;s processing. This means that the service operation&quot;s user code, the response message path through the dispatcher, as well as any error paths, run in the changed security context."
+  summary: "При реализации в производном классе загружает сведения о состоянии службы из хранилища сохраняемости."
+  remarks: "Действие изменений для токена безопасности в методе Load, если не возвращен, сохраняется до завершения обработки этого сообщения. Это означает, что код пользователя операции службы, путь ответного сообщения через диспетчер, а также все пути ошибок выполняются в измененном контексте безопасности."
   example:
   - "The following code demonstrates how to implement the Load method. This code example is part of the DurableServiceFactory SDK sample from the FilePersistenceProviderFactory.cs file. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)]the DurableServiceFactory SDK sample.  \n  \n [!code-cs[PersistenceProvider#3](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#3)]"
   syntax:
@@ -506,10 +506,10 @@ items:
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the persistence provider aborts this attempt."
+      description: "Период времени, после которого поставщик сохраняемости прерывает эту попытку."
     return:
       type: System.Object
-      description: "The loaded instance state."
+      description: "Загруженное состояние экземпляра."
   overload: System.ServiceModel.Persistence.PersistenceProvider.Load*
   exceptions: []
   platform:
@@ -526,7 +526,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, loads service state information from the persistence store if that data has been changed."
+  summary: "При реализации в производном классе загружает сведения о состоянии службы из хранилища сохраняемости, если эти данные были изменены."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the LoadIfChanged method.  \n  \n [!code-cs[PersistenceProvider#13](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#13)]"
@@ -535,16 +535,16 @@ items:
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the persistence provider aborts this attempt."
+      description: "Период времени, после которого поставщик сохраняемости прерывает эту попытку."
     - id: instanceToken
       type: System.Object
-      description: "The token returned by a previous <xref:System.ServiceModel.Persistence.PersistenceProvider.Create*> or <xref:System.ServiceModel.Persistence.PersistenceProvider.Update*>, which represents the current state held by the caller."
+      description: "Токен, возвращенный предыдущим вызовом <> </> *настроек или <> </> *настроек, который представляет текущее состояние, хранимое в вызывающем объекте."
     - id: instance
       type: System.Object
-      description: "The actual instance state."
+      description: "Фактическое состояние экземпляра."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <code>instance</code><xref uid=&quot;langword_csharp_out&quot; name=&quot;out&quot; href=&quot;&quot;></xref> parameter has been set with the latest copy from the persistence store; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the locally cached state is already up to date."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <code> instance </code> <xref uid=&quot;langword_csharp_out&quot; name=&quot;out&quot; href=&quot;&quot;> </xref> параметра было указано последней копии из постоянного хранилища; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> если локально кэшированных состояние уже в актуальном состоянии."
   overload: System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*
   exceptions: []
   platform:
@@ -561,7 +561,7 @@ items:
   assemblies:
   - System.WorkflowServices
   namespace: System.ServiceModel.Persistence
-  summary: "When implemented in a derived class, updates service state records in the persistence store."
+  summary: "При реализации в производном классе обновляет записи состояния в хранилище сохраняемости службы."
   remarks: ''
   example:
   - "The following code demonstrates how to implement the Update method.  \n  \n [!code-cs[PersistenceProvider#18](~/add/codesnippet/csharp/persistenceprovider/filepersistenceprovider.cs#18)]"
@@ -570,13 +570,13 @@ items:
     parameters:
     - id: instance
       type: System.Object
-      description: "The actual instance state."
+      description: "Фактическое состояние экземпляра."
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the persistence provider aborts this attempt."
+      description: "Период времени, после которого поставщик сохраняемости прерывает эту попытку."
     return:
       type: System.Object
-      description: "The instance token corresponding to the state just saved. This can be passed to <xref:System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*> to determine whether the state in the persistence store differs from the state when Create was called."
+      description: "Маркер экземпляра, соответствующий только что сохраненному состоянию. Это может быть передан <xref:System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*>для определения, отличается ли состояние в постоянном хранилище из состояния при вызове создать.</xref:System.ServiceModel.Persistence.PersistenceProvider.LoadIfChanged*>"
   overload: System.ServiceModel.Persistence.PersistenceProvider.Update*
   exceptions: []
   platform:

@@ -14,8 +14,8 @@ items:
   nameWithType: IAttachedPropertyStore
   fullName: System.Xaml.IAttachedPropertyStore
   type: Interface
-  summary: "Represents an attachable member store for an object where attachable members are set. This attachable member store can then be referenced with <xref href=&quot;System.Xaml.AttachablePropertyServices&quot;></xref>."
-  remarks: "An attachable member is typically implemented and used as an attachable property. The term &quot;attachable member&quot; provides for the possibility that a technology also defines a system for attachable events. As an item in a property store, an attachable event stores a reference to the handler that is assigned through attachable member usage. An attachable event in XAML can use the same store as the attachable properties do, even if the attachable event is not truly a property to the underlying type system or as it is considered in real-world use."
+  summary: "Представляет хранилище присоединяемого члена для объекта, где устанавливаются прикрепляемые члены. Это хранилище присоединяемого члена можно ссылаться с <xref href=&quot;System.Xaml.AttachablePropertyServices&quot;> </xref>."
+  remarks: "Присоединяемого члена обычно реализуется и используется как присоединяемое свойство. Термин «присоединяемый член» обеспечивает возможность определения системы для подключаемых событий и технологии. Как элемент в хранилище свойств подключаемое событие хранит ссылку на обработчик, который определяется с помощью использования присоединяемого члена. Присоединяемые события в XAML можно использовать то же хранилище, как присоединяемого свойства, даже если подключаемое событие действительно не свойство для базовой системы типов или как считается в реальных условиях использования."
   syntax:
     content: public interface IAttachedPropertyStore
   implements: []
@@ -33,16 +33,16 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Copies all attachable member/value pairs from this attachable member store into a destination array."
+  summary: "Копирует все пары &quot;присоединяемый член/значение&quot; из этой присоединяемого члена хранилище в массив назначения."
   syntax:
     content: public void CopyPropertiesTo (System.Collections.Generic.KeyValuePair<System.Xaml.AttachableMemberIdentifier,object>[] array, int index);
     parameters:
     - id: array
       type: System.Collections.Generic.KeyValuePair{System.Xaml.AttachableMemberIdentifier,System.Object}[]
-      description: "The destination array. The array is a generic array, should be passed undimensioned, and should have components of <xref href=&quot;System.Xaml.AttachableMemberIdentifier&quot;></xref> and <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;></xref>."
+      description: "Массив назначения. Массив является универсальном массиве, должны быть переданы undimensioned и должны быть установлены компоненты <xref href=&quot;System.Xaml.AttachableMemberIdentifier&quot;> </xref> и <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;> </xref>."
     - id: index
       type: System.Int32
-      description: "The source index where copying should begin."
+      description: "Исходный индекс, которого необходимо начать копирование."
   overload: System.Xaml.IAttachedPropertyStore.CopyPropertiesTo*
   exceptions: []
   platform:
@@ -59,12 +59,12 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets the count of the attachable member entries in this attachable member store."
+  summary: "Возвращает число присоединяемого члена, записи в этом хранилище присоединяемого члена."
   syntax:
     content: public int PropertyCount { get; }
     return:
       type: System.Int32
-      description: "The integer count of entries in the store."
+      description: "Целое число записей в хранилище."
   overload: System.Xaml.IAttachedPropertyStore.PropertyCount*
   exceptions: []
   platform:
@@ -81,16 +81,16 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Removes the entry for the specified attachable member from this attachable member store."
+  summary: "Удаляет запись для указанного присоединяемого члена из указанного хранилища присоединяемых членов."
   syntax:
     content: public bool RemoveProperty (System.Xaml.AttachableMemberIdentifier attachableMemberIdentifier);
     parameters:
     - id: attachableMemberIdentifier
       type: System.Xaml.AttachableMemberIdentifier
-      description: "The XAML type system identifier for the attachable member entry to remove."
+      description: "Системный идентификатор типа XAML для записи присоединяемого члена, который требуется удалить."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if an attachable member entry for <code>attachableMemberIdentifier</code> was found in the store and removed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если запись присоединяемого члена для <code> attachableMemberIdentifier </code> был найден в хранилище и удален; в противном случае — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.IAttachedPropertyStore.RemoveProperty*
   exceptions: []
   platform:
@@ -107,17 +107,17 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Sets a value for the specified attachable member in the specified store."
-  remarks: "An implementation should not throw an exception if the specific attachable member already exists. If a member already exists, the implementation should overwrite any existing value with `value`."
+  summary: "Задает значение для указанного присоединяемого члена в указанном хранилище."
+  remarks: "Реализация не должна создавать исключение, если указанный присоединяемый член уже существует. Если элемент уже существует, реализация должна заменять существующие значения с `value`."
   syntax:
     content: public void SetProperty (System.Xaml.AttachableMemberIdentifier attachableMemberIdentifier, object value);
     parameters:
     - id: attachableMemberIdentifier
       type: System.Xaml.AttachableMemberIdentifier
-      description: "The XAML type system identifier for the attachable member entry to set."
+      description: "Системный идентификатор типа XAML для записи присоединяемого члена."
     - id: value
       type: System.Object
-      description: "The value to set."
+      description: "Задаваемое значение."
   overload: System.Xaml.IAttachedPropertyStore.SetProperty*
   exceptions: []
   platform:
@@ -134,20 +134,20 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Attempts to get a value for the specified attachable member in the specified store."
-  remarks: "An implementation should not throw an exception if the specific attachable member is not located in the store."
+  summary: "Пытается получить значение для указанного присоединяемого члена в указанном хранилище."
+  remarks: "Реализация не должна создавать исключение, если указанный присоединяемый член, не находится в хранилище."
   syntax:
     content: public bool TryGetProperty (System.Xaml.AttachableMemberIdentifier attachableMemberIdentifier, out object value);
     parameters:
     - id: attachableMemberIdentifier
       type: System.Xaml.AttachableMemberIdentifier
-      description: "The XAML type system identifier for the attachable member entry to get."
+      description: "Системный идентификатор типа XAML для записи присоединяемого члена."
     - id: value
       type: System.Object
-      description: "Out parameter. When this method returns, contains the destination object for the value if `attachableMemberIdentifier` exists in the store and has a value."
+      description: "Выходной параметр. По возвращении из этого метода содержит целевой объект для значения, если `attachableMemberIdentifier` существует в хранилище и имеет значение."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if an attachable member entry for <code>attachableMemberIdentifier</code> was found in the store and a value was posted to <code>value</code>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если запись присоединяемого члена для <code> attachableMemberIdentifier </code> не найден в хранилище и было передано в <code> value </code>; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.IAttachedPropertyStore.TryGetProperty*
   exceptions: []
   platform:

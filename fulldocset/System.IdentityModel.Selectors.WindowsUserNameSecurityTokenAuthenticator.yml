@@ -12,8 +12,8 @@ items:
   nameWithType: WindowsUserNameSecurityTokenAuthenticator
   fullName: System.IdentityModel.Selectors.WindowsUserNameSecurityTokenAuthenticator
   type: Class
-  summary: "Uses Windows authentication to authenticate the user name and password in a <xref href=&quot;System.IdentityModel.Tokens.UserNameSecurityToken&quot;></xref> security token."
-  remarks: "The <xref:System.IdentityModel.Selectors.WindowsUserNameSecurityTokenAuthenticator.ValidateUserNamePasswordCore%2A> method uses Windows authentication to authenticate a user name and password.       To provide a custom authentication scheme, see the <xref:System.IdentityModel.Selectors.CustomUserNameSecurityTokenAuthenticator> class."
+  summary: "Использует проверку подлинности Windows для проверки подлинности имя пользователя и пароль в <xref href=&quot;System.IdentityModel.Tokens.UserNameSecurityToken&quot;> </xref> маркера безопасности."
+  remarks: "<xref:System.IdentityModel.Selectors.WindowsUserNameSecurityTokenAuthenticator.ValidateUserNamePasswordCore%2A>Метод использует проверку подлинности Windows для проверки подлинности имя пользователя и пароль.</xref:System.IdentityModel.Selectors.WindowsUserNameSecurityTokenAuthenticator.ValidateUserNamePasswordCore%2A>       Чтобы предоставить пользовательскую схему проверки подлинности, в разделе <xref:System.IdentityModel.Selectors.CustomUserNameSecurityTokenAuthenticator>класса.</xref:System.IdentityModel.Selectors.CustomUserNameSecurityTokenAuthenticator>"
   syntax:
     content: 'public class WindowsUserNameSecurityTokenAuthenticator : System.IdentityModel.Selectors.UserNameSecurityTokenAuthenticator'
   inheritance:
@@ -40,8 +40,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Selectors.WindowsUserNameSecurityTokenAuthenticator&quot;></xref> class"
-  remarks: "When the user is authenticated, claims that identify the Windows groups that a user belongs to are initially added to the <xref:System.IdentityModel.Policy.EvaluationContext.ClaimSets%2A> property and eventually to the <xref:System.IdentityModel.Policy.AuthorizationContext.ClaimSets%2A> property."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.IdentityModel.Selectors.WindowsUserNameSecurityTokenAuthenticator&quot;> </xref> класса"
+  remarks: "При проверке подлинности пользователя утверждения, идентифицирующие группы Windows, к которым принадлежит пользователь, сначала добавляются к <xref:System.IdentityModel.Policy.EvaluationContext.ClaimSets%2A>Свойства и в конечном счете в <xref:System.IdentityModel.Policy.AuthorizationContext.ClaimSets%2A>свойство.</xref:System.IdentityModel.Policy.AuthorizationContext.ClaimSets%2A> </xref:System.IdentityModel.Policy.EvaluationContext.ClaimSets%2A>"
   syntax:
     content: public WindowsUserNameSecurityTokenAuthenticator ();
     parameters: []
@@ -61,13 +61,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Selectors.WindowsUserNameSecurityTokenAuthenticator&quot;></xref> class by specifying whether the claims that identify the Windows groups that a user belongs to are initially added to the <xref:System.IdentityModel.Policy.AuthorizationContext.ClaimSets*> property when the user is authenticated."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.IdentityModel.Selectors.WindowsUserNameSecurityTokenAuthenticator&quot;> </xref> класса путем указания ли утверждения, идентифицирующие группы Windows, к которым принадлежит пользователь, сначала добавляются в <xref:System.IdentityModel.Policy.AuthorizationContext.ClaimSets*>свойство, если пользователь прошел проверку.</xref:System.IdentityModel.Policy.AuthorizationContext.ClaimSets*>"
   syntax:
     content: public WindowsUserNameSecurityTokenAuthenticator (bool includeWindowsGroups);
     parameters:
     - id: includeWindowsGroups
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to get the groups the Windows user belongs to; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Чтобы получить группы пользователя Windows принадлежит; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Selectors.WindowsUserNameSecurityTokenAuthenticator.#ctor*
   exceptions: []
   platform:
@@ -84,25 +84,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Authenticates the specified user name and password and returns the set of authorization policies for <xref href=&quot;System.IdentityModel.Tokens.UserNameSecurityToken&quot;></xref> security tokens."
-  remarks: 'The `userName` parameter must be in one of the following formats: `domain\username` or `username`. If the `userName` parameter is in the `domain\username` format, then there must be only one backslash (\\) character separating the user name and domain.'
+  summary: "Проверяет подлинность указанного имени пользователя и пароля и возвращает набор политик авторизации для <xref href=&quot;System.IdentityModel.Tokens.UserNameSecurityToken&quot;> </xref> маркеров безопасности."
+  remarks: '`userName` Параметр должен быть в одном из следующих форматов: `domain\username` или `username`. Если `userName` параметра `domain\username` отформатировать, то должно быть только одну обратную косую черту (\\) отделяется имя пользователя и домен.'
   syntax:
     content: protected override System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.Policy.IAuthorizationPolicy> ValidateUserNamePasswordCore (string userName, string password);
     parameters:
     - id: userName
       type: System.String
-      description: "The user name associated with the security token."
+      description: "Имя пользователя, связанное с маркером безопасности."
     - id: password
       type: System.String
-      description: "The password associated with the security token."
+      description: "Пароль, связанный с маркером безопасности."
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.Policy.IAuthorizationPolicy}
-      description: "A &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; of type <xref href=&quot;System.IdentityModel.Policy.IAuthorizationPolicy&quot;></xref> that contains the set of authorization policies in effect for this application."
+      description: "Объект &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; типа <xref href=&quot;System.IdentityModel.Policy.IAuthorizationPolicy&quot;> </xref> , содержащая набор политик авторизации, действующих для данного приложения."
   overload: System.IdentityModel.Selectors.WindowsUserNameSecurityTokenAuthenticator.ValidateUserNamePasswordCore*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>userName</code> contains more than one backslash (\\\\) character."
+    description: "<code>userName</code>содержит более одной обратной косой черты (\\\\) символов."
   platform:
   - net462
 references:

@@ -20,8 +20,8 @@ items:
   nameWithType: EncryptedKeyIdentifierClause
   fullName: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause
   type: Class
-  summary: "Represents a key identifier clause that identifies an encrypted key."
-  remarks: "Typically, the EncryptedKeyIdentifierClause does not need to be used, other than when a custom security token service is created. When a security token service returns a security token, the issued security token contains references to attached and unattached security tokens. Attached references refer to security tokens that are contained within the security header of a SOAP message and unattached references are security tokens that are not included within the security header of a SOAP message. These references typically affirm the authenticity of the issued security token. Use the EncryptedKeyIdentifierClause class to reference an encrypted key. The <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey%2A> method returns the encrypted key.       [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] accepts wrapped keys that are well formed with respect to the wire format. The key wrap algorithm specified on the wire is accepted and used. It is not verified to be compatible with the <xref:System.ServiceModel.Security.SecurityAlgorithmSuite> specified by the endpoint."
+  summary: "Представляет предложение идентификатора ключа, идентифицирующее зашифрованный ключ."
+  remarks: "Как правило EncryptedKeyIdentifierClause необходимо будет использовать только при создании пользовательской службы маркеров безопасности. Когда служба маркеров безопасности возвращает маркер безопасности, выданный маркер безопасности содержит ссылки на прикрепленные и неприкрепленные маркеры безопасности. Прикрепленные ссылки указывают на маркеры безопасности, содержащиеся в заголовке безопасности сообщения SOAP, а неприкрепленные ссылки являются маркерами безопасности, не входящими в заголовок безопасности сообщения SOAP. Обычно эти ссылки подтверждают подлинность выданного маркера безопасности. Класс EncryptedKeyIdentifierClause используется для ссылки на зашифрованный ключ. <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey%2A>Метод возвращает зашифрованный ключ.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey%2A>       [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)]принимает зашифрованный ключ с корректными по отношению к формату подключения. Принимается и используется алгоритм шифрования ключей, указанных в сети. Не проверяется на совместимость с <xref:System.ServiceModel.Security.SecurityAlgorithmSuite>заданным конечной точкой.</xref:System.ServiceModel.Security.SecurityAlgorithmSuite>"
   syntax:
     content: 'public sealed class EncryptedKeyIdentifierClause : System.IdentityModel.Tokens.BinaryKeyIdentifierClause'
   inheritance:
@@ -54,25 +54,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.EncryptedKeyIdentifierClause&quot;></xref> class using the specified key that is encrypted and the cryptographic algorithm used to encrypt the key."
-  remarks: "Use the static constant strings in the <xref:System.IdentityModel.Tokens.SecurityAlgorithms> to specify the cryptographic algorithm for the `encryptionMethod` parameter."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.IdentityModel.Tokens.EncryptedKeyIdentifierClause&quot;> </xref> класса с помощью указанного зашифрованного ключа и алгоритма, используемого для шифрования ключа."
+  remarks: "Используйте статические константные строки в <xref:System.IdentityModel.Tokens.SecurityAlgorithms>Чтобы указать алгоритм шифрования для `encryptionMethod` параметр.</xref:System.IdentityModel.Tokens.SecurityAlgorithms>"
   syntax:
     content: public EncryptedKeyIdentifierClause (byte[] encryptedKey, string encryptionMethod);
     parameters:
     - id: encryptedKey
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains a key that is encrypted. Sets the value that is returned from the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*> method."
+      description: "Массив <xref:System.Byte>, содержащий зашифрованный ключ.</xref:System.Byte> Задает значение, которое возвращается из <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*>метод.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*>"
     - id: encryptionMethod
       type: System.String
-      description: "The cryptographic algorithm that is used to encrypt the key. Sets the value of the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*> property."
+      description: "Алгоритм шифрования, используемый для шифрования ключа. Задает значение <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*>Свойства.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*>"
   overload: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>encryptionMethod</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>encryptedKey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>encryptionMethod</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>encryptedKey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>encryptedKey</code> is zero length."
+    description: "<code>encryptedKey</code>имеет нулевую длину."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.#ctor(System.Byte[],System.String,System.IdentityModel.Tokens.SecurityKeyIdentifier)
@@ -87,28 +87,28 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.EncryptedKeyIdentifierClause&quot;></xref> class using the specified key that is encrypted, the cryptographic algorithm used to encrypt the key, and a key identifier for the encrypting key."
-  remarks: "Use the static constant strings in the <xref:System.IdentityModel.Tokens.SecurityAlgorithms> to specify the cryptographic algorithm for the `encryptionMethod` parameter."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.IdentityModel.Tokens.EncryptedKeyIdentifierClause&quot;> </xref> класса с помощью указанного зашифрованного ключа, алгоритма, используемого для шифрования ключа и идентификатора ключа для ключа шифрования."
+  remarks: "Используйте статические константные строки в <xref:System.IdentityModel.Tokens.SecurityAlgorithms>Чтобы указать алгоритм шифрования для `encryptionMethod` параметр.</xref:System.IdentityModel.Tokens.SecurityAlgorithms>"
   syntax:
     content: public EncryptedKeyIdentifierClause (byte[] encryptedKey, string encryptionMethod, System.IdentityModel.Tokens.SecurityKeyIdentifier encryptingKeyIdentifier);
     parameters:
     - id: encryptedKey
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains a key that is encrypted. Sets the value that is returned from the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*> method."
+      description: "Массив <xref:System.Byte>, содержащий зашифрованный ключ.</xref:System.Byte> Задает значение, которое возвращается из <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*>метод.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*>"
     - id: encryptionMethod
       type: System.String
-      description: "The cryptographic algorithm that is used to encrypt the key. Sets the value of the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*> property."
+      description: "Алгоритм шифрования, используемый для шифрования ключа. Задает значение <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*>Свойства.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*>"
     - id: encryptingKeyIdentifier
       type: System.IdentityModel.Tokens.SecurityKeyIdentifier
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;></xref> that represents the key identifier for the encrypting key that is specified in the `encryptedKey` parameter. Sets the value of the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptingKeyIdentifier*> property."
+      description: "Объект <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;> </xref> , представляющий идентификатор ключа для ключа шифрования, указанный в `encryptedKey` параметра. Задает значение <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptingKeyIdentifier*>Свойства.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptingKeyIdentifier*>"
   overload: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>encryptionMethod</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>encryptedKey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>encryptionMethod</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>encryptedKey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>encryptedKey</code> is zero length."
+    description: "<code>encryptedKey</code>имеет нулевую длину."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.#ctor(System.Byte[],System.String,System.IdentityModel.Tokens.SecurityKeyIdentifier,System.String)
@@ -123,31 +123,31 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.EncryptedKeyIdentifierClause&quot;></xref> class using the specified key that is encrypted, the cryptographic algorithm used to encrypt the key, a key identifier for the encrypting key and a user-readable name."
-  remarks: "Use the static constant strings in the <xref:System.IdentityModel.Tokens.SecurityAlgorithms> to specify the cryptographic algorithm for the `encryptionMethod` parameter."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.IdentityModel.Tokens.EncryptedKeyIdentifierClause&quot;> </xref> класса с помощью указанного зашифрованного ключа, алгоритма, используемого для шифрования ключа, идентификатора для ключа шифрования и имя пользователя для чтения."
+  remarks: "Используйте статические константные строки в <xref:System.IdentityModel.Tokens.SecurityAlgorithms>Чтобы указать алгоритм шифрования для `encryptionMethod` параметр.</xref:System.IdentityModel.Tokens.SecurityAlgorithms>"
   syntax:
     content: public EncryptedKeyIdentifierClause (byte[] encryptedKey, string encryptionMethod, System.IdentityModel.Tokens.SecurityKeyIdentifier encryptingKeyIdentifier, string carriedKeyName);
     parameters:
     - id: encryptedKey
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains a key that is encrypted. Sets the value that is returned from the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*> method."
+      description: "Массив <xref:System.Byte>, содержащий зашифрованный ключ.</xref:System.Byte> Задает значение, которое возвращается из <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*>метод.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*>"
     - id: encryptionMethod
       type: System.String
-      description: "The cryptographic algorithm that is used to encrypt the key. Sets the value of the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*> property."
+      description: "Алгоритм шифрования, используемый для шифрования ключа. Задает значение <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*>Свойства.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*>"
     - id: encryptingKeyIdentifier
       type: System.IdentityModel.Tokens.SecurityKeyIdentifier
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;></xref> that represents the key identifier for the encrypting key specified in the `encryptedKey` parameter. Sets the value of the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptingKeyIdentifier*> property."
+      description: "Объект <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;> </xref> , представляющий идентификатор ключа для ключа шифрования, указанный в `encryptedKey` параметра. Задает значение <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptingKeyIdentifier*>Свойства.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptingKeyIdentifier*>"
     - id: carriedKeyName
       type: System.String
-      description: "A user-readable name that is associated with the key specified in the `encryptedKey` parameter. Sets the value of the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.CarriedKeyName*> property."
+      description: "Доступное для чтения пользователю имя, связанное с ключ, указанный в `encryptedKey` параметра. Задает значение <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.CarriedKeyName*>Свойства.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.CarriedKeyName*>"
   overload: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>encryptionMethod</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>encryptedKey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>encryptionMethod</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>encryptedKey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>encryptedKey</code> is zero length."
+    description: "<code>encryptedKey</code>имеет нулевую длину."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.#ctor(System.Byte[],System.String,System.IdentityModel.Tokens.SecurityKeyIdentifier,System.String,System.Byte[],System.Int32)
@@ -162,37 +162,37 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.EncryptedKeyIdentifierClause&quot;></xref> class using the specified key that is encrypted, the cryptographic algorithm used to encrypt the key, a key identifier for the key and a user-readable name."
-  remarks: "When the `derivationNonce` and `derivationLength` parameters are specified the implied derived key is used instead of the direct security key of the token.       Use the static constant strings in the <xref:System.IdentityModel.Tokens.SecurityAlgorithms> to specify the cryptographic algorithm for the `encryptionMethod` parameter."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.IdentityModel.Tokens.EncryptedKeyIdentifierClause&quot;> </xref> класса с помощью указанного зашифрованного ключа, алгоритма, используемого для шифрования ключа, идентификатора для ключа и имени пользователя для чтения."
+  remarks: "Когда `derivationNonce` и `derivationLength` параметров вместо прямой безопасности ключ маркера используется неявный ключ.       Используйте статические константные строки в <xref:System.IdentityModel.Tokens.SecurityAlgorithms>Чтобы указать алгоритм шифрования для `encryptionMethod` параметр.</xref:System.IdentityModel.Tokens.SecurityAlgorithms>"
   syntax:
     content: public EncryptedKeyIdentifierClause (byte[] encryptedKey, string encryptionMethod, System.IdentityModel.Tokens.SecurityKeyIdentifier encryptingKeyIdentifier, string carriedKeyName, byte[] derivationNonce, int derivationLength);
     parameters:
     - id: encryptedKey
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains a key that is encrypted. Sets the value that is returned from the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*> method."
+      description: "Массив <xref:System.Byte>, содержащий зашифрованный ключ.</xref:System.Byte> Задает значение, которое возвращается из <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*>метод.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*>"
     - id: encryptionMethod
       type: System.String
-      description: "The cryptographic algorithm that is used to encrypt the key. Sets the value of the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*> property."
+      description: "Алгоритм шифрования, используемый для шифрования ключа. Задает значение <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*>Свойства.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*>"
     - id: encryptingKeyIdentifier
       type: System.IdentityModel.Tokens.SecurityKeyIdentifier
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;></xref> that represents the key identifier for the key specified in the `encryptedKey` parameter. Sets the value of the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptingKeyIdentifier*> property."
+      description: "Объект <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;> </xref> , представляющий идентификатор ключа для ключа, заданного в `encryptedKey` параметра. Задает значение <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptingKeyIdentifier*>Свойства.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptingKeyIdentifier*>"
     - id: carriedKeyName
       type: System.String
-      description: "A user-readable name that is associated with the key specified in the `encryptedKey` parameter. Sets the value of the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.CarriedKeyName*> property."
+      description: "Доступное для чтения пользователю имя, связанное с ключ, указанный в `encryptedKey` параметра. Задает значение <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.CarriedKeyName*>Свойства.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.CarriedKeyName*>"
     - id: derivationNonce
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains the nonce that was used to create a derived key. Sets the value that is returned by the <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.GetDerivationNonce*> method."
+      description: "Массив <xref:System.Byte>, содержащий специальное слово, который использовался для создания производного ключа.</xref:System.Byte> Задает значение, которое возвращается <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.GetDerivationNonce*>метод.</xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.GetDerivationNonce*>"
     - id: derivationLength
       type: System.Int32
-      description: "The size of the derived key. Sets the value of the <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.DerivationLength*> property."
+      description: "Размер производного ключа. Задает значение <xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.DerivationLength*>Свойства.</xref:System.IdentityModel.Tokens.SecurityKeyIdentifierClause.DerivationLength*>"
   overload: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>encryptionMethod</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>encryptedKey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>encryptionMethod</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>encryptedKey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>encryptedKey</code> is zero length."
+    description: "<code>encryptedKey</code>имеет нулевую длину."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.CarriedKeyName
@@ -207,13 +207,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets a user-readable name that is associated with the encrypted key."
-  remarks: "When the CarriedKeyName property is serialized into XML, it is placed in the <`CarriedKeyName`> element. For encrypted keys, the <`CarriedKeyName`> element is an optional element that associates a user-readable name with a key value. This name can then be used to reference the key using the <`KeyName`> element within the <`KeyInfo`> element. The same <`CarriedKeyName`> element value, unlike an ID value, can occur multiple times within a single document. The value of the key must be the same in all <`EncryptedKey`> elements identified with the same <`CarriedKeyName`> name within an XML document."
+  summary: "Получает имя, доступное для чтения пользователю, связанный с зашифрованным ключом."
+  remarks: "Если свойство CarriedKeyName сериализуется в формат XML, он помещается в `CarriedKeyName`настроек элемента. Для зашифрованных ключей `CarriedKeyName`настроек элемент является необязательным элементом, который связывает имя пользователя для чтения со значением ключа. Это имя может затем использоваться для ссылки ключа с помощью `KeyName`настроек элемент в пределах `KeyInfo`настроек элемента. Соответствует `CarriedKeyName`настроек значение элемента, в отличие от значений Идентификаторов может встречаться несколько раз в одном документе. Значение ключа должно быть одинаковым для всех `EncryptedKey`настроек элементов, определенных с тем же `CarriedKeyName`настроек имя XML-документа."
   syntax:
     content: public string CarriedKeyName { get; }
     return:
       type: System.String
-      description: "A user-readable name that is associated with the encrypted key."
+      description: "Доступное для чтения пользователю имя, связанное с зашифрованным ключом."
   overload: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.CarriedKeyName*
   exceptions: []
   platform:
@@ -230,12 +230,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets a key identifier for the encrypting key."
+  summary: "Возвращает идентификатор ключа для ключа шифрования."
   syntax:
     content: public System.IdentityModel.Tokens.SecurityKeyIdentifier EncryptingKeyIdentifier { get; }
     return:
       type: System.IdentityModel.Tokens.SecurityKeyIdentifier
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;></xref> that represents the key identifier for the encrypting key."
+      description: "Объект <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifier&quot;> </xref> , представляющий идентификатор ключа для ключа шифрования."
   overload: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptingKeyIdentifier*
   exceptions: []
   platform:
@@ -252,13 +252,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the cryptographic algorithm that is used to encrypt the key."
-  remarks: "Typically, the value of the EncryptionMethod property is one of the static constant strings in the <xref:System.IdentityModel.Tokens.SecurityAlgorithms> class."
+  summary: "Возвращает алгоритм шифрования, используемый для шифрования ключа."
+  remarks: "Как правило значение свойства EncryptionMethod является одним из статических константных строк в <xref:System.IdentityModel.Tokens.SecurityAlgorithms>классе.</xref:System.IdentityModel.Tokens.SecurityAlgorithms>"
   syntax:
     content: public string EncryptionMethod { get; }
     return:
       type: System.String
-      description: "The cryptographic algorithm that is used to encrypt the key."
+      description: "Алгоритм шифрования, используемый для шифрования ключа."
   overload: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*
   exceptions: []
   platform:
@@ -275,14 +275,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the encrypted key."
-  remarks: "The array that is returned by the GetEncryptedKey method is a clone of the encrypted key."
+  summary: "Возвращает зашифрованный ключ."
+  remarks: "Массив, который возвращается методом GetEncryptedKey является клоном зашифрованного ключа."
   syntax:
     content: public byte[] GetEncryptedKey ();
     parameters: []
     return:
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains the encrypted key."
+      description: "Массив <xref:System.Byte>, содержащий зашифрованный ключ.</xref:System.Byte>"
   overload: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*
   exceptions: []
   platform:
@@ -299,21 +299,21 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Returns a value that indicates whether the key identifier for this instance is equivalent to the specified key identifier clause."
+  summary: "Возвращает значение, указывающее, эквивалентен ли идентификатор ключа для этого экземпляра указанное предложение идентификатора ключа."
   syntax:
     content: public override bool Matches (System.IdentityModel.Tokens.SecurityKeyIdentifierClause keyIdentifierClause);
     parameters:
     - id: keyIdentifierClause
       type: System.IdentityModel.Tokens.SecurityKeyIdentifierClause
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;></xref> to compare to."
+      description: "Объект <xref href=&quot;System.IdentityModel.Tokens.SecurityKeyIdentifierClause&quot;> </xref> для сравнения."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>keyIdentifierClause</code> is of type <xref href=&quot;System.IdentityModel.Tokens.EncryptedKeyIdentifierClause&quot;></xref> and has the same encrypted key, encryption method and user-readable name as the current instance; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <code> keyIdentifierClause </code> относится к типу <xref href=&quot;System.IdentityModel.Tokens.EncryptedKeyIdentifierClause&quot;> </xref> и имеет тот же зашифрованный ключ, метод шифрования и имя, доступное для пользователя с текущим экземпляром; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.Matches*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyIdentifierClause</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyIdentifierClause</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.Matches(System.Byte[],System.String,System.String)
@@ -328,22 +328,22 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Returns a value that indicates whether the key identifier for this instance is equivalent to the specified encrypted key, encryption method and user-readable name."
+  summary: "Возвращает значение, указывающее идентификатор ключа данного экземпляра эквивалентен ли указанный ключ, метод шифрования и имя, доступное для пользователя."
   syntax:
     content: public bool Matches (byte[] encryptedKey, string encryptionMethod, string carriedKeyName);
     parameters:
     - id: encryptedKey
       type: System.Byte[]
-      description: "An array of <xref:System.Byte> that contains a key that is encrypted."
+      description: "Массив <xref:System.Byte>, содержащий зашифрованный ключ.</xref:System.Byte>"
     - id: encryptionMethod
       type: System.String
-      description: "The cryptographic algorithm that is used to encrypt the key."
+      description: "Алгоритм шифрования, используемый для шифрования ключа."
     - id: carriedKeyName
       type: System.String
-      description: "A user-readable name that is associated with the encrypted key."
+      description: "Доступное для чтения пользователю имя, связанное с зашифрованным ключом."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <code>encryptedKey</code>, <code>encryptionMethod</code> and <code>carriedKeyName</code> parameters have the same values returned by the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.GetEncryptedKey*> method and the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.EncryptionMethod*> and the <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.CarriedKeyName*> properties, respectively; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <code> encryptedKey </code>, <code> encryptionMethod </code> и <code> carriedKeyName </code> параметры имеют те же значения, возвращенные <> </> *настроек метод и <> </> *настроек и <xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.CarriedKeyName*>Свойства соответственно; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.CarriedKeyName*>"
   overload: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.Matches*
   exceptions: []
   platform:
@@ -360,14 +360,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Returns a string that represents the current object."
-  remarks: "The ToString method returns a string that contains the encrypted key and the cryptographic algorithm that is used to encrypt the key."
+  summary: "Возвращает строку, представляющую текущий объект."
+  remarks: "Метод ToString возвращает строку, содержащую зашифрованный ключ и алгоритм шифрования, используемый для шифрования ключа."
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "The current object."
+      description: "Текущий объект."
   overload: System.IdentityModel.Tokens.EncryptedKeyIdentifierClause.ToString*
   exceptions: []
   platform:
