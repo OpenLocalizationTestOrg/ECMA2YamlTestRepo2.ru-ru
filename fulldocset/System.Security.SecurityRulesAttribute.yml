@@ -12,8 +12,8 @@ items:
   nameWithType: SecurityRulesAttribute
   fullName: System.Security.SecurityRulesAttribute
   type: Class
-  summary: "Indicates the set of security rules the common language runtime should enforce for an assembly."
-  remarks: "This class indicates which set of security rules the common language runtime should enforce for an assembly. For example, an assembly that is marked with `[SecurityRules(SecurityRuleSet.Level1)]` uses the .NET Framework version 2.0 transparency rules, where public security-critical types and members are treated as security-safe-critical outside the assembly. This requires security-critical types and members to perform a link demand for full trust to enforce security-critical behavior when they are accessed by external callers. Typically, level 1 rules should be used only for compatibility, such as for version 2.0 assemblies. For more information about level 1 behavior, see [Security-Transparent Code, Level 1](~/add/includes/ajax-current-ext-md.md). For information about level 2 behavior, see [Security-Transparent Code, Level 2](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Указывает набор правил безопасности, которые следует применить общеязыковая среда выполнения для сборки."
+  remarks: "Этот класс указывает набор правил безопасности, которые следует применить общеязыковая среда выполнения для сборки. Например, сборки, помеченный `[SecurityRules(SecurityRuleSet.Level1)]` использует правила прозрачности платформы .NET Framework версии 2.0, когда открытые критическим с точки зрения безопасности типы и члены обрабатываются как безопасности с точки зрения за пределами сборки. Это требует с точки зрения безопасности типы и члены для выполнения компоновки с полным доверием для обеспечения критическим с точки зрения безопасности поведения, когда они используются внешним вызывающим программам. Правила уровня 1 обычно использоваться только для совместимости, например для сборок версии 2.0. Дополнительные сведения о поведении уровня 1 см. в разделе [прозрачный с точки зрения безопасности код, уровень 1](~/add/includes/ajax-current-ext-md.md). Сведения о поведении уровня 2 содержатся [прозрачный с точки зрения безопасности код, уровень 2](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: >-
       [System.AttributeUsage(System.AttributeTargets.Assembly, AllowMultiple=false)]
@@ -37,14 +37,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.SecurityRulesAttribute&quot;></xref> class using the specified rule set value."
-  remarks: "When you specify the `ruleSet` parameter, use <xref:System.Security.SecurityRuleSet> for .NET Framework version 2.0 rules or <xref:System.Security.SecurityRuleSet> for [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] rules. For more information about <xref:System.Security.SecurityRuleSet> behavior, see [Security-Transparent Code, Level 1](~/add/includes/ajax-current-ext-md.md). For information about <xref:System.Security.SecurityRuleSet> behavior, see [Security-Transparent Code, Level 2](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Security.SecurityRulesAttribute&quot;> </xref> класса, используя заданное значение в указанном правиле."
+  remarks: "При указании `ruleSet` параметра, используйте <xref:System.Security.SecurityRuleSet>для .NET Framework версии 2.0 правил или <xref:System.Security.SecurityRuleSet>для [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] правила.</xref:System.Security.SecurityRuleSet> </xref:System.Security.SecurityRuleSet> Дополнительные сведения о <xref:System.Security.SecurityRuleSet>поведение, в разделе [прозрачный с точки зрения безопасности код, уровень 1](~/add/includes/ajax-current-ext-md.md).</xref:System.Security.SecurityRuleSet> Сведения о <xref:System.Security.SecurityRuleSet>поведение, в разделе [прозрачный с точки зрения безопасности код, уровень 2](~/add/includes/ajax-current-ext-md.md).</xref:System.Security.SecurityRuleSet>"
   syntax:
     content: public SecurityRulesAttribute (System.Security.SecurityRuleSet ruleSet);
     parameters:
     - id: ruleSet
       type: System.Security.SecurityRuleSet
-      description: "One of the enumeration values that specifies the transparency rules set."
+      description: "Задано одно из значений перечисления, определяющее правила прозрачности."
   overload: System.Security.SecurityRulesAttribute.#ctor*
   exceptions: []
   platform:
@@ -61,12 +61,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Gets the rule set to be applied."
+  summary: "Возвращает набор применяемых правил."
   syntax:
     content: public System.Security.SecurityRuleSet RuleSet { get; }
     return:
       type: System.Security.SecurityRuleSet
-      description: "One of the enumeration values that specifies the transparency rules to be applied."
+      description: "Одно из значений перечисления, определяющее правила прозрачности для применения."
   overload: System.Security.SecurityRulesAttribute.RuleSet*
   exceptions: []
   platform:
@@ -83,13 +83,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines whether fully trusted transparent code should skip Microsoft intermediate language (MSIL) verification."
-  remarks: "This property should be used only for optimization, because security guarantees made for transparent code cannot be enforced if the code is unverifiable.       If you use this property to skip MSIL verification for an assembly, use the `transparent` option in the  to statically verify that the assembly&quot;s transparent code meets type safety requirements."
+  summary: "Определяет ли полностью доверенной прозрачный код должен пропускать проверку Microsoft промежуточного языка MSIL."
+  remarks: "Это свойство должно использоваться только для оптимизации, поскольку гарантии безопасности для прозрачного кода не могут быть реализованы, если код не может быть проверен.       Если это свойство используется для пропуска проверки MSIL для сборки, используйте `transparent` в диалоговом окне для статической проверки того, что сборка прозрачный код отвечает требованиям безопасности."
   syntax:
     content: public bool SkipVerificationInFullTrust { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if MSIL verification should be skipped; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если проверка MSIL пропускается; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.SecurityRulesAttribute.SkipVerificationInFullTrust*
   exceptions: []
   platform:
