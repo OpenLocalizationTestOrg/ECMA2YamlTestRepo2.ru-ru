@@ -13,8 +13,8 @@ items:
   nameWithType: IControlDesignerAccessor
   fullName: System.Web.UI.IControlDesignerAccessor
   type: Interface
-  summary: "Provides access to a control designer to store temporary design-time data associated with a control."
-  remarks: "The property and methods defined in the IControlDesignerAccessor interface offer a convenient way for the control designer to access a control for passing and retrieving temporary design-time data. The interface is implemented by the <xref:System.Web.UI.Control> class. Control designers use the implementation of this interface to access the control.       Temporary design-time data is not persisted with the control itself. To persist design-time data for a control, you should retrieve the contents of the <xref:System.Web.UI.IControlDesignerAccessor.UserData%2A> property and store them in a designer-specific location."
+  summary: "Предоставляет доступ к конструктор элементов управления для хранения временных данных времени разработки, связанный с элементом управления."
+  remarks: "Свойства и методы, определенные в интерфейсе IControlDesignerAccessor предоставляют удобный способ для конструктора элементов управления, чтобы доступ к элементу управления для передачи и получения временных данных времени разработки. Интерфейс, реализуемый <xref:System.Web.UI.Control>классом.</xref:System.Web.UI.Control> Элемент управления конструкторами реализация этого интерфейса для доступа к элементу управления.       Временные данные времени разработки не сохраняются непосредственно с элементом управления. Для сохранения данных времени разработки для элемента управления, следует получить содержимое <xref:System.Web.UI.IControlDesignerAccessor.UserData%2A>свойство и сохранять их в расположение конкретных конструкторов.</xref:System.Web.UI.IControlDesignerAccessor.UserData%2A>"
   syntax:
     content: public interface IControlDesignerAccessor
   implements: []
@@ -32,14 +32,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "When implemented, gets the state from the control during use on the design surface."
-  remarks: "This method is used only by control designers."
+  summary: "При реализации возвращает состояние из элемента управления во время использования в рабочей области конструирования."
+  remarks: "Этот метод используется только разработчиками элементов управления."
   syntax:
     content: public System.Collections.IDictionary GetDesignModeState ();
     parameters: []
     return:
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> of the control state."
+      description: "<xref:System.Collections.IDictionary>Состояния элемента управления.</xref:System.Collections.IDictionary>"
   overload: System.Web.UI.IControlDesignerAccessor.GetDesignModeState*
   exceptions: []
   platform:
@@ -56,14 +56,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "When implemented, sets control state before rendering it on the design surface."
-  remarks: "In overridden controls, this method is used to retain and set state for the control during design-time mode. This method is used only by control designers."
+  summary: "При реализации задает состояние элемента управления перед его отрисовкой на поверхности разработки."
+  remarks: "В переопределенных элементов управления этот метод используется для сохранения и назначения состояния элемента управления в режиме разработки. Этот метод используется только разработчиками элементов управления."
   syntax:
     content: public void SetDesignModeState (System.Collections.IDictionary data);
     parameters:
     - id: data
       type: System.Collections.IDictionary
-      description: "The <xref:System.Collections.IDictionary> containing the control state."
+      description: "<xref:System.Collections.IDictionary>Содержащий состояние элемента управления.</xref:System.Collections.IDictionary>"
   overload: System.Web.UI.IControlDesignerAccessor.SetDesignModeState*
   exceptions: []
   platform:
@@ -80,14 +80,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "When implemented, specifies the control that acts as the owner to the control implementing this method."
-  remarks: "In a composite container scenario where one control contains another control, the container is the control owner."
+  summary: "При реализации определяет элемент управления, который выступает в качестве владельца, элемент управления, реализующий этот метод."
+  remarks: "В сценарии составного контейнера, где один элемент управления содержит другой элемент управления контейнер является владельцем элемента управления."
   syntax:
     content: public void SetOwnerControl (System.Web.UI.Control owner);
     parameters:
     - id: owner
       type: System.Web.UI.Control
-      description: "The control to act as owner."
+      description: "Элемент управления, выступающий в качестве владельца."
   overload: System.Web.UI.IControlDesignerAccessor.SetOwnerControl*
   exceptions: []
   platform:
@@ -104,13 +104,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "When implemented, gets a collection of information that can be accessed by a control designer."
-  remarks: "A control&quot;s properties and content can be persisted, so that the control maintains state in the design-time environment. This property is used only by control designers."
+  summary: "При реализации возвращает коллекцию сведений о, осуществляемым при помощи конструктора элемента управления."
+  remarks: "Свойства и содержимое элемента управления может быть сохранено, так что элемент управления сохраняет состояние в среде времени разработки. Это свойство используется только конструкторами элементов управления."
   syntax:
     content: public System.Collections.IDictionary UserData { get; }
     return:
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> containing information about the control."
+      description: "<xref:System.Collections.IDictionary>Содержащий сведения об элементе управления.</xref:System.Collections.IDictionary>"
   overload: System.Web.UI.IControlDesignerAccessor.UserData*
   exceptions: []
   platform:
