@@ -21,8 +21,8 @@ items:
   nameWithType: FtpWebResponse
   fullName: System.Net.FtpWebResponse
   type: Class
-  summary: "Encapsulates a File Transfer Protocol (FTP) server&quot;s response to a request."
-  remarks: "Instances of FtpWebResponse are obtained by calling the <xref:System.Net.FtpWebRequest.GetResponse%2A> method. The returned object must be cast to an FtpWebResponse. When your application no longer needs the FtpWebResponse object, call the <xref:System.Net.FtpWebResponse.Close%2A> method to free the resources held by the FtpWebResponse.       The <xref:System.Net.FtpWebResponse.StatusCode%2A> property contains the status code returned by the server, and the <xref:System.Net.FtpWebResponse.StatusDescription%2A> property returns the status code and a message that describes the status. The values returned by these properties change as the messages are returned by the server.       Any data returned by the request, such as the list of file names returned for a <xref:System.Net.WebRequestMethods.Ftp.ListDirectory> request, is available in the stream returned by the <xref:System.Net.FtpWebResponse.GetResponseStream%2A> method. The length of the stream data can be obtained from the <xref:System.Net.FtpWebResponse.ContentLength%2A> property."
+  summary: "Инкапсулирует сервер протокола передачи файлов (FTP) ответ на запрос."
+  remarks: "Экземпляры FtpWebResponse получаются путем вызова <xref:System.Net.FtpWebRequest.GetResponse%2A>метод.</xref:System.Net.FtpWebRequest.GetResponse%2A> Возвращаемый объект должен быть приведен к FtpWebResponse. Если приложение больше не нужна FtpWebResponse объекта, вызовите <xref:System.Net.FtpWebResponse.Close%2A>метод, чтобы освободить ресурсы, удерживаемые FtpWebResponse.</xref:System.Net.FtpWebResponse.Close%2A>       <xref:System.Net.FtpWebResponse.StatusCode%2A>Свойство содержит код состояния, возвращенный сервером и <xref:System.Net.FtpWebResponse.StatusDescription%2A>свойство возвращает код состояния и сообщение, описывающее состояние.</xref:System.Net.FtpWebResponse.StatusDescription%2A> </xref:System.Net.FtpWebResponse.StatusCode%2A> Значения, возвращаемые эти свойства меняться сообщения возвращаются сервером.       Любые данные, возвращаемый запросом, такие как список имен файлов, возвращаемый для <xref:System.Net.WebRequestMethods.Ftp.ListDirectory>запроса, то в поток, возвращенный <xref:System.Net.FtpWebResponse.GetResponseStream%2A>метод.</xref:System.Net.FtpWebResponse.GetResponseStream%2A> </xref:System.Net.WebRequestMethods.Ftp.ListDirectory> Длина потока данных может быть получен из <xref:System.Net.FtpWebResponse.ContentLength%2A>свойство.</xref:System.Net.FtpWebResponse.ContentLength%2A>"
   example:
   - "The following code example sends a request to delete a file on an FTP server and displays the status message from the server's response to the request. For additional examples, see the members of the <xref:System.Net.WebRequestMethods.Ftp> and <xref:System.Net.FtpWebRequest> classes.  \n  \n [!code-cpp[NCLFtpClient#4](~/add/codesnippet/cpp/t-system.net.ftpwebrespo_1.cpp)]\n [!code-cs[NCLFtpClient#4](~/add/codesnippet/csharp/t-system.net.ftpwebrespo_1.cs)]"
   syntax:
@@ -46,7 +46,7 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the message sent by the FTP server when a connection is established prior to logon."
+  summary: "Возвращает сообщение, отправленное FTP-сервера после установления соединения до входа пользователя."
   remarks: ''
   example:
   - "The following code example displays the value of this property.  \n  \n [!code-cpp[NclFtpClient#12](~/add/codesnippet/cpp/p-system.net.ftpwebrespo_7_1.cpp)]\n [!code-cs[NclFtpClient#12](~/add/codesnippet/csharp/p-system.net.ftpwebrespo_7_1.cs)]"
@@ -54,7 +54,7 @@ items:
     content: public string BannerMessage { get; }
     return:
       type: System.String
-      description: "A <xref:System.String> that contains the banner message sent by the server; otherwise, <xref:System.String> if no message is sent."
+      description: "Объект <xref:System.String>, содержащий текст заголовка, отправленных сервером; в противном случае <xref:System.String>Если сообщение не отправлено.</xref:System.String> </xref:System.String>"
   overload: System.Net.FtpWebResponse.BannerMessage*
   exceptions: []
   platform:
@@ -71,8 +71,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Frees the resources held by the response."
-  remarks: "The Close method closes the data stream returned by the <xref:System.Net.FtpWebResponse.GetResponseStream%2A> method if the <xref:System.Net.FtpWebRequest.KeepAlive%2A> property is `false`. During the close, data might be sent to the server on the control connection.      > [!NOTE] >  This member outputs trace information when you enable network tracing in your application. For more information, see [Network Tracing in the .NET Framework](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Освобождает ресурсы, удерживаемые этим ответом."
+  remarks: "Метод Close закрывает поток данных, возвращенный <xref:System.Net.FtpWebResponse.GetResponseStream%2A>метод Если <xref:System.Net.FtpWebRequest.KeepAlive%2A>свойство `false`.</xref:System.Net.FtpWebRequest.KeepAlive%2A> </xref:System.Net.FtpWebResponse.GetResponseStream%2A> Во время закрытия данные могут быть отправлены на сервер для подключения элемента управления.      Настроек [!NOTE] настроек данный член генерирует сведения трассировки, если в приложении включена трассировка сети. Дополнительные сведения см. в разделе [Трассировка сети в .NET Framework](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example downloads data from a server, reads the data from the response stream, and then closes it.  \n  \n [!code-cpp[NCLFtpClient#9](~/add/codesnippet/cpp/m-system.net.ftpwebrespo_0_1.cpp)]\n [!code-cs[NCLFtpClient#9](~/add/codesnippet/csharp/m-system.net.ftpwebrespo_0_1.cs)]"
   syntax:
@@ -94,15 +94,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the length of the data received from the FTP server."
-  remarks: "When a response stream is returned by the FTP server, the ContentLength property contains the number of bytes in the stream. ContentLength returns −1 if no data was returned in the response or if the server did not send content length information. The return value is greater than or equal to zero if data was or should have been returned. For example, for requests that use the <xref:System.Net.WebRequestMethods.Ftp.ListDirectory> field, the ContentLength property always returns −1. For requests that use the <xref:System.Net.WebRequestMethods.Ftp.UploadFile> method, the ContentLength property is always zero. For requests that use the <xref:System.Net.WebRequestMethods.Ftp.DownloadFile> method, the property is greater than zero if the downloaded file contained data and is zero if it was empty.       For requests that use the <xref:System.Net.WebRequestMethods.Ftp.GetFileSize> method, ContentLength returns the size of the specified file on the server."
+  summary: "Возвращает длину данных, полученных с FTP-сервера."
+  remarks: "Когда поток ответа возвращается FTP-сервера, свойство ContentLength содержит число байтов в потоке. Свойство ContentLength возвращает −1, если данные не были возвращены в ответе, или если сервер не передает сведения о длине содержимого. Возвращаемое значение больше или равно нулю, если данные были возвращены или должны возвращаться. Например, для запросов, использующих <xref:System.Net.WebRequestMethods.Ftp.ListDirectory>поле, свойство ContentLength всегда возвращает −1.</xref:System.Net.WebRequestMethods.Ftp.ListDirectory> Для запросов, использующих <xref:System.Net.WebRequestMethods.Ftp.UploadFile>метод, свойство ContentLength всегда равно нулю.</xref:System.Net.WebRequestMethods.Ftp.UploadFile> Для запросов, использующих <xref:System.Net.WebRequestMethods.Ftp.DownloadFile>метода, свойства которой больше нуля Если загруженный файл содержит данные, равно нулю, если он был пуст.</xref:System.Net.WebRequestMethods.Ftp.DownloadFile>       Для запросов, использующих <xref:System.Net.WebRequestMethods.Ftp.GetFileSize>, ContentLength возвращает размер указанного файла на сервере.</xref:System.Net.WebRequestMethods.Ftp.GetFileSize>"
   example:
   - "The following code example downloads a file from on the specified FTP server. This property contains the number of bytes in the downloaded file.  \n  \n [!code-cpp[NCLFtpClient#9](~/add/codesnippet/cpp/p-system.net.ftpwebrespo_0_1.cpp)]\n [!code-cs[NCLFtpClient#9](~/add/codesnippet/csharp/p-system.net.ftpwebrespo_0_1.cs)]"
   syntax:
     content: public override long ContentLength { get; }
     return:
       type: System.Int64
-      description: "An <xref:System.Int64> value that contains the number of bytes of data received from the FTP server."
+      description: "<xref:System.Int64>Значение, содержащее число байтов данных, полученных с FTP-сервера.</xref:System.Int64>"
   overload: System.Net.FtpWebResponse.ContentLength*
   exceptions: []
   platform:
@@ -119,15 +119,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the message sent by the server when the FTP session is ending."
-  remarks: "The ExitMessage property is not available until the connection to the server is closed or reused. If the <xref:System.Net.FtpWebRequest.KeepAlive%2A> property is `true`, the connection used by this request is not closed, which prevents the server from sending an exit message."
+  summary: "Возвращает сообщение, отправленное сервером при завершении FTP-сеанс."
+  remarks: "Свойство ExitMessage недоступно, пока не будет закрыт или повторно использовать подключение к серверу. Если <xref:System.Net.FtpWebRequest.KeepAlive%2A>свойство `true`, соединение, используемое этим запросом не закрыт, что не позволяет серверу отправлять сообщение выхода.</xref:System.Net.FtpWebRequest.KeepAlive%2A>"
   example:
   - "The following code example displays the value of this property.  \n  \n [!code-cpp[NclFtpClient#17](~/add/codesnippet/cpp/p-system.net.ftpwebrespo_1_1.cpp)]\n [!code-cs[NclFtpClient#17](~/add/codesnippet/csharp/p-system.net.ftpwebrespo_1_1.cs)]"
   syntax:
     content: public string ExitMessage { get; }
     return:
       type: System.String
-      description: "A <xref:System.String> that contains the exit message sent by the server; otherwise, <xref:System.String> if no message is sent."
+      description: "Объект <xref:System.String>, содержащий сообщение выхода, отправленных сервером; в противном случае <xref:System.String>Если сообщение не отправлено.</xref:System.String> </xref:System.String>"
   overload: System.Net.FtpWebResponse.ExitMessage*
   exceptions: []
   platform:
@@ -144,8 +144,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Retrieves the stream that contains response data sent from an FTP server."
-  remarks: "After reading the data, you must close the stream. The stream is automatically closed when you close the <xref:System.Net.FtpWebResponse> object that contains it.       An exception is thrown unless the request method is <xref:System.Net.WebRequestMethods.Ftp.DownloadFile> or <xref:System.Net.WebRequestMethods.Ftp.ListDirectory>."
+  summary: "Получает поток, содержащий данные ответа, отправленного с FTP-сервера."
+  remarks: "После считывания данных, необходимо закрыть поток. Поток закрыт автоматически при закрытии <xref:System.Net.FtpWebResponse>, содержащий его.</xref:System.Net.FtpWebResponse>       Исключение создается в том случае, если метод запроса не <xref:System.Net.WebRequestMethods.Ftp.DownloadFile>или <xref:System.Net.WebRequestMethods.Ftp.ListDirectory>.</xref:System.Net.WebRequestMethods.Ftp.ListDirectory> </xref:System.Net.WebRequestMethods.Ftp.DownloadFile>"
   example:
   - "The following code example demonstrates getting the response stream for a <xref:System.Net.WebRequestMethods.Ftp.ListDirectory> request.  \n  \n [!code-cpp[NCLFtpClient#1](~/add/codesnippet/cpp/m-system.net.ftpwebrespo_1_1.cpp)]\n [!code-cs[NCLFtpClient#1](~/add/codesnippet/csharp/m-system.net.ftpwebrespo_1_1.cs)]"
   syntax:
@@ -153,12 +153,12 @@ items:
     parameters: []
     return:
       type: System.IO.Stream
-      description: "A readable <xref:System.IO.Stream> instance that contains data returned with the response; otherwise, <xref:System.IO.Stream> if no response data was returned by the server."
+      description: "Доступный для чтения <xref:System.IO.Stream>экземпляра, содержащего данные, возвращенного с ответом; в противном случае <xref:System.IO.Stream>Если данные ответа, не были возвращены сервером.</xref:System.IO.Stream> </xref:System.IO.Stream>"
   overload: System.Net.FtpWebResponse.GetResponseStream*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The response did not return a data stream."
+    description: "Поток данных не вернул ответ."
   platform:
   - net462
 - uid: System.Net.FtpWebResponse.Headers
@@ -173,13 +173,13 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets an empty <xref:System.Net.WebHeaderCollection> object."
-  remarks: "The Headers property is provided only for compatibility with other implementations of the <xref:System.Net.WebRequest> and <xref:System.Net.WebResponse> classes."
+  summary: "Возвращает пустой <xref:System.Net.WebHeaderCollection>объекта.</xref:System.Net.WebHeaderCollection>"
+  remarks: "Свойство заголовков предоставляется только для совместимости с другими реализациями <xref:System.Net.WebRequest>и <xref:System.Net.WebResponse>классы.</xref:System.Net.WebResponse> </xref:System.Net.WebRequest>"
   syntax:
     content: public override System.Net.WebHeaderCollection Headers { get; }
     return:
       type: System.Net.WebHeaderCollection
-      description: "An empty <xref:System.Net.WebHeaderCollection> object."
+      description: "Пустой <xref:System.Net.WebHeaderCollection>объекта.</xref:System.Net.WebHeaderCollection>"
   overload: System.Net.FtpWebResponse.Headers*
   exceptions: []
   platform:
@@ -196,15 +196,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the date and time that a file on an FTP server was last modified."
-  remarks: "The LastModified property returns the data requested by the <xref:System.Net.WebRequestMethods.Ftp.GetDateTimestamp> method. For requests sent using any other method, LastModified returns <xref:System.DateTime.MinValue>."
+  summary: "Возвращает дату и время последнего изменения файла на FTP-сервере."
+  remarks: "Свойство LastModified возвращает данные, запрашиваемые <xref:System.Net.WebRequestMethods.Ftp.GetDateTimestamp>метод.</xref:System.Net.WebRequestMethods.Ftp.GetDateTimestamp> Для запросов, отправляемых с помощью любого другого метода LastModified возвращает <xref:System.DateTime.MinValue>.</xref:System.DateTime.MinValue>"
   example:
   - "The following code example displays the date and time that a file on an FTP server was last modified.  \n  \n [!code-cpp[NclFtpClient#21](~/add/codesnippet/cpp/p-system.net.ftpwebrespo_4_1.cpp)]\n [!code-cs[NclFtpClient#21](~/add/codesnippet/csharp/p-system.net.ftpwebrespo_4_1.cs)]"
   syntax:
     content: public DateTime LastModified { get; }
     return:
       type: System.DateTime
-      description: "A <xref:System.DateTime> that contains the last modified date and time for a file."
+      description: "Объект <xref:System.DateTime>, содержащий последнюю измененную дату и время для файла.</xref:System.DateTime>"
   overload: System.Net.FtpWebResponse.LastModified*
   exceptions: []
   platform:
@@ -221,15 +221,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the URI that sent the response to the request."
-  remarks: "Because of server- and resource-specific behaviors, such as redirection, the value returned by the <xref:System.Net.FtpWebRequest.RequestUri%2A> property is not always the same as the value returned by the ResponseUri property.       For requests that use the <xref:System.Net.WebRequestMethods.Ftp.UploadFileWithUniqueName> method, ResponseUri returns the name of the file on the server."
+  summary: "Возвращает URI, который отправил ответ на запрос."
+  remarks: "Из-за поведения конкретного сервера и ресурсов, такие как перенаправление, значение, возвращаемое <xref:System.Net.FtpWebRequest.RequestUri%2A>свойство не всегда равным значению, возвращаемому свойством ResponseUri.</xref:System.Net.FtpWebRequest.RequestUri%2A>       Для запросов, использующих <xref:System.Net.WebRequestMethods.Ftp.UploadFileWithUniqueName>, ResponseUri возвращает имя файла на сервере.</xref:System.Net.WebRequestMethods.Ftp.UploadFileWithUniqueName>"
   example:
   - "The following code example displays the value of this property.  \n  \n [!code-cpp[NCLFtpClient#9](~/add/codesnippet/cpp/p-system.net.ftpwebrespo_3_1.cpp)]\n [!code-cs[NCLFtpClient#9](~/add/codesnippet/csharp/p-system.net.ftpwebrespo_3_1.cs)]"
   syntax:
     content: public override Uri ResponseUri { get; }
     return:
       type: System.Uri
-      description: "A <xref:System.Uri> instance that identifies the resource associated with this response."
+      description: "Объект <xref:System.Uri>экземпляр, который идентифицирует ресурс, связанный с этим ответом.</xref:System.Uri>"
   overload: System.Net.FtpWebResponse.ResponseUri*
   exceptions: []
   platform:
@@ -246,15 +246,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the most recent status code sent from the FTP server."
-  remarks: "The value returned by the StatusCode property is included in the <xref:System.Net.FtpWebResponse.StatusDescription%2A> property. When you are downloading data, the value of StatusCode changes as status codes are returned by the FTP server. After you call the <xref:System.Net.FtpWebRequest.GetResponse%2A> method, StatusCode contains an intermediate status code. When you call the <xref:System.Net.FtpWebResponse.Close%2A> method, StatusCode contains the final status."
+  summary: "Возвращает самый последний код состояния, отправленный с FTP-сервера."
+  remarks: "Значение, возвращаемое свойством StatusCode включается в <xref:System.Net.FtpWebResponse.StatusDescription%2A>свойство.</xref:System.Net.FtpWebResponse.StatusDescription%2A> При загрузке данных значение меняется StatusCode как коды состояния возвращаются сервером FTP. После вызова метода <xref:System.Net.FtpWebRequest.GetResponse%2A>метод, StatusCode содержит код промежуточного состояния.</xref:System.Net.FtpWebRequest.GetResponse%2A> При вызове <xref:System.Net.FtpWebResponse.Close%2A>метод, StatusCode содержит конечного состояния.</xref:System.Net.FtpWebResponse.Close%2A>"
   example:
   - "The following code example uploads a file to a server and displays the status.  \n  \n [!code-cpp[NCLFtpClient#2](~/add/codesnippet/cpp/p-system.net.ftpwebrespo_6_1.cpp)]\n [!code-cs[NCLFtpClient#2](~/add/codesnippet/csharp/p-system.net.ftpwebrespo_6_1.cs)]"
   syntax:
     content: public System.Net.FtpStatusCode StatusCode { get; }
     return:
       type: System.Net.FtpStatusCode
-      description: "An <xref href=&quot;System.Net.FtpStatusCode&quot;></xref> value that indicates the most recent status code returned with this response."
+      description: "<xref href=&quot;System.Net.FtpStatusCode&quot;> </xref> Возвращается значение, которое указывает самый последний код состояния с этим ответом."
   overload: System.Net.FtpWebResponse.StatusCode*
   exceptions: []
   platform:
@@ -271,15 +271,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets text that describes a status code sent from the FTP server."
-  remarks: "The text returned by the StatusDescription property includes the 3-digit <xref:System.Net.FtpWebResponse.StatusCode%2A> property value. When downloading data, the value of StatusDescription changes as status codes are returned by the FTP server. After you call the <xref:System.Net.FtpWebRequest.GetResponse%2A> method, StatusDescription contains an intermediate status code. When you call the <xref:System.Net.FtpWebResponse.Close%2A> method, StatusDescription contains the final status."
+  summary: "Возвращает текст, описывающий код состояния, отправленный с FTP-сервера."
+  remarks: "Текст, возвращаемый свойством StatusDescription содержит 3 цифры <xref:System.Net.FtpWebResponse.StatusCode%2A>значение свойства.</xref:System.Net.FtpWebResponse.StatusCode%2A> При загрузке данных, StatusDescription изменении коды состояния возвращенный сервером FTP. После вызова метода <xref:System.Net.FtpWebRequest.GetResponse%2A>метод StatusDescription содержит код промежуточного состояния.</xref:System.Net.FtpWebRequest.GetResponse%2A> При вызове <xref:System.Net.FtpWebResponse.Close%2A>метод StatusDescription содержит конечного состояния.</xref:System.Net.FtpWebResponse.Close%2A>"
   example:
   - "The following code example sends a request to delete a file on an FTP server and displays the status message from the server's response to the request.  \n  \n [!code-cpp[NCLFtpClient#4](~/add/codesnippet/cpp/p-system.net.ftpwebrespo_5_1.cpp)]\n [!code-cs[NCLFtpClient#4](~/add/codesnippet/csharp/p-system.net.ftpwebrespo_5_1.cs)]"
   syntax:
     content: public string StatusDescription { get; }
     return:
       type: System.String
-      description: "A <xref:System.String> instance that contains the status code and message returned with this response."
+      description: "Объект <xref:System.String>экземпляр, содержащий код состояния и сообщения, возвращаемые с этим ответом.</xref:System.String>"
   overload: System.Net.FtpWebResponse.StatusDescription*
   exceptions: []
   platform:
@@ -296,13 +296,13 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets a value that indicates whether the <xref:System.Net.FtpWebResponse.Headers*> property is supported by the <xref href=&quot;System.Net.FtpWebResponse&quot;></xref> instance."
-  remarks: "This property is always true for [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)]."
+  summary: "Возвращает значение, указывающее, является ли <xref:System.Net.FtpWebResponse.Headers*>свойство поддерживается <xref href=&quot;System.Net.FtpWebResponse&quot;> </xref> экземпляра.</xref:System.Net.FtpWebResponse.Headers*>"
+  remarks: "Данное свойство всегда имеет значение true для [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)]."
   syntax:
     content: public override bool SupportsHeaders { get; }
     return:
       type: System.Boolean
-      description: "Returns <xref:System.Boolean>.       <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref:System.Net.FtpWebResponse.Headers*> property is supported by the <xref href=&quot;System.Net.FtpWebResponse&quot;></xref> instance; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Возвращает <xref:System.Boolean>.</xref:System.Boolean>       <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <xref:System.Net.FtpWebResponse.Headers*>свойство поддерживается <xref href=&quot;System.Net.FtpWebResponse&quot;> </xref> экземпляра; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.Net.FtpWebResponse.Headers*>"
   overload: System.Net.FtpWebResponse.SupportsHeaders*
   exceptions: []
   platform:
@@ -319,15 +319,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the message sent by the FTP server when authentication is complete."
-  remarks: "If the connection is being reused (the <xref:System.Net.FtpWebRequest.KeepAlive%2A> property is set to `true`), the WelcomeMessage property returns the first welcome message received with the connection."
+  summary: "Возвращает сообщение, отправленное FTP-сервера после завершения проверки подлинности."
+  remarks: "При повторном использовании соединения ( <xref:System.Net.FtpWebRequest.KeepAlive%2A>свойству `true`), свойство WelcomeMessage возвращает первый приветственное сообщение, полученных с соединением.</xref:System.Net.FtpWebRequest.KeepAlive%2A>"
   example:
   - "The following code example displays the value of this property.  \n  \n [!code-cpp[NclFtpClient#13](~/add/codesnippet/cpp/p-system.net.ftpwebrespo_2_1.cpp)]\n [!code-cs[NclFtpClient#13](~/add/codesnippet/csharp/p-system.net.ftpwebrespo_2_1.cs)]"
   syntax:
     content: public string WelcomeMessage { get; }
     return:
       type: System.String
-      description: "A <xref:System.String> that contains the welcome message sent by the server; otherwise, <xref:System.String> if no message is sent."
+      description: "Объект <xref:System.String>, содержащий приветственное сообщение, отправленное сервером; в противном случае <xref:System.String>Если сообщение не отправлено.</xref:System.String> </xref:System.String>"
   overload: System.Net.FtpWebResponse.WelcomeMessage*
   exceptions: []
   platform:

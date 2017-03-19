@@ -16,8 +16,8 @@ items:
   nameWithType: HttpListenerContext
   fullName: System.Net.HttpListenerContext
   type: Class
-  summary: "Provides access to the request and response objects used by the <xref href=&quot;System.Net.HttpListener&quot;></xref> class. This class cannot be inherited."
-  remarks: "This class provides the information related to a client&quot;s Hypertext Transfer Protocol (HTTP) request being processed by an <xref:System.Net.HttpListener> object. This class also has methods that allow an <xref:System.Net.HttpListener> object to accept a WebSocket connection.       The <xref:System.Net.HttpListener.GetContext%2A> method returns instances of the HttpListenerContext class. To get the object that represents the client request, use the <xref:System.Net.HttpListenerContext.Request%2A> property. To get the object that represents the response that will be sent to the client by the <xref:System.Net.HttpListener>, use the <xref:System.Net.HttpListenerContext.Response%2A> property. To get user information about the client sending the request, such as its login name and whether it has been authenticated, you can query the properties in the <xref:System.Security.Principal.IPrincipal> object returned by the <xref:System.Net.HttpListenerContext.User%2A> property.       Closing an HttpListenerContext object sends the response to the client and frees any resources used by the HttpListenerContext. Aborting an HttpListenerContext object discards the response to the client if it has not already been sent, and frees any resources used by the HttpListenerContext. After closing or aborting an HttpListenerContext object, you cannot reference its methods or properties. If you do so, you will receive an <xref:System.ObjectDisposedException> exception."
+  summary: "Предоставляет доступ к объектам запросов и ответов, используемый <xref href=&quot;System.Net.HttpListener&quot;> </xref> класса. Этот класс не наследуется."
+  remarks: "Этот класс предоставляет сведения, относящиеся к запрос клиента протокола передачи гипертекста (HTTP), обрабатываемых <xref:System.Net.HttpListener>объекта.</xref:System.Net.HttpListener> Этот класс также содержит методы, позволяющие <xref:System.Net.HttpListener>объекта для принятия соединения WebSocket.</xref:System.Net.HttpListener>       <xref:System.Net.HttpListener.GetContext%2A>Метод возвращает экземпляры класса HttpListenerContext.</xref:System.Net.HttpListener.GetContext%2A> Чтобы получить объект, представляющий клиентский запрос, используйте <xref:System.Net.HttpListenerContext.Request%2A>свойство.</xref:System.Net.HttpListenerContext.Request%2A> Чтобы получить объект, который представляет ответ, который отправляется клиенту по <xref:System.Net.HttpListener>, используйте <xref:System.Net.HttpListenerContext.Response%2A>свойство.</xref:System.Net.HttpListenerContext.Response%2A> </xref:System.Net.HttpListener> Для получения сведений пользователя о клиент, отправляющий запрос, например его имя входа и является ли он прошел проверку подлинности, вы можете запрашивать свойства в <xref:System.Security.Principal.IPrincipal>объект, возвращаемый <xref:System.Net.HttpListenerContext.User%2A>свойство.</xref:System.Net.HttpListenerContext.User%2A> </xref:System.Security.Principal.IPrincipal>       Закрытие объекта HttpListenerContext отправляет ответ клиенту и освобождает все ресурсы, используемые HttpListenerContext. Прерывание объект HttpListenerContext отменяет ответа клиенту, если он уже не было отправлено и освобождает все ресурсы, используемые HttpListenerContext. После закрытия или прерывания HttpListenerContext объекта, не может ссылаться его свойств или методов. Если сделать это, вы получите <xref:System.ObjectDisposedException>исключение.</xref:System.ObjectDisposedException>"
   example:
   - "The following code example displays the user information for a client request.  \n  \n [!code-cs[Net_Listener_Basic#8](~/add/codesnippet/csharp/t-system.net.httplistene_0_1.cs)]"
   syntax:
@@ -40,25 +40,25 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Accept a WebSocket connection as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the WebSocket connection has been accepted.       The size of the receive buffer is 16,385 bytes. The WebSocket keep-alive interval is set to the default value of 30,000 (30 seconds)."
+  summary: "Примите подключение WebSocket в асинхронной операции."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task%601>объекта будет выполнена после принятия соединения WebSocket.</xref:System.Threading.Tasks.Task%601>       Размер буфера приема равен 16,385 байт. Интервал проверки активности WebSocket будет присвоено значение по умолчанию 30000 (30 секунд)."
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.WebSockets.HttpListenerWebSocketContext> AcceptWebSocketAsync (string subProtocol);
     parameters:
     - id: subProtocol
       type: System.String
-      description: "The supported WebSocket sub-protocol."
+      description: "Поддерживаемый подпротокол WebSocket."
     return:
       type: System.Threading.Tasks.Task{System.Net.WebSockets.HttpListenerWebSocketContext}
-      description: "Returns &lt;xref:System.Threading.Tasks.Task%601&gt;.       The task object representing the asynchronous operation. The &lt;xref:System.Threading.Tasks.Task%601.Result%2A&gt; property on the task object returns an <xref href=&quot;System.Net.WebSockets.HttpListenerWebSocketContext&quot;></xref> object."
+      description: "Возвращает &lt;xref:System.Threading.Tasks.Task%601&gt;.       Объект задачи, представляющий асинхронную операцию. &lt;Xref:System.Threading.Tasks.Task%601.Result%2A&gt; свойство объекта задачи возвращает <xref href=&quot;System.Net.WebSockets.HttpListenerWebSocketContext&quot;> </xref> объекта."
   overload: System.Net.HttpListenerContext.AcceptWebSocketAsync*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>subProtocol</code> is an empty string       -or-       <code>subProtocol</code> contains illegal characters."
+    description: "<code>subProtocol</code>является пустой строкой - или - <code>subProtocol</code> содержит недопустимые знаки."
   - type: System.Net.WebSockets.WebSocketException
     commentId: T:System.Net.WebSockets.WebSocketException
-    description: "An error occurred when sending the response to complete the WebSocket handshake."
+    description: "Произошла ошибка при отправке ответа для завершения установки соединения WebSocket."
   platform:
   - net462
 - uid: System.Net.HttpListenerContext.AcceptWebSocketAsync(System.String,System.TimeSpan)
@@ -73,31 +73,31 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Accept a WebSocket connection specifying the supported WebSocket sub-protocol  and WebSocket keep-alive interval as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the WebSocket connection has been accepted.       The size of the receive buffer is 16,385 bytes."
+  summary: "Принимает подключение WebSocket, указав поддерживаемый подпротокол WebSocket и интервал проверки активности WebSocket в виде асинхронной операции."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task%601>объекта будет выполнена после принятия соединения WebSocket.</xref:System.Threading.Tasks.Task%601>       Размер буфера приема равен 16,385 байт."
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.WebSockets.HttpListenerWebSocketContext> AcceptWebSocketAsync (string subProtocol, TimeSpan keepAliveInterval);
     parameters:
     - id: subProtocol
       type: System.String
-      description: "The supported WebSocket sub-protocol."
+      description: "Поддерживаемый подпротокол WebSocket."
     - id: keepAliveInterval
       type: System.TimeSpan
-      description: "The WebSocket protocol keep-alive interval in milliseconds."
+      description: "Активность интервал проверки протокола WebSocket в миллисекундах."
     return:
       type: System.Threading.Tasks.Task{System.Net.WebSockets.HttpListenerWebSocketContext}
-      description: "Returns &lt;xref:System.Threading.Tasks.Task%601&gt;.       The task object representing the asynchronous operation. The &lt;xref:System.Threading.Tasks.Task%601.Result%2A&gt; property on the task object returns an <xref href=&quot;System.Net.WebSockets.HttpListenerWebSocketContext&quot;></xref> object."
+      description: "Возвращает &lt;xref:System.Threading.Tasks.Task%601&gt;.       Объект задачи, представляющий асинхронную операцию. &lt;Xref:System.Threading.Tasks.Task%601.Result%2A&gt; свойство объекта задачи возвращает <xref href=&quot;System.Net.WebSockets.HttpListenerWebSocketContext&quot;> </xref> объекта."
   overload: System.Net.HttpListenerContext.AcceptWebSocketAsync*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>subProtocol</code> is an empty string       -or-       <code>subProtocol</code> contains illegal characters."
+    description: "<code>subProtocol</code>является пустой строкой - или - <code>subProtocol</code> содержит недопустимые знаки."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>keepAliveInterval</code> is too small."
+    description: "<code>keepAliveInterval</code>слишком мал."
   - type: System.Net.WebSockets.WebSocketException
     commentId: T:System.Net.WebSockets.WebSocketException
-    description: "An error occurred when sending the response to complete the WebSocket handshake."
+    description: "Произошла ошибка при отправке ответа для завершения установки соединения WebSocket."
   platform:
   - net462
 - uid: System.Net.HttpListenerContext.AcceptWebSocketAsync(System.String,System.Int32,System.TimeSpan)
@@ -112,34 +112,34 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Accept a WebSocket connection specifying the supported WebSocket sub-protocol, receive buffer size, and WebSocket keep-alive interval as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> > object will complete after the WebSocket connection has been accepted."
+  summary: "Принимать подключения WebSocket, указав поддерживаемый подпротокол WebSocket, получите размером буфера и интервал проверки активности WebSocket в асинхронной операции."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task%601>настроек объекта будет выполнена после принятия соединения WebSocket.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.WebSockets.HttpListenerWebSocketContext> AcceptWebSocketAsync (string subProtocol, int receiveBufferSize, TimeSpan keepAliveInterval);
     parameters:
     - id: subProtocol
       type: System.String
-      description: "The supported WebSocket sub-protocol."
+      description: "Поддерживаемый подпротокол WebSocket."
     - id: receiveBufferSize
       type: System.Int32
-      description: "The receive buffer size in bytes."
+      description: "Размер буфера приема в байтах."
     - id: keepAliveInterval
       type: System.TimeSpan
-      description: "The WebSocket protocol keep-alive interval in milliseconds."
+      description: "Активность интервал проверки протокола WebSocket в миллисекундах."
     return:
       type: System.Threading.Tasks.Task{System.Net.WebSockets.HttpListenerWebSocketContext}
-      description: "Returns &lt;xref:System.Threading.Tasks.Task%601&gt;.       The task object representing the asynchronous operation. The &lt;xref:System.Threading.Tasks.Task%601.Result%2A&gt; property on the task object returns an <xref href=&quot;System.Net.WebSockets.HttpListenerWebSocketContext&quot;></xref> object."
+      description: "Возвращает &lt;xref:System.Threading.Tasks.Task%601&gt;.       Объект задачи, представляющий асинхронную операцию. &lt;Xref:System.Threading.Tasks.Task%601.Result%2A&gt; свойство объекта задачи возвращает <xref href=&quot;System.Net.WebSockets.HttpListenerWebSocketContext&quot;> </xref> объекта."
   overload: System.Net.HttpListenerContext.AcceptWebSocketAsync*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>subProtocol</code> is an empty string       -or-       <code>subProtocol</code> contains illegal characters."
+    description: "<code>subProtocol</code>является пустой строкой - или - <code>subProtocol</code> содержит недопустимые знаки."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>keepAliveInterval</code> is too small.       -or-       <code>receiveBufferSize</code> is less than 16 bytes       -or-       <code>receiveBufferSize</code> is greater than 64K bytes."
+    description: "<code>keepAliveInterval</code>слишком мал.       - или - <code>receiveBufferSize</code> меньше 16 байт - или - <code>receiveBufferSize</code> превышает 64 КБ."
   - type: System.Net.WebSockets.WebSocketException
     commentId: T:System.Net.WebSockets.WebSocketException
-    description: "An error occurred when sending the response to complete the WebSocket handshake."
+    description: "Произошла ошибка при отправке ответа для завершения установки соединения WebSocket."
   platform:
   - net462
 - uid: System.Net.HttpListenerContext.AcceptWebSocketAsync(System.String,System.Int32,System.TimeSpan,System.ArraySegment{System.Byte})
@@ -154,37 +154,37 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Accept a WebSocket connection specifying the supported WebSocket sub-protocol, receive buffer size, WebSocket keep-alive interval, and the internal buffer as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the WebSocket connection has been accepted."
+  summary: "Принимать подключения WebSocket, указав поддерживаемый подпротокол WebSocket, получения размер буфера, интервал проверки активности WebSocket и внутреннего буфера в качестве асинхронной операции."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task%601>объекта будет выполнена после принятия соединения WebSocket.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.WebSockets.HttpListenerWebSocketContext> AcceptWebSocketAsync (string subProtocol, int receiveBufferSize, TimeSpan keepAliveInterval, ArraySegment<byte> internalBuffer);
     parameters:
     - id: subProtocol
       type: System.String
-      description: "The supported WebSocket sub-protocol."
+      description: "Поддерживаемый подпротокол WebSocket."
     - id: receiveBufferSize
       type: System.Int32
-      description: "The receive buffer size in bytes."
+      description: "Размер буфера приема в байтах."
     - id: keepAliveInterval
       type: System.TimeSpan
-      description: "The WebSocket protocol keep-alive interval in milliseconds."
+      description: "Активность интервал проверки протокола WebSocket в миллисекундах."
     - id: internalBuffer
       type: System.ArraySegment{System.Byte}
-      description: "An internal buffer to use for this operation."
+      description: "Внутренний буфер для этой операции."
     return:
       type: System.Threading.Tasks.Task{System.Net.WebSockets.HttpListenerWebSocketContext}
-      description: "Returns &lt;xref:System.Threading.Tasks.Task%601&gt;.       The task object representing the asynchronous operation. The &lt;xref:System.Threading.Tasks.Task%601.Result%2A&gt; property on the task object returns an <xref href=&quot;System.Net.WebSockets.HttpListenerWebSocketContext&quot;></xref> object."
+      description: "Возвращает &lt;xref:System.Threading.Tasks.Task%601&gt;.       Объект задачи, представляющий асинхронную операцию. &lt;Xref:System.Threading.Tasks.Task%601.Result%2A&gt; свойство объекта задачи возвращает <xref href=&quot;System.Net.WebSockets.HttpListenerWebSocketContext&quot;> </xref> объекта."
   overload: System.Net.HttpListenerContext.AcceptWebSocketAsync*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>subProtocol</code> is an empty string       -or-       <code>subProtocol</code> contains illegal characters."
+    description: "<code>subProtocol</code>является пустой строкой - или - <code>subProtocol</code> содержит недопустимые знаки."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>keepAliveInterval</code> is too small.       -or-       <code>receiveBufferSize</code> is less than 16 bytes       -or-       <code>receiveBufferSize</code> is greater than 64K bytes."
+    description: "<code>keepAliveInterval</code>слишком мал.       - или - <code>receiveBufferSize</code> меньше 16 байт - или - <code>receiveBufferSize</code> превышает 64 КБ."
   - type: System.Net.WebSockets.WebSocketException
     commentId: T:System.Net.WebSockets.WebSocketException
-    description: "An error occurred when sending the response to complete the WebSocket handshake."
+    description: "Произошла ошибка при отправке ответа для завершения установки соединения WebSocket."
   platform:
   - net462
 - uid: System.Net.HttpListenerContext.Request
@@ -199,15 +199,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the <xref href=&quot;System.Net.HttpListenerRequest&quot;></xref> that represents a client&quot;s request for a resource."
-  remarks: "If you close this <xref:System.Net.HttpListenerContext>, it will send the response to the client, close the <xref:System.Net.HttpListenerResponse> that contains the response, and close the <xref:System.Net.HttpListenerRequest> object returned by this property."
+  summary: "Возвращает <xref href=&quot;System.Net.HttpListenerRequest&quot;> </xref> , представляющий запрос клиента для ресурса."
+  remarks: "Если закрыть это <xref:System.Net.HttpListenerContext>, он отправляет ответ клиенту, закройте <xref:System.Net.HttpListenerResponse>, содержащий ответ затем закройте <xref:System.Net.HttpListenerRequest>объект, возвращаемый этим свойством.</xref:System.Net.HttpListenerRequest> </xref:System.Net.HttpListenerResponse> </xref:System.Net.HttpListenerContext>"
   example:
   - "The following code example demonstrates calling this method. The `listener` variable holds an <xref:System.Net.HttpListener> object.  \n  \n [!code-cs[Net_Listener_Basic#3](~/add/codesnippet/csharp/p-system.net.httplistene_16_1.cs)]"
   syntax:
     content: public System.Net.HttpListenerRequest Request { get; }
     return:
       type: System.Net.HttpListenerRequest
-      description: "An <xref href=&quot;System.Net.HttpListenerRequest&quot;></xref> object that represents the client request."
+      description: "<xref href=&quot;System.Net.HttpListenerRequest&quot;> </xref> , Представляющий запрос клиента."
   overload: System.Net.HttpListenerContext.Request*
   exceptions: []
   platform:
@@ -224,15 +224,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the <xref href=&quot;System.Net.HttpListenerResponse&quot;></xref> object that will be sent to the client in response to the client&quot;s request."
-  remarks: "Your application configures the response by setting properties in the <xref:System.Net.HttpListenerResponse> object returned by this property. After configuring the response, you send it to the client by closing the response, or by closing this <xref:System.Net.HttpListenerContext> object."
+  summary: "Возвращает <xref href=&quot;System.Net.HttpListenerResponse&quot;> </xref> объект, который отправляется клиенту в ответ на запрос клиента."
+  remarks: "Приложение настраивает ответ, установив свойства в <xref:System.Net.HttpListenerResponse>объект, возвращаемый этим свойством.</xref:System.Net.HttpListenerResponse> После настройки ответ, он отправляется клиенту, закрыв ответ или Закрыв это <xref:System.Net.HttpListenerContext>объекта.</xref:System.Net.HttpListenerContext>"
   example:
   - "The following code example demonstrates getting the response to a client's request and adding the response body.  \n  \n [!code-cs[Net_Listener_Basic#3](~/add/codesnippet/csharp/p-system.net.httplistene_35_1.cs)]"
   syntax:
     content: public System.Net.HttpListenerResponse Response { get; }
     return:
       type: System.Net.HttpListenerResponse
-      description: "An <xref href=&quot;System.Net.HttpListenerResponse&quot;></xref> object used to send a response back to the client."
+      description: "<xref href=&quot;System.Net.HttpListenerResponse&quot;> </xref> Объект, используемый для отправки ответа клиенту."
   overload: System.Net.HttpListenerContext.Response*
   exceptions: []
   platform:
@@ -249,15 +249,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets an object used to obtain identity, authentication information, and security roles for the client whose request is represented by this <xref href=&quot;System.Net.HttpListenerContext&quot;></xref> object."
-  remarks: "An <xref:System.Net.HttpListener> indicates that it requires authentication using the <xref:System.Net.HttpListener.AuthenticationSchemes%2A> property or by specifying an <xref:System.Net.AuthenticationSchemeSelector> delegate using the <xref:System.Net.HttpListener.AuthenticationSchemeSelectorDelegate%2A> property.       To determine the client&quot;s login name and authentication information, check the <xref:System.Security.Principal.IPrincipal.Identity%2A?displayProperty=fullName> property in the object returned by this property."
+  summary: "Возвращает объект, используемый для получения удостоверения, сведения о проверке подлинности и ролей безопасности для клиента, запрос, представленный этим <xref href=&quot;System.Net.HttpListenerContext&quot;> </xref> объекта."
+  remarks: "<xref:System.Net.HttpListener>Указывает, что требуется проверка подлинности на основе <xref:System.Net.HttpListener.AuthenticationSchemes%2A>свойства или путем указания <xref:System.Net.AuthenticationSchemeSelector>Использование <xref:System.Net.HttpListener.AuthenticationSchemeSelectorDelegate%2A>свойство.</xref:System.Net.HttpListener.AuthenticationSchemeSelectorDelegate%2A> </xref:System.Net.AuthenticationSchemeSelector> </xref:System.Net.HttpListener.AuthenticationSchemes%2A> </xref:System.Net.HttpListener>       Чтобы определить имя входа клиента и сведения о проверке подлинности, проверьте <xref:System.Security.Principal.IPrincipal.Identity%2A?displayProperty=fullName>Свойства объекта, возвращаемого этим свойством.</xref:System.Security.Principal.IPrincipal.Identity%2A?displayProperty=fullName>"
   example:
   - "The following code example demonstrates accessing identity and authentication information about the client, and returning it to the client in the response.  \n  \n [!code-cs[Net_Listener_Basic#8](~/add/codesnippet/csharp/p-system.net.httplistene_19_1.cs)]"
   syntax:
     content: public System.Security.Principal.IPrincipal User { get; }
     return:
       type: System.Security.Principal.IPrincipal
-      description: "An <xref:System.Security.Principal.IPrincipal> object that describes the client, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Net.HttpListener&quot;></xref> that supplied this <xref href=&quot;System.Net.HttpListenerContext&quot;></xref> does not require authentication."
+      description: "<xref:System.Security.Principal.IPrincipal>, Описывающий клиента или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если <xref href=&quot;System.Net.HttpListener&quot;> </xref> , переданный это <xref href=&quot;System.Net.HttpListenerContext&quot;> </xref> не требует проверки подлинности.</xref:System.Security.Principal.IPrincipal>"
   overload: System.Net.HttpListenerContext.User*
   exceptions: []
   platform:
