@@ -12,8 +12,8 @@ items:
   nameWithType: GenericEnumConverter
   fullName: System.Configuration.GenericEnumConverter
   type: Class
-  summary: "Converts between a string and an enumeration type."
-  remarks: "This type, like all the other configuration converter types, converts strings found in the configuration file to and from the related strongly typed properties.       In particular, the GenericEnumConverter object converts a <xref:System.String> value, assigned to a configuration property, to an <xref:System.Enum> value and vice versa."
+  summary: "Преобразование между строкой и типом перечисления."
+  remarks: "Этот тип, как и все другие типы преобразователя конфигурации, преобразует строки, найденные в файле конфигурации и обратно связанные свойства со строгой типизацией.       В частности, преобразует объект GenericEnumConverter <xref:System.String>значение, назначенное для свойства конфигурации, в <xref:System.Enum>значение и наоборот.</xref:System.Enum> </xref:System.String>"
   example:
   - "The following code example shows how to access a custom section property that uses the GenericEnumConverter type.  \n  \n [!code-cs[System.Configuration.GenericEnumConverter#1](~/add/codesnippet/csharp/t-system.configuration.g_1.cs)]\n [!code-vb[System.Configuration.GenericEnumConverter#1](~/add/codesnippet/visualbasic/t-system.configuration.g_1.vb)]  \n  \n The following code example shows how to define a custom enumerator property accessed in the previous example. Notice that there is no need to specify the GenericEnumConverter type; it is implicitly invoked by the system.  \n  \n [!code-cs[System.Configuration.ConfigurationConvertersCustomSection#5](~/add/codesnippet/csharp/t-system.configuration.g_2.cs)]\n [!code-vb[System.Configuration.ConfigurationConvertersCustomSection#5](~/add/codesnippet/visualbasic/t-system.configuration.g_2.vb)]  \n  \n The following example is a configuration excerpt used by the previous example.  \n  \n```  \n<?xml version=\"1.0\" encoding=\"utf-8\"?>  \n<configuration>  \n  \n  <configSections>  \n    <section name=\"CustomSection\"   \n      type=\"Samples.AspNet.CustomSection,   \n      ConfigurationConverters,   \n      Version=1.0.0.0, Culture=neutral,   \n      PublicKeyToken=null\"   \n      allowDefinition=\"Everywhere\"   \n      allowExeDefinition=\"MachineToApplication\"   \n      restartOnExternalChanges=\"true\" />  \n  </configSections>  \n  \n  <CustomSection fileName=\"default.txt\" maxIdleTime=\"90\" timeDelay=\"infinite\" cdStr=\"str0, str1\" permission=\"Read\" maxUsers=\"Infinite\"/>  \n  \n</configuration>  \n```"
   syntax:
@@ -74,19 +74,19 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.Configuration.GenericEnumConverter&quot;></xref> class."
-  remarks: "Normally, you use the converter types provided by the system. The only time you need to use the GenericEnumConverter constructor is when you create your own conversion type."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Configuration.GenericEnumConverter&quot;> </xref> класса."
+  remarks: "Как правило можно использовать преобразователь типов, предоставляемых системой. Единственный случай, необходимо использовать конструктор GenericEnumConverter — при создании собственного типа конвертации валют."
   syntax:
     content: public GenericEnumConverter (Type typeEnum);
     parameters:
     - id: typeEnum
       type: System.Type
-      description: "The enumeration type to convert."
+      description: "Преобразуемый тип перечисления."
   overload: System.Configuration.GenericEnumConverter.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>typeEnum</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>typeEnum</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Configuration.GenericEnumConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)
@@ -101,23 +101,23 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Converts a <xref:System.String> to an <xref:System.Enum> type."
-  remarks: "The system uses the ConvertFrom method when it reads from a configuration file to convert a <xref:System.String> value to an <xref:System.Enum> type."
+  summary: "Преобразует <xref:System.String>для <xref:System.Enum>типа.</xref:System.Enum> </xref:System.String>"
+  remarks: "Система использует метод ConvertFrom при чтении из файла конфигурации для преобразования <xref:System.String>значение <xref:System.Enum>типа.</xref:System.Enum> </xref:System.String>"
   syntax:
     content: public override object ConvertFrom (System.ComponentModel.ITypeDescriptorContext ctx, System.Globalization.CultureInfo ci, object data);
     parameters:
     - id: ctx
       type: System.ComponentModel.ITypeDescriptorContext
-      description: "The <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;></xref> object used for type conversions."
+      description: "<xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;> </xref> Объект, используемый для преобразования типов."
     - id: ci
       type: System.Globalization.CultureInfo
-      description: "The <xref:System.Globalization.CultureInfo> object used during conversion."
+      description: "<xref:System.Globalization.CultureInfo>Объект, используемый во время преобразования.</xref:System.Globalization.CultureInfo>"
     - id: data
       type: System.Object
-      description: "The <xref:System.String> object to convert."
+      description: "<xref:System.String>Объекта для преобразования.</xref:System.String>"
     return:
       type: System.Object
-      description: "The <xref:System.Enum> type that represents the <code>data</code> parameter."
+      description: "<xref:System.Enum>Тип, представляющий <code> data </code> параметр.</xref:System.Enum>"
   overload: System.Configuration.GenericEnumConverter.ConvertFrom*
   exceptions:
   - type: System.ArgumentException
@@ -137,26 +137,26 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Converts an <xref:System.Enum> type to a <xref:System.String> value."
-  remarks: "The system uses the ConvertTo method when it writes to a configuration file to convert a <xref:System.Enum> type to a <xref:System.String> value."
+  summary: "Преобразует <xref:System.Enum>тип <xref:System.String>значение.</xref:System.String> </xref:System.Enum>"
+  remarks: "Система использует метод ConvertTo при их записи в файл конфигурации для преобразования <xref:System.Enum>тип <xref:System.String>значение.</xref:System.String> </xref:System.Enum>"
   syntax:
     content: public override object ConvertTo (System.ComponentModel.ITypeDescriptorContext ctx, System.Globalization.CultureInfo ci, object value, Type type);
     parameters:
     - id: ctx
       type: System.ComponentModel.ITypeDescriptorContext
-      description: "The <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;></xref> object used for type conversions."
+      description: "<xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;> </xref> Объект, используемый для преобразования типов."
     - id: ci
       type: System.Globalization.CultureInfo
-      description: "The <xref:System.Globalization.CultureInfo> object used during conversion."
+      description: "<xref:System.Globalization.CultureInfo>Объект, используемый во время преобразования.</xref:System.Globalization.CultureInfo>"
     - id: value
       type: System.Object
-      description: "The value to convert to."
+      description: "Значение для преобразования."
     - id: type
       type: System.Type
-      description: "The type to convert to."
+      description: "Тип для преобразования."
     return:
       type: System.Object
-      description: "The <xref:System.String> that represents the <code>value</code> parameter."
+      description: "<xref:System.String>, Представляющий <code> value </code> параметр.</xref:System.String>"
   overload: System.Configuration.GenericEnumConverter.ConvertTo*
   exceptions: []
   platform:

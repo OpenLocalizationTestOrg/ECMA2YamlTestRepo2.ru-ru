@@ -13,8 +13,8 @@ items:
   nameWithType: FormsAuthenticationModule
   fullName: System.Web.Security.FormsAuthenticationModule
   type: Class
-  summary: "Sets the identity of the user for an ASP.NET application when forms authentication is enabled. This class cannot be inherited."
-  remarks: "The FormsAuthenticationModule sets the current <xref:System.Web.HttpContext.User%2A?displayProperty=fullName> property to an <xref:System.Security.Principal.IPrincipal> object that represents the user identity for the current request when the authentication <xref:System.Web.Configuration.AuthenticationSection.Mode%2A> is set to <xref:System.Web.Configuration.AuthenticationMode> in the [authentication Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/27bc0ba9-f23a-45f3-ae42-dbe7916e3ee2) element of the application&quot;s configuration file.       The FormsAuthenticationModule exposes an <xref:System.Web.Security.FormsAuthenticationModule.Authenticate> event that enables you to provide a custom <xref:System.Security.Principal.IPrincipal> object for the <xref:System.Web.HttpContext.User%2A> property of the current <xref:System.Web.HttpContext>. The <xref:System.Web.Security.FormsAuthenticationModule.Authenticate> event is accessed by specifying a subroutine named **FormsAuthentication_OnAuthenticate** in the Global.asax file for your ASP.NET application.      > [!NOTE] >  In IIS 7.0, using the <xref:System.Web.Security.WindowsAuthenticationModule> with the FormsAuthenticationModule is not supported. For more information about compatibility issues in Integrated modes, see [Moving an ASP.NET Application from IIS 6.0 to IIS 7.0](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Задает удостоверение пользователя для приложения ASP.NET, если включена проверка подлинности форм. Этот класс не наследуется."
+  remarks: "FormsAuthenticationModule задает текущий <xref:System.Web.HttpContext.User%2A?displayProperty=fullName>Свойства <xref:System.Security.Principal.IPrincipal>, представляющий удостоверение пользователя для текущего запроса, когда проверка подлинности <xref:System.Web.Configuration.AuthenticationSection.Mode%2A>имеет значение <xref:System.Web.Configuration.AuthenticationMode>в [проверки подлинности (схема параметров ASP.NET) элемент](http://msdn.microsoft.com/en-us/27bc0ba9-f23a-45f3-ae42-dbe7916e3ee2) элемент файла конфигурации приложения.</xref:System.Web.Configuration.AuthenticationMode> </xref:System.Web.Configuration.AuthenticationSection.Mode%2A> </xref:System.Security.Principal.IPrincipal> </xref:System.Web.HttpContext.User%2A?displayProperty=fullName>       FormsAuthenticationModule предоставляет <xref:System.Web.Security.FormsAuthenticationModule.Authenticate>события, которые позволяют предоставить пользовательский <xref:System.Security.Principal.IPrincipal>объект <xref:System.Web.HttpContext.User%2A> <xref:System.Web.HttpContext>.</xref:System.Web.HttpContext> текущего элемента</xref:System.Web.HttpContext.User%2A> </xref:System.Security.Principal.IPrincipal> </xref:System.Web.Security.FormsAuthenticationModule.Authenticate> <xref:System.Web.Security.FormsAuthenticationModule.Authenticate>Событий осуществляется путем указания подпрограмму с именем **FormsAuthentication_OnAuthenticate** в файле Global.asax приложения ASP.NET.</xref:System.Web.Security.FormsAuthenticationModule.Authenticate>      Настроек [!NOTE] настроек в IIS 7.0, с помощью <xref:System.Web.Security.WindowsAuthenticationModule>с FormsAuthenticationModule не поддерживается.</xref:System.Web.Security.WindowsAuthenticationModule> Дополнительные сведения о проблемах совместимости в интегрированных режимах см. в разделе [перехода приложения ASP.NET в IIS 6.0 на IIS 7.0](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example uses the **FormsAuthentication_OnAuthenticate** event to set the <xref:System.Web.HttpContext.User%2A> property of the current <xref:System.Web.HttpContext> to a custom <xref:System.Security.Principal.IPrincipal> object.  \n  \n [!code-cs[System.Web.Security.FormsAuthenticationModule#1](~/add/codesnippet/csharp/t-system.web.security.fo_2_1.asax)]\n [!code-vb[System.Web.Security.FormsAuthenticationModule#1](~/add/codesnippet/visualbasic/t-system.web.security.fo_2_1.asax)]"
   syntax:
@@ -38,8 +38,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Security.FormsAuthenticationModule&quot;></xref> class."
-  remarks: "This constructor is not intended to be called from application code.       ASP.NET calls this constructor to create an instance of the <xref:System.Web.Security.FormsAuthenticationModule> class. After calling the constructor, it calls the <xref:System.Web.Security.FormsAuthenticationModule.Init%2A> method to initialize the new <xref:System.Web.Security.FormsAuthenticationModule> object."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Web.Security.FormsAuthenticationModule&quot;> </xref> класса."
+  remarks: "Этот конструктор не предназначен для вызова из кода приложения.       ASP.NET вызывает этот конструктор для создания экземпляра <xref:System.Web.Security.FormsAuthenticationModule>класса.</xref:System.Web.Security.FormsAuthenticationModule> После вызова конструктора, он вызывает <xref:System.Web.Security.FormsAuthenticationModule.Init%2A>метод для инициализации нового <xref:System.Web.Security.FormsAuthenticationModule>объекта.</xref:System.Web.Security.FormsAuthenticationModule> </xref:System.Web.Security.FormsAuthenticationModule.Init%2A>"
   syntax:
     content: public FormsAuthenticationModule ();
     parameters: []
@@ -59,15 +59,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Occurs when the application authenticates the current request."
-  remarks: "The Authenticate event is raised during the <xref:System.Web.HttpApplication.AuthenticateRequest> event.       You can handle the Authenticate event of the <xref:System.Web.Security.FormsAuthenticationModule> class by specifying a subroutine named **FormsAuthentication_OnAuthenticate** in the Global.asax file for your ASP.NET application.       You can use the <xref:System.Web.Security.FormsAuthenticationEventArgs><xref:System.Web.Security.FormsAuthenticationEventArgs.User%2A> property supplied to the **FormsAuthentication_OnAuthenticate** event to set the <xref:System.Web.HttpContext.User%2A> property of the current <xref:System.Web.HttpContext> to a custom <xref:System.Security.Principal.IPrincipal> object. If you do not specify a value for the <xref:System.Web.Security.FormsAuthenticationEventArgs.User%2A> property during the **FormsAuthentication_OnAuthenticate** event, the identity supplied by the forms authentication ticket in the cookie or URL is used.       The **FormsAuthentication_OnAuthenticate** event is only raised when the authentication mode is set to <xref:System.Web.Configuration.AuthenticationMode> in the [authentication Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/27bc0ba9-f23a-45f3-ae42-dbe7916e3ee2) element of the application&quot;s configuration file and the <xref:System.Web.Security.FormsAuthenticationModule> is an active HTTP module for the application."
+  summary: "Происходит, когда приложение выполняет проверку подлинности текущего запроса."
+  remarks: "Проверка подлинности событие вызывается во время <xref:System.Web.HttpApplication.AuthenticateRequest>событий.</xref:System.Web.HttpApplication.AuthenticateRequest>       Можно обработать событие Authenticate <xref:System.Web.Security.FormsAuthenticationModule>класса путем указания подпрограмму с именем **FormsAuthentication_OnAuthenticate** в файле Global.asax приложения ASP.NET.</xref:System.Web.Security.FormsAuthenticationModule>       Можно использовать <xref:System.Web.Security.FormsAuthenticationEventArgs> <xref:System.Web.Security.FormsAuthenticationEventArgs.User%2A>передаваемое свойство **FormsAuthentication_OnAuthenticate** событий для задания <xref:System.Web.HttpContext.User%2A>свойство текущего <xref:System.Web.HttpContext>пользовательскому <xref:System.Security.Principal.IPrincipal>объекта.</xref:System.Security.Principal.IPrincipal> </xref:System.Web.HttpContext> </xref:System.Web.HttpContext.User%2A> </xref:System.Web.Security.FormsAuthenticationEventArgs.User%2A></xref:System.Web.Security.FormsAuthenticationEventArgs> Если не указать значение для <xref:System.Web.Security.FormsAuthenticationEventArgs.User%2A>Свойства во время **FormsAuthentication_OnAuthenticate** используется событие, идентификатора, предоставленного билета проверки подлинности форм в файле cookie или URL.</xref:System.Web.Security.FormsAuthenticationEventArgs.User%2A>       **FormsAuthentication_OnAuthenticate** событие вызывается только в том случае, если задан режим проверки подлинности <xref:System.Web.Configuration.AuthenticationMode>в [проверки подлинности (схема параметров ASP.NET) элемент](http://msdn.microsoft.com/en-us/27bc0ba9-f23a-45f3-ae42-dbe7916e3ee2) элемента файла конфигурации приложения и <xref:System.Web.Security.FormsAuthenticationModule>является активной HTTP-модуля для приложения.</xref:System.Web.Security.FormsAuthenticationModule> </xref:System.Web.Configuration.AuthenticationMode>"
   example:
   - "The following code example uses the **FormsAuthentication_OnAuthenticate** event to set the <xref:System.Web.HttpContext.User%2A> property of the current <xref:System.Web.HttpContext> to a <xref:System.Security.Principal.GenericPrincipal> object that has a custom <xref:System.Security.Principal.IPrincipal.Identity%2A>.  \n  \n [!code-cs[System.Web.Security.FormsAuthenticationModule#1](~/add/codesnippet/csharp/e-system.web.security.fo_1.asax)]\n [!code-vb[System.Web.Security.FormsAuthenticationModule#1](~/add/codesnippet/visualbasic/e-system.web.security.fo_1.asax)]"
   syntax:
     content: public event System.Web.Security.FormsAuthenticationEventHandler Authenticate;
     return:
       type: System.Web.Security.FormsAuthenticationEventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -83,8 +83,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Releases all resources, other than memory, used by the <xref href=&quot;System.Web.Security.FormsAuthenticationModule&quot;></xref>."
-  remarks: "This method is not intended to be called from application code."
+  summary: "Освобождает все ресурсы, кроме памяти, используемой <xref href=&quot;System.Web.Security.FormsAuthenticationModule&quot;> </xref>."
+  remarks: "Этот метод не предназначен для непосредственного вызова из кода приложения."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -104,14 +104,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Initializes the <xref href=&quot;System.Web.Security.FormsAuthenticationModule&quot;></xref> object."
-  remarks: "This method is not intended to be called from application code.       The Init method ensures that the <xref:System.Web.Security.FormsAuthenticationModule> is included in the processing of the <xref:System.Web.HttpApplication.AuthenticateRequest> and <xref:System.Web.HttpApplication.EndRequest> events."
+  summary: "Инициализирует <xref href=&quot;System.Web.Security.FormsAuthenticationModule&quot;> </xref> объекта."
+  remarks: "Этот метод не предназначен для непосредственного вызова из кода приложения.       Метод Init гарантирует, что <xref:System.Web.Security.FormsAuthenticationModule>включается в обработку <xref:System.Web.HttpApplication.AuthenticateRequest>и <xref:System.Web.HttpApplication.EndRequest>события.</xref:System.Web.HttpApplication.EndRequest> </xref:System.Web.HttpApplication.AuthenticateRequest> </xref:System.Web.Security.FormsAuthenticationModule>"
   syntax:
     content: public void Init (System.Web.HttpApplication app);
     parameters:
     - id: app
       type: System.Web.HttpApplication
-      description: "The current <xref href=&quot;System.Web.HttpApplication&quot;></xref> instance."
+      description: "Текущий <xref href=&quot;System.Web.HttpApplication&quot;> </xref> экземпляра."
   overload: System.Web.Security.FormsAuthenticationModule.Init*
   exceptions: []
   platform:
