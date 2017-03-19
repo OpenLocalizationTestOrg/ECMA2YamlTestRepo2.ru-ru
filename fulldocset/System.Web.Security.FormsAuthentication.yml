@@ -40,8 +40,8 @@ items:
   nameWithType: FormsAuthentication
   fullName: System.Web.Security.FormsAuthentication
   type: Class
-  summary: "Manages forms-authentication services for Web applications. This class cannot be inherited."
-  remarks: "Forms authentication enables user and password validation for Web applications that do not require Windows authentication. With forms authentication, user information is stored in an external data source, such as a <xref:System.Web.Security.Membership> database, or in the configuration file for an application. Once a user is authenticated, forms authentication maintains an authentication ticket in a cookie or in the URL so that an authenticated user does not need to supply credentials with each request.       Forms authentication is enabled by setting the `mode` attribute of the  configuration element to `Forms`. You can require that all requests to an application contain a valid user authentication ticket by using the  configuration element to deny the request of any unknown user, as shown in the following example.      ```   <system.web>     <authentication mode=&quot;Forms&quot;>       <forms loginUrl=&quot;login.aspx&quot; />     </authentication>     <authorization>       <deny users=&quot;?&quot; />     </authorization>   </system.web>   ```       In the previous example, any request for an ASP.NET page that is part of the application requires a valid user name that is supplied by forms authentication. If no user name exists, then the request is redirected to the configured <xref:System.Web.Security.FormsAuthentication.LoginUrl%2A>.       The FormsAuthentication class provides access to methods and properties that you can use in an application that authenticates users. The <xref:System.Web.Security.FormsAuthentication.RedirectToLoginPage%2A> method redirects a browser to the configured <xref:System.Web.Security.FormsAuthentication.LoginUrl%2A> for users to log into an application. The <xref:System.Web.Security.FormsAuthentication.RedirectFromLoginPage%2A> method redirects an authenticated user back to the original protected URL that was requested or to the <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>. There are also methods that enable you to manage forms-authentication tickets, if needed."
+  summary: "Управляет службами проверки подлинности форм для веб-приложений. Этот класс не наследуется."
+  remarks: "Проверка подлинности форм разрешает проверку пользователя и пароля для веб-приложений, которые не требуют проверки подлинности Windows. С помощью форм, сведения о пользователе хранятся в внешнему источнику данных, таких как <xref:System.Web.Security.Membership>базы данных, или в файле конфигурации приложения.</xref:System.Web.Security.Membership> После проверки подлинности пользователя, проверки подлинности форм хранит билет проверки подлинности в файле cookie или в URL-АДРЕСЕ, прошедшего проверку подлинности пользователя не требуется предоставлять учетные данные при каждом запросе.       Проверка подлинности форм включена, задав `mode` атрибута элемента конфигурации для `Forms`. Можно потребовать наличия билет проверки подлинности пользователя с помощью элемента конфигурации отклонить запрос любого неизвестного пользователя, как показано в следующем примере все запросы к приложению.      ```   <system.web>     <authentication mode=&quot;Forms&quot;>       <forms loginUrl=&quot;login.aspx&quot; />     </authentication>     <authorization>       <deny users=&quot;?&quot; />     </authorization>   </system.web>   ```В предыдущем примере любой запрос к странице ASP.NET, который является частью приложения требуется допустимое имя пользователя, предоставленный для проверки подлинности форм. Если имя пользователя не существует, затем перенаправляет запрос на настроенный <xref:System.Web.Security.FormsAuthentication.LoginUrl%2A>.</xref:System.Web.Security.FormsAuthentication.LoginUrl%2A>       Класс FormsAuthentication предоставляет доступ к методам и свойствам, которые можно использовать в приложении, которое выполняет проверку подлинности пользователей. <xref:System.Web.Security.FormsAuthentication.RedirectToLoginPage%2A>Метод перенаправляет браузер настроенного <xref:System.Web.Security.FormsAuthentication.LoginUrl%2A>для пользователей для входа в приложение.</xref:System.Web.Security.FormsAuthentication.LoginUrl%2A> </xref:System.Web.Security.FormsAuthentication.RedirectToLoginPage%2A> <xref:System.Web.Security.FormsAuthentication.RedirectFromLoginPage%2A>Метод перенаправляет прошедшего проверку подлинности пользователя обратно в исходный защищенный URL-адрес, который был запрошен или <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>.</xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> </xref:System.Web.Security.FormsAuthentication.RedirectFromLoginPage%2A> Существуют методы, которые позволяют управлять билетов проверки подлинности форм, при необходимости."
   example:
   - "The following code example shows the Web.config file for an ASP.NET application that uses the ASP.NET membership provider for forms authentication and requires all users to be authenticated.  \n  \n```  \n<configuration>  \n  <connectionStrings>  \n    <add name=\"SqlServices\" connectionString=\"Data Source=MySqlServer;Integrated Security=SSPI;Initial Catalog=aspnetdb;\" />  \n  </connectionStrings>  \n  <system.web>  \n    <membership defaultProvider=\"SqlProvider\" userIsOnlineTimeWindow=\"20\">  \n      <providers>  \n        <add name=\"SqlProvider\"  \n          type=\"System.Web.Security.SqlMembershipProvider\"  \n          connectionStringName=\"SqlServices\"  \n          enablePasswordRetrieval=\"false\"  \n          enablePasswordReset=\"true\"  \n          requiresQuestionAndAnswer=\"true\"  \n          passwordFormat=\"Hashed\"  \n          applicationName=\"/\" />  \n      </providers>  \n    </membership>  \n  </system.web>  \n</configuration>  \n```  \n  \n The following code example shows the login page for an ASP.NET application that uses forms authentication and ASP.NET membership.  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[System.Web.Security.SqlMembershipProvider#1](~/add/codesnippet/csharp/t-system.web.security.fo_5_1.aspx)]\n [!code-vb[System.Web.Security.SqlMembershipProvider#1](~/add/codesnippet/visualbasic/t-system.web.security.fo_5_1.aspx)]"
   syntax:
@@ -64,8 +64,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Security.FormsAuthentication&quot;></xref> class."
-  remarks: "This constructor is not intended to be used from your code."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Web.Security.FormsAuthentication&quot;> </xref> класса."
+  remarks: "Этот конструктор не предназначен для использования в коде."
   syntax:
     content: public FormsAuthentication ();
     parameters: []
@@ -85,8 +85,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Validates a user name and password against credentials stored in the configuration file for an application."
-  remarks: "The Authenticate method verifies user credentials that are stored in the  section of the application configuration file. Alternatively, you can use ASP.NET membership to store user credentials and call the <xref:System.Web.Security.MembershipProvider.ValidateUser%2A> to verify the credentials. For more information, see [Managing Users by Using Membership](~/add/includes/ajax-current-ext-md.md).       For improved security, you can encrypt passwords stored in the configuration file for an application by using the <xref:System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile%2A> method."
+  summary: "Проверяет имя пользователя и пароль для получения учетных данных, хранящихся в файле конфигурации приложения."
+  remarks: "Метод проверки подлинности проверяет учетные данные пользователя, которые хранятся в разделе файла конфигурации приложения. Кроме того, можно использовать членства ASP.NET для хранения учетных данных пользователя и вызова <xref:System.Web.Security.MembershipProvider.ValidateUser%2A>проверить учетные данные.</xref:System.Web.Security.MembershipProvider.ValidateUser%2A> Дополнительные сведения см. в разделе [Управление пользователями с помощью членства](~/add/includes/ajax-current-ext-md.md).       Для повышения безопасности можно зашифровать пароли, которые хранятся в файле конфигурации приложения с помощью <xref:System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile%2A>метод.</xref:System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile%2A>"
   example:
   - "The following code example shows user credentials stored in the Web.config file for an application. The password values have been hashed using the <xref:System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile%2A> method.  \n  \n `<authentication mode=\"Forms\">`  \n  \n `<forms loginUrl=\"login.aspx\">`  \n  \n `<credentials passwordFormat=\"SHA1\">`  \n  \n `<user name=\"user1\"   password=\"27CE4CA7FBF00685AF2F617E3F5BBCAFF7B7403C\" />`  \n  \n `<user name=\"user2\"   password=\"D108F80936F78DFDD333141EBC985B0233A30C7A\" />`  \n  \n `<user name=\"user3\" password=\"7BDB09781A3F23885CD43177C0508B375CB1B7E9\"/>`  \n  \n `</credentials>`  \n  \n `</forms>`  \n  \n `</authentication>`  \n  \n The following code example shows a login page that uses the Authenticate method to validate user credentials.  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-vb[System.Web.Security.FormsAuthentication#1](~/add/codesnippet/visualbasic/5b51c766-1819-4817-a951-_1.aspx)]\n [!code-cs[System.Web.Security.FormsAuthentication#1](~/add/codesnippet/csharp/5b51c766-1819-4817-a951-_1.aspx)]"
   syntax:
@@ -94,13 +94,13 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The user name."
+      description: "Имя пользователя."
     - id: password
       type: System.String
-      description: "The password for the user."
+      description: "Пароль пользователя."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the user name and password are valid; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если имя пользователя и пароль являются допустимыми; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Security.FormsAuthentication.Authenticate*
   exceptions: []
   platform:
@@ -117,15 +117,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets the value of the domain of the forms-authentication cookie."
-  remarks: "The CookieDomain property value is set in the configuration file for an ASP.NET application by using the `domain` attribute of the  configuration element. The CookieDomain property value determines the <xref:System.Web.HttpCookie.Domain%2A> that the cookie will be used for."
+  summary: "Возвращает значение домена файла cookie проверки подлинности форм."
+  remarks: "Значение свойства CookieDomain задается в файле конфигурации для приложения ASP.NET с помощью `domain` атрибута элемента конфигурации. Значение свойства CookieDomain определяет, <xref:System.Web.HttpCookie.Domain%2A>что файл cookie будет использоваться for.</xref:System.Web.HttpCookie.Domain%2A>"
   example:
   - "The following code example sets the `domain` attribute in the Web.config file.  \n  \n```  \n<authentication mode=\"Forms\">  \n  <forms loginUrl=\"member_login.aspx\"  \n    cookieless=\"UseCookies\"  \n    domain=\"contoso.com\" />  \n</authentication>  \n```"
   syntax:
     content: public static string CookieDomain { get; }
     return:
       type: System.String
-      description: "The <xref:System.Web.HttpCookie.Domain*> of the forms-authentication cookie. The default is an empty string (&quot;&quot;)."
+      description: "<xref:System.Web.HttpCookie.Domain*>Файла cookie проверки подлинности форм.</xref:System.Web.HttpCookie.Domain*> Значение по умолчанию — пустая строка (»»)."
   overload: System.Web.Security.FormsAuthentication.CookieDomain*
   exceptions: []
   platform:
@@ -142,15 +142,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets a value that indicates whether the application is configured for cookieless forms authentication."
-  remarks: "The CookieMode property reflects the value for the `cookieless` attribute of the  configuration element. The CookieMode property determines whether the <xref:System.Web.Security.FormsAuthenticationTicket> value will be stored in a session cookie in the browser or stored in the <xref:System.Web.HttpRequest.QueryString%2A> property.      > [!NOTE] >  When the <xref:System.Web.Security.FormsAuthenticationTicket> value is stored in the URI, the length of the generated URI may be longer than the maximum length allowed. This is most likely to occur when the <xref:System.Web.Security.FormsAuthentication.FormsCookiePath%2A> property is set to the application name and the application name is long (40 or more characters), when user names in the application are long, or when long <xref:System.Web.Security.FormsAuthenticationTicket.UserData%2A> strings are stored in the <xref:System.Web.Security.FormsAuthenticationTicket> value. If the generated URI is too long, the Web server will return a `400 - Bad Request` error."
+  summary: "Возвращает значение, указывающее, настроено ли приложение для проверки подлинности форм без поддержки файлов cookie."
+  remarks: "Свойство CookieMode отражает значение `cookieless` атрибута элемента конфигурации. Свойство CookieMode определяет, является ли <xref:System.Web.Security.FormsAuthenticationTicket>значение будет сохранен в файле cookie сеанса в браузере или хранящихся в <xref:System.Web.HttpRequest.QueryString%2A>свойство.</xref:System.Web.HttpRequest.QueryString%2A> </xref:System.Web.Security.FormsAuthenticationTicket>      Настроек [!NOTE] настроек при <xref:System.Web.Security.FormsAuthenticationTicket>значение хранится в URI, длина сформированный URI может быть длиннее максимально допустимую длину.</xref:System.Web.Security.FormsAuthenticationTicket> Это часто случается при <xref:System.Web.Security.FormsAuthentication.FormsCookiePath%2A>свойству присвоено имя приложения, имя приложения: long (40 символов), при имен пользователей в приложении длинные или когда длинные <xref:System.Web.Security.FormsAuthenticationTicket.UserData%2A>строки хранятся в <xref:System.Web.Security.FormsAuthenticationTicket>значение.</xref:System.Web.Security.FormsAuthenticationTicket> </xref:System.Web.Security.FormsAuthenticationTicket.UserData%2A> </xref:System.Web.Security.FormsAuthentication.FormsCookiePath%2A> Если сформированный URI слишком длинный, веб-сервер возвратит `400 - Bad Request` ошибки."
   example:
   - "The following code example sets the `cookieless` attribute to `AutoDetect` in the Web.config file.  \n  \n```  \n<authentication mode=\"Forms\">  \n  <forms loginUrl=\"member_login.aspx\"  \n    cookieless=\"AutoDetect\" />  \n</authentication>  \n```"
   syntax:
     content: public static System.Web.HttpCookieMode CookieMode { get; }
     return:
       type: System.Web.HttpCookieMode
-      description: "One of the <xref href=&quot;System.Web.HttpCookieMode&quot;></xref> values that indicates whether the application is configured for cookieless forms authentication. The default is <xref href=&quot;System.Web.HttpCookieMode&quot;></xref>."
+      description: "Один из <xref href=&quot;System.Web.HttpCookieMode&quot;> </xref> значений, указывающее, настроено ли приложение для проверки подлинности форм без поддержки файлов cookie. Значение по умолчанию — <xref href=&quot;System.Web.HttpCookieMode&quot;> </xref>."
   overload: System.Web.Security.FormsAuthentication.CookieMode*
   exceptions: []
   platform:
@@ -167,15 +167,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets a value that indicates whether the application is configured to support cookieless forms authentication."
-  remarks: "The CookiesSupported property returns a value based on the <xref:System.Web.Security.FormsAuthentication.CookieMode%2A> value and the capabilities of the browser.      -   If the <xref:System.Web.Security.FormsAuthentication.CookieMode%2A> property is set to <xref:System.Web.HttpCookieMode>, the CookiesSupported property will return `true`.      -   If the <xref:System.Web.Security.FormsAuthentication.CookieMode%2A> property is set to <xref:System.Web.HttpCookieMode>, the CookiesSupported property will return `false`.      -   If the <xref:System.Web.Security.FormsAuthentication.CookieMode%2A> property is set to <xref:System.Web.HttpCookieMode>, the CookiesSupported property will return `true` if the browser supports cookies and cookies are enabled; otherwise, the CookiesSupported property will return `false`.      -   If the <xref:System.Web.Security.FormsAuthentication.CookieMode%2A> property is set to <xref:System.Web.HttpCookieMode>, the CookiesSupported property will return `true` if the <xref:System.Web.HttpRequest.Browser%2A> for the current <xref:System.Web.HttpContext.Request%2A> supports both cookies and redirecting with cookies; otherwise, the CookiesSupported property will return `false`."
+  summary: "Возвращает значение, указывающее, является ли приложение настроено для поддержки проверки подлинности форм без поддержки файлов cookie."
+  remarks: "Свойство CookiesSupported возвращает значение на основе <xref:System.Web.Security.FormsAuthentication.CookieMode%2A>значение и возможности браузера.</xref:System.Web.Security.FormsAuthentication.CookieMode%2A>      -Если <xref:System.Web.Security.FormsAuthentication.CookieMode%2A>свойству <xref:System.Web.HttpCookieMode>, свойство CookiesSupported возвращает `true`.</xref:System.Web.HttpCookieMode> </xref:System.Web.Security.FormsAuthentication.CookieMode%2A>      -Если <xref:System.Web.Security.FormsAuthentication.CookieMode%2A>свойству <xref:System.Web.HttpCookieMode>, свойство CookiesSupported возвращает `false`.</xref:System.Web.HttpCookieMode> </xref:System.Web.Security.FormsAuthentication.CookieMode%2A>      -Если <xref:System.Web.Security.FormsAuthentication.CookieMode%2A>свойству <xref:System.Web.HttpCookieMode>, свойство CookiesSupported возвращает `true` Если браузер поддерживает файлы cookie и включены файлы cookie; в противном случае CookiesSupported свойство возвратит `false`.</xref:System.Web.HttpCookieMode> </xref:System.Web.Security.FormsAuthentication.CookieMode%2A>      -Если <xref:System.Web.Security.FormsAuthentication.CookieMode%2A>свойству <xref:System.Web.HttpCookieMode>, CookiesSupported свойство возвратит `true` Если <xref:System.Web.HttpRequest.Browser%2A>для текущего <xref:System.Web.HttpContext.Request%2A>поддерживает файлы cookie и перенаправление с файлы cookie; в противном случае свойство CookiesSupported возвращает `false`.</xref:System.Web.HttpContext.Request%2A> </xref:System.Web.HttpRequest.Browser%2A> </xref:System.Web.HttpCookieMode> </xref:System.Web.Security.FormsAuthentication.CookieMode%2A>"
   example:
   - "The following code example sets the `cookieless` attribute to <xref:System.Web.HttpCookieMode> in the Web.config file. This configuration will result in the CookiesSupported property returning `false`.  \n  \n```  \n<authentication mode=\"Forms\">  \n  <forms loginUrl=\"member_login.aspx\"  \n    cookieless=\"UseUri\" />  \n</authentication>  \n```"
   syntax:
     content: public static bool CookiesSupported { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the application is configured to support cookieless forms authentication; otherwise, <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>Если приложение настроено для поддержки проверки подлинности форм без поддержки файлов cookie; в противном случае <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Security.FormsAuthentication.CookiesSupported*
   exceptions: []
   platform:
@@ -192,16 +192,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Creates a <xref href=&quot;System.Web.Security.FormsAuthenticationTicket&quot;></xref> object based on the encrypted forms-authentication ticket passed to the method."
+  summary: "Создает <xref href=&quot;System.Web.Security.FormsAuthenticationTicket&quot;> </xref> объекта, основанного на зашифрованный форм-билет проверки подлинности передается в метод."
   syntax:
     content: public static System.Web.Security.FormsAuthenticationTicket Decrypt (string encryptedTicket);
     parameters:
     - id: encryptedTicket
       type: System.String
-      description: "The encrypted authentication ticket."
+      description: "Зашифрованный билет проверки подлинности."
     return:
       type: System.Web.Security.FormsAuthenticationTicket
-      description: "A <xref href=&quot;System.Web.Security.FormsAuthenticationTicket&quot;></xref> object. If the <code>encryptedTicket</code> parameter is not a valid ticket, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> is returned."
+      description: "A <xref href=&quot;System.Web.Security.FormsAuthenticationTicket&quot;></xref> object. Если <code> encryptedTicket </code> параметр не является допустимым билетом, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> возвращается."
   overload: System.Web.Security.FormsAuthentication.Decrypt*
   exceptions:
   - type: System.ArgumentException
@@ -221,15 +221,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets the URL that the <xref href=&quot;System.Web.Security.FormsAuthentication&quot;></xref> class will redirect to if no redirect URL is specified."
-  remarks: "The DefaultUrl property value is set in the configuration file for an ASP.NET application by using the `defaultUrl` attribute of the  configuration element. The DefaultUrl property is used by the <xref:System.Web.Security.FormsAuthentication.RedirectFromLoginPage%2A> method if no return URL is included in the request. Similarly, the <xref:System.Web.Security.FormsAuthentication.GetRedirectUrl%2A> method will return the DefaultUrl if no return URL is included in the request."
+  summary: "Получает URL-адрес, который <xref href=&quot;System.Web.Security.FormsAuthentication&quot;> </xref> класс выполнит перенаправление, если перенаправление не указан URL-адрес."
+  remarks: "Значение свойства DefaultUrl задается в файле конфигурации для приложения ASP.NET с помощью `defaultUrl` атрибута элемента конфигурации. Свойство DefaultUrl используется <xref:System.Web.Security.FormsAuthentication.RedirectFromLoginPage%2A>метод, если нет возвращаемый URL-адрес включается в запрос.</xref:System.Web.Security.FormsAuthentication.RedirectFromLoginPage%2A> Аналогичным образом <xref:System.Web.Security.FormsAuthentication.GetRedirectUrl%2A>метод вернет DefaultUrl, если нет возвращаемый URL-адрес включается в запрос.</xref:System.Web.Security.FormsAuthentication.GetRedirectUrl%2A>"
   example:
   - "The following code example sets the `defaultUrl` attribute in the Web.config file.  \n  \n```  \n<authentication mode=\"Forms\">  \n  <forms loginUrl=\"member_login.aspx\"  \n    defaultUrl=\"index.aspx\" />  \n</authentication>  \n```"
   syntax:
     content: public static string DefaultUrl { get; }
     return:
       type: System.String
-      description: "The URL that the <xref href=&quot;System.Web.Security.FormsAuthentication&quot;></xref> class will redirect to if no redirect URL is specified. The default is &quot;default.aspx.&quot;"
+      description: "URL-адрес, <xref href=&quot;System.Web.Security.FormsAuthentication&quot;> </xref> класс выполнит перенаправление, если перенаправление не указан URL-адрес. Значение по умолчанию — «default.aspx»."
   overload: System.Web.Security.FormsAuthentication.DefaultUrl*
   exceptions: []
   platform:
@@ -246,15 +246,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets a value indicating whether authenticated users can be redirected to URLs in other Web applications."
-  remarks: "The EnableCrossAppRedirects property value is set using the `enableCrossAppRedirects` attribute of the  configuration element.       The EnableCrossAppRedirects property is checked within the <xref:System.Web.Security.FormsAuthentication.RedirectFromLoginPage%2A> method when the redirect URL does not point to a page in the current application. If EnableCrossAppRedirects is `true`, then the redirect is performed; if EnableCrossAppRedirects is `false`, the browser is redirected to the page defined in the <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> property.      > [!NOTE] >  When you redirect pages across applications, you must make sure that specific attributes in the  configuration element are duplicated across the authenticated applications. For more information and an example, see [Forms Authentication Across Applications](~/add/includes/ajax-current-ext-md.md).      > [!IMPORTANT] >  When cross-application redirects are allowed, your site is vulnerable to an exploit that directs users to a malicious Web site but uses the login page for your site. Always verify that the redirect URL that is returned by the <xref:System.Web.Security.FormsAuthentication.GetRedirectUrl%2A> method is a URL that you expect so that you can make sure that you allow redirects only to approved Web sites. You must also verify that the redirect URL uses the appropriate protocol (HTTP or HTTPS). To perform these verifications, you can add a postback event handler to your login page, or you can add a handler for the <xref:System.Web.UI.WebControls.Login.LoggedIn> event of the <xref:System.Web.UI.WebControls.Login> control."
+  summary: "Возвращает значение, указывающее, может быть перенаправлен на URL-адреса прошедших проверку подлинности пользователей, в других веб-приложений."
+  remarks: "Значение свойства EnableCrossAppRedirects задается с помощью `enableCrossAppRedirects` атрибута элемента конфигурации.       Свойство EnableCrossAppRedirects проверяется в рамках <xref:System.Web.Security.FormsAuthentication.RedirectFromLoginPage%2A>метод, если перенаправления URL-адрес не указывает на страницу в текущем приложении.</xref:System.Web.Security.FormsAuthentication.RedirectFromLoginPage%2A> Если EnableCrossAppRedirects `true`, выполняется перенаправление; Если EnableCrossAppRedirects `false`, браузер перенаправляется на страницу, определенную в <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>свойство.</xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>      Настроек [!NOTE] настроек при перенаправления между приложениями, необходимо убедиться, что определенные атрибуты в элементе конфигурации дублируются в приложениях, прошедших проверку подлинности. Дополнительные сведения и пример см. в разделе [форм проверки подлинности между приложениями](~/add/includes/ajax-current-ext-md.md).      Настроек [!IMPORTANT] настроек при разрешены перенаправления между приложениями, веб-сайт будет уязвим для атак, которые направляет пользователей на вредоносный веб-сайт, но используют страницу входа для веб-узла. Всегда проверяйте, URL-адрес перенаправления, который возвращается <xref:System.Web.Security.FormsAuthentication.GetRedirectUrl%2A>метод является URL-адрес, который ожидается, что можно убедиться в том, что разрешать перенаправляет только утвержденные веб-сайтов.</xref:System.Web.Security.FormsAuthentication.GetRedirectUrl%2A> Также необходимо убедиться, что URL-адрес перенаправления использует соответствующий протокол (HTTP или HTTPS). Для выполнения этих проверок, можно добавить обработчик события обратной передачи на страницу входа, или можно добавить обработчик для <xref:System.Web.UI.WebControls.Login.LoggedIn>событие <xref:System.Web.UI.WebControls.Login>элемента управления.</xref:System.Web.UI.WebControls.Login> </xref:System.Web.UI.WebControls.Login.LoggedIn>"
   example:
   - "The following code example sets the `enableCrossAppRedirects` attribute to `true` in the Web.config file for an ASP.NET application.  \n  \n```  \n<authentication mode=\"Forms\">  \n  <forms loginUrl=\"member_login.aspx\"  \n    cookieless=\"UseUri\"  \n    requireSSL=\"true\"   \n    enableCrossAppRedirects=\"true\" />  \n</authentication>  \n```"
   syntax:
     content: public static bool EnableCrossAppRedirects { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if authenticated users can be redirected to URLs in other Web applications; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если прошедших проверку подлинности пользователей может быть перенаправлен на URL-адреса в других веб-приложений; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Security.FormsAuthentication.EnableCrossAppRedirects*
   exceptions: []
   platform:
@@ -271,19 +271,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Enables forms authentication."
-  remarks: "If the <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> property is `null`, that property is set to the default URL value from the `configurationData` parameter. If the <xref:System.Web.Security.FormsAuthentication.LoginUrl%2A> property is `null`, that property is set to the login URL value from the `configurationData` parameter."
+  summary: "Включает проверку подлинности форм."
+  remarks: "Если <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>свойство `null`, задано значение по умолчанию URL-адрес из `configurationData` параметр.</xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> Если <xref:System.Web.Security.FormsAuthentication.LoginUrl%2A>свойство `null`, свойству присвоено значение URL-адрес входа из `configurationData` параметр.</xref:System.Web.Security.FormsAuthentication.LoginUrl%2A>"
   syntax:
     content: public static void EnableFormsAuthentication (System.Collections.Specialized.NameValueCollection configurationData);
     parameters:
     - id: configurationData
       type: System.Collections.Specialized.NameValueCollection
-      description: "A name-value collection that contains values for &quot;defaultUrl&quot; and/or &quot;loginUrl&quot;. The parameter can be null if there are no values for the default URL or the login URL."
+      description: "Коллекция имен и значений, содержащий значения для «defaultUrl» или «loginUrl». Значением параметра может быть null, если нет значений по умолчанию URL-адрес или URL-адрес входа."
   overload: System.Web.Security.FormsAuthentication.EnableFormsAuthentication*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The application is not in the pre-start initialization phase."
+    description: "Приложение не на этапе инициализации перед запуском."
   platform:
   - net462
 - uid: System.Web.Security.FormsAuthentication.Encrypt(System.Web.Security.FormsAuthenticationTicket)
@@ -298,7 +298,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Creates a string containing an encrypted forms-authentication ticket suitable for use in an HTTP cookie."
+  summary: "Создает строку, содержащую зашифрованный форм-билет проверки подлинности можно использовать в файл cookie HTTP."
   remarks: ''
   example:
   - "The following code example stores the result of the Encrypt method in a cookie by using the <xref:System.Web.Security.FormsAuthentication.FormsCookieName%2A> property and redirects the user to the URL returned from the <xref:System.Web.Security.FormsAuthentication.GetRedirectUrl%2A> method.  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[FormsAuthenticationTicketClass#1](~/add/codesnippet/csharp/d209d6db-e50b-4c64-961a-_1.aspx)]\n [!code-vb[FormsAuthenticationTicketClass#1](~/add/codesnippet/visualbasic/d209d6db-e50b-4c64-961a-_1.aspx)]"
@@ -307,15 +307,15 @@ items:
     parameters:
     - id: ticket
       type: System.Web.Security.FormsAuthenticationTicket
-      description: "The <xref href=&quot;System.Web.Security.FormsAuthenticationTicket&quot;></xref> object with which to create the encrypted forms-authentication ticket."
+      description: "<xref href=&quot;System.Web.Security.FormsAuthenticationTicket&quot;> </xref> Объекта, с которым необходимо создать билет зашифрованные проверки подлинности форм."
     return:
       type: System.String
-      description: "A string containing an encrypted forms-authentication ticket."
+      description: "Строка, содержащая зашифрованный форм-билет проверки подлинности."
   overload: System.Web.Security.FormsAuthentication.Encrypt*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>ticket</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>ticket</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.Security.FormsAuthentication.FormsCookieName
@@ -330,15 +330,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets the name of the cookie used to store the forms-authentication ticket."
-  remarks: "The FormsCookieName property value is set in the configuration file for an ASP.NET application by using the `name` attribute of the  configuration element. The FormsCookieName is used to reference the cookie that stores the <xref:System.Web.Security.FormsAuthenticationTicket> information."
+  summary: "Возвращает имя файла cookie, используемого для сохранения билета проверки подлинности форм."
+  remarks: "Значение свойства FormsCookieName задается в файле конфигурации для приложения ASP.NET с помощью `name` атрибута элемента конфигурации. FormsCookieName используется для ссылки на файл cookie, который хранит <xref:System.Web.Security.FormsAuthenticationTicket>сведения.</xref:System.Web.Security.FormsAuthenticationTicket>"
   example:
   - "The following code example sets the FormsCookieName property value by using the `name` attribute in the Web.config file.  \n  \n```  \n<authentication mode=\"Forms\">  \n  <forms loginUrl=\"member_login.aspx\"  \n    cookieless=\"UseCookies\"  \n    name=\".ASPXFORMSAUTH\" />  \n</authentication>  \n```"
   syntax:
     content: public static string FormsCookieName { get; }
     return:
       type: System.String
-      description: "The name of the cookie used to store the forms-authentication ticket. The default is &quot;.ASPXAUTH&quot;."
+      description: "Имя файла cookie, используемого для сохранения билета проверки подлинности форм. Значение по умолчанию — «. ASPXAUTH»."
   overload: System.Web.Security.FormsAuthentication.FormsCookieName*
   exceptions: []
   platform:
@@ -355,15 +355,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets the path for the forms-authentication cookie."
-  remarks: "The FormsCookiePath property value is set in the configuration file for an ASP.NET application using the `path` attribute of the  configuration element. The FormsCookiePath specifies the <xref:System.Web.HttpCookie.Path%2A> for the cookie that stores the <xref:System.Web.Security.FormsAuthenticationTicket> information."
+  summary: "Получает путь для файла cookie проверки подлинности форм."
+  remarks: "Значение свойства FormsCookiePath задается в файле конфигурации для приложения ASP.NET с помощью `path` атрибута элемента конфигурации. Указывает FormsCookiePath <xref:System.Web.HttpCookie.Path%2A>для файла cookie, который хранит <xref:System.Web.Security.FormsAuthenticationTicket>сведения.</xref:System.Web.Security.FormsAuthenticationTicket> </xref:System.Web.HttpCookie.Path%2A>"
   example:
   - "The following code example sets the FormsCookiePath property value by using the `path` attribute in the Web.config file.  \n  \n```  \n<authentication mode=\"Forms\">  \n  <forms loginUrl=\"member_login.aspx\"  \n    cookieless=\"UseCookies\"  \n    path=\"/MyApplication\" />  \n</authentication>  \n```"
   syntax:
     content: public static string FormsCookiePath { get; }
     return:
       type: System.String
-      description: "The path of the cookie where the forms-authentication ticket information is stored. The default is &quot;/&quot;."
+      description: "Путь файла cookie, в котором хранятся данные билета проверки подлинности форм. Значение по умолчанию — «/»."
   overload: System.Web.Security.FormsAuthentication.FormsCookiePath*
   exceptions: []
   platform:
@@ -380,20 +380,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Creates an authentication cookie for a given user name. This does not set the cookie as part of the outgoing response, so that an application can have more control over how the cookie is issued."
-  remarks: "The path of the cookie is determined by the <xref:System.Web.Security.FormsAuthentication.FormsCookiePath%2A> property."
+  summary: "Создает файл cookie проверки подлинности для полученного имени пользователя. Это не заданы куки-файл как часть исходящих ответов, поэтому приложение может иметь больший контроль над как файл cookie выдается."
+  remarks: "Путь файла cookie определяется <xref:System.Web.Security.FormsAuthentication.FormsCookiePath%2A>свойство.</xref:System.Web.Security.FormsAuthentication.FormsCookiePath%2A>"
   syntax:
     content: public static System.Web.HttpCookie GetAuthCookie (string userName, bool createPersistentCookie);
     parameters:
     - id: userName
       type: System.String
-      description: "The name of the authenticated user."
+      description: "Имя пользователя, прошедшего проверку подлинности."
     - id: createPersistentCookie
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to create a durable cookie (one that is saved across browser sessions); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Чтобы создать долговременный файл cookie (т.е. сохраняемый между сеансами браузера); в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Web.HttpCookie
-      description: "An <xref href=&quot;System.Web.HttpCookie&quot;></xref> that contains encrypted forms-authentication ticket information. The default value for the <xref:System.Web.Security.FormsAuthentication.FormsCookiePath*> property is used."
+      description: "<xref href=&quot;System.Web.HttpCookie&quot;> </xref> , Содержащий сведения о билете зашифрованные проверки подлинности форм. Значение по умолчанию для <xref:System.Web.Security.FormsAuthentication.FormsCookiePath*>используется свойство.</xref:System.Web.Security.FormsAuthentication.FormsCookiePath*>"
   overload: System.Web.Security.FormsAuthentication.GetAuthCookie*
   exceptions: []
   platform:
@@ -410,22 +410,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Creates an authentication cookie for a given user name. This does not set the cookie as part of the outgoing response."
+  summary: "Создает файл cookie проверки подлинности для полученного имени пользователя. Это не устанавливает файл cookie как часть исходящего ответа."
   syntax:
     content: public static System.Web.HttpCookie GetAuthCookie (string userName, bool createPersistentCookie, string strCookiePath);
     parameters:
     - id: userName
       type: System.String
-      description: "The name of the authenticated user."
+      description: "Имя пользователя, прошедшего проверку подлинности."
     - id: createPersistentCookie
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to create a durable cookie (one that is saved across browser sessions); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Чтобы создать долговременный файл cookie (т.е. сохраняемый между сеансами браузера); в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: strCookiePath
       type: System.String
-      description: "The <xref:System.Web.HttpCookie.Path*> of the authentication cookie."
+      description: "<xref:System.Web.HttpCookie.Path*>Файла cookie проверки подлинности.</xref:System.Web.HttpCookie.Path*>"
     return:
       type: System.Web.HttpCookie
-      description: "An <xref href=&quot;System.Web.HttpCookie&quot;></xref> that contains encrypted forms-authentication ticket information."
+      description: "<xref href=&quot;System.Web.HttpCookie&quot;> </xref> , Содержащий сведения о билете зашифрованные проверки подлинности форм."
   overload: System.Web.Security.FormsAuthentication.GetAuthCookie*
   exceptions: []
   platform:
@@ -442,8 +442,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Returns the redirect URL for the original request that caused the redirect to the login page."
-  remarks: "You can use this method when you want to perform the redirect in your application code instead of using the <xref:System.Web.Security.FormsAuthentication.RedirectFromLoginPage%2A> method.       The GetRedirectUrl method returns the URL specified in the query string using the `ReturnURL` variable name. For example, in the URL `http://www.contoso.com/login.aspx?ReturnUrl=caller.aspx`, the GetRedirectUrl method returns the return URL `caller.aspx`. If the `ReturnURL` variable does not exist, the GetRedirectUrl method returns the URL in the <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> property.       ASP.NET automatically adds the return URL when the browser is redirected to the login page.       By default, the `ReturnUrl` variable must refer to a page within the current application. If `ReturnUrl` refers to a page in a different application or on a different server, the GetRedirectUrl methods returns the URL in the <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> property. If you want to allow the return URL to refer to a page outside the current application, you must set the <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> property to `true` using the `enableCrossAppRedirects` attribute of the  configuration element.      > [!IMPORTANT] >  Setting the <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> property to `true` to allow cross-application redirects is a potential security threat. For more information, see the <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> property."
+  summary: "Возвращает URL-адрес перенаправления для первоначального запроса, вызвавший перенаправление на страницу входа."
+  remarks: "Этот метод можно использовать, когда требуется выполнить перенаправление в коде приложения, вместо использования <xref:System.Web.Security.FormsAuthentication.RedirectFromLoginPage%2A>метод.</xref:System.Web.Security.FormsAuthentication.RedirectFromLoginPage%2A>       Метод GetRedirectUrl возвращает URL-адрес, указанный в строку запроса с помощью `ReturnURL` имя переменной. Например, в URL-адрес `http://www.contoso.com/login.aspx?ReturnUrl=caller.aspx`, метод GetRedirectUrl возвращает URL-адрес возврата `caller.aspx`. Если `ReturnURL` переменная не существует, то метод GetRedirectUrl возвращает URL-адрес в <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>свойство.</xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>       ASP.NET автоматически добавляет возвращаемый URL-адрес, когда браузер перенаправляется на страницу входа.       По умолчанию `ReturnUrl` переменные должны ссылаться на страницы в текущем приложении. Если `ReturnUrl` ссылается на страницу в другом приложении или на другом сервере, методы GetRedirectUrl возвращает URL-адрес в <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>свойство.</xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> Если вы хотите разрешить URL-адрес возврата для ссылки на страницы вне текущего приложения, необходимо задать <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>Свойства `true` с помощью `enableCrossAppRedirects` атрибута элемента конфигурации.</xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>      Настроек [!IMPORTANT] настроек параметр <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>Свойства `true` разрешающее перенаправления между приложениями является потенциальной угрозой безопасности.</xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> Дополнительные сведения см. в разделе <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>свойство.</xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>"
   example:
   - "The following code example redirects authenticated users to the URL returned from the GetRedirectUrl method.  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[FormsAuthenticationTicketClass#1](~/add/codesnippet/csharp/41a9cd2e-33ed-4156-8c31-_1.aspx)]\n [!code-vb[FormsAuthenticationTicketClass#1](~/add/codesnippet/visualbasic/41a9cd2e-33ed-4156-8c31-_1.aspx)]"
   syntax:
@@ -451,13 +451,13 @@ items:
     parameters:
     - id: userName
       type: System.String
-      description: "The name of the authenticated user."
+      description: "Имя пользователя, прошедшего проверку подлинности."
     - id: createPersistentCookie
       type: System.Boolean
-      description: "This parameter is ignored."
+      description: "Этот параметр учитывается."
     return:
       type: System.String
-      description: "A string that contains the redirect URL."
+      description: "Строка, содержащая URL-адрес перенаправления."
   overload: System.Web.Security.FormsAuthentication.GetRedirectUrl*
   exceptions: []
   platform:
@@ -474,8 +474,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Produces a hash password suitable for storing in a configuration file based on the specified password and hash algorithm."
-  remarks: "The HashPasswordForStoringInConfigFile method creates a hashed password value that can be used when storing forms-authentication credentials in the configuration file for an application.       Authentication credentials stored in the configuration file for an application are used by the <xref:System.Web.Security.FormsAuthentication.Authenticate%2A> method to verify passwords for users of an application. Alternatively, you can use ASP.NET membership to store user credentials. For more information, see [Managing Users by Using Membership](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Создает хэш пароля, подходящий для хранения в файле конфигурации на основе указанного пароля и хэш-алгоритм."
+  remarks: "Метод HashPasswordForStoringInConfigFile создает значение хэшированный пароль, который можно использовать при хранении учетных данных проверки подлинности форм в файле конфигурации приложения.       Используются учетные данные хранятся в файле конфигурации приложения <xref:System.Web.Security.FormsAuthentication.Authenticate%2A>метод для проверки паролей для пользователей приложения.</xref:System.Web.Security.FormsAuthentication.Authenticate%2A> Кроме того членства в ASP.NET можно использовать для хранения учетных данных пользователя. Дополнительные сведения см. в разделе [Управление пользователями с помощью членства](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example takes a user name, password, and hash type and displays the  section of the configuration that includes the user definition and hashed password.  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-vb[FormsAuthenticationHashPassword#1](~/add/codesnippet/visualbasic/60863efe-d1c9-47ee-90e6-_1.aspx)]\n [!code-cs[FormsAuthenticationHashPassword#1](~/add/codesnippet/csharp/60863efe-d1c9-47ee-90e6-_1.aspx)]"
   syntax:
@@ -483,21 +483,21 @@ items:
     parameters:
     - id: password
       type: System.String
-      description: "The password to hash."
+      description: "Пароль для хэширования."
     - id: passwordFormat
       type: System.String
-      description: "The hash algorithm to use. `passwordFormat` is a <xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;></xref> that represents one of the <xref href=&quot;System.Web.Configuration.FormsAuthPasswordFormat&quot;></xref> enumeration values."
+      description: "Хэш-алгоритм для использования. `passwordFormat`— <xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;> </xref> , представляющий один из <xref href=&quot;System.Web.Configuration.FormsAuthPasswordFormat&quot;> </xref> значений перечисления."
     return:
       type: System.String
-      description: "The hashed password."
+      description: "Хэшированный пароль."
   overload: System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>password</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>       -or-       <code>passwordFormat</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>password</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>       -or-       <code>passwordFormat</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>passwordFormat</code> is not a valid <xref href=&quot;System.Web.Configuration.FormsAuthPasswordFormat&quot;></xref> value."
+    description: "<code>passwordFormat</code>не является допустимым <xref href=&quot;System.Web.Configuration.FormsAuthPasswordFormat&quot;> </xref> значение."
   platform:
   - net462
 - uid: System.Web.Security.FormsAuthentication.Initialize
@@ -512,8 +512,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Initializes the <xref href=&quot;System.Web.Security.FormsAuthentication&quot;></xref> object based on the configuration settings for the application."
-  remarks: "The Initialize method is called when the <xref:System.Web.Security.FormsAuthenticationModule> creates an instance of the <xref:System.Web.Security.FormsAuthentication> class. This method is not intended to be called from your code."
+  summary: "Инициализирует <xref href=&quot;System.Web.Security.FormsAuthentication&quot;> </xref> объекта на основе параметров конфигурации для приложения."
+  remarks: "Метод Initialize вызывается, когда <xref:System.Web.Security.FormsAuthenticationModule>создается экземпляр <xref:System.Web.Security.FormsAuthentication>класса.</xref:System.Web.Security.FormsAuthentication> </xref:System.Web.Security.FormsAuthenticationModule> Этот метод не предназначен для непосредственного вызова из кода."
   syntax:
     content: public static void Initialize ();
     parameters: []
@@ -533,12 +533,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets a value that indicates whether forms authentication is enabled."
+  summary: "Возвращает значение, указывающее, включена ли проверка подлинности форм."
   syntax:
     content: public static bool IsEnabled { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if forms authentication is enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если включена проверка подлинности форм. в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Security.FormsAuthentication.IsEnabled*
   exceptions: []
   platform:
@@ -555,15 +555,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets the URL for the login page that the <xref href=&quot;System.Web.Security.FormsAuthentication&quot;></xref> class will redirect to."
-  remarks: "The LoginUrl property value is set in the configuration file for an ASP.NET application by using the `loginUrl` attribute of the  configuration element. The LoginUrl is used by the <xref:System.Web.Security.FormsAuthentication.RedirectToLoginPage%2A> method."
+  summary: "Получает URL-адрес страницы входа, <xref href=&quot;System.Web.Security.FormsAuthentication&quot;> </xref> будет перенаправлять класса."
+  remarks: "Значение свойства LoginUrl задается в файле конфигурации для приложения ASP.NET с помощью `loginUrl` атрибута элемента конфигурации. LoginUrl используется <xref:System.Web.Security.FormsAuthentication.RedirectToLoginPage%2A>метод.</xref:System.Web.Security.FormsAuthentication.RedirectToLoginPage%2A>"
   example:
   - "The following code example sets the `loginUrl` attribute in the Web.config file.  \n  \n```  \n<authentication mode=\"Forms\">  \n  <forms loginUrl=\"member_login.aspx\"  \n    defaultUrl=\"index.aspx\" />  \n</authentication>  \n```"
   syntax:
     content: public static string LoginUrl { get; }
     return:
       type: System.String
-      description: "The URL for the login page that the <xref href=&quot;System.Web.Security.FormsAuthentication&quot;></xref> class will redirect to. The default is &quot;login.aspx.&quot;"
+      description: "Страница URL-адрес для имени входа, <xref href=&quot;System.Web.Security.FormsAuthentication&quot;> </xref> будет перенаправлять класса. Значение по умолчанию — «login.aspx.»"
   overload: System.Web.Security.FormsAuthentication.LoginUrl*
   exceptions: []
   platform:
@@ -580,8 +580,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Redirects an authenticated user back to the originally requested URL or the default URL."
-  remarks: "The RedirectFromLoginPage method redirects to the URL specified in the query string using the `ReturnURL` variable name. For example, in the URL `http://www.contoso.com/login.aspx?ReturnUrl=caller.aspx`, the RedirectFromLoginPage method redirects tothe return URL `caller.aspx`. If the `ReturnURL` variable does not exist, the RedirectFromLoginPage method redirects to the URL in the <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> property.       ASP.NET automatically adds the return URL when the browser is redirected to the login page.       By default, the `ReturnUrl` variable must refer to a page within the current application. If `ReturnUrl` refers to a page in a different application or on a different server, the RedirectFromLoginPage methods redirects to the URL in the <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> property. If you want to allow redirects to a page outside the current application, you must set the <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> property to `true` using the `enableCrossAppRedirects` attribute of the  configuration element.      > [!IMPORTANT] >  Setting the <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> property to `true` to allow cross-application redirects is a potential security threat. For more information, see the <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> property.       If the <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> property is `true`, and either the `ReturnUrl` variable is within the current application or the <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> property is `true`, then the RedirectFromLoginPage method issues an authentication ticket and places it in the default cookie using the <xref:System.Web.Security.FormsAuthentication.SetAuthCookie%2A> method.       If <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> is `false` and the redirect path is to a URL in the current application, the ticket is issued as part of the redirect URL. If <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> is `false`, <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> is `true`, and the redirect URL does not refer to a page within the current application, the RedirectFromLoginPage method issues an authentication ticket and places it in the <xref:System.Web.HttpRequest.QueryString%2A> property."
+  summary: "Перенаправляет прошедшего проверку подлинности пользователя первоначально запрошенный URL-адрес или URL-адрес по умолчанию."
+  remarks: "Метод RedirectFromLoginPage перенаправляет на URL-адрес, указанный в строку запроса с помощью `ReturnURL` имя переменной. Например, в URL-адрес `http://www.contoso.com/login.aspx?ReturnUrl=caller.aspx`, метод RedirectFromLoginPage перенаправляет на URL-адрес возврата `caller.aspx`. Если `ReturnURL` переменная не существует, метод RedirectFromLoginPage перенаправляет на URL-адрес в <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>свойство.</xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>       ASP.NET автоматически добавляет возвращаемый URL-адрес, когда браузер перенаправляется на страницу входа.       По умолчанию `ReturnUrl` переменные должны ссылаться на страницы в текущем приложении. Если `ReturnUrl` ссылается на страницу в другом приложении или на другом сервере, методы RedirectFromLoginPage перенаправления URL-адрес в <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>свойство.</xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> Если вы хотите разрешить перенаправление на страницу за пределами текущего приложения, необходимо задать <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>Свойства `true` с помощью `enableCrossAppRedirects` атрибута элемента конфигурации.</xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>      Настроек [!IMPORTANT] настроек параметр <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>Свойства `true` разрешающее перенаправления между приложениями является потенциальной угрозой безопасности.</xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> Дополнительные сведения см. в разделе <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>свойство.</xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>       Если <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>свойство `true`и либо `ReturnUrl` переменная находится в пределах текущего приложения или <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>свойство `true`, то метод RedirectFromLoginPage выдает билет проверки подлинности и помещает его в файл cookie по умолчанию с помощью <xref:System.Web.Security.FormsAuthentication.SetAuthCookie%2A>метод.</xref:System.Web.Security.FormsAuthentication.SetAuthCookie%2A> </xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> </xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>       Если <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>является `false` и пути перенаправления на URL-адрес в текущем приложении, билет выдается как часть URL-адрес перенаправления.</xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> Если <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>является `false`, <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>— `true`, и перенаправления URL-адрес не ссылается на страницу в текущем приложении RedirectFromLoginPage метод выдает билет проверки подлинности и помещает его в <xref:System.Web.HttpRequest.QueryString%2A>свойство.</xref:System.Web.HttpRequest.QueryString%2A> </xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> </xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>"
   example:
   - "The following code example redirects validated users to either the originally requested URL or the <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>. The code example uses ASP.NET membership to validate users. For more information about ASP.NET membership, see [Managing Users by Using Membership](~/add/includes/ajax-current-ext-md.md).  \n  \n> [!IMPORTANT]\n>  This example contains a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[System.Web.Security.SqlMembershipProvider#1](~/add/codesnippet/csharp/1b30741b-7340-4c63-b342-_1.aspx)]\n [!code-vb[System.Web.Security.SqlMembershipProvider#1](~/add/codesnippet/visualbasic/1b30741b-7340-4c63-b342-_1.aspx)]"
   syntax:
@@ -589,15 +589,15 @@ items:
     parameters:
     - id: userName
       type: System.String
-      description: "The authenticated user name."
+      description: "Имя пользователя, прошедшего проверку подлинности."
     - id: createPersistentCookie
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to create a durable cookie (one that is saved across browser sessions); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Чтобы создать долговременный файл cookie (т.е. сохраняемый между сеансами браузера); в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Security.FormsAuthentication.RedirectFromLoginPage*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: 'The return URL specified in the query string contains a protocol other than HTTP: or HTTPS:.'
+    description: 'URL возврата, указанный в строке запроса содержит протокол, отличный от HTTP: или HTTPS:.'
   platform:
   - net462
 - uid: System.Web.Security.FormsAuthentication.RedirectFromLoginPage(System.String,System.Boolean,System.String)
@@ -612,25 +612,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Redirects an authenticated user back to the originally requested URL or the default URL using the specified cookie path for the forms-authentication cookie."
-  remarks: "The RedirectFromLoginPage method redirects to the return URL specified in the query string using the `ReturnURL` variable name. For example, in the URL `http://www.contoso.com/login.aspx?ReturnUrl=caller.aspx`, the RedirectFromLoginPage method redirects tothe return URL `caller.aspx`. If the `ReturnURL` variable does not exist, the RedirectFromLoginPage method redirects to the URL in the <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> property.       ASP.NET automatically adds the return URL when the browser is redirected to the login page.       By default, the `ReturnUrl` variable must refer to a page within the current application. If `ReturnUrl` refers to a page in a different application or on a different server, the RedirectFromLoginPage method redirects to the URL in the <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> property. If you want to allow redirects to a page outside the current application, you must set the <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> property to `true` using the `enableCrossAppRedirects` attribute of the  configuration element.      > [!IMPORTANT] >  Setting the <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> property to `true` to allow cross-application redirects is a potential security threat. For more information, see the <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> property.       If the <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> property is `true`, and either the `ReturnUrl` variable is within the current application or the <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> property is `true`, then the RedirectFromLoginPage method issues an authentication ticket and places it in the cookie specified by the `strCookiePath` parameter using the <xref:System.Web.Security.FormsAuthentication.SetAuthCookie%2A> method.       If <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> is `false` and the redirect path is to a URL in the current application, the ticket is issued as part of the redirect URL. If <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> is `false`, <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> is `true`, and the redirect URL does not refer to a page within the current application, the RedirectFromLoginPage method issues an authentication ticket and places it in the <xref:System.Web.HttpRequest.QueryString%2A> property."
+  summary: "Перенаправляет прошедшего проверку подлинности пользователя первоначально запрошенный URL-адрес или URL-адрес по умолчанию, используя путь указанного файла cookie для файла cookie проверки подлинности форм."
+  remarks: "Метод RedirectFromLoginPage перенаправляет URL возврата, указанный в строку запроса с помощью `ReturnURL` имя переменной. Например, в URL-адрес `http://www.contoso.com/login.aspx?ReturnUrl=caller.aspx`, метод RedirectFromLoginPage перенаправляет на URL-адрес возврата `caller.aspx`. Если `ReturnURL` переменная не существует, метод RedirectFromLoginPage перенаправляет на URL-адрес в <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>свойство.</xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>       ASP.NET автоматически добавляет возвращаемый URL-адрес, когда браузер перенаправляется на страницу входа.       По умолчанию `ReturnUrl` переменные должны ссылаться на страницы в текущем приложении. Если `ReturnUrl` ссылается на страницу в другом приложении или на другом сервере, RedirectFromLoginPage, метод перенаправляет на URL-адрес в <xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A>свойство.</xref:System.Web.Security.FormsAuthentication.DefaultUrl%2A> Если вы хотите разрешить перенаправление на страницу за пределами текущего приложения, необходимо задать <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>Свойства `true` с помощью `enableCrossAppRedirects` атрибута элемента конфигурации.</xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>      Настроек [!IMPORTANT] настроек параметр <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>Свойства `true` разрешающее перенаправления между приложениями является потенциальной угрозой безопасности.</xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> Дополнительные сведения см. в разделе <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>свойство.</xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>       Если <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>свойство `true`и либо `ReturnUrl` переменная находится в пределах текущего приложения или <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>свойство является `true`, то метод RedirectFromLoginPage выдает билет проверки подлинности и помещает его в файле cookie, определяемое `strCookiePath` с помощью параметра <xref:System.Web.Security.FormsAuthentication.SetAuthCookie%2A>метод.</xref:System.Web.Security.FormsAuthentication.SetAuthCookie%2A> </xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> </xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>       Если <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>является `false` и пути перенаправления на URL-адрес в текущем приложении, билет выдается как часть URL-адрес перенаправления.</xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> Если <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>является `false`, <xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A>— `true`, и перенаправления URL-адрес не ссылается на страницу в текущем приложении RedirectFromLoginPage метод выдает билет проверки подлинности и помещает его в <xref:System.Web.HttpRequest.QueryString%2A>свойство.</xref:System.Web.HttpRequest.QueryString%2A> </xref:System.Web.Security.FormsAuthentication.EnableCrossAppRedirects%2A> </xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>"
   syntax:
     content: public static void RedirectFromLoginPage (string userName, bool createPersistentCookie, string strCookiePath);
     parameters:
     - id: userName
       type: System.String
-      description: "The authenticated user name."
+      description: "Имя пользователя, прошедшего проверку подлинности."
     - id: createPersistentCookie
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to create a durable cookie (one that is saved across browser sessions); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Чтобы создать долговременный файл cookie (т.е. сохраняемый между сеансами браузера); в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: strCookiePath
       type: System.String
-      description: "The cookie path for the forms-authentication ticket."
+      description: "Путь к файлу cookie для билета проверки подлинности форм."
   overload: System.Web.Security.FormsAuthentication.RedirectFromLoginPage*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: 'The return URL specified in the query string contains a protocol other than HTTP: or HTTPS:.'
+    description: 'URL возврата, указанный в строке запроса содержит протокол, отличный от HTTP: или HTTPS:.'
   platform:
   - net462
 - uid: System.Web.Security.FormsAuthentication.RedirectToLoginPage
@@ -645,8 +645,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Redirects the browser to the login URL."
-  remarks: "The RedirectToLoginPage method redirects the browser to the <xref:System.Web.Security.FormsAuthentication.LoginUrl%2A>.       The RedirectToLoginPage method does not clear the forms-authentication cookie. You can use the RedirectToLoginPage method in conjunction with the <xref:System.Web.Security.FormsAuthentication.SignOut%2A> method to log one user out and allow a different user to log in."
+  summary: "Перенаправляет браузер на URL-адрес входа."
+  remarks: "Метод RedirectToLoginPage перенаправляет браузер на <xref:System.Web.Security.FormsAuthentication.LoginUrl%2A>.</xref:System.Web.Security.FormsAuthentication.LoginUrl%2A>       Метод RedirectToLoginPage не очищает файл cookie проверки подлинности форм. Метод RedirectToLoginPage можно использовать в сочетании с помощью <xref:System.Web.Security.FormsAuthentication.SignOut%2A>метода войти один пользователь, и другой пользователь выполнить вход.</xref:System.Web.Security.FormsAuthentication.SignOut%2A>"
   example:
   - "The following code example clears the forms-authentication cookie using the <xref:System.Web.Security.FormsAuthentication.SignOut%2A> method and redirects the user to the login page using the RedirectToLoginPage method.  \n  \n [!code-cs[System.Web.Security.FormsAuthentication#2](~/add/codesnippet/csharp/m-system.web.security.fo_0_1.aspx)]\n [!code-vb[System.Web.Security.FormsAuthentication#2](~/add/codesnippet/visualbasic/m-system.web.security.fo_0_1.aspx)]"
   syntax:
@@ -668,8 +668,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Redirects the browser to the login URL with the specified query string."
-  remarks: "The RedirectToLoginPage method redirects the browser to the <xref:System.Web.Security.FormsAuthentication.LoginUrl%2A> and includes the `extraQueryString` value as the <xref:System.Management.ManagementQuery.QueryString%2A> for the redirected URL.       The RedirectToLoginPage method does not clear the forms-authentication cookie. You can use the RedirectToLoginPage method in conjunction with the <xref:System.Web.Security.FormsAuthentication.SignOut%2A> method to log one user out and allow a different user to log in."
+  summary: "Перенаправляет браузер на URL-адрес входа с указанной строкой запроса."
+  remarks: "Метод RedirectToLoginPage перенаправляет браузер, чтобы <xref:System.Web.Security.FormsAuthentication.LoginUrl%2A>и включает `extraQueryString` как <xref:System.Management.ManagementQuery.QueryString%2A>для URL-адреса перенаправления.</xref:System.Management.ManagementQuery.QueryString%2A> </xref:System.Web.Security.FormsAuthentication.LoginUrl%2A>       Метод RedirectToLoginPage не очищает файл cookie проверки подлинности форм. Метод RedirectToLoginPage можно использовать в сочетании с помощью <xref:System.Web.Security.FormsAuthentication.SignOut%2A>метода войти один пользователь, и другой пользователь выполнить вход.</xref:System.Web.Security.FormsAuthentication.SignOut%2A>"
   example:
   - "The following code example clears the forms-authentication cookie using the <xref:System.Web.Security.FormsAuthentication.SignOut%2A> method and redirects the user to the login page using the RedirectToLoginPage method.  \n  \n [!code-cs[System.Web.Security.FormsAuthentication#3](~/add/codesnippet/csharp/m-system.web.security.fo_1_1.aspx)]\n [!code-vb[System.Web.Security.FormsAuthentication#3](~/add/codesnippet/visualbasic/m-system.web.security.fo_1_1.aspx)]"
   syntax:
@@ -677,7 +677,7 @@ items:
     parameters:
     - id: extraQueryString
       type: System.String
-      description: "The query string to include with the redirect URL."
+      description: "Строка запроса для включения с URL-адрес перенаправления."
   overload: System.Web.Security.FormsAuthentication.RedirectToLoginPage*
   exceptions: []
   platform:
@@ -694,17 +694,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Conditionally updates the issue date and time and expiration date and time for a <xref href=&quot;System.Web.Security.FormsAuthenticationTicket&quot;></xref>."
-  remarks: "The RenewTicketIfOld method updates the expiration date and time of the supplied <xref:System.Web.Security.FormsAuthenticationTicket> if the current date and time minus the <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> value is greater than the <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> value minus the current date and time.       The ticket is updated with the <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> property set to the current date and time and the <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> property set to the current date and time plus the original <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> value minus the original <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> value."
+  summary: "Условно обновляет даты выпуска и время и Дата окончания срока действия и время для <xref href=&quot;System.Web.Security.FormsAuthenticationTicket&quot;> </xref>."
+  remarks: "Метод RenewTicketIfOld обновляет дату истечения срока действия и времени, предоставленного <xref:System.Web.Security.FormsAuthenticationTicket>Если текущую дату и время минус <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A>значение больше, чем <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A>значение минус текущую дату и время.</xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> </xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> </xref:System.Web.Security.FormsAuthenticationTicket>       Билет обновляется <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A>свойства текущей даты и времени и <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A>для текущей даты и времени, а также исходное значение свойства <xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A>стоимость минус исходного <xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A>значение.</xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A> </xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> </xref:System.Web.Security.FormsAuthenticationTicket.Expiration%2A> </xref:System.Web.Security.FormsAuthenticationTicket.IssueDate%2A>"
   syntax:
     content: public static System.Web.Security.FormsAuthenticationTicket RenewTicketIfOld (System.Web.Security.FormsAuthenticationTicket tOld);
     parameters:
     - id: tOld
       type: System.Web.Security.FormsAuthenticationTicket
-      description: "The forms-authentication ticket to update."
+      description: "Билет проверки подлинности форм для обновления."
     return:
       type: System.Web.Security.FormsAuthenticationTicket
-      description: "The updated <xref href=&quot;System.Web.Security.FormsAuthenticationTicket&quot;></xref>."
+      description: "Обновленный <xref href=&quot;System.Web.Security.FormsAuthenticationTicket&quot;> </xref>."
   overload: System.Web.Security.FormsAuthentication.RenewTicketIfOld*
   exceptions: []
   platform:
@@ -721,15 +721,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets a value indicating whether the forms-authentication cookie requires SSL in order to be returned to the server."
-  remarks: "The RequireSSL property value is set in the configuration file for an ASP.NET application by using the `requireSSL` attribute of the  configuration element. You can specify in the Web.config file for your ASP.NET application whether SSL (Secure Sockets Layer) is required to return the forms-authentication cookie to the server by setting the `requireSSL` attribute . For more information, see <xref:System.Web.HttpCookie.Secure%2A>.       It is recommended that if you configure `requireSSL` as `false`, you also configure `slidingExpiration` as `false`, to reduce the amount of time for which a ticket is valid."
+  summary: "Возвращает значение, указывающее, требуется ли файл cookie проверки подлинности форм протокол SSL для возвращения на сервер."
+  remarks: "Значение свойства RequireSSL задано в файле конфигурации для приложения ASP.NET с помощью `requireSSL` атрибута элемента конфигурации. Можно указать в файле Web.config для приложения ASP.NET требуется ли SSL (Secure Sockets Layer) для возврата файла cookie проверки подлинности форм к серверу, задав `requireSSL` атрибута. Дополнительные сведения см. в разделе <xref:System.Web.HttpCookie.Secure%2A>.</xref:System.Web.HttpCookie.Secure%2A>       Рекомендуется, если вы настраиваете `requireSSL` как `false`, можно также настроить `slidingExpiration` как `false`, чтобы сократить количество времени, для которого билет будет действительным."
   example:
   - "The following code example sets the `requireSSL` attribute in the Web.config file.  \n  \n```  \n<authentication mode=\"Forms\">  \n  <forms loginUrl=\"member_login.aspx\"  \n    cookieless=\"UseCookies\"  \n    requireSSL=\"true\"  \n    path=\"/MyApplication\" />  \n</authentication>  \n```"
   syntax:
     content: public static bool RequireSSL { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if SSL is required to return the forms-authentication cookie to the server; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если протокол SSL необходим для возврата файла cookie проверки подлинности форм с сервером. в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Security.FormsAuthentication.RequireSSL*
   exceptions: []
   platform:
@@ -746,22 +746,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Creates an authentication ticket for the supplied user name and adds it to the cookies collection of the response, or to the URL if you are using cookieless authentication."
-  remarks: "The SetAuthCookie method adds a forms-authentication ticket to either the cookies collection, or to the URL if <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> is `false`. The forms-authentication ticket supplies forms-authentication information to the next request made by the browser. With forms authentication, you can use the SetAuthCookie method when you want to authenticate a user but still retain control of the navigation with redirects."
+  summary: "Создает билет проверки подлинности для указанного имени пользователя и добавляет его к коллекции файлов cookie ответа или URL-адрес, при использовании проверки подлинности без поддержки файлов cookie."
+  remarks: "Метод SetAuthCookie добавляет билет проверки подлинности форм коллекции файлов cookie или URL-адрес Если <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>является `false`.</xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> Билет проверки подлинности форм предоставляет сведения для проверки подлинности форм для следующего запроса веб-обозревателя. С помощью форм можно использовать метод SetAuthCookie для проверки подлинности пользователя, но по-прежнему сохранение контроля над навигации с перенаправления."
   syntax:
     content: public static void SetAuthCookie (string userName, bool createPersistentCookie);
     parameters:
     - id: userName
       type: System.String
-      description: "The name of an authenticated user. This does not have to map to a Windows account."
+      description: "Имя авторизованного пользователя. Это не обязательно сопоставлять с учетной записью Windows."
     - id: createPersistentCookie
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to create a persistent cookie (one that is saved across browser sessions); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Чтобы создать постоянный файл cookie (т.е. сохраняемый между сеансами браузера); в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Security.FormsAuthentication.SetAuthCookie*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "<xref:System.Web.Security.FormsAuthentication.RequireSSL*> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and <xref:System.Web.HttpRequest.IsSecureConnection*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "<>*> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and <>*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.Security.FormsAuthentication.SetAuthCookie(System.String,System.Boolean,System.String)
@@ -776,25 +776,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Creates an authentication ticket for the supplied user name and adds it to the cookies collection of the response, using the supplied cookie path, or using the URL if you are using cookieless authentication."
-  remarks: "The SetAuthCookie method adds a forms-authentication ticket to either the cookies collection or the URL if <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> is `false`. The forms-authentication ticket supplies forms-authentication information to the next request made by the browser. With forms authentication, you can use the SetAuthCookie method when you want to authenticate a user but still retain control of the navigation with redirects."
+  summary: "Создает билет проверки подлинности для указанного имени пользователя и добавляет его в коллекцию файлов cookie ответа с помощью предоставленного файла cookie путь, или URL-адрес при использовании без поддержки файлов cookie проверки подлинности."
+  remarks: "Метод SetAuthCookie добавляет билет проверки подлинности форм коллекции файлов cookie или URL-адрес, если <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>является `false`.</xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> Билет проверки подлинности форм предоставляет сведения для проверки подлинности форм для следующего запроса веб-обозревателя. С помощью форм можно использовать метод SetAuthCookie для проверки подлинности пользователя, но по-прежнему сохранение контроля над навигации с перенаправления."
   syntax:
     content: public static void SetAuthCookie (string userName, bool createPersistentCookie, string strCookiePath);
     parameters:
     - id: userName
       type: System.String
-      description: "The name of an authenticated user."
+      description: "Имя авторизованного пользователя."
     - id: createPersistentCookie
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to create a durable cookie (one that is saved across browser sessions); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Чтобы создать долговременный файл cookie (т.е. сохраняемый между сеансами браузера); в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: strCookiePath
       type: System.String
-      description: "The cookie path for the forms-authentication ticket."
+      description: "Путь к файлу cookie для билета проверки подлинности форм."
   overload: System.Web.Security.FormsAuthentication.SetAuthCookie*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "<xref:System.Web.Security.FormsAuthentication.RequireSSL*> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and <xref:System.Web.HttpRequest.IsSecureConnection*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "<>*> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and <>*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.Security.FormsAuthentication.SignOut
@@ -809,8 +809,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Removes the forms-authentication ticket from the browser."
-  remarks: "The SignOut method removes the forms-authentication ticket information from the cookie or the URL if <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> is `false`. You can use the SignOut method in conjunction with the <xref:System.Web.Security.FormsAuthentication.RedirectToLoginPage%2A> method to log one user out and allow a different user to log in.       If you run exclusively in cookieless mode, or if you support both authenticated and anonymous users, you should explicitly control the redirect to the login page if you require special business logic to execute as a result of removing the anonymous identifier.       When the SignOut method is called, a redirect to the application&quot;s login page is made by calling the <xref:System.Web.HttpResponse.Redirect%2A> method with the `endResponse` parameter set to `false`. The redirect does not take place until the current page has finished executing, so additional code can be run. If the code does not contain an explicit redirect to another page, the user is redirected to the login page configured in the application&quot;s configuration file.       Calling the SignOut method only removes the forms authentication cookie. The Web server does not store valid and expired authentication tickets for later comparison. This makes your site vulnerable to a replay attack if a malicious user obtains a valid forms authentication cookie. To improve security when using a forms authentication cookie, you should do the following:      -   Use absolute expiration for forms authentication cookies by setting the <xref:System.Web.Security.FormsAuthentication.SlidingExpiration%2A> property to `false`. This limits the window in which a hijacked cookie can be replayed.      -   Only issue and accept authentication cookies over Secure Sockets Layer (SSL), by setting the <xref:System.Web.Security.FormsAuthentication.RequireSSL%2A> property to `true` and by running the entire Web site under SSL. Setting the <xref:System.Web.Security.FormsAuthentication.RequireSSL%2A> property to `true` ensures that ASP.NET will never send an authentication cookie to the browser over a non-SSL connection; however, the client might not honor the secure setting on the cookie. This means the client might send the forms authentication cookie over a non-SSL connection, thus leaving it vulnerable to hijack. You can prevent a client from sending the forms authentication cookie in the clear by running the entire Web site under SSL.      -   Use persistent storage on the server to record when a user logs out of the Web site, and then use an application event such as <xref:System.Web.HttpApplication.PostAuthenticateRequest> event to determine whether the current user was authenticated with forms authentication. If the user was authenticated with forms authentication, and if the information in persistent storage indicates the user is logged out, immediately clear the authentication cookie and redirect the browser back to the login page. After a successful login, update storage to reflect that the user is logged in. When you use this method, your application must track the logged-in status of the user, and must force idle users to log out."
+  summary: "Удаляет из браузера билет проверки подлинности форм."
+  remarks: "Метод SignOut удаляет данные билета проверки подлинности форм из файла cookie или URL-адрес, если <xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A>является `false`.</xref:System.Web.Security.FormsAuthentication.CookiesSupported%2A> Метод SignOut можно использовать в сочетании с помощью <xref:System.Web.Security.FormsAuthentication.RedirectToLoginPage%2A>метода войти один пользователь, и другой пользователь выполнить вход.</xref:System.Web.Security.FormsAuthentication.RedirectToLoginPage%2A>       При использовании исключительно в режиме без поддержки файлов cookie, или если требуется поддержка прошедшего проверку подлинности и анонимных пользователей, следует явно управление перенаправление на страницу входа, если требуются специальные бизнес-логики в результате удаления анонимный идентификатор.       При вызове метода SignOut перенаправление на страницу входа приложения выполняется путем вызова <xref:System.Web.HttpResponse.Redirect%2A>метод с `endResponse` равным `false`.</xref:System.Web.HttpResponse.Redirect%2A> Перенаправления выполняться не до завершения выполнения текущей страницы, можно выполнить дополнительный код. Если код не содержит явного перенаправления на другую страницу, пользователь перенаправляется на страницу входа, настроенные в файле конфигурации приложения.       Вызов метода SignOut удаляет только файл cookie проверки подлинности форм. Веб-сервер не хранит билетов проверки подлинности допустимые и истекшим сроком действия для дальнейшего сравнения. Это делает узел уязвимым для атак воспроизведения, если пользователь-злоумышленник получит файл cookie проверки подлинности допустимых форматов. Для повышения безопасности при использовании файла cookie проверки подлинности форм, должен выполнить следующие:-использовать абсолютный срок действия файлов cookie проверки подлинности форм, задав <xref:System.Web.Security.FormsAuthentication.SlidingExpiration%2A>Свойства `false`.</xref:System.Web.Security.FormsAuthentication.SlidingExpiration%2A> Это ограничивает окна, в которых могут воспроизводиться поврежденный файл cookie.      -Только выдачи и принимают файлы cookie проверки подлинности через Secure Sockets Layer (SSL), установив <xref:System.Web.Security.FormsAuthentication.RequireSSL%2A>Свойства `true` и выполнив всего веб-сайта в группе SSL.</xref:System.Web.Security.FormsAuthentication.RequireSSL%2A> Параметр <xref:System.Web.Security.FormsAuthentication.RequireSSL%2A>Свойства `true` гарантирует, что ASP.NET никогда не будет отправлять файл cookie проверки подлинности в браузере через подключение без использования SSL; тем не менее, клиент не может принять параметры безопасности в файле cookie.</xref:System.Web.Security.FormsAuthentication.RequireSSL%2A> Это означает, что клиент может отправить файл cookie проверки подлинности форм через подключение без использования SSL, таким образом делает его уязвимым для перехвата. Клиенту предотвратить отправку файла cookie проверки подлинности форм в открытом виде, выполнив всего веб-сайта в группе SSL.      -Используйте постоянное хранилище на сервере для записи, когда пользователь выходит из веб-сайта, а затем использовать события приложения, такие как <xref:System.Web.HttpApplication.PostAuthenticateRequest>событие, чтобы определить, является ли текущий пользователь проверку подлинности с помощью форм.</xref:System.Web.HttpApplication.PostAuthenticateRequest> Если пользователь прошел проверку подлинности с помощью форм, и если информация в постоянном хранилище указывает пользователь вышел из, немедленно очистить файл cookie проверки подлинности и перенаправить браузер на страницу входа. После успешного входа обновите хранилища, чтобы отразить вход в. При использовании этого метода приложение должно отслеживать статус вошедшего в систему пользователя и необходимо принудительно бездействующих пользователей выйти из системы."
   example:
   - "The following code example clears the forms-authentication cookie using the SignOut method and redirects the user to the login page using the <xref:System.Web.Security.FormsAuthentication.RedirectToLoginPage%2A> method.  \n  \n [!code-cs[System.Web.Security.FormsAuthentication#2](~/add/codesnippet/csharp/m-system.web.security.fo_2_1.aspx)]\n [!code-vb[System.Web.Security.FormsAuthentication#2](~/add/codesnippet/visualbasic/m-system.web.security.fo_2_1.aspx)]"
   syntax:
@@ -832,15 +832,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets a value indicating whether sliding expiration is enabled."
-  remarks: "The SlidingExpiration property value is set using the `slidingExpiration` attribute of the  configuration element.       Sliding expiration resets the expiration time for a valid authentication cookie if a request is made and more than half of the timeout interval has elapsed. If the cookie expires, the user must re-authenticate. Setting the SlidingExpiration property to `false` can improve the security of an application by limiting the time for which an authentication cookie is valid, based on the configured `timeout` value.       We recommend that if you configure `requireSSL` as `false`, you also configure `slidingExpiration` as `false`, to reduce the amount of time for which a ticket is valid."
+  summary: "Возвращает значение, указывающее, включен ли скользящий срок действия."
+  remarks: "Значение свойства SlidingExpiration устанавливается с помощью `slidingExpiration` атрибута элемента конфигурации.       Скользящем сроке действия срок действия файла cookie проверки подлинности при поступлении запроса и по истечении более половины интервала времени ожидания. Если истекает срок действия файла cookie, пользователь должен повторно пройти проверку подлинности. Свойства SlidingExpiration `false` можно повысить безопасность приложения путем ограничения времени, для которого действителен файл cookie проверки подлинности, настроенного на основе `timeout` значение.       Рекомендуется, чтобы при настройке `requireSSL` как `false`, можно также настроить `slidingExpiration` как `false`, чтобы сократить количество времени, для которого билет будет действительным."
   example:
   - "The following code example sets the `slidingExpiration` attribute to `false` in the Web.config file for an ASP.NET application.  \n  \n```  \n<authentication mode=\"Forms\">  \n  <forms loginUrl=\"member_login.aspx\"  \n    name=\".ASPXFORMSAUTH\"  \n    cookieless=\"UseCookies\"  \n    requireSSL=\"true\"   \n    slidingExpiration=\"false\" />  \n</authentication>  \n```"
   syntax:
     content: public static bool SlidingExpiration { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if sliding expiration is enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если включен скользящий срок действия; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Security.FormsAuthentication.SlidingExpiration*
   exceptions: []
   platform:
@@ -857,12 +857,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets a value that indicates whether to use Coordinated Universal Time (UTC) or local time for the ticket expiration date."
+  summary: "Возвращает значение, указывающее, следует ли использовать время в формате UTC или местным временем для даты окончания срока действия билета."
   syntax:
     content: public static System.Web.Configuration.TicketCompatibilityMode TicketCompatibilityMode { get; }
     return:
       type: System.Web.Configuration.TicketCompatibilityMode
-      description: "A value that indicates whether to use Coordinated Universal Time (UTC) or local time for the ticket expiration date."
+      description: "Значение, указывающее, следует ли использовать время в формате UTC или местным временем для даты окончания срока действия билета."
   overload: System.Web.Security.FormsAuthentication.TicketCompatibilityMode*
   exceptions: []
   platform:
@@ -879,12 +879,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets the amount of time before an authentication ticket expires."
+  summary: "Возвращает количество времени до истечения срока действия билета проверки подлинности."
   syntax:
     content: public static TimeSpan Timeout { get; }
     return:
       type: System.TimeSpan
-      description: "The amount of time before an authentication ticket expires."
+      description: "Срок действия истекает время перед билет проверки подлинности."
   overload: System.Web.Security.FormsAuthentication.Timeout*
   exceptions: []
   platform:

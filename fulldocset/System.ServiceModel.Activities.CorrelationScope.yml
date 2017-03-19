@@ -15,8 +15,8 @@ items:
   nameWithType: CorrelationScope
   fullName: System.ServiceModel.Activities.CorrelationScope
   type: Class
-  summary: "Provides implicit <xref href=&quot;System.ServiceModel.Activities.CorrelationHandle&quot;></xref> management for child messaging activities."
-  remarks: "The CorrelationScope activity maintains an implicit <xref:System.ServiceModel.Activities.CorrelationHandle> that is only visible to child activities. When the <xref:System.ServiceModel.Activities.CorrelationScope.CorrelatesWith%2A> property is set by the user, it will be used as the CorrelationScope implicit handle. In the case of nested CorrelationScope, children of the inner scope cannot access implicit handle of the outer scope."
+  summary: "Предоставляет неявное <xref href=&quot;System.ServiceModel.Activities.CorrelationHandle&quot;> </xref> управление дочерними действиями обмена сообщениями."
+  remarks: "Действие CorrelationScope обеспечивает неявное <xref:System.ServiceModel.Activities.CorrelationHandle>, доступное только для дочерних действий.</xref:System.ServiceModel.Activities.CorrelationHandle> Когда <xref:System.ServiceModel.Activities.CorrelationScope.CorrelatesWith%2A>пользователь задал свойство, оно будет использоваться как неявный дескриптор CorrelationScope.</xref:System.ServiceModel.Activities.CorrelationScope.CorrelatesWith%2A> В случае вложенных CorrelationScope дочерние элементы внутренней области не может получить доступ к неявному дескриптору внешней области."
   example:
   - "The following example shows how to create a CorrelationScope. This example creates a <xref:System.ServiceModel.Activities.Sequence> and adds a CorrelationScope (among other activites). The CorrelationScope contains a <xref:System.ServiceModel.Activities.Sequence> that is composed of a <xref:System.ServiceModel.Activities.Send> and <xref:System.ServiceModel.Activities.ReceiveReply> activity.  \n  \n [!code-cs[ContentBasedCorrelation#3](~/add/codesnippet/csharp/t-system.servicemodel.ac_2_1.cs)]"
   syntax:
@@ -56,7 +56,7 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Activities.CorrelationScope&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.Activities.CorrelationScope&quot;> </xref> класса."
   syntax:
     content: public CorrelationScope ();
     parameters: []
@@ -76,12 +76,12 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities
-  summary: "Gets or sets the activity’s execution logic."
+  summary: "Возвращает или задает логику выполнения действия."
   syntax:
     content: public System.Activities.Activity Body { get; set; }
     return:
       type: System.Activities.Activity
-      description: "The activity’s execution logic."
+      description: "Логика выполнения действия."
   overload: System.ServiceModel.Activities.CorrelationScope.Body*
   exceptions: []
   platform:
@@ -98,13 +98,13 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities
-  summary: "Builds and validates a description of the activity’s arguments, variables, child activities, and activity delegates."
+  summary: "Создает и проверяет описание аргументов действия, переменных, дочерних действий и делегатов действия."
   syntax:
     content: protected override void CacheMetadata (System.Activities.NativeActivityMetadata metadata);
     parameters:
     - id: metadata
       type: System.Activities.NativeActivityMetadata
-      description: "The activity’s metadata that encapsulates the activity’s arguments, variables, child activities, and activity delegates."
+      description: "Метаданные действия, который инкапсулирует аргументы действия, переменных, дочерних действий и делегатов действия."
   overload: System.ServiceModel.Activities.CorrelationScope.CacheMetadata*
   exceptions: []
   platform:
@@ -121,13 +121,13 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities
-  summary: "Gets or sets the <xref href=&quot;System.ServiceModel.Activities.CorrelationHandle&quot;></xref> used by the child messaging activities."
-  remarks: "This property is read-only at runtime. If the value is set at runtime, an <xref:System.InvalidOperationException> is thrown.       The runtime uses the <xref:System.ServiceModel.Activities.CorrelationInitializer.CorrelationHandle%2A> for correlation if it is present, otherwise the **CorrelatesWith** property of the messaging activity will be used.  If both are absent, the ambient handle provided by <xref:System.ServiceModel.Activities.CorrelationScope> or the workflow service is used."
+  summary: "Возвращает или задает <xref href=&quot;System.ServiceModel.Activities.CorrelationHandle&quot;> </xref> используемый дочерними действиями обмена сообщениями."
+  remarks: "Это свойство доступно только для чтения во время выполнения. Если значение устанавливается во время выполнения, <xref:System.InvalidOperationException>возникает исключение.</xref:System.InvalidOperationException>       Среда выполнения использует <xref:System.ServiceModel.Activities.CorrelationInitializer.CorrelationHandle%2A>для корреляции, если он имеется, в противном случае **CorrelatesWith** будет использоваться свойство действия обмена сообщениями.</xref:System.ServiceModel.Activities.CorrelationInitializer.CorrelationHandle%2A>  Если отсутствуют оба свойства, предоставляемые дескриптор окружения <xref:System.ServiceModel.Activities.CorrelationScope>или используется в рабочем процессе.</xref:System.ServiceModel.Activities.CorrelationScope>"
   syntax:
     content: public System.Activities.InArgument<System.ServiceModel.Activities.CorrelationHandle> CorrelatesWith { get; set; }
     return:
       type: System.Activities.InArgument{System.ServiceModel.Activities.CorrelationHandle}
-      description: "The correlation handle used by the child messaging activities."
+      description: "Дескриптор взаимосвязи, используемый дочерними действиями обмена сообщениями."
   overload: System.ServiceModel.Activities.CorrelationScope.CorrelatesWith*
   exceptions: []
   platform:
@@ -144,13 +144,13 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities
-  summary: "Called by the workflow runtime to execute the <xref href=&quot;System.ServiceModel.Activities.CorrelationScope&quot;></xref> activity."
+  summary: "Вызывается средой выполнения рабочего процесса для выполнения <xref href=&quot;System.ServiceModel.Activities.CorrelationScope&quot;> </xref> действия."
   syntax:
     content: protected override void Execute (System.Activities.NativeActivityContext context);
     parameters:
     - id: context
       type: System.Activities.NativeActivityContext
-      description: "The current native activity execution context."
+      description: "Текущий контекст выполнения собственного действия."
   overload: System.ServiceModel.Activities.CorrelationScope.Execute*
   exceptions: []
   platform:
@@ -167,13 +167,13 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities
-  summary: "Indicates whether the <xref:System.ServiceModel.Activities.CorrelationScope.CorrelatesWith*> property should be serialized."
+  summary: "Указывает, является ли <xref:System.ServiceModel.Activities.CorrelationScope.CorrelatesWith*>свойство должно быть сериализовано.</xref:System.ServiceModel.Activities.CorrelationScope.CorrelatesWith*>"
   syntax:
     content: public bool ShouldSerializeCorrelatesWith ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref:System.ServiceModel.Activities.CorrelationScope.CorrelatesWith*> property value should be serialized; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <xref:System.ServiceModel.Activities.CorrelationScope.CorrelatesWith*>значение свойства должно быть сериализованы; в противном случае — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.ServiceModel.Activities.CorrelationScope.CorrelatesWith*>"
   overload: System.ServiceModel.Activities.CorrelationScope.ShouldSerializeCorrelatesWith*
   exceptions: []
   platform:

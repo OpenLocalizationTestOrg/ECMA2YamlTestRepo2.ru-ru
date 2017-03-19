@@ -40,8 +40,8 @@ items:
   nameWithType: DesignerSerializationManager
   fullName: System.ComponentModel.Design.Serialization.DesignerSerializationManager
   type: Class
-  summary: "Provides an implementation of the <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> interface."
-  remarks: "The <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager> interface is designed to be a format-independent interface to an object that controls serialization. It essentially provides context and services to serializers, which actually perform the deserialization. <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager> assists in the deserialization process by keeping track of objects. This is similar in technique to the <xref:System.ComponentModel.Design.IDesignerHost> interface: designers actually provide the user interface (UI), and <xref:System.ComponentModel.Design.IDesignerHost> provides the glue that allows different designers to work together.       The DesignerSerializationManager class implements <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>. It is designed to provide a generic form of deserialization that is similar to run-time serializers like the <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter>.       The DesignerSerializationManager class achieves three goals:      -   It is a simple, turnkey object that can be used to deserialize a variety of formats.      -   It is generic and not tied to any particular format. It can be used equally for CodeDOM deserialization as well as markup deserialization.      -   It is extensible and supports different serialization methods that are used in copy/paste and undo/redo scenarios.       Design-time serialization has the following differences from run-time object serialization:      -   The object performing the serialization is generally separate from the run-time object, so that design-time logic can be removed from a component.      -   The serialization scheme assumes the object will be created fully initialized, and then modified through property and method invocations during deserialization.      -   Properties of an object that have values that were never set on the object (the properties contain the default values) are not serialized. Conversely, the deserialization stream may have holes.      -   Emphasis is placed on the quality of the content within the serialization stream, rather than the full serialization of an object. This means that if there is no defined way to serialize an object, that object may be skipped rather than throwing an exception. The serialization engine may provide heuristics here to decide which failures can be ignored and which are unrecoverable.      -   The serialization stream may have more data than is needed for deserialization. Source code serialization, for example, has user code mixed in with the code needed to deserialize an object graph. This user code must be ignored on deserialization and preserved on serialization.       Because of these differences, a different serialization model applies to design-time serialization. This model utilizes a separate serializer object for each data type being serialized. Each serializer provides its small contribution to the problem as a whole. These serializers are all coordinated through a common serialization manager. The serialization manager is responsible for maintaining state between these different serializers. As an example, consider the following class:       [!code-cs[System.ComponentModel.Design.Serialization.DesignerSerializationManager.SampleObject#2](~/add/codesnippet/csharp/t-system.componentmodel._7_1.cs)]  [!code-vb[System.ComponentModel.Design.Serialization.DesignerSerializationManager.SampleObject#2](~/add/codesnippet/visualbasic/t-system.componentmodel._7_1.vb)]       An instance of this class would utilize three different serializers: one for `SampleObject`, one for strings, and another for integers. The serializer for `SampleObject` is called the root serializer because `SampleObject` is the root of the serialization graph. More complex object graphs can be created as well. For example, consider what would happen if `SampleObject` were changed as follows:       [!code-cs[System.ComponentModel.Design.Serialization.DesignerSerializationManager.SampleObject#11](~/add/codesnippet/csharp/t-system.componentmodel._7_2.cs)]  [!code-vb[System.ComponentModel.Design.Serialization.DesignerSerializationManager.SampleObject#11](~/add/codesnippet/visualbasic/t-system.componentmodel._7_2.vb)]       This allows `SampleObject` to have a child that is another instance of itself. The following code fills in the object graph:       [!code-cs[System.ComponentModel.Design.Serialization.DesignerSerializationManager.SampleObject#12](~/add/codesnippet/csharp/t-system.componentmodel._7_3.cs)]  [!code-vb[System.ComponentModel.Design.Serialization.DesignerSerializationManager.SampleObject#12](~/add/codesnippet/visualbasic/t-system.componentmodel._7_3.vb)]       When `root` is serialized, there will be four serializers used: one root serializer, one serializer for the child `SampleObject`, one serializer for `int`, and one serializer for `string`. Serializers are cached based on type, so there is no need to create a serializer for each instance of `SampleObject`.       The DesignerSerializationManager class is based on the idea of a serialization session. A session maintains state that can be accessed by the various serializers. When a session is disposed, this state is destroyed. This helps to ensure that serializers remain largely stateless, and helps to clean up serializers that are have been corrupted. The following tables describe how state is managed in and among sessions.      ## Global State    This state is owned by the serialization manager object, but is independent of the current serialization session.      |Object|Usage|   |------------|-----------|   |Serialization providers|Objects can add themselves as custom serialization providers. Because these providers are used to locate serializers, they outlive a serialization session.|      ## Session-Owned State    This state is owned by a session and is destroyed when a session is destroyed. Consequently, accessing any properties or methods that would manipulate this state will throw an exception if the serialization manager is not in an active session.      |Object|Usage|   |------------|-----------|   |<xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ResolveName> event|The <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ResolveName> event is attached by a serializer to provide additional resolution of names. All handlers are detached from this event when a session terminates.|   |<xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.SerializationComplete> event|The <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.SerializationComplete> event is raised just before a session is disposed. Then, all handlers are detached from this event.|   |Name table|The serialization manager maintains a table that maps between objects and their names. Serializers may give objects names for easy identification. This name table is cleared when the session terminates.|   |Serializer cache|The serialization manager maintains a cache of serializers it has been asked to supply. This cache is cleared when the session terminates. The public <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetSerializer%2A> method can safely be called at any time, but its value is cached only if it is called from within a session.|   |Context stack|The serialization manager maintains an object called the context stack, which you can access with the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Context%2A> property. Serializers can use this stack to store additional information that is available to other serializers. For example, a serializer that is serializing a property value can push the property name on the serialization stack before asking the value to serialize. This stack is cleared when the session is terminated.|   |Error list|The serialization manager maintains a list of errors that occurred during serialization. This list, which is accessed through the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.Errors%2A> property, is cleared when the session is terminated. Accessing the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.Errors%2A> property between sessions will result in an exception.|"
+  summary: "Предоставляет реализацию <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> интерфейса."
+  remarks: "<xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>Интерфейс должен быть интерфейсом независимо от формата для объекта, который управляет сериализацией.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager> По существу предоставляет контекст и службы для сериализаторов, которые фактически выполнить десериализацию. <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>помогает в процессе десериализации, отслеживая объектов.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager> Это аналогично способ <xref:System.ComponentModel.Design.IDesignerHost>интерфейса: конструкторы фактически предоставляют пользовательский интерфейс (UI), и <xref:System.ComponentModel.Design.IDesignerHost>, обеспечивает связь и позволяющая различных конструкторов могут работать вместе.</xref:System.ComponentModel.Design.IDesignerHost> </xref:System.ComponentModel.Design.IDesignerHost>       Этот класс реализует DesignerSerializationManager <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager> Он предназначен для обеспечения стандартной формы десериализации, который аналогичен во время выполнения сериализаторов, таких как <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter>.</xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter>       Класс DesignerSerializationManager достигает трех целей: — это простой, готовый к использованию объект, можно использовать для десериализации различных форматах.      -Это универсален и не привязан к определенному формату. Он может использоваться одинаково для десериализации CodeDOM при десериализации исправлений.      -Он является расширяемым и поддерживает сериализацию различные методы, используемые в копирования и вставки и отмены и повтора сценариев.       Сериализация времени разработки имеет следующие отличия от сериализации объектов во время выполнения:-объекта, выполняющего сериализацию обычно отделен от объекта во время выполнения, чтобы во время разработки логики можно удалить из компонента.      -Схема сериализации предполагает объект создается полностью инициализированным, а затем изменяется через свойство и вызовы методов во время десериализации.      -Свойства объекта, значения которых были заданы для объекта (свойства содержат значения по умолчанию), не сериализуются. И наоборот поток десериализации может содержать пустые элементы.      -Акцент делается на качестве содержимого в потоке сериализации, а не полный сериализации объекта. Это означает, что если нет определенного способа сериализации объекта, этот объект может пропустить вместо создания исключения. Модуль сериализации могут предоставить эвристику, чтобы определить, какие ошибки можно игнорировать, а какие — без возможности восстановления.      -В поток сериализации может иметь больше данных, чем необходимо для десериализации. Например, сериализация исходного кода имеет код пользователя, смешанный с кодом, необходимым для десериализации графа объектов. Этот пользовательский код должен быть пропущен при десериализации и сохранять в процессе сериализации.       Из-за этих различий применяется другая модель сериализации во время разработки. Эта модель использует отдельный объект сериализатора для каждого сериализуемого типа данных. Каждый сериализатор делает свой небольшой вклад проблему в целом. Все эти сериализаторы координируются через общий диспетчер сериализации. Диспетчер сериализации отвечает за сохранение состояния между разными сериализаторами. Например, рассмотрим следующий класс: [!code-cs [System.ComponentModel.Design.Serialization.DesignerSerializationManager.SampleObject#2](~/add/codesnippet/csharp/t-system.componentmodel._7_1.cs)][!code-vb[System.ComponentModel.Design.Serialization.DesignerSerializationManager.SampleObject#2](~/add/codesnippet/visualbasic/t-system.componentmodel._7_1.vb) ] экземпляр этого класса использует три разных сериализатора: один для `SampleObject`, один для строк, а другой для целых чисел.   Сериализатор для `SampleObject` называется корневым сериализатором, поскольку `SampleObject` является корнем графа сериализации. Также можно создать более сложных графов объектов. Предположим, что может произойти, если `SampleObject` были изменены следующим образом: [!code-cs [System.ComponentModel.Design.Serialization.DesignerSerializationManager.SampleObject#11](~/add/codesnippet/csharp/t-system.componentmodel._7_2.cs)][!code-vb[System.ComponentModel.Design.Serialization.DesignerSerializationManager.SampleObject#11](~/add/codesnippet/visualbasic/t-system.componentmodel._7_2.vb) ] благодаря `SampleObject` иметь дочерний элемент, который является другой экземпляр самого себя.   Следующий код заполняет графа объектов: [!code-cs [System.ComponentModel.Design.Serialization.DesignerSerializationManager.SampleObject#12](~/add/codesnippet/csharp/t-system.componentmodel._7_3.cs)][!code-vb[System.ComponentModel.Design.Serialization.DesignerSerializationManager.SampleObject#12](~/add/codesnippet/visualbasic/t-system.componentmodel._7_3.vb) ] при `root` сериализуется, будет использоваться четыре сериализатора: один корневой сериализатор, один сериализатор для дочернего элемента `SampleObject`, один сериализатор для `int`и один сериализатор для `string`.   Сериализаторы кэшированы на основе типа, поэтому нет необходимости создавать сериализатор для каждого экземпляра `SampleObject`.       Класс DesignerSerializationManager основан на идее сеанс сериализации. Сеанс сохраняет состояние, доступное для многих сериализаторов. При удалении сеанса состояние удаляется. Это помогает обеспечить сериализаторов остаются без состояния, что помогает очистить сериализаторов, которые были повреждены. В следующих таблицах описаны управление состоянием во время и между сеансами.      ## Состояние Global это состояние принадлежит объект диспетчера сериализации, но не зависит от текущего сеанса сериализации.      | Объект | Использование |   |------------|-----------|   | Поставщики сериализации | Объекты можно добавить себя как поставщики пользовательской сериализации. Так как эти поставщики используются сериализаторами, время их жизни превышает сеанс сериализации. |      ## Состояние, принадлежащее сеансу это состояние владеет сеанс и удаляется при удалении сеанса. Следовательно попытке свойств или методов манипулировать это состояние возникает исключение, если диспетчер сериализации не находится в активном сеансе.      | Объект | Использование |   |------------|-----------|   | событие <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ResolveName>| <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ResolveName>Связано событие сериализатором, чтобы предоставить дополнительные разрешения имен.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ResolveName> </xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ResolveName> Все обработчики отсоединяются от этого события при завершении сеанса. |   | событие <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.SerializationComplete>| <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.SerializationComplete>Событие возникает непосредственно перед завершении сеанса.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.SerializationComplete> </xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.SerializationComplete> Затем все обработчики отсоединяются от этого события. |   | Имя таблицы | Диспетчер сериализации сохраняет таблицу, сопоставляющую объекты и их имена. Сериализаторы могут давать имена объектов для упрощения идентификации. Таблица имен очищается при прекращении сеанса. |   | Кэш сериализатора | Диспетчер сериализации поддерживает кэш попросила предоставить сериализаторов. Этот кэш очищается при прекращении сеанса. Открытый метод <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetSerializer%2A>можно безопасно вызывать в любое время, но его значение кэшируется только в том случае, если она вызывается из сеанса. |   | Стек контекстов | Диспетчер сериализации сохраняет объект с именем стек контекста, к которому можно получить с помощью <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Context%2A>свойство.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Context%2A> </xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetSerializer%2A> Сериализаторы используют этот стек для хранения дополнительной информации, которая доступна для других сериализаторов. Например сериализатор, который сериализации значения свойства можно передать имя свойства в стек сериализации перед запросом значение для сериализации. Стек удаляется при завершении сеанса. |   | Список ошибок | Диспетчер сериализации сохраняет список ошибок, возникших во время сериализации. Этот список, доступный через <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.Errors%2A>свойство очищается при завершении сеанса.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.Errors%2A> Доступ к <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.Errors%2A>свойство между сеансами приведет к возникновению исключения. |</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.Errors%2A>"
   syntax:
     content: 'public class DesignerSerializationManager : IServiceProvider, System.ComponentModel.Design.Serialization.IDesignerSerializationManager'
   inheritance:
@@ -64,8 +64,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerSerializationManager&quot;></xref> class."
-  remarks: "This constructor sets the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.PreserveNames%2A> and <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.ValidateRecycledTypes%2A> properties to `true`."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerSerializationManager&quot;> </xref> класса."
+  remarks: "Этот конструктор задает <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.PreserveNames%2A>и <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.ValidateRecycledTypes%2A>Свойства `true`.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.ValidateRecycledTypes%2A> </xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.PreserveNames%2A>"
   syntax:
     content: public DesignerSerializationManager ();
     parameters: []
@@ -85,19 +85,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerSerializationManager&quot;></xref> class with the given service provider."
-  remarks: "If a serializer requests services that cannot be satisfied by the serialization manager, the default implementation will forward those requests to the `provider` parameter.       This constructor sets the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.PreserveNames%2A> and <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.ValidateRecycledTypes%2A> properties to `true`."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerSerializationManager&quot;> </xref> класса с помощью данного поставщика услуг."
+  remarks: "Если сериализатор вызывает службы, которые не могут быть удовлетворены диспетчер сериализации, реализация по умолчанию будет пересылать их `provider` параметра.       Этот конструктор задает <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.PreserveNames%2A>и <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.ValidateRecycledTypes%2A>Свойства `true`.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.ValidateRecycledTypes%2A> </xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.PreserveNames%2A>"
   syntax:
     content: public DesignerSerializationManager (IServiceProvider provider);
     parameters:
     - id: provider
       type: System.IServiceProvider
-      description: "An <xref:System.IServiceProvider>."
+      description: "An <xref:System.IServiceProvider>.</xref:System.IServiceProvider>"
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>provider</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.Container
@@ -112,18 +112,18 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets or sets to the container for this serialization manager."
-  remarks: "If a container exists, all components that are created by the serialization manager will be added to the container. The default implementation of this property will search the service provider for an <xref:System.ComponentModel.Design.IDesignerHost> and use the container provided by the designer host, should one exist. Otherwise, this property will return `null` and no components will be added to a container."
+  summary: "Возвращает или задает контейнер для этого диспетчера сериализации."
+  remarks: "Если контейнер существует, все компоненты, которые создаются диспетчером сериализации добавляется в контейнер. Реализация по умолчанию этого свойства будет выполнять поиск поставщика услуг для <xref:System.ComponentModel.Design.IDesignerHost>и использовать контейнер, указанный узлом конструктора, он существует.</xref:System.ComponentModel.Design.IDesignerHost> В противном случае это свойство будет возвращать `null` и компоненты не будут добавлены в контейнер."
   syntax:
     content: public System.ComponentModel.IContainer Container { get; set; }
     return:
       type: System.ComponentModel.IContainer
-      description: "The <xref href=&quot;System.ComponentModel.IContainer&quot;></xref> to which the serialization manager will add components."
+      description: "<xref href=&quot;System.ComponentModel.IContainer&quot;> </xref> К которому диспетчер сериализации будет добавлять компоненты."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.Container*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The serialization manager has an active serialization session."
+    description: "У диспетчера сериализации есть активный сеанс сериализации."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance(System.Type,System.Collections.ICollection,System.String,System.Boolean)
@@ -138,31 +138,31 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Creates an instance of a type."
-  remarks: "This method is called by serializers when they attempt to create an instance of a type. The default implementation creates a new instance of the type, or it may return an existing instance depending on the values of the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.PreserveNames%2A> and <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.RecycleInstances%2A> properties. The <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance%2A> method uses reflection to create instances and will perform some generic <xref:System.IConvertible> transformations on parameters to find a matching constructor."
+  summary: "Создает экземпляр типа."
+  remarks: "Этот метод вызывается сериализаторами при попытке создать экземпляр типа. Реализация по умолчанию создает новый экземпляр типа, а также может возвращать экземпляр в зависимости от значения <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.PreserveNames%2A>и <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.RecycleInstances%2A>Свойства.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.RecycleInstances%2A> </xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.PreserveNames%2A> <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance%2A>Метод использует отражение для создания экземпляров и выполнит некоторые универсальные <xref:System.IConvertible>преобразования параметров с целью найти соответствующий конструктор.</xref:System.IConvertible> </xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance%2A>"
   syntax:
     content: protected virtual object CreateInstance (Type type, System.Collections.ICollection arguments, string name, bool addToContainer);
     parameters:
     - id: type
       type: System.Type
-      description: "The type to create an instance of."
+      description: "Тип создаваемого экземпляра."
     - id: arguments
       type: System.Collections.ICollection
-      description: "The parameters of the type’s constructor. This can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty collection to invoke the default constructor."
+      description: "Параметры конструктора типа. Это может быть <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> или пустая коллекция для вызова конструктора по умолчанию."
     - id: name
       type: System.String
-      description: "A name to give the object. If <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the object will not be given a name, unless the object is added to a container and the container gives the object a name."
+      description: "Имя объекта. Если <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, объект не будет иметь имя, если объект добавляется в контейнер, и ему имя."
     - id: addToContainer
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to add the object to the container if the object implements <xref href=&quot;System.ComponentModel.IComponent&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Чтобы добавить объект в контейнер, если объект реализует <xref href=&quot;System.ComponentModel.IComponent&quot;> </xref>; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Object
-      description: "A new instance of the type specified by <code>type</code>."
+      description: "Новый экземпляр типа, заданного параметром <code> type </code>."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*
   exceptions:
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: "<code>type</code> does not have a constructor that takes parameters contained in <code>arguments</code>."
+    description: "<code>type</code>не имеет конструктор, который принимает параметры, содержащиеся в <code>arguments</code>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateSession
@@ -177,19 +177,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Creates a new serialization session."
-  remarks: "Most data within the serialization manager is transient and only lives for the life of a serialization session. When a session is disposed, serialization is considered to be complete and this transient state is cleared. This allows a single instance of a serialization manager to be used to serialize multiple object trees. Some state, including the service provider and any custom serialization providers that were added to the serialization manager, span sessions."
+  summary: "Создает новый сеанс сериализации."
+  remarks: "Большинство данных в диспетчер сериализации является временным и существует только в течение сеанса сериализации. При завершении сеанса, будет считаться завершенной сериализации, и это переходное состояние очищается. Это позволяет использовать экземпляр диспетчера сериализации для сериализации нескольких деревьев объектов. Некоторые состояния, включая поставщика служб и любых поставщиков пользовательской сериализации, которые были добавлены в диспетчер сериализации, заполняют сеансы."
   syntax:
     content: public IDisposable CreateSession ();
     parameters: []
     return:
       type: System.IDisposable
-      description: "An <xref:System.IDisposable> that represents a new serialization session."
+      description: "<xref:System.IDisposable>, Представляющий новый сеанс сериализации.</xref:System.IDisposable>"
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateSession*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The serialization manager is already within a session. This version of <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerSerializationManager&quot;></xref> does not support simultaneous sessions."
+    description: "Диспетчер сериализации уже находится в сеансе. Эта версия <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerSerializationManager&quot;> </xref> не поддерживает одновременные сеансы."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.Errors
@@ -204,18 +204,18 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the list of errors that occurred during serialization or deserialization."
-  remarks: "You can only read the error list while a serialization session is active."
+  summary: "Получает список ошибок, возникших во время сериализации или десериализации."
+  remarks: "Доступен только для чтения список ошибок во время активного сеанса сериализации."
   syntax:
     content: public System.Collections.IList Errors { get; }
     return:
       type: System.Collections.IList
-      description: "The list of errors that occurred during serialization or deserialization."
+      description: "Список ошибок, возникших во время сериализации или десериализации."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.Errors*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This property was accessed outside of a serialization session."
+    description: "Доступ к этому свойству был вне сеанса сериализации."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetRuntimeType(System.String)
@@ -230,16 +230,16 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the type corresponding to the specified type name."
+  summary: "Возвращает тип, соответствующий имени указанного типа."
   syntax:
     content: public Type GetRuntimeType (string typeName);
     parameters:
     - id: typeName
       type: System.String
-      description: "The name of the type to get."
+      description: "Имя извлекаемого типа."
     return:
       type: System.Type
-      description: "The specified type."
+      description: "Указанный тип."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetRuntimeType*
   exceptions: []
   platform:
@@ -256,25 +256,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the serializer for the given object type."
-  remarks: "You can request the type of serializer you would like. This method returns `null` if there is no serializer of the requested type for the specified object type."
+  summary: "Возвращает сериализатор для данного типа объекта."
+  remarks: "Можно запросить тип сериализатора, которой вы хотите создать. Этот метод возвращает `null` Если сериализатор запрошенного типа для указанного типа объекта."
   syntax:
     content: public object GetSerializer (Type objectType, Type serializerType);
     parameters:
     - id: objectType
       type: System.Type
-      description: "The type of object for which to retrieve the serializer."
+      description: "Тип объекта, для которого необходимо получить сериализатор."
     - id: serializerType
       type: System.Type
-      description: "The type of serializer to retrieve."
+      description: "Тип получаемого сериализатора."
     return:
       type: System.Object
-      description: "The serializer for <code>objectType</code>, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, if not found."
+      description: "Сериализатор для <code> objectType </code>, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, если не найден."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetSerializer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>objectType</code> or <code>serializerType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>objectType</code>or <code>serializerType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetService(System.Type)
@@ -289,17 +289,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the requested service."
-  remarks: "The GetService method provides access to the underlying container or service provider that was set in the constructor."
+  summary: "Возвращает запрашиваемую службу."
+  remarks: "Метод GetService предоставляет доступ к базового контейнера или поставщика услуг, который был задан в конструкторе."
   syntax:
     content: protected virtual object GetService (Type serviceType);
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of service to retrieve."
+      description: "Тип возвращаемой службы."
     return:
       type: System.Object
-      description: "The requested service, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the service cannot be resolved."
+      description: "Запрошенную службу, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если службу не удается разрешить."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetService*
   exceptions: []
   platform:
@@ -316,17 +316,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the requested type."
-  remarks: "The <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetType%2A> method will search the service provider for an <xref:System.ComponentModel.Design.ITypeResolutionService> and, if available, it will delegate to that service to resolve the type. If an <xref:System.ComponentModel.Design.ITypeResolutionService> is not available, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetType%2A> will call the <xref:System.Object.GetType%2A?displayProperty=fullName> method."
+  summary: "Возвращает запрошенный тип."
+  remarks: "<xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetType%2A>Метод выполняет поиск поставщика услуг для <xref:System.ComponentModel.Design.ITypeResolutionService>и, при его наличии она будет Делегировать эту службу для разрешения типа.</xref:System.ComponentModel.Design.ITypeResolutionService> </xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetType%2A> Если <xref:System.ComponentModel.Design.ITypeResolutionService>недоступно, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetType%2A>вызовет <xref:System.Object.GetType%2A?displayProperty=fullName>метод.</xref:System.Object.GetType%2A?displayProperty=fullName> </xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetType%2A> </xref:System.ComponentModel.Design.ITypeResolutionService>"
   syntax:
     content: protected virtual Type GetType (string typeName);
     parameters:
     - id: typeName
       type: System.String
-      description: "The name of the type to retrieve."
+      description: "Имя извлекаемого типа."
     return:
       type: System.Type
-      description: "The requested type, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the type cannot be resolved."
+      description: "Запрошенный тип или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если тип не может быть разрешена."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetType*
   exceptions: []
   platform:
@@ -343,14 +343,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Raises the <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ResolveName&quot;></xref> event."
-  remarks: "Raising an event invokes the event handler through a delegate. For more information, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The OnResolveName method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Вызывает <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ResolveName&quot;> </xref> событий."
+  remarks: "При возникновении события вызывается обработчик события в делегате. Дополнительные сведения см. в разделе [NIB: при возникновении события](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       Метод OnResolveName также позволяет производным классам обрабатывать событие, не присоединяя делегат. Это предпочтительная методика обработки событий в производном классе."
   syntax:
     content: protected virtual void OnResolveName (System.ComponentModel.Design.Serialization.ResolveNameEventArgs e);
     parameters:
     - id: e
       type: System.ComponentModel.Design.Serialization.ResolveNameEventArgs
-      description: "A <xref href=&quot;System.ComponentModel.Design.Serialization.ResolveNameEventArgs&quot;></xref> that contains the event data."
+      description: "Объект <xref href=&quot;System.ComponentModel.Design.Serialization.ResolveNameEventArgs&quot;> </xref> , содержащий данные события."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.OnResolveName*
   exceptions: []
   platform:
@@ -367,14 +367,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Raises the <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerSerializationManager.SessionCreated&quot;></xref> event."
-  remarks: "Raising an event invokes the event handler through a delegate. For more information, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The OnSessionCreated method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Вызывает <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerSerializationManager.SessionCreated&quot;> </xref> событий."
+  remarks: "При возникновении события вызывается обработчик события в делегате. Дополнительные сведения см. в разделе [NIB: при возникновении события](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       Метод OnSessionCreated также позволяет производным классам обрабатывать событие, не присоединяя делегат. Это предпочтительная методика обработки событий в производном классе."
   syntax:
     content: protected virtual void OnSessionCreated (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data."
+      description: "<xref:System.EventArgs>, Содержащий данные события.</xref:System.EventArgs>"
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.OnSessionCreated*
   exceptions: []
   platform:
@@ -391,14 +391,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Raises the <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerSerializationManager.SessionDisposed&quot;></xref> event."
-  remarks: "Raising an event invokes the event handler through a delegate. For more information, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The OnSessionDisposed method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Вызывает <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerSerializationManager.SessionDisposed&quot;> </xref> событий."
+  remarks: "При возникновении события вызывается обработчик события в делегате. Дополнительные сведения см. в разделе [NIB: при возникновении события](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       Метод OnSessionDisposed также позволяет производным классам обрабатывать событие, не присоединяя делегат. Это предпочтительная методика обработки событий в производном классе."
   syntax:
     content: protected virtual void OnSessionDisposed (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data."
+      description: "<xref:System.EventArgs>, Содержащий данные события.</xref:System.EventArgs>"
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.OnSessionDisposed*
   exceptions: []
   platform:
@@ -415,18 +415,18 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets or sets a value indicating whether the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*> method should check for the presence of the given name in the container."
-  remarks: "The PreserveNames property determines the behavior of the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> method. If `true`, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> will pass the given component name. If `false`, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> will check for the presence of the given name in the container. If the name does not exist in the container, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> will use the given name. If the name does exist in the container, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> will pass a null value as the name of a component when adding it to the container, thereby giving it a new name. This second variation is useful for implementing a serializer that always duplicates objects, rather than assuming those objects do not exist. Paste commands often use this type of serializer.       You can only change this property when you are not in a serialization session."
+  summary: "Возвращает или задает значение, указывающее, является ли <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*>метод должен проверить наличие с заданным именем в контейнере.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*>"
+  remarks: "Свойство PreserveNames определяет поведение <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A>метод.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> Если `true`, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A>передает имя данного компонента.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> Если `false`, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A>будет проверять наличие с заданным именем в контейнере.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> Если имя не существует в контейнере, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A>будет использовать заданное имя.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> Если имя существует в контейнере, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A>при его добавлении к контейнеру, тем самым предоставляя ему новое имя будет передавать значение null как имя компонента.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> Второй вариант полезен для реализации сериализатора, который всегда копирует объекты, а не при условии, что эти объекты не существуют. Этот тип сериализатора часто используется командами вставки.       Это свойство можно изменять только в том случае, когда вы находитесь не в сеанс сериализации."
   syntax:
     content: public bool PreserveNames { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*> will pass the given component name; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*> will check for the presence of the given name in the container. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <> </> *настроек передает имя данного компонента; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Если <> </> *настроек проверит наличие с заданным именем в контейнере. Значение по умолчанию — <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.PreserveNames*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This property was changed from within a serialization session."
+    description: "Это свойство было изменено вне сеанса сериализации."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.PropertyProvider
@@ -441,13 +441,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the object that should be used to provide properties to the serialization manager&quot;s <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties*> property."
-  remarks: "The PropertyProvider property provides a way to give the serialization manager a set of serialization properties that serializers can use to guide their behavior.       This object&quot;s public properties will be inspected and wrapped in new property descriptors that have a target object of the serialization manager."
+  summary: "Возвращает объект, который должен использоваться для предоставления свойств диспетчера сериализации с помощью <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties*>свойство.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties*>"
+  remarks: "Свойство PropertyProvider предоставляет способ для предоставления набор свойств сериализации, используемые сериализаторы вспомогательными их поведение диспетчера сериализации.       Открытые свойства этого объекта будет проверен и помещаются в новые дескрипторы свойств, имеющих целевой объект диспетчера сериализации."
   syntax:
     content: public object PropertyProvider { get; set; }
     return:
       type: System.Object
-      description: "The object that should be used to provide properties to the serialization manager&quot;s <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties*> property."
+      description: "Объект, который должен использоваться для предоставления свойств диспетчера сериализации с помощью <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties*>свойство.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties*>"
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.PropertyProvider*
   exceptions: []
   platform:
@@ -464,18 +464,18 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets or sets a flag indicating whether <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*> will always create a new instance of a type."
-  remarks: "If the RecycleInstances property is `false`, the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> method will always create a new instance of a type. If RecycleInstances is `true`, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> will first search the name table and container for an object of the same name. If such an object exists and is of the same type, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> will return the existing instance. This second variation is useful for implementing a serializer that applies serialization state to an existing set of objects, rather than always creating a new tree. The **Undo** command often uses this type of serializer.       In the case where the RecycleInstances property is `true`, the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.ValidateRecycledTypes%2A> property will further modify the behavior of <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> depending on the types of the two objects."
+  summary: "Возвращает или задает флаг, указывающий, является ли <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*>создаст новый экземпляр типа.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*>"
+  remarks: "Если свойство RecycleInstances `false`, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A>метод всегда создает новый экземпляр типа.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> Если RecycleInstances `true`, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A>сначала выполняет поиск таблицы имен и контейнер для объекта с таким же именем.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> Если такой объект существует и имеет тот же тип, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A>возвращает существующий экземпляр.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> Второй вариант полезен для реализации сериализатора, который применяет состояние сериализации к существующему набору объектов, а не всегда создавая новое дерево. **Отменить** команда часто использует этот тип сериализатора.       В случае, когда свойство RecycleInstances является `true`, <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.ValidateRecycledTypes%2A>свойство будет изменять поведение <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A>в зависимости от типов двух объектов.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> </xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.ValidateRecycledTypes%2A>"
   syntax:
     content: public bool RecycleInstances { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*> will return the existing instance; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*> will create a new instance of a type. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <> </> *настроек вернет существующего экземпляра; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Если <> </> *настроек создаст новый экземпляр типа. Значение по умолчанию — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.RecycleInstances*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The serialization manager has an active serialization session."
+    description: "У диспетчера сериализации есть активный сеанс сериализации."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.SessionCreated
@@ -490,12 +490,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Occurs when a session is created."
+  summary: "Происходит при создании сеанса."
   syntax:
     content: public event EventHandler SessionCreated;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -511,12 +511,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Occurs when a session is disposed."
+  summary: "Происходит при завершении сеанса."
   syntax:
     content: public event EventHandler SessionDisposed;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -533,14 +533,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Adds a custom serialization provider to the serialization manager."
-  remarks: "When the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetSerializer%2A> method is used to request a serialization provider, the serialization manager queries the custom serialization providers first before looking in the type&quot;s metadata for the appropriate serializer."
+  summary: "Добавляет диспетчеру сериализации пользовательский поставщик сериализации."
+  remarks: "Когда <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetSerializer%2A>метод используется для запроса поставщик сериализации, диспетчер сериализации вывод списка поставщиков пользовательской сериализации, сначала перед поиск в метаданных типа соответствующий сериализатор.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.GetSerializer%2A>"
   syntax:
     content: void IDesignerSerializationManager.AddSerializationProvider (System.ComponentModel.Design.Serialization.IDesignerSerializationProvider provider);
     parameters:
     - id: provider
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationProvider
-      description: "The serialization provider to add."
+      description: "Чтобы добавить поставщик сериализации."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#AddSerializationProvider*
   exceptions: []
   platform:
@@ -558,18 +558,18 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the context stack for this serialization session."
-  remarks: "A context stack provides a user-defined storage area, implemented as a stack. This storage area is a useful way to provide communication across serializers, as serialization is a generally hierarchical process."
+  summary: "Возвращает стек контекста для этого сеанса сериализации."
+  remarks: "Стек контекстов предоставляет область памяти, определяемые пользователем, реализованную в виде стека. Эта область памяти является удобным способом для обеспечения связи между сериализаторами является иерархическим процесса сериализации."
   syntax:
     content: System.ComponentModel.Design.Serialization.ContextStack System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Context { get; }
     return:
       type: System.ComponentModel.Design.Serialization.ContextStack
-      description: "A <xref href=&quot;System.ComponentModel.Design.Serialization.ContextStack&quot;></xref> that stores data."
+      description: "Объект <xref href=&quot;System.ComponentModel.Design.Serialization.ContextStack&quot;> </xref> , сохраняет данные."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#Context*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This property was accessed outside of a serialization session."
+    description: "Доступ к этому свойству был вне сеанса сериализации."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#CreateInstance(System.Type,System.Collections.ICollection,System.String,System.Boolean)
@@ -585,25 +585,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Implements the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance*> method."
+  summary: "Реализует <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance*>метод.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance*>"
   syntax:
     content: object IDesignerSerializationManager.CreateInstance (Type type, System.Collections.ICollection arguments, string name, bool addToContainer);
     parameters:
     - id: type
       type: System.Type
-      description: "The data type to create."
+      description: "Чтобы создать тип данных."
     - id: arguments
       type: System.Collections.ICollection
-      description: "The arguments to pass to the constructor for this type."
+      description: "Аргументы для передачи в конструктор для этого типа."
     - id: name
       type: System.String
-      description: "The name of the object. This name can be used to access the object later through <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance*>. If <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> is passed, the object is still created but cannot be accessed by name."
+      description: "Имя объекта. Это имя может использоваться для доступа к объекту позже через <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance*>.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance*> Если <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> будет передан, объект по-прежнему создается, но не может быть доступен по имени."
     - id: addToContainer
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to add this object to the design container. The object must implement <xref href=&quot;System.ComponentModel.IComponent&quot;></xref> for this to have any effect."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>для добавления этого объекта в контейнер конструктора. Объект должен реализовать <xref href=&quot;System.ComponentModel.IComponent&quot;> </xref> для этого в действие."
     return:
       type: System.Object
-      description: "The newly created object instance."
+      description: "Вновь созданный экземпляр объекта."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#CreateInstance*
   exceptions: []
   platform:
@@ -621,24 +621,24 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Retrieves an instance of a created object of the specified name."
+  summary: "Извлекает экземпляр созданного объекта с указанным именем."
   syntax:
     content: object IDesignerSerializationManager.GetInstance (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the object to retrieve."
+      description: "Имя извлекаемого объекта."
     return:
       type: System.Object
-      description: "An instance of the object with the given name, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no object by that name can be found."
+      description: "Экземпляр объекта с заданным именем или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если ни один объект с таким именем не найден."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#GetInstance*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This property was accessed outside of a serialization session."
+    description: "Доступ к этому свойству был вне сеанса сериализации."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#GetName(System.Object)
@@ -654,25 +654,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Retrieves a name for the specified object."
-  remarks: "If the IDesignerSerializationManager.GetName method cannot find a corresponding name for the `value` parameter, it raises the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ResolveName> event before it returns `null`."
+  summary: "Возвращает имя указанного объекта."
+  remarks: "Если метод IDesignerSerializationManager.GetName не удается найти соответствующее имя для `value` параметр, он выдает <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ResolveName>событий, прежде чем вернуть `null`.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ResolveName>"
   syntax:
     content: string IDesignerSerializationManager.GetName (object value);
     parameters:
     - id: value
       type: System.Object
-      description: "The object for which to retrieve the name."
+      description: "Объект, для которого требуется получить имя."
     return:
       type: System.String
-      description: "The name of the object, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the object is unnamed."
+      description: "Имя объекта, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если у объекта нет имени."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#GetName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>value</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This property was accessed outside of a serialization session."
+    description: "Доступ к этому свойству был вне сеанса сериализации."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#GetSerializer(System.Type,System.Type)
@@ -688,19 +688,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a serializer of the requested type for the specified object type."
+  summary: "Возвращает сериализатор запрошенного типа для указанного типа объекта."
   syntax:
     content: object IDesignerSerializationManager.GetSerializer (Type objectType, Type serializerType);
     parameters:
     - id: objectType
       type: System.Type
-      description: "The type of the object to get the serializer for."
+      description: "Тип объекта для получения сериализатора."
     - id: serializerType
       type: System.Type
-      description: "The type of the serializer to retrieve."
+      description: "Тип получаемого сериализатора."
     return:
       type: System.Object
-      description: "An instance of the requested serializer, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no appropriate serializer can be located."
+      description: "Экземпляр запрошенного типа или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если соответствующий сериализатор не может размещаться на компьютере."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#GetSerializer*
   exceptions: []
   platform:
@@ -718,21 +718,21 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a type of the specified name."
+  summary: "Возвращает тип с указанным именем."
   syntax:
     content: Type IDesignerSerializationManager.GetType (string typeName);
     parameters:
     - id: typeName
       type: System.String
-      description: "The fully qualified name of the type to load."
+      description: "Полное имя типа для загрузки."
     return:
       type: System.Type
-      description: "An instance of the type, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the type cannot be loaded."
+      description: "Экземпляр типа, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если невозможно загрузить тип."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#GetType*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This property was accessed outside of a serialization session."
+    description: "Доступ к этому свойству был вне сеанса сериализации."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#Properties
@@ -748,12 +748,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Implements the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties*> property."
+  summary: "Реализует <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties*>свойство.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties*>"
   syntax:
     content: System.ComponentModel.PropertyDescriptorCollection System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties { get; }
     return:
       type: System.ComponentModel.PropertyDescriptorCollection
-      description: "A <xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;></xref> containing the properties to be serialized."
+      description: "Объект <xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;> </xref> содержащий свойства для сериализации."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#Properties*
   exceptions: []
   platform:
@@ -771,14 +771,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Removes a previously added serialization provider."
-  remarks: "The IDesignerSerializationManager.RemoveSerializationProvider method removes a custom serialization provider that was previously added by a call to the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.System%23ComponentModel%23Design%23Serialization%23IDesignerSerializationManager%23AddSerializationProvider%2A> method."
+  summary: "Удаляет ранее добавленный сериализации поставщика."
+  remarks: "Метод IDesignerSerializationManager.RemoveSerializationProvider удаляет пользовательский поставщик сериализации, добавленной ранее с помощью вызова <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.System%23ComponentModel%23Design%23Serialization%23IDesignerSerializationManager%23AddSerializationProvider%2A>метод.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.System%23ComponentModel%23Design%23Serialization%23IDesignerSerializationManager%23AddSerializationProvider%2A>"
   syntax:
     content: void IDesignerSerializationManager.RemoveSerializationProvider (System.ComponentModel.Design.Serialization.IDesignerSerializationProvider provider);
     parameters:
     - id: provider
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationProvider
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationProvider&quot;></xref> to remove."
+      description: "<xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationProvider&quot;> </xref> Для удаления."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#RemoveSerializationProvider*
   exceptions: []
   platform:
@@ -796,19 +796,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Used to report a recoverable error in serialization."
-  remarks: "Serializers can be written to handle recoverable errors gracefully by calling the IDesignerSerializationManager.ReportError method with the error information. The serialization manager may support reporting a list of errors after it completes, or it may throw an exception from this method and abort the serialization process. The serializer should continue after calling this function.       IDesignerSerializationManager.ReportError adds the `errorInformation` parameter to the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.Errors%2A> collection. If `errorInformation` is `null`, no action is taken."
+  summary: "Используемый для передачи устранимая ошибка в сериализации."
+  remarks: "Сериализаторы могут быть написаны правильно обработать устранимой ошибки путем вызова метода IDesignerSerializationManager.ReportError сведениями об ошибках. Диспетчер сериализации поддерживает отчетов список ошибок, после ее завершения, или он может вызывать исключение из этого метода и прерывает процесс сериализации. Сериализатор возобновляет работу после вызова этой функции.       Добавляет IDesignerSerializationManager.ReportError `errorInformation` параметр <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.Errors%2A>коллекции.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.Errors%2A> Если `errorInformation` — `null`, никакие действия не выполняются."
   syntax:
     content: void IDesignerSerializationManager.ReportError (object errorInformation);
     parameters:
     - id: errorInformation
       type: System.Object
-      description: "An object containing the error information, usually of type <xref:System.String> or <xref:System.Exception>."
+      description: "Объект, содержащий сведения об ошибке, обычно из типа <xref:System.String>или <xref:System.Exception>.</xref:System.Exception> </xref:System.String>"
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#ReportError*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This property was accessed outside of a serialization session."
+    description: "Доступ к этому свойству был вне сеанса сериализации."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#SetName(System.Object,System.String)
@@ -824,28 +824,28 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Sets the name for the specified object."
-  remarks: "The IDesignerSerializationManager.SetName method provides a way to set the name of an existing object. This enables creation of an instance of the object through a call to the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.System%23ComponentModel%23Design%23Serialization%23IDesignerSerializationManager%23GetInstance%2A> method, avoiding the overhead of the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> method."
+  summary: "Задает имя для указанного объекта."
+  remarks: "Метод IDesignerSerializationManager.SetName предоставляет способ задания имени существующего объекта. Это позволяет создать экземпляр объекта путем вызова <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.System%23ComponentModel%23Design%23Serialization%23IDesignerSerializationManager%23GetInstance%2A>метод, что позволяет избежать <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A>метод.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> </xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.System%23ComponentModel%23Design%23Serialization%23IDesignerSerializationManager%23GetInstance%2A>"
   syntax:
     content: void IDesignerSerializationManager.SetName (object instance, string name);
     parameters:
     - id: instance
       type: System.Object
-      description: "The object to set the name."
+      description: "Объект, чтобы задать имя."
     - id: name
       type: System.String
-      description: "A <xref:System.String> used as the name of the object."
+      description: "Объект <xref:System.String>используется в качестве имени объекта.</xref:System.String>"
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#ComponentModel#Design#Serialization#IDesignerSerializationManager#SetName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "One or both of the parameters are <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Один или оба параметра, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The object specified by instance already has a name, or <code>name</code> is already used by another named object."
+    description: "Объект, указанный экземпляр уже имеет имя, или <code> name </code> уже используется другим именованным объектом."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This property was accessed outside of a serialization session."
+    description: "Доступ к этому свойству был вне сеанса сериализации."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#IServiceProvider#GetService(System.Type)
@@ -861,17 +861,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "For a description of this member, see the <xref:System.IServiceProvider.GetService*> method."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager> instance is cast to an <xref:System.IServiceProvider> interface."
+  summary: "Описание этого члена см. в разделе <xref:System.IServiceProvider.GetService*>метод.</xref:System.IServiceProvider.GetService*>"
+  remarks: "Этот член представляет явную реализацию члена интерфейса. Он может использоваться только если <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager>экземпляр приводится к <xref:System.IServiceProvider>интерфейс.</xref:System.IServiceProvider> </xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager>"
   syntax:
     content: object IServiceProvider.GetService (Type serviceType);
     parameters:
     - id: serviceType
       type: System.Type
-      description: "An object that specifies the type of service object to get."
+      description: "Объект, указывающий тип получаемого объекта службы."
     return:
       type: System.Object
-      description: "A service object of type <code>serviceType</code>.       -or-       <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no service object of type <code>serviceType</code>."
+      description: "Объект службы типа <code> serviceType </code>.       - или - <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если отсутствует объект службы типа <code> serviceType </code>."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.System#IServiceProvider#GetService*
   exceptions: []
   platform:
@@ -888,18 +888,18 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets or sets a flag indicating whether the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*> method will verify that matching names refer to the same type."
-  remarks: "The ValidateRecycledTypes property modifies the behavior of the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A> method when the <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.RecycleInstances%2A> property is `true`, as detailed in the following table.      |`RecycleInstances`|`ValidateRecycledTypes`|Behavior of `CreateInstance`|   |------------------------|-----------------------------|----------------------------------|   |`false`|`true` or `false`|Always create a new instance of the specified type|   |`true`|`false`|If a matching instance is found it is returned, regardless of its type.|   |`true`|`true`|If a matching instance is found, it is returned only if its type is the same as specified in the method call.|       ValidateRecycledTypes is useful for morphing one type of object to another if they have similar properties but share no common parent or interface."
+  summary: "Возвращает или задает флаг, указывающий, является ли <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*>метод убедитесь, что соответствующие имена ссылаются на тот же тип.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*>"
+  remarks: "Свойство ValidateRecycledTypes изменяет поведение <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A>метод при <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.RecycleInstances%2A>свойство `true`, как описано в следующей таблице.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.RecycleInstances%2A> </xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance%2A>      | `RecycleInstances`|`ValidateRecycledTypes`| Поведение `CreateInstance`|   |------------------------|-----------------------------|----------------------------------|   | `false`|`true` or `false`| Всегда создавать новый экземпляр заданного типа |   | `true`|`false`| Если найден подходящий экземпляр возвращается, независимо от его типа. |   | `true`|`true`| Если найден соответствующий экземпляр, он возвращается только в том случае, если его тип является таким же, как указано в вызове метода. |       ValidateRecycledTypes полезен для трансформация одного типа к другому, если они имеют похожие свойства, но совместно использовать интерфейс ни одного родительского элемента."
   syntax:
     content: public bool ValidateRecycledTypes { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*> verifies types; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if it does not. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*>проверяет типы; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Если это не так.</xref:System.ComponentModel.Design.Serialization.DesignerSerializationManager.CreateInstance*> Значение по умолчанию — <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Serialization.DesignerSerializationManager.ValidateRecycledTypes*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The serialization manager has an active serialization session."
+    description: "У диспетчера сериализации есть активный сеанс сериализации."
   platform:
   - net462
 references:

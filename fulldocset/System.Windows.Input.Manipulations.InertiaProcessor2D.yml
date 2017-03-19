@@ -21,8 +21,8 @@ items:
   nameWithType: InertiaProcessor2D
   fullName: System.Windows.Input.Manipulations.InertiaProcessor2D
   type: Class
-  summary: "Implements the extrapolation of a manipulation&quot;s position, orientation, and average radius."
-  remarks: "An InertiaProcessor2D object enables your application to extrapolate an element&quot;s location, orientation, and other properties by simulating real-world behavior.       For instance, when a user moves an element and then releases it, the element can continue moving, decelerate, and then slowly stop. An inertia processor implements this behavior by causing the affine 2-D values (origin, scale, translation, and rotation) to change over a specified time at a specified deceleration rate.       An inertia processor by itself does not cause an element to move and decelerate. Your application receives information from an inertia processor and applies the values as needed to an application-specific element. Typically, an application uses the information received from an inertia processor to change the location, size or orientation of an element.       Inertia processing is typically used in conjunction with manipulation processing. For more information, see the <xref:System.Windows.Input.Manipulations.ManipulationProcessor2D> class."
+  summary: "Реализует экстраполяции позицию, ориентацию и средний радиус манипуляции."
+  remarks: "Объект InertiaProcessor2D позволяет вашему приложению экстраполировать элемента в расположение, ориентацию и другие свойства, имитируя поведение реального мира.       Для экземпляра когда пользователь перемещает элемент, а затем освобождает, элемент можно продолжить движение, замедлением и затем медленно остановиться. Обработчик инерции реализует это поведение, вызывая аффинных двумерных значений (источник, масштаба, трансляции и поворота) изменяется в течение указанного времени с заданной скоростью замедления.       Обработчик инерции сам по себе не вызывает перемещение и замедление элемента. Приложение получает данные от процессора инерции и применяет значения, при необходимости к элементу конкретного приложения. Как правило приложение использует данные, полученные от процессора инерции для изменения расположения, размера или ориентации элемента.       Обработка инерции обычно используется в сочетании с обработкой манипуляции. Дополнительные сведения см. в разделе <xref:System.Windows.Input.Manipulations.ManipulationProcessor2D>класса.</xref:System.Windows.Input.Manipulations.ManipulationProcessor2D>"
   syntax:
     content: public class InertiaProcessor2D
   inheritance:
@@ -43,7 +43,7 @@ items:
   assemblies:
   - System.Windows.Input.Manipulations
   namespace: System.Windows.Input.Manipulations
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Input.Manipulations.InertiaProcessor2D&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Windows.Input.Manipulations.InertiaProcessor2D&quot;> </xref> класса."
   syntax:
     content: public InertiaProcessor2D ();
     parameters: []
@@ -63,8 +63,8 @@ items:
   assemblies:
   - System.Windows.Input.Manipulations
   namespace: System.Windows.Input.Manipulations
-  summary: "Completes final extrapolation by using the specified timestamp and raises the <xref href=&quot;System.Windows.Input.Manipulations.InertiaProcessor2D.Completed&quot;></xref> event."
-  remarks: "Timestamps are in 100-nanosecond units."
+  summary: "Завершает последний экстраполяции с помощью указанной метки времени и вызывает <xref href=&quot;System.Windows.Input.Manipulations.InertiaProcessor2D.Completed&quot;> </xref> событий."
+  remarks: "Метки времени измеряются в 100 нс."
   example:
   - "In the following example, an event handler for the <xref:System.Windows.Input.Manipulations.ManipulationProcessor2D.Started?displayProperty=fullName> event checks to see if inertia processing is running and if so, stops it by calling the Complete method.  \n  \n [!code-cs[ManipulationAPI#_ManipulationItem_OnManipulationStarted](~/add/codesnippet/csharp/build/manipulationitem.xaml.cs#_manipulationitem_onmanipulationstarted)]  \n  \n [!code-cs[ManipulationAPI#_ManipulationItem_Timestamp](~/add/codesnippet/csharp/build/manipulationitem.xaml.cs#_manipulationitem_timestamp)]"
   syntax:
@@ -72,12 +72,12 @@ items:
     parameters:
     - id: timestamp
       type: System.Int64
-      description: "The timestamp to complete extrapolation, in 100-nanosecond ticks."
+      description: "Отметка времени завершения экстраполяции в 100-наносекундных тактов."
   overload: System.Windows.Input.Manipulations.InertiaProcessor2D.Complete*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The timestamp parameter is less than the initial or previous timestamp."
+    description: "Параметр отметки времени меньше, чем изначальная или предыдущая отметка."
   platform:
   - net462
 - uid: System.Windows.Input.Manipulations.InertiaProcessor2D.Completed
@@ -92,12 +92,12 @@ items:
   assemblies:
   - System.Windows.Input.Manipulations
   namespace: System.Windows.Input.Manipulations
-  summary: "Occurs when extrapolation has completed."
+  summary: "Происходит при завершении экстраполяции."
   syntax:
     content: public event EventHandler<System.Windows.Input.Manipulations.Manipulation2DCompletedEventArgs> Completed;
     return:
       type: System.EventHandler{System.Windows.Input.Manipulations.Manipulation2DCompletedEventArgs}
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -113,15 +113,15 @@ items:
   assemblies:
   - System.Windows.Input.Manipulations
   namespace: System.Windows.Input.Manipulations
-  summary: "Occurs when the extrapolation origin has changed or when translation, scaling, or rotation have occurred."
-  remarks: "The Delta event and the <xref:System.Windows.Input.Manipulations.ManipulationProcessor2D.Delta?displayProperty=fullName> event are the same type. Typically, you can use the same event handler for both events."
+  summary: "Происходит при изменении источника экстраполяции или после перемещения, масштабирование или поворот."
+  remarks: "Дельта-событие и <xref:System.Windows.Input.Manipulations.ManipulationProcessor2D.Delta?displayProperty=fullName>события относятся к одному типу.</xref:System.Windows.Input.Manipulations.ManipulationProcessor2D.Delta?displayProperty=fullName> Как правило можно использовать один и тот же обработчик событий для обоих событий."
   example:
   - '[!code-cs[ManipulationAPI#_ManipulationItem_OnManipulationOrInertiaDelta](~/add/codesnippet/csharp/build/manipulationitem.xaml.cs#_manipulationitem_onmanipulationorinertiadelta)]'
   syntax:
     content: public event EventHandler<System.Windows.Input.Manipulations.Manipulation2DDeltaEventArgs> Delta;
     return:
       type: System.EventHandler{System.Windows.Input.Manipulations.Manipulation2DDeltaEventArgs}
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -137,12 +137,12 @@ items:
   assemblies:
   - System.Windows.Input.Manipulations
   namespace: System.Windows.Input.Manipulations
-  summary: "Gets or sets the expansion behavior of the inertia processor."
+  summary: "Возвращает или задает поведение расширения для процессора инерции."
   syntax:
     content: public System.Windows.Input.Manipulations.InertiaExpansionBehavior2D ExpansionBehavior { get; set; }
     return:
       type: System.Windows.Input.Manipulations.InertiaExpansionBehavior2D
-      description: "The expansion behavior of the inertia processor."
+      description: "Поведение расширения для процессора инерции."
   overload: System.Windows.Input.Manipulations.InertiaProcessor2D.ExpansionBehavior*
   exceptions: []
   platform:
@@ -159,13 +159,13 @@ items:
   assemblies:
   - System.Windows.Input.Manipulations
   namespace: System.Windows.Input.Manipulations
-  summary: "Gets or sets the x-coordinate for the initial origin, in coordinate units."
-  remarks: "The origin point represented by the InitialOriginX and <xref:System.Windows.Input.Manipulations.InertiaProcessor2D.InitialOriginY%2A> properties is the average position of all manipulators associated with an element.       A valid value for InitialOriginX is any finite number. The default value is 0.0."
+  summary: "Возвращает или задает координату x исходного начала координат, в единицах координат."
+  remarks: "Точка происхождения, представленная InitialOriginX и <xref:System.Windows.Input.Manipulations.InertiaProcessor2D.InitialOriginY%2A>Свойства — это среднее положение всех манипуляторов, связанной с элементом.</xref:System.Windows.Input.Manipulations.InertiaProcessor2D.InitialOriginY%2A>       Является допустимым значением для InitialOriginX является конечное число. Значение по умолчанию — 0,0."
   syntax:
     content: public float InitialOriginX { get; set; }
     return:
       type: System.Single
-      description: "The x-coordinate for the initial origin, in coordinate units."
+      description: "Координата x исходного начала координат, в единицах координат."
   overload: System.Windows.Input.Manipulations.InertiaProcessor2D.InitialOriginX*
   exceptions: []
   platform:
@@ -182,13 +182,13 @@ items:
   assemblies:
   - System.Windows.Input.Manipulations
   namespace: System.Windows.Input.Manipulations
-  summary: "Gets or sets the y-coordinate for the initial origin, in coordinate units."
-  remarks: "The origin point represented by the <xref:System.Windows.Input.Manipulations.InertiaProcessor2D.InitialOriginX%2A> and InitialOriginY properties is the average position of all manipulators associated with an element.       A valid value for InitialOriginY is any finite number. The default value is 0.0."
+  summary: "Возвращает или задает координату по оси y исходного начала координат, в единицах координат."
+  remarks: "Точка происхождения, представленная <xref:System.Windows.Input.Manipulations.InertiaProcessor2D.InitialOriginX%2A>и InitialOriginY свойства — это среднее положение всех манипуляторов, связанной с элементом.</xref:System.Windows.Input.Manipulations.InertiaProcessor2D.InitialOriginX%2A>       Является допустимым значением для InitialOriginY является конечное число. Значение по умолчанию — 0,0."
   syntax:
     content: public float InitialOriginY { get; set; }
     return:
       type: System.Single
-      description: "The y-coordinate for the initial origin, in coordinate units."
+      description: "Координата по оси y исходного начала координат, в единицах координат."
   overload: System.Windows.Input.Manipulations.InertiaProcessor2D.InitialOriginY*
   exceptions: []
   platform:
@@ -205,7 +205,7 @@ items:
   assemblies:
   - System.Windows.Input.Manipulations
   namespace: System.Windows.Input.Manipulations
-  summary: "Gets whether inertia is currently in progress."
+  summary: "Получает значение, указывающее инерции в данный момент выполняется."
   remarks: ''
   example:
   - "In the following example, an event handler for the <xref:System.Windows.Input.Manipulations.ManipulationProcessor2D.Started?displayProperty=fullName> event checks to see if inertia processing is running and, if so, stops it by calling the <xref:System.Windows.Input.Manipulations.InertiaProcessor2D.Completed> method.  \n  \n [!code-cs[ManipulationAPI#_ManipulationItem_OnManipulationStarted](~/add/codesnippet/csharp/build/manipulationitem.xaml.cs#_manipulationitem_onmanipulationstarted)]  \n  \n [!code-cs[ManipulationAPI#_ManipulationItem_Timestamp](~/add/codesnippet/csharp/build/manipulationitem.xaml.cs#_manipulationitem_timestamp)]"
@@ -213,7 +213,7 @@ items:
     content: public bool IsRunning { get; }
     return:
       type: System.Boolean
-      description: "A Boolean value indicating whether inertia is currently in progress."
+      description: "Логическое значение, указывающее, является ли инерции в данный момент выполняется."
   overload: System.Windows.Input.Manipulations.InertiaProcessor2D.IsRunning*
   exceptions: []
   platform:
@@ -230,22 +230,22 @@ items:
   assemblies:
   - System.Windows.Input.Manipulations
   namespace: System.Windows.Input.Manipulations
-  summary: "Extrapolates the manipulation&quot;s position, orientation, and average radius at the specified time."
-  remarks: "Timestamps are in 100-nanosecond units."
+  summary: "Экстраполирует позицию, ориентацию и средний радиус манипуляции за заданное время."
+  remarks: "Метки времени измеряются в 100 нс."
   syntax:
     content: public bool Process (long timestamp);
     parameters:
     - id: timestamp
       type: System.Int64
-      description: "The timestamp to perform extrapolation, in 100-nanosecond ticks."
+      description: "Отметка времени выполнения экстраполяции, в 100-наносекундных тактов."
     return:
       type: System.Boolean
-      description: "The manipulation&quot;s position, orientation, and average radius at the specified time. <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if extrapolation is in progress; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if extrapolation has completed."
+      description: "Позиция манипуляции, ориентация и средний радиус в указанное время. <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если экстраполяции выполняется; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Если экстраполяции была завершена."
   overload: System.Windows.Input.Manipulations.InertiaProcessor2D.Process*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The timestamp parameter is less than the initial or previous timestamp."
+    description: "Параметр отметки времени меньше, чем изначальная или предыдущая отметка."
   platform:
   - net462
 - uid: System.Windows.Input.Manipulations.InertiaProcessor2D.RotationBehavior
@@ -260,7 +260,7 @@ items:
   assemblies:
   - System.Windows.Input.Manipulations
   namespace: System.Windows.Input.Manipulations
-  summary: "Gets or sets the rotation behavior of the inertia processor."
+  summary: "Возвращает или задает поведение поворота для процессора инерции."
   remarks: ''
   example:
   - "In the following example, the <xref:System.Windows.Input.Manipulations.InertiaRotationBehavior2D.DesiredRotation%2A> property is set to enable inertia processing to rotate an object three-and-one-half times from its starting orientation.  \n  \n [!code-cs[ManipulationAPI#_ManipulationItem_SetDesiredRotation](~/add/codesnippet/csharp/build/manipulationitem.xaml.cs#_manipulationitem_setdesiredrotation)]"
@@ -268,7 +268,7 @@ items:
     content: public System.Windows.Input.Manipulations.InertiaRotationBehavior2D RotationBehavior { get; set; }
     return:
       type: System.Windows.Input.Manipulations.InertiaRotationBehavior2D
-      description: "The rotation behavior of the inertia processor."
+      description: "Поведение поворота для процессора инерции."
   overload: System.Windows.Input.Manipulations.InertiaProcessor2D.RotationBehavior*
   exceptions: []
   platform:
@@ -285,13 +285,13 @@ items:
   assemblies:
   - System.Windows.Input.Manipulations
   namespace: System.Windows.Input.Manipulations
-  summary: "Sets parameters on the inertia processor."
+  summary: "Задает параметры процессора инерции."
   syntax:
     content: public void SetParameters (System.Windows.Input.Manipulations.InertiaParameters2D parameters);
     parameters:
     - id: parameters
       type: System.Windows.Input.Manipulations.InertiaParameters2D
-      description: "Parameters to set."
+      description: "Параметры для установки."
   overload: System.Windows.Input.Manipulations.InertiaProcessor2D.SetParameters*
   exceptions: []
   platform:
@@ -308,12 +308,12 @@ items:
   assemblies:
   - System.Windows.Input.Manipulations
   namespace: System.Windows.Input.Manipulations
-  summary: "Gets or sets the translation behavior of the inertia processor."
+  summary: "Возвращает или задает поведение перемещения для процессора инерции."
   syntax:
     content: public System.Windows.Input.Manipulations.InertiaTranslationBehavior2D TranslationBehavior { get; set; }
     return:
       type: System.Windows.Input.Manipulations.InertiaTranslationBehavior2D
-      description: "The translation behavior of the inertia processor."
+      description: "Поведение обработчика инерции."
   overload: System.Windows.Input.Manipulations.InertiaProcessor2D.TranslationBehavior*
   exceptions: []
   platform:

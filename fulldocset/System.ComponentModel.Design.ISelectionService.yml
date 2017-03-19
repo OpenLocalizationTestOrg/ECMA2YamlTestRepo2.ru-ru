@@ -17,8 +17,8 @@ items:
   nameWithType: ISelectionService
   fullName: System.ComponentModel.Design.ISelectionService
   type: Interface
-  summary: "Provides an interface for a designer to select components."
-  remarks: "When a component is selected, its viewable or editable properties are shown in the Properties window."
+  summary: "Предоставляет интерфейс для конструктора, чтобы выбрать компоненты."
+  remarks: "При выборе компонента его для просмотра или редактирования свойства отображаются в окне «Свойства»."
   example:
   - "The following example demonstrates use of the ISelectionService to handle the <xref:System.ComponentModel.Design.ISelectionService.SelectionChanged> and <xref:System.ComponentModel.Design.ISelectionService.SelectionChanging> events.  \n  \n [!code-vb[ISelectionServiceSample#1](~/add/codesnippet/visualbasic/t-system.componentmodel._45_1.vb)]\n [!code-cpp[ISelectionServiceSample#1](~/add/codesnippet/cpp/t-system.componentmodel._45_1.cpp)]\n [!code-cs[ISelectionServiceSample#1](~/add/codesnippet/csharp/t-system.componentmodel._45_1.cs)]"
   syntax:
@@ -41,17 +41,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Gets a value indicating whether the specified component is currently selected."
-  remarks: "This method can be used to check whether a specific component is currently selected. This process is generally quicker than getting and parsing the entire list of selected components."
+  summary: "Возвращает значение, показывающее, выделен ли в данный момент указанный компонент."
+  remarks: "Этот метод можно использовать для проверки, выделен ли в данный момент определенного компонента. Этот процесс обычно быстрее, чем получение и разбор всего списка выбранных компонентов."
   syntax:
     content: public bool GetComponentSelected (object component);
     parameters:
     - id: component
       type: System.Object
-      description: "The component to test."
+      description: "Компонент, для проверки."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the component is part of the user&quot;s current selection; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если компонент является частью текущего выбора пользователя; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.ISelectionService.GetComponentSelected*
   exceptions: []
   platform:
@@ -68,13 +68,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Gets a collection of components that are currently selected."
+  summary: "Возвращает коллекцию компонентов, выбранных в данный момент."
   syntax:
     content: public System.Collections.ICollection GetSelectedComponents ();
     parameters: []
     return:
       type: System.Collections.ICollection
-      description: "A collection that represents the current set of components that are selected."
+      description: "Коллекция, представляющая текущий набор выделенных компонентов."
   overload: System.ComponentModel.Design.ISelectionService.GetSelectedComponents*
   exceptions: []
   platform:
@@ -91,13 +91,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Gets the object that is currently the primary selected object."
-  remarks: "When multiple components are selected at design time, one of the objects is the primary selected object. Some operations behave differently depending on which selected component is the primary selected object. The primary selected object is typically the last object that was selected, but the primary object of a multiple component selection can be changed to any of the selected components. The primary selected object has a selection border that is distinct in appearance from the other selected objects. The specific type of visual distinction depends on the development environment&quot;s implementation of a selection user interface."
+  summary: "Возвращает объект, который в данный момент является основным выделенным объектом."
+  remarks: "Если выбрано несколько компонентов во время разработки, один из объектов является основным выделенным объектом. Некоторые операции ведут себя по-разному в зависимости от того, какой из выделенных компонентов является основным выделенным объектом. Основной выделенный объект обычно является последний объект, который был выбран, но основной объект в выделении нескольких компонентов можно изменить на любой из выбранных компонентов. Основной выделенный объект имеет границу выделения, отличающуюся по внешнему виду из выбранных объектов. Определенный тип видимого отличия зависит от реализации выбранного интерфейса пользователя среды разработки."
   syntax:
     content: public object PrimarySelection { get; }
     return:
       type: System.Object
-      description: "The object that is currently the primary selected object."
+      description: "Объект, который в данный момент является основным выделенным объектом."
   overload: System.ComponentModel.Design.ISelectionService.PrimarySelection*
   exceptions: []
   platform:
@@ -114,15 +114,15 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Occurs when the current selection changes."
-  remarks: "Minimize processing when handling this event, because processing that occurs within this event handler can significantly affect the overall performance of the form designer."
+  summary: "Происходит при изменении текущего выделения."
+  remarks: "Свести к минимуму обработку при обработки данного события, поскольку в этот обработчик событий может существенно повлиять на общую производительность конструктор форм."
   example:
   - "The following example illustrates how to use the SelectionChanged event.  \n  \n [!code-cs[ISelectionService#2](~/add/codesnippet/csharp/e-system.componentmodel._0_1.cs)]\n [!code-cpp[ISelectionService#2](~/add/codesnippet/cpp/e-system.componentmodel._0_1.cpp)]\n [!code-vb[ISelectionService#2](~/add/codesnippet/visualbasic/e-system.componentmodel._0_1.vb)]  \n[!code-cs[ISelectionService#3](~/add/codesnippet/csharp/e-system.componentmodel._0_2.cs)]\n[!code-cpp[ISelectionService#3](~/add/codesnippet/cpp/e-system.componentmodel._0_2.cpp)]\n[!code-vb[ISelectionService#3](~/add/codesnippet/visualbasic/e-system.componentmodel._0_2.vb)]"
   syntax:
     content: public event EventHandler SelectionChanged;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -138,15 +138,15 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Occurs when the current selection is about to change."
-  remarks: "Minimize processing when handling this event, because processing that occurs within this event handler can significantly affect the overall performance of the form designer."
+  summary: "Происходит, когда текущее выделение будет изменена."
+  remarks: "Свести к минимуму обработку при обработки данного события, поскольку в этот обработчик событий может существенно повлиять на общую производительность конструктор форм."
   example:
   - "The following example illustrates how to use the SelectionChanging event.  \n  \n [!code-cs[ISelectionService#4](~/add/codesnippet/csharp/e-system.componentmodel._1_1.cs)]\n [!code-cpp[ISelectionService#4](~/add/codesnippet/cpp/e-system.componentmodel._1_1.cpp)]\n [!code-vb[ISelectionService#4](~/add/codesnippet/visualbasic/e-system.componentmodel._1_1.vb)]  \n[!code-cs[ISelectionService#5](~/add/codesnippet/csharp/e-system.componentmodel._1_2.cs)]\n[!code-cpp[ISelectionService#5](~/add/codesnippet/cpp/e-system.componentmodel._1_2.cpp)]\n[!code-vb[ISelectionService#5](~/add/codesnippet/visualbasic/e-system.componentmodel._1_2.vb)]"
   syntax:
     content: public event EventHandler SelectionChanging;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -162,12 +162,12 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Gets the count of selected objects."
+  summary: "Возвращает число выбранных объектов."
   syntax:
     content: public int SelectionCount { get; }
     return:
       type: System.Int32
-      description: "The number of selected objects."
+      description: "Число выбранных объектов."
   overload: System.ComponentModel.Design.ISelectionService.SelectionCount*
   exceptions: []
   platform:
@@ -184,14 +184,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Selects the specified collection of components."
-  remarks: "If the array is `null` or does not contain any components, SetSelectedComponents selects the top-level component in the designer."
+  summary: "Выделяет заданную коллекцию компонентов."
+  remarks: "Если массив имеет `null` или не содержит все компоненты SetSelectedComponents выделяет компонент верхнего уровня в конструкторе."
   syntax:
     content: public void SetSelectedComponents (System.Collections.ICollection components);
     parameters:
     - id: components
       type: System.Collections.ICollection
-      description: "The collection of components to select."
+      description: "Коллекция компонентов для выбора."
   overload: System.ComponentModel.Design.ISelectionService.SetSelectedComponents*
   exceptions: []
   platform:
@@ -208,17 +208,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Selects the components from within the specified collection of components that match the specified selection type."
-  remarks: "If the array is `null` or does not contain any components, <xref:System.ComponentModel.Design.ISelectionService.SetSelectedComponents%2A> selects the top-level component in the designer."
+  summary: "Выделяет компоненты из заданной коллекции компонентов, которые соответствуют указанному типу выделения."
+  remarks: "Если массив имеет `null` или не содержит все компоненты <xref:System.ComponentModel.Design.ISelectionService.SetSelectedComponents%2A>выделяет компонент верхнего уровня в конструкторе.</xref:System.ComponentModel.Design.ISelectionService.SetSelectedComponents%2A>"
   syntax:
     content: public void SetSelectedComponents (System.Collections.ICollection components, System.ComponentModel.Design.SelectionTypes selectionType);
     parameters:
     - id: components
       type: System.Collections.ICollection
-      description: "The collection of components to select."
+      description: "Коллекция компонентов для выбора."
     - id: selectionType
       type: System.ComponentModel.Design.SelectionTypes
-      description: "A value from the <xref href=&quot;System.ComponentModel.Design.SelectionTypes&quot;></xref> enumeration. The default is <xref href=&quot;System.ComponentModel.Design.SelectionTypes&quot;></xref>."
+      description: "Значение из <xref href=&quot;System.ComponentModel.Design.SelectionTypes&quot;> </xref> перечисления. Значение по умолчанию — <xref href=&quot;System.ComponentModel.Design.SelectionTypes&quot;> </xref>."
   overload: System.ComponentModel.Design.ISelectionService.SetSelectedComponents*
   exceptions: []
   platform:
