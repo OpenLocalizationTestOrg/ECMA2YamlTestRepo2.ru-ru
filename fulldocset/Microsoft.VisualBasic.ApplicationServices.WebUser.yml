@@ -11,8 +11,8 @@ items:
   nameWithType: WebUser
   fullName: Microsoft.VisualBasic.ApplicationServices.WebUser
   type: Class
-  summary: "Provides access to the information about the current user."
-  remarks: "The properties and methods exposed by the `My.User` object provide access to the information about the current user. The meaning of &quot;current user&quot; differs slightly between Windows and Web applications. In a Windows application, the current user is the user who runs the application. In a Web application, the current user is the user who accesses the application.       The `My.User` property also provides access to the <xref:System.Security.Principal.IPrincipal> for the current user. A principal object represents the user&quot;s security context, including that user&quot;s identity and any roles to which the user belongs.       For Windows applications, this property provides the same functionality as the <xref:System.Threading.Thread.CurrentPrincipal%2A> property. For Web applications, this property provides the same functionality as the <xref:System.Web.HttpContext.User%2A> property of the object returned by the <xref:System.Web.HttpContext.Current%2A> property.      > [!NOTE] >  For Windows applications, only projects built on the **Windows Application** template initialize the `My.User` object by default. In all other Windows project types, you must initialize the `My.User` object by calling the <xref:Microsoft.VisualBasic.ApplicationServices.User.InitializeWithWindowsUser%2A>method explicitly or by assigning a value to <xref:System.Threading.Thread.CurrentPrincipal%2A>.      > [!NOTE] >  The `My.User` object cannot report information about the current Windows user when run under Windows 95 and Windows 98 because those operating systems do not support the concept of a logged-on user. You must implement custom authentication to use the `My.User` object on those operating systems.."
+  summary: "Предоставляет доступ к сведениям о текущем пользователе."
+  remarks: "Свойства и методы, предоставляемые `My.User` объект предоставлять доступ к сведениям о текущем пользователе. Значение «текущий пользователь» немного отличается в Windows и веб-приложений. В приложении Windows текущим пользователем является пользователь, запускающий приложение. В веб-приложении текущим пользователем является пользователь, обращающийся к приложению.       `My.User` Свойств также предоставляет доступ к <xref:System.Security.Principal.IPrincipal>для текущего пользователя.</xref:System.Security.Principal.IPrincipal> Объект-участник представляет контекст безопасности пользователя, включая удостоверение пользователя и любые роли, к которым принадлежит пользователь.       Для приложений Windows, это свойство предоставляет те же функциональные возможности, как <xref:System.Threading.Thread.CurrentPrincipal%2A>свойство.</xref:System.Threading.Thread.CurrentPrincipal%2A> Для веб-приложений, это свойство предоставляет те же функциональные возможности, как <xref:System.Web.HttpContext.User%2A>свойство объекта, возвращаемого <xref:System.Web.HttpContext.Current%2A>свойство.</xref:System.Web.HttpContext.Current%2A> </xref:System.Web.HttpContext.User%2A>      Настроек [!NOTE] настроек для приложений Windows, проекты, построенные на **приложение Windows** шаблона initialize `My.User` объекта по умолчанию. Для всех других Windows типов проектов, необходимо инициализировать `My.User` путем вызова метода <xref:Microsoft.VisualBasic.ApplicationServices.User.InitializeWithWindowsUser%2A>метод явным образом или путем присвоения значения <xref:System.Threading.Thread.CurrentPrincipal%2A>.</xref:System.Threading.Thread.CurrentPrincipal%2A> </xref:Microsoft.VisualBasic.ApplicationServices.User.InitializeWithWindowsUser%2A>      Настроек [!NOTE] настроек `My.User` объект не содержит сведений о текущем пользователе Windows при запуске в Windows 95 и Windows 98, поскольку эти операционные системы не поддерживают концепцию вошедшего в систему пользователя. Необходимо реализовать нестандартную проверку подлинности для использования `My.User` объекта в этих операционных системах..."
   example:
   - "This example checks if the application is using Windows or custom authentication, and uses that information to parse the `My.User.Name` property.  \n  \n [!code-vb[VbVbalrMyUser#3](~/add/codesnippet/visualbasic/VbVbalrMyUser/Class1.vb#3)]"
   syntax:
@@ -42,8 +42,8 @@ items:
   assemblies:
   - Microsoft.VisualBasic
   namespace: Microsoft.VisualBasic.ApplicationServices
-  summary: "Initializes a new instance of the <xref href=&quot;Microsoft.VisualBasic.ApplicationServices.WebUser&quot;></xref> class."
-  remarks: "The properties and methods exposed by the `My.User` object provide access to the information about the current user."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;Microsoft.VisualBasic.ApplicationServices.WebUser&quot;> </xref> класса."
+  remarks: "Свойства и методы, предоставляемые `My.User` объект предоставлять доступ к сведениям о текущем пользователе."
   syntax:
     content: public WebUser ();
     parameters: []
@@ -63,13 +63,13 @@ items:
   assemblies:
   - Microsoft.VisualBasic
   namespace: Microsoft.VisualBasic.ApplicationServices
-  summary: "Gets or sets the principal object representing the current user."
-  remarks: "In the <xref:Microsoft.VisualBasic.ApplicationServices.WebUser> object, this property wraps the <xref:System.Web.HttpContext.User%2A> property of the <xref:System.Web.HttpContext.Current%2A?displayProperty=fullName> property.       For more detailed information, see the <xref:Microsoft.VisualBasic.ApplicationServices.User.CurrentPrincipal%2A> property."
+  summary: "Возвращает или задает основной объект, представляющий текущего пользователя."
+  remarks: "В <xref:Microsoft.VisualBasic.ApplicationServices.WebUser>объекта, это свойство создает оболочку для <xref:System.Web.HttpContext.User%2A>Свойства <xref:System.Web.HttpContext.Current%2A?displayProperty=fullName>свойство.</xref:System.Web.HttpContext.Current%2A?displayProperty=fullName> </xref:System.Web.HttpContext.User%2A> </xref:Microsoft.VisualBasic.ApplicationServices.WebUser>       Дополнительные сведения см. в разделе <xref:Microsoft.VisualBasic.ApplicationServices.User.CurrentPrincipal%2A>свойство.</xref:Microsoft.VisualBasic.ApplicationServices.User.CurrentPrincipal%2A>"
   syntax:
     content: protected override System.Security.Principal.IPrincipal InternalPrincipal { get; set; }
     return:
       type: System.Security.Principal.IPrincipal
-      description: "An <xref:System.Security.Principal.IPrincipal> object representing the current user."
+      description: "<xref:System.Security.Principal.IPrincipal>Объект, представляющий текущего пользователя.</xref:System.Security.Principal.IPrincipal>"
   overload: Microsoft.VisualBasic.ApplicationServices.WebUser.InternalPrincipal*
   exceptions: []
   platform:
