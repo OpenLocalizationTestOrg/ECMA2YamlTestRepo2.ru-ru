@@ -25,8 +25,8 @@ items:
   nameWithType: IBindingList
   fullName: System.ComponentModel.IBindingList
   type: Interface
-  summary: "Provides the features required to support both complex and simple scenarios when binding to a data source."
-  remarks: "This interface is implemented by the <xref:System.Data.DataView> class. Implementation of a method should exhibit the same behavior as the implementation of that method in the <xref:System.Data.DataView> class.       When you call the <xref:System.ComponentModel.IBindingList.ApplySort%2A> or <xref:System.ComponentModel.IBindingList.RemoveSort%2A> methods, you should raise a <xref:System.ComponentModel.IBindingList.ListChanged> event with the <xref:System.ComponentModel.ListChangedType> enumeration.       When you call the <xref:System.ComponentModel.IBindingList.AddNew%2A> method, you should raise a <xref:System.ComponentModel.IBindingList.ListChanged> event with the <xref:System.ComponentModel.ListChangedType> enumeration carrying the appropriate index. The added row is in a state where pressing the ESC on a <xref:System.Windows.Forms.DataGridView> control can remove the new row. Raising the <xref:System.ComponentModel.IBindingList.ListChanged> event with the <xref:System.ComponentModel.ListChangedType> enumeration a second time on this row indicates that the item is now a row not in the &quot;new&quot; state.       When you remove an item or call the <xref:System.ComponentModel.IEditableObject.CancelEdit%2A> method on a new row (if that row implements <xref:System.ComponentModel.IEditableObject>), you should raise a <xref:System.ComponentModel.IBindingList.ListChanged> event with the <xref:System.ComponentModel.ListChangedType> enumeration carrying the appropriate index."
+  summary: "Предоставляет функции, необходимые для поддержки простых и сложных сценариев при привязке к источнику данных."
+  remarks: "Этот интерфейс реализуется <xref:System.Data.DataView>классом.</xref:System.Data.DataView> Реализация метода должна вести себя отличается от реализации этого метода в <xref:System.Data.DataView>классе.</xref:System.Data.DataView>       При вызове <xref:System.ComponentModel.IBindingList.ApplySort%2A>или <xref:System.ComponentModel.IBindingList.RemoveSort%2A>вызывать методы, <xref:System.ComponentModel.IBindingList.ListChanged>событие с <xref:System.ComponentModel.ListChangedType>перечисления.</xref:System.ComponentModel.ListChangedType> </xref:System.ComponentModel.IBindingList.ListChanged> </xref:System.ComponentModel.IBindingList.RemoveSort%2A> </xref:System.ComponentModel.IBindingList.ApplySort%2A>       При вызове <xref:System.ComponentModel.IBindingList.AddNew%2A>, то необходимо вызвать метод <xref:System.ComponentModel.IBindingList.ListChanged>событие с <xref:System.ComponentModel.ListChangedType>перечисления, включающим соответствующий индекс.</xref:System.ComponentModel.ListChangedType> </xref:System.ComponentModel.IBindingList.ListChanged> </xref:System.ComponentModel.IBindingList.AddNew%2A> Добавленная строка находится в состоянии, где нажатие клавиши ESC <xref:System.Windows.Forms.DataGridView>управления можно удалить новую строку.</xref:System.Windows.Forms.DataGridView> Вызов <xref:System.ComponentModel.IBindingList.ListChanged>событие с <xref:System.ComponentModel.ListChangedType>перечисления еще раз эта строка указывает, что элемент теперь является строк не в состоянии «new».</xref:System.ComponentModel.ListChangedType> </xref:System.ComponentModel.IBindingList.ListChanged>       При удалении элемента или вызове <xref:System.ComponentModel.IEditableObject.CancelEdit%2A>метода для новой строки (Если эта строка реализует <xref:System.ComponentModel.IEditableObject>), необходимо вызвать <xref:System.ComponentModel.IBindingList.ListChanged>событие с <xref:System.ComponentModel.ListChangedType>перечисления, включающим соответствующий индекс.</xref:System.ComponentModel.ListChangedType> </xref:System.ComponentModel.IBindingList.ListChanged> </xref:System.ComponentModel.IEditableObject> </xref:System.ComponentModel.IEditableObject.CancelEdit%2A>"
   example:
   - "The following example provides a simple implementation of the IBindingList interface. The `CustomerList` class stores customer information in a list. This example assumes that you have used the `Customer` class that can be found in the example in the <xref:System.ComponentModel.IEditableObject> class.  \n  \n [!code-cs[Binding_Editable#2](~/add/codesnippet/csharp/t-system.componentmodel._23_1.cs)]\n [!code-cpp[Binding_Editable#2](~/add/codesnippet/cpp/t-system.componentmodel._23_1.cpp)]\n [!code-vb[Binding_Editable#2](~/add/codesnippet/visualbasic/t-system.componentmodel._23_1.vb)]"
   syntax:
@@ -47,14 +47,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Adds the <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> to the indexes used for searching."
-  remarks: "The list must support this method. However, support for this method can be a nonoperation."
+  summary: "Добавляет <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> для индексов, используемых для поиска."
+  remarks: "Список должен поддерживать этот метод. Однако поддержка этот метод может быть nonoperation."
   syntax:
     content: public void AddIndex (System.ComponentModel.PropertyDescriptor property);
     parameters:
     - id: property
       type: System.ComponentModel.PropertyDescriptor
-      description: "The <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> to add to the indexes used for searching."
+      description: "<xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> Добавление индексов, используемых для поиска."
   overload: System.ComponentModel.IBindingList.AddIndex*
   exceptions: []
   platform:
@@ -71,19 +71,19 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Adds a new item to the list."
-  remarks: "This method is supported only if <xref:System.ComponentModel.IBindingList.AllowNew%2A> is `true`; otherwise, a <xref:System.NotSupportedException> is thrown.       Implementing this method means that the <xref:System.ComponentModel.IBindingList> list must understand the type of objects to add to the list and must understand how to create a new instance of that type. For example, if you have a collection of `myCustomer` objects, the AddNew method should add a new `myCustomer` object to the list.      > [!NOTE] >  If the objects in this list implement the <xref:System.ComponentModel.IEditableObject> interface, calling the <xref:System.ComponentModel.IEditableObject.CancelEdit%2A> method should discard an object, not add it to the list, when the object was created using the AddNew method. The object should only be added to the list when the <xref:System.ComponentModel.IEditableObject.EndEdit%2A?displayProperty=fullName> method is called. Therefore, you must sychronize the object and the list carefully.       When this method is called, you should raise a <xref:System.ComponentModel.IBindingList.ListChanged> event with the <xref:System.ComponentModel.ListChangedType> enumeration carrying the appropriate index. The added row is in a state where hitting Esc on a <xref:System.Windows.Forms.DataGridView> control can remove the new row. Raising the <xref:System.ComponentModel.IBindingList.ListChanged> event with the <xref:System.ComponentModel.ListChangedType> enumeration a second time on this row indicates that the item is now a normal row (not in new state)."
+  summary: "Добавляет новый элемент в список."
+  remarks: "Этот метод поддерживается только в том случае, если <xref:System.ComponentModel.IBindingList.AllowNew%2A>— `true`; в противном случае <xref:System.NotSupportedException>возникает исключение.</xref:System.NotSupportedException> </xref:System.ComponentModel.IBindingList.AllowNew%2A>       Реализация этого метода означает, что <xref:System.ComponentModel.IBindingList>список, необходимо понять, какие типы объектов для добавления в список и необходимо понять, как создать новый экземпляр этого типа.</xref:System.ComponentModel.IBindingList> Например, если имеется коллекция `myCustomer` объектов, следует добавить новый метод AddNew `myCustomer` объект в список.      Настроек [!NOTE] настроек Если объекты в этом списке реализуют <xref:System.ComponentModel.IEditableObject>интерфейс вызова <xref:System.ComponentModel.IEditableObject.CancelEdit%2A>метод следует отказаться от объекта, не добавляйте его в список, если объект был создан с помощью метода AddNew.</xref:System.ComponentModel.IEditableObject.CancelEdit%2A> </xref:System.ComponentModel.IEditableObject> Объект должен добавляться только к списку при <xref:System.ComponentModel.IEditableObject.EndEdit%2A?displayProperty=fullName>вызывается метод.</xref:System.ComponentModel.IEditableObject.EndEdit%2A?displayProperty=fullName> Таким образом необходимо синхронизировать объект и список внимательно.       При вызове этого метода следует вызвать <xref:System.ComponentModel.IBindingList.ListChanged>событие с <xref:System.ComponentModel.ListChangedType>перечисления, включающим соответствующий индекс.</xref:System.ComponentModel.ListChangedType> </xref:System.ComponentModel.IBindingList.ListChanged> Добавленная строка находится в состоянии, где нажатие клавиши Esc на <xref:System.Windows.Forms.DataGridView>управления можно удалить новую строку.</xref:System.Windows.Forms.DataGridView> Вызов <xref:System.ComponentModel.IBindingList.ListChanged>событие с <xref:System.ComponentModel.ListChangedType>перечисления во второй раз, в этой строке указывает, что элемент теперь обычная строка (не в новое состояние).</xref:System.ComponentModel.ListChangedType> </xref:System.ComponentModel.IBindingList.ListChanged>"
   syntax:
     content: public object AddNew ();
     parameters: []
     return:
       type: System.Object
-      description: "The item added to the list."
+      description: "Элемент, добавляемый в список."
   overload: System.ComponentModel.IBindingList.AddNew*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<xref:System.ComponentModel.IBindingList.AllowNew*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.ComponentModel.IBindingList.AllowNew*>is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.</xref:System.ComponentModel.IBindingList.AllowNew*>"
   platform:
   - net462
 - uid: System.ComponentModel.IBindingList.AllowEdit
@@ -98,12 +98,12 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets whether you can update items in the list."
+  summary: "Получает значение, указывающее возможность обновления элементов в списке."
   syntax:
     content: public bool AllowEdit { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if you can update the items in the list; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>При обновлении элементов в списке. в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.IBindingList.AllowEdit*
   exceptions: []
   platform:
@@ -120,13 +120,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets whether you can add items to the list using <xref:System.ComponentModel.IBindingList.AddNew*>."
-  remarks: "If <xref:System.Collections.IList.IsFixedSize%2A?displayProperty=fullName> or <xref:System.Collections.IList.IsReadOnly%2A?displayProperty=fullName> is `true`, this property returns `false`."
+  summary: "Получает значение, указывающее, можно добавить элементы в список с помощью <xref:System.ComponentModel.IBindingList.AddNew*>.</xref:System.ComponentModel.IBindingList.AddNew*>"
+  remarks: "Если <xref:System.Collections.IList.IsFixedSize%2A?displayProperty=fullName>или <xref:System.Collections.IList.IsReadOnly%2A?displayProperty=fullName>— `true`, это свойство возвращает `false`.</xref:System.Collections.IList.IsReadOnly%2A?displayProperty=fullName> </xref:System.Collections.IList.IsFixedSize%2A?displayProperty=fullName>"
   syntax:
     content: public bool AllowNew { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if you can add items to the list using <xref:System.ComponentModel.IBindingList.AddNew*>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>При добавлении элементов в список с помощью <xref:System.ComponentModel.IBindingList.AddNew*>; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.ComponentModel.IBindingList.AddNew*>"
   overload: System.ComponentModel.IBindingList.AllowNew*
   exceptions: []
   platform:
@@ -143,13 +143,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets whether you can remove items from the list, using <xref:System.Collections.IList.Remove*> or <xref:System.Collections.IList.RemoveAt*>."
-  remarks: "If <xref:System.Collections.IList.IsFixedSize%2A?displayProperty=fullName> or <xref:System.Collections.IList.IsReadOnly%2A?displayProperty=fullName> is `true`, this property returns `false`.      > [!NOTE] >  If AllowRemove returns `false`, <xref:System.Collections.IList.Remove%2A?displayProperty=fullName> and <xref:System.Collections.IList.RemoveAt%2A?displayProperty=fullName> throw a <xref:System.NotSupportedException>."
+  summary: "Получает значение, указывающее, можно удалить элементы из списка, используя <> </> *настроек или <> </> *настроек."
+  remarks: "Если <xref:System.Collections.IList.IsFixedSize%2A?displayProperty=fullName>или <xref:System.Collections.IList.IsReadOnly%2A?displayProperty=fullName>— `true`, это свойство возвращает `false`.</xref:System.Collections.IList.IsReadOnly%2A?displayProperty=fullName> </xref:System.Collections.IList.IsFixedSize%2A?displayProperty=fullName>      Настроек [!NOTE] настроек возвращает Если значение параметра AllowRemove `false` <xref:System.Collections.IList.Remove%2A?displayProperty=fullName>и <xref:System.Collections.IList.RemoveAt%2A?displayProperty=fullName>исключение <xref:System.NotSupportedException>.</xref:System.NotSupportedException> </xref:System.Collections.IList.RemoveAt%2A?displayProperty=fullName> </xref:System.Collections.IList.Remove%2A?displayProperty=fullName>"
   syntax:
     content: public bool AllowRemove { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if you can remove items from the list; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>При удалении элементов из списка. в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.IBindingList.AllowRemove*
   exceptions: []
   platform:
@@ -166,22 +166,22 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Sorts the list based on a <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> and a <xref href=&quot;System.ComponentModel.ListSortDirection&quot;></xref>."
-  remarks: "If items are added or removed, these items are placed in the order of the sort.       This method is supported if <xref:System.ComponentModel.IBindingList.SupportsSorting%2A> is `true`; otherwise, this method throws a <xref:System.NotSupportedException>."
+  summary: "Сортирует список на основе <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> и <xref href=&quot;System.ComponentModel.ListSortDirection&quot;> </xref>."
+  remarks: "При добавлении и удалении элементов, эти элементы размещаются в порядке сортировки.       Этот метод поддерживается, если <xref:System.ComponentModel.IBindingList.SupportsSorting%2A>— `true`; в противном случае этот метод создает исключение <xref:System.NotSupportedException>.</xref:System.NotSupportedException> </xref:System.ComponentModel.IBindingList.SupportsSorting%2A>"
   syntax:
     content: public void ApplySort (System.ComponentModel.PropertyDescriptor property, System.ComponentModel.ListSortDirection direction);
     parameters:
     - id: property
       type: System.ComponentModel.PropertyDescriptor
-      description: "The <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> to sort by."
+      description: "<xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> Выполнить сортировку."
     - id: direction
       type: System.ComponentModel.ListSortDirection
-      description: "One of the <xref href=&quot;System.ComponentModel.ListSortDirection&quot;></xref> values."
+      description: "Один из <xref href=&quot;System.ComponentModel.ListSortDirection&quot;> </xref> значения."
   overload: System.ComponentModel.IBindingList.ApplySort*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<xref:System.ComponentModel.IBindingList.SupportsSorting*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.ComponentModel.IBindingList.SupportsSorting*>is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.</xref:System.ComponentModel.IBindingList.SupportsSorting*>"
   platform:
   - net462
 - uid: System.ComponentModel.IBindingList.Find(System.ComponentModel.PropertyDescriptor,System.Object)
@@ -196,8 +196,8 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Returns the index of the row that has the given <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref>."
-  remarks: "This method will select the first row where the value of the `property` parameter equals the value of the `key` parameter.       This method is supported if <xref:System.ComponentModel.IBindingList.SupportsSearching%2A> is `true`, otherwise this method throws a <xref:System.NotSupportedException>."
+  summary: "Возвращает индекс строки с заданной <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref>."
+  remarks: "Этот метод выберет первую строку где значение `property` параметр равен значению `key` параметра.       Этот метод поддерживается, если <xref:System.ComponentModel.IBindingList.SupportsSearching%2A>— `true`, в противном случае этот метод создает <xref:System.NotSupportedException>.</xref:System.NotSupportedException> </xref:System.ComponentModel.IBindingList.SupportsSearching%2A>"
   example:
   - "The following code example demonstrates how to implement the Find method.  \n  \n [!code-cs[System.Windows.Forms.BindingSourceAndBindingListOfT#3](~/add/codesnippet/csharp/03c83841-f554-4f60-86f9-_1.cs)]\n [!code-vb[System.Windows.Forms.BindingSourceAndBindingListOfT#3](~/add/codesnippet/visualbasic/03c83841-f554-4f60-86f9-_1.vb)]"
   syntax:
@@ -205,18 +205,18 @@ items:
     parameters:
     - id: property
       type: System.ComponentModel.PropertyDescriptor
-      description: "The <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> to search on."
+      description: "<xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> Для поиска."
     - id: key
       type: System.Object
-      description: "The value of the `property` parameter to search for."
+      description: "Значение `property` параметр для поиска."
     return:
       type: System.Int32
-      description: "The index of the row that has the given <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref>."
+      description: "Индекс строки, который имеет данный <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref>."
   overload: System.ComponentModel.IBindingList.Find*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<xref:System.ComponentModel.IBindingList.SupportsSearching*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.ComponentModel.IBindingList.SupportsSearching*>is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.</xref:System.ComponentModel.IBindingList.SupportsSearching*>"
   platform:
   - net462
 - uid: System.ComponentModel.IBindingList.IsSorted
@@ -231,18 +231,18 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets whether the items in the list are sorted."
-  remarks: "This property is supported if <xref:System.ComponentModel.IBindingList.SupportsSorting%2A> is `true`; otherwise, this property throws a <xref:System.NotSupportedException>.       If IsSorted returns `true`, items are added or removed in the order of the sort."
+  summary: "Получает значение, указывающее, упорядочены элементы в списке."
+  remarks: "Это свойство поддерживается в том случае, если <xref:System.ComponentModel.IBindingList.SupportsSorting%2A>— `true`; в противном случае это свойство создает <xref:System.NotSupportedException>.</xref:System.NotSupportedException> </xref:System.ComponentModel.IBindingList.SupportsSorting%2A>       Если возвращается свойство IsSorted `true`, элементы добавляются или удаляются в порядке сортировки."
   syntax:
     content: public bool IsSorted { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <xref:System.ComponentModel.IBindingList.ApplySort*> has been called and <xref:System.ComponentModel.IBindingList.RemoveSort*> has not been called; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <> </> *настроек был вызван и <> </> *настроек не был вызван; в противном случае — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.IBindingList.IsSorted*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<xref:System.ComponentModel.IBindingList.SupportsSorting*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.ComponentModel.IBindingList.SupportsSorting*>is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.</xref:System.ComponentModel.IBindingList.SupportsSorting*>"
   platform:
   - net462
 - uid: System.ComponentModel.IBindingList.ListChanged
@@ -257,13 +257,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Occurs when the list changes or an item in the list changes."
-  remarks: "This event is raised only if the <xref:System.ComponentModel.IBindingList.SupportsChangeNotification%2A> property is `true`."
+  summary: "Происходит при изменении списка или элемента в списке."
+  remarks: "Это событие возникает только в том случае, если <xref:System.ComponentModel.IBindingList.SupportsChangeNotification%2A>свойство `true`.</xref:System.ComponentModel.IBindingList.SupportsChangeNotification%2A>"
   syntax:
     content: public event System.ComponentModel.ListChangedEventHandler ListChanged;
     return:
       type: System.ComponentModel.ListChangedEventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -279,14 +279,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Removes the <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> from the indexes used for searching."
-  remarks: "The list must support this method. However, support for this method can be a nonoperation."
+  summary: "Удаляет <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> из индексов, используемых для поиска."
+  remarks: "Список должен поддерживать этот метод. Однако поддержка этот метод может быть nonoperation."
   syntax:
     content: public void RemoveIndex (System.ComponentModel.PropertyDescriptor property);
     parameters:
     - id: property
       type: System.ComponentModel.PropertyDescriptor
-      description: "The <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> to remove from the indexes used for searching."
+      description: "<xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> Для удаления из индексов, используемых для поиска."
   overload: System.ComponentModel.IBindingList.RemoveIndex*
   exceptions: []
   platform:
@@ -303,8 +303,8 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Removes any sort applied using <xref:System.ComponentModel.IBindingList.ApplySort*>."
-  remarks: "This property is supported if <xref:System.ComponentModel.IBindingList.SupportsSorting%2A> is `true`; otherwise, this property throws a <xref:System.NotSupportedException>.       When you call this method, you should raise a <xref:System.ComponentModel.IBindingList.ListChanged> event with the <xref:System.ComponentModel.ListChangedType> enumeration."
+  summary: "Удаляет любую сортировку, выполненную с помощью <xref:System.ComponentModel.IBindingList.ApplySort*>.</xref:System.ComponentModel.IBindingList.ApplySort*>"
+  remarks: "Это свойство поддерживается в том случае, если <xref:System.ComponentModel.IBindingList.SupportsSorting%2A>— `true`; в противном случае это свойство создает <xref:System.NotSupportedException>.</xref:System.NotSupportedException> </xref:System.ComponentModel.IBindingList.SupportsSorting%2A>       При вызове этого метода следует вызвать <xref:System.ComponentModel.IBindingList.ListChanged>событие с <xref:System.ComponentModel.ListChangedType>перечисления.</xref:System.ComponentModel.ListChangedType> </xref:System.ComponentModel.IBindingList.ListChanged>"
   syntax:
     content: public void RemoveSort ();
     parameters: []
@@ -312,7 +312,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<xref:System.ComponentModel.IBindingList.SupportsSorting*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.ComponentModel.IBindingList.SupportsSorting*>is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.</xref:System.ComponentModel.IBindingList.SupportsSorting*>"
   platform:
   - net462
 - uid: System.ComponentModel.IBindingList.SortDirection
@@ -327,18 +327,18 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets the direction of the sort."
-  remarks: "This property is supported if <xref:System.ComponentModel.IBindingList.SupportsSorting%2A> is `true`; otherwise, this property throws a <xref:System.NotSupportedException>."
+  summary: "Возвращает направление сортировки."
+  remarks: "Это свойство поддерживается в том случае, если <xref:System.ComponentModel.IBindingList.SupportsSorting%2A>— `true`; в противном случае это свойство создает <xref:System.NotSupportedException>.</xref:System.NotSupportedException> </xref:System.ComponentModel.IBindingList.SupportsSorting%2A>"
   syntax:
     content: public System.ComponentModel.ListSortDirection SortDirection { get; }
     return:
       type: System.ComponentModel.ListSortDirection
-      description: "One of the <xref href=&quot;System.ComponentModel.ListSortDirection&quot;></xref> values."
+      description: "Один из <xref href=&quot;System.ComponentModel.ListSortDirection&quot;> </xref> значения."
   overload: System.ComponentModel.IBindingList.SortDirection*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<xref:System.ComponentModel.IBindingList.SupportsSorting*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.ComponentModel.IBindingList.SupportsSorting*>is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.</xref:System.ComponentModel.IBindingList.SupportsSorting*>"
   platform:
   - net462
 - uid: System.ComponentModel.IBindingList.SortProperty
@@ -353,18 +353,18 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets the <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> that is being used for sorting."
-  remarks: "This property is supported if <xref:System.ComponentModel.IBindingList.SupportsSorting%2A> is `true`; otherwise, this property throws a <xref:System.NotSupportedException>."
+  summary: "Возвращает <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> , который используется для сортировки."
+  remarks: "Это свойство поддерживается в том случае, если <xref:System.ComponentModel.IBindingList.SupportsSorting%2A>— `true`; в противном случае это свойство создает <xref:System.NotSupportedException>.</xref:System.NotSupportedException> </xref:System.ComponentModel.IBindingList.SupportsSorting%2A>"
   syntax:
     content: public System.ComponentModel.PropertyDescriptor SortProperty { get; }
     return:
       type: System.ComponentModel.PropertyDescriptor
-      description: "The <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> that is being used for sorting."
+      description: "<xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> , Который используется для сортировки."
   overload: System.ComponentModel.IBindingList.SortProperty*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<xref:System.ComponentModel.IBindingList.SupportsSorting*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.ComponentModel.IBindingList.SupportsSorting*>is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.</xref:System.ComponentModel.IBindingList.SupportsSorting*>"
   platform:
   - net462
 - uid: System.ComponentModel.IBindingList.SupportsChangeNotification
@@ -379,13 +379,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets whether a <xref href=&quot;System.ComponentModel.IBindingList.ListChanged&quot;></xref> event is raised when the list changes or an item in the list changes."
-  remarks: "Objects in the list must notify the list when they change, so the list can raise a <xref:System.ComponentModel.IBindingList.ListChanged> event."
+  summary: "Получает ли <xref href=&quot;System.ComponentModel.IBindingList.ListChanged&quot;> </xref> событие возникает при изменении списка или элемента в списке."
+  remarks: "Объекты в списке должен уведомить список при изменении ее, чтобы список <xref:System.ComponentModel.IBindingList.ListChanged>событий.</xref:System.ComponentModel.IBindingList.ListChanged>"
   syntax:
     content: public bool SupportsChangeNotification { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a <xref href=&quot;System.ComponentModel.IBindingList.ListChanged&quot;></xref> event is raised when the list changes or when an item changes; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <xref href=&quot;System.ComponentModel.IBindingList.ListChanged&quot;> </xref> событие вызывается при изменении списка или при изменении элемента; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.IBindingList.SupportsChangeNotification*
   exceptions: []
   platform:
@@ -402,7 +402,7 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets whether the list supports searching using the <xref:System.ComponentModel.IBindingList.Find*> method."
+  summary: "Получает значение, указывающее список поддерживает поиск с помощью <xref:System.ComponentModel.IBindingList.Find*>метод.</xref:System.ComponentModel.IBindingList.Find*>"
   remarks: ''
   example:
   - "The following code example demonstrates how to implement the SupportsSearching property.  \n  \n [!code-cs[System.Windows.Forms.BindingSourceAndBindingListOfT#3](~/add/codesnippet/csharp/p-system.componentmodel._7_1.cs)]\n [!code-vb[System.Windows.Forms.BindingSourceAndBindingListOfT#3](~/add/codesnippet/visualbasic/p-system.componentmodel._7_1.vb)]"
@@ -410,7 +410,7 @@ items:
     content: public bool SupportsSearching { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the list supports searching using the <xref:System.ComponentModel.IBindingList.Find*> method; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если список поддерживает поиск с помощью <xref:System.ComponentModel.IBindingList.Find*>метод; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.ComponentModel.IBindingList.Find*>"
   overload: System.ComponentModel.IBindingList.SupportsSearching*
   exceptions: []
   platform:
@@ -427,13 +427,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets whether the list supports sorting."
-  remarks: "If this property is `true`, then <xref:System.ComponentModel.IBindingList.IsSorted%2A>, <xref:System.ComponentModel.IBindingList.SortProperty%2A>, <xref:System.ComponentModel.IBindingList.SortDirection%2A>, <xref:System.ComponentModel.IBindingList.ApplySort%2A>, and <xref:System.ComponentModel.IBindingList.RemoveSort%2A> are supported."
+  summary: "Получает значение, указывающее список поддерживает сортировку."
+  remarks: "Если это свойство имеет `true`, затем <xref:System.ComponentModel.IBindingList.IsSorted%2A>, <xref:System.ComponentModel.IBindingList.SortProperty%2A>, <xref:System.ComponentModel.IBindingList.SortDirection%2A>, <xref:System.ComponentModel.IBindingList.ApplySort%2A>, и <xref:System.ComponentModel.IBindingList.RemoveSort%2A>поддерживаются.</xref:System.ComponentModel.IBindingList.RemoveSort%2A> </xref:System.ComponentModel.IBindingList.ApplySort%2A> </xref:System.ComponentModel.IBindingList.SortDirection%2A> </xref:System.ComponentModel.IBindingList.SortProperty%2A> </xref:System.ComponentModel.IBindingList.IsSorted%2A>"
   syntax:
     content: public bool SupportsSorting { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the list supports sorting; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если список поддерживает сортировку; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.IBindingList.SupportsSorting*
   exceptions: []
   platform:

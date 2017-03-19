@@ -17,8 +17,8 @@ items:
   nameWithType: PropertyChangedEventManager
   fullName: System.ComponentModel.PropertyChangedEventManager
   type: Class
-  summary: "Provides a <xref href=&quot;System.Windows.WeakEventManager&quot;></xref> implementation so that you can use the &quot;weak event listener&quot; pattern to attach listeners for the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event."
-  remarks: "In order to be listeners in this pattern, your listener objects must implement <xref:System.Windows.IWeakEventListener>. You do not need to implement <xref:System.Windows.IWeakEventListener> on the class that is the source of the events."
+  summary: "Предоставляет <xref href=&quot;System.Windows.WeakEventManager&quot;> </xref> реализацию, чтобы шаблон «прослушиватель слабых событий» можно использовать для присоединения прослушивателей для <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>событий.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
+  remarks: "Чтобы быть прослушиватели в этот шаблон, объектов прослушивателя должен реализовывать интерфейс <xref:System.Windows.IWeakEventListener>.</xref:System.Windows.IWeakEventListener> Необходимо реализовать <xref:System.Windows.IWeakEventListener>на класс, который является источником событий.</xref:System.Windows.IWeakEventListener>"
   syntax:
     content: 'public class PropertyChangedEventManager : System.Windows.WeakEventManager'
   inheritance:
@@ -57,28 +57,28 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Adds the specified event handler, which is called when specified source raises the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event for the specified property."
-  remarks: "Use this method to specify the event handler you want to use to subscribe to the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event..  When you use this method, your listener object does not need to implement the <xref:System.Windows.IWeakEventListener> interface."
+  summary: "Добавляет заданный обработчик событий, который вызывается, когда указанный источник вызывает <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>событий для указанного свойства.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
+  remarks: "Этот метод используется для задания обработчика событий, который вы хотите использовать для подписки на <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>события...</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>  При использовании этого метода объект прослушивателя необходимо реализовать <xref:System.Windows.IWeakEventListener>интерфейса.</xref:System.Windows.IWeakEventListener>"
   syntax:
     content: public static void AddHandler (System.ComponentModel.INotifyPropertyChanged source, EventHandler<System.ComponentModel.PropertyChangedEventArgs> handler, string propertyName);
     parameters:
     - id: source
       type: System.ComponentModel.INotifyPropertyChanged
-      description: "The source object that the raises the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event."
+      description: "Исходный объект, который вызывает <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>событий.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
     - id: handler
       type: System.EventHandler{System.ComponentModel.PropertyChangedEventArgs}
-      description: "The delegate that handles the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event."
+      description: "Делегат, который обрабатывает <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>событий.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
     - id: propertyName
       type: System.String
-      description: "The name of the property that exists on `source` upon which to listen for changes. Set to <xref:System.String> to indicate &quot;any property&quot;."
+      description: "Имя свойства, которое уже существует на `source` на которой будет отслеживать изменения. Значение <xref:System.String>для указания «все свойства».</xref:System.String>"
   overload: System.ComponentModel.PropertyChangedEventManager.AddHandler*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>handler</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>handler</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "More than one method is associated with <code>handler</code>."
+    description: "Более чем один метод, связанный с <code> handler </code>."
   platform:
   - net462
 - uid: System.ComponentModel.PropertyChangedEventManager.AddListener(System.ComponentModel.INotifyPropertyChanged,System.Windows.IWeakEventListener,System.String)
@@ -93,19 +93,19 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Adds the specified listener to the list of listeners on the specified source."
+  summary: "Добавляет указанный прослушиватель в список прослушивателей указанного источника."
   syntax:
     content: public static void AddListener (System.ComponentModel.INotifyPropertyChanged source, System.Windows.IWeakEventListener listener, string propertyName);
     parameters:
     - id: source
       type: System.ComponentModel.INotifyPropertyChanged
-      description: "The object with the event."
+      description: "Объект с событием."
     - id: listener
       type: System.Windows.IWeakEventListener
-      description: "The object to add as a listener."
+      description: "Объект, добавляемый в качестве прослушивателя."
     - id: propertyName
       type: System.String
-      description: "The name of the property that exists on `source` upon which to listen for changes. Set to <xref:System.String> to indicate &quot;any property&quot;."
+      description: "Имя свойства, которое уже существует на `source` на которой будет отслеживать изменения. Значение <xref:System.String>для указания «все свойства».</xref:System.String>"
   overload: System.ComponentModel.PropertyChangedEventManager.AddListener*
   exceptions: []
   platform:
@@ -122,13 +122,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Returns a new object to contain listeners to the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event."
+  summary: "Возвращает новый объект для хранения прослушивателей <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>событий.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
   syntax:
     content: protected override System.Windows.WeakEventManager.ListenerList NewListenerList ();
     parameters: []
     return:
       type: System.Windows.WeakEventManager.ListenerList
-      description: "A new object to contain listeners to the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event."
+      description: "Новый объект для хранения прослушивателей <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>событий.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
   overload: System.ComponentModel.PropertyChangedEventManager.NewListenerList*
   exceptions: []
   platform:
@@ -145,22 +145,22 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Removes listeners that are no longer active from the data for the provided source."
+  summary: "Удаляет прослушивателей, которые больше не являются активными из указанного источника данных."
   syntax:
     content: protected override bool Purge (object source, object data, bool purgeAll);
     parameters:
     - id: source
       type: System.Object
-      description: "Source object to remove all listeners from."
+      description: "Исходный объект, из которого удаляются все прослушиватели."
     - id: data
       type: System.Object
-      description: "The data to purge. This is expected to be a <xref href=&quot;System.Collections.Specialized.HybridDictionary&quot;></xref>."
+      description: "Данные для очистки. Это должно быть <xref href=&quot;System.Collections.Specialized.HybridDictionary&quot;> </xref>."
     - id: purgeAll
       type: System.Boolean
-      description: "Set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to stop listening and to completely remove all data."
+      description: "Значение <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> прекратить прослушивание и полностью удалить все данные."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if some entries were removed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если некоторые записи были удалены; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.PropertyChangedEventManager.Purge*
   exceptions: []
   platform:
@@ -177,27 +177,27 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Removes the specified event handler from the specified source."
+  summary: "Удаляет указанный обработчик события из указанного источника."
   syntax:
     content: public static void RemoveHandler (System.ComponentModel.INotifyPropertyChanged source, EventHandler<System.ComponentModel.PropertyChangedEventArgs> handler, string propertyName);
     parameters:
     - id: source
       type: System.ComponentModel.INotifyPropertyChanged
-      description: "The source object that the raises the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event."
+      description: "Исходный объект, который вызывает <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>событий.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
     - id: handler
       type: System.EventHandler{System.ComponentModel.PropertyChangedEventArgs}
-      description: "The delegate that handles the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event."
+      description: "Делегат, который обрабатывает <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>событий.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
     - id: propertyName
       type: System.String
-      description: "The name of the property that exists on `source` upon which to stop listening for changes. Set to <xref:System.String> to indicate &quot;any property&quot;."
+      description: "Имя свойства, которое уже существует на `source` для которого останавливается прослушивание изменений. Значение <xref:System.String>для указания «все свойства».</xref:System.String>"
   overload: System.ComponentModel.PropertyChangedEventManager.RemoveHandler*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>handler</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>handler</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "More than one method is associated with <code>handler</code>."
+    description: "Более чем один метод, связанный с <code> handler </code>."
   platform:
   - net462
 - uid: System.ComponentModel.PropertyChangedEventManager.RemoveListener(System.ComponentModel.INotifyPropertyChanged,System.Windows.IWeakEventListener,System.String)
@@ -212,19 +212,19 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Removes the specified listener from the list of listeners on the provided source."
+  summary: "Удаляет заданный прослушиватель из списка прослушивателей для предоставленного источника."
   syntax:
     content: public static void RemoveListener (System.ComponentModel.INotifyPropertyChanged source, System.Windows.IWeakEventListener listener, string propertyName);
     parameters:
     - id: source
       type: System.ComponentModel.INotifyPropertyChanged
-      description: "The object to remove the listener from."
+      description: "Объект, удаляемый прослушиватель."
     - id: listener
       type: System.Windows.IWeakEventListener
-      description: "The listener to remove."
+      description: "Удаляемый прослушиватель."
     - id: propertyName
       type: System.String
-      description: "The name of the property that exists on `source` upon which to stop listening for changes. Set to <xref:System.String> to indicate &quot;any property&quot;."
+      description: "Имя свойства, которое уже существует на `source` для которого останавливается прослушивание изменений. Значение <xref:System.String>для указания «все свойства».</xref:System.String>"
   overload: System.ComponentModel.PropertyChangedEventManager.RemoveListener*
   exceptions: []
   platform:
@@ -241,14 +241,14 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Begins listening for the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event on the provided source."
-  remarks: "This does not specify a property; once the event manager is started, all properties on the source will have <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> notification enabled."
+  summary: "Начинает прослушивание <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>событий для указанного источника.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
+  remarks: "Это не указывает свойство; После запуска диспетчера событий все свойства в источнике, будут иметь <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>включены уведомления.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
   syntax:
     content: protected override void StartListening (object source);
     parameters:
     - id: source
       type: System.Object
-      description: "The object on which to start listening for <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>."
+      description: "Объект, для которого начинает прослушивание <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
   overload: System.ComponentModel.PropertyChangedEventManager.StartListening*
   exceptions: []
   platform:
@@ -265,13 +265,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Stops listening for the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event on the provided source."
+  summary: "Ожидание остановки <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>событий для указанного источника.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
   syntax:
     content: protected override void StopListening (object source);
     parameters:
     - id: source
       type: System.Object
-      description: "The source object on which to stop listening for <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>."
+      description: "Исходный объект, на котором необходимо остановить прослушивание <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>.</xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged>"
   overload: System.ComponentModel.PropertyChangedEventManager.StopListening*
   exceptions: []
   platform:

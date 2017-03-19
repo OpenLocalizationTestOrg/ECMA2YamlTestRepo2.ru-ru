@@ -12,8 +12,8 @@ items:
   nameWithType: IDesignerLoaderService
   fullName: System.ComponentModel.Design.Serialization.IDesignerLoaderService
   type: Interface
-  summary: "Provides an interface that can extend a designer loader to support asynchronous loading of external components."
-  remarks: "A <xref:System.ComponentModel.Design.Serialization.DesignerLoader> can implement this interface to manage designer loading that involves external components. This interface also allows external components to initiate a reload of the design surface by calling <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.Reload%2A>. A designer loader does not have to implement this interface if it does not require support for asynchronous loading.       Designer loading using a custom implementation of the IDesignerLoaderService can occur in a variety of ways. Sometimes external components are involved in the loading process. To facilitate loading with external dependencies, the designer loader service interface provides a mechanism that determines when loading is complete and allows each portion of loading to signal that it has completed. The IDesignerLoaderService typically determines when loading is complete by testing a counter that tracks the number of load dependencies remaining. When each portion of the load completes, <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A> is called, and the service decrements the counter. To set the number of dependent load processes, call <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A> once for each load process that calls <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A> when its loading is complete. When the final loading is complete, the service calls <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderHost.EndLoad%2A> on the loader host."
+  summary: "Предоставляет интерфейс, позволяющий расширить загрузчик конструктора для обеспечения асинхронной загрузки внешних компонентов."
+  remarks: "Объект <xref:System.ComponentModel.Design.Serialization.DesignerLoader>можно реализовать этот интерфейс для управления загрузкой конструктора, использующего внешние компоненты.</xref:System.ComponentModel.Design.Serialization.DesignerLoader> Этот интерфейс также позволяет внешние компоненты инициировать перезагрузку конструктора путем вызова <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.Reload%2A>.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.Reload%2A> Загрузчик конструктора не имеет для реализации этого интерфейса, если не требуется поддержка асинхронной загрузки.       При загрузке с использованием конструктора пользовательскую реализацию IDesignerLoaderService могут возникать в различными способами. Иногда внешние компоненты используются в процессе загрузки. Для упрощения загрузки с внешними зависимостями, интерфейс службы загрузчика конструктора предоставляет механизм, который определяет, когда загрузка завершена и позволяет каждой части загрузки в целом, его завершения. Обычно IDesignerLoaderService определяет, когда загрузка завершена, проверяя счетчик, который отслеживает число оставшихся зависимостей загрузки. По завершении каждой части нагрузки <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A>вызывается и служба уменьшает счетчик.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A> Чтобы задать число процессов зависимой загрузки, вызовите <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A>один раз для каждого процесса, вызывающий <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A>при завершении загрузки.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A> </xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A> При завершении загрузки последней, вызовов служб <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderHost.EndLoad%2A>на хосте загрузчика.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderHost.EndLoad%2A>"
   syntax:
     content: public interface IDesignerLoaderService
   implements: []
@@ -31,8 +31,8 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Registers an external component as part of the load process managed by this interface."
-  remarks: "Call AddLoadDependency once for each external object participating in the load process. <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A> is called when the work of the load process is done."
+  summary: "Регистрирует внешний компонент как часть процесса загрузки под управлением данного интерфейса."
+  remarks: "Вызовите AddLoadDependency один раз для каждого внешнего объекта, участвующего в процессе загрузки. <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A>вызывается при завершении работы процесса загрузки.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A>"
   syntax:
     content: public void AddLoadDependency ();
     parameters: []
@@ -52,17 +52,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Signals that a dependent load has finished."
-  remarks: "This method is called to signal that a dependent loading operation has completed. Call DependentLoadComplete once for every process that was registered by calling <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A>, which has already completed.       If the dependent load succeeds, the caller sets the `successful` parameter to `true` and passes either an empty collection or `null` to the `errorCollection` parameter. If the dependent load encounters errors, the caller sets the `successful` parameter to `false` and passes a collection of exceptions that indicate the reason or reasons for failure to the `errorCollection` parameter."
+  summary: "Сигнализирует о завершении зависимой загрузки."
+  remarks: "Этот метод вызывается для подачи сигнала завершение операции зависимой загрузки. Вызовите DependentLoadComplete один раз для каждого процесса, который был зарегистрирован, вызвав <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A>, который уже завершен.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A>       Если зависимая загрузка прошла успешно, вызывающая функция задает `successful` параметр `true` и передает пустую коллекцию или `null` для `errorCollection` параметра. Если в зависимой загрузке возникли ошибки, вызывающий оператор задает `successful` параметр `false` и передает набор исключений, которые указывают на причину или причины сбоя в `errorCollection` параметра."
   syntax:
     content: public void DependentLoadComplete (bool successful, System.Collections.ICollection errorCollection);
     parameters:
     - id: successful
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the load of the designer is successful; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if errors prevented the load from finishing."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если загрузка конструктора прошла успешно; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Если возникли ошибки и загрузка из завершения."
     - id: errorCollection
       type: System.Collections.ICollection
-      description: "A collection of errors that occurred during the load, if any. If no errors occurred, pass either an empty collection or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Коллекция ошибок, возникших во время загрузки, если таковые имеются. Если ошибок нет, передается пустая коллекция или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete*
   exceptions: []
   platform:
@@ -79,14 +79,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Reloads the design document."
-  remarks: "Any object can call this method to request that the loader reload the design document. If the loader supports reloading and complies with the reload, the designer loader can return `true`. Otherwise, it returns `false`, indicating that the reload will not occur. Callers cannot rely on the reload happening immediately; the designer loader can schedule this for some other time, or it can try to reload at once.       The caller can display a message to the user if the designer cannot be reloaded."
+  summary: "Перезагружает документ проекта."
+  remarks: "Любой объект, этот метод можно вызывать запрос на перезагрузку документа проекта. Если загрузчик поддерживает и выполняет перезагрузку, загрузчик конструктора может возвращать `true`. В противном случае он возвращает `false`, означающее, что не произойдет перезагрузка. Вызывающие объекты не следует полагаться на перезагрузку немедленно; загрузчик конструктора можно отложить позже или попробуйте перезагрузить за один раз.       Вызывающий объект может отобразить сообщение для пользователя, если не удается перезапустить конструктор."
   syntax:
     content: public bool Reload ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the reload request is accepted, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the loader does not allow the reload."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если принят запрос на перезагрузку или <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> если перезагрузка запрещена."
   overload: System.ComponentModel.Design.Serialization.IDesignerLoaderService.Reload*
   exceptions: []
   platform:
