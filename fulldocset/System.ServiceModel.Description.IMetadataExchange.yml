@@ -12,8 +12,8 @@ items:
   nameWithType: IMetadataExchange
   fullName: System.ServiceModel.Description.IMetadataExchange
   type: Interface
-  summary: "Exposes methods used to return metadata about a service."
-  remarks: "When programming [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] services, it is useful to publish metadata about the service. For example, metadata can be a Web Services Description Language (WSDL) document that describes all of the methods and data types employed by a service. Returning metadata about an [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] service allows consumers of a service to easily create clients for the service. For more information about [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] metadata endpoints, see [Metadata](~/add/includes/ajax-current-ext-md.md).       Services implemented using [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] publish metadata by exposing one or more metadata endpoints. Metadata endpoints in [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] have an address, a binding and a contract like any other endpoint.  The <xref:System.ServiceModel.Description.MetadataReference> interface specifies the service contract implemented by all metadata endpoints in [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)].       There is no need to implement the <xref:System.ServiceModel.Description.MetadataReference> contract in your service implementation.  Instead, add the <xref:System.ServiceModel.Description.ServiceMetadataBehavior> to the service description.       Or, when using configuration, set the `contract` attribute of the endpoint element to `IMetadataExchange`. For an example, see [How to: Publish Metadata for a Service Using a Configuration File](~/add/includes/ajax-current-ext-md.md).       For details on publishing metadata in [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] see [Publishing Metadata](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Предоставляет методы, используемые для получения метаданных о службе."
+  remarks: "При программировании [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] службы, имеет смысл публиковать метаданные службы. Например метаданные могут быть документ языка описания веб-служб (WSDL), который описывает все методы и типы данных, используемых службой. Возвращение метаданных о [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] служба позволяет пользователям службы легко создавать клиенты для службы. Дополнительные сведения о [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] конечные точки метаданных, в разделе [метаданные](~/add/includes/ajax-current-ext-md.md).       Службы, реализованные с помощью [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] публиковать метаданные через одну или несколько конечных точек метаданных. Конечные точки метаданных в [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] имеют адрес, привязку и контракт, как любую другую конечную точку.  <xref:System.ServiceModel.Description.MetadataReference>Интерфейс задает контракт службы, реализуемый всеми конечными точками метаданных в [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)].</xref:System.ServiceModel.Description.MetadataReference>       Нет необходимости реализовать <xref:System.ServiceModel.Description.MetadataReference>контракта в реализации службы.</xref:System.ServiceModel.Description.MetadataReference>  Вместо этого добавьте <xref:System.ServiceModel.Description.ServiceMetadataBehavior>к описанию службы.</xref:System.ServiceModel.Description.ServiceMetadataBehavior>       Или, при использовании конфигурации задайте `contract` атрибута элемента конечной точки для `IMetadataExchange`. Пример см. в разделе [как: публикация метаданных для службы с помощью файла конфигурации](~/add/includes/ajax-current-ext-md.md).       Дополнительные сведения о публикации метаданных в [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] разделе [публикация метаданных](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: >-
       [System.ServiceModel.ServiceContract(ConfigurationName="IMetadataExchange", Name="IMetadataExchange", Namespace="http://schemas.microsoft.com/2006/04/mex")]
@@ -34,22 +34,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Starts an asynchronous retrieval of metadata."
+  summary: "Запускает асинхронное получение метаданных."
   syntax:
     content: public IAsyncResult BeginGet (System.ServiceModel.Channels.Message request, AsyncCallback callback, object state);
     parameters:
     - id: request
       type: System.ServiceModel.Channels.Message
-      description: "A <xref:System.ServiceModel.Channels.Message> that should be processed to determine the metadata to return."
+      description: "Объект <xref:System.ServiceModel.Channels.Message>, будут обрабатываться для определения метаданных для возврата.</xref:System.ServiceModel.Channels.Message>"
     - id: callback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> that points to the method that will process the metadata."
+      description: "<xref:System.AsyncCallback>, Указывающий метод, который будет обрабатывать метаданные.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "Any data which allows the caller to determine which asynchronous call is being returned."
+      description: "Любые данные, что позволяет вызывающему объекту определить, какой асинхронный вызов возвращается."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that can be passed to the <xref:System.ServiceModel.Description.IMetadataExchange.EndGet*> method."
+      description: "<xref:System.IAsyncResult>, Может быть передан <xref:System.ServiceModel.Description.IMetadataExchange.EndGet*>метод.</xref:System.ServiceModel.Description.IMetadataExchange.EndGet*> </xref:System.IAsyncResult>"
   overload: System.ServiceModel.Description.IMetadataExchange.BeginGet*
   exceptions: []
   platform:
@@ -66,16 +66,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Concludes the retrieval of metadata."
+  summary: "Завершает получение метаданных."
   syntax:
     content: public System.ServiceModel.Channels.Message EndGet (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that contains data used to further process the metadata."
+      description: "<xref:System.IAsyncResult>, Содержащий данные, используемые для дальнейшей обработки метаданных.</xref:System.IAsyncResult>"
     return:
       type: System.ServiceModel.Channels.Message
-      description: "A <xref:System.ServiceModel.Channels.Message> containing the processed metadata."
+      description: "Объект <xref:System.ServiceModel.Channels.Message>содержащий обработанные метаданные.</xref:System.ServiceModel.Channels.Message>"
   overload: System.ServiceModel.Description.IMetadataExchange.EndGet*
   exceptions: []
   platform:
@@ -92,16 +92,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Returns the service metadata."
+  summary: "Возвращает метаданные службы."
   syntax:
     content: public System.ServiceModel.Channels.Message Get (System.ServiceModel.Channels.Message request);
     parameters:
     - id: request
       type: System.ServiceModel.Channels.Message
-      description: "A <xref:System.ServiceModel.Channels.Message> that contains the request for metadata."
+      description: "Объект <xref:System.ServiceModel.Channels.Message>, содержащий запрос для метаданных.</xref:System.ServiceModel.Channels.Message>"
     return:
       type: System.ServiceModel.Channels.Message
-      description: "A <xref:System.ServiceModel.Channels.Message> containing the metadata."
+      description: "Объект <xref:System.ServiceModel.Channels.Message>содержит метаданные.</xref:System.ServiceModel.Channels.Message>"
   overload: System.ServiceModel.Description.IMetadataExchange.Get*
   exceptions: []
   platform:

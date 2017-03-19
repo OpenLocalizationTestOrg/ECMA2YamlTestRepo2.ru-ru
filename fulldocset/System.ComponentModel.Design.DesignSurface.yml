@@ -42,8 +42,8 @@ items:
   nameWithType: DesignSurface
   fullName: System.ComponentModel.Design.DesignSurface
   type: Class
-  summary: "Presents a user interface for designing components."
-  remarks: "The DesignSurface class implements what the user perceives as a designer. DesignSurface is the user interface the user manipulates to change design-time features. DesignSurface provides a completely self-contained design surface.       The DesignSurface class may be used as a stand-alone designer, or it may be coupled with the <xref:System.ComponentModel.Design.DesignSurfaceManager> class to provide a common implementation for an application that hosts multiple DesignSurface objects.       The DesignSurface class can be used by itself, or the user can derive a new class from it and augment the behavior.       The DesignSurface class provides several design-time services automatically. The DesignSurface class adds all of its services in its constructor. Most of these services can be overridden by replacing them in the protected <xref:System.ComponentModel.Design.DesignSurface.ServiceContainer%2A> property. To replace a service, override the constructor, call base, and make any changes through the protected <xref:System.ComponentModel.Design.DesignSurface.ServiceContainer%2A> property. All services that are added to the service container and that implement <xref:System.IDisposable> are disposed when the design surface is disposed. The default set of replaceable services that the DesignSurface class provides is shown in the following table.      |Service|Description|   |-------------|-----------------|   |<xref:System.ComponentModel.Design.IExtenderProviderService>|Enables objects that are not part of the container’s components collection to provide their own extender providers.|   |<xref:System.ComponentModel.Design.IExtenderListService>|Used by <xref:System.ComponentModel.TypeDescriptor> to get a list of extender providers. With this service, extender providers can live outside of the container.|   |<xref:System.ComponentModel.Design.ITypeDescriptorFilterService>|Provides designer metadata hooks. This is the primary interface for metadata filtering.|   |<xref:System.ComponentModel.Design.ISelectionService>|Provides a way to select components in the designer.|   |<xref:System.ComponentModel.Design.IReferenceService>|Provides a way to get a name for objects, even when those objects are not sited.|   |DesignSurface|Offers the design surface itself as a service.|   |<xref:System.ComponentModel.Design.DesignerOptionService>|Provides a base class for getting and setting option values for a designer.|       The following table shows the non-replaceable services provided by default.      |Service|Description|   |-------------|-----------------|   |<xref:System.ComponentModel.Design.IComponentChangeService>|Raises events as changes are made to components.|   |<xref:System.ComponentModel.Design.IDesignerHost>|Controls access to types, services, and transactions. Master interface for designers.|   |<xref:System.ComponentModel.IContainer>|Owns the set of components that are being designed. Each designer has an <xref:System.ComponentModel.IContainer> that owns the components.|   |<xref:System.ComponentModel.Design.IServiceContainer>|Derives from <xref:System.IServiceProvider> and provides a way to add and remove services from the designer.|       In addition to these services, the DesignSurface class also provides a single service that is available through a component’s site. This service is unique for each component. The following table shows the services that cannot be replaced.      |Service|Description|   |-------------|-----------------|   |<xref:System.ComponentModel.Design.IDictionaryService>|A generic dictionary of key/value pairs that can be used to store arbitrary data about a component.|   |<xref:System.ComponentModel.INestedContainer>|A container that enables a component to add additional child components to the designer. These components will be part of the design surface, but will not participate in serialization. This is useful when you want to design a control that is capable of exposing a region of itself in a designer, but you do not want the region to participate in serialization.|       In addition to <xref:System.ComponentModel.ISite>, the site also implements the following interfaces.      > [!CAUTION] >  Check for the existence of these interfaces, rather than use indiscriminate casting, because other site implementations may not implement them.      |Service|Description|   |-------------|-----------------|   |<xref:System.ComponentModel.Design.IServiceContainer>|Provides a way to get to the container of site-specific services. For example, <xref:System.ComponentModel.Design.IDictionaryService> is a site-specific service. With this service, you can add additional site-specific services.|"
+  summary: "Представляет пользовательский интерфейс для разработки компонентов."
+  remarks: "Класс DesignSurface реализует пользователь понимает разработчик. DesignSurface — манипулирует пользовательский интерфейс пользователя для изменения во время разработки. DesignSurface предоставляет область конструктора полностью автономной.       Класс DesignSurface можно использовать в качестве автономного конструктор, или она может быть связана с <xref:System.ComponentModel.Design.DesignSurfaceManager>класса для реализации распространенных для приложения, на котором размещается несколько объектов DesignSurface.</xref:System.ComponentModel.Design.DesignSurfaceManager>       Класс DesignSurface может использоваться сама по себе, или пользователь может создать новый класс, производный от него и расширения поведения.       Класс DesignSurface автоматически предоставляет несколько служб во время разработки. Класс DesignSurface добавляет всех служб в своем конструкторе. Большинство из этих служб можно переопределить, заменив их в защищенном <xref:System.ComponentModel.Design.DesignSurface.ServiceContainer%2A>свойство.</xref:System.ComponentModel.Design.DesignSurface.ServiceContainer%2A> Чтобы заменить службы, переопределить конструктор, вызов базовой и вносить изменения посредством защищенного <xref:System.ComponentModel.Design.DesignSurface.ServiceContainer%2A>свойство.</xref:System.ComponentModel.Design.DesignSurface.ServiceContainer%2A> Все службы, добавленные в контейнер службы и реализуют <xref:System.IDisposable>, удаляются при удалении рабочей области конструирования.</xref:System.IDisposable> По умолчанию набор подстановочных службы, предоставляемые классом DesignSurface показано в следующей таблице.      | Службы | Описание |   |-------------|-----------------|   | <xref:System.ComponentModel.Design.IExtenderProviderService>| Включает объекты, которые не являются частью контейнера коллекцию компонентов, чтобы предоставить их собственные поставщики расширений. |   | <xref:System.ComponentModel.Design.IExtenderListService>| Используемые <xref:System.ComponentModel.TypeDescriptor>для получения списка поставщиков расширений.</xref:System.ComponentModel.TypeDescriptor> </xref:System.ComponentModel.Design.IExtenderListService> </xref:System.ComponentModel.Design.IExtenderProviderService> В этой службе поставщиков расширений могут существовать вне контейнера. |   | <xref:System.ComponentModel.Design.ITypeDescriptorFilterService>| Предоставляет обработчики метаданных конструктора.</xref:System.ComponentModel.Design.ITypeDescriptorFilterService> Это основной интерфейс для фильтрации метаданных. |   | <xref:System.ComponentModel.Design.ISelectionService>| Предоставляет способ выбрать компоненты в конструкторе. |   | <xref:System.ComponentModel.Design.IReferenceService>| Предоставляет способ получить имя для объектов, даже в том случае, если эти объекты не распределены по узлам. |   | DesignSurface | Предоставляет область конструктора как служба. |   | <xref:System.ComponentModel.Design.DesignerOptionService>| Предоставляет базовый класс для получения и задания значений параметров для конструктора. |       В следующей таблице показаны-заменяемое службы, предоставляемые по умолчанию.</xref:System.ComponentModel.Design.DesignerOptionService> </xref:System.ComponentModel.Design.IReferenceService> </xref:System.ComponentModel.Design.ISelectionService>      | Службы | Описание |   |-------------|-----------------|   | <xref:System.ComponentModel.Design.IComponentChangeService>| Вызывает события при изменении компонентов. |   | <xref:System.ComponentModel.Design.IDesignerHost>| Управляет доступом к типам, служб и транзакций.</xref:System.ComponentModel.Design.IDesignerHost> </xref:System.ComponentModel.Design.IComponentChangeService> Главный интерфейс для конструкторов. |   | <xref:System.ComponentModel.IContainer>| Владеет набор компонентов, которые разрабатываются.</xref:System.ComponentModel.IContainer> Каждый конструктор имеет <xref:System.ComponentModel.IContainer>, которому принадлежит компонентов. |   | <xref:System.ComponentModel.Design.IServiceContainer>| Является производным от <xref:System.IServiceProvider>и позволяет добавлять и удалять службы из конструктора. |       Помимо этих служб, класс DesignSurface также предоставляет одной службы, доступные через узел компонента.</xref:System.IServiceProvider> </xref:System.ComponentModel.Design.IServiceContainer> </xref:System.ComponentModel.IContainer> Эта служба является уникальным для каждого компонента. Ниже приведены службы, которые не могут быть заменены.      | Службы | Описание |   |-------------|-----------------|   | <xref:System.ComponentModel.Design.IDictionaryService>| Универсальный словарь пар &quot;ключ значение&quot;, используемых для хранения произвольных данных о компоненте. |   | <xref:System.ComponentModel.INestedContainer>| Контейнер, который позволяет компоненту добавлять в конструктор дополнительные дочерние компоненты.</xref:System.ComponentModel.INestedContainer> </xref:System.ComponentModel.Design.IDictionaryService> Эти компоненты должны быть частью области конструктора, но не будет участвовать в сериализации. Это полезно, если вы хотите создать элемент управления, способный предоставлять в область в конструкторе, но необходимо участвовать в сериализации. |       В дополнение к <xref:System.ComponentModel.ISite>, сайт также реализует следующие интерфейсы.</xref:System.ComponentModel.ISite>      Настроек [!CAUTION] настроек проверки наличия этих интерфейсов, а не приведение беспорядочное использование, так как в других реализациях сайта не реализовывать их.      | Службы | Описание |   |-------------|-----------------|   | <xref:System.ComponentModel.Design.IServiceContainer>| Предоставляет способ перейти в контейнер служб конкретного узла.</xref:System.ComponentModel.Design.IServiceContainer> Например <xref:System.ComponentModel.Design.IDictionaryService>— это служба, связанные с сайтом.</xref:System.ComponentModel.Design.IDictionaryService> Эта служба позволяет добавлять дополнительные службы конкретного узла. |"
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -69,7 +69,7 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> класса."
   syntax:
     content: public DesignSurface ();
     parameters: []
@@ -77,7 +77,7 @@ items:
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.#ctor(System.IServiceProvider)
@@ -92,19 +92,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> class."
-  remarks: "When `parentProvide` is present, designers contained within the surface can retrieve services from the application."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> класса."
+  remarks: "Когда `parentProvide` присутствует, конструкторов, которые содержатся в рабочей области может получить службы из приложения."
   syntax:
     content: public DesignSurface (IServiceProvider parentProvider);
     parameters:
     - id: parentProvider
       type: System.IServiceProvider
-      description: "The parent service provider, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no parent used to resolve services."
+      description: "Поставщик родительской службы или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> при отсутствии родительского объекта используется для разрешения служб."
   overload: System.ComponentModel.Design.DesignSurface.#ctor*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.#ctor(System.Type)
@@ -119,22 +119,22 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> class."
-  remarks: "When you use the DesignSurface constructor, it creates a simple designer loader that, in turn, creates a component of the given type and then ends the loading process. This is a straightforward way to create a designer, under the assumption that all saving of state will be done externally. Internally, this calls <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A> and passes the root component type.      > [!NOTE] >  The DesignSurface overload is not affected by <xref:System.Windows.Forms.Design.DesignerOptions>. The <xref:System.Windows.Forms.Design.DesignerOptions> must be in the service container before the design surface loads. If you need access to <xref:System.Windows.Forms.Design.DesignerOptions>, call the empty constructor, add the <xref:System.Windows.Forms.Design.DesignerOptions> to the <xref:System.ComponentModel.Design.DesignSurface.ServiceContainer%2A> and call <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A> with `rootComponentType`."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> класса."
+  remarks: "При использовании конструктора DesignSurface, он создает простой загрузчика конструктора, который, в свою очередь, создает компонент заданного типа, а затем завершает процесс загрузки. Это простой способ создать конструктор, исходя из предположения, что все сохранению состояния будут выполняться вне. На внутреннем уровне он вызывает <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A>и передает корневой тип компонента.</xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A>      Настроек [!NOTE] настроек DesignSurface перегрузки не подвержены <xref:System.Windows.Forms.Design.DesignerOptions>.</xref:System.Windows.Forms.Design.DesignerOptions> <xref:System.Windows.Forms.Design.DesignerOptions>Должен находиться в контейнере службы перед загрузкой конструктора.</xref:System.Windows.Forms.Design.DesignerOptions> Если вам нужен доступ к <xref:System.Windows.Forms.Design.DesignerOptions>, вызывает пустой конструктор, добавить <xref:System.Windows.Forms.Design.DesignerOptions>для <xref:System.ComponentModel.Design.DesignSurface.ServiceContainer%2A>и вызвать <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A>с `rootComponentType`.</xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A> </xref:System.ComponentModel.Design.DesignSurface.ServiceContainer%2A> </xref:System.Windows.Forms.Design.DesignerOptions> </xref:System.Windows.Forms.Design.DesignerOptions>"
   syntax:
     content: public DesignSurface (Type rootComponentType);
     parameters:
     - id: rootComponentType
       type: System.Type
-      description: "The type of root component to create."
+      description: "Тип корневой компонент для создания."
   overload: System.ComponentModel.Design.DesignSurface.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>rootComponent</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>rootComponent</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.#ctor(System.IServiceProvider,System.Type)
@@ -149,25 +149,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> class."
-  remarks: "Using the DesignSurface constructor creates a simple designer loader that creates a component of the given type and then ends the loading process. This is a straightforward way to create a designer, under the assumption that all saving of state will be done externally. Internally, this calls <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A> and passes the root component type."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> класса."
+  remarks: "С помощью конструктора DesignSurface создает простой загрузчика конструктора, который создает компонент заданного типа, а затем завершает процесс загрузки. Это простой способ создать конструктор, исходя из предположения, что все сохранению состояния будут выполняться вне. На внутреннем уровне он вызывает <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A>и передает корневой тип компонента.</xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A>"
   syntax:
     content: public DesignSurface (IServiceProvider parentProvider, Type rootComponentType);
     parameters:
     - id: parentProvider
       type: System.IServiceProvider
-      description: "The parent service provider, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no parent used to resolve services."
+      description: "Поставщик родительской службы или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> при отсутствии родительского объекта используется для разрешения служб."
     - id: rootComponentType
       type: System.Type
-      description: "The type of root component to create."
+      description: "Тип корневой компонент для создания."
   overload: System.ComponentModel.Design.DesignSurface.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>rootComponent</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>rootComponent</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.BeginLoad(System.ComponentModel.Design.Serialization.DesignerLoader)
@@ -182,22 +182,22 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Begins the loading process with the given designer loader."
-  remarks: "Designer loading can be asynchronous, so the loading may continue to progress after this call has returned. Attach an event handler to the <xref:System.ComponentModel.Design.IDesignerHost.LoadComplete> event to be notified when the design surface has completed loading.       After <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A> is called, you can immediately obtain the view for the designer, because designer loaders must provide at least the root component when loading asynchronously."
+  summary: "Начинает процесс загрузки с заданным загрузчиком конструктора."
+  remarks: "Загрузка конструктора может выполняться асинхронно, поэтому загрузка может быть продолжена после возвращения из этого метода. Присоединить обработчик событий к <xref:System.ComponentModel.Design.IDesignerHost.LoadComplete>событий, чтобы получить уведомление о завершении загрузки конструктора.</xref:System.ComponentModel.Design.IDesignerHost.LoadComplete>       После <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A>является именем, можно немедленно получить представление конструктора, поскольку загрузчиков конструктора необходимо указать хотя бы корневой компонент при асинхронной загрузке.</xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A>"
   syntax:
     content: public void BeginLoad (System.ComponentModel.Design.Serialization.DesignerLoader loader);
     parameters:
     - id: loader
       type: System.ComponentModel.Design.Serialization.DesignerLoader
-      description: "The designer loader to use for loading the designer."
+      description: "Загрузчик конструктора, используемый для загрузки конструктора."
   overload: System.ComponentModel.Design.DesignSurface.BeginLoad*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>loader</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>loader</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.BeginLoad(System.Type)
@@ -212,22 +212,22 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Begins the loading process."
-  remarks: "When `rootComponentType` is specified, a default designer loader that simply creates an instance of `rootComponentType` will be used. Designer loading can be asynchronous, so the loading may continue to progress after this call has returned. Attach an event handler to the <xref:System.ComponentModel.Design.IDesignerHost.LoadComplete> event to be notified when the design surface has completed loading.       After BeginLoad is called, you can immediately obtain the view for the designer, because designer loaders must provide at least the root component when loading asynchronously.      > [!NOTE] >  The BeginLoad method creates an instance of the component type and initializes a designer for this instance. The <xref:System.ComponentModel.Design.DesignSurface.Loaded> event is raised before this method returns."
+  summary: "Начинает процесс загрузки."
+  remarks: "Когда `rootComponentType` указано, загрузчик конструктора по умолчанию, который просто создает экземпляр `rootComponentType` будет использоваться. Загрузка конструктора может выполняться асинхронно, поэтому загрузка может быть продолжена после возвращения из этого метода. Присоединить обработчик событий к <xref:System.ComponentModel.Design.IDesignerHost.LoadComplete>событий, чтобы получить уведомление о завершении загрузки конструктора.</xref:System.ComponentModel.Design.IDesignerHost.LoadComplete>       После вызова BeginLoad можно немедленно получить представление конструктора, так как загрузчиков конструктора необходимо указать хотя бы корневой компонент при асинхронной загрузке.      Настроек [!NOTE] настроек BeginLoad метод создает экземпляр типа компонента и инициализирует конструктор для данного экземпляра. <xref:System.ComponentModel.Design.DesignSurface.Loaded>Событие возникает перед этим методом.</xref:System.ComponentModel.Design.DesignSurface.Loaded>"
   syntax:
     content: public void BeginLoad (Type rootComponentType);
     parameters:
     - id: rootComponentType
       type: System.Type
-      description: "The type of component to create in design mode."
+      description: "Тип создаваемого компонента в режиме конструктора."
   overload: System.ComponentModel.Design.DesignSurface.BeginLoad*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>rootComponentType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>rootComponentType</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.ComponentContainer
@@ -242,18 +242,18 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets the <xref href=&quot;System.ComponentModel.IContainer&quot;></xref> implementation within the design surface."
-  remarks: "The ComponentContainer property holds all objects that are currently in design mode. When components are added to ComponentContainer, their designer, if any, is loaded. The component is sited with a site that provides full access to the design surface."
+  summary: "Возвращает <xref href=&quot;System.ComponentModel.IContainer&quot;> </xref> реализации в рабочей области конструирования."
+  remarks: "Свойство ComponentContainer содержит все объекты, которые в данный момент в режиме конструктора. При добавлении компонентов ComponentContainer их конструктора при его наличии, загружается. Компонент находится с сайтом, который обеспечивает полный доступ к рабочей области конструирования."
   syntax:
     content: public System.ComponentModel.IContainer ComponentContainer { get; }
     return:
       type: System.ComponentModel.IContainer
-      description: "The <xref href=&quot;System.ComponentModel.IContainer&quot;></xref> implementation within the design surface."
+      description: "<xref href=&quot;System.ComponentModel.IContainer&quot;> </xref> Реализации в рабочей области конструирования."
   overload: System.ComponentModel.Design.DesignSurface.ComponentContainer*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.CreateComponent(System.Type)
@@ -268,25 +268,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Creates an instance of a component."
-  remarks: "The CreateComponent method is called by the design surface’s <xref:System.ComponentModel.Design.IDesignerHost.CreateComponent%2A> method to create an instance of a component. The component should be created and added to the public container on the design surface."
+  summary: "Создает экземпляр компонента."
+  remarks: "Метод CreateComponent вызывается рабочей области конструирования <xref:System.ComponentModel.Design.IDesignerHost.CreateComponent%2A>метод для создания экземпляра компонента.</xref:System.ComponentModel.Design.IDesignerHost.CreateComponent%2A> Компонент должен создаются и добавляются в открытый контейнер в области конструктора."
   syntax:
     content: protected virtual System.ComponentModel.IComponent CreateComponent (Type componentType);
     parameters:
     - id: componentType
       type: System.Type
-      description: "The type of component to create."
+      description: "Тип создаваемого компонента."
     return:
       type: System.ComponentModel.IComponent
-      description: "The newly created component."
+      description: "Только что созданный компонент."
   overload: System.ComponentModel.Design.DesignSurface.CreateComponent*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>componentType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>componentType</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.CreateDesigner(System.ComponentModel.IComponent,System.Boolean)
@@ -301,28 +301,28 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Creates a designer when a component is added to the container."
-  remarks: "The CreateDesigner method is called by the design surface’s <xref:System.ComponentModel.IContainer> when a component is added to the container. This method creates a designer, but does not initialize it. When it returns, the designer is initialized by the container.       CreateDesigner can create two different types of designers: root designers and normal designers. A root designer is a designer for the root component in the design surface, which by definition is the first component added to the container. Root designers differ from normal designers because they are responsible for the user interface presented to the end user. Root designers typically coordinate with the rest of the designers on a design surface to provide this interface.       The default implementation of this method delegates to <xref:System.ComponentModel.TypeDescriptor>, passing in <xref:System.ComponentModel.Design.IRootDesigner> as the designer type for root designers, or <xref:System.ComponentModel.Design.IDesigner> for normal designers. You can override this method to request a specific type of designer."
+  summary: "Создает конструктор при добавлении компонента в контейнер."
+  remarks: "Метод CreateDesigner вызывается рабочей области конструирования <xref:System.ComponentModel.IContainer>при добавлении компонента в контейнер.</xref:System.ComponentModel.IContainer> Этот метод создает конструктор, но не инициализируется. При возвращении метода конструктор инициализируется контейнером.       CreateDesigner можно создать два типа конструкторов: корневых конструкторов и обычных конструкторов. Корневой конструктор представляет собой конструктор корневого компонента в области конструктора, который по определению является первым компонентом, добавленным в контейнер. Корневые конструкторы отличаются от обычных конструкторов, поскольку они отвечают за пользовательский интерфейс, отображаемый для конечного пользователя. Корневые конструкторы обычно координации с остальной частью конструкторами в рабочей области конструирования для предоставления этого интерфейса.       Реализация по умолчанию этот метод делегирует <xref:System.ComponentModel.TypeDescriptor>, передавая <xref:System.ComponentModel.Design.IRootDesigner>как тип конструктора для базовых конструкторов или <xref:System.ComponentModel.Design.IDesigner>для обычных конструкторов.</xref:System.ComponentModel.Design.IDesigner> </xref:System.ComponentModel.Design.IRootDesigner> </xref:System.ComponentModel.TypeDescriptor> Можно переопределить этот метод, чтобы запросить конкретный тип конструктора."
   syntax:
     content: protected virtual System.ComponentModel.Design.IDesigner CreateDesigner (System.ComponentModel.IComponent component, bool rootDesigner);
     parameters:
     - id: component
       type: System.ComponentModel.IComponent
-      description: "The component for which the designer should be created."
+      description: "Компонент, для которого необходимо создать конструктор."
     - id: rootDesigner
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to create a root designer; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to create a normal designer."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>для создания корневого конструктора; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> для создания обычного конструктора."
     return:
       type: System.ComponentModel.Design.IDesigner
-      description: "An instance of the requested designer, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no matching designer could be found."
+      description: "Экземпляр запрошенного конструктора или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если соответствующий конструктор не найден."
   overload: System.ComponentModel.Design.DesignSurface.CreateDesigner*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>component</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>component</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.CreateInstance(System.Type)
@@ -337,25 +337,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Creates an instance of the given type."
-  remarks: "If `type` is an <xref:System.ComponentModel.IComponent>, CreateInstance searches for a constructor of type <xref:System.ComponentModel.IContainer> first, followed by an empty constructor."
+  summary: "Создает экземпляр заданного типа."
+  remarks: "Если `type` — <xref:System.ComponentModel.IComponent>, CreateInstance выполняет поиск конструктора типа <xref:System.ComponentModel.IContainer>во-первых, следуют пустой конструктор.</xref:System.ComponentModel.IContainer> </xref:System.ComponentModel.IComponent>"
   syntax:
     content: protected virtual object CreateInstance (Type type);
     parameters:
     - id: type
       type: System.Type
-      description: "The type to create."
+      description: "Создаваемый тип данных."
     return:
       type: System.Object
-      description: "The newly created object."
+      description: "Вновь созданный объект."
   overload: System.ComponentModel.Design.DesignSurface.CreateInstance*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>type</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>type</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.CreateNestedContainer(System.ComponentModel.IComponent)
@@ -370,25 +370,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Creates a container suitable for nesting controls or components."
-  remarks: "Adding a component to a nested container creates its designer and makes it eligible for all services available from the design surface. Components added to nested containers do not participate in serialization."
+  summary: "Создает контейнер, пригодный для вложения элементов управления или компонентов."
+  remarks: "Добавление компонента во вложенный контейнер создает его конструктор и делает возможным его использование для всех служб, доступных из рабочей области конструирования. Компоненты, добавленные во вложенные контейнеры не участвовать в сериализации."
   syntax:
     content: public System.ComponentModel.INestedContainer CreateNestedContainer (System.ComponentModel.IComponent owningComponent);
     parameters:
     - id: owningComponent
       type: System.ComponentModel.IComponent
-      description: "The component that manages the nested container."
+      description: "Компонент, который управляет вложенных контейнеров."
     return:
       type: System.ComponentModel.INestedContainer
-      description: "The nested container."
+      description: "Вложенный контейнер."
   overload: System.ComponentModel.Design.DesignSurface.CreateNestedContainer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>owningComponent</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>owningComponent</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.CreateNestedContainer(System.ComponentModel.IComponent,System.String)
@@ -403,28 +403,28 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Creates a container suitable for nesting controls or components."
-  remarks: "Adding a component to a nested container creates its designer and makes it eligible for all services available from the design surface. Components added to nested containers do not participate in serialization.       You can provide an additional name for the CreateNestedContainer method by passing a value into `containerName`."
+  summary: "Создает контейнер, пригодный для вложения элементов управления или компонентов."
+  remarks: "Добавление компонента во вложенный контейнер создает его конструктор и делает возможным его использование для всех служб, доступных из рабочей области конструирования. Компоненты, добавленные во вложенные контейнеры не участвовать в сериализации.       Чтобы обеспечить дополнительное имя для метода CreateNestedContainer путем передачи значения в `containerName`."
   syntax:
     content: public System.ComponentModel.INestedContainer CreateNestedContainer (System.ComponentModel.IComponent owningComponent, string containerName);
     parameters:
     - id: owningComponent
       type: System.ComponentModel.IComponent
-      description: "The component that manages the nested container."
+      description: "Компонент, который управляет вложенных контейнеров."
     - id: containerName
       type: System.String
-      description: "An additional name for the nested container."
+      description: "Дополнительное имя для вложенных контейнеров."
     return:
       type: System.ComponentModel.INestedContainer
-      description: "The nested container."
+      description: "Вложенный контейнер."
   overload: System.ComponentModel.Design.DesignSurface.CreateNestedContainer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>owningComponent</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>owningComponent</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.Dispose
@@ -439,8 +439,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Releases the resources used by the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref>."
-  remarks: "The public Dispose method follows the standard <xref:System.IDisposable> pattern. Calling this method destroys the design surface. The protected version of this method is `virtual` and follows the normal <xref:System.IDisposable> pattern.      > [!NOTE] >  Because <xref:System.ComponentModel.Design.DesignSurface> does not have any native code to clean up, it does not have a finalizer that calls <xref:System.ComponentModel.Design.DesignSurface.Dispose%28System.Boolean%29>. If you need to call <xref:System.ComponentModel.Design.DesignSurface.Dispose%28System.Boolean%29>, you must add a finalizer yourself.       Call Dispose when you are finished using the <xref:System.ComponentModel.Design.DesignSurface>. The Dispose method leaves the <xref:System.ComponentModel.Design.DesignSurface> in an unusable state. After calling Dispose, you must release all references to the <xref:System.ComponentModel.Design.DesignSurface> so the garbage collector can reclaim the memory that the <xref:System.ComponentModel.Design.DesignSurface> was occupying. For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call Dispose before you release your last reference to the <xref:System.ComponentModel.Design.DesignSurface>. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:System.ComponentModel.Design.DesignSurface> object&quot;s `Finalize` method."
+  summary: "Освобождает ресурсы, используемые <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref>."
+  remarks: "Открытый метод Dispose соответствует стандарту <xref:System.IDisposable>шаблон.</xref:System.IDisposable> Вызов этого метода приводит к удалению рабочей области конструирования. Защищенная версия этого метода является `virtual` образом нормали и <xref:System.IDisposable>шаблон.</xref:System.IDisposable>      Настроек [!NOTE] настроек из-за <xref:System.ComponentModel.Design.DesignSurface>имеет машинного кода для очистки, не имеет метода завершения, который вызывает <xref:System.ComponentModel.Design.DesignSurface.Dispose%28System.Boolean%29>.</xref:System.ComponentModel.Design.DesignSurface.Dispose%28System.Boolean%29> </xref:System.ComponentModel.Design.DesignSurface> Если необходимо вызвать <xref:System.ComponentModel.Design.DesignSurface.Dispose%28System.Boolean%29>, необходимо добавить метод завершения самостоятельно.</xref:System.ComponentModel.Design.DesignSurface.Dispose%28System.Boolean%29>       После использования <xref:System.ComponentModel.Design.DesignSurface>.</xref:System.ComponentModel.Design.DesignSurface> всегда вызывать Dispose. Метод Dispose оставляет <xref:System.ComponentModel.Design.DesignSurface>окажется в неработоспособном состоянии.</xref:System.ComponentModel.Design.DesignSurface> После вызова Dispose, необходимо освободить все ссылки на <xref:System.ComponentModel.Design.DesignSurface>, сборщик мусора мог освободить память, <xref:System.ComponentModel.Design.DesignSurface>занимаемую.</xref:System.ComponentModel.Design.DesignSurface> </xref:System.ComponentModel.Design.DesignSurface> Дополнительные сведения см. в разделе [очистки неуправляемых ресурсов](~/add/includes/ajax-current-ext-md.md) и [метода](~/add/includes/ajax-current-ext-md.md).      Настроек [!NOTE] настроек всегда вызова Dispose перед освобождением последней ссылки на <xref:System.ComponentModel.Design.DesignSurface>.</xref:System.ComponentModel.Design.DesignSurface> В противном случае им ресурсы не будут освобождены пока сборщик мусора не вызовет метод <xref:System.ComponentModel.Design.DesignSurface>объекта `Finalize` метод.</xref:System.ComponentModel.Design.DesignSurface>"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -460,14 +460,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Releases the resources used by the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref>."
-  remarks: "The public <xref:System.ComponentModel.Design.DesignSurface.Dispose> method follows the standard <xref:System.IDisposable> pattern. Calling this method destroys the design surface. The protected version of this method is `virtual` and follows the normal <xref:System.IDisposable> pattern.      > [!NOTE] >  Because <xref:System.ComponentModel.Design.DesignSurface> does not have any native code to clean up, it does not have a finalizer that calls Dispose. If you need to call Dispose, you must add a finalizer yourself.       This method is called by the public `Dispose()`method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.       When the `disposing` parameter is true, this method releases all resources held by any managed objects that this <xref:System.ComponentModel.Design.DesignSurface> references. This method invokes the `Dispose()` method of each referenced object."
+  summary: "Освобождает ресурсы, используемые <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref>."
+  remarks: "Открытые <xref:System.ComponentModel.Design.DesignSurface.Dispose>метод соответствует стандарту <xref:System.IDisposable>шаблон.</xref:System.IDisposable> </xref:System.ComponentModel.Design.DesignSurface.Dispose> Вызов этого метода приводит к удалению рабочей области конструирования. Защищенная версия этого метода является `virtual` образом нормали и <xref:System.IDisposable>шаблон.</xref:System.IDisposable>      Настроек [!NOTE] настроек из-за <xref:System.ComponentModel.Design.DesignSurface>имеет машинного кода для очистки, не имеет метода завершения, который вызывает метод Dispose.</xref:System.ComponentModel.Design.DesignSurface> Если вам нужно вызывать Dispose, необходимо добавить метод завершения самостоятельно.       Этот метод вызывается методом открытые `Dispose()`метод и <xref:System.Object.Finalize%2A>метод.</xref:System.Object.Finalize%2A> `Dispose()`вызывает защищенный `Dispose(Boolean)` метод с `disposing` равным `true`. <xref:System.Object.Finalize%2A>вызывает `Dispose` с `disposing` значение `false`.</xref:System.Object.Finalize%2A>       При `disposing` параметр имеет значение true, данный метод освобождает все ресурсы, занятые любыми управляемыми объектами, которые <xref:System.ComponentModel.Design.DesignSurface>ссылки.</xref:System.ComponentModel.Design.DesignSurface> Этот метод вызывает `Dispose()` метод для каждого объекта, на который указывает ссылка."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>для освобождения управляемых и неуправляемых ресурсов; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> для освобождения только неуправляемых ресурсов."
   overload: System.ComponentModel.Design.DesignSurface.Dispose*
   exceptions: []
   platform:
@@ -484,13 +484,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Occurs when the design surface is disposed."
-  remarks: "The surface is only disposed when the public <xref:System.ComponentModel.Design.DesignSurface.Dispose%2A> method on <xref:System.ComponentModel.Design.DesignSurface> is called."
+  summary: "Происходит при удалении области конструктора."
+  remarks: "Рабочая область — это только удаляется Если открытые <xref:System.ComponentModel.Design.DesignSurface.Dispose%2A>метод <xref:System.ComponentModel.Design.DesignSurface>называется.</xref:System.ComponentModel.Design.DesignSurface> </xref:System.ComponentModel.Design.DesignSurface.Dispose%2A>"
   syntax:
     content: public event EventHandler Disposed;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -506,12 +506,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets a value indicating whether the **Design-time Error List** is loading."
+  summary: "Возвращает значение, указывающее, является ли **список ошибок во время разработки** загружается."
   syntax:
     content: public bool DtelLoading { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the **Design-time Error List** is loading; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если **список ошибок во время разработки** загружается; в противном случае — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.DesignSurface.DtelLoading*
   exceptions: []
   platform:
@@ -528,8 +528,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Serializes changes to the design surface."
-  remarks: "The Flush method can be called to push changes made to the design surface down to the serializer. This ensures that the design surface and its serialized state are synchronized. The actual implementation of this method is forwarded to the designer loader associated with design surface. The designer loader may choose to defer changes until Flush is called, or it may choose to keep the serialized data up to date with all user changes. The Flush method ensures that regardless of the model the designer loader chooses to use, the serialized state is synchronized with the actual design surface."
+  summary: "Сериализует изменения в рабочей области конструирования."
+  remarks: "Для принудительной отправки изменений, внесенных в области конструктора вниз до сериализатора может вызываться метод Flush. Это обеспечивает синхронизацию рабочей области конструирования и ее состояния сериализации. Фактическую реализацию этого метода перенаправляется в загрузчик конструктора, связанный с рабочей областью конструктора. Загрузчик конструктора может выбрать ожидающих изменений, пока диск называется или он может выбрать для сохранения в курсе всех изменений пользователь сериализованные данные. Метод Flush гарантирует, что независимо от модели, который выбирает использование загрузчика конструктора, сериализованное состояние синхронизированы с фактическое конструктора."
   syntax:
     content: public void Flush ();
     parameters: []
@@ -549,13 +549,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Occurs when a call is made to the <xref:System.ComponentModel.Design.DesignSurface.Flush*> method of <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref>."
-  remarks: "The designer loader is flushed first, and then the Flushed event is raised."
+  summary: "Происходит, когда выполняется вызов <xref:System.ComponentModel.Design.DesignSurface.Flush*>метод <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref>.</xref:System.ComponentModel.Design.DesignSurface.Flush*>"
+  remarks: "Загрузчик конструктора сначала очищается, и затем инициируется событие Flushed."
   syntax:
     content: public event EventHandler Flushed;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -571,17 +571,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets a service from the service container."
-  remarks: "The GetService method retrieves a service in the design surface’s service container. In addition, this will forward to any service provider that was given to the design surface at construction time."
+  summary: "Возвращает службу из контейнера служб."
+  remarks: "Метод GetService извлекает службу в контейнер службы рабочей области конструирования. Кроме того это будет отправлять поставщику услуг, указанному в область конструктора во время создания."
   syntax:
     content: public object GetService (Type serviceType);
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of service to retrieve."
+      description: "Тип возвращаемой службы."
     return:
       type: System.Object
-      description: "An object that implements, or is a derived class of, <code>serviceType</code>, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the service does not exist in the service container."
+      description: "Объект, который реализует или является производным классом, <code> serviceType </code>, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если служба не существует в контейнере службы."
   overload: System.ComponentModel.Design.DesignSurface.GetService*
   exceptions: []
   platform:
@@ -598,12 +598,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets a value indicating whether the design surface is currently loaded."
+  summary: "Возвращает значение, указывающее, загружен ли в настоящий момент область конструктора."
   syntax:
     content: public bool IsLoaded { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the design surface is currently loaded; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если в рабочей области конструирования в данный момент загружен; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.DesignSurface.IsLoaded*
   exceptions: []
   platform:
@@ -620,13 +620,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Occurs when the designer load has completed."
-  remarks: "The Loaded event is raised for successful loads as well as unsuccessful ones. If code in this event handler throws an exception, the designer is unloaded.       The <xref:System.ComponentModel.Design.LoadedEventArgs> object can be used to determine if loading succeeded, and it can also provide a list of errors that occurred during the load.      > [!NOTE] >  Errors can occur for successful loads as well, provided that the serialization system can tolerate errors."
+  summary: "Происходит после завершения загрузки конструктора."
+  remarks: "Загрузить событие возникает при успешной загрузке, а также неудачно. Если код в этом обработчике событий вызывает исключение, конструктор будет выгружен.       <xref:System.ComponentModel.Design.LoadedEventArgs>Объект может использоваться для определения, если загрузка выполнена успешно, и может получить список ошибок, возникших во время загрузки.</xref:System.ComponentModel.Design.LoadedEventArgs>      Настроек [!NOTE] настроек ошибки могут возникать при успешном выполнении загрузки, а также при условии, что система сериализации допускают наличие ошибок."
   syntax:
     content: public event System.ComponentModel.Design.LoadedEventHandler Loaded;
     return:
       type: System.ComponentModel.Design.LoadedEventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -642,12 +642,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Returns a collection of loading errors or a void collection."
+  summary: "Возвращает коллекцию ошибок загрузки или пустую коллекцию."
   syntax:
     content: public System.Collections.ICollection LoadErrors { get; }
     return:
       type: System.Collections.ICollection
-      description: "A <xref:System.Collections.ICollection> of loading errors."
+      description: "Объект <xref:System.Collections.ICollection>ошибки загрузки.</xref:System.Collections.ICollection>"
   overload: System.ComponentModel.Design.DesignSurface.LoadErrors*
   exceptions: []
   platform:
@@ -664,12 +664,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Occurs when the designer is about to be loaded."
+  summary: "Происходит, когда конструктор находится будут загружены."
   syntax:
     content: public event EventHandler Loading;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -685,13 +685,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Raises the <xref href=&quot;System.ComponentModel.Design.DesignSurface.Loaded&quot;></xref> event."
+  summary: "Вызывает <xref href=&quot;System.ComponentModel.Design.DesignSurface.Loaded&quot;> </xref> событий."
   syntax:
     content: protected virtual void OnLoaded (System.ComponentModel.Design.LoadedEventArgs e);
     parameters:
     - id: e
       type: System.ComponentModel.Design.LoadedEventArgs
-      description: "A <xref href=&quot;System.ComponentModel.Design.LoadedEventArgs&quot;></xref> that contains the event data."
+      description: "Объект <xref href=&quot;System.ComponentModel.Design.LoadedEventArgs&quot;> </xref> , содержащий данные события."
   overload: System.ComponentModel.Design.DesignSurface.OnLoaded*
   exceptions: []
   platform:
@@ -708,13 +708,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Raises the <xref href=&quot;System.ComponentModel.Design.DesignSurface.Loading&quot;></xref> event."
+  summary: "Вызывает <xref href=&quot;System.ComponentModel.Design.DesignSurface.Loading&quot;> </xref> событий."
   syntax:
     content: protected virtual void OnLoading (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data."
+      description: "<xref:System.EventArgs>, Содержащий данные события.</xref:System.EventArgs>"
   overload: System.ComponentModel.Design.DesignSurface.OnLoading*
   exceptions: []
   platform:
@@ -731,13 +731,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Raises the <xref href=&quot;System.ComponentModel.Design.DesignSurface.Unloaded&quot;></xref> event."
+  summary: "Вызывает <xref href=&quot;System.ComponentModel.Design.DesignSurface.Unloaded&quot;> </xref> событий."
   syntax:
     content: protected virtual void OnUnloaded (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data."
+      description: "<xref:System.EventArgs>, Содержащий данные события.</xref:System.EventArgs>"
   overload: System.ComponentModel.Design.DesignSurface.OnUnloaded*
   exceptions: []
   platform:
@@ -754,13 +754,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Raises the <xref href=&quot;System.ComponentModel.Design.DesignSurface.Unloading&quot;></xref> event."
+  summary: "Вызывает <xref href=&quot;System.ComponentModel.Design.DesignSurface.Unloading&quot;> </xref> событий."
   syntax:
     content: protected virtual void OnUnloading (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data."
+      description: "<xref:System.EventArgs>, Содержащий данные события.</xref:System.EventArgs>"
   overload: System.ComponentModel.Design.DesignSurface.OnUnloading*
   exceptions: []
   platform:
@@ -777,13 +777,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Raises the <xref href=&quot;System.ComponentModel.Design.DesignSurface.ViewActivated&quot;></xref> event."
+  summary: "Вызывает <xref href=&quot;System.ComponentModel.Design.DesignSurface.ViewActivated&quot;> </xref> событий."
   syntax:
     content: protected virtual void OnViewActivate (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data."
+      description: "<xref:System.EventArgs>, Содержащий данные события.</xref:System.EventArgs>"
   overload: System.ComponentModel.Design.DesignSurface.OnViewActivate*
   exceptions: []
   platform:
@@ -800,18 +800,18 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets the service container."
-  remarks: "At construction time, <xref:System.ComponentModel.Design.DesignSurface> adds default services into this service container. You can leave the default services in their present state, or you can remove them and replace them with your own. The default services are all demand-created, so there is no loss in performance for adding them at construction time."
+  summary: "Получает контейнер служб."
+  remarks: "Во время создания <xref:System.ComponentModel.Design.DesignSurface>добавляет службы по умолчанию в этот контейнер службы.</xref:System.ComponentModel.Design.DesignSurface> Можно оставить службы по умолчанию в текущем состоянии, или можно удалить их и заменить их собственный. Службы по умолчанию создаются все запросу, то есть без потери производительности, их добавление во время создания."
   syntax:
     content: protected System.ComponentModel.Design.ServiceContainer ServiceContainer { get; }
     return:
       type: System.ComponentModel.Design.ServiceContainer
-      description: "The service container that provides all services to designers contained within the design surface."
+      description: "Контейнер службы, который предоставляет все службы конструкторам, содержащимся в рабочей области конструирования."
   overload: System.ComponentModel.Design.DesignSurface.ServiceContainer*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.Unloaded
@@ -826,12 +826,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Occurs when a designer has finished unloading."
+  summary: "Происходит по завершении выгрузки конструктора."
   syntax:
     content: public event EventHandler Unloaded;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -847,13 +847,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Occurs when a designer is about to unload."
-  remarks: "When a designer unloads, the entire state for that designer is destroyed, including the designer’s view. The view should be unparented at this time."
+  summary: "Происходит, когда конструктор — готов к выгрузке."
+  remarks: "После выгрузки конструктора, все объекты состояния, что конструктору уничтожается, включая представление конструктора. В данный момент представление должно быть без родителей."
   syntax:
     content: public event EventHandler Unloading;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -869,26 +869,26 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets the view for the root designer."
-  remarks: "The <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A> method must be called beforehand to start the loading process. It is possible to return a view before the designer loader finishes loading because the root designer, which supplies the view, is the first object created by the designer loader. If a view is unavailable, <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A> raises an exception.       The notion of a view technology is obsolete. But, it remains in the interfaces for root designers for backward compatibility. Its use is hidden from anyone using <xref:System.ComponentModel.Design.DesignSurface> objects. The View property hides view technologies by passing the supported technologies back into the root designer."
+  summary: "Возвращает представление для корневого конструктора."
+  remarks: "<xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A>Метод должен вызываться порт заранее, чтобы начать загрузку.</xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A> Можно получить загрузчик конструктора после окончания загрузки, так как конструктор верхнего уровня, который предоставляет представление, является первым объектом, созданным с помощью загрузчика конструктора. Если представление является недоступным, <xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A>вызывает исключение.</xref:System.ComponentModel.Design.DesignSurface.BeginLoad%2A>       Понятие технологии представлений устарело. Однако оно сохраняется в интерфейсах базовых конструкторов для обеспечения обратной совместимости. Его использование скрыта от любой пользователь, использующий <xref:System.ComponentModel.Design.DesignSurface>объектов.</xref:System.ComponentModel.Design.DesignSurface> Свойство представления скрывает технологии представления, передавая поддерживаемых технологий обратно в конструктор верхнего уровня."
   example:
   - "The following code example shows how View hides view technologies.  \n  \n [C#]  \n  \n `IRootDesigner d;`  \n  \n `ViewTechnology[] supported = d.SupportedTechnologies;`  \n  \n `return d.GetView(supported[0]);`"
   syntax:
     content: public object View { get; }
     return:
       type: System.Object
-      description: "The view for the root designer."
+      description: "Представление для корневого конструктора."
   overload: System.ComponentModel.Design.DesignSurface.View*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The design surface is not loading, the designer loader has not yet created a root designer, or the design surface finished the load, but failed. More information may available in the <xref:System.Exception.InnerException*>."
+    description: "Загружается область конструктора, загрузчик конструктора еще не создан конструктором верхнего уровня или рабочей области конструирования завершения загрузки завершилась сбоем. Дополнительные сведения могут быть доступны в списке <xref:System.Exception.InnerException*>.</xref:System.Exception.InnerException*>"
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The designer loaded, but it does not offer a view compatible with this design surface."
+    description: "Конструктор загружен, но не обеспечивает представление, совместимое с этой рабочей областью конструктора."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref> attached to the <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;></xref> has been disposed."
+    description: "<xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref> Присоединяется к <xref href=&quot;System.ComponentModel.Design.DesignSurface&quot;> </xref> был удален."
   platform:
   - net462
 - uid: System.ComponentModel.Design.DesignSurface.ViewActivated
@@ -903,13 +903,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Occurs when the <xref:System.ComponentModel.Design.IDesignerHost.Activate*> method has been called on <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;></xref>."
-  remarks: "If you want to support the <xref:System.ComponentModel.Design.IDesignerHost.Activate%2A> method, your event handler should activate the window for this design surface."
+  summary: "Происходит при <xref:System.ComponentModel.Design.IDesignerHost.Activate*>метод был вызван для <xref href=&quot;System.ComponentModel.Design.IDesignerHost&quot;> </xref>.</xref:System.ComponentModel.Design.IDesignerHost.Activate*>"
+  remarks: "Если требуется поддерживать <xref:System.ComponentModel.Design.IDesignerHost.Activate%2A>метода обработчика событий следует активировать окно для этой плоскости конструирования.</xref:System.ComponentModel.Design.IDesignerHost.Activate%2A>"
   syntax:
     content: public event EventHandler ViewActivated;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462

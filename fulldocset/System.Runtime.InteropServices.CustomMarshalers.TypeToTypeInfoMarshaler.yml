@@ -15,8 +15,8 @@ items:
   nameWithType: TypeToTypeInfoMarshaler
   fullName: System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler
   type: Class
-  summary: "Marshals the unmanaged <xref uid=&quot;langword_csharp_ITypeInfo&quot; name=&quot;ITypeInfo&quot; href=&quot;&quot;></xref> interface to the managed <xref:System.Type> class, and marshals the managed <xref:System.Type> class to the unmanaged <xref uid=&quot;langword_csharp_ITypeInfo&quot; name=&quot;ITypeInfo&quot; href=&quot;&quot;></xref> interface."
-  remarks: "The `ITypeInfo` interface exposed for a .NET type is based on the metadata that would appear in an exported type library. Likewise, the <xref:System.Type> instance exposed for an `ITypeInfo` interface is based on the metadata that would appear in an imported assembly.       The Type Library Importer (Tlbimp.exe) marks `ITypeInfo` parameters with the appropriate <xref:System.Runtime.InteropServices.MarshalAsAttribute> with the <xref:System.Runtime.InteropServices.UnmanagedType> enumeration member when converting signatures that use `ITypeInfo` parameters to signatures that use <xref:System.Type> parameters.       The same conversion functionality can be accomplished without the custom marshaler, by calling <xref:System.Runtime.InteropServices.Marshal.GetITypeInfoForType%2A> and <xref:System.Runtime.InteropServices.Marshal.GetTypeForITypeInfo%2A>."
+  summary: "Маршалирует неуправляемой <xref uid=&quot;langword_csharp_ITypeInfo&quot; name=&quot;ITypeInfo&quot; href=&quot;&quot;> </xref> управляемый интерфейс <xref:System.Type>класса и управляемый выполняет маршалинг <xref:System.Type>класса на неуправляемый <xref uid=&quot;langword_csharp_ITypeInfo&quot; name=&quot;ITypeInfo&quot; href=&quot;&quot;> </xref> интерфейса.</xref:System.Type> </xref:System.Type>"
+  remarks: "`ITypeInfo` Интерфейс, доступный для типа .NET основана на метаданные, которые отображаются в экспортированной библиотеки типов. Аналогичным образом <xref:System.Type>предоставляемые экземпляр `ITypeInfo` интерфейс основан на метаданные, которые будут отображаться в импортированной сборке.</xref:System.Type>       Метки программа импорта библиотек типов (Tlbimp.exe) `ITypeInfo` параметров с помощью соответствующих <xref:System.Runtime.InteropServices.MarshalAsAttribute>с <xref:System.Runtime.InteropServices.UnmanagedType>член перечисления при преобразовании сигнатур, использующих `ITypeInfo` параметров в сигнатуры, использующих <xref:System.Type>параметров.</xref:System.Type> </xref:System.Runtime.InteropServices.UnmanagedType> </xref:System.Runtime.InteropServices.MarshalAsAttribute>       Те же функциональные возможности преобразования могут выполняться без особого упаковщика путем вызова <xref:System.Runtime.InteropServices.Marshal.GetITypeInfoForType%2A>и <xref:System.Runtime.InteropServices.Marshal.GetTypeForITypeInfo%2A>.</xref:System.Runtime.InteropServices.Marshal.GetTypeForITypeInfo%2A> </xref:System.Runtime.InteropServices.Marshal.GetITypeInfoForType%2A>"
   syntax:
     content: 'public class TypeToTypeInfoMarshaler : System.Runtime.InteropServices.ICustomMarshaler'
   inheritance:
@@ -38,14 +38,14 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: "Performs necessary cleanup of the managed data when it is no longer needed."
-  remarks: "The CLR calls this method to clean up managed data allocated in the <xref:System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalNativeToManaged%2A> method."
+  summary: "Выполняет необходимую очистку управляемых данных, если они больше не нужны."
+  remarks: "Среда CLR вызывает этот метод для освобождения управляемых данных, размещаемых в <xref:System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalNativeToManaged%2A>метод.</xref:System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalNativeToManaged%2A>"
   syntax:
     content: public virtual void CleanUpManagedData (object pManagedObj);
     parameters:
     - id: pManagedObj
       type: System.Object
-      description: "The managed object to be destroyed."
+      description: "Управляемый объект будут уничтожены."
   overload: System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.CleanUpManagedData*
   exceptions: []
   platform:
@@ -62,14 +62,14 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: "Performs necessary cleanup of the unmanaged data when it is no longer needed."
-  remarks: "The CLR calls this method to clean up the unmanaged data allocated in the <xref:System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalManagedToNative%2A> method."
+  summary: "Выполняет необходимую очистку неуправляемых данных, если они больше не нужны."
+  remarks: "Среда CLR вызывает этот метод для освобождения неуправляемых данных, размещаемых в <xref:System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalManagedToNative%2A>метод.</xref:System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalManagedToNative%2A>"
   syntax:
     content: public virtual void CleanUpNativeData (IntPtr pNativeData);
     parameters:
     - id: pNativeData
       type: System.IntPtr
-      description: "A pointer to the unmanaged data to be destroyed."
+      description: "Указатель на неуправляемые данные будут уничтожены."
   overload: System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.CleanUpNativeData*
   exceptions: []
   platform:
@@ -86,17 +86,17 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: "Returns an instance of the custom marshaler."
-  remarks: "All custom marshalers must implement this method, although it is not part of the <xref:System.Runtime.InteropServices.ICustomMarshaler> interface definition."
+  summary: "Возвращает экземпляр пользовательского упаковщика."
+  remarks: "Все пользовательские упаковщики необходимо реализовать этот метод, несмотря на то, что он не является частью <xref:System.Runtime.InteropServices.ICustomMarshaler>определением интерфейса.</xref:System.Runtime.InteropServices.ICustomMarshaler>"
   syntax:
     content: public static System.Runtime.InteropServices.ICustomMarshaler GetInstance (string pstrCookie);
     parameters:
     - id: pstrCookie
       type: System.String
-      description: "String &quot;cookie&quot; parameter that can be used by the custom marshaler."
+      description: "Строковый параметр «cookie», который может использоваться этим особым упаковщиком."
     return:
       type: System.Runtime.InteropServices.ICustomMarshaler
-      description: "An instance of the custom marshaler."
+      description: "Экземпляр пользовательского упаковщика."
   overload: System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.GetInstance*
   exceptions: []
   platform:
@@ -113,14 +113,14 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: "Returns the size in bytes of the unmanaged data to be marshaled."
-  remarks: "Because custom marshaling of value types is not supported in the .NET Framework, this method always returns -1."
+  summary: "Возвращает размер в байтах неуправляемых данных для маршалинга."
+  remarks: "Так как пользовательский маршалинг типов значений не поддерживается в .NET Framework, этот метод всегда возвращает значение -1."
   syntax:
     content: public virtual int GetNativeDataSize ();
     parameters: []
     return:
       type: System.Int32
-      description: "-1 to indicate the type this marshaler handles is not a value type."
+      description: "значение -1, тип, который обрабатывает это упаковщик не является типом значения."
   overload: System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.GetNativeDataSize*
   exceptions: []
   platform:
@@ -137,22 +137,22 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: "Marshals an object from managed code to unmanaged code."
-  remarks: "The CLR calls this method with the specified instance of a managed object to convert that object from managed code to unmanaged code, and it returns a pointer to the appropriate unmanaged object, representing the COM view of that object."
+  summary: "Выполняет маршалинг объекта из управляемого кода в неуправляемый код."
+  remarks: "Среда CLR вызывает этот метод с указанным экземпляром управляемого объекта, чтобы преобразовать этот объект из управляемого кода в неуправляемый код и возвращает указатель на соответствующий неуправляемый объект, представляющий COM-представление этого объекта."
   syntax:
     content: public virtual IntPtr MarshalManagedToNative (object pManagedObj);
     parameters:
     - id: pManagedObj
       type: System.Object
-      description: "The managed object to be converted."
+      description: "Управляемый объект для преобразования."
     return:
       type: System.IntPtr
-      description: "A pointer to the unmanaged object."
+      description: "Указатель на неуправляемый объект."
   overload: System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalManagedToNative*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>pManagedObj</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>pManagedObj</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalNativeToManaged(System.IntPtr)
@@ -167,22 +167,22 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: "Marshals an object from unmanaged code to managed code."
-  remarks: "The CLR calls this method with the specified pointer to an unmanaged object to convert that object from unmanaged code to managed code, and returns a managed object representing the managed view of the unmanaged data."
+  summary: "Выполняет маршалинг объекта из неуправляемого кода в управляемый код."
+  remarks: "Среда CLR вызывает этот метод с заданным указателем на неуправляемый объект, чтобы преобразовать этот объект из неуправляемого кода в управляемый код и возвращает управляемый объект, представляющий управляемое представление неуправляемых данных."
   syntax:
     content: public virtual object MarshalNativeToManaged (IntPtr pNativeData);
     parameters:
     - id: pNativeData
       type: System.IntPtr
-      description: "A pointer to the unmanaged object to be converted."
+      description: "Указатель на неуправляемый объект, для преобразования."
     return:
       type: System.Object
-      description: "A managed object."
+      description: "Управляемый объект."
   overload: System.Runtime.InteropServices.CustomMarshalers.TypeToTypeInfoMarshaler.MarshalNativeToManaged*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>pNativeData</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>pNativeData</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:
