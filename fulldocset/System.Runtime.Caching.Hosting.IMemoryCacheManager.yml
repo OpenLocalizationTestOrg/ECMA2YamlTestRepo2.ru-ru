@@ -11,8 +11,8 @@ items:
   nameWithType: IMemoryCacheManager
   fullName: System.Runtime.Caching.Hosting.IMemoryCacheManager
   type: Interface
-  summary: "Defines an interface that a cache uses in order to communicate cache memory usage to a host environment."
-  remarks: "The IMemoryCacheManager interface is implemented by host environments such as ASP.NET, and is consumed by <xref:System.Runtime.Caching.ObjectCache> implementations that must interact with the host environment to determine memory usage. Because caches often consume significant quantities of memory, the IMemoryCacheManager interface helps host environments manage memory usage.       Typically, only <xref:System.Runtime.Caching.ObjectCache> implementations that manage cache objects in memory would use this interface."
+  summary: "Определяет интерфейс, используемый кэшем для передачи использования памяти кэша в среде узла."
+  remarks: "Интерфейс IMemoryCacheManager реализуется средах размещения, таких как ASP.NET и используется <xref:System.Runtime.Caching.ObjectCache>реализации, которые должны взаимодействовать с хост-среды, чтобы определить, использование памяти.</xref:System.Runtime.Caching.ObjectCache> Так как кэши часто требует значительных объема памяти, интерфейс IMemoryCacheManager помогает управлять использованием памяти среды размещения.       Как правило только <xref:System.Runtime.Caching.ObjectCache>реализации, управляющие объектами кэша в памяти будет использовать этот интерфейс.</xref:System.Runtime.Caching.ObjectCache>"
   syntax:
     content: public interface IMemoryCacheManager
   implements: []
@@ -30,14 +30,14 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching.Hosting
-  summary: "Removes all references to a cache in the host environment."
-  remarks: "If a cache has previously registered itself with the host environment, the cache can call the ReleaseCache method to release the reference. When a cache is being disposed, it should call the ReleaseCache method to make sure that no reference to the cache is held on the host."
+  summary: "Удаляет все ссылки на кэш в среде узла."
+  remarks: "Если кэш ранее зарегистрировался в среде узла, кэш можно вызвать метод ReleaseCache, чтобы освободить ссылку. При удалении кэша, он должен вызывать метод ReleaseCache, чтобы убедиться в том, что отсутствует ссылка на кэш удерживается на узле."
   syntax:
     content: public void ReleaseCache (System.Runtime.Caching.MemoryCache cache);
     parameters:
     - id: cache
       type: System.Runtime.Caching.MemoryCache
-      description: "A reference to the cache."
+      description: "Ссылка на кэш."
   overload: System.Runtime.Caching.Hosting.IMemoryCacheManager.ReleaseCache*
   exceptions: []
   platform:
@@ -54,17 +54,17 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching.Hosting
-  summary: "Reports the size of the current cache."
-  remarks: "A well-behaved cache implementation should use the UpdateCacheSize method to periodically report the size of the cache&quot;s memory footprint to the host environment.       The cache implementation that reports the size also passes a reference to itself as a parameter. This enables the host environment to perform the following tasks:      -   Maintain a list of known object caches.      -   Call the cache and request that the cache trim a percentage of cache items based on the reported size, if it is required."
+  summary: "Показывает размер текущего кэша."
+  remarks: "Реализация обретают кэша следует использовать метод UpdateCacheSize для периодической передачи объем используемой памяти кэша в среде узла.       Реализация кэша, которая сообщает размер также передает ссылку на себя в качестве параметра. Это позволяет среде узла выполнить следующие задачи:-ведет список известных кэшей объектов.      -Вызова кэша и запрос, кэш trim процент элементов кэша, исходя из размера отчета, если это необходимо."
   syntax:
     content: public void UpdateCacheSize (long size, System.Runtime.Caching.MemoryCache cache);
     parameters:
     - id: size
       type: System.Int64
-      description: "The size of the memory, in bytes, that the cache consumes."
+      description: "Объем памяти в байтах, которую использует кэш."
     - id: cache
       type: System.Runtime.Caching.MemoryCache
-      description: "A reference to the cache."
+      description: "Ссылка на кэш."
   overload: System.Runtime.Caching.Hosting.IMemoryCacheManager.UpdateCacheSize*
   exceptions: []
   platform:
