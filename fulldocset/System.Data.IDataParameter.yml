@@ -16,8 +16,8 @@ items:
   nameWithType: IDataParameter
   fullName: System.Data.IDataParameter
   type: Interface
-  summary: "Represents a parameter to a Command object, and optionally, its mapping to <xref href=&quot;System.Data.DataSet&quot;></xref> columns; and is implemented by .NET Framework data providers that access data sources."
-  remarks: "The IDataParameter interface allows an inheriting class to implement a Parameter class, which represents a parameter to a Command object. For more information about Parameter classes, see [Configuring Parameters and Parameter Data Types](~/add/includes/ajax-current-ext-md.md).       An application does not create an instance of the IDataParameter interface directly, but creates an instance of a class that inherits IDataParameter.       Classes that inherit IDataParameter must implement the inherited members, and typically define additional members to add provider-specific functionality. For example, the IDataParameter interface defines the <xref:System.Data.IDataParameter.DbType%2A> property. In turn, the <xref:System.Data.OleDb.OleDbParameter> class inherits this property, and also defines the <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> property."
+  summary: "Представляет параметр для объекта команды и при необходимости, его отображение в <xref href=&quot;System.Data.DataSet&quot;> </xref> столбцы и реализуется с помощью поставщиков данных .NET Framework, которые обращаются к источникам данных."
+  remarks: "Интерфейс IDataParameter позволяет наследующему классу реализовать класс параметр, который представляет параметр для объекта команды. Дополнительные сведения о классах Parameter см. в разделе [Настройка параметров и типов данных параметров](~/add/includes/ajax-current-ext-md.md).       Приложение не создает экземпляр интерфейса IDataParameter напрямую, а также создает экземпляр класса, наследующего IDataParameter.       Классы, наследующие IDataParameter должны реализовывать наследуемые члены и обычно определяются дополнительные члены для добавления функций конкретного поставщика. Например, интерфейс IDataParameter определяет <xref:System.Data.IDataParameter.DbType%2A>свойство.</xref:System.Data.IDataParameter.DbType%2A> В свою очередь <xref:System.Data.OleDb.OleDbParameter>класс наследует это свойство, а также определяет <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A>свойство.</xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> </xref:System.Data.OleDb.OleDbParameter>"
   example:
   - "The following example creates multiple instances of the derived class, <xref:System.Data.SqlClient.SqlParameter>, through the <xref:System.Data.SqlClient.SqlParameterCollection> collection within the <xref:System.Data.SqlClient.SqlDataAdapter>. These parameters are used to select data from the data source and place the data in the <xref:System.Data.DataSet>. This example assumes that a <xref:System.Data.DataSet> and a <xref:System.Data.SqlClient.SqlDataAdapter> have already been created with the appropriate schema, commands, and connection.  \n  \n [!code-cs[Classic WebData SqlParameter Example#1](~/add/codesnippet/csharp/t-system.data.idataparam_1.cs)]\n [!code-vb[Classic WebData SqlParameter Example#1](~/add/codesnippet/visualbasic/t-system.data.idataparam_1.vb)]"
   syntax:
@@ -37,18 +37,18 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets or sets the <xref href=&quot;System.Data.DbType&quot;></xref> of the parameter."
-  remarks: "The PrvDbType (where Prv represents the provider-specific prefix) and <xref:System.Data.SqlClient.SqlParameter.DbType%2A> are linked. Therefore, setting the <xref:System.Data.SqlClient.SqlParameter.DbType%2A> changes the PrvDbType to a supporting PrvDbType.       For a list of the supported data types, see the appropriate .NET Framework data provider PrvDbType member. For more information, see [DataAdapter Parameters](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Возвращает или задает <xref href=&quot;System.Data.DbType&quot;> </xref> параметра."
+  remarks: "PrvDbType, (где Prv представляет префикс конкретного поставщика) и <xref:System.Data.SqlClient.SqlParameter.DbType%2A>связаны.</xref:System.Data.SqlClient.SqlParameter.DbType%2A> Таким образом, задание <xref:System.Data.SqlClient.SqlParameter.DbType%2A>примет PrvDbType поддерживать это свойство.</xref:System.Data.SqlClient.SqlParameter.DbType%2A>       Список поддерживаемых типов данных см. в разделе соответствующий член PrvDbType поставщика данных .NET Framework. Дополнительные сведения см. в разделе [параметры DataAdapter](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public System.Data.DbType DbType { get; set; }
     return:
       type: System.Data.DbType
-      description: "One of the <xref href=&quot;System.Data.DbType&quot;></xref> values. The default is <xref href=&quot;System.Data.DbType&quot;></xref>."
+      description: "Один из <xref href=&quot;System.Data.DbType&quot;> </xref> значения. Значение по умолчанию — <xref href=&quot;System.Data.DbType&quot;> </xref>."
   overload: System.Data.IDataParameter.DbType*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The property was not set to a valid <xref href=&quot;System.Data.DbType&quot;></xref>."
+    description: "Свойство не было задано допустимое <xref href=&quot;System.Data.DbType&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.IDataParameter.Direction
@@ -63,20 +63,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets or sets a value indicating whether the parameter is input-only, output-only, bidirectional, or a stored procedure return value parameter."
-  remarks: "If the <xref:System.Data.ParameterDirection> is output, and execution of the associated <xref:System.Data.SqlClient.SqlCommand> does not return a value, the <xref:System.Data.IDataParameter> contains a null value.       After the last row from the last resultset is read, `Output`, `InputOut`, and `ReturnValue` parameters are updated."
+  summary: "Возвращает или задает значение, указывающее ли параметр только входным, только выходным, двунаправленным или параметром возвращаемое значение хранимой процедурой."
+  remarks: "Если <xref:System.Data.ParameterDirection>является выходным параметром, то при выполнении связанной <xref:System.Data.SqlClient.SqlCommand>не возвращает значение, <xref:System.Data.IDataParameter>содержит значение null.</xref:System.Data.IDataParameter> </xref:System.Data.SqlClient.SqlCommand> </xref:System.Data.ParameterDirection>       После считывания последней строки из результатов `Output`, `InputOut`, и `ReturnValue` обновляются параметры."
   example:
   - "The following example creates an instance of the implementing class, <xref:System.Data.SqlClient.SqlParameter>, and sets some of its properties.  \n  \n [!code-cs[Classic WebData SqlParameter.Direction Example#1](~/add/codesnippet/csharp/p-system.data.idataparam_1_1.cs)]\n [!code-vb[Classic WebData SqlParameter.Direction Example#1](~/add/codesnippet/visualbasic/p-system.data.idataparam_1_1.vb)]"
   syntax:
     content: public System.Data.ParameterDirection Direction { get; set; }
     return:
       type: System.Data.ParameterDirection
-      description: "One of the <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values. The default is <xref uid=&quot;langword_csharp_Input&quot; name=&quot;Input&quot; href=&quot;&quot;></xref>."
+      description: "Один из <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> значения. Значение по умолчанию — <xref uid=&quot;langword_csharp_Input&quot; name=&quot;Input&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.IDataParameter.Direction*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The property was not set to one of the valid <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values."
+    description: "Свойство не было задано одно из допустимых <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> значения."
   platform:
   - net462
 - uid: System.Data.IDataParameter.IsNullable
@@ -91,15 +91,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets a value indicating whether the parameter accepts null values."
-  remarks: "Null values are handled using the <xref:System.DBNull> class."
+  summary: "Возвращает значение, указывающее, принимает ли этот параметр значения null."
+  remarks: "Значения NULL обрабатываются с помощью <xref:System.DBNull>класса.</xref:System.DBNull>"
   example:
   - "The following example creates an instance of the implementing class, <xref:System.Data.SqlClient.SqlParameter>, and sets some of its properties.  \n  \n [!code-cs[Classic WebData SqlParameter.IsNullable Example#1](~/add/codesnippet/csharp/p-system.data.idataparam_4_1.cs)]\n [!code-vb[Classic WebData SqlParameter.IsNullable Example#1](~/add/codesnippet/visualbasic/p-system.data.idataparam_4_1.vb)]"
   syntax:
     content: public bool IsNullable { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if null values are accepted; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если значения null принимаются; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.IDataParameter.IsNullable*
   exceptions: []
   platform:
@@ -116,15 +116,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets or sets the name of the <xref href=&quot;System.Data.IDataParameter&quot;></xref>."
-  remarks: "The ParameterName is specified in the form @paramname. You must set ParameterName before executing a command that relies on parameters."
+  summary: "Возвращает или задает имя <xref href=&quot;System.Data.IDataParameter&quot;> </xref>."
+  remarks: "Имя_параметра указывается в виде @paramname. Перед выполнением команды, которая зависит от параметров необходимо значение ParameterName."
   example:
   - "The following example creates an instance of the implementing class, <xref:System.Data.SqlClient.SqlParameter>, and sets some of its properties.  \n  \n [!code-vb[Classic WebData SqlParameter.ParameterName Example#1](~/add/codesnippet/visualbasic/p-system.data.idataparam_5_1.vb)]\n [!code-cs[Classic WebData SqlParameter.ParameterName Example#1](~/add/codesnippet/csharp/p-system.data.idataparam_5_1.cs)]"
   syntax:
     content: public string ParameterName { get; set; }
     return:
       type: System.String
-      description: "The name of the <xref href=&quot;System.Data.IDataParameter&quot;></xref>. The default is an empty string."
+      description: "Имя <xref href=&quot;System.Data.IDataParameter&quot;> </xref>. Значение по умолчанию — пустая строка."
   overload: System.Data.IDataParameter.ParameterName*
   exceptions: []
   platform:
@@ -141,15 +141,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets or sets the name of the source column that is mapped to the <xref href=&quot;System.Data.DataSet&quot;></xref> and used for loading or returning the <xref:System.Data.IDataParameter.Value*>."
-  remarks: "The link betwen the value of the <xref:System.Data.IDataParameter> and the <xref:System.Data.DataTable> may be bidirectional depending on the value of the <xref:System.Data.IDataParameter.Direction%2A> property."
+  summary: "Возвращает или задает имя исходного столбца, сопоставленного <xref href=&quot;System.Data.DataSet&quot;> </xref> и используется для загрузки или возвращения <xref:System.Data.IDataParameter.Value*>.</xref:System.Data.IDataParameter.Value*>"
+  remarks: "Связь между значением <xref:System.Data.IDataParameter>и <xref:System.Data.DataTable>может быть двунаправленной в зависимости от значения <xref:System.Data.IDataParameter.Direction%2A>свойство.</xref:System.Data.IDataParameter.Direction%2A> </xref:System.Data.DataTable> </xref:System.Data.IDataParameter>"
   example:
   - "The following example creates an instance of the implementing class, <xref:System.Data.SqlClient.SqlParameter>, and sets some of its properties.  \n  \n [!code-vb[Classic WebData SqlParameter.SourceColumn Example#1](~/add/codesnippet/visualbasic/p-system.data.idataparam_0_1.vb)]\n [!code-cs[Classic WebData SqlParameter.SourceColumn Example#1](~/add/codesnippet/csharp/p-system.data.idataparam_0_1.cs)]"
   syntax:
     content: public string SourceColumn { get; set; }
     return:
       type: System.String
-      description: "The name of the source column that is mapped to the <xref href=&quot;System.Data.DataSet&quot;></xref>. The default is an empty string."
+      description: "Имя исходного столбца, сопоставленного <xref href=&quot;System.Data.DataSet&quot;> </xref>. Значение по умолчанию — пустая строка."
   overload: System.Data.IDataParameter.SourceColumn*
   exceptions: []
   platform:
@@ -166,20 +166,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets or sets the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> to use when loading <xref:System.Data.IDataParameter.Value*>."
-  remarks: "This property is used by the <xref:System.Data.IDbDataAdapter.UpdateCommand%2A> during the <xref:System.Data.Common.DbDataAdapter.Update%2A> to determine whether the original or current value is used for a parameter value. This allows primary keys to be updated. This property is ignored by the <xref:System.Data.IDbDataAdapter.InsertCommand%2A> and <xref:System.Data.IDbDataAdapter.DeleteCommand%2A>. This property is set to the version of the <xref:System.Data.DataRow> used by the <xref:System.Data.DataRow.Item%2A> property, or the <xref:System.Data.DataRow.GetChildRows%2A> method of the <xref:System.Data.DataRow> object."
+  summary: "Возвращает или задает <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> для использования при загрузке <xref:System.Data.IDataParameter.Value*>.</xref:System.Data.IDataParameter.Value*>"
+  remarks: "Это свойство используется <xref:System.Data.IDbDataAdapter.UpdateCommand%2A>во время <xref:System.Data.Common.DbDataAdapter.Update%2A>для определения того, используется ли значение исходного или текущего значения параметра.</xref:System.Data.Common.DbDataAdapter.Update%2A> </xref:System.Data.IDbDataAdapter.UpdateCommand%2A> Это позволяет обновить первичные ключи. Это свойство учитывается <xref:System.Data.IDbDataAdapter.InsertCommand%2A>и <xref:System.Data.IDbDataAdapter.DeleteCommand%2A>.</xref:System.Data.IDbDataAdapter.DeleteCommand%2A> </xref:System.Data.IDbDataAdapter.InsertCommand%2A> Это свойство имеет значение версии <xref:System.Data.DataRow>используемые <xref:System.Data.DataRow.Item%2A>Свойства, или <xref:System.Data.DataRow.GetChildRows%2A>метод <xref:System.Data.DataRow>объекта.</xref:System.Data.DataRow> </xref:System.Data.DataRow.GetChildRows%2A> </xref:System.Data.DataRow.Item%2A> </xref:System.Data.DataRow>"
   example:
   - "The following example creates an instance of the implementing class, <xref:System.Data.SqlClient.SqlParameter>, and sets some of its properties.  \n  \n [!code-cs[Classic WebData SqlParameter.SourceVersion Example#1](~/add/codesnippet/csharp/p-system.data.idataparam_3_1.cs)]\n [!code-vb[Classic WebData SqlParameter.SourceVersion Example#1](~/add/codesnippet/visualbasic/p-system.data.idataparam_3_1.vb)]"
   syntax:
     content: public System.Data.DataRowVersion SourceVersion { get; set; }
     return:
       type: System.Data.DataRowVersion
-      description: "One of the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> values. The default is <xref uid=&quot;langword_csharp_Current&quot; name=&quot;Current&quot; href=&quot;&quot;></xref>."
+      description: "Один из <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> значения. Значение по умолчанию — <xref uid=&quot;langword_csharp_Current&quot; name=&quot;Current&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.IDataParameter.SourceVersion*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The property was not set one of the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> values."
+    description: "Свойство не было задано одно из <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> значения."
   platform:
   - net462
 - uid: System.Data.IDataParameter.Value
@@ -194,15 +194,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets or sets the value of the parameter."
-  remarks: "For input parameters, the value is bound to the <xref:System.Data.IDbCommand> that is sent to the server. For output and return value parameters, the value is set on completion of the <xref:System.Data.IDbCommand> and after the <xref:System.Data.IDataReader> is closed.       When sending a null parameter value to the server, the user must specify `DBNull`, not null. The null value in the system is an empty object that has no value. `DBNull` is used to represent null values.       If the application specifies the database type, the bound value is converted to that type when the provider sends the data to the server. The provider attempts to convert any type of value if it supports the <xref:System.IConvertible> interface. Conversion errors may result if the specified type is not compatible with the value.       The <xref:System.Data.SqlClient.SqlParameter.Value%2A> property is overwritten by <xref:System.Data.Common.DbDataAdapter.Update%2A>."
+  summary: "Возвращает или задает значение параметра."
+  remarks: "Для входных параметров значение, привязанное к <xref:System.Data.IDbCommand>, отправляемое на сервер.</xref:System.Data.IDbCommand> Для вывода параметров и возвращаемых значений, имеет значение по завершении <xref:System.Data.IDbCommand>и после <xref:System.Data.IDataReader>закрыт.</xref:System.Data.IDataReader> </xref:System.Data.IDbCommand>       При отправке значения параметра null на сервере, пользователь должен указать `DBNull`, не допускающий значения null. Значение null в системе-это пустой объект, который не имеет значения. `DBNull`используется для представления значений null.       Если приложение указывает тип базы данных, связанное значение преобразуется к этому типу, когда поставщик данных отправляет данные на сервер. Поставщик пытается преобразовать любой тип значения, если он поддерживает <xref:System.IConvertible>интерфейса.</xref:System.IConvertible> Если указанный тип не совместим со значением, могут возникнуть ошибки преобразования.       <xref:System.Data.SqlClient.SqlParameter.Value%2A>Свойство перезаписывается <xref:System.Data.Common.DbDataAdapter.Update%2A>.</xref:System.Data.Common.DbDataAdapter.Update%2A> </xref:System.Data.SqlClient.SqlParameter.Value%2A>"
   example:
   - "The following example creates an instance of the implementing class, <xref:System.Data.SqlClient.SqlParameter>, and sets some of its properties.  \n  \n [!code-vb[Classic WebData SqlParameter.Value Example#1](~/add/codesnippet/visualbasic/p-system.data.idataparam_2_1.vb)]\n [!code-cs[Classic WebData SqlParameter.Value Example#1](~/add/codesnippet/csharp/p-system.data.idataparam_2_1.cs)]"
   syntax:
     content: public object Value { get; set; }
     return:
       type: System.Object
-      description: "An <xref:System.Object> that is the value of the parameter. The default value is null."
+      description: "<xref:System.Object>Который является значением параметра.</xref:System.Object> Значение по умолчанию имеет значение null."
   overload: System.Data.IDataParameter.Value*
   exceptions: []
   platform:

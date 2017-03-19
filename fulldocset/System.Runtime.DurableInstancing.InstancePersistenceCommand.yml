@@ -14,7 +14,7 @@ items:
   nameWithType: InstancePersistenceCommand
   fullName: System.Runtime.DurableInstancing.InstancePersistenceCommand
   type: Class
-  summary: "Base class for all persistence related commands. Commands are distinguished by their Name. Usually commands can also be distinguished by their derived type."
+  summary: "Базовый класс для всех сохраняемости, связанных с командами. Команды различаются по имени. Обычно команды также различаются по производному типу."
   syntax:
     content: public abstract class InstancePersistenceCommand
   inheritance:
@@ -35,13 +35,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Initializes an instance of the <xref href=&quot;System.Runtime.DurableInstancing.InstancePersistenceCommand&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр класса <xref href=&quot;System.Runtime.DurableInstancing.InstancePersistenceCommand&quot;> </xref> класса."
   syntax:
     content: protected InstancePersistenceCommand (System.Xml.Linq.XName name);
     parameters:
     - id: name
       type: System.Xml.Linq.XName
-      description: "The XName (the combination of namespace and name) of the command."
+      description: "XName (комбинацию имени и пространства имен) команды."
   overload: System.Runtime.DurableInstancing.InstancePersistenceCommand.#ctor*
   exceptions: []
   platform:
@@ -58,13 +58,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates whether the command could attempt to acquire a lock on the instance."
-  remarks: "The command classes that derive from this class can override this property to set it to `true`."
+  summary: "Указывает ли команда попытаться получить блокировку для этого экземпляра."
+  remarks: "Командные классы, которые являются производными от этого класса можно переопределить это свойство, задаваемое для `true`."
   syntax:
     content: protected virtual bool AutomaticallyAcquiringLock { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the command acquires a lock on the instance;, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если команда получает блокировку для экземпляра; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.DurableInstancing.InstancePersistenceCommand.AutomaticallyAcquiringLock*
   exceptions: []
   platform:
@@ -81,13 +81,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Returns a value that indicates whether the persistence provider may choose not to enlist in the ambient transaction (Transaction.Currnet) when executing this command."
-  remarks: "The command classes that derive from this class can override this property to set it to `true`."
+  summary: "Возвращает значение, указывающее, является ли поставщик сохраняемости может отказаться от участвовать во внешней транзакции (Transaction.Current) при выполнении этой команды."
+  remarks: "Командные классы, которые являются производными от этого класса можно переопределить это свойство, задаваемое для `true`."
   syntax:
     content: protected virtual bool IsTransactionEnlistmentOptional { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref> if enlisting in the transaction is optional for this command, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref>Если прикрепление в транзакции не является обязательным для этой команды, в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.DurableInstancing.InstancePersistenceCommand.IsTransactionEnlistmentOptional*
   exceptions: []
   platform:
@@ -104,12 +104,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the name of the persistence command."
+  summary: "Получает имя команды сохраняемости."
   syntax:
     content: public System.Xml.Linq.XName Name { get; }
     return:
       type: System.Xml.Linq.XName
-      description: "An XName (the combination of namespace and name)."
+      description: "XName (комбинацию имени и пространства имен)."
   overload: System.Runtime.DurableInstancing.InstancePersistenceCommand.Name*
   exceptions: []
   platform:
@@ -126,14 +126,14 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Validates the command."
-  remarks: "Commands override Validate to ensure that a command is valid to execute at the current time. Implementations should throw an InvalidOperationException if the command is not valid to execute against the InstanceView passed as a parameter.  The Validate method is called by InstanceStore before the command is passed to InstanceStore.TryCommand."
+  summary: "Выполняет проверку команды."
+  remarks: "Команды переопределяют проверку, чтобы проверить допустимость команды для выполнения в настоящее время. Реализации должны создавать исключение InvalidOperationException, если команда не является допустимым, выполняемую по отношению к InstanceView, передаваемому в качестве параметра.  Метод Validate вызывается объектом InstanceStore перед команда передается методу InstanceStore.TryCommand."
   syntax:
     content: protected virtual void Validate (System.Runtime.DurableInstancing.InstanceView view);
     parameters:
     - id: view
       type: System.Runtime.DurableInstancing.InstanceView
-      description: "An <xref href=&quot;System.Runtime.DurableInstancing.InstanceView&quot;></xref> object representing the current state of the instance handle."
+      description: "<xref href=&quot;System.Runtime.DurableInstancing.InstanceView&quot;> </xref> Объект, представляющий текущее состояние дескриптора экземпляра."
   overload: System.Runtime.DurableInstancing.InstancePersistenceCommand.Validate*
   exceptions: []
   platform:

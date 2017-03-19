@@ -32,8 +32,8 @@ items:
   nameWithType: OdbcParameter
   fullName: System.Data.Odbc.OdbcParameter
   type: Class
-  summary: "Represents a parameter to an <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> and optionally, its mapping to a <xref href=&quot;System.Data.DataColumn&quot;></xref>. This class cannot be inherited."
-  remarks: "Parameter names are not case sensitive.       When querying an Oracle database using the Microsoft OLE DB Provider for Oracle (MSDAORA) and the ODBC .NET Framework Data Provider, using the `LIKE` clause to query values in fixed-length fields might not return all expected matches. The reason is that when Oracle matches values for fixed-length fields in a `LIKE` clause, it matches the entire length of the string, including any padding trailing spaces. For example, if a table in an Oracle database contains a field named &quot;Field1&quot; that is defined as `char(3)`, and you enter the value &quot;a&quot; into a row of that table, the following code will not return the row.      ```vb#   Dim queryString As String = &quot;SELECT * FROM Table1 WHERE Field1 LIKE ?&quot;   Dim command As OleDbCommand = New OleDbCommand(queryString, connection)   command.Parameters.Add(&quot;@p1&quot;, OleDbType.Char, 3).Value = &quot;a&quot;   Dim reader As OleDbDataReader = command.ExecuteReader()   ```      ```c#   string queryString = &quot;SELECT * FROM Table1 WHERE Field1 LIKE ?&quot;;   OleDbCommand command = new OleDbCommand(queryString, connection);   command.Parameters.Add(&quot;@p1&quot;, OleDbType.Char, 3).Value = &quot;a&quot;;   OleDbDataReader reader = command.ExecuteReader();   ```       This is because Oracle stores the column value as &quot;a  &quot; (padding &quot;a&quot;, with trailing spaces, to the fixed field length of 3), which Oracle does not treat as a match for the parameter value of &quot;a&quot; in the case of a `LIKE` comparison of fixed-length fields.       To resolve this problem, append a percentage (&quot;%&quot;) wildcard character to the parameter value (`&quot;a%&quot;`), or use an SQL `=` comparison instead."
+  summary: "Представляет параметр для <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> и при необходимости, его отображение в <xref href=&quot;System.Data.DataColumn&quot;> </xref>. Этот класс не наследуется."
+  remarks: "Имена параметров не учитывается регистр.       При запросе к базе данных, используя поставщик Microsoft OLE DB для Oracle (MSDAORA) и поставщик данных ODBC .NET Framework, используя `LIKE` для запроса значений в полях фиксированной длины не может возвратить все ожидаемые соответствия. По причине, что при Oracle соответствует значения полей фиксированной длины в `LIKE` предложение, он соответствует на всю длину строки, включая конечные пробелы. Например, если таблицы в базе данных Oracle содержит поле с именем «Field1», определенное как `char(3)`, и введите значение «» в строку этой таблицы, следующий код не будет возвращать строку.      ```vb#   Dim queryString As String = &quot;SELECT * FROM Table1 WHERE Field1 LIKE ?&quot;   Dim command As OleDbCommand = New OleDbCommand(queryString, connection)   command.Parameters.Add(&quot;@p1&quot;, OleDbType.Char, 3).Value = &quot;a&quot;   Dim reader As OleDbDataReader = command.ExecuteReader()   ```      ```c#   string queryString = &quot;SELECT * FROM Table1 WHERE Field1 LIKE ?&quot;;   OleDbCommand command = new OleDbCommand(queryString, connection);   command.Parameters.Add(&quot;@p1&quot;, OleDbType.Char, 3).Value = &quot;a&quot;;   OleDbDataReader reader = command.ExecuteReader();   ```Это потому что Oracle хранит значение столбца «a» (padding «», на конечные пробелы, поля фиксированной длины 3), который Oracle не распознает как сопоставление для значения параметра «a» в случае использования `LIKE` сравнения полей фиксированной длины.       Чтобы устранить эту проблему, добавьте подстановочный знак процента («%») со значением параметра (`&quot;a%&quot;`), или с помощью SQL `=` сравнения вместо него."
   example:
   - "The following example creates multiple instances of OdbcParameter through the <xref:System.Data.Odbc.OdbcParameterCollection> within the <xref:System.Data.Odbc.OdbcDataAdapter>. These parameters are used to select data from the data source and place the data in the <xref:System.Data.DataSet>. This example assumes that a <xref:System.Data.DataSet> and an <xref:System.Data.Odbc.OdbcDataAdapter> have already been created by using the appropriate schema, commands, and connection.  \n  \n [!code-cs[Classic WebData OdbcParameter#1](~/add/codesnippet/csharp/t-system.data.odbc.odbcp_1_1.cs)]\n [!code-vb[Classic WebData OdbcParameter#1](~/add/codesnippet/visualbasic/t-system.data.odbc.odbcp_1_1.vb)]"
   syntax:
@@ -68,8 +68,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref> class."
-  remarks: "The base constructor initializes all fields to their default values."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref> класса."
+  remarks: "Базовый конструктор инициализирует все поля значениями по умолчанию."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and sets some of its properties.  \n  \n [!code-cs[Classic WebData OdbcParameter.OdbcParameter#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcp_1_1.cs)]\n [!code-vb[Classic WebData OdbcParameter.OdbcParameter#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcp_1_1.vb)]"
   syntax:
@@ -91,7 +91,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref> class that uses the parameter name and data type."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref> класс, который использует параметр имя и тип данных."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and sets some of its properties.  \n  \n [!code-vb[Classic WebData OdbcParameter.OdbcParameter1#1](~/add/codesnippet/visualbasic/dcf1840c-d8ee-4878-9114-_1.vb)]\n [!code-cs[Classic WebData OdbcParameter.OdbcParameter1#1](~/add/codesnippet/csharp/dcf1840c-d8ee-4878-9114-_1.cs)]"
@@ -100,15 +100,15 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter."
+      description: "Имя параметра."
     - id: type
       type: System.Data.Odbc.OdbcType
-      description: "One of the <xref href=&quot;System.Data.Odbc.OdbcType&quot;></xref> values."
+      description: "Один из <xref href=&quot;System.Data.Odbc.OdbcType&quot;> </xref> значения."
   overload: System.Data.Odbc.OdbcParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>type</code> parameter is an invalid back-end data type."
+    description: "Значение, указанное в <code> type </code> параметр является типом недопустимые данные в серверной части."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcParameter.#ctor(System.String,System.Object)
@@ -123,17 +123,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref> class that uses the parameter name and an <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref> object."
-  remarks: "Use caution when you are using this overload of the <xref:System.Data.Odbc.OdbcParameter> constructor to specify integer parameter values. Because this overload takes a `value` of type <xref:System.Object>, you must convert the integral value to an <xref:System.Object> type when the value is zero, as the following C# example demonstrates.      ```   Parameter = new OdbcParameter(&quot;@pname&quot;, Convert.ToInt32(0));   ```       If you do not perform this conversion, the compiler assumes that you are trying to call the <xref:System.Data.Odbc.OdbcParameter.%23ctor%2A?displayProperty=fullName> constructor overload."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref> класс, использующий имя параметра и <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref> объекта."
+  remarks: "Соблюдайте осторожность при использовании перегруженного <xref:System.Data.Odbc.OdbcParameter>конструктор для задания целочисленных значений параметров.</xref:System.Data.Odbc.OdbcParameter> Поскольку данная перегрузка принимает `value` типа <xref:System.Object>, необходимо преобразовать целое значение в <xref:System.Object>типа, когда значение равно нулю, как показано в следующем примере C#.</xref:System.Object> </xref:System.Object>      ```   Parameter = new OdbcParameter(&quot;@pname&quot;, Convert.ToInt32(0));   ```Если такое преобразование не выполнено, компилятор предполагает, что вы пытаетесь вызвать <xref:System.Data.Odbc.OdbcParameter.%23ctor%2A?displayProperty=fullName>перегрузку конструктора.</xref:System.Data.Odbc.OdbcParameter.%23ctor%2A?displayProperty=fullName>"
   syntax:
     content: public OdbcParameter (string name, object value);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter."
+      description: "Имя параметра."
     - id: value
       type: System.Object
-      description: "An <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref> object."
+      description: "<xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref> Объекта."
   overload: System.Data.Odbc.OdbcParameter.#ctor*
   exceptions: []
   platform:
@@ -150,7 +150,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref> class that uses the parameter name, data type, and length."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref> класс, использующий имя параметра, тип данных и длину."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and sets some of its properties.  \n  \n [!code-cs[Classic WebData OdbcParameter.OdbcParameter2#1](~/add/codesnippet/csharp/7ed6d552-f3e9-4f28-af5c-_1.cs)]\n [!code-vb[Classic WebData OdbcParameter.OdbcParameter2#1](~/add/codesnippet/visualbasic/7ed6d552-f3e9-4f28-af5c-_1.vb)]"
@@ -159,18 +159,18 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter."
+      description: "Имя параметра."
     - id: type
       type: System.Data.Odbc.OdbcType
-      description: "One of the <xref href=&quot;System.Data.Odbc.OdbcType&quot;></xref> values."
+      description: "Один из <xref href=&quot;System.Data.Odbc.OdbcType&quot;> </xref> значения."
     - id: size
       type: System.Int32
-      description: "The length of the parameter."
+      description: "Длина параметра."
   overload: System.Data.Odbc.OdbcParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>type</code> parameter is an invalid back-end data type."
+    description: "Значение, указанное в <code> type </code> параметр является типом недопустимые данные в серверной части."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcParameter.#ctor(System.String,System.Data.Odbc.OdbcType,System.Int32,System.String)
@@ -185,7 +185,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref> class that uses the parameter name, data type, length, and source column name."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref> класс, использующий имя параметра, тип данных, длину и имя исходного столбца."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and sets some of its properties.  \n  \n [!code-cs[Classic WebData OdbcParameter.OdbcParameter3#1](~/add/codesnippet/csharp/6bdbd90e-e8bb-418c-bf3d-_1.cs)]\n [!code-vb[Classic WebData OdbcParameter.OdbcParameter3#1](~/add/codesnippet/visualbasic/6bdbd90e-e8bb-418c-bf3d-_1.vb)]"
@@ -194,21 +194,21 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter."
+      description: "Имя параметра."
     - id: type
       type: System.Data.Odbc.OdbcType
-      description: "One of the <xref href=&quot;System.Data.Odbc.OdbcType&quot;></xref> values."
+      description: "Один из <xref href=&quot;System.Data.Odbc.OdbcType&quot;> </xref> значения."
     - id: size
       type: System.Int32
-      description: "The length of the parameter."
+      description: "Длина параметра."
     - id: sourcecolumn
       type: System.String
-      description: "The name of the source column."
+      description: "Имя исходного столбца."
   overload: System.Data.Odbc.OdbcParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>type</code> parameter is an invalid back-end data type."
+    description: "Значение, указанное в <code> type </code> параметр является типом недопустимые данные в серверной части."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcParameter.#ctor(System.String,System.Data.Odbc.OdbcType,System.Int32,System.Data.ParameterDirection,System.Boolean,System.Byte,System.Byte,System.String,System.Data.DataRowVersion,System.Object)
@@ -223,7 +223,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref> class that uses the parameter name, data type, length, source column name, parameter direction, numeric precision, and other properties."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref> класс, использующий имя параметра, тип данных, длину, имя исходного столбца, направление параметра, числовую точность и другие свойства."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and displays the <xref:System.Data.Odbc.OdbcParameter.ParameterName%2A>.  \n  \n [!code-cs[Classic WebData OdbcParameter.OdbcParameter4#1](~/add/codesnippet/csharp/46568e54-ed99-4cb1-9dd6-_1.cs)]\n [!code-vb[Classic WebData OdbcParameter.OdbcParameter4#1](~/add/codesnippet/visualbasic/46568e54-ed99-4cb1-9dd6-_1.vb)]"
@@ -232,39 +232,39 @@ items:
     parameters:
     - id: parameterName
       type: System.String
-      description: "The name of the parameter."
+      description: "Имя параметра."
     - id: odbcType
       type: System.Data.Odbc.OdbcType
-      description: "One of the <xref href=&quot;System.Data.Odbc.OdbcType&quot;></xref> values."
+      description: "Один из <xref href=&quot;System.Data.Odbc.OdbcType&quot;> </xref> значения."
     - id: size
       type: System.Int32
-      description: "The length of the parameter."
+      description: "Длина параметра."
     - id: parameterDirection
       type: System.Data.ParameterDirection
-      description: "One of the <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values."
+      description: "Один из <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> значения."
     - id: isNullable
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the value of the field can be null; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если значение поля может быть null. в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: precision
       type: System.Byte
-      description: "The total number of digits to the left and right of the decimal point to which <xref:System.Data.Odbc.OdbcParameter.Value*> is resolved."
+      description: "Общее число разрядов слева и справа от десятичной запятой, до которого <xref:System.Data.Odbc.OdbcParameter.Value*>разрешается.</xref:System.Data.Odbc.OdbcParameter.Value*>"
     - id: scale
       type: System.Byte
-      description: "The total number of decimal places to which <xref:System.Data.Odbc.OdbcParameter.Value*> is resolved."
+      description: "Общее число десятичных разрядов, до которого <xref:System.Data.Odbc.OdbcParameter.Value*>разрешается.</xref:System.Data.Odbc.OdbcParameter.Value*>"
     - id: srcColumn
       type: System.String
-      description: "The name of the source column."
+      description: "Имя исходного столбца."
     - id: srcVersion
       type: System.Data.DataRowVersion
-      description: "One of the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> values."
+      description: "Один из <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> значения."
     - id: value
       type: System.Object
-      description: "An <xref:System.Object> that is the value of the <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref>."
+      description: "<xref:System.Object>, Представляющий значение <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref>.</xref:System.Object>"
   overload: System.Data.Odbc.OdbcParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>type</code> parameter is an invalid back-end data type."
+    description: "Значение, указанное в <code> type </code> параметр является типом недопустимые данные в серверной части."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcParameter.#ctor(System.String,System.Data.Odbc.OdbcType,System.Int32,System.Data.ParameterDirection,System.Byte,System.Byte,System.String,System.Data.DataRowVersion,System.Boolean,System.Object)
@@ -279,7 +279,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref> class that uses the parameter name, data type, length, source column name, parameter direction, numeric precision, and other properties."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref> класс, использующий имя параметра, тип данных, длину, имя исходного столбца, направление параметра, числовую точность и другие свойства."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and displays the <xref:System.Data.Odbc.OdbcParameter.ParameterName%2A>.  \n  \n```vb#  \nPublic Sub CreateOdbcParameter()  \n  Dim parameter As New OdbcParameter(\"Description\", OdbcType.VarChar, 11, ParameterDirection.Output, True, 0, 0, \"Description\", DataRowVersion.Current, False, \"garden hose\")  \n  MessageBox.Show(parameter.ToString())  \nEnd Sub  \n```  \n  \n```c#  \npublic void CreateOdbcParameter()   \n{  \n  OdbcParameter parameter = new OdbcParameter(\"Description\",OdbcType.VarChar,  \n              11,ParameterDirection.Output,true,0,0,\"Description\",  \n              DataRowVersion.Current, false, \"garden hose\");  \n  MessageBox.Show(parameter.ToString());  \n}  \n```"
@@ -288,39 +288,39 @@ items:
     parameters:
     - id: parameterName
       type: System.String
-      description: "The name of the parameter."
+      description: "Имя параметра."
     - id: odbcType
       type: System.Data.Odbc.OdbcType
-      description: "One of the <xref:System.Data.Odbc.OdbcParameter.OdbcType*> values."
+      description: "Один из <xref:System.Data.Odbc.OdbcParameter.OdbcType*>значений.</xref:System.Data.Odbc.OdbcParameter.OdbcType*>"
     - id: size
       type: System.Int32
-      description: "The length of the parameter."
+      description: "Длина параметра."
     - id: parameterDirection
       type: System.Data.ParameterDirection
-      description: "One of the <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values."
+      description: "Один из <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> значения."
     - id: precision
       type: System.Byte
-      description: "The total number of digits to the left and right of the decimal point to which <xref:System.Data.Odbc.OdbcParameter.Value*> is resolved."
+      description: "Общее число разрядов слева и справа от десятичной запятой, до которого <xref:System.Data.Odbc.OdbcParameter.Value*>разрешается.</xref:System.Data.Odbc.OdbcParameter.Value*>"
     - id: scale
       type: System.Byte
-      description: "The total number of decimal places to which <xref:System.Data.Odbc.OdbcParameter.Value*> is resolved."
+      description: "Общее число десятичных разрядов, до которого <xref:System.Data.Odbc.OdbcParameter.Value*>разрешается.</xref:System.Data.Odbc.OdbcParameter.Value*>"
     - id: sourceColumn
       type: System.String
-      description: "The name of the source column."
+      description: "Имя исходного столбца."
     - id: sourceVersion
       type: System.Data.DataRowVersion
-      description: "One of the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> values."
+      description: "Один из <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> значения."
     - id: sourceColumnNullMapping
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the corresponding source column is nullable; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if it is not."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если соответствующий исходный столбец допускает значение NULL; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Если это не так."
     - id: value
       type: System.Object
-      description: "An <xref:System.Object> that is the value of the <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref>."
+      description: "<xref:System.Object>, Представляющий значение <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref>.</xref:System.Object>"
   overload: System.Data.Odbc.OdbcParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>type</code> parameter is an invalid back-end data type."
+    description: "Значение, указанное в <code> type </code> параметр является типом недопустимые данные в серверной части."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcParameter.DbType
@@ -335,20 +335,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the <xref href=&quot;System.Data.DbType&quot;></xref> of the parameter."
-  remarks: "The <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> and DbType are linked. Therefore, setting the DbType changes the <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> to a supporting <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A>.       For a list of the supported data types, see the appropriate <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> member. For more information, see [DataAdapter Parameters](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  <xref:System.Data.DbType> is not supported by the Microsoft .NET Framework Data Provider for ODBC."
+  summary: "Возвращает или задает <xref href=&quot;System.Data.DbType&quot;> </xref> параметра."
+  remarks: "<xref:System.Data.Odbc.OdbcParameter.OdbcType%2A>И связанных DbType.</xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> Следовательно параметр тип DbType изменения <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A>на вспомогательные <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A>.</xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> </xref:System.Data.Odbc.OdbcParameter.OdbcType%2A>       Список поддерживаемых типов данных см. в разделе соответствующего <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A>член.</xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> Дополнительные сведения см. в разделе [параметры DataAdapter](~/add/includes/ajax-current-ext-md.md).      настроек [!NOTE] настроек <xref:System.Data.DbType>не поддерживается поставщиком данных Microsoft .NET Framework для ODBC.</xref:System.Data.DbType>"
   example:
   - "The following example calls a **Stored Procedure** with three parameters using the ODBC managed provider.  \n  \n [!code-vb[Classic WebData OdbcParameter.DbType#1](~/add/codesnippet/visualbasic/p-system.data.odbc.odbcp_1_1.vb)]\n [!code-cs[Classic WebData OdbcParameter.DbType#1](~/add/codesnippet/csharp/p-system.data.odbc.odbcp_1_1.cs)]"
   syntax:
     content: public override System.Data.DbType DbType { get; set; }
     return:
       type: System.Data.DbType
-      description: "One of the <xref href=&quot;System.Data.DbType&quot;></xref> values. The default is <xref:System.String>."
+      description: "Один из <xref href=&quot;System.Data.DbType&quot;> </xref> значения. Значение по умолчанию — <xref:System.String>.</xref:System.String>"
   overload: System.Data.Odbc.OdbcParameter.DbType*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The property was not set to a valid <xref href=&quot;System.Data.DbType&quot;></xref>."
+    description: "Свойство не было задано допустимое <xref href=&quot;System.Data.DbType&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcParameter.Direction
@@ -363,20 +363,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets a value that indicates whether the parameter is input-only, output-only, bidirectional, or a stored procedure return value parameter."
-  remarks: "If the <xref:System.Data.ParameterDirection> is `Output`, and execution of the associated <xref:System.Data.Odbc.OdbcCommand> does not return a value, the <xref:System.Data.Odbc.OdbcParameter> will contain a null value. Null values are handled using the <xref:System.DBNull> class.       `Output`, `InputOut`, and `ReturnValue` parameters returned by calling <xref:System.Data.Odbc.OdbcCommand.ExecuteReader%2A> cannot be accessed until you call <xref:System.Data.Odbc.OdbcDataReader.Close%2A> or `Dispose` on the <xref:System.Data.Odbc.OdbcDataReader>."
+  summary: "Возвращает или задает значение, указывающее ли параметр только входным, только выходным, двунаправленным или параметром возвращаемое значение хранимой процедурой."
+  remarks: "Если <xref:System.Data.ParameterDirection>является `Output`и выполнение связанного <xref:System.Data.Odbc.OdbcCommand>не возвращает значение, <xref:System.Data.Odbc.OdbcParameter>будет содержать значение null.</xref:System.Data.Odbc.OdbcParameter> </xref:System.Data.Odbc.OdbcCommand> </xref:System.Data.ParameterDirection> Значения NULL обрабатываются с помощью <xref:System.DBNull>класса.</xref:System.DBNull>       `Output`, `InputOut`, и `ReturnValue` параметров, возвращенный при вызове <xref:System.Data.Odbc.OdbcCommand.ExecuteReader%2A>будет невозможен до вызова <xref:System.Data.Odbc.OdbcDataReader.Close%2A>или `Dispose` <xref:System.Data.Odbc.OdbcDataReader>.</xref:System.Data.Odbc.OdbcDataReader> </xref:System.Data.Odbc.OdbcDataReader.Close%2A> </xref:System.Data.Odbc.OdbcCommand.ExecuteReader%2A>"
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateMyProc(connection As OdbcConnection)  \n  \n   Dim command As OdbcCommand = connection.CreateCommand()  \n   command.CommandText = \"{ call MyProc(?,?,?) }\"  \n   command.Parameters.Add(\"\", OdbcType.Int).Value = 1  \n   command.Parameters.Add(\"\", OdbcType.Decimal).Value = 2  \n   command.Parameters.Add(\"\", OdbcType.Decimal).Value = 3  \n  \nEnd Sub  \n```  \n  \n```c#  \npublic void CreateMyProc(OdbcConnection connection)   \n{  \n   OdbcCommand command = connection.CreateCommand();  \n   command.CommandText = \"{ call MyProc(?,?,?) }\";  \n   command.Parameters.Add(\"\", OdbcType.Int).Value = 1;  \n   command.Parameters.Add(\"\", OdbcType.Decimal).Value = 2;  \n   command.Parameters.Add(\"\", OdbcType.Decimal).Value = 3;  \n}  \n```"
   syntax:
     content: public override System.Data.ParameterDirection Direction { get; set; }
     return:
       type: System.Data.ParameterDirection
-      description: "One of the <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values. The default is <xref uid=&quot;langword_csharp_Input&quot; name=&quot;Input&quot; href=&quot;&quot;></xref>."
+      description: "Один из <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> значения. Значение по умолчанию — <xref uid=&quot;langword_csharp_Input&quot; name=&quot;Input&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.Odbc.OdbcParameter.Direction*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The property was not set to one of the valid <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values."
+    description: "Свойство не было задано одно из допустимых <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> значения."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcParameter.IsNullable
@@ -391,15 +391,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets a value that indicates whether the parameter accepts null values."
-  remarks: "Null values are handled using the <xref:System.DBNull> class."
+  summary: "Возвращает или задает значение, указывающее, принимает ли этот параметр значения null."
+  remarks: "Значения NULL обрабатываются с помощью <xref:System.DBNull>класса.</xref:System.DBNull>"
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOdbcParameter()  \n   Dim parameter As New OdbcParameter(\"Description\", OdbcType.VarChar, 88)  \n   parameter.IsNullable = True  \n   parameter.Direction = ParameterDirection.Output  \nEnd Sub  \n```  \n  \n```c#  \npublic void CreateOdbcParameter()   \n{  \n   OdbcParameter parameter = new OdbcParameter(\"Description\", OdbcType.VarChar, 88);  \n   parameter.IsNullable = true;  \n   parameter.Direction = ParameterDirection.Output;  \n}  \n```"
   syntax:
     content: public override bool IsNullable { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if null values are accepted; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если значения null принимаются; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.Odbc.OdbcParameter.IsNullable*
   exceptions: []
   platform:
@@ -416,13 +416,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the <xref href=&quot;System.Data.Odbc.OdbcType&quot;></xref> of the parameter."
-  remarks: "The OdbcType and <xref:System.Data.Odbc.OdbcParameter.DbType%2A> are linked. Therefore, setting the <xref:System.Data.Odbc.OdbcParameter.DbType%2A> changes the OdbcType to a supporting <xref:System.Data.Odbc.OdbcType>.       For a list of the supported data types, see the appropriate <xref:System.Data.Odbc.OdbcType> member. For more information, see [DataAdapter Parameters](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Возвращает или задает <xref href=&quot;System.Data.Odbc.OdbcType&quot;> </xref> параметра."
+  remarks: "OdbcType и <xref:System.Data.Odbc.OdbcParameter.DbType%2A>связаны.</xref:System.Data.Odbc.OdbcParameter.DbType%2A> Таким образом Если <xref:System.Data.Odbc.OdbcParameter.DbType%2A>изменения OdbcType на вспомогательные <xref:System.Data.Odbc.OdbcType>.</xref:System.Data.Odbc.OdbcType> </xref:System.Data.Odbc.OdbcParameter.DbType%2A>       Список поддерживаемых типов данных см. в разделе соответствующего <xref:System.Data.Odbc.OdbcType>член.</xref:System.Data.Odbc.OdbcType> Дополнительные сведения см. в разделе [параметры DataAdapter](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public System.Data.Odbc.OdbcType OdbcType { get; set; }
     return:
       type: System.Data.Odbc.OdbcType
-      description: "An <xref href=&quot;System.Data.Odbc.OdbcType&quot;></xref> value that is the <xref href=&quot;System.Data.Odbc.OdbcType&quot;></xref> of the parameter. The default is <xref uid=&quot;langword_csharp_Nchar&quot; name=&quot;Nchar&quot; href=&quot;&quot;></xref>."
+      description: "<xref href=&quot;System.Data.Odbc.OdbcType&quot;> </xref> Значение, равное <xref href=&quot;System.Data.Odbc.OdbcType&quot;> </xref> параметра. Значение по умолчанию — <xref uid=&quot;langword_csharp_Nchar&quot; name=&quot;Nchar&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.Odbc.OdbcParameter.OdbcType*
   exceptions: []
   platform:
@@ -439,15 +439,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the name of the <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref>."
-  remarks: "Instead of named parameters, the ODBC .NET Provider uses positional parameters that are marked with a question mark (?) in the syntax of the command text. Parameter objects in the <xref:System.Data.Odbc.OdbcParameterCollection> and the actual parameters accepted by the stored procedure or parameterized SQL statement correspond to each other based on the order in which the <xref:System.Data.Odbc.OdbcParameter> objects are inserted into the collection instead of by parameter name. Parameter names can be supplied, but will be ignored during parameter object binding."
+  summary: "Возвращает или задает имя <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref>."
+  remarks: "Вместо именованных параметров поставщик ODBC .NET использует позиционные параметры, которые помечены знаком вопроса (?) в синтаксисе текста команды. Объекты параметров в <xref:System.Data.Odbc.OdbcParameterCollection>и фактические параметры, допустимые для хранимой процедуры или параметризованные инструкции SQL соответствуют друг с другом на основе порядка, в котором <xref:System.Data.Odbc.OdbcParameter>вставки объектов в коллекции, а не по имени параметра.</xref:System.Data.Odbc.OdbcParameter> </xref:System.Data.Odbc.OdbcParameterCollection> Имена параметров может быть передано, но будут игнорироваться во время связывания объектов параметров."
   example:
   - "The following example assumes that the data source has a table name **MyTable** and a stored procedure named MyProc that is defined as:  \n  \n```  \nCREATE TABLE MyTable (col1 int, col2 smallmoney, col3 decimal)  \nCREATE PROC MyProc (@p1 int, @p2 smallmoney, @p3 decimal) AS INSERT INTO MyTable VALUES (@p1, @p2, @p3)  \n```  \n  \n The following example creates parameters and calls the MyProc stored procedure:  \n  \n```vb#  \nPublic Sub CreateMyProc(connection As OdbcConnection)  \n  \n   Dim command As OdbcCommand = connection.CreateCommand()  \n  \n   command.CommandText = \"{ call MyProc(?,?,?) }\"  \n   command.Parameters.Add(\"\", OdbcType.Int).Value = 1  \n   command.Parameters.Add(\"\", OdbcType.Decimal).Value = 2  \n   command.Parameters.Add(\"\", OdbcType.Decimal).Value = 3  \n  \nEnd Sub  \n```  \n  \n```c#  \npublic void CreateMyProc(OdbcConnection connection)   \n{  \n   OdbcCommand command = myConnection.CreateCommand();  \n  \n   command.CommandText = \"{ call MyProc(?,?,?) }\";  \n   command.Parameters.Add(\"\", OdbcType.Int).Value = 1;  \n   command.Parameters.Add(\"\", OdbcType.Decimal).Value = 2;  \n   command.Parameters.Add(\"\", OdbcType.Decimal).Value = 3;  \n}  \n```"
   syntax:
     content: public override string ParameterName { get; set; }
     return:
       type: System.String
-      description: "The name of the <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref>. The default is an empty string (&quot;&quot;)."
+      description: "Имя <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref>. Значение по умолчанию — пустая строка (»»)."
   overload: System.Data.Odbc.OdbcParameter.ParameterName*
   exceptions: []
   platform:
@@ -464,15 +464,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the number of digits used to represent the <xref:System.Data.Odbc.OdbcParameter.Value*> property."
-  remarks: "Setting this property to a value other than the value in the database depends on the implementation of the data provider and may return an error code, truncate, or round data.       The Precision property only affects parameters whose <xref:System.Data.Odbc.OdbcType> is `Decimal` or `Numeric`. For other data types, Precision is ignored.      > [!NOTE] >  Use of this property to coerce data passed to the database is not supported. To round, truncate, or otherwise coerce data before passing it to the database, use the <xref:System.Math> class that is part of the `System` namespace prior to assigning a value to the parameter&quot;s `Value` property."
+  summary: "Возвращает или задает количество разрядов, используемых для представления <xref:System.Data.Odbc.OdbcParameter.Value*>свойство.</xref:System.Data.Odbc.OdbcParameter.Value*>"
+  remarks: "Присвоение этому свойству значение, отличное от значения в базе данных зависит от реализации поставщика данных и могут возвращать данные кода ошибки усечения или round.       Свойство точности влияет только на параметры которого <xref:System.Data.Odbc.OdbcType>— `Decimal` или `Numeric`.</xref:System.Data.Odbc.OdbcType> Для других типов данных точность учитывается.      Настроек [!NOTE] настроек использование этого свойства для принудительного ограничения данных, передаваемые в базу данных не поддерживается. Чтобы округлить, усечения или иного принудительного ограничения данных до его передачи в базу данных, используйте <xref:System.Math>класс, который является частью `System` имен до присвоения значения параметру `Value` свойство.</xref:System.Math>"
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOdbcParameter()  \n    Dim parameter As New OdbcParameter(\"Price\", OdbcType.Decimal)  \n    parameter.Value = 3.1416  \n    parameter.Precision = 8  \n    parameter.Scale = 4  \nEnd Sub   \n```  \n  \n```c#  \npublic void CreateOdbcParameter()   \n {  \n    OdbcParameter parameter = new OdbcParameter(\"Price\", OdbcType.Decimal);  \n    parameter.Value = 3.1416;  \n    parameter.Precision = 8;  \n    parameter.Scale = 4;  \n }  \n```"
   syntax:
     content: public byte Precision { get; set; }
     return:
       type: System.Byte
-      description: "The maximum number of digits used to represent the <xref:System.Data.Odbc.OdbcParameter.Value*> property. The default value is 0, which indicates that the data provider sets the precision for <xref:System.Data.Odbc.OdbcParameter.Value*>."
+      description: "Максимальное число разрядов, используемых для представления <> </> *настроек свойств. Значение по умолчанию — 0, означающее, что поставщик данных задает точность для <> </> *настроек."
   overload: System.Data.Odbc.OdbcParameter.Precision*
   exceptions: []
   platform:
@@ -489,8 +489,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Resets the type associated with this <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref>."
-  remarks: "When executing a command that includes parameter values, code can either set the type of a parameter explicitly, or the parameter can infer its type from its value. Calling this method resets the parameter so that it can again infer its type from the value passed in the parameter. Calling this method affects both the <xref:System.Data.Odbc.OdbcParameter.DbType%2A> and <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> properties of the <xref:System.Data.Odbc.OdbcParameter>.       Calling ResetDbType resets <xref:System.Data.Odbc.OdbcParameter.DbType%2A> to its default value (String)."
+  summary: "Сбрасывает тип, связанный с этим <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref>."
+  remarks: "При выполнении команды, содержащей значения параметров, код может либо явно задавать тип параметра или параметра можно определить его тип, от его значения. Вызов этого метода сбрасывает параметр, чтобы можно было повторно определить его тип из значения, передаваемые в качестве параметра. Вызов этого метода влияет на обе <xref:System.Data.Odbc.OdbcParameter.DbType%2A>и <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A>Свойства <xref:System.Data.Odbc.OdbcParameter>.</xref:System.Data.Odbc.OdbcParameter> </xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> </xref:System.Data.Odbc.OdbcParameter.DbType%2A>       Вызов ResetDbType сбрасывает <xref:System.Data.Odbc.OdbcParameter.DbType%2A>значение по умолчанию (String).</xref:System.Data.Odbc.OdbcParameter.DbType%2A>"
   syntax:
     content: public override void ResetDbType ();
     parameters: []
@@ -510,8 +510,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Resets the type associated with this <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;></xref>."
-  remarks: "When executing a command that includes parameter values, code can either set the type of a parameter explicitly, or the parameter can infer its type from its value. Calling this method resets the parameter so that it can again infer its type from the value passed in the parameter. Calling this method affects both the <xref:System.Data.Odbc.OdbcParameter.DbType%2A> and <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> properties of the <xref:System.Data.Odbc.OdbcParameter>."
+  summary: "Сбрасывает тип, связанный с этим <xref href=&quot;System.Data.Odbc.OdbcParameter&quot;> </xref>."
+  remarks: "При выполнении команды, содержащей значения параметров, код может либо явно задавать тип параметра или параметра можно определить его тип, от его значения. Вызов этого метода сбрасывает параметр, чтобы можно было повторно определить его тип из значения, передаваемые в качестве параметра. Вызов этого метода влияет на обе <xref:System.Data.Odbc.OdbcParameter.DbType%2A>и <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A>Свойства <xref:System.Data.Odbc.OdbcParameter>.</xref:System.Data.Odbc.OdbcParameter> </xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> </xref:System.Data.Odbc.OdbcParameter.DbType%2A>"
   syntax:
     content: public void ResetOdbcType ();
     parameters: []
@@ -531,15 +531,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the number of decimal places to which <xref:System.Data.Odbc.OdbcParameter.Value*> is resolved."
-  remarks: "The Scale property is used only for decimal and numeric input parameters.       The effect of setting this property to a value other than the value in the database depends on the implementation of the data provider and may return an error code, or truncate or round data.       The Scale property only affects parameters whose <xref:System.Data.Odbc.OdbcType> is `Decimal` or `Numeric`. For other data types, Scale is ignored.       When using SQL Server Native Client 10 (or later) to bind a parameter whose type is Decimal, Numeric, VarNumeric, DBDate, or DBTimeStamp, you must manually specify an appropriate Scale value.      > [!NOTE] >  Use of this property to coerce data passed to the database is not supported. To round, truncate, or otherwise coerce data before passing it to the database, use the <xref:System.Math> class that is part of the `System` namespace prior to assigning a value to the parameter&quot;s `Value` property.      > [!NOTE] >  .NET Framework data providers that are included with the .NET Framework version 1.0 do not verify the `scale` of <xref:System.Decimal> parameter values. This can cause modified data being inserted at the data source. If you are using .NET Framework version 1.0, validate the s`cale` of d`ecimal` values before setting the parameter value. When you use .NET Framework version 1.1 or later versions, `scale` values that exceed the `decimal` parameter scale might only be truncated in scale, if that is the behavior of the underlying ODBC driver."
+  summary: "Возвращает или задает число десятичных разрядов, до которых <xref:System.Data.Odbc.OdbcParameter.Value*>разрешается.</xref:System.Data.Odbc.OdbcParameter.Value*>"
+  remarks: "Свойства шкалы используется только для десятичных и числовых входных параметров.       Влияние этого свойства значение, отличное от значения в базе данных зависит от реализации поставщика данных и может возвращают код ошибки или усечения или округления данных.       Свойства шкалы влияет только на параметры которого <xref:System.Data.Odbc.OdbcType>— `Decimal` или `Numeric`.</xref:System.Data.Odbc.OdbcType> Масштаб учитывается для других типов данных.       При использовании собственного клиента SQL Server 10 (или более поздней версии) для привязки параметр с типом Decimal, Numeric, VarNumeric, DBDate или DBTimeStamp, необходимо вручную указать соответствующее значение шкалы.      Настроек [!NOTE] настроек использование этого свойства для принудительного ограничения данных, передаваемые в базу данных не поддерживается. Чтобы округлить, усечения или иного принудительного ограничения данных до его передачи в базу данных, используйте <xref:System.Math>класс, который является частью `System` имен до присвоения значения параметру `Value` свойство.</xref:System.Math>      Настроек [!NOTE] настроек поставщиков данных .NET framework, которые входят в состав .NET Framework версии 1.0 не проверять `scale` из <xref:System.Decimal>значения параметров.</xref:System.Decimal> Это может вызвать измененных данных, добавляемых в источник данных. При использовании .NET Framework версии 1.0 проверка s`cale` из d`ecimal` значения, прежде чем устанавливать значение параметра. При использовании .NET Framework версии 1.1 или более поздних версиях `scale` значения, превышающие `decimal` Масштаб параметра может лишь подвергнуть усечению по масштабу, если это поддерживается базового драйвера ODBC."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOdbcParameter()  \n    Dim parameter As New OdbcParameter(\"Price\", OdbcType.Decimal)  \n    parameter.Value = 3.1416  \n    parameter.Precision = 8  \n    parameter.Scale = 4  \nEnd Sub   \n```  \n  \n```c#  \npublic void CreateOdbcParameter()   \n {  \n    OdbcParameter parameter = new OdbcParameter(\"Price\", OdbcType.Decimal);  \n    parameter.Value = 3.1416;  \n    parameter.Precision = 8;  \n    parameter.Scale = 4;  \n }  \n```"
   syntax:
     content: public byte Scale { get; set; }
     return:
       type: System.Byte
-      description: "The number of decimal places to which <xref:System.Data.Odbc.OdbcParameter.Value*> is resolved. The default is 0."
+      description: "Число десятичных разрядов, до которого <xref:System.Data.Odbc.OdbcParameter.Value*>разрешается.</xref:System.Data.Odbc.OdbcParameter.Value*> Значение по умолчанию — 0."
   overload: System.Data.Odbc.OdbcParameter.Scale*
   exceptions: []
   platform:
@@ -556,15 +556,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the maximum size of the data within the column."
-  remarks: "The Size property is used for binary and string types.       For nonstring data types and ANSI string data, the Size property refers to the number of bytes. For Unicode string data, Size refers to the number of characters. The count for strings does not include the terminating character.       For variable-length data types, `Size` describes the maximum amount of data to transmit to the server. For example, for a Unicode string value, `Size` could be used to limit the amount of data sent to the server to the first one hundred characters.       For bidirectional and output parameters, and return values, you must set the value of `Size`. This is not required for input parameters, and if not explicitly set, the value of is inferred from the actual size of the specified parameter when a parameterized statement is executed.       The <xref:System.Data.Common.DbParameter.DbType%2A>, <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A>, and Size properties of a parameter can be inferred by setting <xref:System.Data.Odbc.OdbcParameter.Value%2A>. Therefore, you are not required to specify them. However, they are not exposed in <xref:System.Data.Odbc.OdbcParameter> property settings. For example, if the size of the parameter has been inferred, `Size` does not contain inferred value after statement execution.      > [!NOTE] >  For an `OdbcParameter` with a <xref:System.Data.Odbc.OdbcParameter.Direction%2A> of `ParameterDirection.Output`, `ParameterDirection.InputOutput`, or `ParameterDirection.ReturnValue`, an exception is thrown when the command is executed if the size of the value returned by the data source exceeds the specified `Size` of the <xref:System.Data.Odbc.OdbcParameter>.       For fixed-length data types, the value of `Size` is ignored. It can be retrieved for informational purposes, and returns the maximum amount of bytes the provider uses when transmitting the value of the parameter to the server."
+  summary: "Возвращает или задает максимальный размер данных в столбце."
+  remarks: "Свойство размера используется для двоичных и строковых типов.       Для нестроковых типов данных и строковых данных ANSI свойство Size относится к числу байтов. Для строковых данных Юникода размер ссылается на число символов. Число строк не включает завершающий символ.       Для типов данных переменной длины `Size` описывает максимальный объем данных для передачи на сервер. Например, для строкового значения Юникода `Size` может использоваться для ограничения объема данных, отправляемых на сервер до&100; символов.       Для двунаправленных и выходных параметров и возвращаемых значений, необходимо задать значение `Size`. Это не является обязательным для входных параметров, и если не задан явно, значение получается из фактического размера указанного параметра при выполнении параметризованных инструкций.       <xref:System.Data.Common.DbParameter.DbType%2A>, <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A>, И могут быть заданы свойства размер параметра, задав <xref:System.Data.Odbc.OdbcParameter.Value%2A>.</xref:System.Data.Odbc.OdbcParameter.Value%2A> </xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> </xref:System.Data.Common.DbParameter.DbType%2A> Таким образом укажите их не требуется. Тем не менее, они не представлены в <xref:System.Data.Odbc.OdbcParameter>Параметры свойств.</xref:System.Data.Odbc.OdbcParameter> Например, если размер параметра был выведен `Size` не будет содержать выведенное значение после выполнения инструкции.      Настроек [!NOTE] настроек для `OdbcParameter` с <xref:System.Data.Odbc.OdbcParameter.Direction%2A>из `ParameterDirection.Output`, `ParameterDirection.InputOutput`, или `ParameterDirection.ReturnValue`, создается исключение при выполнении команды, если размер значений, возвращаемых источником данных превышает значение параметра `Size` <xref:System.Data.Odbc.OdbcParameter>.</xref:System.Data.Odbc.OdbcParameter> </xref:System.Data.Odbc.OdbcParameter.Direction%2A>       Для типов данных фиксированной длины, значение `Size` учитывается. Можно получить в информационных целях и возвращает максимальное количество байтов, используемых поставщиком при передаче значения параметра на сервер."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOdbcParameter()  \n    Dim myValue As String = \"12 foot scarf - multiple colors, one previous owner\"  \n    Dim parameter As New OdbcParameter(\"Description\", OdbcType.VarChar)  \n    parameter.Direction = ParameterDirection.Output  \n    parameter.Size = myValue.Length  \n    parameter.Value = myValue  \nEnd Sub   \n```  \n  \n```c#  \npublic void CreateOdbcParameter()   \n {  \n    string myValue = \"12 foot scarf - multiple colors, one previous owner\";  \n    OdbcParameter parameter = new OdbcParameter(\"Description\", OdbcType.VarChar);  \n    parameter.Direction = ParameterDirection.Output;  \n    parameter.Size = myValue.Length;  \n    parameter.Value = myValue;  \n }  \n```"
   syntax:
     content: public override int Size { get; set; }
     return:
       type: System.Int32
-      description: "The maximum size of the data within the column. The default value is inferred from the parameter value."
+      description: "Максимальный размер данных в столбце. Значение по умолчанию выводится из значения параметра."
   overload: System.Data.Odbc.OdbcParameter.Size*
   exceptions: []
   platform:
@@ -581,15 +581,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the name of the source column mapped to the <xref href=&quot;System.Data.DataSet&quot;></xref> and used for loading or returning the <xref:System.Data.Odbc.OdbcParameter.Value*>."
-  remarks: "When SourceColumn is set to anything other than an empty string, the value of the parameter is retrieved from the column with the `SourceColumn` name. If <xref:System.Data.Odbc.OdbcParameter.Direction%2A> is set to `Input`, the value is taken from the <xref:System.Data.DataSet>. If `Direction` is set to `Output`, the value is taken from the data source. A `Direction` of `InputOutput` is a combination of both.       For more information about how to use the SourceColumn property, see [DataAdapter Parameters](~/add/includes/ajax-current-ext-md.md) and [Updating Data Sources with DataAdapters](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Возвращает или задает имя исходного столбца, сопоставленного <xref href=&quot;System.Data.DataSet&quot;> </xref> и используется для загрузки или возвращения <xref:System.Data.Odbc.OdbcParameter.Value*>.</xref:System.Data.Odbc.OdbcParameter.Value*>"
+  remarks: "Когда свойство SourceColumn указано значение, отличное от пустой строки, значение параметра извлекается из столбца с `SourceColumn` имя. Если <xref:System.Data.Odbc.OdbcParameter.Direction%2A>имеет значение `Input`, значение берется из <xref:System.Data.DataSet>.</xref:System.Data.DataSet> </xref:System.Data.Odbc.OdbcParameter.Direction%2A> Если `Direction` равен `Output`, значение берется из источника данных. Объект `Direction` из `InputOutput` представляет собой комбинацию.       Дополнительные сведения о том, как использовать свойство SourceColumn см. в разделе [параметры DataAdapter](~/add/includes/ajax-current-ext-md.md) и [обновление источников данных с помощью DataAdapter](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOdbcParameter()  \n    Dim parameter As New OdbcParameter(\"Description\", OdbcType.VarChar, 88)  \n    parameter.SourceColumn = \"Description\"  \nEnd Sub   \n```  \n  \n```c#  \npublic void CreateOdbcParameter()   \n {  \n    OdbcParameter parameter = new OdbcParameter(\"Description\", OdbcType.VarChar, 88);  \n    parameter.SourceColumn = \"Description\";  \n }  \n```"
   syntax:
     content: public override string SourceColumn { get; set; }
     return:
       type: System.String
-      description: "The name of the source column that will be used to set the value of this parameter. The default is an empty string (&quot;&quot;)."
+      description: "Имя исходного столбца, который будет использоваться для установки значения этого параметра. Значение по умолчанию — пустая строка (»»)."
   overload: System.Data.Odbc.OdbcParameter.SourceColumn*
   exceptions: []
   platform:
@@ -606,13 +606,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Sets or gets a value which indicates whether the source column is nullable. This lets <xref href=&quot;System.Data.Common.DbCommandBuilder&quot;></xref> correctly generate Update statements for nullable columns."
-  remarks: "SourceColumnNullMapping is used by the <xref:System.Data.Common.DbCommandBuilder> to correctly generate update commands when dealing with nullable columns. Generally, use of SourceColumnNullMapping is limited to developers inheriting from <xref:System.Data.Common.DbCommandBuilder>.       <xref:System.Data.Common.DbCommandBuilder> uses this property to determine whether the source column is nullable, and sets this property to `true` if it is nullable, and `false` if it is not. When <xref:System.Data.Common.DbCommandBuilder> is generating its Update statement, it examines the SourceColumnNullMapping for each parameter. If the property is `true`, <xref:System.Data.Common.DbCommandBuilder> generates a WHERE clauses like the following example. In this query expression, &quot;FieldName&quot; represents the name of the field:      ```   ((@IsNull_FieldName = 1 AND FieldName IS NULL) OR      (FieldName = @Original_FieldName))   ```       If SourceColumnNullMapping for the field is false, <xref:System.Data.Common.DbCommandBuilder> generates the following WHERE clause:      ```   FieldName = @OriginalFieldName   ```       In addition, @IsNull_FieldName contains 1 if the source field contains null, and 0 if it does not. This mechanism allows for a performance optimization in SQL Server, and provides for common code that works across multiple providers."
+  summary: "Задает или возвращает значение, показывающее, может ли исходный столбец значение NULL. Это позволяет <xref href=&quot;System.Data.Common.DbCommandBuilder&quot;> </xref> правильно создавать инструкции Update для столбцов со значением NULL."
+  remarks: "Используемые SourceColumnNullMapping <xref:System.Data.Common.DbCommandBuilder>правильно создать команды обновления при работе столбцов со значением NULL.</xref:System.Data.Common.DbCommandBuilder> Как правило использование SourceColumnNullMapping ограничена разработчикам, наследующим <xref:System.Data.Common.DbCommandBuilder>.</xref:System.Data.Common.DbCommandBuilder>       <xref:System.Data.Common.DbCommandBuilder>использует это свойство, чтобы определить, является ли исходный столбец допускает значения NULL и задает для этого свойства `true` Если значение NULL, и `false` , если это не так.</xref:System.Data.Common.DbCommandBuilder> Если <xref:System.Data.Common.DbCommandBuilder>является создание его инструкции Update, он проверяет SourceColumnNullMapping для каждого параметра.</xref:System.Data.Common.DbCommandBuilder> Если свойство `true`, <xref:System.Data.Common.DbCommandBuilder>создает предложение WHERE имеет следующий вид.</xref:System.Data.Common.DbCommandBuilder> В этом выражении запроса «FieldName» представляет имя поля: ```   ((@IsNull_FieldName = 1 AND FieldName IS NULL) OR      (FieldName = @Original_FieldName))   ``` имеет значение false, если SourceColumnNullMapping для поля <xref:System.Data.Common.DbCommandBuilder>приводит к возникновению ошибки следующее предложение WHERE: ```   FieldName = @OriginalFieldName   ``` в дополнение к этому @IsNull_FieldName содержит 1, если поле источника содержит значение null и 0, если это не.</xref:System.Data.Common.DbCommandBuilder> Этот механизм позволяет оптимизировать производительность в SQL Server и предоставляет общий код, который работает в нескольких поставщиков."
   syntax:
     content: public override bool SourceColumnNullMapping { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the source column is nullable; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if it is not."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если исходный столбец допускает значение NULL; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Если это не так."
   overload: System.Data.Odbc.OdbcParameter.SourceColumnNullMapping*
   exceptions: []
   platform:
@@ -629,15 +629,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> to use when you load <xref:System.Data.Odbc.OdbcParameter.Value*>."
-  remarks: "The `SourceVersion` is used by <xref:System.Data.Odbc.OdbcDataAdapter.UpdateCommand%2A> during an <xref:System.Data.DbDataAdapter.Common.Update%2A> operation to determine whether the parameter value is set to Current or Original. This allows primary keys to be updated.       This property is set to the version of the <xref:System.Data.DataRow> used by either the `Item` property (`DataRow` indexer), or the <xref:System.Data.DataRow.GetChildRows%2A> method."
+  summary: "Возвращает или задает <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> для использования при загрузке <xref:System.Data.Odbc.OdbcParameter.Value*>.</xref:System.Data.Odbc.OdbcParameter.Value*>"
+  remarks: "`SourceVersion` Используется <xref:System.Data.Odbc.OdbcDataAdapter.UpdateCommand%2A>во время <xref:System.Data.DbDataAdapter.Common.Update%2A>операцию, чтобы определить, установлено ли значение параметра для текущего или исходной.</xref:System.Data.DbDataAdapter.Common.Update%2A> </xref:System.Data.Odbc.OdbcDataAdapter.UpdateCommand%2A> Это позволяет обновить первичные ключи.       Это свойство имеет значение версии <xref:System.Data.DataRow>используемой либо `Item` свойство (`DataRow` индексатора), или <xref:System.Data.DataRow.GetChildRows%2A>метод.</xref:System.Data.DataRow.GetChildRows%2A> </xref:System.Data.DataRow>"
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOdbcParameter()  \n    Dim parameter As New OdbcParameter(\"Description\", OdbcType.VarChar, 88)  \n    parameter.SourceColumn = \"Description\"  \n    parameter.SourceVersion = DataRowVersion.Current  \nEnd Sub   \n```  \n  \n```c#  \npublic void CreateOdbcParameter()   \n {  \n    OdbcParameter parameter = new OdbcParameter(\"Description\", OdbcType.VarChar, 88);  \n    parameter.SourceColumn = \"Description\";  \n    parameter.SourceVersion = DataRowVersion.Current;  \n }  \n```"
   syntax:
     content: public override System.Data.DataRowVersion SourceVersion { get; set; }
     return:
       type: System.Data.DataRowVersion
-      description: "One of the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> values. The default is Current."
+      description: "Один из <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> значения. Значение по умолчанию — текущий."
   overload: System.Data.Odbc.OdbcParameter.SourceVersion*
   exceptions: []
   platform:
@@ -655,14 +655,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "For a description of this member, see &lt;xref:System.ICloneable.Clone%2A?displayProperty=fullName&gt;."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Odbc.OdbcParameter> instance is cast to an <xref:System.ICloneable> interface."
+  summary: "Описание этого члена см. в разделе &lt;xref:System.ICloneable.Clone%2A?displayProperty=fullName&gt;."
+  remarks: "Этот член представляет явную реализацию члена интерфейса. Он может использоваться только если <xref:System.Data.Odbc.OdbcParameter>экземпляр приводится к <xref:System.ICloneable>интерфейс.</xref:System.ICloneable> </xref:System.Data.Odbc.OdbcParameter>"
   syntax:
     content: object ICloneable.Clone ();
     parameters: []
     return:
       type: System.Object
-      description: "A new <xref:System.Object> that is a copy of this instance."
+      description: "Новый <xref:System.Object>, является копией данного экземпляра.</xref:System.Object>"
   overload: System.Data.Odbc.OdbcParameter.System#ICloneable#Clone*
   exceptions: []
   platform:
@@ -679,13 +679,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets a string that contains the <xref:System.Data.Odbc.OdbcParameter.ParameterName*>."
+  summary: "Возвращает строку, содержащую <xref:System.Data.Odbc.OdbcParameter.ParameterName*>.</xref:System.Data.Odbc.OdbcParameter.ParameterName*>"
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A string that contains the <xref:System.Data.Odbc.OdbcParameter.ParameterName*>."
+      description: "Строка, содержащая <xref:System.Data.Odbc.OdbcParameter.ParameterName*>.</xref:System.Data.Odbc.OdbcParameter.ParameterName*>"
   overload: System.Data.Odbc.OdbcParameter.ToString*
   exceptions: []
   platform:
@@ -702,15 +702,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the value of the parameter."
-  remarks: "For input parameters, the value is bound to the <xref:System.Data.Odbc.OdbcCommand> that is sent to the server. For output and return-value parameters, the value is set on completion of the <xref:System.Data.Odbc.OdbcCommand> and after the <xref:System.Data.Odbc.OdbcDataReader> is closed.       When you send a null parameter value to the server, the user must specify <xref:System.DBNull>, not null. A null value in the system is an empty object that has no value. <xref:System.DBNull> is used to represent null values. If the parameter is used to call a stored procedure with parameters that have default values, setting Value to null causes the default value to be used.       If the application specifies the database type, the bound value is converted to that type when the provider sends the data to the server. The provider tries to convert any type of value if it supports the <xref:System.IConvertible> interface. Conversion errors may result if the specified type is not compatible with the value.       Both the <xref:System.Data.Odbc.OdbcParameter.DbType%2A> and <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> properties can be inferred by setting Value. If applicable, the size, precision, and scale is also inferred from Value when the parameterized statement is executed. However, inferred values are not exposed to the user.       The Value property is overwritten by the `Update` method."
+  summary: "Возвращает или задает значение параметра."
+  remarks: "Для входных параметров значение, привязанное к <xref:System.Data.Odbc.OdbcCommand>, отправляемое на сервер.</xref:System.Data.Odbc.OdbcCommand> Для выходных и возвращаемых значений параметров имеет значение по завершении <xref:System.Data.Odbc.OdbcCommand>и после <xref:System.Data.Odbc.OdbcDataReader>закрыт.</xref:System.Data.Odbc.OdbcDataReader> </xref:System.Data.Odbc.OdbcCommand>       При отправке значения параметра null на сервер пользователь должен указать <xref:System.DBNull>, не допускающий значения null.</xref:System.DBNull> Значение null в системе является пустой объект, который не имеет значения. <xref:System.DBNull>используется для представления значений null.</xref:System.DBNull> Если параметр используется для вызова хранимой процедуры с параметрами, имеющими значения по умолчанию, установка значения по умолчанию для использования в значение null.       Если приложение указывает тип базы данных, связанное значение преобразуется к этому типу, когда поставщик данных отправляет данные на сервер. Поставщик пытается преобразовать любой тип значения, если он поддерживает <xref:System.IConvertible>интерфейса.</xref:System.IConvertible> Если указанный тип не совместим со значением, могут возникнуть ошибки преобразования.       Как <xref:System.Data.Odbc.OdbcParameter.DbType%2A>и <xref:System.Data.Odbc.OdbcParameter.OdbcType%2A>могут быть заданы путем изменения значения свойства.</xref:System.Data.Odbc.OdbcParameter.OdbcType%2A> </xref:System.Data.Odbc.OdbcParameter.DbType%2A> Если это применимо, размер, точность и масштаб также выводится из значения при выполнении параметризованные инструкции. Однако заданные значения не отображаются для пользователя.       Свойство значения заменены `Update` метод."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOdbcParameter()  \n    Dim parameter As New OdbcParameter(\"Description\", OdbcType.VarChar, 88)  \n    parameter.Value = \"garden hose\"  \nEnd Sub   \n```  \n  \n```c#  \npublic void CreateOdbcParameter()   \n {  \n    OdbcParameter parameter = new OdbcParameter(\"Description\", OdbcType.VarChar, 88);  \n    parameter.Value = \"garden hose\";  \n }  \n```"
   syntax:
     content: public override object Value { get; set; }
     return:
       type: System.Object
-      description: "An <xref:System.Object> that is the value of the parameter. The default value is null."
+      description: "<xref:System.Object>Который является значением параметра.</xref:System.Object> Значение по умолчанию имеет значение null."
   overload: System.Data.Odbc.OdbcParameter.Value*
   exceptions: []
   platform:

@@ -16,8 +16,8 @@ items:
   nameWithType: DbXmlEnabledProviderManifest
   fullName: System.Data.Common.DbXmlEnabledProviderManifest
   type: Class
-  summary: "Represents a base class that implements the <xref href=&quot;System.Data.Common.DbProviderManifest&quot;></xref> based on an XML definition. You can use the DbXmlEnabledProviderManifest class to obtain provider-specific information at runtime."
-  remarks: "The DbXmlEnabledProviderManifest class is especially appropriate for the providers whose type mapping to EDM is symmetrical. In symmetrical type mapping scenarios, each storage type maps to a single Entity Data Model (EDM) type regardless of the mapping direction. In other words, the EDM-to-provider type mapping is the same as the provider-to-EDM type mapping.       In symmetric mapping scenarios, you can either derive your custom provider class from the DbXmlEnabledProviderManifest class or the <xref:System.Data.Common.DbProviderManifest> class. We recommend that you derive your custom provider class from the DbXmlEnabledProviderManifest class for symmetric mapping scenarios because the DbXmlEnabledProviderManifest class will allow you to specify the manifests declaratively."
+  summary: "Представляет базовый класс, реализующий <xref href=&quot;System.Data.Common.DbProviderManifest&quot;> </xref> на основе определения XML. Можно использовать класс DbXmlEnabledProviderManifest, чтобы получить сведения о поставщике, во время выполнения."
+  remarks: "Класс DbXmlEnabledProviderManifest особенно подходит для поставщиков, симметричен сопоставлением типов с моделью EDM. В сценариях симметричного сопоставления каждый тип хранения сопоставляется с одним типом модели данных сущности (EDM), независимо от направления сопоставлений. Другими словами сопоставление типов модели EDM-поставщик совпадает сопоставления типа Поставщик-модель EDM.       В сценариях симметричного сопоставления можно либо унаследовать класс пользовательского поставщика DbXmlEnabledProviderManifest класса или <xref:System.Data.Common.DbProviderManifest>класса.</xref:System.Data.Common.DbProviderManifest> Корпорация Майкрософт рекомендует производными собственный класс поставщика класса DbXmlEnabledProviderManifest в сценариях симметричного сопоставления, так как класс DbXmlEnabledProviderManifest позволяет указывать манифесты декларативно."
   syntax:
     content: 'public abstract class DbXmlEnabledProviderManifest : System.Data.Common.DbProviderManifest'
   inheritance:
@@ -51,14 +51,14 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Common
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Common.DbXmlEnabledProviderManifest&quot;></xref> class."
-  remarks: "The Entity Framework provides a default implementation that builds the provider manifest information from the given XmlReader."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.Common.DbXmlEnabledProviderManifest&quot;> </xref> класса."
+  remarks: "Платформа Entity Framework предоставляет реализацию по умолчанию, который создает поставщик манифеста сведения из данного XmlReader."
   syntax:
     content: protected DbXmlEnabledProviderManifest (System.Xml.XmlReader reader);
     parameters:
     - id: reader
       type: System.Xml.XmlReader
-      description: "An <xref:System.Xml.XmlReader> object that provides access to the XML data in the provider manifest file."
+      description: "<xref:System.Xml.XmlReader>Объект, предоставляющий доступ к данным XML в файле манифеста поставщика.</xref:System.Xml.XmlReader>"
   overload: System.Data.Common.DbXmlEnabledProviderManifest.#ctor*
   exceptions: []
   platform:
@@ -75,16 +75,16 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Common
-  summary: "Returns the list of facet descriptions for the specified Entity Data Model (EDM) type."
+  summary: "Возвращает список описаний аспектов для заданного типа модели данных сущности (EDM)."
   syntax:
     content: public override System.Collections.ObjectModel.ReadOnlyCollection<System.Data.Metadata.Edm.FacetDescription> GetFacetDescriptions (System.Data.Metadata.Edm.EdmType type);
     parameters:
     - id: type
       type: System.Data.Metadata.Edm.EdmType
-      description: "An <xref href=&quot;System.Data.Metadata.Edm.EdmType&quot;></xref> for which the facet descriptions are to be retrieved."
+      description: "<xref href=&quot;System.Data.Metadata.Edm.EdmType&quot;> </xref> Для которого должны быть получены описаний аспектов."
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Data.Metadata.Edm.FacetDescription}
-      description: "A collection of type &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; that contains the list of facet descriptions for the specified EDM type."
+      description: "Коллекция типа &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; , содержащая список описаний аспектов для заданного типа модели EDM."
   overload: System.Data.Common.DbXmlEnabledProviderManifest.GetFacetDescriptions*
   exceptions: []
   platform:
@@ -101,14 +101,14 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Common
-  summary: "Returns the list of provider-supported functions."
-  remarks: "This (not nullable) method does not return user-defined functions. If the provider does not support any functions, this method returns an empty collection."
+  summary: "Возвращает список функций, поддерживаемых поставщиком."
+  remarks: "Этот метод (не допускает значения NULL) не возвращает определяемые пользователем функции. Если поставщик не поддерживает какие-либо функции, этот метод возвращает пустую коллекцию."
   syntax:
     content: public override System.Collections.ObjectModel.ReadOnlyCollection<System.Data.Metadata.Edm.EdmFunction> GetStoreFunctions ();
     parameters: []
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Data.Metadata.Edm.EdmFunction}
-      description: "A collection of type &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; that contains the list of provider-supported functions."
+      description: "Коллекция типа &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; , содержащая список функций, поддерживаемых поставщиком."
   overload: System.Data.Common.DbXmlEnabledProviderManifest.GetStoreFunctions*
   exceptions: []
   platform:
@@ -125,14 +125,14 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Common
-  summary: "Returns the list of primitive types supported by the storage provider."
-  remarks: "If the store does not support any type, this (not nullable) method returns an empty collection."
+  summary: "Возвращает список простых типов, поддерживаемых поставщиком хранения."
+  remarks: "Если хранилище не поддерживает любой тип, этот метод (не пустой) возвращает пустую коллекцию."
   syntax:
     content: public override System.Collections.ObjectModel.ReadOnlyCollection<System.Data.Metadata.Edm.PrimitiveType> GetStoreTypes ();
     parameters: []
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Data.Metadata.Edm.PrimitiveType}
-      description: "A collection of type &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; that contains the list of primitive types supported by the storage provider."
+      description: "Коллекция типа &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; , содержащая список типов-примитивов поддерживается поставщиком хранилища."
   overload: System.Data.Common.DbXmlEnabledProviderManifest.GetStoreTypes*
   exceptions: []
   platform:
@@ -149,12 +149,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Common
-  summary: "Gets the namespace name supported by this provider manifest."
+  summary: "Возвращает имя пространства имен, поддерживаемое манифестом этого поставщика."
   syntax:
     content: public override string NamespaceName { get; }
     return:
       type: System.String
-      description: "The namespace name supported by this provider manifest."
+      description: "Имя пространства имен, поддерживаемое манифестом этого поставщика."
   overload: System.Data.Common.DbXmlEnabledProviderManifest.NamespaceName*
   exceptions: []
   platform:
@@ -171,13 +171,13 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Common
-  summary: "Gets the best mapped equivalent Entity Data Model (EDM) type for a specified storage type name."
-  remarks: "This property (not nullable) returns the <xref:System.Collections.Generic.Dictionary> object, which accepts a storage type name as a key and returns its associated EDM type value."
+  summary: "Возвращает Наилучший эквивалент сопоставления сущностной модели данных (EDM) типа для заданного имени типа хранения."
+  remarks: "Это свойство (не допускает значения NULL) возвращает <xref:System.Collections.Generic.Dictionary>объекта, который принимает имя типа хранения в качестве ключа и возвращает соответствующее значение типа EDM.</xref:System.Collections.Generic.Dictionary>"
   syntax:
     content: protected System.Collections.Generic.Dictionary<string,System.Data.Metadata.Edm.PrimitiveType> StoreTypeNameToEdmPrimitiveType { get; }
     return:
       type: System.Collections.Generic.Dictionary{System.String,System.Data.Metadata.Edm.PrimitiveType}
-      description: "The best mapped equivalent EDM type for a specified storage type name."
+      description: "Наилучший эквивалент сопоставления модели EDM типа для заданного имени типа хранения."
   overload: System.Data.Common.DbXmlEnabledProviderManifest.StoreTypeNameToEdmPrimitiveType*
   exceptions: []
   platform:
@@ -194,13 +194,13 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Common
-  summary: "Gets the best mapped equivalent storage primitive type for a specified storage type name."
-  remarks: "This property (not nullable) returns the <xref:System.Collections.Generic.Dictionary> object, which accepts a storage type name as a key and returns its associated storage primitive type value."
+  summary: "Возвращает наилучший типа-примитива хранения, сопоставленный эквивалент для заданного имени типа хранения."
+  remarks: "Это свойство (не допускает значения NULL) возвращает <xref:System.Collections.Generic.Dictionary>объекта, который принимает имя типа хранения в качестве ключа и возвращает значение типа-примитива хранения связанных.</xref:System.Collections.Generic.Dictionary>"
   syntax:
     content: protected System.Collections.Generic.Dictionary<string,System.Data.Metadata.Edm.PrimitiveType> StoreTypeNameToStorePrimitiveType { get; }
     return:
       type: System.Collections.Generic.Dictionary{System.String,System.Data.Metadata.Edm.PrimitiveType}
-      description: "The best mapped equivalent storage primitive type for a specified storage type name."
+      description: "Наилучший сопоставления типа-примитива хранения эквивалент для заданного имени типа хранения."
   overload: System.Data.Common.DbXmlEnabledProviderManifest.StoreTypeNameToStorePrimitiveType*
   exceptions: []
   platform:

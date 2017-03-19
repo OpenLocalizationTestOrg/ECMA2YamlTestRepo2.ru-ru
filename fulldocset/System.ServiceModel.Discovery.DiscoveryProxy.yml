@@ -24,7 +24,7 @@ items:
   nameWithType: DiscoveryProxy
   fullName: System.ServiceModel.Discovery.DiscoveryProxy
   type: Class
-  summary: "An abstract base class used to implement a discovery proxy."
+  summary: "Абстрактный базовый класс, используемый для реализации прокси-сервера обнаружения."
   syntax:
     content: public abstract class DiscoveryProxy
   inheritance:
@@ -45,7 +45,7 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.DiscoveryProxy&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.Discovery.DiscoveryProxy&quot;> </xref> класса."
   syntax:
     content: protected DiscoveryProxy ();
     parameters: []
@@ -65,13 +65,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.DiscoveryProxy&quot;></xref> class with the specified <xref href=&quot;System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator&quot;></xref>."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.Discovery.DiscoveryProxy&quot;> </xref> класса с заданным <xref href=&quot;System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator&quot;> </xref>."
   syntax:
     content: protected DiscoveryProxy (System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator messageSequenceGenerator);
     parameters:
     - id: messageSequenceGenerator
       type: System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator
-      description: "The message sequence generator."
+      description: "Генератор последовательности сообщений."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.#ctor*
   exceptions: []
   platform:
@@ -88,16 +88,16 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.DiscoveryProxy&quot;></xref> class with the specified <xref href=&quot;System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator&quot;></xref> and duplicate message history length."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.Discovery.DiscoveryProxy&quot;> </xref> класса с заданным <xref href=&quot;System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator&quot;> </xref> и длиной журнала дублированных сообщений."
   syntax:
     content: protected DiscoveryProxy (System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator messageSequenceGenerator, int duplicateMessageHistoryLength);
     parameters:
     - id: messageSequenceGenerator
       type: System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator
-      description: "The message sequence generator."
+      description: "Генератор последовательности сообщений."
     - id: duplicateMessageHistoryLength
       type: System.Int32
-      description: "The maximum number of message hashes used by the transport for identifying duplicate messages. The default value is 0."
+      description: "Максимальное количество хэшей сообщений, используемых транспортом для идентификации повторяющихся сообщений. По умолчанию используется значение 0."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.#ctor*
   exceptions: []
   platform:
@@ -114,23 +114,23 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to allow the discovery proxy to send out multicast suppression messages when it receives a multicast find request."
-  remarks: "Multicast suppression messages can be sent in response to a multicast find or resolve message when a discovery proxy is available. Sending unicast messages to the discovery proxy can help reduce the amount of network traffic caused by the discovery operations."
+  summary: "Переопределите этот метод для прокси обнаружения мог передавать многоадресные сообщения отмены, получив многоадресный запрос на поиск."
+  remarks: "Многоадресные сообщения отмены могут отправляться в ответ на операцию поиска многоадресной рассылки сообщения или разрешения, когда доступен прокси-сервер обнаружения. Отправка одноадресных сообщений на прокси-сервер обнаружения может помочь снизить объем сетевого трафика, создаваемого операциями обнаружения."
   syntax:
     content: protected virtual IAsyncResult BeginShouldRedirectFind (System.ServiceModel.Discovery.FindCriteria resolveCriteria, AsyncCallback callback, object state);
     parameters:
     - id: resolveCriteria
       type: System.ServiceModel.Discovery.FindCriteria
-      description: "The resolve criteria that describes the service to find."
+      description: "Критерии разрешения, которое описывает службу для поиска."
     - id: callback
       type: System.AsyncCallback
-      description: "The callback delegate to call when the operation has completed."
+      description: "Делегат обратного вызова, вызываемый после завершения операции."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Данные пользовательской среды."
     return:
       type: System.IAsyncResult
-      description: "A reference to the pending asynchronous operation."
+      description: "Ссылка на отложенную асинхронную операцию."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.BeginShouldRedirectFind*
   exceptions: []
   platform:
@@ -147,23 +147,23 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to allow the discovery proxy to send out multicast suppression messages when it receives a multicast resolve request."
-  remarks: "Multicast suppression messages can be sent in response to a multicast find or resolve message when a discovery proxy is available. Sending unicast messages to the discovery proxy can help reduce the amount of network traffic caused by the discovery operations."
+  summary: "Переопределите этот метод для прокси обнаружения мог передавать многоадресные сообщения отмены, получив многоадресный запрос на вызов."
+  remarks: "Многоадресные сообщения отмены могут отправляться в ответ на операцию поиска многоадресной рассылки сообщения или разрешения, когда доступен прокси-сервер обнаружения. Отправка одноадресных сообщений на прокси-сервер обнаружения может помочь снизить объем сетевого трафика, создаваемого операциями обнаружения."
   syntax:
     content: protected virtual IAsyncResult BeginShouldRedirectResolve (System.ServiceModel.Discovery.ResolveCriteria findCriteria, AsyncCallback callback, object state);
     parameters:
     - id: findCriteria
       type: System.ServiceModel.Discovery.ResolveCriteria
-      description: "The find criteria that describes the service to find."
+      description: "Критерии поиска, описывающий службу для поиска."
     - id: callback
       type: System.AsyncCallback
-      description: "The callback delegate to call when the operation is completed."
+      description: "Делегат обратного вызова, вызываемый после завершения операции."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Данные пользовательской среды."
     return:
       type: System.IAsyncResult
-      description: "A reference to the pending asynchronous operation."
+      description: "Ссылка на отложенную асинхронную операцию."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.BeginShouldRedirectResolve*
   exceptions: []
   platform:
@@ -180,20 +180,20 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle the completion of sending the multicast suppression message for find requests."
-  remarks: "Multicast suppression messages can be sent in response to a multicast find or resolve message when a discovery proxy is available. Sending unicast messages to the discovery proxy can help reduce the amount of network traffic caused by the discovery operations."
+  summary: "Переопределите этот метод, чтобы обработать окончание передачи многоадресного сообщения отмены для запросов на поиск."
+  remarks: "Многоадресные сообщения отмены могут отправляться в ответ на операцию поиска многоадресной рассылки сообщения или разрешения, когда доступен прокси-сервер обнаружения. Отправка одноадресных сообщений на прокси-сервер обнаружения может помочь снизить объем сетевого трафика, создаваемого операциями обнаружения."
   syntax:
     content: protected virtual bool EndShouldRedirectFind (IAsyncResult result, out System.Collections.ObjectModel.Collection<System.ServiceModel.Discovery.EndpointDiscoveryMetadata> redirectionEndpoints);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the completed asynchronous operation."
+      description: "Ссылка на завершенную асинхронную операцию."
     - id: redirectionEndpoints
       type: System.Collections.ObjectModel.Collection{System.ServiceModel.Discovery.EndpointDiscoveryMetadata}
-      description: "A collection of endpoint discovery metadata that describes the redirection endpoints."
+      description: "Коллекция метаданных обнаружения конечной точки, описывающих конечные точки перенаправления."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the find operation should be redirected, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если необходимо перенаправить операции поиска, в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.EndShouldRedirectFind*
   exceptions: []
   platform:
@@ -210,20 +210,20 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle the completion of sending the multicast suppression message for resolve requests."
-  remarks: "Multicast suppression messages can be sent in response to a multicast find or resolve message when a discovery proxy is available. Sending unicast messages to the discovery proxy can help reduce the amount of network traffic caused by the discovery operations."
+  summary: "Переопределите этот метод, чтобы обработать окончание передачи многоадресного сообщения отмены для запросов на разрешение."
+  remarks: "Многоадресные сообщения отмены могут отправляться в ответ на операцию поиска многоадресной рассылки сообщения или разрешения, когда доступен прокси-сервер обнаружения. Отправка одноадресных сообщений на прокси-сервер обнаружения может помочь снизить объем сетевого трафика, создаваемого операциями обнаружения."
   syntax:
     content: protected virtual bool EndShouldRedirectResolve (IAsyncResult result, out System.Collections.ObjectModel.Collection<System.ServiceModel.Discovery.EndpointDiscoveryMetadata> redirectionEndpoints);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the completed asynchronous operation."
+      description: "Ссылка на завершенную асинхронную операцию."
     - id: redirectionEndpoints
       type: System.Collections.ObjectModel.Collection{System.ServiceModel.Discovery.EndpointDiscoveryMetadata}
-      description: "A collection of endpoint discovery metadata that describes the redirection endpoints."
+      description: "Коллекция метаданных обнаружения конечной точки, описывающих конечные точки перенаправления."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the resolve operation should be redirected, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если необходимо перенаправить операции разрешения, в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.EndShouldRedirectResolve*
   exceptions: []
   platform:
@@ -240,23 +240,23 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle a find operation."
-  remarks: "Find results are returned by calling the <xref:System.ServiceModel.Discovery.FindRequestContext.AddMatchingEndpoint%2A> method one or more times."
+  summary: "Переопределите этот метод, чтобы он обрабатывал операцию поиска."
+  remarks: "Результаты поиска возвращаются путем вызова <xref:System.ServiceModel.Discovery.FindRequestContext.AddMatchingEndpoint%2A>метод один или несколько раз.</xref:System.ServiceModel.Discovery.FindRequestContext.AddMatchingEndpoint%2A>"
   syntax:
     content: protected abstract IAsyncResult OnBeginFind (System.ServiceModel.Discovery.FindRequestContext findRequestContext, AsyncCallback callback, object state);
     parameters:
     - id: findRequestContext
       type: System.ServiceModel.Discovery.FindRequestContext
-      description: "The find request context that describes the service to discover."
+      description: "Контекст запроса поиска, описывающий службу для обнаружения."
     - id: callback
       type: System.AsyncCallback
-      description: "The callback delegate to call when the operation is completed."
+      description: "Делегат обратного вызова, вызываемый после завершения операции."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Данные пользовательской среды."
     return:
       type: System.IAsyncResult
-      description: "A reference to the pending asynchronous operation."
+      description: "Ссылка на отложенную асинхронную операцию."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.OnBeginFind*
   exceptions: []
   platform:
@@ -273,25 +273,25 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle an offline announcement message."
+  summary: "Переопределите этот метод для обработки автономное сообщение объявления."
   syntax:
     content: protected abstract IAsyncResult OnBeginOfflineAnnouncement (System.ServiceModel.Discovery.DiscoveryMessageSequence messageSequence, System.ServiceModel.Discovery.EndpointDiscoveryMetadata endpointDiscoveryMetadata, AsyncCallback callback, object state);
     parameters:
     - id: messageSequence
       type: System.ServiceModel.Discovery.DiscoveryMessageSequence
-      description: "The discovery message sequence."
+      description: "Последовательность сообщений обнаружения."
     - id: endpointDiscoveryMetadata
       type: System.ServiceModel.Discovery.EndpointDiscoveryMetadata
-      description: "The endpoint discovery metadata."
+      description: "Метаданные обнаружения конечной точки."
     - id: callback
       type: System.AsyncCallback
-      description: "The callback delegate to call when the operation is completed."
+      description: "Делегат обратного вызова, вызываемый после завершения операции."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Данные пользовательской среды."
     return:
       type: System.IAsyncResult
-      description: "A reference to the pending asynchronous operation."
+      description: "Ссылка на отложенную асинхронную операцию."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.OnBeginOfflineAnnouncement*
   exceptions: []
   platform:
@@ -308,25 +308,25 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle an online announcement message."
+  summary: "Переопределите этот метод для обработки сообщения с объявлением."
   syntax:
     content: protected abstract IAsyncResult OnBeginOnlineAnnouncement (System.ServiceModel.Discovery.DiscoveryMessageSequence messageSequence, System.ServiceModel.Discovery.EndpointDiscoveryMetadata endpointDiscoveryMetadata, AsyncCallback callback, object state);
     parameters:
     - id: messageSequence
       type: System.ServiceModel.Discovery.DiscoveryMessageSequence
-      description: "The discovery message sequence."
+      description: "Последовательность сообщений обнаружения."
     - id: endpointDiscoveryMetadata
       type: System.ServiceModel.Discovery.EndpointDiscoveryMetadata
-      description: "The endpoint discovery metadata."
+      description: "Метаданные обнаружения конечной точки."
     - id: callback
       type: System.AsyncCallback
-      description: "The callback delegate to call when the operation is completed."
+      description: "Делегат обратного вызова, вызываемый после завершения операции."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Данные пользовательской среды."
     return:
       type: System.IAsyncResult
-      description: "A reference to the pending asynchronous operation."
+      description: "Ссылка на отложенную асинхронную операцию."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.OnBeginOnlineAnnouncement*
   exceptions: []
   platform:
@@ -343,22 +343,22 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle a resolve operation."
+  summary: "Переопределите этот метод, чтобы он выполнял операцию разрешения."
   syntax:
     content: protected abstract IAsyncResult OnBeginResolve (System.ServiceModel.Discovery.ResolveCriteria resolveCriteria, AsyncCallback callback, object state);
     parameters:
     - id: resolveCriteria
       type: System.ServiceModel.Discovery.ResolveCriteria
-      description: "The resolve criteria that describes the service to discover."
+      description: "Критерии разрешения, которое описывает службу для обнаружения."
     - id: callback
       type: System.AsyncCallback
-      description: "The callback delegate to call when the operation is completed."
+      description: "Делегат обратного вызова, вызываемый после завершения операции."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Данные пользовательской среды."
     return:
       type: System.IAsyncResult
-      description: "A reference to the pending asynchronous operation."
+      description: "Ссылка на отложенную асинхронную операцию."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.OnBeginResolve*
   exceptions: []
   platform:
@@ -375,13 +375,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle the completion of a find operation."
+  summary: "Переопределите этот метод, чтобы он завершал операцию поиска."
   syntax:
     content: protected abstract void OnEndFind (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the completed asynchronous operation."
+      description: "Ссылка на завершенную асинхронную операцию."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.OnEndFind*
   exceptions: []
   platform:
@@ -398,13 +398,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle the completion of an offline announcement message."
+  summary: "Переопределите этот метод, чтобы он завершал автономное сообщение объявления."
   syntax:
     content: protected abstract void OnEndOfflineAnnouncement (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the completed asynchronous operation."
+      description: "Ссылка на завершенную асинхронную операцию."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.OnEndOfflineAnnouncement*
   exceptions: []
   platform:
@@ -421,13 +421,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle the completion of an online announcement message."
+  summary: "Переопределите этот метод, чтобы он завершал сообщения с объявлением."
   syntax:
     content: protected abstract void OnEndOnlineAnnouncement (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the completed asynchronous operation."
+      description: "Ссылка на завершенную асинхронную операцию."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.OnEndOnlineAnnouncement*
   exceptions: []
   platform:
@@ -444,16 +444,16 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle the completion of a resolve operation."
+  summary: "Переопределите этот метод, чтобы он завершал операцию разрешения."
   syntax:
     content: protected abstract System.ServiceModel.Discovery.EndpointDiscoveryMetadata OnEndResolve (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the completed asynchronous operation."
+      description: "Ссылка на завершенную асинхронную операцию."
     return:
       type: System.ServiceModel.Discovery.EndpointDiscoveryMetadata
-      description: "Endpoint discovery metadata for the resolved service."
+      description: "Метаданные обнаружения конечной точки для разрешенной службы."
   overload: System.ServiceModel.Discovery.DiscoveryProxy.OnEndResolve*
   exceptions: []
   platform:

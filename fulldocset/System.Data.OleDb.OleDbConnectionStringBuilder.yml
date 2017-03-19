@@ -23,7 +23,7 @@ items:
   nameWithType: OleDbConnectionStringBuilder
   fullName: System.Data.OleDb.OleDbConnectionStringBuilder
   type: Class
-  summary: "Provides a simple way to create and manage the contents of connection strings used by the <xref href=&quot;System.Data.OleDb.OleDbConnection&quot;></xref> class."
+  summary: "Предоставляет простой способ создания и управления содержимым строки соединения, используемые <xref href=&quot;System.Data.OleDb.OleDbConnection&quot;> </xref> класса."
   remarks: "The connection string builder lets developers programmatically create syntactically correct connection strings, and parse and rebuild existing connection strings, using properties and methods of the class. The connection string builder provides strongly typed properties corresponding to the known key/value pairs allowed by OLE DB connections, and developers can add arbitrary key/value pairs for any other connection string values. The OleDbConnectionStringBuilder class implements the <xref:System.ComponentModel.ICustomTypeDescriptor> interface. This means that the class works with Visual Studio .NET designers at design time. When developers use the designer to build strongly typed DataSets and strongly typed connections within Visual Studio .NET, the strongly typed connection string builder class will display the properties associated with its type and will also have converters that can map common values for known keys.  \n  \n Developers needing to create connection strings as part of applications can use the OleDbConnectionStringBuilder class to build and modify connection strings. The class also makes it easy to manage connection strings stored in an application configuration file. The OleDbConnectionStringBuilder performs checks only for the limited set of known key/value pairs. Therefore, this class can be used to create invalid connection strings. The following table lists the known keys and their corresponding properties within the OleDbConnectionStringBuilder class, and their default values. Besides these specific values, developers can add any key/value pairs to the collection that is contained within the OleDbConnectionStringBuilder instance:  \n  \n|Key|Property|Default value|  \n|---------|--------------|-------------------|  \n|File Name|<xref:System.Data.OleDb.OleDbConnectionStringBuilder.FileName%2A>|\"\"|  \n|Provider|<xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A>|\"\"|  \n|Data Source|<xref:System.Data.OleDb.OleDbConnectionStringBuilder.DataSource%2A>|\"\"|  \n|Persist Security Info|<xref:System.Data.OleDb.OleDbConnectionStringBuilder.PersistSecurityInfo%2A>|False|  \n|OLE DB Services|<xref:System.Data.OleDb.OleDbConnectionStringBuilder.OleDbServices%2A>|-13|  \n  \n The <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Item%2A> property handles attempts to insert malicious entries. For example, the following code, using the default <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Item%2A> property (the indexer, in C#) correctly escapes the nested key/value pair:  \n  \n```vb#  \nDim builder As _  \n    New System.Data.OleDb.OleDbConnectionStringBuilder  \nbuilder(\"Provider\") = \"Microsoft.Jet.OLEDB.4.0\"  \nbuilder(\"Data Source\") = \"C:\\Sample.mdb\"  \nbuilder(\"User Id\") = \"Admin;NewValue=Bad\"  \n```  \n  \n```c#  \nSystem.Data.OleDb.OleDbConnectionStringBuilder builder =   \n    new System.Data.OleDb.OleDbConnectionStringBuilder();  \nbuilder[\"Provider\"] = \"Microsoft.Jet.OLEDB.4.0\";  \nbuilder[\"Data Source\"] = \"C:\\\\Sample.mdb\";  \nbuilder[\"User Id\"] = \"Admin;NewValue=Bad\";  \n```  \n  \n The result is the following connection string that handles the invalid value in a safe manner:  \n  \n```  \nProvider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Sample.mdb;User ID=\"Admin;NewValue=Bad\"  \n```"
   example:
   - "The following console application builds connection strings for several OLE DB databases. First, the example creates a connection string for a Microsoft Access database, and then creates a connection string for an IBM DB2 database. The example also parses an existing connection string, and demonstrates various ways of manipulating the connection string's contents.  \n  \n> [!NOTE]\n>  This example includes a password to demonstrate how OleDbConnectionStringBuilder works with connection strings. In your applications, we recommend that you use Windows Authentication. If you must use a password, do not include a hard-coded password in your application.  \n  \n [!code-vb[DataWorks OleDbConnectionStringBuilder#1](~/add/codesnippet/visualbasic/t-system.data.oledb.oled_1_1.vb)]\n [!code-cs[DataWorks OleDbConnectionStringBuilder#1](~/add/codesnippet/csharp/t-system.data.oledb.oled_1_1.cs)]"
@@ -89,7 +89,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;> </xref> класса."
   syntax:
     content: public OleDbConnectionStringBuilder ();
     parameters: []
@@ -109,8 +109,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;></xref> class. The provided connection string provides the data for the instance&quot;s internal connection information."
-  remarks: "Setting the <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A> property, either directly (by setting the <xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A> property) or by passing a connection string as a parameter to the constructor, may affect the set of key/value pairs that are contained within the <xref:System.Data.OleDb.OleDbConnectionStringBuilder> instance. Setting the <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A> property to &quot;sqloledb,&quot; for example, adds all the standard SQL connection string properties. See the example in this topic for a demonstration of this behavior.       For some providers, assigning a connection string within the <xref:System.Data.OleDb.OleDbConnectionStringBuilder> constructor causes the order of supplied key/value pairs to be rearranged."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;> </xref> класса. Предоставленная строка подключения содержит данные для сведений о внутреннем подключении экземпляра."
+  remarks: "Параметр <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A>Свойства, либо напрямую (установив <xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A>свойство) или путем передачи строки подключения как параметр в конструктор, может повлиять на наборе пар &quot;ключ значение&quot;, содержащихся в <xref:System.Data.OleDb.OleDbConnectionStringBuilder>экземпляра.</xref:System.Data.OleDb.OleDbConnectionStringBuilder> </xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A> </xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A> Параметр <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A>Свойства «sqloledb», например, добавляет все стандартные SQL свойства строки подключения.</xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A> См. пример в этом разделе, для демонстрации этого поведения.       Некоторые поставщики предоставляют назначение строку подключения в <xref:System.Data.OleDb.OleDbConnectionStringBuilder>конструктор вызывает порядок пар предоставленный ключ/значение, чтобы переупорядочить.</xref:System.Data.OleDb.OleDbConnectionStringBuilder>"
   example:
   - "The following example creates multiple <xref:System.Data.OleDb.OleDbConnectionStringBuilder> instances, passing a different connection string to the constructor in each case. Note how setting the provider associated with the connection changes the set of predefined key/value pairs within the object's collection.  \n  \n> [!NOTE]\n>  This example includes a password to demonstrate how <xref:System.Data.OleDb.OleDbConnectionStringBuilder> works with connection strings. In your applications, we recommend that you use Windows Authentication. If you must use a password, do not include a hard-coded password in your application.  \n  \n [!code-vb[DataWorks OleDbConnectionStringBuilder.Ctor#1](~/add/codesnippet/visualbasic/m-system.data.oledb.oled_18_1.vb)]\n [!code-cs[DataWorks OleDbConnectionStringBuilder.Ctor#1](~/add/codesnippet/csharp/m-system.data.oledb.oled_18_1.cs)]"
   syntax:
@@ -118,12 +118,12 @@ items:
     parameters:
     - id: connectionString
       type: System.String
-      description: "The basis for the object&quot;s internal connection information. Parsed into key/value pairs."
+      description: "Основа для сведений о внутреннем подключении объекта. Разбито на пары ключ значение."
   overload: System.Data.OleDb.OleDbConnectionStringBuilder.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The connection string is incorrectly formatted (perhaps missing the required &quot;=&quot; within a key/value pair)."
+    description: "Строка подключения неправильно отформатирована (возможно отсутствует обязательный «=» в паре ключ значение)."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbConnectionStringBuilder.Clear
@@ -138,8 +138,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Clears the contents of the <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;></xref> instance."
-  remarks: "The Clear method removes all key/value pairs from the <xref:System.Data.OleDb.OleDbConnectionStringBuilder>, and resets all corresponding properties to their default values. This includes setting the <xref:System.Data.Common.DbConnectionStringBuilder.Count%2A> property to 0, and setting the <xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A> property to an empty string."
+  summary: "Удаляет содержимое <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;> </xref> экземпляра."
+  remarks: "Метод Clear удаляет все пары &quot;ключ значение&quot; из <xref:System.Data.OleDb.OleDbConnectionStringBuilder>и сбрасывает все соответствующие свойства в значения по умолчанию.</xref:System.Data.OleDb.OleDbConnectionStringBuilder> Это включает настройку <xref:System.Data.Common.DbConnectionStringBuilder.Count%2A>свойство в значение 0, а <xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A>свойства равным пустой строке.</xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A> </xref:System.Data.Common.DbConnectionStringBuilder.Count%2A>"
   example:
   - "The following example demonstrates the effect of calling the Clear method. This example populates the <xref:System.Data.OleDb.OleDbConnectionStringBuilder> with some key/value pairs, and then calls the Clear method and shows the results.  \n  \n> [!NOTE]\n>  This example includes a password to demonstrate how <xref:System.Data.OleDb.OleDbConnectionStringBuilder> works with connection strings. In your applications, we recommend that you use Windows Authentication. If you must use a password, do not include a hard-coded password in your application.  \n  \n [!code-cs[DataWorks OleDbConnectionStringBuilder.Clear#1](~/add/codesnippet/csharp/m-system.data.oledb.oled_29_1.cs)]\n [!code-vb[DataWorks OleDbConnectionStringBuilder.Clear#1](~/add/codesnippet/visualbasic/m-system.data.oledb.oled_29_1.vb)]"
   syntax:
@@ -161,8 +161,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Determines whether the <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;></xref> contains a specific key."
-  remarks: "Although setting the <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A> property may implicitly fill in appropriate key/value pairs for the provider, the ContainsKey method does not return `true` for implicitly provided keys. This method returns `true` only for explicitly provided keys."
+  summary: "Определяет, является ли <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;> </xref> содержит конкретный ключ."
+  remarks: "Хотя Настройка <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A>свойства неявно может заполнить пары соответствующий ключ значение для поставщика, ContainsKey метод не возвращает `true` неявно заданный ключей.</xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A> Этот метод возвращает `true` только для явно предоставленных ключей."
   example:
   - The following example creates an <xref:System.Data.OleDb.OleDbConnectionStringBuilder> instance, sets some of its properties, and then tries to determine whether various keys exist within the object by calling the ContainsKey method.
   syntax:
@@ -170,15 +170,15 @@ items:
     parameters:
     - id: keyword
       type: System.String
-      description: "The key to locate in the <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;></xref>."
+      description: "Ключ для поиска в <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "true if the <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;></xref> contains an element that has the specified key; otherwise false."
+      description: "значение true, если <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;> </xref> содержит элемент с указанным ключом; в противном случае — значение false."
   overload: System.Data.OleDb.OleDbConnectionStringBuilder.ContainsKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyword</code> is null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>keyword</code>имеет значение null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> в Visual Basic)."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbConnectionStringBuilder.DataSource
@@ -193,15 +193,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the name of the data source to connect to."
-  remarks: "If the value passed in is null when you try to set the property, the DataSource property is reset. If the value has not been set and the developer tries to retrieve the property, the return value is `String.Empty`. This property corresponds to the &quot;Data Source&quot; key within the connection string."
+  summary: "Возвращает или задает имя источника данных для подключения."
+  remarks: "Если переданное значение равно null, при попытке задать свойство, сбрасывается свойство DataSource. Если значение не задано и разработчик пытается получить значение свойства, возвращаемое значение равно `String.Empty`. Это свойство соответствует ключу «Data Source» в строке подключения."
   example:
   - "The following example console application creates a new <xref:System.Data.OleDb.OleDbConnectionStringBuilder> instance, and then sets the DataSource and <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A> properties. Finally, the example creates a new <xref:System.Data.OleDb.OleDbConnection> instance, and uses that object to connect to the indicated data store.  \n  \n [!code-vb[DataWorks OleDbConnectionStringBuilder.DataSource#1](~/add/codesnippet/visualbasic/p-system.data.oledb.oled_25_1.vb)]\n [!code-cs[DataWorks OleDbConnectionStringBuilder.DataSource#1](~/add/codesnippet/csharp/p-system.data.oledb.oled_25_1.cs)]"
   syntax:
     content: public string DataSource { get; set; }
     return:
       type: System.String
-      description: "The value of the DataSource property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Значение свойства источника данных, или <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> , если не указано."
   overload: System.Data.OleDb.OleDbConnectionStringBuilder.DataSource*
   exceptions: []
   platform:
@@ -218,13 +218,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the name of the Universal Data Link (UDL) file for connecting to the data source."
-  remarks: "If the value passed in is null when you try to set the property, the FileName property is reset. If the value has not been set and the developer tries to retrieve the property, the return value is `String.Empty`. This property corresponds to the &quot;FileName&quot; key within the connection string.       Setting this property does not cause the <xref:System.Data.OleDb.OleDbConnectionStringBuilder> instance to read the contents of the referenced file, even if the file exists and contains valid connection information. Setting this property has no effect other than to indicate the file to read when connecting to the data source."
+  summary: "Возвращает или задает имя файла универсальной Data Link (UDL) для подключения к источнику данных."
+  remarks: "Если переданное значение равно null, при попытке задать свойство, сбрасывается в свойстве FileName. Если значение не задано и разработчик пытается получить значение свойства, возвращаемое значение равно `String.Empty`. Это свойство соответствует ключу «FileName» в строке подключения.       Это свойство не вызывает параметр <xref:System.Data.OleDb.OleDbConnectionStringBuilder>экземпляр, чтобы прочитать содержимое указанного файла, даже в том случае, если файл существует и содержит правильные сведения о соединении.</xref:System.Data.OleDb.OleDbConnectionStringBuilder> Задание этого свойства не оказывает влияния Кроме указания файла для чтения при подключении к источнику данных."
   syntax:
     content: public string FileName { get; set; }
     return:
       type: System.String
-      description: "The value of the FileName property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Значение свойства имени файла, или <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> , если не указано."
   overload: System.Data.OleDb.OleDbConnectionStringBuilder.FileName*
   exceptions: []
   platform:
@@ -246,7 +246,7 @@ items:
     parameters:
     - id: propertyDescriptors
       type: System.Collections.Hashtable
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Data.OleDb.OleDbConnectionStringBuilder.GetProperties*
   exceptions: []
   platform:
@@ -263,8 +263,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the value associated with the specified key. In C#, this property is the indexer."
-  remarks: "Because setting the <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A> property may add corresponding items to the collection of key/value pairs (depending on the behavior of the specific provider), you may be able to retrieve a value for a key you have not set explicitly. For example, as soon as you have set the <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A> property to &quot;sqloledb,&quot; you can retrieve the &quot;Workstation ID&quot; value even if you have not set it yourself. See the example in this topic for a demonstration."
+  summary: "Возвращает или задает значение, связанное с указанным ключом. В C# это свойство является индексатором."
+  remarks: "Так как задание <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A>Свойства можно добавить соответствующие элементы в коллекцию пар &quot;ключ значение&quot; (в зависимости от поведения конкретного поставщика), вы сможете получить значение для ключа не заданы явно.</xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A> Например, как только вы задали <xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A>Свойства для «sqloledb», можно извлечь значение «Workstation ID», даже если вы не задали его самостоятельно.</xref:System.Data.OleDb.OleDbConnectionStringBuilder.Provider%2A> См. пример в этом разделе, для демонстрации."
   example:
   - "The following example uses the Item property (the indexer, in C#) to retrieve and set values within the collection of key/value pairs. Note that setting the provider, in this case, also provides default values for all the key/value pairs associated with the selected provider.  \n  \n [!code-cs[DataWorks OleDbConnectionStringBuilder.Item#1](~/add/codesnippet/csharp/p-system.data.oledb.oled_5_1.cs)]\n [!code-vb[DataWorks OleDbConnectionStringBuilder.Item#1](~/add/codesnippet/visualbasic/p-system.data.oledb.oled_5_1.vb)]"
   syntax:
@@ -272,18 +272,18 @@ items:
     parameters:
     - id: keyword
       type: System.String
-      description: "The key of the item to get or set."
+      description: "Ключ элемента, чтобы получить или задать."
     return:
       type: System.Object
-      description: "The value associated with the specified key."
+      description: "Значение, связанное с указанным ключом."
   overload: System.Data.OleDb.OleDbConnectionStringBuilder.Item*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The connection string is incorrectly formatted (perhaps missing the required &quot;=&quot; within a key/value pair)."
+    description: "Строка подключения неправильно отформатирована (возможно отсутствует обязательный «=» в паре ключ значение)."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyword</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>keyword</code>является пустой ссылкой (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> в Visual Basic)."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbConnectionStringBuilder.Keys
@@ -298,15 +298,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets an <xref:System.Collections.ICollection> that contains the keys in the <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;></xref>."
-  remarks: "The order of the values in the <xref:System.Collections.ICollection> is unspecified, but it is the same order as the associated values in the <xref:System.Collections.ICollection> returned by the <xref:System.Data.Common.DbConnectionStringBuilder.Values%2A> property."
+  summary: "Возвращает <xref:System.Collections.ICollection>, содержащую ключи в <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;> </xref>.</xref:System.Collections.ICollection>"
+  remarks: "Порядок значений в <xref:System.Collections.ICollection>не указан, но это отличном от порядка соответствующих значений в <xref:System.Collections.ICollection>возвращенных <xref:System.Data.Common.DbConnectionStringBuilder.Values%2A>свойство.</xref:System.Data.Common.DbConnectionStringBuilder.Values%2A> </xref:System.Collections.ICollection> </xref:System.Collections.ICollection>"
   example:
   - "The following console application example creates a new <xref:System.Data.OleDb.OleDbConnectionStringBuilder>. The code loops through the <xref:System.Collections.ICollection> returned by the Keys property displaying the key/value pairs.  \n  \n> [!NOTE]\n>  This example includes a password to demonstrate how <xref:System.Data.OleDb.OleDbConnectionStringBuilder> works with connection strings. In your applications, we recommend that you use Windows Authentication. If you must use a password, do not include a hard-coded password in your application.  \n  \n [!code-cs[DataWorks OleDbConnectionStringBuilder.Keys#1](~/add/codesnippet/csharp/p-system.data.oledb.oled_10_1.cs)]\n [!code-vb[DataWorks OleDbConnectionStringBuilder.Keys#1](~/add/codesnippet/visualbasic/p-system.data.oledb.oled_10_1.vb)]"
   syntax:
     content: public override System.Collections.ICollection Keys { get; }
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> that contains the keys in the <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;></xref>."
+      description: "<xref:System.Collections.ICollection>, Содержащую ключи в <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;> </xref>.</xref:System.Collections.ICollection>"
   overload: System.Data.OleDb.OleDbConnectionStringBuilder.Keys*
   exceptions: []
   platform:
@@ -323,15 +323,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the value to be passed for the OLE DB Services key within the connection string."
-  remarks: "The OLE DB Services key within the connection string defines a combination of values that let developers enable or disable OLE DB services. The property contains a bitwise combination of values, described in the OLE DB documentation. For more information about appropriate values for this property, see the OLE DB Programmer&quot;s Reference, in particular, &quot;Overriding Provider Service Defaults.&quot; The default value for this property is -13. This corresponds to a request for resource pooling, automatic transaction enlistment, session-level aggregation, and no client cursor engine."
+  summary: "Возвращает или задает значение для передачи ключа служб OLE DB в строке подключения."
+  remarks: "Ключ службы OLE DB в строке подключения определяет комбинацию значений, которые позволяют разработчикам Включение и отключение служб OLE DB. Свойство содержит битовую комбинацию значений, описанных в документации по OLE DB. Дополнительные сведения о соответствующие значения для этого свойства Справочник программиста OLE DB, в частности, «Переопределение поставщика службы по умолчанию.» Значение по умолчанию для этого свойства равно -13. Это соответствует запрос на создание пулов ресурсов, автоматическое прикрепление транзакций, агрегирования на уровне сеанса и ни одному обработчику курсора клиента."
   example:
   - "The following example works with the OleDbServices property in two ways. First, it assigns a value directly to the property, demonstrating the effect this action has on the resulting connection string. Then, the example clears the <xref:System.Data.OleDb.OleDbConnectionStringBuilder> and assigns a complete connection string that contains a value for the OLE DB Services key. This step demonstrates that setting the value from the connection string modifies the OleDbServices property, as well.  \n  \n [!code-cs[DataWorks OleDbConnectionStringBuilder.OleDbServices#1](~/add/codesnippet/csharp/p-system.data.oledb.oled_8_1.cs)]\n [!code-vb[DataWorks OleDbConnectionStringBuilder.OleDbServices#1](~/add/codesnippet/visualbasic/p-system.data.oledb.oled_8_1.vb)]"
   syntax:
     content: public int OleDbServices { get; set; }
     return:
       type: System.Int32
-      description: "Returns the value corresponding to the OLE DB Services key within the connection string. By default, the value is -13."
+      description: "Возвращает значение, соответствующее ключу служб OLE DB в строке подключения. По умолчанию значение равно -13."
   overload: System.Data.OleDb.OleDbConnectionStringBuilder.OleDbServices*
   exceptions: []
   platform:
@@ -348,15 +348,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets a Boolean value that indicates whether security-sensitive information, such as the password, is returned as part of the connection if the connection is open or has ever been in an open state."
-  remarks: "This property corresponds to the &quot;Persist Security Info&quot; key within the connection string."
+  summary: "Возвращает или задает логическое значение, указывающее, возвращается ли конфиденциальные сведения, такие как пароль, как часть подключения, если оно открыто или когда-либо находилось в открытом состоянии."
+  remarks: "Это свойство соответствует ключу «Persist Security Info» в строке подключения."
   example:
   - "The following example works with the PersistSecurityInfo property in two ways. First, it assigns a value directly to the property, demonstrating the effect this action has on the resulting connection string. Then, the example clears the <xref:System.Data.OleDb.OleDbConnectionStringBuilder> and assigns a complete connection string that contains a value for the \"Persist Security Info\" key. This step demonstrates that setting the value from the connection string modifies the PersistSecurityInfo property, as well.  \n  \n [!code-cs[DataWorks OleDbConnectionStringBuilder.PersistSecurityInfo#1](~/add/codesnippet/csharp/p-system.data.oledb.oled_23_1.cs)]\n [!code-vb[DataWorks OleDbConnectionStringBuilder.PersistSecurityInfo#1](~/add/codesnippet/visualbasic/p-system.data.oledb.oled_23_1.vb)]"
   syntax:
     content: public bool PersistSecurityInfo { get; set; }
     return:
       type: System.Boolean
-      description: "The value of the PersistSecurityInfo property, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Значение свойства PersistSecurityInfo или <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> , если не указано."
   overload: System.Data.OleDb.OleDbConnectionStringBuilder.PersistSecurityInfo*
   exceptions: []
   platform:
@@ -373,15 +373,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets a string that contains the name of the data provider associated with the internal connection string."
-  remarks: "If the value passed in is null when you try to set the property, the Provider property is reset. If the value has not been set and the developer tries to retrieve the property, the return value is `String.Empty`. This property corresponds to the &quot;Provider&quot; key within the connection string.       Setting the value of the `Provider` property, either directly (by setting the <xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A> property) or by passing a connection string as a parameter to the constructor, may affect the set of key/value pairs that are contained within the <xref:System.Data.OleDb.OleDbConnectionStringBuilder> instance. Setting the Provider property to &quot;sqloledb,&quot; for example, adds all the standard SQL connection string properties. See the example in this topic for a demonstration of this behavior.       For some providers, assigning a connection string within the <xref:System.Data.OleDb.OleDbConnectionStringBuilder> constructor causes the order of supplied key/value pairs to be rearranged."
+  summary: "Возвращает или задает строку, которая содержит имя поставщика данных, связанного со строкой подключения."
+  remarks: "Если переданное значение равно null, при попытке задать свойство, сбрасывается свойство поставщика. Если значение не задано и разработчик пытается получить значение свойства, возвращаемое значение равно `String.Empty`. Это свойство соответствует ключу «Поставщик» в строке подключения.       Задание значения `Provider` свойства, либо напрямую (установив <xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A>свойство) или путем передачи строки подключения как параметр в конструктор, может повлиять на наборе пар &quot;ключ значение&quot;, содержащихся в <xref:System.Data.OleDb.OleDbConnectionStringBuilder>экземпляра.</xref:System.Data.OleDb.OleDbConnectionStringBuilder> </xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A> Например, присвоив свойству поставщика «sqloledb», добавляет все стандартные SQL свойства строки соединения. См. пример в этом разделе, для демонстрации этого поведения.       Некоторые поставщики предоставляют назначение строку подключения в <xref:System.Data.OleDb.OleDbConnectionStringBuilder>конструктор вызывает порядок пар предоставленный ключ/значение, чтобы переупорядочить.</xref:System.Data.OleDb.OleDbConnectionStringBuilder>"
   example:
   - "The following example creates multiple <xref:System.Data.OleDb.OleDbConnectionStringBuilder> instances, passing a different connection string to the constructor in each case. Note how setting the provider associated with the connection changes the set of predefined key/value pairs within the object's collection.  \n  \n> [!NOTE]\n>  This example includes a password to demonstrate how <xref:System.Data.OleDb.OleDbConnectionStringBuilder> works with connection strings. In your applications, we recommend that you use Windows Authentication. If you must use a password, do not include a hard-coded password in your application.  \n  \n [!code-vb[DataWorks OleDbConnectionStringBuilder.Provider#1](~/add/codesnippet/visualbasic/p-system.data.oledb.oled_24_1.vb)]\n [!code-cs[DataWorks OleDbConnectionStringBuilder.Provider#1](~/add/codesnippet/csharp/p-system.data.oledb.oled_24_1.cs)]"
   syntax:
     content: public string Provider { get; set; }
     return:
       type: System.String
-      description: "The value of the Provider property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Значение свойства поставщика, или <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> , если не указано."
   overload: System.Data.OleDb.OleDbConnectionStringBuilder.Provider*
   exceptions: []
   platform:
@@ -398,8 +398,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Removes the entry with the specified key from the <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;></xref> instance."
-  remarks: "Because the Remove method returns a value that indicates its success, it is not required to look for the existence of a key before trying to remove the key/value pair from the <xref:System.Data.OleDb.OleDbConnectionStringBuilder> instance."
+  summary: "Удаляет запись с указанным ключом из <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;> </xref> экземпляра."
+  remarks: "Так как удаление метод возвращает значение, указывающее, его успешное выполнение, не требуется для поиска существования ключа перед попыткой удаления пара &quot;ключ значение&quot; из <xref:System.Data.OleDb.OleDbConnectionStringBuilder>экземпляра.</xref:System.Data.OleDb.OleDbConnectionStringBuilder>"
   example:
   - "The following example creates a <xref:System.Data.OleDb.OleDbConnectionStringBuilder> and demonstrates the behavior of the Remove method.  \n  \n [!code-cs[DataWorks OleDbConnectionStringBuilder.Remove#1](~/add/codesnippet/csharp/m-system.data.oledb.oled_22_1.cs)]\n [!code-vb[DataWorks OleDbConnectionStringBuilder.Remove#1](~/add/codesnippet/visualbasic/m-system.data.oledb.oled_22_1.vb)]"
   syntax:
@@ -407,15 +407,15 @@ items:
     parameters:
     - id: keyword
       type: System.String
-      description: "The key of the key/value pair to be removed from the connection string in this <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;></xref>."
+      description: "Ключ из пары ключ значение удаляется из строки подключения в этом <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the key existed within the connection string and was removed, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the key did not exist."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если ключ существовал в строке подключения и был удален, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Если ключ не существовал."
   overload: System.Data.OleDb.OleDbConnectionStringBuilder.Remove*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyword</code> is null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>keyword</code>имеет значение null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> в Visual Basic)."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbConnectionStringBuilder.TryGetValue(System.String,System.Object@)
@@ -430,8 +430,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Retrieves a value corresponding to the supplied key from the <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;></xref> instance."
-  remarks: "The TryGetValue method lets developers safely retrieve a value from a <xref:System.Data.OleDb.OleDbConnectionStringBuilder> without needing to verify that the supplied key name is a valid key name. Because TryGetValue does not raise an exception when you call it, passing in a nonexistent key, you do not have to look for a key before retrieving its value. Calling TryGetValue with a nonexistent key will place the value null (`Nothing` in Visual Basic) in the `value` parameter."
+  summary: "Получает значение, соответствующее заданному ключу из <xref href=&quot;System.Data.OleDb.OleDbConnectionStringBuilder&quot;> </xref> экземпляра."
+  remarks: "Метод TryGetValue позволяет разработчикам получать значение из <xref:System.Data.OleDb.OleDbConnectionStringBuilder>без необходимости убедитесь, что указанное имя ключа имени ключа допустимым.</xref:System.Data.OleDb.OleDbConnectionStringBuilder> Поскольку TryGetValue не исключение при его вызове путем передачи несуществующего ключа, проверять наличие ключа перед возвращением его значения не нужно. Вызов TryGetValue с несуществующего ключа, будут помещать значение null (`Nothing` в Visual Basic) в `value` параметра."
   example:
   - "The following example demonstrates the behavior of the TryGetValue method.  \n  \n [!code-vb[DataWorks OleDbConnectionStringBuilder.TryGetValue#1](~/add/codesnippet/visualbasic/c608ef8d-2ee4-49df-a105-_1.vb)]\n [!code-cs[DataWorks OleDbConnectionStringBuilder.TryGetValue#1](~/add/codesnippet/csharp/c608ef8d-2ee4-49df-a105-_1.cs)]"
   syntax:
@@ -439,18 +439,18 @@ items:
     parameters:
     - id: keyword
       type: System.String
-      description: "The key of the item to retrieve."
+      description: "Ключ извлекаемого элемента."
     - id: value
       type: System.Object
-      description: "The value corresponding to `keyword.`"
+      description: "Значение, соответствующее`keyword.`"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>keyword</code> was found within the connection string; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <code> keyword </code> был найден в строке подключения; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OleDb.OleDbConnectionStringBuilder.TryGetValue*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyword</code> contains a null value (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>keyword</code>содержит значение null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> в Visual Basic)."
   platform:
   - net462
 references:

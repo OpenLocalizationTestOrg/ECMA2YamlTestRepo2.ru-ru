@@ -18,8 +18,8 @@ items:
   nameWithType: IWindowProvider
   fullName: System.Windows.Automation.Provider.IWindowProvider
   type: Interface
-  summary: "Exposes methods and properties to support UI Automation client access to controls that provide fundamental window-based functionality within a traditional [!INCLUDE[TLA#tla_gui](~/add/includes/ajax-current-ext-md.md)]."
-  remarks: "Implemented on a UI Automation provider that must support the <xref:System.Windows.Automation.WindowPattern> control pattern."
+  summary: "Предоставляет методы и свойства для поддержки доступа клиента автоматизации пользовательского интерфейса для элементов управления, обеспечивающих фундаментальные функциональные возможности на основе окон в традиционном [!INCLUDE[TLA#tla_gui](~/add/includes/ajax-current-ext-md.md)]."
+  remarks: "Реализация поставщика автоматизации пользовательского интерфейса, в который должна поддерживать <xref:System.Windows.Automation.WindowPattern>шаблон элемента управления.</xref:System.Windows.Automation.WindowPattern>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -44,8 +44,8 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Attempts to close the window."
-  remarks: "Close must return immediately without blocking.       Close raises the <xref:System.Windows.Automation.WindowPatternIdentifiers.WindowClosedEvent> event. If possible, the event should be raised after the control has completed its associated action.       When called on a split pane control, this method will close the pane and remove the associated split. This method might also close all other panes, depending on implementation."
+  summary: "Пытается закрыть окно."
+  remarks: "Закройте должен возвращаться немедленно без блокировки.       Закройте вызывает <xref:System.Windows.Automation.WindowPatternIdentifiers.WindowClosedEvent>событий.</xref:System.Windows.Automation.WindowPatternIdentifiers.WindowClosedEvent> Если это возможно следует вызывать событие после завершения управления связанного действия.       При вызове для разбиения панели управления, этот метод закрыть панель и удалить связанный разбиения. Этот метод может также закрыть все остальные области, в зависимости от реализации."
   syntax:
     content: public void Close ();
     parameters: []
@@ -53,10 +53,10 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "When the control is unable to perform the requested action."
+    description: "Если элемент управления не удается выполнить запрошенное действие."
   - type: System.Windows.Automation.ElementNotAvailableException
     commentId: T:System.Windows.Automation.ElementNotAvailableException
-    description: "When the target element is no longer available (for example, the window has closed)."
+    description: "Когда целевой элемент больше не доступен (например, окно закрыто)."
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.IWindowProvider.InteractionState
@@ -71,12 +71,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets the interaction state of the window."
+  summary: "Возвращает состояние взаимодействия окна."
   syntax:
     content: public System.Windows.Automation.WindowInteractionState InteractionState { get; }
     return:
       type: System.Windows.Automation.WindowInteractionState
-      description: "The <xref href=&quot;System.Windows.Automation.WindowInteractionState&quot;></xref> of the control."
+      description: "<xref href=&quot;System.Windows.Automation.WindowInteractionState&quot;> </xref> Элемента управления."
   overload: System.Windows.Automation.Provider.IWindowProvider.InteractionState*
   exceptions: []
   platform:
@@ -93,12 +93,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a value that specifies whether the window is modal."
+  summary: "Возвращает значение, указывающее, является ли окно является модальным."
   syntax:
     content: public bool IsModal { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the window is modal; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если окно является модальным; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Automation.Provider.IWindowProvider.IsModal*
   exceptions: []
   platform:
@@ -115,12 +115,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a value that specifies whether the window is the topmost element in the z-order."
+  summary: "Получает значение, указывающее, является ли окно элементом верхнего уровня в z порядке."
   syntax:
     content: public bool IsTopmost { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the window is topmost; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если окно является самым верхним; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Automation.Provider.IWindowProvider.IsTopmost*
   exceptions: []
   platform:
@@ -137,12 +137,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a value that specifies whether the window can be maximized."
+  summary: "Возвращает значение, указывающее, можно ли развернуть окно."
   syntax:
     content: public bool Maximizable { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the window can be maximized; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если окно можно развернуть; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Automation.Provider.IWindowProvider.Maximizable*
   exceptions: []
   platform:
@@ -159,12 +159,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a value that specifies whether the window can be minimized."
+  summary: "Возвращает значение, указывающее, можно ли свернуть окно."
   syntax:
     content: public bool Minimizable { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the window can be minimized; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если окно можно свернуть; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Automation.Provider.IWindowProvider.Minimizable*
   exceptions: []
   platform:
@@ -181,18 +181,18 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Changes the visual state of the window. For example, minimizes or maximizes it."
+  summary: "Изменяет визуальное состояние окна. Например сворачивает его или разворачивает."
   syntax:
     content: public void SetVisualState (System.Windows.Automation.WindowVisualState state);
     parameters:
     - id: state
       type: System.Windows.Automation.WindowVisualState
-      description: "The requested visual state of the window."
+      description: "Запрошенное визуальное состояние окна."
   overload: System.Windows.Automation.Provider.IWindowProvider.SetVisualState*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "When the control does not support the requested behavior."
+    description: "Когда элемент управления не поддерживает запрошенное поведение."
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.IWindowProvider.VisualState
@@ -207,12 +207,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets the visual state of the window."
+  summary: "Возвращает визуальное состояние окна."
   syntax:
     content: public System.Windows.Automation.WindowVisualState VisualState { get; }
     return:
       type: System.Windows.Automation.WindowVisualState
-      description: "The visual state of the window."
+      description: "Визуальное состояние окна."
   overload: System.Windows.Automation.Provider.IWindowProvider.VisualState*
   exceptions: []
   platform:
@@ -229,22 +229,22 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Causes the calling code to block for the specified time or until the associated process enters an idle state, whichever completes first."
-  remarks: "This method is typically used in conjunction with the handling of a <xref:System.Windows.Automation.WindowPatternIdentifiers.WindowOpenedEvent>.       The implementation is dependent on the underlying application framework; therefore this method might return some time after the window is ready for user input. The calling code should not rely on this method to ascertain exactly when the window has become idle."
+  summary: "Блокирует вызывающий код в течение указанного времени или пока связанный процесс перейдет в состояние бездействия, что произойдет раньше."
+  remarks: "Этот метод обычно используется в сочетании с обработкой <xref:System.Windows.Automation.WindowPatternIdentifiers.WindowOpenedEvent>.</xref:System.Windows.Automation.WindowPatternIdentifiers.WindowOpenedEvent>       Реализация зависит от архитектуры приложения; Поэтому этот метод может возвращать некоторое время после окно для ввода данных пользователем. Вызывающий код не должен полагаться на этот метод, чтобы выяснить, точно в том случае, когда окно перейдет в состояние бездействия."
   syntax:
     content: public bool WaitForInputIdle (int milliseconds);
     parameters:
     - id: milliseconds
       type: System.Int32
-      description: "The amount of time, in milliseconds, to wait for the associated process to become idle. The maximum is <xref:System.Int32>."
+      description: "Количество времени, в миллисекундах для ожидания перехода связанного процесса в состояние бездействия. Максимальное значение — <xref:System.Int32>.</xref:System.Int32>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the window has entered the idle state; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the timeout occurred."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если окно перешло в состояние бездействия; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> если истекло."
   overload: System.Windows.Automation.Provider.IWindowProvider.WaitForInputIdle*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "When the parameter passed in is not a valid number."
+    description: "Если переданный параметр не является допустимым числом."
   platform:
   - net462
 references:

@@ -13,8 +13,8 @@ items:
   nameWithType: ResourceConsumptionAttribute
   fullName: System.Runtime.Versioning.ResourceConsumptionAttribute
   type: Class
-  summary: "Specifies the resource consumed by the member of a class. This class cannot be inherited."
-  remarks: "If the ResourceConsumptionAttribute attribute is applied to a member, the <xref:System.Runtime.Versioning.ResourceExposureAttribute> attribute must also be applied.       If the resource scope of the consumed resource is different than the resource scope of how it is consumed, the constructor that takes a `consumptionScope` parameter should be used to specify how the resource is consumed. For example, a resource may be exposed as a <xref:System.Runtime.Versioning.ResourceScope> resource, but only used at the <xref:System.Runtime.Versioning.ResourceScope> and <xref:System.Runtime.Versioning.ResourceScope> scope. For this example the `consumptionScope` parameter is set to <xref:System.Runtime.Versioning.ResourceScope> &#124; <xref:System.Runtime.Versioning.ResourceScope>.       The `resourceScope` parameter in the constructor must specify a <xref:System.Runtime.Versioning.ResourceScope> greater than or equal to the resource exposure of all called members.  For example, a method consuming two <xref:System.Runtime.Versioning.ResourceScope> resources and one <xref:System.Runtime.Versioning.ResourceScope> resource would be identified as consuming a <xref:System.Runtime.Versioning.ResourceScope> and a <xref:System.Runtime.Versioning.ResourceScope> resource by setting `resourceScope` to <xref:System.Runtime.Versioning.ResourceScope> &#124; <xref:System.Runtime.Versioning.ResourceScope>.       `Public` members cannot expose <xref:System.Runtime.Versioning.ResourceScope> or <xref:System.Runtime.Versioning.ResourceScope> resources.  <xref:System.Runtime.Versioning.ResourceScope> members cannot expose <xref:System.Runtime.Versioning.ResourceScope> resources.       The graph of methods terminates when a <xref:System.Runtime.Versioning.ResourceExposureAttribute> attribute with a resource scope of <xref:System.Runtime.Versioning.ResourceScope> is applied to a method."
+  summary: "Указывает ресурс, потребляемый членом класса. Этот класс не наследуется."
+  remarks: "Если атрибут ResourceConsumptionAttribute применяется к члену, <xref:System.Runtime.Versioning.ResourceExposureAttribute>также должен быть применен атрибут.</xref:System.Runtime.Versioning.ResourceExposureAttribute>       Если область видимости потребляемого ресурса отличается от области действия потребления ресурсов, конструктор, принимающий `consumptionScope` параметр должен использоваться для указания того, как получение ресурса. Например, ресурс может предоставляться как <xref:System.Runtime.Versioning.ResourceScope>ресурсов, но использовать только в <xref:System.Runtime.Versioning.ResourceScope>и <xref:System.Runtime.Versioning.ResourceScope>области.</xref:System.Runtime.Versioning.ResourceScope> </xref:System.Runtime.Versioning.ResourceScope> </xref:System.Runtime.Versioning.ResourceScope> В этом примере `consumptionScope` параметра равным <xref:System.Runtime.Versioning.ResourceScope>| <xref:System.Runtime.Versioning.ResourceScope>.</xref:System.Runtime.Versioning.ResourceScope></xref:System.Runtime.Versioning.ResourceScope>       `resourceScope` Необходимо указать параметр в конструкторе <xref:System.Runtime.Versioning.ResourceScope>больше или равно доступность ресурса всех членов вызываемой.</xref:System.Runtime.Versioning.ResourceScope>  Например, метод использует два ресурса <xref:System.Runtime.Versioning.ResourceScope>и один ресурс <xref:System.Runtime.Versioning.ResourceScope>бы идентифицируются как использование <xref:System.Runtime.Versioning.ResourceScope>и ресурс <xref:System.Runtime.Versioning.ResourceScope>, задав `resourceScope` для <xref:System.Runtime.Versioning.ResourceScope>| <xref:System.Runtime.Versioning.ResourceScope>.</xref:System.Runtime.Versioning.ResourceScope></xref:System.Runtime.Versioning.ResourceScope></xref:System.Runtime.Versioning.ResourceScope></xref:System.Runtime.Versioning.ResourceScope></xref:System.Runtime.Versioning.ResourceScope></xref:System.Runtime.Versioning.ResourceScope>       `Public`члены не могут предоставлять <xref:System.Runtime.Versioning.ResourceScope>или <xref:System.Runtime.Versioning.ResourceScope>ресурсы.</xref:System.Runtime.Versioning.ResourceScope> </xref:System.Runtime.Versioning.ResourceScope>  <xref:System.Runtime.Versioning.ResourceScope>члены не могут предоставлять <xref:System.Runtime.Versioning.ResourceScope>ресурсы.</xref:System.Runtime.Versioning.ResourceScope></xref:System.Runtime.Versioning.ResourceScope>       График методы завершается, когда <xref:System.Runtime.Versioning.ResourceExposureAttribute>атрибута с областью ресурсов <xref:System.Runtime.Versioning.ResourceScope>применяется к методу.</xref:System.Runtime.Versioning.ResourceScope> </xref:System.Runtime.Versioning.ResourceExposureAttribute>"
   syntax:
     content: >-
       [System.AttributeUsage(System.AttributeTargets.Constructor | System.AttributeTargets.Method | System.AttributeTargets.Property, Inherited=false)]
@@ -40,13 +40,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Versioning
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.Versioning.ResourceConsumptionAttribute&quot;></xref> class specifying the scope of the consumed resource."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Runtime.Versioning.ResourceConsumptionAttribute&quot;> </xref> класса, указывая область потребляемого ресурса."
   syntax:
     content: public ResourceConsumptionAttribute (System.Runtime.Versioning.ResourceScope resourceScope);
     parameters:
     - id: resourceScope
       type: System.Runtime.Versioning.ResourceScope
-      description: "The <xref href=&quot;System.Runtime.Versioning.ResourceScope&quot;></xref> for the consumed resource."
+      description: "<xref href=&quot;System.Runtime.Versioning.ResourceScope&quot;> </xref> Потребляемого ресурса."
   overload: System.Runtime.Versioning.ResourceConsumptionAttribute.#ctor*
   exceptions: []
   platform:
@@ -63,17 +63,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Versioning
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.Versioning.ResourceConsumptionAttribute&quot;></xref> class specifying the scope of the consumed resource and the scope of how it is consumed."
-  remarks: "If the <xref:System.Runtime.Versioning.ResourceExposureAttribute> attribute specifies a scope of <xref:System.Runtime.Versioning.ResourceScope>, then the <xref:System.Runtime.Versioning.ResourceConsumptionAttribute> attribute must specify a resource it consumes and how it consumes it, by specifying a value for the `consumptionScope` parameter.       The scope specified by `consumptionScope` should be less than or equal to the scope specified by `resourceScope`. For example, a <xref:System.Runtime.Versioning.ResourceScope> scope can be consumed as a <xref:System.Runtime.Versioning.ResourceScope> or <xref:System.Runtime.Versioning.ResourceScope> scope, but not as a <xref:System.Runtime.Versioning.ResourceScope> scope."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Runtime.Versioning.ResourceConsumptionAttribute&quot;> </xref> указание области потребленных ресурсов и как используются области класса."
+  remarks: "Если <xref:System.Runtime.Versioning.ResourceExposureAttribute>атрибут задает область <xref:System.Runtime.Versioning.ResourceScope>, то <xref:System.Runtime.Versioning.ResourceConsumptionAttribute>необходимо указать атрибут, и как он использует его, указав значение для ресурса, он использует `consumptionScope` параметр.</xref:System.Runtime.Versioning.ResourceConsumptionAttribute> </xref:System.Runtime.Versioning.ResourceScope> </xref:System.Runtime.Versioning.ResourceExposureAttribute>       Области, указанной параметром `consumptionScope` должно быть меньше или равно области, указанной параметром `resourceScope`. Так <xref:System.Runtime.Versioning.ResourceScope>области могут обрабатываться как <xref:System.Runtime.Versioning.ResourceScope>или <xref:System.Runtime.Versioning.ResourceScope>области, но не в качестве <xref:System.Runtime.Versioning.ResourceScope>области.</xref:System.Runtime.Versioning.ResourceScope> </xref:System.Runtime.Versioning.ResourceScope> </xref:System.Runtime.Versioning.ResourceScope> </xref:System.Runtime.Versioning.ResourceScope>"
   syntax:
     content: public ResourceConsumptionAttribute (System.Runtime.Versioning.ResourceScope resourceScope, System.Runtime.Versioning.ResourceScope consumptionScope);
     parameters:
     - id: resourceScope
       type: System.Runtime.Versioning.ResourceScope
-      description: "The <xref href=&quot;System.Runtime.Versioning.ResourceScope&quot;></xref> for the consumed resource."
+      description: "<xref href=&quot;System.Runtime.Versioning.ResourceScope&quot;> </xref> Потребляемого ресурса."
     - id: consumptionScope
       type: System.Runtime.Versioning.ResourceScope
-      description: "The <xref href=&quot;System.Runtime.Versioning.ResourceScope&quot;></xref> used by this member."
+      description: "<xref href=&quot;System.Runtime.Versioning.ResourceScope&quot;> </xref> Использования участником."
   overload: System.Runtime.Versioning.ResourceConsumptionAttribute.#ctor*
   exceptions: []
   platform:
@@ -90,12 +90,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Versioning
-  summary: "Gets the consumption scope for this member."
+  summary: "Возвращает область потребления для данного члена."
   syntax:
     content: public System.Runtime.Versioning.ResourceScope ConsumptionScope { get; }
     return:
       type: System.Runtime.Versioning.ResourceScope
-      description: "A <xref href=&quot;System.Runtime.Versioning.ResourceScope&quot;></xref> object specifying the resource scope used by this member."
+      description: "Объект <xref href=&quot;System.Runtime.Versioning.ResourceScope&quot;> </xref> объект, указывающий области ресурсов, используемый этим членом."
   overload: System.Runtime.Versioning.ResourceConsumptionAttribute.ConsumptionScope*
   exceptions: []
   platform:
@@ -112,12 +112,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Versioning
-  summary: "Gets the resource scope for the consumed resource."
+  summary: "Возвращает область видимости потребляемого ресурса."
   syntax:
     content: public System.Runtime.Versioning.ResourceScope ResourceScope { get; }
     return:
       type: System.Runtime.Versioning.ResourceScope
-      description: "A <xref href=&quot;System.Runtime.Versioning.ResourceScope&quot;></xref> object specifying the resource scope of the consumed member."
+      description: "Объект <xref href=&quot;System.Runtime.Versioning.ResourceScope&quot;> </xref> объект, указывающий область ресурсов обрабатываемом элемента."
   overload: System.Runtime.Versioning.ResourceConsumptionAttribute.ResourceScope*
   exceptions: []
   platform:

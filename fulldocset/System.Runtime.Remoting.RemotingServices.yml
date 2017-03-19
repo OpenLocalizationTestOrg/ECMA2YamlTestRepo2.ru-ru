@@ -34,8 +34,8 @@ items:
   nameWithType: RemotingServices
   fullName: System.Runtime.Remoting.RemotingServices
   type: Class
-  summary: "Provides several methods for using and publishing remoted objects and proxies. This class cannot be inherited."
-  remarks: "Unless you are a service provider dealing with issues such as activation, lifetime management, or transactions, you do not need to distinguish between proxy references and object references. The remoting infrastructure uses transparent proxies that give the impression that the remote objects reside in the client&quot;s space. Proxies achieve this by forwarding calls made on them to the real objects at remote locations."
+  summary: "Предоставляет несколько методов для использования и публикации удаленных объектов и прокси. Этот класс не наследуется."
+  remarks: "Только поставщика услуг, связанных с проблемами, например активации, управление временем жизни или транзакции, необязательно для различения прокси ссылки и ссылки на объект. Инфраструктура удаленного взаимодействия использует прозрачные прокси, создается впечатление, что удаленные объекты находятся в пространстве клиента. Прокси достигают этого направлением вызовов, сделанных на них реальными объектами в удаленных расположениях."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -59,8 +59,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Creates a proxy for a well-known object, given the <xref:System.Type> and URL."
-  remarks: "The returned proxy object points to an endpoint served by the specified well-known object. No messages are sent over the network until a method is called on the proxy."
+  summary: "Создает прокси для хорошо известного объекта, если заданы <xref:System.Type>и URL-адрес.</xref:System.Type>"
+  remarks: "Возвращаемые прокси-объекты указывают на конечную точку, обслуживаемых указанным хорошо известным объектом. Сообщения не пересылаются по сети, пока не будет вызван на прокси-сервер."
   example:
   - "The following code example demonstrates how to use the Connect method to create a proxy to a well-known object.  \n  \n [!code-cpp[RemotingServices.BasicSample#1](~/add/codesnippet/cpp/m-system.runtime.remotin_104_1.cpp)]\n [!code-cs[RemotingServices.BasicSample#1](~/add/codesnippet/csharp/m-system.runtime.remotin_104_1.cs)]\n [!code-vb[RemotingServices.BasicSample#1](~/add/codesnippet/visualbasic/m-system.runtime.remotin_104_1.vb)]"
   syntax:
@@ -68,18 +68,18 @@ items:
     parameters:
     - id: classToProxy
       type: System.Type
-      description: "The <xref:System.Type> of a well-known object on the server end to which you want to connect."
+      description: "<xref:System.Type>Известного объекта на стороне сервера, к которому необходимо подключиться.</xref:System.Type>"
     - id: url
       type: System.String
-      description: "The URL of the server class."
+      description: "URL-адрес серверного класса."
     return:
       type: System.Object
-      description: "A proxy to the remote object that points to an endpoint served by the specified well-known object."
+      description: "Прокси-сервер для удаленного объекта, который указывает на конечную точку, обслуживаемых указанным хорошо известным объектом."
   overload: System.Runtime.Remoting.RemotingServices.Connect*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have permission to configure remoting types and channels."
+    description: "Непосредственный вызывающий объект не имеет разрешения на настраивать каналы и типы удаленного взаимодействия."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.Connect(System.Type,System.String,System.Object)
@@ -94,28 +94,28 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Creates a proxy for a well-known object, given the <xref:System.Type>, URL, and channel-specific data."
-  remarks: "The returned proxy object points to an endpoint served by the specified well-known object. No messages are sent over the network until a method is called on the proxy.       The `data` object is used to communicate information to the channel, and is passed to the <xref:System.Runtime.Remoting.Channels.IChannelSender.CreateMessageSink%2A?displayProperty=fullName> method."
+  summary: "Создает прокси для хорошо известного объекта, если заданы <xref:System.Type>, URL-адрес и данные для указанного канала.</xref:System.Type>"
+  remarks: "Возвращаемые прокси-объекты указывают на конечную точку, обслуживаемых указанным хорошо известным объектом. Сообщения не пересылаются по сети, пока не будет вызван на прокси-сервер.       `data` Объект используется для передачи сведений в канал и передается <xref:System.Runtime.Remoting.Channels.IChannelSender.CreateMessageSink%2A?displayProperty=fullName>метод.</xref:System.Runtime.Remoting.Channels.IChannelSender.CreateMessageSink%2A?displayProperty=fullName>"
   syntax:
     content: public static object Connect (Type classToProxy, string url, object data);
     parameters:
     - id: classToProxy
       type: System.Type
-      description: "The <xref:System.Type> of the well-known object to which you want to connect."
+      description: "<xref:System.Type>Известного объекта, к которому необходимо подключиться.</xref:System.Type>"
     - id: url
       type: System.String
-      description: "The URL of the well-known object."
+      description: "URL-адрес хорошо известного объекта."
     - id: data
       type: System.Object
-      description: "Channel specific data. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Данные для указанного канала. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
     return:
       type: System.Object
-      description: "A proxy that points to an endpoint that is served by the requested well-known object."
+      description: "Прокси, который указывает на конечную точку, обслуживаемую указанным хорошо известным объектом."
   overload: System.Runtime.Remoting.RemotingServices.Connect*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have permission to configure remoting types and channels."
+    description: "Непосредственный вызывающий объект не имеет разрешения на настраивать каналы и типы удаленного взаимодействия."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.Disconnect(System.MarshalByRefObject)
@@ -130,7 +130,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Stops an object from receiving any further messages through the registered remoting channels."
+  summary: "Прекращает получение дальнейших сообщений по зарегистрированным каналам удаленного доступа."
   remarks: ''
   example:
   - "The following code example demonstrates how to use the Disconnect method to disconnect an object from the remoting channels.  \n  \n [!code-cpp[RemotingServices.BasicSample#2](~/add/codesnippet/cpp/m-system.runtime.remotin_81_1.cpp)]\n [!code-cs[RemotingServices.BasicSample#2](~/add/codesnippet/csharp/m-system.runtime.remotin_81_1.cs)]\n [!code-vb[RemotingServices.BasicSample#2](~/add/codesnippet/visualbasic/m-system.runtime.remotin_81_1.vb)]"
@@ -139,10 +139,10 @@ items:
     parameters:
     - id: obj
       type: System.MarshalByRefObject
-      description: "Object to disconnect from its channel."
+      description: "Объект для отключения от его канала."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the object was disconnected from the registered remoting channels successfully; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если объект был отключен от зарегистрированного канала удаленного доступа успешно; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Remoting.RemotingServices.Disconnect*
   exceptions:
   - type: System.ArgumentNullException
@@ -150,10 +150,10 @@ items:
     description: "The <code>obj</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>obj</code> parameter is a proxy."
+    description: "<code> obj </code> Параметр является прокси."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have permission to configure remoting types and channels."
+    description: "Непосредственный вызывающий объект не имеет разрешения на настраивать каналы и типы удаленного взаимодействия."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.ExecuteMessage(System.MarshalByRefObject,System.Runtime.Remoting.Messaging.IMethodCallMessage)
@@ -168,8 +168,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Connects to the specified remote object, and executes the provided <xref href=&quot;System.Runtime.Remoting.Messaging.IMethodCallMessage&quot;></xref> on it."
-  remarks: "The current method is used in special cases by the server to forward the specified method call to another, possibly remote, object. This method can be called only when the caller is in the appropriate context."
+  summary: "Подключается к указанному удаленному объекту и выполняет предоставленный <xref href=&quot;System.Runtime.Remoting.Messaging.IMethodCallMessage&quot;> </xref> на нем."
+  remarks: "Текущий метод используется в особых случаях сервером для перенаправления вызова указанного метода другой, возможно удаленный объект. Этот метод может вызываться только в том случае, если вызывающий объект находится в соответствующем контексте."
   example:
   - "The following code example demonstrates how to use the ExecuteMessage method to forward method calls to remote objects.  \n  \n [!code-cs[RemotingServices.ExecuteMessage#1](~/add/codesnippet/csharp/491f5c62-582d-42d8-b526-_1.cs)]\n [!code-cpp[RemotingServices.ExecuteMessage#1](~/add/codesnippet/cpp/491f5c62-582d-42d8-b526-_1.cpp)]\n [!code-vb[RemotingServices.ExecuteMessage#1](~/add/codesnippet/visualbasic/491f5c62-582d-42d8-b526-_1.vb)]"
   syntax:
@@ -177,21 +177,21 @@ items:
     parameters:
     - id: target
       type: System.MarshalByRefObject
-      description: "The remote object whose method you want to call."
+      description: "Удаленный объект, метод которого необходимо вызвать."
     - id: reqMsg
       type: System.Runtime.Remoting.Messaging.IMethodCallMessage
-      description: "A method call message to the specified remote object&quot;s method."
+      description: "Метод сообщения вызова метода указанного удаленного объекта."
     return:
       type: System.Runtime.Remoting.Messaging.IMethodReturnMessage
-      description: "The response of the remote method."
+      description: "Ответ удаленного метода."
   overload: System.Runtime.Remoting.RemotingServices.ExecuteMessage*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры."
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "The method was called from a context other than the native context of the object."
+    description: "Метод был вызван из контекста, отличного от собственного контекста объекта."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.GetEnvoyChainForProxy(System.MarshalByRefObject)
@@ -206,22 +206,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Returns a chain of envoy sinks that should be used when sending messages to the remote object represented by the specified proxy."
-  remarks: "Envoy sinks are sinks sent along with the <xref:System.Runtime.Remoting.ObjRef> of an object that is used when returning messages to that object. The current method returns the envoy sinks that are used during communication between the proxy of the object and the object itself."
+  summary: "Возвращает цепочку приемников делегата, которые должны использоваться при отправке сообщений на удаленный объект, представленный указанным прокси."
+  remarks: "Приемников делегата, передаются по <xref:System.Runtime.Remoting.ObjRef>объекта, который используется при возвращении сообщений на этот объект.</xref:System.Runtime.Remoting.ObjRef> Текущий метод возвращает приемники делегатов, которые используются при обмене сообщениями между прокси-объекта и сам объект."
   syntax:
     content: public static System.Runtime.Remoting.Messaging.IMessageSink GetEnvoyChainForProxy (MarshalByRefObject obj);
     parameters:
     - id: obj
       type: System.MarshalByRefObject
-      description: "The proxy of the remote object that requested envoy sinks are associated with."
+      description: "Прокси-сервер удаленного объекта, который запросил приемников делегата, связанный с."
     return:
       type: System.Runtime.Remoting.Messaging.IMessageSink
-      description: "A chain of envoy sinks associated with the specified proxy."
+      description: "Цепочка приемников делегата, связанных с указанным прокси."
   overload: System.Runtime.Remoting.RemotingServices.GetEnvoyChainForProxy*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.GetLifetimeService(System.MarshalByRefObject)
@@ -236,8 +236,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Returns a lifetime service object that controls the lifetime policy of the specified object."
-  remarks: "For the default lifetime service the returned object will be an object of type <xref:System.Runtime.Remoting.Lifetime.ILease>. If the `obj` parameter is `null`, the method returns `null`."
+  summary: "Возвращает объект службы времени существования, который управляет политикой времени существования указанного объекта."
+  remarks: "Значение по умолчанию служба времени жизни возвращаемый объект будет объект типа <xref:System.Runtime.Remoting.Lifetime.ILease>.</xref:System.Runtime.Remoting.Lifetime.ILease> Если `obj` параметр `null`, метод возвращает `null`."
   example:
   - "The following code example demonstrates how to use the GetLifetimeService method to get a lifetime lease for the specified object.  \n  \n [!code-cpp[RemotingServices.TimerSample#1](~/add/codesnippet/cpp/a7d2891c-3dad-448c-949c-_1.cpp)]\n [!code-cs[RemotingServices.TimerSample#1](~/add/codesnippet/csharp/a7d2891c-3dad-448c-949c-_1.cs)]\n [!code-vb[RemotingServices.TimerSample#1](~/add/codesnippet/visualbasic/a7d2891c-3dad-448c-949c-_1.vb)]  \n  \n To compile and run this example, you will need to compile and run a server, timerserver.exe, and compile a shared library, timerservice.dll.  \n  \n The source for timerserver.exe follows:  \n  \n [!code-vb[RemotingServices.TimerSample#2](~/add/codesnippet/visualbasic/a7d2891c-3dad-448c-949c-_2.vb)]\n [!code-cs[RemotingServices.TimerSample#2](~/add/codesnippet/csharp/a7d2891c-3dad-448c-949c-_2.cs)]  \n  \n The source for timerservice.dll follows:  \n  \n [!code-vb[RemotingServices.TimerSample#3](~/add/codesnippet/visualbasic/a7d2891c-3dad-448c-949c-_3.vb)]\n [!code-cs[RemotingServices.TimerSample#3](~/add/codesnippet/csharp/a7d2891c-3dad-448c-949c-_3.cs)]"
   syntax:
@@ -245,15 +245,15 @@ items:
     parameters:
     - id: obj
       type: System.MarshalByRefObject
-      description: "The object to obtain lifetime service for."
+      description: "Объекта, чтобы получить время жизни службы."
     return:
       type: System.Object
-      description: "The object that controls the lifetime of <code>obj</code>."
+      description: "Объект, который управляет временем существования <code> obj </code>."
   overload: System.Runtime.Remoting.RemotingServices.GetLifetimeService*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.GetMethodBaseFromMethodMessage(System.Runtime.Remoting.Messaging.IMethodMessage)
@@ -268,22 +268,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Returns the method base from the given <xref href=&quot;System.Runtime.Remoting.Messaging.IMethodMessage&quot;></xref>."
-  remarks: "This determines the method base from the <xref:System.Runtime.Remoting.Messaging.IMethodMessage.TypeName%2A>, <xref:System.Runtime.Remoting.Messaging.IMethodMessage.MethodName%2A>, and <xref:System.Runtime.Remoting.Messaging.IMethodMessage.MethodSignature%2A> properties of <xref:System.Runtime.Remoting.Messaging.IMethodMessage> and is used by classes implementing the <xref:System.Runtime.Remoting.Messaging.IMethodMessage> interface. Consumers of <xref:System.Runtime.Remoting.Messaging.IMethodMessage> classes should reference the <xref:System.Runtime.Remoting.Messaging.IMethodMessage.MethodBase%2A?displayProperty=fullName> property."
+  summary: "Возвращает метод базового из заданного <xref href=&quot;System.Runtime.Remoting.Messaging.IMethodMessage&quot;> </xref>."
+  remarks: "Определяет метод из базового <xref:System.Runtime.Remoting.Messaging.IMethodMessage.TypeName%2A>, <xref:System.Runtime.Remoting.Messaging.IMethodMessage.MethodName%2A>, и <xref:System.Runtime.Remoting.Messaging.IMethodMessage.MethodSignature%2A>Свойства <xref:System.Runtime.Remoting.Messaging.IMethodMessage>и используемые классы, реализующие <xref:System.Runtime.Remoting.Messaging.IMethodMessage>интерфейса.</xref:System.Runtime.Remoting.Messaging.IMethodMessage> </xref:System.Runtime.Remoting.Messaging.IMethodMessage> </xref:System.Runtime.Remoting.Messaging.IMethodMessage.MethodSignature%2A> </xref:System.Runtime.Remoting.Messaging.IMethodMessage.MethodName%2A> </xref:System.Runtime.Remoting.Messaging.IMethodMessage.TypeName%2A> Потребители <xref:System.Runtime.Remoting.Messaging.IMethodMessage>классы должны ссылаться <xref:System.Runtime.Remoting.Messaging.IMethodMessage.MethodBase%2A?displayProperty=fullName>свойство.</xref:System.Runtime.Remoting.Messaging.IMethodMessage.MethodBase%2A?displayProperty=fullName> </xref:System.Runtime.Remoting.Messaging.IMethodMessage>"
   syntax:
     content: public static System.Reflection.MethodBase GetMethodBaseFromMethodMessage (System.Runtime.Remoting.Messaging.IMethodMessage msg);
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMethodMessage
-      description: "The method message to extract the method base from."
+      description: "Сообщение, метод для извлечения из базового метода."
     return:
       type: System.Reflection.MethodBase
-      description: "The method base extracted from the <code>msg</code> parameter."
+      description: "Базовый метод извлеченных из <code> msg </code> параметра."
   overload: System.Runtime.Remoting.RemotingServices.GetMethodBaseFromMethodMessage*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "Either the immediate caller does not have infrastructure permission, or at least one of the callers higher in the callstack does not have permission to retrieve the type information of non-public members."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры, или по крайней мере один из вызывающим объектам выше в стеке вызовов не имеет разрешения на получение информации о закрытых членов типе."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.GetObjectData(System.Object,System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
@@ -298,19 +298,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Serializes the specified marshal by reference object into the provided <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref>."
+  summary: "Сериализует указанный маршалинг по ссылке в указанных <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;> </xref>."
   syntax:
     content: public static void GetObjectData (object obj, System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: obj
       type: System.Object
-      description: "The object to serialize."
+      description: "Объект для сериализации."
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> into which the object is serialized."
+      description: "<xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;> </xref> , В который сериализуется объект."
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The source and destination of the serialization."
+      description: "Источник и назначение сериализации."
   overload: System.Runtime.Remoting.RemotingServices.GetObjectData*
   exceptions:
   - type: System.ArgumentNullException
@@ -318,7 +318,7 @@ items:
     description: "The <code>obj</code> or <code>info</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.GetObjectUri(System.MarshalByRefObject)
@@ -333,7 +333,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Retrieves the URI for the specified object."
+  summary: "Возвращает URI для указанного объекта."
   remarks: ''
   example:
   - >-
@@ -345,15 +345,15 @@ items:
     parameters:
     - id: obj
       type: System.MarshalByRefObject
-      description: "The <xref href=&quot;System.MarshalByRefObject&quot;></xref> for which a URI is requested."
+      description: "<xref href=&quot;System.MarshalByRefObject&quot;> </xref> Для которого запрашивается URI."
     return:
       type: System.String
-      description: "The URI of the specified object if it has one, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the object has not yet been marshaled."
+      description: "URI указанного объекта, если оно имеется, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> , если объект не был упакован."
   overload: System.Runtime.Remoting.RemotingServices.GetObjectUri*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.GetObjRefForProxy(System.MarshalByRefObject)
@@ -368,8 +368,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Returns the <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> that represents the remote object from the specified proxy."
-  remarks: "A <xref:System.Runtime.Remoting.ObjRef> is a serializable representation of an object used to transfer an object reference across an application domain boundary. Creating a <xref:System.Runtime.Remoting.ObjRef> for an object is known as marshaling. The <xref:System.Runtime.Remoting.ObjRef> can be transferred through a channel into another application domain (possibly on another process or computer). Once in the other application domain, the <xref:System.Runtime.Remoting.ObjRef> must be parsed to create a proxy for the object, generally connected to the real object. This operation is known as unmarshaling. During unmarshaling, the <xref:System.Runtime.Remoting.ObjRef> is parsed to extract the method information of the remote object and both the transparent proxy and <xref:System.Runtime.Remoting.Proxies.RealProxy> objects are created.       A <xref:System.Runtime.Remoting.ObjRef> contains information that describes the <xref:System.Type> and class of the object being marshaled, a URI that uniquely identifies the specific object instance, and communication related information about how to reach the remote application where the object is located."
+  summary: "Возвращает <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> , представляющий удаленный объект из указанного прокси-сервера."
+  remarks: "Объект <xref:System.Runtime.Remoting.ObjRef>является упорядоченным представлением объекта, используемого для передачи ссылки на объект через границы домена приложения.</xref:System.Runtime.Remoting.ObjRef> Создание <xref:System.Runtime.Remoting.ObjRef>для объекта известно как маршалирование.</xref:System.Runtime.Remoting.ObjRef> <xref:System.Runtime.Remoting.ObjRef>Могут передаваться по каналу в другой домен приложения (возможно в другой процесс или компьютер).</xref:System.Runtime.Remoting.ObjRef> Один раз в другом домене приложения <xref:System.Runtime.Remoting.ObjRef>необходимо проанализировать для создания прокси для объекта, обычно подключенного к реальному объекту.</xref:System.Runtime.Remoting.ObjRef> Эта операция известна как распаковка. Во время Распаковка, <xref:System.Runtime.Remoting.ObjRef>анализируется для получения сведений о методе удаленного объекта и прозрачного прокси и <xref:System.Runtime.Remoting.Proxies.RealProxy>создаются объекты.</xref:System.Runtime.Remoting.Proxies.RealProxy> </xref:System.Runtime.Remoting.ObjRef>       Объект <xref:System.Runtime.Remoting.ObjRef>содержит сведения, описывающие <xref:System.Type>и класс объекта, URI, однозначно определяющий экземпляр указанного объекта и обмен данными сведения о том, как к удаленного приложения, где находится объект.</xref:System.Type> </xref:System.Runtime.Remoting.ObjRef>"
   example:
   - "The following code example demonstrates how to get a <xref:System.Runtime.Remoting.ObjRef> instance for the specified object.  \n  \n [!code-cpp[RemotingServices.GetObjRefForProxy#1](~/add/codesnippet/cpp/d6ce9a9a-8ec9-4559-9b2d-_1.cpp)]\n [!code-vb[RemotingServices.GetObjRefForProxy#1](~/add/codesnippet/visualbasic/d6ce9a9a-8ec9-4559-9b2d-_1.vb)]\n [!code-cs[RemotingServices.GetObjRefForProxy#1](~/add/codesnippet/csharp/d6ce9a9a-8ec9-4559-9b2d-_1.cs)]"
   syntax:
@@ -377,15 +377,15 @@ items:
     parameters:
     - id: obj
       type: System.MarshalByRefObject
-      description: "A proxy connected to the object you want to create a <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> for."
+      description: "Прокси, подключенный к объекту, который вы хотите создать <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> для."
     return:
       type: System.Runtime.Remoting.ObjRef
-      description: "A <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> that represents the remote object the specified proxy is connected to, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the object or proxy have not been marshaled."
+      description: "Объект <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> , представляющий удаленный объект, указанный прокси-сервер подключен, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если объект или прокси-сервера не был передан."
   overload: System.Runtime.Remoting.RemotingServices.GetObjRefForProxy*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.GetRealProxy(System.Object)
@@ -400,22 +400,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Returns the real proxy backing the specified transparent proxy."
-  remarks: "A client that uses an object across any kind of remoting boundary is actually using a transparent proxy for the object. The transparent proxy gives the impression that the actual object resides in the client&quot;s space. It achieves this by forwarding calls made on it to the real object using the remoting infrastructure.       The transparent proxy is backed by an instance of a managed runtime class of type <xref:System.Runtime.Remoting.Proxies.RealProxy>. The <xref:System.Runtime.Remoting.Proxies.RealProxy> implements a part of the functionality needed to forward the operations from the transparent proxy.       A proxy object inherits the associated semantics of managed objects such as garbage collection, support for members and methods, and can be extended to form new classes. The proxy acts as an object of the same class as the remote object (transparent proxy), and is also a managed object."
+  summary: "Возвращает настоящий прокси, поддерживающий указанный прозрачный прокси."
+  remarks: "Клиент, использующий объект через любые границы удаленного взаимодействия использует прозрачный прокси для объекта. Прозрачный прокси создает впечатление, что фактический объект находится в пространстве клиента. Это достигается с помощью пересылки вызовов реальному объекту, используя инфраструктуру удаленного взаимодействия.       Прозрачный прокси поддерживаемый экземпляр управляемого класса среды выполнения типа <xref:System.Runtime.Remoting.Proxies.RealProxy>.</xref:System.Runtime.Remoting.Proxies.RealProxy> <xref:System.Runtime.Remoting.Proxies.RealProxy>Реализует часть функциональных возможностей, необходимых для направления операций из прозрачного прокси.</xref:System.Runtime.Remoting.Proxies.RealProxy>       Прокси-объект наследует связанную семантику управляемых объектов, такие как сборка мусора, поддержка члены и методы и может быть расширен для создания новых классов. Прокси-сервер выступает в качестве объекта того же класса, что и удаленный объект (прозрачный прокси), а также является управляемым объектом."
   syntax:
     content: public static System.Runtime.Remoting.Proxies.RealProxy GetRealProxy (object proxy);
     parameters:
     - id: proxy
       type: System.Object
-      description: "A transparent proxy."
+      description: "Прозрачный прокси."
     return:
       type: System.Runtime.Remoting.Proxies.RealProxy
-      description: "The real proxy instance backing the transparent proxy."
+      description: "Экземпляр реального посредника резервирования прозрачного прокси."
   overload: System.Runtime.Remoting.RemotingServices.GetRealProxy*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.GetServerTypeForUri(System.String)
@@ -430,8 +430,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Returns the <xref:System.Type> of the object with the specified URI."
-  remarks: "Because remoting identifies endpoints using URIs, the GetServerTypeForUri method is very useful in the pluggable parts of the remoting infrastructure (for example, channel sinks, dynamic sinks, and context sinks) that use <xref:System.Runtime.Remoting.Messaging.IMessage> objects, because the current method will return the associated type object from the URI."
+  summary: "Возвращает <xref:System.Type>объекта с указанным URI.</xref:System.Type>"
+  remarks: "Поскольку удаленное взаимодействие определяет идентификаторы URI конечных точек, метод GetServerTypeForUri очень полезно в подключаемых элементах инфраструктуры удаленного взаимодействия (например, приемники, динамических и контекстных приемниках), использующих <xref:System.Runtime.Remoting.Messaging.IMessage>объектов, так как текущий метод вернет объект связанный тип из URI.</xref:System.Runtime.Remoting.Messaging.IMessage>"
   example:
   - >-
     [!code-vb[System.Runtime.Remoting.RemotingServices#7](~/add/codesnippet/visualbasic/m-system.runtime.remotin_84_1.vb)]
@@ -442,15 +442,15 @@ items:
     parameters:
     - id: URI
       type: System.String
-      description: "The URI of the object whose <xref:System.Type> is requested."
+      description: "URI объекта которого <xref:System.Type>запрашивается.</xref:System.Type>"
     return:
       type: System.Type
-      description: "The <xref:System.Type> of the object with the specified URI."
+      description: "<xref:System.Type>Объекта с указанным URI.</xref:System.Type>"
   overload: System.Runtime.Remoting.RemotingServices.GetServerTypeForUri*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "Either the immediate caller does not have infrastructure permission, or at least one of the callers higher in the callstack does not have permission to retrieve the type information of non-public members."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры, или по крайней мере один из вызывающим объектам выше в стеке вызовов не имеет разрешения на получение информации о закрытых членов типе."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.GetSessionIdForMethodMessage(System.Runtime.Remoting.Messaging.IMethodMessage)
@@ -465,8 +465,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Retrieves a session ID for a message."
-  remarks: "The same session ID might be returned for objects in the same application, but this method will never return the same session ID for two objects in different remote applications.       For more information about identifying sessions and session IDs, see ASP.Net [ASP.NET Session State Overview](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Получает идентификатор сеанса сообщения."
+  remarks: "Для объектов в одном приложении может возвращаться один и тот же идентификатор сеанса, но этот метод никогда не будут возвращать один и тот же идентификатор сеанса для двух объектов из разных удаленных приложений.       Дополнительные сведения об определении сеансов и их идентификаторов см. в разделе ASP.Net [Общие сведения о состоянии сеанса ASP.NET](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example demonstrates how to get the session ID string for the current session.  \n  \n [!code-cs[RemotingServices.ExecuteMessage#1](~/add/codesnippet/csharp/b83444fc-48c3-47e9-b264-_1.cs)]\n [!code-cpp[RemotingServices.ExecuteMessage#1](~/add/codesnippet/cpp/b83444fc-48c3-47e9-b264-_1.cpp)]\n [!code-vb[RemotingServices.ExecuteMessage#1](~/add/codesnippet/visualbasic/b83444fc-48c3-47e9-b264-_1.vb)]"
   syntax:
@@ -474,15 +474,15 @@ items:
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMethodMessage
-      description: "The <xref href=&quot;System.Runtime.Remoting.Messaging.IMethodMessage&quot;></xref> for which a session ID is requested."
+      description: "<xref href=&quot;System.Runtime.Remoting.Messaging.IMethodMessage&quot;> </xref> Для которого запрашивается идентификатор сеанса."
     return:
       type: System.String
-      description: "A session ID string that uniquely identifies the current session."
+      description: "Строка идентификатора сеанса, однозначно определяющее в текущем сеансе."
   overload: System.Runtime.Remoting.RemotingServices.GetSessionIdForMethodMessage*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.IsMethodOverloaded(System.Runtime.Remoting.Messaging.IMethodMessage)
@@ -497,21 +497,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Returns a Boolean value that indicates whether the method in the given message is overloaded."
+  summary: "Возвращает логическое значение, указывающее, перегружен ли метод в данном сообщении."
   syntax:
     content: public static bool IsMethodOverloaded (System.Runtime.Remoting.Messaging.IMethodMessage msg);
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMethodMessage
-      description: "The message that contains a call to the method in question."
+      description: "Сообщение, которое содержит вызов метода в вопросе."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the method called in <code>msg</code> is overloaded; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если метод, вызываемый в <code> msg </code> перегруженных; в противном случае — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Remoting.RemotingServices.IsMethodOverloaded*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.IsObjectOutOfAppDomain(System.Object)
@@ -526,8 +526,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Returns a Boolean value that indicates whether the object specified by the given transparent proxy is contained in a different application domain than the object that called the current method."
-  remarks: "For information about application domains, see [Application Domains](http://msdn.microsoft.com/en-us/39e57d07-a740-4cd4-ae82-e119ea3856c1)."
+  summary: "Возвращает логическое значение, указывающее, содержится ли указанный объект данным прозрачного прокси в другом домене приложения от объекта, который вызвал текущий метод."
+  remarks: "Сведения о доменах приложений см. в разделе [домены приложений](http://msdn.microsoft.com/en-us/39e57d07-a740-4cd4-ae82-e119ea3856c1)."
   example:
   - >-
     [!code-cpp[RemotingServices IsObject Snippets#1](~/add/codesnippet/cpp/m-system.runtime.remotin_103_1.cpp)]
@@ -538,10 +538,10 @@ items:
     parameters:
     - id: tp
       type: System.Object
-      description: "The object to check."
+      description: "Проверяемый объект."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the object is out of the current application domain; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если объект не находится в текущем домене приложения; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Remoting.RemotingServices.IsObjectOutOfAppDomain*
   exceptions: []
   platform:
@@ -558,8 +558,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Returns a Boolean value that indicates whether the object represented by the given proxy is contained in a different context than the object that called the current method."
-  remarks: "A context is an ordered sequence of properties that define an environment for the objects that reside inside it. Contexts are created during the activation process for objects that are configured to require certain automatic services such synchronization, transactions, just-in-time activation, security, and so on. Multiple objects can live inside a context."
+  summary: "Возвращает логическое значение, указывающее, содержится ли объект, представленный данным прокси в контексте, отличном от объекта, который вызвал текущий метод."
+  remarks: "Контекст — это упорядоченный набор свойств, которые определяют среду для объектов, находящихся внутри него. Контексты создаются во время процесса активации для объектов, которым требуются определенные автоматические службы такой синхронизации, транзакции, в момент активации, безопасности и т. д. Внутри контекста возможно существование нескольких объектов."
   example:
   - >-
     [!code-cpp[RemotingServices IsObject Snippets#1](~/add/codesnippet/cpp/m-system.runtime.remotin_37_1.cpp)]
@@ -570,10 +570,10 @@ items:
     parameters:
     - id: tp
       type: System.Object
-      description: "The object to check."
+      description: "Проверяемый объект."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the object is out of the current context; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если объект не находится в текущем контексте; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Remoting.RemotingServices.IsObjectOutOfContext*
   exceptions: []
   platform:
@@ -590,8 +590,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Returns a Boolean value that indicates whether the client that called the method specified in the given message is waiting for the server to finish processing the method before continuing execution."
-  remarks: "When a one-way method is called, the client does not wait for the server to finish processing the message. The client method returns to the application with no knowledge of whether or not the server will successfully process the message. Methods are marked as one way using the <xref:System.Runtime.Remoting.Messaging.OneWayAttribute>.       One-way methods cannot have a return value or any out parameters."
+  summary: "Возвращает логическое значение, указывающее, ожидает ли клиент, вызывающий метод указан в данного сообщения сервер, чтобы завершить обработку до продолжения выполнения метода."
+  remarks: "При вызове одностороннего метода, клиент не ожидает окончания обработки сообщения. Метод клиент возвращает в приложение, не имея сведений из того, является ли сервер успешно обработать сообщение. Методы отмечаются как один из способов с помощью <xref:System.Runtime.Remoting.Messaging.OneWayAttribute>.</xref:System.Runtime.Remoting.Messaging.OneWayAttribute>       Односторонние методы не могут иметь возвращаемое значение или выходные параметры."
   example:
   - >-
     [!code-vb[System.Runtime.Remoting.RemotingServices#2](~/add/codesnippet/visualbasic/e9c4a9fc-d92a-4e43-97a5-_1.vb)]
@@ -602,15 +602,15 @@ items:
     parameters:
     - id: method
       type: System.Reflection.MethodBase
-      description: "The method in question."
+      description: "Метод в вопросе."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the method is one way; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если метод является одним из способов; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Remoting.RemotingServices.IsOneWay*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.IsTransparentProxy(System.Object)
@@ -625,8 +625,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Returns a Boolean value that indicates whether the given object is a transparent proxy or a real object."
-  remarks: "A client that uses an object across any kind of a remoting boundary is actually using a transparent proxy for the object. The transparent proxy gives the impression that the actual object resides in the client&quot;s space. It achieves this by forwarding calls made on it to the real object using the remoting infrastructure.       The transparent proxy is itself housed by an instance of a managed runtime class of type <xref:System.Runtime.Remoting.Proxies.RealProxy>. The <xref:System.Runtime.Remoting.Proxies.RealProxy> implements a part of the functionality needed to forward the operations from the transparent proxy. A proxy object inherits the associated semantics of managed objects such as garbage collection, support for members and methods, and can be extended to form new classes. Thus the proxy has a dual nature; on the one hand it needs to act as an object of the same class as the remote object (transparent proxy), and on the other it is a managed object itself.       A proxy object can be used without regard to any remoting subdivisions within a <xref:System.AppDomain>. Applications need not distinguish between proxy references and object references. However, service providers dealing with issues such as activation, lifetime management, and transactions need to make such distinctions."
+  summary: "Возвращает логическое значение, указывающее, является ли данный объект прозрачным прокси или настоящим объектом."
+  remarks: "Клиент, использующий объект через любые границы удаленного взаимодействия использует прозрачный прокси для объекта. Прозрачный прокси создает впечатление, что фактический объект находится в пространстве клиента. Это достигается с помощью пересылки вызовов реальному объекту, используя инфраструктуру удаленного взаимодействия.       Сам по себе размещается экземпляром управляемого класса среды выполнения типа <xref:System.Runtime.Remoting.Proxies.RealProxy>.</xref:System.Runtime.Remoting.Proxies.RealProxy> является прозрачным прокси-сервера <xref:System.Runtime.Remoting.Proxies.RealProxy>Реализует часть функциональных возможностей, необходимых для направления операций из прозрачного прокси.</xref:System.Runtime.Remoting.Proxies.RealProxy> Прокси-объект наследует связанную семантику управляемых объектов, такие как сборка мусора, поддержка члены и методы и может быть расширен для создания новых классов. Таким образом, прокси-сервер имеет два представления; с одной стороны, он должен работать в качестве объекта того же класса, что и удаленный объект (прозрачный прокси), а на другом является управляемым объектом.       Можно использовать прокси-объекта без учета любым удаленным подразделениям в <xref:System.AppDomain>.</xref:System.AppDomain> Приложения не должны отличать между прокси-сервера ссылки и ссылки на объект. Тем не менее, поставщики служб, работающие с проблемами, например активации, управление временем жизни и транзакции, должны различать таких их."
   example:
   - "The following code example demonstrates the use of the IsTransparentProxy method to determine whether an object is a proxy or a real object. For the complete example code, see the example for the <xref:System.Runtime.Remoting.Messaging.AsyncResult> class.  \n  \n [!code-cpp[AsyncResult.NewExamples#6](~/add/codesnippet/cpp/m-system.runtime.remotin_47_1.cpp)]\n [!code-vb[AsyncResult.NewExamples#6](~/add/codesnippet/visualbasic/m-system.runtime.remotin_47_1.vb)]\n [!code-cs[AsyncResult.NewExamples#6](~/add/codesnippet/csharp/m-system.runtime.remotin_47_1.cs)]"
   syntax:
@@ -634,10 +634,10 @@ items:
     parameters:
     - id: proxy
       type: System.Object
-      description: "The reference to the object to check."
+      description: "Ссылка на объект для проверки."
     return:
       type: System.Boolean
-      description: "A Boolean value that indicates whether the object specified in the <code>proxy</code> parameter is a transparent proxy or a real object."
+      description: "Логическое значение, указывающее, является ли объект, указанный в <code> proxy </code> параметр является прозрачным прокси или реальному объекту."
   overload: System.Runtime.Remoting.RemotingServices.IsTransparentProxy*
   exceptions: []
   platform:
@@ -654,14 +654,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Logs the stage in a remoting exchange to an external debugger."
-  remarks: "A `&quot;REMOTING_PERF&quot;` preprocessing symbol is applied to the method by using the <xref:System.Diagnostics.ConditionalAttribute> attribute."
+  summary: "Регистрирует этап удаленного обмена во внешнем отладчике."
+  remarks: "Объект `&quot;REMOTING_PERF&quot;` символа предварительной обработки применяется к методу с помощью <xref:System.Diagnostics.ConditionalAttribute>атрибут.</xref:System.Diagnostics.ConditionalAttribute>"
   syntax:
     content: public static void LogRemotingStage (int stage);
     parameters:
     - id: stage
       type: System.Int32
-      description: "An internally defined constant that identifies the stage in a remoting exchange."
+      description: "Определенная внутри константа, определяющая этап удаленного обмена."
   overload: System.Runtime.Remoting.RemotingServices.LogRemotingStage*
   exceptions: []
   platform:
@@ -678,25 +678,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Takes a <xref href=&quot;System.MarshalByRefObject&quot;></xref>, registers it with the remoting infrastructure, and converts it into an instance of the <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> class."
-  remarks: "A <xref:System.Runtime.Remoting.ObjRef> is a serializable representation of an object used to transfer an object reference across an application domain boundary. Creating a <xref:System.Runtime.Remoting.ObjRef> for an object is known as marshaling. The <xref:System.Runtime.Remoting.ObjRef> can be transferred through a channel into another application domain (possibly on another process or computer). Once in the other application domain, the <xref:System.Runtime.Remoting.ObjRef> must be parsed to create a proxy for the object, generally connected to the real object. This operation is known as unmarshaling.       A <xref:System.Runtime.Remoting.ObjRef> contains information that describes the <xref:System.Type> and class of the object being marshaled, a URI that uniquely identifies the specific object instance, and communication related information about how to reach the remoting subdivision where the object is located.       During marshaling, the context from the current thread is used, not the context that was active when the object was created. If a URI was not explicitly set by the <xref:System.Runtime.Remoting.RemotingServices.SetObjectUriForMarshal%2A> method, it is automatically generated by the remoting identity infrastructure.       You cannot associate a URI with a proxy for one of two reasons: either the URI was generated at the server side for the object it represents, or the object is well known, in which case the URI is known. For this reason, if the `Obj` parameter is a proxy, an exception will be thrown. For custom proxies this restriction is relaxed because the transparent proxy is treated as the server object."
+  summary: "Принимает <xref href=&quot;System.MarshalByRefObject&quot;> </xref>, регистрирует его с инфраструктурой удаленного взаимодействия и преобразует его в экземпляр <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> класса."
+  remarks: "Объект <xref:System.Runtime.Remoting.ObjRef>является упорядоченным представлением объекта, используемого для передачи ссылки на объект через границы домена приложения.</xref:System.Runtime.Remoting.ObjRef> Создание <xref:System.Runtime.Remoting.ObjRef>для объекта известно как маршалирование.</xref:System.Runtime.Remoting.ObjRef> <xref:System.Runtime.Remoting.ObjRef>Могут передаваться по каналу в другой домен приложения (возможно в другой процесс или компьютер).</xref:System.Runtime.Remoting.ObjRef> Один раз в другом домене приложения <xref:System.Runtime.Remoting.ObjRef>необходимо проанализировать для создания прокси для объекта, обычно подключенного к реальному объекту.</xref:System.Runtime.Remoting.ObjRef> Эта операция известна как распаковка.       Объект <xref:System.Runtime.Remoting.ObjRef>содержит сведения, описывающие <xref:System.Type>и класс объекта, URI, однозначно определяющий экземпляр указанного объекта и обмен данными сведения о подключении к подразделению удаленного взаимодействия, где находится объект.</xref:System.Type> </xref:System.Runtime.Remoting.ObjRef>       Во время маршалинга, контекст, из текущего потока, а не контекст, который был активен при создании объекта. Если URI не было задано явно <xref:System.Runtime.Remoting.RemotingServices.SetObjectUriForMarshal%2A>метод, автоматически создаваемых субъектом инфраструктуры удаленного доступа.</xref:System.Runtime.Remoting.RemotingServices.SetObjectUriForMarshal%2A>       Нельзя связать URI с прокси по одной из двух причин: URI был создан на стороне сервера для объекта, он представляет, или объект хорошо известен, в этом случае известен URI. По этой причине если `Obj` параметр представляет учетную запись-посредник, будет вызвано исключение. Для пользовательских прокси это ограничение смягчается, поскольку прозрачный прокси обрабатывается как объект сервера."
   syntax:
     content: public static System.Runtime.Remoting.ObjRef Marshal (MarshalByRefObject Obj);
     parameters:
     - id: Obj
       type: System.MarshalByRefObject
-      description: "The object to convert."
+      description: "Преобразуемый объект."
     return:
       type: System.Runtime.Remoting.ObjRef
-      description: "An instance of the <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> class that represents the object specified in the <code>Obj</code> parameter."
+      description: "Экземпляр <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> класс, представляющий объект, указанный в <code> Obj </code> параметра."
   overload: System.Runtime.Remoting.RemotingServices.Marshal*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "The <code>Obj</code> parameter is an object proxy."
+    description: "<code> Obj </code> Параметр прокси-сервер объекта."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "At least one of the callers higher in the callstack does not have permission to configure remoting types and channels."
+    description: "По крайней мере один из вызывающим объектам выше в стеке вызовов не имеет разрешения для настраивать каналы и типы удаленного взаимодействия."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.Marshal(System.MarshalByRefObject,System.String)
@@ -711,8 +711,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Converts the given <xref href=&quot;System.MarshalByRefObject&quot;></xref> into an instance of the <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> class with the specified URI."
-  remarks: "A <xref:System.Runtime.Remoting.ObjRef> is a serializable representation of an object used to transfer an object reference across an application domain boundary. Creating a <xref:System.Runtime.Remoting.ObjRef> for an object is known as marshaling. The <xref:System.Runtime.Remoting.ObjRef> can be transferred through a channel into another application domain (possibly on another process or computer). Once in the other application domain, the <xref:System.Runtime.Remoting.ObjRef> must be parsed to create a proxy for the object, generally connected to the real object. This operation is known as unmarshaling.       A <xref:System.Runtime.Remoting.ObjRef> contains information that describes the <xref:System.Type> and class of the object being marshaled, a URI that uniquely identifies the specific object instance, and communication related information about how to reach the remoting subdivision where the object is located.       During marshaling, the context from the current thread is used, not the context that was active when the object was created.       You cannot associate a URI with a proxy for one of two reasons: either the URI was generated at the server side for the object it represents, or the object is well known, in which case the URI is known. For this reason, if the `Obj` parameter is a proxy, an exception will be thrown. For custom proxies this restriction is relaxed because the transparent proxy is treated as the server object."
+  summary: "Преобразует данный <xref href=&quot;System.MarshalByRefObject&quot;> </xref> в экземпляр <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> класса с заданным URI."
+  remarks: "Объект <xref:System.Runtime.Remoting.ObjRef>является упорядоченным представлением объекта, используемого для передачи ссылки на объект через границы домена приложения.</xref:System.Runtime.Remoting.ObjRef> Создание <xref:System.Runtime.Remoting.ObjRef>для объекта известно как маршалирование.</xref:System.Runtime.Remoting.ObjRef> <xref:System.Runtime.Remoting.ObjRef>Могут передаваться по каналу в другой домен приложения (возможно в другой процесс или компьютер).</xref:System.Runtime.Remoting.ObjRef> Один раз в другом домене приложения <xref:System.Runtime.Remoting.ObjRef>необходимо проанализировать для создания прокси для объекта, обычно подключенного к реальному объекту.</xref:System.Runtime.Remoting.ObjRef> Эта операция известна как распаковка.       Объект <xref:System.Runtime.Remoting.ObjRef>содержит сведения, описывающие <xref:System.Type>и класс объекта, URI, однозначно определяющий экземпляр указанного объекта и обмен данными сведения о подключении к подразделению удаленного взаимодействия, где находится объект.</xref:System.Type> </xref:System.Runtime.Remoting.ObjRef>       Во время маршалинга, контекст, из текущего потока, а не контекст, который был активен при создании объекта.       Нельзя связать URI с прокси по одной из двух причин: URI был создан на стороне сервера для объекта, он представляет, или объект хорошо известен, в этом случае известен URI. По этой причине если `Obj` параметр представляет учетную запись-посредник, будет вызвано исключение. Для пользовательских прокси это ограничение смягчается, поскольку прозрачный прокси обрабатывается как объект сервера."
   example:
   - "The following code example demonstrates how to use the current <xref:System.Runtime.Remoting.RemotingServices.Marshal%2A> method to marshal a specified object.  \n  \n [!code-cpp[RemotingServices.BasicSample#2](~/add/codesnippet/cpp/01236a8e-f8c3-4b7b-875d-_1.cpp)]\n [!code-cs[RemotingServices.BasicSample#2](~/add/codesnippet/csharp/01236a8e-f8c3-4b7b-875d-_1.cs)]\n [!code-vb[RemotingServices.BasicSample#2](~/add/codesnippet/visualbasic/01236a8e-f8c3-4b7b-875d-_1.vb)]"
   syntax:
@@ -720,21 +720,21 @@ items:
     parameters:
     - id: Obj
       type: System.MarshalByRefObject
-      description: "The object to convert."
+      description: "Преобразуемый объект."
     - id: URI
       type: System.String
-      description: "The specified URI with which to initialize the new <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref>. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Указанный URI, с которого требуется инициализировать новый <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref>. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
     return:
       type: System.Runtime.Remoting.ObjRef
-      description: "An instance of the <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> class that represents the object specified in the <code>Obj</code> parameter."
+      description: "Экземпляр <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> класс, представляющий объект, указанный в <code> Obj </code> параметра."
   overload: System.Runtime.Remoting.RemotingServices.Marshal*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "<code>Obj</code> is an object proxy, and the <code>URI</code> parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>Obj</code>прокси-сервер объекта и <code>URI</code> не <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "At least one of the callers higher in the callstack does not have permission to configure remoting types and channels."
+    description: "По крайней мере один из вызывающим объектам выше в стеке вызовов не имеет разрешения для настраивать каналы и типы удаленного взаимодействия."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.Marshal(System.MarshalByRefObject,System.String,System.Type)
@@ -749,31 +749,31 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Takes a <xref href=&quot;System.MarshalByRefObject&quot;></xref> and converts it into an instance of the <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> class with the specified URI, and the provided <xref:System.Type>."
-  remarks: "A <xref:System.Runtime.Remoting.ObjRef> is a serializable representation of an object used to transfer an object reference across an application domain boundary. Creating a <xref:System.Runtime.Remoting.ObjRef> for an object is known as marshaling. The <xref:System.Runtime.Remoting.ObjRef> can be transferred through a channel into another application domain (possibly on another process or computer). Once in the other application domain, the <xref:System.Runtime.Remoting.ObjRef> must be parsed to create a proxy for the object, generally connected to the real object. This operation is known as unmarshaling.       A <xref:System.Runtime.Remoting.ObjRef> contains information that describes the <xref:System.Type> and class of the object being marshaled, a URI that uniquely identifies the specific object instance, and communication related information about how to reach the remoting subdivision where the object is located.       The specified <xref:System.Type> is used by the remoting infrastructure to limit the scope of the exposed type hierarchy. For example, if object A derives from object B, which derives from object C, and <xref:System.Runtime.Remoting.RemotingServices.Marshal%2A> is called, then the client can cast the proxy between C and B but not to A.       During marshaling, the context from the current thread is used, not the context that was active when the object was created.       You cannot associate a URI with a proxy for one of two reasons: either the URI was generated at the server side for the object it represents, or the object is well known, in which case the URI is known. For this reason, if the `Obj` parameter is a proxy, an exception will be thrown. For custom proxies this restriction is relaxed because the transparent proxy is treated as the server object."
+  summary: "Принимает <xref href=&quot;System.MarshalByRefObject&quot;> </xref> и преобразует его в экземпляр <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> класса с указанным URI и указанного <xref:System.Type>.</xref:System.Type>"
+  remarks: "Объект <xref:System.Runtime.Remoting.ObjRef>является упорядоченным представлением объекта, используемого для передачи ссылки на объект через границы домена приложения.</xref:System.Runtime.Remoting.ObjRef> Создание <xref:System.Runtime.Remoting.ObjRef>для объекта известно как маршалирование.</xref:System.Runtime.Remoting.ObjRef> <xref:System.Runtime.Remoting.ObjRef>Могут передаваться по каналу в другой домен приложения (возможно в другой процесс или компьютер).</xref:System.Runtime.Remoting.ObjRef> Один раз в другом домене приложения <xref:System.Runtime.Remoting.ObjRef>необходимо проанализировать для создания прокси для объекта, обычно подключенного к реальному объекту.</xref:System.Runtime.Remoting.ObjRef> Эта операция известна как распаковка.       Объект <xref:System.Runtime.Remoting.ObjRef>содержит сведения, описывающие <xref:System.Type>и класс объекта, URI, однозначно определяющий экземпляр указанного объекта и обмен данными сведения о подключении к подразделению удаленного взаимодействия, где находится объект.</xref:System.Type> </xref:System.Runtime.Remoting.ObjRef>       Указанный <xref:System.Type>используется инфраструктурой удаленного взаимодействия, чтобы ограничить область выведенного типа.</xref:System.Type> Например если объект A является производным от объекта B, который является производным от объекта C, и вызывается <xref:System.Runtime.Remoting.RemotingServices.Marshal%2A>, затем клиент может создать прокси между C и B, но не A.       Во время маршалинга, используется контекст, из текущего потока, не контекст, который был активен при создании объекта.</xref:System.Runtime.Remoting.RemotingServices.Marshal%2A>       Нельзя связать URI с прокси по одной из двух причин: URI был создан на стороне сервера для объекта, он представляет, или объект хорошо известен, в этом случае известен URI. По этой причине если `Obj` параметр представляет учетную запись-посредник, будет вызвано исключение. Для пользовательских прокси это ограничение смягчается, поскольку прозрачный прокси обрабатывается как объект сервера."
   syntax:
     content: public static System.Runtime.Remoting.ObjRef Marshal (MarshalByRefObject Obj, string ObjURI, Type RequestedType);
     parameters:
     - id: Obj
       type: System.MarshalByRefObject
-      description: "The object to convert into a <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref>."
+      description: "Объект, преобразуемый в <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref>."
     - id: ObjURI
       type: System.String
-      description: "The URI the object specified in the `Obj` parameter is marshaled with. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Объект, указанный в URI `Obj` параметр маршалируется с. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
     - id: RequestedType
       type: System.Type
-      description: "The <xref:System.Type>`Obj` is marshaled as. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "<xref:System.Type> `Obj` Маршалируется как.</xref:System.Type> Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
     return:
       type: System.Runtime.Remoting.ObjRef
-      description: "An instance of the <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> class that represents the object specified in the <code>Obj</code> parameter."
+      description: "Экземпляр <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> класс, представляющий объект, указанный в <code> Obj </code> параметра."
   overload: System.Runtime.Remoting.RemotingServices.Marshal*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "<code>Obj</code> is a proxy of a remote object, and the <code>ObjUri</code> parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>Obj</code>является прокси удаленного объекта и <code>ObjUri</code> не <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "At least one of the callers higher in the callstack does not have permission to configure remoting types and channels."
+    description: "По крайней мере один из вызывающим объектам выше в стеке вызовов не имеет разрешения для настраивать каналы и типы удаленного взаимодействия."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.SetObjectUriForMarshal(System.MarshalByRefObject,System.String)
@@ -788,7 +788,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Sets the URI for the subsequent call to the <xref:System.Runtime.Remoting.RemotingServices.Marshal*> method."
+  summary: "Задает URI для последующего вызова <xref:System.Runtime.Remoting.RemotingServices.Marshal*>метод.</xref:System.Runtime.Remoting.RemotingServices.Marshal*>"
   remarks: "The URI set by the current method is used when marshaling the given object.  \n  \n After marshaling, the URI of the specified object is set to the string in the `uri` parameter appended onto the <xref:System.Guid> of the current <xref:System.AppDomain>.  \n  \n If the current application is listening on an HTTP port, then both the string specified in the `uri` parameter and the `uri` string appended onto the <xref:System.Guid> of the current <xref:System.AppDomain> route to the specified object. For example, if the application is listening on HTTP port 9000, then both http://localhost:9000/objectUri, and http://localhost:9000/\\<appdomainguid>/objectUri route to the object specified in the `obj` parameter."
   example:
   - "The following code example demonstrates how to set the URI that will be used by the <xref:System.Runtime.Remoting.RemotingServices.Marshal%2A> method when marshaling the specified object.  \n  \n [!code-cpp[RemotingServices.SetObjectUriForMarshal#1](~/add/codesnippet/cpp/2ed6d271-806d-4778-95aa-_1.cpp)]\n [!code-cs[RemotingServices.SetObjectUriForMarshal#1](~/add/codesnippet/csharp/2ed6d271-806d-4778-95aa-_1.cs)]\n [!code-vb[RemotingServices.SetObjectUriForMarshal#1](~/add/codesnippet/visualbasic/2ed6d271-806d-4778-95aa-_1.vb)]"
@@ -797,18 +797,18 @@ items:
     parameters:
     - id: obj
       type: System.MarshalByRefObject
-      description: "The object to set a URI for."
+      description: "Элемент, который задается URI."
     - id: uri
       type: System.String
-      description: "The URI to assign to the specified object."
+      description: "URI для назначения в указанный объект."
   overload: System.Runtime.Remoting.RemotingServices.SetObjectUriForMarshal*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "<code>obj</code> is not a local object, has already been marshaled, or the current method has already been called on."
+    description: "<code>obj</code>— локальный объект, уже был маршалирован или уже был вызван на текущий метод."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "At least one of the callers higher in the callstack does not have permission to configure remoting types and channels."
+    description: "По крайней мере один из вызывающим объектам выше в стеке вызовов не имеет разрешения для настраивать каналы и типы удаленного взаимодействия."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.Unmarshal(System.Runtime.Remoting.ObjRef)
@@ -823,8 +823,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Takes a <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> and creates a proxy object out of it."
-  remarks: "A <xref:System.Runtime.Remoting.ObjRef> is a serializable representation of an object used to transfer an object reference across an application domain boundary. Creating a <xref:System.Runtime.Remoting.ObjRef> for an object is known as marshaling. The <xref:System.Runtime.Remoting.ObjRef> can be transferred through a channel into another application domain (possibly on another process or computer). Once in the other application domain, the <xref:System.Runtime.Remoting.ObjRef> must be parsed to create a proxy for the object, generally connected to the real object. This operation is known as unmarshaling. During unmarshaling, the <xref:System.Runtime.Remoting.ObjRef> is parsed to extract the method information of the remote object and both the transparent proxy and <xref:System.Runtime.Remoting.Proxies.RealProxy> objects are created. The content of the parsed <xref:System.Runtime.Remoting.ObjRef> is added to the transparent proxy before the transparent proxy is registered with the common language runtime.       A <xref:System.Runtime.Remoting.ObjRef> contains information that describes the <xref:System.Type> and class of the object being marshaled, a URI that uniquely identifies the specific object instance, and communication related information about how to reach the remoting subdivision where the object is located."
+  summary: "Принимает <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> и создает прокси-объект от него."
+  remarks: "Объект <xref:System.Runtime.Remoting.ObjRef>является упорядоченным представлением объекта, используемого для передачи ссылки на объект через границы домена приложения.</xref:System.Runtime.Remoting.ObjRef> Создание <xref:System.Runtime.Remoting.ObjRef>для объекта известно как маршалирование.</xref:System.Runtime.Remoting.ObjRef> <xref:System.Runtime.Remoting.ObjRef>Могут передаваться по каналу в другой домен приложения (возможно в другой процесс или компьютер).</xref:System.Runtime.Remoting.ObjRef> Один раз в другом домене приложения <xref:System.Runtime.Remoting.ObjRef>необходимо проанализировать для создания прокси для объекта, обычно подключенного к реальному объекту.</xref:System.Runtime.Remoting.ObjRef> Эта операция известна как распаковка. Во время Распаковка, <xref:System.Runtime.Remoting.ObjRef>анализируется для получения сведений о методе удаленного объекта и прозрачного прокси и <xref:System.Runtime.Remoting.Proxies.RealProxy>создаются объекты.</xref:System.Runtime.Remoting.Proxies.RealProxy> </xref:System.Runtime.Remoting.ObjRef> Содержимое проанализированный <xref:System.Runtime.Remoting.ObjRef>добавляется прозрачный прокси-сервера до регистрации прозрачного прокси общеязыковая среда выполнения.</xref:System.Runtime.Remoting.ObjRef>       Объект <xref:System.Runtime.Remoting.ObjRef>содержит сведения, описывающие <xref:System.Type>и класс объекта, URI, однозначно определяющий экземпляр указанного объекта и обмен данными сведения о подключении к подразделению удаленного взаимодействия, где находится объект.</xref:System.Type> </xref:System.Runtime.Remoting.ObjRef>"
   example:
   - "The following code example demonstrates how to unmarshal an object.  \n  \n [!code-vb[RemotingServices.Unmarshal#2](~/add/codesnippet/visualbasic/b4be8871-533a-4641-8763-_1.vb)]\n [!code-cpp[RemotingServices.Unmarshal#2](~/add/codesnippet/cpp/b4be8871-533a-4641-8763-_1.cpp)]\n [!code-cs[RemotingServices.Unmarshal#2](~/add/codesnippet/csharp/b4be8871-533a-4641-8763-_1.cs)]"
   syntax:
@@ -832,18 +832,18 @@ items:
     parameters:
     - id: objectRef
       type: System.Runtime.Remoting.ObjRef
-      description: "The <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> that represents the remote object for which the proxy is being created."
+      description: "<xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> , Представляющий удаленного объекта, для которого создается прокси-сервер."
     return:
       type: System.Object
-      description: "A proxy to the object that the given <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> represents."
+      description: "Прокси-объекта, заданного <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> представляет."
   overload: System.Runtime.Remoting.RemotingServices.Unmarshal*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> instance specified in the <code>objectRef</code> parameter is not well-formed."
+    description: "<xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> Экземпляра, указанного в <code> objectRef </code> параметр не является правильным."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "At least one of the callers higher in the callstack does not have permission to configure remoting types and channels."
+    description: "По крайней мере один из вызывающим объектам выше в стеке вызовов не имеет разрешения для настраивать каналы и типы удаленного взаимодействия."
   platform:
   - net462
 - uid: System.Runtime.Remoting.RemotingServices.Unmarshal(System.Runtime.Remoting.ObjRef,System.Boolean)
@@ -858,28 +858,28 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting
-  summary: "Takes a <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> and creates a proxy object out of it, refining it to the type on the server."
-  remarks: "A <xref:System.Runtime.Remoting.ObjRef> is a serializable representation of an object used to transfer an object reference across an application domain boundary. Creating a <xref:System.Runtime.Remoting.ObjRef> for an object is known as marshaling. The <xref:System.Runtime.Remoting.ObjRef> can be transferred through a channel into another application domain (possibly on another process or computer). Once in the other application domain, the <xref:System.Runtime.Remoting.ObjRef> must be parsed to create a proxy for the object, generally connected to the real object. This operation is known as unmarshaling. During unmarshaling, the <xref:System.Runtime.Remoting.ObjRef> is parsed to extract the method information of the remote object and both the transparent proxy and <xref:System.Runtime.Remoting.Proxies.RealProxy> objects are created. The content of the parsed <xref:System.Runtime.Remoting.ObjRef> is added to the transparent proxy before the transparent proxy is registered with the common language runtime.       A <xref:System.Runtime.Remoting.ObjRef> contains information that describes the <xref:System.Type> and class of the object being marshaled, a URI that uniquely identifies the specific object instance, and communication related information about how to reach the remoting subdivision where the object is located.       When first created, the proxy is of type <xref:System.MarshalByRefObject>. As you cast it into different types, the remoting infrastructure keeps track of the most used type to avoid loading the type unnecessarily."
+  summary: "Принимает <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> и создает прокси-объект от него, подгоняя его тип на сервере."
+  remarks: "Объект <xref:System.Runtime.Remoting.ObjRef>является упорядоченным представлением объекта, используемого для передачи ссылки на объект через границы домена приложения.</xref:System.Runtime.Remoting.ObjRef> Создание <xref:System.Runtime.Remoting.ObjRef>для объекта известно как маршалирование.</xref:System.Runtime.Remoting.ObjRef> <xref:System.Runtime.Remoting.ObjRef>Могут передаваться по каналу в другой домен приложения (возможно в другой процесс или компьютер).</xref:System.Runtime.Remoting.ObjRef> Один раз в другом домене приложения <xref:System.Runtime.Remoting.ObjRef>необходимо проанализировать для создания прокси для объекта, обычно подключенного к реальному объекту.</xref:System.Runtime.Remoting.ObjRef> Эта операция известна как распаковка. Во время Распаковка, <xref:System.Runtime.Remoting.ObjRef>анализируется для получения сведений о методе удаленного объекта и прозрачного прокси и <xref:System.Runtime.Remoting.Proxies.RealProxy>создаются объекты.</xref:System.Runtime.Remoting.Proxies.RealProxy> </xref:System.Runtime.Remoting.ObjRef> Содержимое проанализированный <xref:System.Runtime.Remoting.ObjRef>добавляется прозрачный прокси-сервера до регистрации прозрачного прокси общеязыковая среда выполнения.</xref:System.Runtime.Remoting.ObjRef>       Объект <xref:System.Runtime.Remoting.ObjRef>содержит сведения, описывающие <xref:System.Type>и класс объекта, URI, однозначно определяющий экземпляр указанного объекта и обмен данными сведения о подключении к подразделению удаленного взаимодействия, где находится объект.</xref:System.Type> </xref:System.Runtime.Remoting.ObjRef>       При первом создании прокси-сервер имеет тип <xref:System.MarshalByRefObject>.</xref:System.MarshalByRefObject> Как привести его в различные типы инфраструктуры удаленного взаимодействия сохраняет сведения о наиболее часто используемыми типами, чтобы избежать ненужного загрузки типа."
   syntax:
     content: public static object Unmarshal (System.Runtime.Remoting.ObjRef objectRef, bool fRefine);
     parameters:
     - id: objectRef
       type: System.Runtime.Remoting.ObjRef
-      description: "The <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> that represents the remote object for which the proxy is being created."
+      description: "<xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> , Представляющий удаленного объекта, для которого создается прокси-сервер."
     - id: fRefine
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to refine the proxy to the type on the server; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Чтобы уточнить прокси для типа сервера. в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Object
-      description: "A proxy to the object that the given <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> represents."
+      description: "Прокси-объекта, заданного <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> представляет."
   overload: System.Runtime.Remoting.RemotingServices.Unmarshal*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref> instance specified in the <code>objectRef</code> parameter is not well-formed."
+    description: "<xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref> Экземпляра, указанного в <code> objectRef </code> параметр не является правильным."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "At least one of the callers higher in the callstack does not have permission to configure remoting types and channels."
+    description: "По крайней мере один из вызывающим объектам выше в стеке вызовов не имеет разрешения для настраивать каналы и типы удаленного взаимодействия."
   platform:
   - net462
 references:

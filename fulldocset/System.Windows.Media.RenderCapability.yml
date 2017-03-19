@@ -16,8 +16,8 @@ items:
   nameWithType: RenderCapability
   fullName: System.Windows.Media.RenderCapability
   type: Class
-  summary: "Enables [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] applications to query for the current rendering tier for their associated <xref href=&quot;System.Windows.Threading.Dispatcher&quot;></xref> object and to register for notification of changes."
-  remarks: "A rendering tier defines a level of graphics hardware capability and performance for a device that runs a [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] application. The features of the graphics hardware that most affect the rendering tier levels are the following:      -   Video RAM: The amount of video memory on the graphics hardware determines the size and number of buffers that can be used for compositing graphics.      -   Pixel Shader: A pixel shader is a graphics processing function that calculates effects on a per-pixel basis. Depending on the resolution of the displayed graphics, there could be several million pixels that need to be processed for each display frame.      -   Vertex Shader: A vertex shader is a graphics processing function that performs mathematical operations on the vertex data of the object.      -   Multitexture Support: Multitexture support refers to the ability to apply two or more distinct textures during a blending operation on a 3D graphics object. The degree of multitexture support is determined by the number of multitexture units on the graphics hardware.       The pixel shader, vertex shader, and multitexture features are used to define specific [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] version levels, which, in turn, are used to define the different rendering tiers in [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)]. For a full description of the rendering tiers, see [Graphics Rendering Tiers](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Включает [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] приложениям запрашивать текущий уровень отрисовки связанные с ними <xref href=&quot;System.Windows.Threading.Dispatcher&quot;> </xref> объекта и выполнить регистрацию для уведомления об изменениях."
+  remarks: "Уровень отрисовки определяет возможности графического оборудования и производительности для устройства, которое запускает [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] приложения. Ниже приведены возможности графического оборудования, которые влияют на уровни отрисовки:-Видеопамять: объем видеопамяти графического оборудования определяет размер и число буферов, которые могут использоваться для компоновки графики.      -Текстуры: Текстуры представляет графические функции, которая вычисляет влияние на точечном уровне. В зависимости от разрешения отображаемой графики может быть несколько миллионов точек, которые должны быть обработаны для каждого отображаемого кадра.      -Шейдер вершин: Вершинный построитель текстуры является графические функции для выполнения математических операций над данными вершин объекта.      -Поддержка мультитекстурирование: Мультитекстурирование поддержки относится возможность применения двух или более различных текстур во время операции смешения объекта трехмерной графики. Степень многотекстурной поддержки определяется числом мультитекстурных на графического оборудования.       Построитель текстуры, вершинный построитель текстуры и возможности мультитекстурирования используются для определения конкретных [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] уровни версий, которые в свою очередь, используются для определения различных уровней отрисовки в [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)]. Полное описание допустимых см. в разделе [уровни отрисовки графики](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public static class RenderCapability
   inheritance:
@@ -38,20 +38,20 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: "Gets a value that indicates whether the specified pixel shader version is supported."
-  remarks: "The IsPixelShaderVersionSupported method returns `true` if the pixel shader version is supported by the current version of WPF, and if an <xref:System.Windows.Media.Effects.Effect> using the specified major/minor version can run on the GPU."
+  summary: "Возвращает значение, указывающее, поддерживается ли заданная версия построителя текстуры."
+  remarks: "Возвращает метод IsPixelShaderVersionSupported `true` Если версия построителя текстуры поддерживается текущей версией WPF и <xref:System.Windows.Media.Effects.Effect>с помощью указанной основному или дополнительному номеру версии можно выполнять в GPU.</xref:System.Windows.Media.Effects.Effect>"
   syntax:
     content: public static bool IsPixelShaderVersionSupported (short majorVersionRequested, short minorVersionRequested);
     parameters:
     - id: majorVersionRequested
       type: System.Int16
-      description: "The major version of the pixel shader."
+      description: "Основной номер версии текстуры."
     - id: minorVersionRequested
       type: System.Int16
-      description: "The minor version of the pixel shader."
+      description: "Дополнительный номер версии текстуры."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the pixel shader version is supported by the current version of WPF; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если версия построителя текстуры поддерживается текущей версией WPF; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Media.RenderCapability.IsPixelShaderVersionSupported*
   exceptions: []
   platform:
@@ -68,20 +68,20 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: "Gets a value that indicates whether the specified pixel shader version can be rendered in software on the current system."
-  remarks: "Software rendering is only supported for Pixel Shader 2.0."
+  summary: "Возвращает значение, указывающее, является ли заданная версия построителя текстуры может осуществляться в программное обеспечение в текущей системе."
+  remarks: "Программную отрисовку поддерживается только для Pixel Shader 2.0."
   syntax:
     content: public static bool IsPixelShaderVersionSupportedInSoftware (short majorVersionRequested, short minorVersionRequested);
     parameters:
     - id: majorVersionRequested
       type: System.Int16
-      description: "The major version of the pixel shader."
+      description: "Основной номер версии текстуры."
     - id: minorVersionRequested
       type: System.Int16
-      description: "The minor version of the pixel shader."
+      description: "Дополнительный номер версии текстуры."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the pixel shader can be rendered in software on the current system; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если текстуры может быть визуализирован в программном обеспечении на текущем компьютере. в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Media.RenderCapability.IsPixelShaderVersionSupportedInSoftware*
   exceptions: []
   platform:
@@ -98,12 +98,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: "Gets a value that indicates whether the system can render bitmap effects in software."
+  summary: "Возвращает значение, указывающее, может ли система отображать растровых эффектов в программное обеспечение."
   syntax:
     content: public static bool IsShaderEffectSoftwareRenderingSupported { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the system can render bitmap effects in software; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если система прорисовать растровых эффектов в программном обеспечении; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Media.RenderCapability.IsShaderEffectSoftwareRenderingSupported*
   exceptions: []
   platform:
@@ -120,13 +120,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: "Gets the maximum width and height for bitmap creation of the underlying hardware device."
-  remarks: "If there are multiple devices, MaxHardwareTextureSize returns the minimum size among them."
+  summary: "Возвращает максимальную ширину и высоту для создания растрового изображения базовым аппаратным устройством."
+  remarks: "Если несколько устройств, MaxHardwareTextureSize Возвращает минимальный размер между ними."
   syntax:
     content: public static System.Windows.Size MaxHardwareTextureSize { get; }
     return:
       type: System.Windows.Size
-      description: "A <xref href=&quot;System.Windows.Size&quot;></xref> that represents the maximum width and height for hardware bitmap creation."
+      description: "Объект <xref href=&quot;System.Windows.Size&quot;> </xref> , представляющий максимальную ширину и высоту для аппаратного создания растрового изображения."
   overload: System.Windows.Media.RenderCapability.MaxHardwareTextureSize*
   exceptions: []
   platform:
@@ -143,20 +143,20 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: "Gets the maximum number of instruction slots supported by the specified pixel shader version."
-  remarks: "The number of instruction slots supported by Pixel Shader 3.0 varies, but is always 512 or greater.       Only Pixel Shader 2.0 and 3.0 are supported."
+  summary: "Возвращает максимальное число слотов инструкций, поддерживаемых заданная версия построителя текстуры."
+  remarks: "Число слотов инструкций, поддерживаемых Pixel Shader версии 3.0 меняется, но всегда равно 512 или выше.       Поддерживаются только в Pixel Shader 2.0 и 3.0."
   syntax:
     content: public static int MaxPixelShaderInstructionSlots (short majorVersionRequested, short minorVersionRequested);
     parameters:
     - id: majorVersionRequested
       type: System.Int16
-      description: "The major version of the pixel shader."
+      description: "Основной номер версии текстуры."
     - id: minorVersionRequested
       type: System.Int16
-      description: "The minor version of the pixel shader."
+      description: "Дополнительный номер версии текстуры."
     return:
       type: System.Int32
-      description: "96 for Pixel Shader 2.0, 512 or greater for Pixel Shader 3.0, or 0 for any other version of Pixel Shader."
+      description: "96 для построителя текстуры 2.0, 512 или выше для построителя текстуры 3.0, или 0 для любой другой версии построителя текстуры."
   overload: System.Windows.Media.RenderCapability.MaxPixelShaderInstructionSlots*
   exceptions: []
   platform:
@@ -173,15 +173,15 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: "Gets a value that indicates the rendering tier for the current thread."
-  remarks: "> [!NOTE] >  Starting in the .NET Framework 4, rendering tier 1 has been redefined to only include graphics hardware that supports [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] 9.0 or greater. Graphics hardware that supports [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] 7 or 8 is now defined as rendering tier 0.       The return value is one of three possible values:      |Return value|Rendering tier|Notes|   |------------------|--------------------|-----------|   |0x00000000|0|No graphics hardware acceleration is available for the application on the device. All graphics features use software acceleration. The [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] version level is less than version 9.0.|   |0x00010000|1|Most of the graphics features of [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] will use hardware acceleration if the necessary system resources are available and have not been exhausted. This corresponds to a [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] version that is greater than or equal to 9.0.|   |0x00020000|2|Most of the graphics features of [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] will use hardware acceleration provided the necessary system resources have not been exhausted. This corresponds to a [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] version that is greater than or equal to 9.0.|       The following table shows the differences in graphics hardware requirements for rendering tier 1 and rendering tier 2:      |Feature|Tier 1|Tier 2|   |-------------|------------|------------|   |[!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] version|Must be greater than or equal to 9.0.|Must be greater than or equal to 9.0.|   |Video RAM|Must be greater than or equal to 60MB.|Must be greater than or equal to 120MB.|   |Pixel shader|Version level must greater than or equal to 2.0.|Version level must greater than or equal to 2.0.|   |Vertex shader|No requirement.|Version level must greater than or equal to 2.0.|   |Multitexture units|No requirement.|Number of units must greater than or equal to 4.|       For more information on the definitions for the rendering tiers, see [Graphics Rendering Tiers](~/add/includes/ajax-current-ext-md.md).       If the current thread does not have an associated <xref:System.Windows.Threading.Dispatcher> object, one is automatically created."
+  summary: "Возвращает значение, указывающее уровень отрисовки для текущего потока."
+  remarks: "> [!NOTE]Настроек начиная с .NET Framework 4, уровень отрисовки 1 переопределен для включения только графического оборудования, который поддерживает [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] версии 9.0 или более поздней. Графическое оборудование, которое поддерживает [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] 7 или 8 определен как уровень отрисовки 0.       Возвращаемое значение является одним из трех возможных значений: | Возвращаемое значение | Уровень отрисовки | Заметки о |   |------------------|--------------------|-----------|   |&0;x00000000 |&0; | Аппаратное ускорение графики не доступен для приложений на устройстве. Все возможности графики с использованием ускорения программного обеспечения. [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] Уровень версии меньше, чем версии 9.0. |   | 0x00010000 | 1 | Большая часть графических возможностей [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] будет использовать аппаратное ускорение, если необходимые системные ресурсы доступны и не исчерпаны. Это соответствует [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] версию, которая больше или равна 9.0. |   | 0x00020000 | 2 | Большая часть графических возможностей [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] будет использовать аппаратное ускорение при условии необходимые системные ресурсы не исчерпаны. Это соответствует [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] версию, которая больше или равна 9.0. |       В следующей таблице показаны различия в графики требования к оборудованию для подготовки к просмотру уровней 1 и 2: | Функция | Уровень 1 | Уровень 2 |   |-------------|------------|------------|   | [!INCLUDE[TLA2#tla_dx](~/add/includes/tla2sharptla-dx-md.md)] версии | Должно быть больше или равна 9.0. | Должно быть больше или равна 9.0. |   | Видеопамять | Должен быть больше или равно 60 МБ. | Должно быть больше или равно 120 МБ. |   | Текстуры | Версия уровня необходимо больше или равна 2.0. | Версия уровня необходимо больше или равна 2.0. |   | Вершинный построитель текстуры | Не требуется. | Версия уровня необходимо больше или равна 2.0. |   | Мультитекстурирования | Не требуется. | Число единиц должно быть больше или равно 4. |       Дополнительные сведения об определениях уровней отрисовки см. в разделе [уровни отрисовки графики](~/add/includes/ajax-current-ext-md.md).       Если текущий поток не имеет связанный с ним <xref:System.Windows.Threading.Dispatcher>объекта, он будет создан автоматически.</xref:System.Windows.Threading.Dispatcher>"
   example:
   - "The following example shows how to return the rendering tier for the current thread.  \n  \n [!code-cs[RenderOptions#RenderCapability1](~/add/codesnippet/csharp/RenderOptionsSnippets/Window1.xaml.cs#rendercapability1)]\n [!code-vb[RenderOptions#RenderCapability1](~/add/codesnippet/visualbasic/renderoptionssnippets/window1.xaml.vb#rendercapability1)]"
   syntax:
     content: public static int Tier { get; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> value whose high-order word corresponds to the rendering tier for the current thread."
+      description: "<xref:System.Int32>Которого старшее слово соответствует уровню отрисовки для текущего потока.</xref:System.Int32>"
   overload: System.Windows.Media.RenderCapability.Tier*
   exceptions: []
   platform:
@@ -198,13 +198,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media
-  summary: "Occurs when the rendering tier has changed for the <xref href=&quot;System.Windows.Threading.Dispatcher&quot;></xref> object of the current thread."
-  remarks: "If the current thread does not have an associated <xref:System.Windows.Threading.Dispatcher> object, one is automatically created."
+  summary: "Происходит при изменении уровня отрисовки для <xref href=&quot;System.Windows.Threading.Dispatcher&quot;> </xref> объект текущего потока."
+  remarks: "Если текущий поток не имеет связанный с ним <xref:System.Windows.Threading.Dispatcher>объекта, он будет создан автоматически.</xref:System.Windows.Threading.Dispatcher>"
   syntax:
     content: public static event EventHandler TierChanged;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462

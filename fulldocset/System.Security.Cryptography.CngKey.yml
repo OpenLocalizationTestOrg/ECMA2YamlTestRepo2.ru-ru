@@ -41,8 +41,8 @@ items:
   nameWithType: CngKey
   fullName: System.Security.Cryptography.CngKey
   type: Class
-  summary: "Defines the core functionality for keys that are used with Cryptography Next Generation (CNG) objects."
-  remarks: "This class wraps NCrypt keys, not BCrypt keys. NCrypt is a subset of CNG that provides key storage functionality. BCrypt is a subset that provides base cryptographic services such as random number generation, hash functions, signatures, and encryption keys."
+  summary: "Определяет базовую функциональность для ключей, используемых объектами криптографии следующего поколения (CNG)."
+  remarks: "Этот класс инкапсулирует NCrypt ключей, не BCrypt ключи. NCrypt — это подмножество, обеспечивающий функциональность хранилища ключей CNG. BCrypt — это подмножество, которое предоставляет базовые криптографические службы, такие как Генерация случайных чисел, функции хэширования, подписи и ключи шифрования."
   syntax:
     content: 'public sealed class CngKey : IDisposable'
   inheritance:
@@ -64,12 +64,12 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the algorithm that is used by the key."
+  summary: "Возвращает алгоритм, используемый ключ."
   syntax:
     content: public System.Security.Cryptography.CngAlgorithm Algorithm { get; }
     return:
       type: System.Security.Cryptography.CngAlgorithm
-      description: "An object that specifies the name of an encryption algorithm."
+      description: "Объект, задающий имя алгоритма шифрования."
   overload: System.Security.Cryptography.CngKey.Algorithm*
   exceptions: []
   platform:
@@ -86,12 +86,12 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the algorithm group that is used by the key."
+  summary: "Возвращает группу алгоритмов, используемый ключ."
   syntax:
     content: public System.Security.Cryptography.CngAlgorithmGroup AlgorithmGroup { get; }
     return:
       type: System.Security.Cryptography.CngAlgorithmGroup
-      description: "An object that specifies the name of an encryption algorithm group."
+      description: "Объект, задающий имя группы алгоритмов шифрования."
   overload: System.Security.Cryptography.CngKey.AlgorithmGroup*
   exceptions: []
   platform:
@@ -108,28 +108,28 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Creates a <xref href=&quot;System.Security.Cryptography.CngKey&quot;></xref> object that can be used with the specified algorithm."
-  remarks: "This overload creates a key without a name, which means that the key is ephemeral (that is, it will not be persisted). It also creates a default <xref:System.Security.Cryptography.CngKeyCreationParameters> object that specifies a default <xref:System.Security.Cryptography.CngProvider> and other advanced parameters for the key."
+  summary: "Создает <xref href=&quot;System.Security.Cryptography.CngKey&quot;> </xref> объекта, который может использоваться с помощью указанного алгоритма."
+  remarks: "Эта перегрузка создает ключ без имени, это означает, что ключ является эфемерным (то есть, он не будет сохранен). Он также создает значение по умолчанию <xref:System.Security.Cryptography.CngKeyCreationParameters>, указывающий значение по умолчанию <xref:System.Security.Cryptography.CngProvider>и другие дополнительные параметры для ключа.</xref:System.Security.Cryptography.CngProvider> </xref:System.Security.Cryptography.CngKeyCreationParameters>"
   syntax:
     content: public static System.Security.Cryptography.CngKey Create (System.Security.Cryptography.CngAlgorithm algorithm);
     parameters:
     - id: algorithm
       type: System.Security.Cryptography.CngAlgorithm
-      description: "The algorithm that the key will be used with."
+      description: "Алгоритм, который будет использоваться ключ."
     return:
       type: System.Security.Cryptography.CngKey
-      description: "An ephemeral key."
+      description: "Эфемерный ключ."
   overload: System.Security.Cryptography.CngKey.Create*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>algorithm</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>algorithm</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "Cryptography Next Generation (CNG) is not supported on this system."
+    description: "Криптография следующего поколения (CNG) не поддерживается в этой системе."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Create(System.Security.Cryptography.CngAlgorithm,System.String)
@@ -144,31 +144,31 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Creates a named <xref href=&quot;System.Security.Cryptography.CngKey&quot;></xref> object that provides the specified algorithm."
-  remarks: "If `keyName` is provided, this overload creates a persisted key. If `keyName` is not provided, the key will be ephemeral. This overload also creates a default <xref:System.Security.Cryptography.CngKeyCreationParameters> object that specifies a default <xref:System.Security.Cryptography.CngProvider> and other advanced parameters for the key."
+  summary: "Создает именованный <xref href=&quot;System.Security.Cryptography.CngKey&quot;> </xref> объект, предоставляющий указанный алгоритм."
+  remarks: "Если `keyName` указан, эта перегрузка создает постоянный ключ. Если `keyName` не указан, ключ будет эфемерным. Эта перегрузка также создает значение по умолчанию <xref:System.Security.Cryptography.CngKeyCreationParameters>, указывающий значение по умолчанию <xref:System.Security.Cryptography.CngProvider>и другие дополнительные параметры для ключа.</xref:System.Security.Cryptography.CngProvider> </xref:System.Security.Cryptography.CngKeyCreationParameters>"
   syntax:
     content: public static System.Security.Cryptography.CngKey Create (System.Security.Cryptography.CngAlgorithm algorithm, string keyName);
     parameters:
     - id: algorithm
       type: System.Security.Cryptography.CngAlgorithm
-      description: "The algorithm that the key will be used with."
+      description: "Алгоритм, который будет использоваться ключ."
     - id: keyName
       type: System.String
-      description: "The key name. If a name is not provided, the key will not be persisted."
+      description: "Имя ключа. Если имя не указано, то ключ, не будут сохранены."
     return:
       type: System.Security.Cryptography.CngKey
-      description: "A persisted or ephemeral key that provides the specified algorithm."
+      description: "Постоянный или эфемерный ключ, предоставляющий указанный алгоритм."
   overload: System.Security.Cryptography.CngKey.Create*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>algorithm</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>algorithm</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "Cryptography Next Generation (CNG) is not supported on this system."
+    description: "Криптография следующего поколения (CNG) не поддерживается в этой системе."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Create(System.Security.Cryptography.CngAlgorithm,System.String,System.Security.Cryptography.CngKeyCreationParameters)
@@ -183,34 +183,34 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Creates a named <xref href=&quot;System.Security.Cryptography.CngKey&quot;></xref> object that provides the specified algorithm, using the supplied key creation parameters."
-  remarks: "If `keyName` is provided, this overload creates a persisted key. If `keyName` is not provided, the key will be ephemeral."
+  summary: "Создает именованный <xref href=&quot;System.Security.Cryptography.CngKey&quot;> </xref> объект, предоставляющий указанный алгоритм, с помощью параметров создания указанного ключа."
+  remarks: "Если `keyName` указан, эта перегрузка создает постоянный ключ. Если `keyName` не указан, ключ будет эфемерным."
   syntax:
     content: public static System.Security.Cryptography.CngKey Create (System.Security.Cryptography.CngAlgorithm algorithm, string keyName, System.Security.Cryptography.CngKeyCreationParameters creationParameters);
     parameters:
     - id: algorithm
       type: System.Security.Cryptography.CngAlgorithm
-      description: "The algorithm that the key will be used with."
+      description: "Алгоритм, который будет использоваться ключ."
     - id: keyName
       type: System.String
-      description: "The key name. If a name is not provided, the key will not be persisted."
+      description: "Имя ключа. Если имя не указано, то ключ, не будут сохранены."
     - id: creationParameters
       type: System.Security.Cryptography.CngKeyCreationParameters
-      description: "An object that specifies advanced parameters for the method, including the <xref href=&quot;System.Security.Cryptography.CngProvider&quot;></xref>."
+      description: "Объект, который указывает дополнительные параметры для метода, включая <xref href=&quot;System.Security.Cryptography.CngProvider&quot;> </xref>."
     return:
       type: System.Security.Cryptography.CngKey
-      description: "A persisted or ephemeral key that provides the specified algorithm."
+      description: "Постоянный или эфемерный ключ, предоставляющий указанный алгоритм."
   overload: System.Security.Cryptography.CngKey.Create*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>algorithm</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>algorithm</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "Cryptography Next Generation (CNG) is not supported on this system."
+    description: "Криптография следующего поколения (CNG) не поддерживается в этой системе."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Delete
@@ -225,8 +225,8 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Removes the key that is associated with the object."
-  remarks: "-   When you call the Delete method on an ephemeral key, it closes the handle to the key.       When you call the Delete method on a named key, the <xref:System.Security.Cryptography.CngKey> object can no longer be used after the named key is deleted."
+  summary: "Удаляет ключ, связанный с объектом."
+  remarks: "-   При вызове метода Delete на эфемерный ключ, он закрывает дескриптор к ключу.       При вызове метода Delete для ключа с именем, <xref:System.Security.Cryptography.CngKey>объект больше не может использоваться, после удаления ключа с именем.</xref:System.Security.Cryptography.CngKey>"
   syntax:
     content: public void Delete ();
     parameters: []
@@ -234,10 +234,10 @@ items:
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "An attempt was made to access a deleted key."
+    description: "Была предпринята попытка получить доступ к удаленный ключ."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Dispose
@@ -252,8 +252,8 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Releases all resources used by the current instance of the <xref href=&quot;System.Security.Cryptography.CngKey&quot;></xref> class."
-  remarks: "Call Dispose when you are finished using the <xref:System.Security.Cryptography.CngKey>. The Dispose method leaves the <xref:System.Security.Cryptography.CngKey> in an unusable state. After calling Dispose, you must release all references to the <xref:System.Security.Cryptography.CngKey> so the garbage collector can reclaim the memory that the <xref:System.Security.Cryptography.CngKey> was occupying. For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call Dispose before you release your last reference to the <xref:System.Security.Cryptography.CngKey>. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:System.Security.Cryptography.CngKey> object&quot;s `Finalize` method."
+  summary: "Освобождает все ресурсы, используемые текущим экземпляром <xref href=&quot;System.Security.Cryptography.CngKey&quot;> </xref> класса."
+  remarks: "После использования <xref:System.Security.Cryptography.CngKey>.</xref:System.Security.Cryptography.CngKey> всегда вызывать Dispose. Метод Dispose оставляет <xref:System.Security.Cryptography.CngKey>окажется в неработоспособном состоянии.</xref:System.Security.Cryptography.CngKey> После вызова Dispose, необходимо освободить все ссылки на <xref:System.Security.Cryptography.CngKey>, сборщик мусора мог освободить память, <xref:System.Security.Cryptography.CngKey>занимаемую.</xref:System.Security.Cryptography.CngKey> </xref:System.Security.Cryptography.CngKey> Дополнительные сведения см. в разделе [очистки неуправляемых ресурсов](~/add/includes/ajax-current-ext-md.md) и [метода](~/add/includes/ajax-current-ext-md.md).      Настроек [!NOTE] настроек всегда вызова Dispose перед освобождением последней ссылки на <xref:System.Security.Cryptography.CngKey>.</xref:System.Security.Cryptography.CngKey> В противном случае им ресурсы не будут освобождены пока сборщик мусора не вызовет метод <xref:System.Security.Cryptography.CngKey>объекта `Finalize` метод.</xref:System.Security.Cryptography.CngKey>"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -273,28 +273,28 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Checks to see whether a named key exists in the default key storage provider (KSP)."
-  remarks: "The default KSP is <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>."
+  summary: "Проверяет, существует ли именованный ключ поставщика хранилища ключей (KSP) по умолчанию."
+  remarks: "Значение по умолчанию KSP — <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>.</xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>"
   syntax:
     content: public static bool Exists (string keyName);
     parameters:
     - id: keyName
       type: System.String
-      description: "The key name."
+      description: "Имя ключа."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the named key exists in the default KSP; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если именованный ключ существует в KSP по умолчанию; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.CngKey.Exists*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "Cryptography Next Generation (CNG) is not supported on this system."
+    description: "Криптография следующего поколения (CNG) не поддерживается в этой системе."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Exists(System.String,System.Security.Cryptography.CngProvider)
@@ -309,31 +309,31 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Checks to see whether a named key exists in the specified key storage provider (KSP)."
-  remarks: "Use this overload to check for the existence of a key in a KSP other than the default KSP, which is <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>."
+  summary: "Проверяет наличие именованного ключа в заданном поставщике хранилища ключей (KSP)."
+  remarks: "Используйте этот перегруженный метод для проверки наличия ключа в KSP нестандартных KSP, который является <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>.</xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>"
   syntax:
     content: public static bool Exists (string keyName, System.Security.Cryptography.CngProvider provider);
     parameters:
     - id: keyName
       type: System.String
-      description: "The key name."
+      description: "Имя ключа."
     - id: provider
       type: System.Security.Cryptography.CngProvider
-      description: "The KSP to check for the key."
+      description: "KSP, проверяемый на ключ."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the named key exists in the specified provider; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если именованный ключ существует в указанном поставщике; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.CngKey.Exists*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyName</code> or <code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyName</code>or <code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "Cryptography Next Generation (CNG) is not supported on this system."
+    description: "Криптография следующего поколения (CNG) не поддерживается в этой системе."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Exists(System.String,System.Security.Cryptography.CngProvider,System.Security.Cryptography.CngKeyOpenOptions)
@@ -348,34 +348,34 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Checks to see whether a named key exists in the specified key storage provider (KSP), according to the specified options."
-  remarks: "Use this overload to check for the existence of a key in a KSP other than the default <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>, and to specify key open options."
+  summary: "Проверяет наличие именованного ключа в заданном поставщике хранилища ключей (KSP), в соответствии с заданными параметрами."
+  remarks: "Используйте этот перегруженный метод для проверки наличия ключа в KSP нестандартных <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>, а также указать параметры открытия ключа.</xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>"
   syntax:
     content: public static bool Exists (string keyName, System.Security.Cryptography.CngProvider provider, System.Security.Cryptography.CngKeyOpenOptions options);
     parameters:
     - id: keyName
       type: System.String
-      description: "The key name."
+      description: "Имя ключа."
     - id: provider
       type: System.Security.Cryptography.CngProvider
-      description: "The KSP to search for the key."
+      description: "KSP для поиска ключа."
     - id: options
       type: System.Security.Cryptography.CngKeyOpenOptions
-      description: "A bitwise combination of the enumeration values that specify options for opening a key."
+      description: "Побитовое сочетание значений перечисления, определяющих параметры открытия ключа."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the named key exists in the specified provider; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если именованный ключ существует в указанном поставщике; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.CngKey.Exists*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyName</code> or <code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyName</code>or <code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "Cryptography Next Generation (CNG) is not supported on this system."
+    description: "Криптография следующего поколения (CNG) не поддерживается в этой системе."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Export(System.Security.Cryptography.CngKeyBlobFormat)
@@ -390,25 +390,25 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Exports the key material into a BLOB, in the specified format."
-  remarks: "Cryptography Next Generation (CNG) allows export in any format that the underlying key storage provider (KSP) supports. For example, on Windows Vista,the default KSP (which is <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>) only allows export of private keys in the <xref:System.Security.Cryptography.CngKeyBlobFormat.Pkcs8PrivateBlob%2A>, <xref:System.Security.Cryptography.CngKeyBlobFormat.EccPrivateBlob%2A>, and <xref:System.Security.Cryptography.CngKeyBlobFormat.OpaqueTransportBlob%2A> formats. This restriction is controlled by the underlying KSP. If you use a different KSP, other formats may apply."
+  summary: "Экспортирует ключевой материал в большой двоичный объект в указанном формате."
+  remarks: "Криптография следующего поколения (CNG) позволяет выполнять экспорт в любой формат, поддерживающий базовый поставщик хранилища ключей (KSP). Например, в Windows Vista, KSP по умолчанию (который является <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>) позволяет только при экспорте закрытых ключей в <xref:System.Security.Cryptography.CngKeyBlobFormat.Pkcs8PrivateBlob%2A>, <xref:System.Security.Cryptography.CngKeyBlobFormat.EccPrivateBlob%2A>, и <xref:System.Security.Cryptography.CngKeyBlobFormat.OpaqueTransportBlob%2A>форматы.</xref:System.Security.Cryptography.CngKeyBlobFormat.OpaqueTransportBlob%2A> </xref:System.Security.Cryptography.CngKeyBlobFormat.EccPrivateBlob%2A> </xref:System.Security.Cryptography.CngKeyBlobFormat.Pkcs8PrivateBlob%2A> </xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A> Это ограничение контролируется базовой KSP. Если вы используете другой KSP, могут применяться другие форматы."
   syntax:
     content: public byte[] Export (System.Security.Cryptography.CngKeyBlobFormat format);
     parameters:
     - id: format
       type: System.Security.Cryptography.CngKeyBlobFormat
-      description: "An object that specifies the format of the key BLOB."
+      description: "Объект, задающий формат большого двоичного ОБЪЕКТА ключа."
     return:
       type: System.Byte[]
-      description: "A BLOB that contains the key material in the specified format."
+      description: "Большой двоичный объект, содержащий ключевой материал в указанном формате."
   overload: System.Security.Cryptography.CngKey.Export*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>format</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>format</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors. Typically, the <xref:System.Security.Cryptography.CngKey.ExportPolicy*> does not allow the key to be exported."
+    description: "Все остальные ошибки. Как правило <xref:System.Security.Cryptography.CngKey.ExportPolicy*>не позволяет экспортировать ключ.</xref:System.Security.Cryptography.CngKey.ExportPolicy*>"
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.ExportPolicy
@@ -423,13 +423,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the export policy that is used by the key."
-  remarks: "The export policy controls the export frequency and format for the key."
+  summary: "Получает политику экспорта, используемый ключ."
+  remarks: "Экспорт политики управления частоту экспорта и формат для ключа."
   syntax:
     content: public System.Security.Cryptography.CngExportPolicies ExportPolicy { get; }
     return:
       type: System.Security.Cryptography.CngExportPolicies
-      description: "An object that specifies the export policy for the key."
+      description: "Объект, задающий политику экспорта для ключа."
   overload: System.Security.Cryptography.CngKey.ExportPolicy*
   exceptions: []
   platform:
@@ -446,28 +446,28 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets a property, given a name and a set of property options."
-  remarks: "The purpose of this method is to return the value of an arbitrary property of the key. The typical way to retrieve properties is by using the property accessors provided by the <xref:System.Security.Cryptography.CngKey> class. <xref:System.Security.Cryptography.CngKey> provides wrappers for several, but not all, properties. The GetProperty method is primarily used to access the value of a property that is not wrapped.       This method is useful in the following cases:      -   A new version of the operating system supports a new Cryptography Next Generation (CNG) key property that does not have a wrapper.      -   You add a custom property to the key.       The `options` parameter is specifically used to indicate the following:      -   Whether the property is built-in, or custom.      -   Whether the property should be persisted with the key.       These options must match the value that the property was set with, or the property will not be found.       <xref:System.Security.Cryptography.CryptographicException> is thrown if the property cannot be found. You should call the <xref:System.Security.Cryptography.CngKey.HasProperty%2A> method first to avoid the exception instead of wrapping the method call in a `try/catch` block."
+  summary: "Получает свойство по заданному имени и набору параметров."
+  remarks: "Этот метод предназначен для возврата значения из произвольно выбранного свойства ключа. Типичный способ получить свойства — с помощью методов доступа свойства, предоставляемые <xref:System.Security.Cryptography.CngKey>классом.</xref:System.Security.Cryptography.CngKey> <xref:System.Security.Cryptography.CngKey>предоставляет программы-оболочки для нескольких, но не все свойства.</xref:System.Security.Cryptography.CngKey> GetProperty — метод в основном используется для доступа к значению свойства, которое не помещается в оболочку.       Этот метод полезен в следующих случаях:-новой версии операционной системы поддерживает новое свойство ключа криптографии следующего поколения (CNG) не поддерживает оболочку.      -Можно добавить пользовательское свойство к ключу.       `options` Параметра используется специально для указывает следующее: - является ли свойство встроенным или пользовательским.      -Ли свойство должно быть сохранено с ключом.       Эти параметры должны соответствовать значение, которое было задано для свойства, или свойство не найдено.       <xref:System.Security.Cryptography.CryptographicException>возникает, если не удается найти свойство.</xref:System.Security.Cryptography.CryptographicException> Необходимо вызвать <xref:System.Security.Cryptography.CngKey.HasProperty%2A>вызов метода, чтобы избежать исключения вместо вокруг метода `try/catch` блока.</xref:System.Security.Cryptography.CngKey.HasProperty%2A>"
   syntax:
     content: public System.Security.Cryptography.CngProperty GetProperty (string name, System.Security.Cryptography.CngPropertyOptions options);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the desired property."
+      description: "Имя нужного свойства."
     - id: options
       type: System.Security.Cryptography.CngPropertyOptions
-      description: "A bitwise combination of the enumeration values that specify options for the named property."
+      description: "Побитовое сочетание значений перечисления, определяющих параметры именованного свойства."
     return:
       type: System.Security.Cryptography.CngProperty
-      description: "An object that contains the raw value of the specified property."
+      description: "Объект, содержащий необработанное значение указанного свойства."
   overload: System.Security.Cryptography.CngKey.GetProperty*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Handle
@@ -482,13 +482,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets a safe handle that represents a native key (NCRYPT_KEY_HANDLE)."
-  remarks: "The returned handle is a duplicate of the handle in the current <xref:System.Security.Cryptography.CngKey> object. It will persist even if the current <xref:System.Security.Cryptography.CngKey> is disposed, and must be disposed of separately.       You can release the current object and the handle in any order without any adverse effects."
+  summary: "Возвращает безопасный дескриптор, представляющий собственный ключ (NCRYPT_KEY_HANDLE)."
+  remarks: "Возвращенный дескриптор является копией дескриптора в текущем <xref:System.Security.Cryptography.CngKey>объекта.</xref:System.Security.Cryptography.CngKey> Будет сохраняться даже в том случае, если текущий <xref:System.Security.Cryptography.CngKey>удаляется и следует уничтожать по-отдельности.</xref:System.Security.Cryptography.CngKey>       Можно освободить текущий объект и дескриптор в любом порядке, без каких-либо последствий."
   syntax:
     content: public Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle Handle { get; }
     return:
       type: Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle
-      description: "A safe handle that represents the key."
+      description: "Безопасный дескриптор, представляющий ключ."
   overload: System.Security.Cryptography.CngKey.Handle*
   exceptions: []
   platform:
@@ -505,25 +505,25 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Checks to see whether the specified property exists on the key."
-  remarks: "The `options` parameter is specifically used to indicate the following:      -   Whether the property is built-in, or custom.      -   Whether the property should be persisted with the key.       These options must match the value that the property was set with, or the property will not be found.       This method operates correctly even if the property is set to `false` or zero."
+  summary: "Проверяет, существует ли указанное свойство ключа."
+  remarks: "`options` Параметра используется специально для указывает следующее: - является ли свойство встроенным или пользовательским.      -Ли свойство должно быть сохранено с ключом.       Эти параметры должны соответствовать значение, которое было задано для свойства, или свойство не найдено.       Этот метод работает правильно, даже если свойство имеет значение `false` или ноль."
   syntax:
     content: public bool HasProperty (string name, System.Security.Cryptography.CngPropertyOptions options);
     parameters:
     - id: name
       type: System.String
-      description: "The property name to check."
+      description: "Имя свойства для проверки."
     - id: options
       type: System.Security.Cryptography.CngPropertyOptions
-      description: "A bitwise combination of the enumeration values that specify options for the named property."
+      description: "Побитовое сочетание значений перечисления, определяющих параметры именованного свойства."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified property is found; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если указанное свойство найдено; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.CngKey.HasProperty*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Import(System.Byte[],System.Security.Cryptography.CngKeyBlobFormat)
@@ -538,31 +538,31 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Creates a new key by importing the specified key material into the default key storage provider (KSP) and using the specified format."
-  remarks: "The default KSP is <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>.      > [!IMPORTANT] >  On Windows operating systems before Windows 7 and Windows Server 2008 R2, some CNG key binary large object (BLOB) formats are not supported."
+  summary: "Создает новый ключ путем импорта заданных сведений о ключе в поставщика хранилища ключей (KSP) по умолчанию и с использованием указанного формата."
+  remarks: "Значение по умолчанию KSP — <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>.</xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>      Настроек [!IMPORTANT] настроек для операционных систем Windows до Windows 7 и Windows Server 2008 R2, некоторые форматы CNG ключа больших двоичных объектов (BLOB) не поддерживаются."
   syntax:
     content: public static System.Security.Cryptography.CngKey Import (byte[] keyBlob, System.Security.Cryptography.CngKeyBlobFormat format);
     parameters:
     - id: keyBlob
       type: System.Byte[]
-      description: "An array that contains the key information."
+      description: "Массив, содержащий ключевые сведения."
     - id: format
       type: System.Security.Cryptography.CngKeyBlobFormat
-      description: "An object that specifies the format of the `keyBlob` array."
+      description: "Объект, задающий формат `keyBlob` массива."
     return:
       type: System.Security.Cryptography.CngKey
-      description: "A new key."
+      description: "Новый ключ."
   overload: System.Security.Cryptography.CngKey.Import*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyBlob</code> or <code>format</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyBlob</code>or <code>format</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "Cryptography Next Generation (CNG) is not supported on this system."
+    description: "Криптография следующего поколения (CNG) не поддерживается в этой системе."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Import(System.Byte[],System.Security.Cryptography.CngKeyBlobFormat,System.Security.Cryptography.CngProvider)
@@ -577,7 +577,7 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Creates a new key by importing the specified key material into the specified key storage provider (KSP), using the specified format."
+  summary: "Создает новый ключ путем импорта заданных сведений о ключе в заданном поставщике хранилища ключей (KSP), используя указанный формат."
   remarks: >-
     > [!IMPORTANT]
 
@@ -587,16 +587,16 @@ items:
     parameters:
     - id: keyBlob
       type: System.Byte[]
-      description: "An array that contains the key information."
+      description: "Массив, содержащий ключевые сведения."
     - id: format
       type: System.Security.Cryptography.CngKeyBlobFormat
-      description: "An object that specifies the format of the `keyBlob` array."
+      description: "Объект, задающий формат `keyBlob` массива."
     - id: provider
       type: System.Security.Cryptography.CngProvider
-      description: "The KSP."
+      description: "KSP."
     return:
       type: System.Security.Cryptography.CngKey
-      description: "A new key."
+      description: "Новый ключ."
   overload: System.Security.Cryptography.CngKey.Import*
   exceptions:
   - type: System.ArgumentNullException
@@ -604,10 +604,10 @@ items:
     description: "<code>keyBlob</code>, <code>format</code>, or <code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "Cryptography Next Generation (CNG) is not supported on this system."
+    description: "Криптография следующего поколения (CNG) не поддерживается в этой системе."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.IsEphemeral
@@ -622,13 +622,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the persistence state of the key."
-  remarks: "This property determines whether the key is ephemeral (that is, the key exists only for the lifetime of the handle), or persisted (that is, the key exists independently of the handle).       The return value depends on the method that is used to obtain the key:      -   If the key was not opened by the <xref:System.Security.Cryptography.CngKey.Open%28Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle%2CSystem.Security.Cryptography.CngKeyHandleOpenOptions%29> method overload, the common language runtime (CLR) is managing the key and can determine whether it is ephemeral.      -   If the key was opened by the <xref:System.Security.Cryptography.CngKey.Open%28Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle%2CSystem.Security.Cryptography.CngKeyHandleOpenOptions%29> method overload, the CLR cannot determine whether it is ephemeral. Therefore, the key is assumed to be persisted. However, if this method is used to open a handle to a key that is created by the CLR, the CLR will be able to determine whether it is ephemeral.       This property does not have a public setter; it is read-only."
+  summary: "Получает состояние сохраняемости ключа."
+  remarks: "Это свойство определяет, является ли ключ эфемерным (то есть, ключ существует только в течение времени существования дескриптора), или сохранять (то есть, ключ существует независимо от дескриптора).       Возвращаемое значение зависит от метода, который используется для получения ключа: - Если ключ не был открыт с <xref:System.Security.Cryptography.CngKey.Open%28Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle%2CSystem.Security.Cryptography.CngKeyHandleOpenOptions%29>перегруженный метод общеязыковой среды выполнения (CLR) управляет ключ и можно определить, является ли он эфемерных.</xref:System.Security.Cryptography.CngKey.Open%28Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle%2CSystem.Security.Cryptography.CngKeyHandleOpenOptions%29>      -Если ключ был открыт <xref:System.Security.Cryptography.CngKey.Open%28Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle%2CSystem.Security.Cryptography.CngKeyHandleOpenOptions%29>перегрузку метода, среда CLR не может определить, является ли эфемерных.</xref:System.Security.Cryptography.CngKey.Open%28Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle%2CSystem.Security.Cryptography.CngKeyHandleOpenOptions%29> Таким образом ключ предполагается будет сохраняться. Тем не менее если этот метод используется для открытия дескриптора ключа, созданного средой CLR, среда CLR будет возможность определить, является ли эфемерных.       Это свойство не имеет общедоступного метода задания свойств; он доступен только для чтения."
   syntax:
     content: public bool IsEphemeral { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the key is ephemeral; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если ключ является эфемерным; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.CngKey.IsEphemeral*
   exceptions: []
   platform:
@@ -645,12 +645,12 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the scope (machine or user) of the key."
+  summary: "Возвращает область (компьютер или пользователя) ключа."
   syntax:
     content: public bool IsMachineKey { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the key is available on a machine-wide basis; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the key is only for the current user."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если он доступен для всех пользователей компьютера; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Если ключ только для текущего пользователя."
   overload: System.Security.Cryptography.CngKey.IsMachineKey*
   exceptions: []
   platform:
@@ -667,12 +667,12 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the name of the key."
+  summary: "Возвращает имя ключа."
   syntax:
     content: public string KeyName { get; }
     return:
       type: System.String
-      description: "The name of the key. If the key is ephemeral, the value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Имя ключа. Если ключ является эфемерным, это значение равно <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.CngKey.KeyName*
   exceptions: []
   platform:
@@ -689,12 +689,12 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the key size in bits."
+  summary: "Получает размер ключа в битах."
   syntax:
     content: public int KeySize { get; }
     return:
       type: System.Int32
-      description: "The key size in bits."
+      description: "Размер ключа в битах."
   overload: System.Security.Cryptography.CngKey.KeySize*
   exceptions: []
   platform:
@@ -711,12 +711,12 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the cryptographic operations specified by the key."
+  summary: "Получает криптографические операции, указанный ключом."
   syntax:
     content: public System.Security.Cryptography.CngKeyUsages KeyUsage { get; }
     return:
       type: System.Security.Cryptography.CngKeyUsages
-      description: "A bitwise combination of the enumeration values that specify the usages allowed for the key."
+      description: "Побитовое сочетание значений перечисления, указывающих их использование, допустимое для ключа."
   overload: System.Security.Cryptography.CngKey.KeyUsage*
   exceptions: []
   platform:
@@ -733,28 +733,28 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Creates an instance of an <xref href=&quot;System.Security.Cryptography.CngKey&quot;></xref> object that represents an existing named key."
-  remarks: "This overload uses the following defaults:      -   Key storage provider (KSP): <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>. Use the <xref:System.Security.Cryptography.CngKey.Open%28System.String%2CSystem.Security.Cryptography.CngProvider%29> overload if you want to specify another KSP.      -   Key open options: <xref:System.Security.Cryptography.CngKeyOpenOptions?displayProperty=fullName>."
+  summary: "Создает экземпляр <xref href=&quot;System.Security.Cryptography.CngKey&quot;> </xref> объект, который представляет существующий именованный ключ."
+  remarks: "Эта перегрузка использует следующие значения по умолчанию:-поставщик хранилища ключей (KSP): <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>.</xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A> Используйте <xref:System.Security.Cryptography.CngKey.Open%28System.String%2CSystem.Security.Cryptography.CngProvider%29>перегрузки, если вы хотите указать другой KSP.</xref:System.Security.Cryptography.CngKey.Open%28System.String%2CSystem.Security.Cryptography.CngProvider%29>      -Откройте параметры ключей: <xref:System.Security.Cryptography.CngKeyOpenOptions?displayProperty=fullName>.</xref:System.Security.Cryptography.CngKeyOpenOptions?displayProperty=fullName>"
   syntax:
     content: public static System.Security.Cryptography.CngKey Open (string keyName);
     parameters:
     - id: keyName
       type: System.String
-      description: "The name of the key."
+      description: "Имя ключа."
     return:
       type: System.Security.Cryptography.CngKey
-      description: "An existing key."
+      description: "Существующий ключ."
   overload: System.Security.Cryptography.CngKey.Open*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "Cryptography Next Generation (CNG) is not supported on this system."
+    description: "Криптография следующего поколения (CNG) не поддерживается в этой системе."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Open(Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle,System.Security.Cryptography.CngKeyHandleOpenOptions)
@@ -769,34 +769,34 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Creates an instance of an <xref href=&quot;System.Security.Cryptography.CngKey&quot;></xref> object by using a handle to an existing key."
-  remarks: "This overload enables advanced users to use the CNG classes even if they rely on platform invoke or the managed interop capability of C++. For example, if you have a native library that returns the key as an NCRYPT_KEY_HANDLE, this overload lets you create a managed wrapper around the key and use the CNG classes to manipulate it.       When you open a key by using its handle, you cannot determine the key&quot;s ephemeral state and must specify it yourself. Several properties of the <xref:System.Security.Cryptography.CngKey> class rely on this value to be correct. Therefore, make sure that you pass the correct flag value to the <xref:System.Security.Cryptography.CngKey.Open%2A> methods."
+  summary: "Создает экземпляр <xref href=&quot;System.Security.Cryptography.CngKey&quot;> </xref> , используя дескриптор существующего ключа."
+  remarks: "Эта перегрузка позволяет опытным пользователям с помощью классов CNG, даже если они полагаются на платформе invoke или возможностей управляемого взаимодействия C++. Например при наличии собственной библиотеки, возвращающей ключ в виде NCRYPT_KEY_HANDLE Эта перегрузка позволяет создать управляемую оболочку ключа и использовать классы CNG, чтобы управлять ими.       При открытии ключа с помощью дескриптора, вам не удается определить состояние постоянства ключа и необходимо указать его самостоятельно. Несколько свойств <xref:System.Security.Cryptography.CngKey>класс полагаться на это значение правильно.</xref:System.Security.Cryptography.CngKey> Таким образом, чтобы убедиться, что передается правильный флаг значение <xref:System.Security.Cryptography.CngKey.Open%2A>методы.</xref:System.Security.Cryptography.CngKey.Open%2A>"
   syntax:
     content: public static System.Security.Cryptography.CngKey Open (Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle keyHandle, System.Security.Cryptography.CngKeyHandleOpenOptions keyHandleOpenOptions);
     parameters:
     - id: keyHandle
       type: Microsoft.Win32.SafeHandles.SafeNCryptKeyHandle
-      description: "A handle to an existing key."
+      description: "Дескриптор существующего ключа."
     - id: keyHandleOpenOptions
       type: System.Security.Cryptography.CngKeyHandleOpenOptions
-      description: "One of the enumeration values that indicates whether `keyHandle` represents an ephemeral key or a named key."
+      description: "Одно из значений перечисления, указывающее, является ли `keyHandle` представляет эфемерный ключ или именованный ключ."
     return:
       type: System.Security.Cryptography.CngKey
-      description: "An existing key."
+      description: "Существующий ключ."
   overload: System.Security.Cryptography.CngKey.Open*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyHandle</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyHandle</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>keyHandle</code> is invalid or malformed, or it is already closed. This exception is also thrown if the key is an ephemeral key that is created by the common language runtime (CLR), but the <xref href=&quot;System.Security.Cryptography.CngKeyHandleOpenOptions&quot;></xref> value is not specified."
+    description: "<code>keyHandle</code>является недопустимым или имеет неправильный формат, или он уже закрыт. Это исключение также возникает, если ключ эфемерный ключ, созданный общеязыковой среды выполнения (CLR), но <xref href=&quot;System.Security.Cryptography.CngKeyHandleOpenOptions&quot;> </xref> значение не указано."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "Cryptography Next Generation (CNG) is not supported on this system."
+    description: "Криптография следующего поколения (CNG) не поддерживается в этой системе."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Open(System.String,System.Security.Cryptography.CngProvider)
@@ -811,31 +811,31 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Creates an instance of an <xref href=&quot;System.Security.Cryptography.CngKey&quot;></xref> object that represents an existing named key, using the specified key storage provider (KSP)."
-  remarks: "Unlike the <xref:System.Security.Cryptography.CngKey.Open%28System.String%29> method overload, this overload lets you specify the provider. In addition, a default <xref:System.Security.Cryptography.CngKeyOpenOptions> value of <xref:System.Security.Cryptography.CngKeyOpenOptions> is created and bound to the key."
+  summary: "Создает экземпляр <xref href=&quot;System.Security.Cryptography.CngKey&quot;> </xref> объект, который представляет существующий именованный ключ, используя заданном поставщике хранилища ключей (KSP)."
+  remarks: "В отличие от <xref:System.Security.Cryptography.CngKey.Open%28System.String%29>перегрузка метода Эта перегрузка позволяет указать поставщика.</xref:System.Security.Cryptography.CngKey.Open%28System.String%29> Кроме того, значение по умолчанию <xref:System.Security.Cryptography.CngKeyOpenOptions>значение <xref:System.Security.Cryptography.CngKeyOpenOptions>создается и связанного с ключом.</xref:System.Security.Cryptography.CngKeyOpenOptions> </xref:System.Security.Cryptography.CngKeyOpenOptions>"
   syntax:
     content: public static System.Security.Cryptography.CngKey Open (string keyName, System.Security.Cryptography.CngProvider provider);
     parameters:
     - id: keyName
       type: System.String
-      description: "The name of the key."
+      description: "Имя ключа."
     - id: provider
       type: System.Security.Cryptography.CngProvider
-      description: "The KSP that contains the key."
+      description: "KSP, содержащий ключ."
     return:
       type: System.Security.Cryptography.CngKey
-      description: "An existing key."
+      description: "Существующий ключ."
   overload: System.Security.Cryptography.CngKey.Open*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyName</code> or <code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyName</code>or <code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "Cryptography Next Generation (CNG) is not supported on this system."
+    description: "Криптография следующего поколения (CNG) не поддерживается в этой системе."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.Open(System.String,System.Security.Cryptography.CngProvider,System.Security.Cryptography.CngKeyOpenOptions)
@@ -850,34 +850,34 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Creates an instance of an <xref href=&quot;System.Security.Cryptography.CngKey&quot;></xref> object that represents an existing named key, using the specified key storage provider (KSP) and key open options."
-  remarks: "Unlike the <xref:System.Security.Cryptography.CngKey.Open%28System.String%29> method overload, this overload lets you specify both the provider and the key open options."
+  summary: "Создает экземпляр <xref href=&quot;System.Security.Cryptography.CngKey&quot;> </xref> объект, который представляет существующий именованный ключ, используя заданном поставщике хранилища ключей (KSP) и параметры открытия ключа."
+  remarks: "В отличие от <xref:System.Security.Cryptography.CngKey.Open%28System.String%29>перегрузка метода Эта перегрузка позволяет указать поставщика и ключ откройте параметры.</xref:System.Security.Cryptography.CngKey.Open%28System.String%29>"
   syntax:
     content: public static System.Security.Cryptography.CngKey Open (string keyName, System.Security.Cryptography.CngProvider provider, System.Security.Cryptography.CngKeyOpenOptions openOptions);
     parameters:
     - id: keyName
       type: System.String
-      description: "The name of the key."
+      description: "Имя ключа."
     - id: provider
       type: System.Security.Cryptography.CngProvider
-      description: "The KSP that contains the key."
+      description: "KSP, содержащий ключ."
     - id: openOptions
       type: System.Security.Cryptography.CngKeyOpenOptions
-      description: "A bitwise combination of the enumeration values that specify options for opening the key, such as where the key is opened from (machine or user storage) and whether to suppress UI prompting."
+      description: "Побитовое сочетание значений перечисления, определяющих параметры открытия ключа, например когда открытия ключа (хранилище компьютера или пользователя) и следует ли блокировать запросы пользовательского интерфейса."
     return:
       type: System.Security.Cryptography.CngKey
-      description: "An existing key."
+      description: "Существующий ключ."
   overload: System.Security.Cryptography.CngKey.Open*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyName</code> or <code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyName</code>or <code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "Cryptography Next Generation (CNG) is not supported on this system."
+    description: "Криптография следующего поколения (CNG) не поддерживается в этой системе."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "All other errors."
+    description: "Все остальные ошибки."
   platform:
   - net462
 - uid: System.Security.Cryptography.CngKey.ParentWindowHandle
@@ -892,13 +892,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets or sets the window handle (HWND) that should be used for user interface (UI) prompts caused by accessing the key."
-  remarks: "The parent window handle for the key is used in UI prompts, such as smart card PIN prompts. This value is not persisted with persisted keys.       We recommend that you always set this property for keys that display a user interface. Do not use the default value of `null` for such keys."
+  summary: "Возвращает или задает дескриптор окна (HWND), который должен использоваться для пользовательского интерфейса к пользователю при доступе к разделу."
+  remarks: "Дескриптор родительского окна для ключа используется в запросах пользовательского интерфейса, таких как смарт-карты ПИН-код будет предложено. Это значение не сохраняется с постоянными ключами.       Рекомендуется всегда устанавливать это свойство для ключей, которые отображают пользовательский интерфейс. Не используйте значение по умолчанию `null` для таких ключей."
   syntax:
     content: public IntPtr ParentWindowHandle { get; set; }
     return:
       type: System.IntPtr
-      description: "The parent window handle for the key."
+      description: "Дескриптор родительского окна для ключа."
   overload: System.Security.Cryptography.CngKey.ParentWindowHandle*
   exceptions: []
   platform:
@@ -915,12 +915,12 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the key storage provider (KSP) that manages the key."
+  summary: "Получает поставщик хранилища ключей (KSP), который управляет ключ."
   syntax:
     content: public System.Security.Cryptography.CngProvider Provider { get; }
     return:
       type: System.Security.Cryptography.CngProvider
-      description: "The KSP that manages the key."
+      description: "KSP, управляющий ключом."
   overload: System.Security.Cryptography.CngKey.Provider*
   exceptions: []
   platform:
@@ -937,13 +937,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets a native handle (an NCRYPT_PROV_HANDLE) to the key storage provider (KSP)."
-  remarks: "The returned handle is a duplicate of the handle in the current <xref:System.Security.Cryptography.CngKey> object. It will persist even if the current <xref:System.Security.Cryptography.CngKey> is disposed, and must be disposed of separately.       You can release the current object and the handle in any order without any adverse effects."
+  summary: "Получает собственный дескриптор (NCRYPT_PROV_HANDLE) в поставщик хранилища ключей (KSP)."
+  remarks: "Возвращенный дескриптор является копией дескриптора в текущем <xref:System.Security.Cryptography.CngKey>объекта.</xref:System.Security.Cryptography.CngKey> Будет сохраняться даже в том случае, если текущий <xref:System.Security.Cryptography.CngKey>удаляется и следует уничтожать по-отдельности.</xref:System.Security.Cryptography.CngKey>       Можно освободить текущий объект и дескриптор в любом порядке, без каких-либо последствий."
   syntax:
     content: public Microsoft.Win32.SafeHandles.SafeNCryptProviderHandle ProviderHandle { get; }
     return:
       type: Microsoft.Win32.SafeHandles.SafeNCryptProviderHandle
-      description: "A handle to the KSP."
+      description: "Дескриптор KSP."
   overload: System.Security.Cryptography.CngKey.ProviderHandle*
   exceptions: []
   platform:
@@ -960,14 +960,14 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Sets a named property on the key."
-  remarks: "This method enables you to add a new custom property to an existing key by using a <xref:System.Security.Cryptography.CngProperty> object. The options set on the <xref:System.Security.Cryptography.CngProperty> object must exactly match the options in the <xref:System.Security.Cryptography.CngKey.GetProperty%2A> call. Otherwise, the property will not be found."
+  summary: "Задает именованное свойство ключа."
+  remarks: "Этот метод позволяет добавить новое пользовательское свойство с помощью существующего ключа <xref:System.Security.Cryptography.CngProperty>объекта.</xref:System.Security.Cryptography.CngProperty> Параметры, заданные на <xref:System.Security.Cryptography.CngProperty>объекта должно точно соответствовать возможности <xref:System.Security.Cryptography.CngKey.GetProperty%2A>вызовите.</xref:System.Security.Cryptography.CngKey.GetProperty%2A> </xref:System.Security.Cryptography.CngProperty> В противном случае свойство найдено не будет."
   syntax:
     content: public void SetProperty (System.Security.Cryptography.CngProperty property);
     parameters:
     - id: property
       type: System.Security.Cryptography.CngProperty
-      description: "The key property to set."
+      description: "Свойство ключа."
   overload: System.Security.Cryptography.CngKey.SetProperty*
   exceptions: []
   platform:
@@ -984,13 +984,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets parameters that control the user interface (UI) for accessing the key."
-  remarks: "The key UI policy is used with UI prompts such as smart card PIN prompts. This policy also controls password dialog boxes for protected keys."
+  summary: "Получает параметры, управляющие пользовательский интерфейс (UI) для доступа к разделу."
+  remarks: "Политика пользовательского интерфейса для ключа используется с запросах пользовательского интерфейса, таких как запрос ПИН-кода смарт-карты. Эта политика также управляет окнами ввода пароля для защищенных ключей."
   syntax:
     content: public System.Security.Cryptography.CngUIPolicy UIPolicy { get; }
     return:
       type: System.Security.Cryptography.CngUIPolicy
-      description: "An object that contains configuration parameters for displaying the UI."
+      description: "Объект, содержащий параметры конфигурации для отображения пользовательского интерфейса."
   overload: System.Security.Cryptography.CngKey.UIPolicy*
   exceptions: []
   platform:
@@ -1007,13 +1007,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the unique name for the key."
-  remarks: "This property gets an alternate name that can be used when accessing the key. You can use this property if the original key name does not uniquely identify the persisted key. The <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A> property will return the file name of the key as this property. The name returned by the <xref:System.Security.Cryptography.CngProvider.MicrosoftSmartCardKeyStorageProvider%2A> is implementation-dependent."
+  summary: "Возвращает уникальное имя для ключа."
+  remarks: "Это свойство получает альтернативное имя, которое может использоваться при доступе к ключу. Это свойство можно использовать, если исходное имя ключа не определяет уникально постоянного ключа. <xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A>Свойство будет возвращать имя файла ключа в качестве этого свойства.</xref:System.Security.Cryptography.CngProvider.MicrosoftSoftwareKeyStorageProvider%2A> Имя, возвращенное <xref:System.Security.Cryptography.CngProvider.MicrosoftSmartCardKeyStorageProvider%2A>зависит от реализации.</xref:System.Security.Cryptography.CngProvider.MicrosoftSmartCardKeyStorageProvider%2A>"
   syntax:
     content: public string UniqueName { get; }
     return:
       type: System.String
-      description: "An alternate name for the key. If the key is ephemeral, the value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Альтернативное имя для ключа. Если ключ является эфемерным, это значение равно <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.CngKey.UniqueName*
   exceptions: []
   platform:

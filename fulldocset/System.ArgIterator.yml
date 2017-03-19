@@ -18,8 +18,8 @@ items:
   nameWithType: ArgIterator
   fullName: System.ArgIterator
   type: Struct
-  summary: "Represents a variable-length argument list; that is, the parameters of a function that takes a variable number of arguments."
-  remarks: "Developers who write compilers use the ArgIterator structure to enumerate the mandatory and optional arguments in an argument list. The ArgIterator structure is not generally useful for applications other than compilers.       The functionality in the ArgIterator structure is typically hidden in the syntax of a specific programming language. For example, in the C++ programming language you declare a variable-length argument list by specifying an ellipsis (&quot;...&quot;) at the end of the argument list. The ArgIterator structure is useful primarily when a development language does not provide direct support for accessing variable-length parameters."
+  summary: "Предоставляет список аргументов переменной длины. то есть параметры функции, принимающий переменное число аргументов."
+  remarks: "Разработчики компиляторов структуры ArgIterator использовать для перечисления обязательных и необязательных аргументов в списке аргументов. Структура ArgIterator обычно не имеет смысла для приложений, отличных от компиляторов.       Функциональные возможности в структуре ArgIterator обычно скрыты в синтаксисе конкретного языка программирования. Например в язык программирования с ++ список аргументов переменной длины объявляется путем добавления многоточия («...») в конце списка аргументов. Структура ArgIterator удобен в основном языке разработки не поддерживает прямой доступ к параметрам переменной длины."
   syntax:
     content: public struct ArgIterator
   inheritance:
@@ -39,14 +39,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Initializes a new instance of the <xref href=&quot;System.ArgIterator&quot;></xref> structure using the specified argument list."
-  remarks: "The new <xref:System.ArgIterator> object enumerates the argument list starting from the first optional argument."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ArgIterator&quot;> </xref> структуры с помощью списка аргументов."
+  remarks: "Новый <xref:System.ArgIterator>объект выполняет перебор списка аргументов, начиная с первого необязательного аргумента.</xref:System.ArgIterator>"
   syntax:
     content: public ArgIterator (RuntimeArgumentHandle arglist);
     parameters:
     - id: arglist
       type: System.RuntimeArgumentHandle
-      description: "An argument list consisting of mandatory and optional arguments."
+      description: "Список, состоящий из обязательных и необязательных аргументов."
   overload: System.ArgIterator.#ctor*
   exceptions: []
   platform:
@@ -63,17 +63,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Initializes a new instance of the <xref href=&quot;System.ArgIterator&quot;></xref> structure using the specified argument list and a pointer to an item in the list."
-  remarks: "The new <xref:System.ArgIterator> object enumerates the argument list starting from the argument specified by `ptr`, or the first mandatory argument if `ptr` is `null`."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ArgIterator&quot;> </xref> структуры с помощью указанного списка аргументов и указатель на элемент в списке."
+  remarks: "Новый <xref:System.ArgIterator>объект выполняет перебор списка аргументов, начиная с аргумента, определяемого параметром `ptr`, или первый обязательный аргумент Если `ptr` — `null`.</xref:System.ArgIterator>"
   syntax:
     content: public ArgIterator (RuntimeArgumentHandle arglist, void* ptr);
     parameters:
     - id: arglist
       type: System.RuntimeArgumentHandle
-      description: "An argument list consisting of mandatory and optional arguments."
+      description: "Список, состоящий из обязательных и необязательных аргументов."
     - id: ptr
       type: System.Void*
-      description: "A pointer to the argument in `arglist` to access first, or the first mandatory argument in `arglist` if `ptr` is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Указатель на аргумент в `arglist` для доступа к первой или первый обязательный аргумент в `arglist` Если `ptr` — <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.ArgIterator.#ctor*
   exceptions: []
   platform:
@@ -90,8 +90,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Concludes processing of the variable-length argument list represented by this instance."
-  remarks: "Conceptually, End concludes the processing of a variable-length argument list. However, this method has no actual implementation; the End method body is empty. You can use this method in your code as a marker to indicate where variable-length argument list processing logically ends.       The End method corresponds to the `va_end` method in the C standard library."
+  summary: "Завершает обработку списка аргументов переменной длины, представленной этим экземпляром."
+  remarks: "По существу конец завершает обработку на список аргументов переменной длины. Однако этот метод не имеет фактические реализации; тело метода End пуст. Этот метод можно использовать в коде как маркер, чтобы указать, где заканчивается логически обработка списка аргументов переменной длины.       Метод End соответствует `va_end` метод в стандартной библиотеке C."
   syntax:
     content: public void End ();
     parameters: []
@@ -111,21 +111,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "This method is not supported, and always throws <xref:System.NotSupportedException>."
+  summary: "Этот метод не поддерживается и всегда создает исключение <xref:System.NotSupportedException>.</xref:System.NotSupportedException>"
   syntax:
     content: public override bool Equals (object o);
     parameters:
     - id: o
       type: System.Object
-      description: "An object to be compared to this instance."
+      description: "Объект для сравнения с данным экземпляром."
     return:
       type: System.Boolean
-      description: "This comparison is not supported. No value is returned."
+      description: "Это сравнение не поддерживается. Возвращаемое значение отсутствует."
   overload: System.ArgIterator.Equals*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This method is not supported."
+    description: "Этот метод не поддерживается."
   platform:
   - net462
 - uid: System.ArgIterator.GetHashCode
@@ -140,13 +140,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Returns the hash code of this object."
+  summary: "Возвращает хэш-код данного объекта."
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "A 32-bit signed integer hash code."
+      description: "Хэш-код 32-разрядное целое число со знаком."
   overload: System.ArgIterator.GetHashCode*
   exceptions: []
   platform:
@@ -163,19 +163,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Returns the next argument in a variable-length argument list."
-  remarks: "The iterator is automatically advanced to the next argument."
+  summary: "Возвращает следующий аргумент из списка аргументов переменной длины."
+  remarks: "Итератор автоматически переходит на следующий аргумент."
   syntax:
     content: public TypedReference GetNextArg ();
     parameters: []
     return:
       type: System.TypedReference
-      description: "The next argument as a <xref href=&quot;System.TypedReference&quot;></xref> object."
+      description: "Следующий аргумент как <xref href=&quot;System.TypedReference&quot;> </xref> объекта."
   overload: System.ArgIterator.GetNextArg*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt was made to read beyond the end of the list."
+    description: "Попытка чтения после окончания списка."
   platform:
   - net462
 - uid: System.ArgIterator.GetNextArg(System.RuntimeTypeHandle)
@@ -190,25 +190,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Returns the next argument in a variable-length argument list that has a specified type."
-  remarks: "The iterator is automatically advanced to the next argument."
+  summary: "Возвращает следующий аргумент из списка аргументов переменной длины, который имеет указанный тип."
+  remarks: "Итератор автоматически переходит на следующий аргумент."
   syntax:
     content: public TypedReference GetNextArg (RuntimeTypeHandle rth);
     parameters:
     - id: rth
       type: System.RuntimeTypeHandle
-      description: "A runtime type handle that identifies the type of the argument to retrieve."
+      description: "Дескриптор типа среды выполнения, определяющий тип аргумента для извлечения."
     return:
       type: System.TypedReference
-      description: "The next argument as a <xref href=&quot;System.TypedReference&quot;></xref> object."
+      description: "Следующий аргумент как <xref href=&quot;System.TypedReference&quot;> </xref> объекта."
   overload: System.ArgIterator.GetNextArg*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt was made to read beyond the end of the list."
+    description: "Попытка чтения после окончания списка."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The pointer to the remaining arguments is zero."
+    description: "Указатель на остальные аргументы равен нулю."
   platform:
   - net462
 - uid: System.ArgIterator.GetNextArgType
@@ -223,14 +223,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Returns the type of the next argument."
-  remarks: "This method does not advance the iterator to the next argument.       GetNextArgType returns the type of the argument as specified in the calling function. For example, if an argument is type <xref:System.String>, but the calling function specifies the argument as type <xref:System.Object>, GetNextArgType reports the argument as type <xref:System.Object>."
+  summary: "Возвращает тип следующего аргумента."
+  remarks: "Этот метод не перемещает итератор на следующий аргумент.       GetNextArgType возвращает тип аргумента, как указано в вызывающей функции. Например, если аргумент имеет тип <xref:System.String>, однако вызывающая функция задает аргумент, как тип <xref:System.Object>, GetNextArgType сообщает аргумента в качестве типа <xref:System.Object>.</xref:System.Object> </xref:System.Object> </xref:System.String>"
   syntax:
     content: public RuntimeTypeHandle GetNextArgType ();
     parameters: []
     return:
       type: System.RuntimeTypeHandle
-      description: "The type of the next argument."
+      description: "Тип следующего аргумента."
   overload: System.ArgIterator.GetNextArgType*
   exceptions: []
   platform:
@@ -247,13 +247,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Returns the number of arguments remaining in the argument list."
+  summary: "Возвращает количество оставшихся аргументов в списке аргументов."
   syntax:
     content: public int GetRemainingCount ();
     parameters: []
     return:
       type: System.Int32
-      description: "The number of remaining arguments."
+      description: "Число оставшихся аргументов."
   overload: System.ArgIterator.GetRemainingCount*
   exceptions: []
   platform:

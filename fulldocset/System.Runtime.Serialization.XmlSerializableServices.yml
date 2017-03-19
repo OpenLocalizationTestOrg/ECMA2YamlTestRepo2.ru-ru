@@ -12,8 +12,8 @@ items:
   nameWithType: XmlSerializableServices
   fullName: System.Runtime.Serialization.XmlSerializableServices
   type: Class
-  summary: "Contains methods for reading and writing XML."
-  remarks: "Using [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)], you can generate CLR types representing data contracts from XML schemas. In certain cases when doing so, the schemas may not all be represented as data contracts. In this case, you can use the <xref:System.Runtime.Serialization.ImportOptions.ImportXmlType%2A> property of the <xref:System.Runtime.Serialization.ImportOptions> class.  Setting the property to `true` specifies that these types are imported as XML types that implement the <xref:System.Xml.Serialization.IXmlSerializable> interface. In the process, the generated types can store anything, but they are read and written as XML by the serializer.       The XmlSerializableServices is an abstract helper class that contains code that is used by the generated <xref:System.Xml.Serialization.IXmlSerializable> types to read and write XML. It also contains code for generating schema for the generated types. Note that details about the schemas are not stored. Only the name is stored in the generated type. This class generates a default schema that represents the XML schema type `anyType` with the appropriate schema type name as the contract name."
+  summary: "Содержит методы для чтения и записи XML."
+  remarks: "С помощью [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)], можно создавать типы CLR, представляющие контракты данных из XML-схем. В некоторых случаях при этом схемы не все можно представить как контракты данных. В этом случае можно использовать <xref:System.Runtime.Serialization.ImportOptions.ImportXmlType%2A>свойство <xref:System.Runtime.Serialization.ImportOptions>класса.</xref:System.Runtime.Serialization.ImportOptions> </xref:System.Runtime.Serialization.ImportOptions.ImportXmlType%2A>  Свойства `true` указывает, что эти типы будут импортироваться как типы, реализующие XML <xref:System.Xml.Serialization.IXmlSerializable>интерфейса.</xref:System.Xml.Serialization.IXmlSerializable> В процессе создаваемых типов могут храниться любые данные, но они считываются и записываются в формате XML сериализатор.       XmlSerializableServices является абстрактным вспомогательным классом, который содержит код, используемый созданными <xref:System.Xml.Serialization.IXmlSerializable>типы для чтения и записи XML.</xref:System.Xml.Serialization.IXmlSerializable> Он также содержит код для создания схемы для создаваемых типов. Обратите внимание, что сведения о схемах не сохраняются. В создаваемом типе хранится только имя. Этот класс создает схему по умолчанию, который представляет тип схемы XML `anyType` с именем соответствующей схемы типа, что имя контракта."
   syntax:
     content: public static class XmlSerializableServices
   inheritance:
@@ -34,17 +34,17 @@ items:
   assemblies:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
-  summary: "Generates a default schema type given the specified type name and adds it to the specified schema set."
-  remarks: "This method contains code for generating a schema type for a data contract type with the specified type name."
+  summary: "Создает тип схемы по умолчанию, заданного типа с указанным именем и добавляет ее в указанный набор схем."
+  remarks: "Этот метод содержит код для создания типа схемы для типа контракта данных с указанным именем типа."
   syntax:
     content: public static void AddDefaultSchema (System.Xml.Schema.XmlSchemaSet schemas, System.Xml.XmlQualifiedName typeQName);
     parameters:
     - id: schemas
       type: System.Xml.Schema.XmlSchemaSet
-      description: "An <xref href=&quot;System.Xml.Schema.XmlSchemaSet&quot;></xref> to add the generated schema type to."
+      description: "<xref href=&quot;System.Xml.Schema.XmlSchemaSet&quot;> </xref> Добавление созданный тип схемы."
     - id: typeQName
       type: System.Xml.XmlQualifiedName
-      description: "An <xref:System.Xml.XmlQualifiedName> that specifies the type name to assign the schema to."
+      description: "<xref:System.Xml.XmlQualifiedName>, Указывающее имя типа, которому присваивается схема.</xref:System.Xml.XmlQualifiedName>"
   overload: System.Runtime.Serialization.XmlSerializableServices.AddDefaultSchema*
   exceptions:
   - type: System.ArgumentNullException
@@ -64,17 +64,17 @@ items:
   assemblies:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
-  summary: "Reads a set of XML nodes from the specified reader and returns the result."
-  remarks: "This method reads all XML contained within the node the reader is positioned on when this call is made. This enables it to read and store all XML as an array of <xref:System.Xml.XmlNode> objects. It is a helper method used by the types that implement <xref:System.Xml.Serialization.IXmlSerializable> and that use the <xref:System.Xml.Serialization.IXmlSerializable.ReadXml%2A> method."
+  summary: "Считывает набор узлов XML из указанного средства чтения и возвращает результат."
+  remarks: "Этот метод считывает все XML в пределах узла, средство чтения расположено на при вызове. Это позволяет ему считать и сохранить все XML в виде массива <xref:System.Xml.XmlNode>объектов.</xref:System.Xml.XmlNode> Это вспомогательный метод, используемые типами, реализующими <xref:System.Xml.Serialization.IXmlSerializable>и использующие <xref:System.Xml.Serialization.IXmlSerializable.ReadXml%2A>метод.</xref:System.Xml.Serialization.IXmlSerializable.ReadXml%2A> </xref:System.Xml.Serialization.IXmlSerializable>"
   syntax:
     content: public static System.Xml.XmlNode[] ReadNodes (System.Xml.XmlReader xmlReader);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "An <xref:System.Xml.XmlReader> used for reading."
+      description: "<xref:System.Xml.XmlReader>Используется для чтения.</xref:System.Xml.XmlReader>"
     return:
       type: System.Xml.XmlNode[]
-      description: "An array of type <xref href=&quot;System.Xml.XmlNode&quot;></xref>."
+      description: "Массив объектов типа <xref href=&quot;System.Xml.XmlNode&quot;> </xref>."
   overload: System.Runtime.Serialization.XmlSerializableServices.ReadNodes*
   exceptions:
   - type: System.ArgumentNullException
@@ -82,7 +82,7 @@ items:
     description: "The <code>xmlReader</code> argument is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: "While reading, a <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> node was encountered."
+    description: "При считывании <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> был обнаружен узел."
   platform:
   - net462
 - uid: System.Runtime.Serialization.XmlSerializableServices.WriteNodes(System.Xml.XmlWriter,System.Xml.XmlNode[])
@@ -97,16 +97,16 @@ items:
   assemblies:
   - System.Runtime.Serialization
   namespace: System.Runtime.Serialization
-  summary: "Writes the supplied nodes using the specified writer."
+  summary: "Выполняет запись предоставленных узлов с помощью указанного модуля записи."
   syntax:
     content: public static void WriteNodes (System.Xml.XmlWriter xmlWriter, System.Xml.XmlNode[] nodes);
     parameters:
     - id: xmlWriter
       type: System.Xml.XmlWriter
-      description: "An <xref:System.Xml.XmlWriter> used for writing."
+      description: "<xref:System.Xml.XmlWriter>Используется для записи.</xref:System.Xml.XmlWriter>"
     - id: nodes
       type: System.Xml.XmlNode[]
-      description: "An array of type <xref href=&quot;System.Xml.XmlNode&quot;></xref> to write."
+      description: "Массив объектов типа <xref href=&quot;System.Xml.XmlNode&quot;> </xref> для записи."
   overload: System.Runtime.Serialization.XmlSerializableServices.WriteNodes*
   exceptions:
   - type: System.ArgumentNullException

@@ -14,8 +14,8 @@ items:
   nameWithType: CipherMode
   fullName: System.Security.Cryptography.CipherMode
   type: Enum
-  summary: "Specifies the block cipher mode to use for encryption."
-  remarks: "Block cipher algorithms encrypt data in block units, rather than a single byte at a time. The most common block size is 8 bytes. Because each block is heavily processed, block ciphers provide a higher level of security than stream ciphers. However, block cipher algorithms tend to execute more slowly than stream ciphers.       Block ciphers use the same encryption algorithm for each block. Because of this, a block of plain text will always return the same cipher text when encrypted with the same key and algorithm. Because this behavior can be used to crack a cipher, cipher modes are introduced that modify the encryption process based on feedback from earlier block encryptions. The resulting encryption provides a higher level of security than a simple block encryption."
+  summary: "Задает режим блочного шифра для использования при шифровании."
+  remarks: "Алгоритмы блочного шифра шифруют данные в блоке, а не один байт за раз. Самый распространенный размер блока — 8 байт. Поскольку каждый блок подвергается серьезной обработке, блочные шифры обеспечивают более высокий уровень безопасности, чем поточных шифров. Однако алгоритмы блочного шифра, как правило, выполняются медленнее, чем поточных шифров.       Блочные шифры используют один и тот же алгоритм шифрования для каждого блока. По этой причине блока открытого текста всегда будет возвращать тот же зашифрованный текст, если он зашифрован с один и тот же ключ и алгоритм. Так как это поведение может использоваться для взлома шифра, представленные режимы шифров, изменяющие процесс шифрования на основе отзывов ранее зашифрованными блоками. Результат шифрования обеспечивает более высокий уровень безопасности, чем шифрование простой блок."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -37,12 +37,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "The Cipher Block Chaining (<xref uid=&quot;langword_csharp_CBC&quot; name=&quot;CBC&quot; href=&quot;&quot;></xref>) mode introduces feedback. Before each plain text block is encrypted, it is combined with the cipher text of the previous block by a bitwise exclusive OR operation. This ensures that even if the plain text contains many identical blocks, they will each encrypt to a different cipher text block. The initialization vector is combined with the first plain text block by a bitwise exclusive OR operation before the block is encrypted. If a single bit of the cipher text block is mangled, the corresponding plain text block will also be mangled. In addition, a bit in the subsequent block, in the same position as the original mangled bit, will be mangled."
+  summary: "Сцепления блоков шифра (<xref uid=&quot;langword_csharp_CBC&quot; name=&quot;CBC&quot; href=&quot;&quot;></xref>) режим предоставляет обратную связь. Перед шифрованием каждого блока открытого текста он объединяется с зашифрованным текстом предыдущего блока с помощью поразрядной исключающей операции OR. Это гарантирует, что даже если открытый текст содержит большое количество идентичных блоков, они будут шифровании различные блоки зашифрованного текста. Вектор инициализации объединяется с первого блока открытого текста с помощью поразрядной исключающей операции OR до шифрования блока. Если один бит блока зашифрованного текста будет искажен будет изменен и соответствующий блок открытого текста. Кроме того разряда в следующего блока, в той же позиции, что исходный измененный бит будет изменен."
   syntax:
     content: CBC
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -58,12 +58,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "The Cipher Feedback (<xref uid=&quot;langword_csharp_CFB&quot; name=&quot;CFB&quot; href=&quot;&quot;></xref>) mode processes small increments of plain text into cipher text, instead of processing an entire block at a time. This mode uses a shift register that is one block in length and is divided into sections. For example, if the block size is 8 bytes, with one byte processed at a time, the shift register is divided into eight sections. If a bit in the cipher text is mangled, one plain text bit is mangled and the shift register is corrupted. This results in the next several plain text increments being mangled until the bad bit is shifted out of the shift register. The default feedback size can vary by algorithm, but is typically either 8 bits or the number of bits of the block size. You can alter the number of feedback bits by using the <xref:System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize*> property. Algorithms that support CFB use this property to set the feedback."
+  summary: "Обратной связи (<xref uid=&quot;langword_csharp_CFB&quot; name=&quot;CFB&quot; href=&quot;&quot;></xref>) режиме обрабатывает небольшие фрагменты открытого текста в зашифрованный текст, вместо преобразования всего блока одновременно. Этот режим использует регистр сдвига длиной в один блок, разделенный на секции. Например если размер блока — 8 байт побайтовой обрабатываться одновременно, регистр сдвига состоит из восьми секций. Если бит в зашифрованном тексте искажается бит открытого текста будет искажен и регистр сдвига. Это приведет к следующей несколько увеличивает обычного текста изменять, пока поврежденный бит выйдет за пределы регистра сдвига. Размер ответа по умолчанию может зависеть от алгоритма, но обычно 8 бит или количество бит размер блока. Число битов отзыв можно изменить с помощью <xref:System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize*>свойство.</xref:System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize*> Алгоритмы, поддерживающие CFB использовать это свойство для настройки обратной связи."
   syntax:
     content: CFB
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -79,12 +79,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "The Cipher Text Stealing (<xref uid=&quot;langword_csharp_CTS&quot; name=&quot;CTS&quot; href=&quot;&quot;></xref>) mode handles any length of plain text and produces cipher text whose length matches the plain text length. This mode behaves like the <xref uid=&quot;langword_csharp_CBC&quot; name=&quot;CBC&quot; href=&quot;&quot;></xref> mode for all but the last two blocks of the plain text."
+  summary: "Зашифрованного текста (<xref uid=&quot;langword_csharp_CTS&quot; name=&quot;CTS&quot; href=&quot;&quot;></xref>) режиме обрабатывает открытый текст любой длины и создает зашифрованный текст, длина которого совпадает с длиной открытого текста. В этом режиме ведет себя как <xref uid=&quot;langword_csharp_CBC&quot; name=&quot;CBC&quot; href=&quot;&quot;> </xref> режим для всех, но последних двух блоков в виде обычного текста."
   syntax:
     content: CTS
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -100,12 +100,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: 'The Electronic Codebook (<xref uid=&quot;langword_csharp_ECB&quot; name=&quot;ECB&quot; href=&quot;&quot;></xref>) mode encrypts each block individually. Any blocks of plain text that are identical and in the same message, or that are in a different message encrypted with the same key, will be transformed into identical cipher text blocks. **Important**:  This mode is not recommended because it opens the door for multiple security exploits. If the plain text to be encrypted contains substantial repetition, it is feasible for the cipher text to be broken one block at a time. It is also possible to use block analysis to determine the encryption key. Also, an active adversary can substitute and exchange individual blocks without detection, which allows blocks to be saved and inserted into the stream at other points without detection.'
+  summary: 'Электронной кодовой книги (<xref uid=&quot;langword_csharp_ECB&quot; name=&quot;ECB&quot; href=&quot;&quot;></xref>) режиме каждый блок зашифровывается отдельно. Все блоки открытого текста, которые идентичны и в то же сообщение или находятся в разных сообщение, зашифрованное с тем же ключом, преобразуются в идентичные блоки текста шифра. **Важные**: этот режим не рекомендуется, поскольку он создает предпосылки для нескольких уязвимостей безопасности. Если в виде обычного текста, должны шифроваться содержит значительное число повторов, возможна для зашифрованного текста необходимо разделить один блок одновременно. Можно также использовать анализ блоков, чтобы определить ключ шифрования. Кроме того злоумышленник active можно заменить и отдельные блоки обнаружение, позволяющее блоки сохранять и вставляемого в поток в других местах без обнаружения.'
   syntax:
     content: ECB
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -121,12 +121,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "The Output Feedback (<xref uid=&quot;langword_csharp_OFB&quot; name=&quot;OFB&quot; href=&quot;&quot;></xref>) mode processes small increments of plain text into cipher text instead of processing an entire block at a time. This mode is similar to <xref uid=&quot;langword_csharp_CFB&quot; name=&quot;CFB&quot; href=&quot;&quot;></xref>; the only difference between the two modes is the way that the shift register is filled. If a bit in the cipher text is mangled, the corresponding bit of plain text will be mangled. However, if there are extra or missing bits from the cipher text, the plain text will be mangled from that point on."
+  summary: "Выходной обратной связи (<xref uid=&quot;langword_csharp_OFB&quot; name=&quot;OFB&quot; href=&quot;&quot;></xref>) режиме обрабатывает небольшие фрагменты открытого текста в зашифрованный текст вместо преобразования всего блока одновременно. Этот режим аналогичен <xref uid=&quot;langword_csharp_CFB&quot; name=&quot;CFB&quot; href=&quot;&quot;> </xref>; заполняется только разницу между двумя режимами заключается в способе регистрации сдвига. Если бит в зашифрованном тексте искажается, соответствующий бит открытого текста будет изменен. Тем не менее если имеются лишние или недостающие биты из зашифрованного текста, в виде обычного текста будет изменен, начиная с этой точки."
   syntax:
     content: OFB
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462

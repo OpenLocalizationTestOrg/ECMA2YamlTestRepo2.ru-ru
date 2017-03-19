@@ -19,7 +19,7 @@ items:
   nameWithType: TrackingRecord
   fullName: System.Activities.Tracking.TrackingRecord
   type: Class
-  summary: "The abstract class from which all workflow tracking records derive. Tracking records represent the data sent to tracking participants when tracked events occur."
+  summary: "Абстрактный класс, производными от рабочего процесса, который все записи отслеживания. Записи отслеживания представляют данные, отправляемые участникам отслеживания, когда происходят отслеживаемые события."
   syntax:
     content: >-
       [System.Runtime.Serialization.DataContract]
@@ -43,13 +43,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, creates a new instance of the derived class with the specified instance tracking record."
+  summary: "При реализации в производном классе создает новый экземпляр производного класса с заданным экземпляром записи отслеживания."
   syntax:
     content: protected TrackingRecord (System.Activities.Tracking.TrackingRecord record);
     parameters:
     - id: record
       type: System.Activities.Tracking.TrackingRecord
-      description: "The tracking record of the generating activity."
+      description: "Создание действия записи отслеживания."
   overload: System.Activities.Tracking.TrackingRecord.#ctor*
   exceptions: []
   platform:
@@ -66,13 +66,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, creates a new instance of the derived class with the specified instance ID."
+  summary: "При реализации в производном классе создает новый экземпляр производного класса с заданным идентификатором экземпляра."
   syntax:
     content: protected TrackingRecord (Guid instanceId);
     parameters:
     - id: instanceId
       type: System.Guid
-      description: "The ID of the generating workflow instance."
+      description: "Идентификатор создающего экземпляра рабочего процесса."
   overload: System.Activities.Tracking.TrackingRecord.#ctor*
   exceptions: []
   platform:
@@ -89,16 +89,16 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, creates a new instance of the derived class with the specified instance ID and record number."
+  summary: "При реализации в производном классе создает новый экземпляр производного класса с заданным Идентификатором экземпляра и номер записи."
   syntax:
     content: protected TrackingRecord (Guid instanceId, long recordNumber);
     parameters:
     - id: instanceId
       type: System.Guid
-      description: "The ID of the generating workflow instance."
+      description: "Идентификатор создающего экземпляра рабочего процесса."
     - id: recordNumber
       type: System.Int64
-      description: "A sequence that defines the order in which tracking records are generated."
+      description: "Последовательность, которая определяет порядок создания записей отслеживания."
   overload: System.Activities.Tracking.TrackingRecord.#ctor*
   exceptions: []
   platform:
@@ -115,12 +115,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, represents a collection of name/value pairs that are added to this tracking record."
+  summary: "При реализации в производном классе представляет коллекцию пар &quot;имя значение&quot;, добавляемые в эту запись отслеживания."
   syntax:
     content: public System.Collections.Generic.IDictionary<string,string> Annotations { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "The dictionary of elements to be added to this tracking record."
+      description: "Словарь элементов для добавления в эту запись отслеживания."
   overload: System.Activities.Tracking.TrackingRecord.Annotations*
   exceptions: []
   platform:
@@ -137,13 +137,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "Creates a copy of the <xref href=&quot;System.Activities.Tracking.TrackingRecord&quot;></xref>."
+  summary: "Создает копию объекта <xref href=&quot;System.Activities.Tracking.TrackingRecord&quot;> </xref>."
   syntax:
     content: protected abstract System.Activities.Tracking.TrackingRecord Clone ();
     parameters: []
     return:
       type: System.Activities.Tracking.TrackingRecord
-      description: "A copy of the <xref href=&quot;System.Activities.Tracking.TrackingRecord&quot;></xref>."
+      description: "Копия <xref href=&quot;System.Activities.Tracking.TrackingRecord&quot;> </xref>."
   overload: System.Activities.Tracking.TrackingRecord.Clone*
   exceptions: []
   platform:
@@ -160,12 +160,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, represents the time the tracking record occurred."
+  summary: "При реализации в производном классе представляет время возникновения записи отслеживания."
   syntax:
     content: public DateTime EventTime { get; }
     return:
       type: System.DateTime
-      description: "The event time."
+      description: "Время события."
   overload: System.Activities.Tracking.TrackingRecord.EventTime*
   exceptions: []
   platform:
@@ -182,12 +182,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, represents the ID of the generating workflow instance."
+  summary: "При реализации в производном классе представляет идентификатор создающего экземпляра рабочего процесса."
   syntax:
     content: public Guid InstanceId { get; }
     return:
       type: System.Guid
-      description: "The element ID."
+      description: "Идентификатор элемента."
   overload: System.Activities.Tracking.TrackingRecord.InstanceId*
   exceptions: []
   platform:
@@ -204,12 +204,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "Gets the <xref href=&quot;System.Diagnostics.TraceLevel&quot;></xref> of the event."
+  summary: "Возвращает <xref href=&quot;System.Diagnostics.TraceLevel&quot;> </xref> события."
   syntax:
     content: public System.Diagnostics.TraceLevel Level { get; protected set; }
     return:
       type: System.Diagnostics.TraceLevel
-      description: "The trace level."
+      description: "Уровень трассировки."
   overload: System.Activities.Tracking.TrackingRecord.Level*
   exceptions: []
   platform:
@@ -226,12 +226,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "A sequence that defines the order in which tracking records are generated."
+  summary: "Последовательность, которая определяет порядок создания записей отслеживания."
   syntax:
     content: public long RecordNumber { get; }
     return:
       type: System.Int64
-      description: "The sequence order."
+      description: "Последовательный порядок."
   overload: System.Activities.Tracking.TrackingRecord.RecordNumber*
   exceptions: []
   platform:
@@ -248,13 +248,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, returns a string that contains all tracking data from the record."
+  summary: "При реализации в производном классе, возвращает строку, содержащую все данные отслеживания из записи."
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "The tracking data."
+      description: "Данные отслеживания."
   overload: System.Activities.Tracking.TrackingRecord.ToString*
   exceptions: []
   platform:
