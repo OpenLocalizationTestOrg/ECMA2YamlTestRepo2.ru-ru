@@ -22,8 +22,8 @@ items:
   nameWithType: EventLogTraceListener
   fullName: System.Diagnostics.EventLogTraceListener
   type: Class
-  summary: "Provides a simple listener that directs tracing or debugging output to an <xref href=&quot;System.Diagnostics.EventLog&quot;></xref>."
-  remarks: "An instance of this EventLogTraceListener can be added to the <xref:System.Diagnostics.Debug.Listeners%2A?displayProperty=fullName>, <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName>, or <xref:System.Diagnostics.TraceSource.Listeners%2A?displayProperty=fullName> collections to send output from tracing or debugging to an <xref:System.Diagnostics.EventLog>. You can add the instance in your code or specify it in the application configuration file. To add an EventLogTraceListener using an application configuration file, edit the file that corresponds to the name of your application or the app.config file in a [!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)] project. In this file, insert an element for a EventLogTraceListener type.       The following example adds a EventLogTraceListener object named `myListener` to the <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName> collection. The `initializeData` parameter specifies the name of the event log source that is to be passed to the <xref:System.Diagnostics.EventLogTraceListener.%23ctor%28System.String%29> constructor.      ```   <configuration>     <system.diagnostics>       <trace autoflush=&quot;false&quot; indentsize=&quot;4&quot;>         <listeners>           <add name=&quot;myListener&quot;             type=&quot;System.Diagnostics.EventLogTraceListener&quot;             initializeData=&quot;TraceListenerLog&quot; />         </listeners>       </trace>     </system.diagnostics>   </configuration>   ```       For more information about how to add trace listeners in the application configuration file, see  or .      > [!NOTE] >  If the <xref:System.Diagnostics.EventLog.Source%2A> for the event log that is associated with the EventLogTraceListener instance does not exist, a new event source is created. To create an event source in Windows Vista, Windows XP Professional, or Windows Server 2003, you must have administrative privileges.   >    >  The reason for this requirement is that all event logs, including security, must be searched to determine whether the event source is unique. In Windows Vista, users do not have permission to access the security log; therefore, a <xref:System.Security.SecurityException> is thrown.   >    >  In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that accesses the security log, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator.       The class provides the <xref:System.Diagnostics.EventLogTraceListener.EventLog%2A> property to get or set the event log that receives the tracing or debugging output, and the <xref:System.Diagnostics.EventLogTraceListener.Name%2A> property to hold the name of the EventLogTraceListener.       The <xref:System.Diagnostics.EventLogTraceListener.Close%2A> method closes the event log so it no longer receives tracing or debugging output. The <xref:System.Diagnostics.EventLogTraceListener.Write%2A> and <xref:System.Diagnostics.EventLogTraceListener.WriteLine%2A> methods write a message to the event log.      > [!NOTE] >  To avoid the possibility of writing large amounts of data to the event log, the EventLogTraceListener does not output the optional trace data specified by the <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A> property."
+  summary: "Предоставляет простой прослушиватель, который направляет выходные данные отладки или трассировки <xref href=&quot;System.Diagnostics.EventLog&quot;> </xref>."
+  remarks: "Экземпляр этого EventLogTraceListener могут добавляться к <xref:System.Diagnostics.Debug.Listeners%2A?displayProperty=fullName>, <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName>, или <xref:System.Diagnostics.TraceSource.Listeners%2A?displayProperty=fullName>коллекции для отправки выходных данных трассировки или отладки на <xref:System.Diagnostics.EventLog>.</xref:System.Diagnostics.EventLog> </xref:System.Diagnostics.TraceSource.Listeners%2A?displayProperty=fullName> </xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName> </xref:System.Diagnostics.Debug.Listeners%2A?displayProperty=fullName> Можно добавить экземпляр в коде или укажите его в файле конфигурации приложения. Чтобы добавить EventLogTraceListener, с помощью файла конфигурации приложения, измените файл, который соответствует имени приложения или файл app.config в [!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)] проекта. В этом файле вставки элемента для типа EventLogTraceListener.       В следующем примере добавляется объект EventLogTraceListener с именем `myListener` для <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName>коллекции.</xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName> `initializeData` Параметр указывает имя источник журнала событий, которые будут передаваться <xref:System.Diagnostics.EventLogTraceListener.%23ctor%28System.String%29>конструктор.</xref:System.Diagnostics.EventLogTraceListener.%23ctor%28System.String%29>      ```   <configuration>     <system.diagnostics>       <trace autoflush=&quot;false&quot; indentsize=&quot;4&quot;>         <listeners>           <add name=&quot;myListener&quot;             type=&quot;System.Diagnostics.EventLogTraceListener&quot;             initializeData=&quot;TraceListenerLog&quot; />         </listeners>       </trace>     </system.diagnostics>   </configuration>   ```Дополнительные сведения о добавлении прослушивателей трассировки в файле конфигурации приложения см. в разделе или.      Настроек [!NOTE] настроек Если <xref:System.Diagnostics.EventLog.Source%2A>для журнала событий, связанный с экземпляром EventLogTraceListener не существует, создается новый источник событий.</xref:System.Diagnostics.EventLog.Source%2A> Для создания источника событий в Windows Vista, Windows XP Professional или Windows Server 2003, необходимо иметь права администратора.   >> Это требование обусловлено тем, чтобы определить, является ли источник событий уникальный необходимо произвести поиск всех журналов событий, включая безопасность. В Windows Vista пользователи не имеют разрешения на доступ к журналу безопасности; Таким образом <xref:System.Security.SecurityException>возникает исключение.</xref:System.Security.SecurityException>   >> В Windows Vista привилегии пользователя определяются управления учетных записей (UAC). Если вы являетесь членом группы администраторов, вы присваивается два маркера доступа на время выполнения: маркер доступа обычного пользователя и маркер доступа администратора. По умолчанию назначена роль обычного пользователя. Для выполнения кода, который обращается к журнал безопасности, необходимо сначала повысить права доступа со стандартного пользователя до администратора. Это можно сделать при запуске приложения, щелкнув значок приложения правой кнопкой мыши и указав, что приложение должно запускаться от имени администратора.       Этот класс предоставляет <xref:System.Diagnostics.EventLogTraceListener.EventLog%2A>свойство для получения или задания в журнал событий, который получает выходные данные, отладки и трассировки и <xref:System.Diagnostics.EventLogTraceListener.Name%2A>свойство, которое хранит имя EventLogTraceListener.</xref:System.Diagnostics.EventLogTraceListener.Name%2A> </xref:System.Diagnostics.EventLogTraceListener.EventLog%2A>       <xref:System.Diagnostics.EventLogTraceListener.Close%2A>Метод закрывает журнал событий, таким образом, больше не принимает выходные данные отладки или трассировки.</xref:System.Diagnostics.EventLogTraceListener.Close%2A> <xref:System.Diagnostics.EventLogTraceListener.Write%2A>И <xref:System.Diagnostics.EventLogTraceListener.WriteLine%2A>методы записывают сообщения в журнал событий.</xref:System.Diagnostics.EventLogTraceListener.WriteLine%2A> </xref:System.Diagnostics.EventLogTraceListener.Write%2A>      Настроек [!NOTE] настроек во избежание записи больших объемов данных в журнал событий, EventLogTraceListener не выводит необязательно трассировки данных, указанных в <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>свойство.</xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>"
   example:
   - "The following example creates a trace listener that sends output to an event log. First, the code creates a new EventLogTraceListener that uses the source `myEventLogSource`. Next, `myTraceListener` is added to the <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName> collection. Finally, the example sends a line of output to the <xref:System.Diagnostics.Trace.Listeners%2A> object.  \n  \n [!code-cs[Classic EventLogTraceListener Example#1](~/add/codesnippet/csharp/t-system.diagnostics.eve_3_1.cs)]\n [!code-vb[Classic EventLogTraceListener Example#1](~/add/codesnippet/visualbasic/t-system.diagnostics.eve_3_1.vb)]\n [!code-cpp[Classic EventLogTraceListener Example#1](~/add/codesnippet/cpp/t-system.diagnostics.eve_3_1.cpp)]"
   syntax:
@@ -73,7 +73,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.EventLogTraceListener&quot;></xref> class without a trace listener."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Diagnostics.EventLogTraceListener&quot;> </xref> класс без прослушиватель трассировки."
   syntax:
     content: public EventLogTraceListener ();
     parameters: []
@@ -93,13 +93,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.EventLogTraceListener&quot;></xref> class using the specified event log."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Diagnostics.EventLogTraceListener&quot;> </xref> класса с помощью указанного журнала событий."
   syntax:
     content: public EventLogTraceListener (System.Diagnostics.EventLog eventLog);
     parameters:
     - id: eventLog
       type: System.Diagnostics.EventLog
-      description: "The event log to write to."
+      description: "Журнал событий для записи."
   overload: System.Diagnostics.EventLogTraceListener.#ctor*
   exceptions: []
   platform:
@@ -116,13 +116,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.EventLogTraceListener&quot;></xref> class using the specified source."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Diagnostics.EventLogTraceListener&quot;> </xref> класса, используя заданный источник."
   syntax:
     content: public EventLogTraceListener (string source);
     parameters:
     - id: source
       type: System.String
-      description: "The name of an existing event log source."
+      description: "Имя существующего источника журнала событий."
   overload: System.Diagnostics.EventLogTraceListener.#ctor*
   exceptions: []
   platform:
@@ -139,7 +139,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Closes the event log so that it no longer receives tracing or debugging output."
+  summary: "Закрывает журнал событий, чтобы он больше не принимает выходные данные трассировки и отладки."
   syntax:
     content: public override void Close ();
     parameters: []
@@ -164,7 +164,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Diagnostics.EventLogTraceListener.Dispose*
   exceptions: []
   platform:
@@ -181,12 +181,12 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets the event log to write to."
+  summary: "Возвращает или задает журнал событий для записи."
   syntax:
     content: public System.Diagnostics.EventLog EventLog { get; set; }
     return:
       type: System.Diagnostics.EventLog
-      description: "The event log to write to."
+      description: "Журнал событий для записи."
   overload: System.Diagnostics.EventLogTraceListener.EventLog*
   exceptions: []
   platform:
@@ -203,13 +203,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets the name of this <xref href=&quot;System.Diagnostics.EventLogTraceListener&quot;></xref>."
-  remarks: "This property defaults to the source name of the event log."
+  summary: "Возвращает или задает имя данного <xref href=&quot;System.Diagnostics.EventLogTraceListener&quot;> </xref>."
+  remarks: "Это свойство по умолчанию с именем журнала событий."
   syntax:
     content: public override string Name { get; set; }
     return:
       type: System.String
-      description: "The name of this trace listener."
+      description: "Имя этого прослушивателя трассировки."
   overload: System.Diagnostics.EventLogTraceListener.Name*
   exceptions: []
   platform:
@@ -226,31 +226,31 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, a data object, and event information to the event log."
-  remarks: "> [!IMPORTANT] >  The <xref:System.Diagnostics.EventLogTraceListener.TraceData%2A> methods are not intended to be called by application code. They are called by methods of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to output trace data.       The <xref:System.Diagnostics.EventLogTraceListener.TraceData%2A> method, like the <xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A> method is intended for automated tools but also allows the attaching of additional objects, for example an exception instance, to the trace.       The `eventCache` and `source` parameters are used to determine if the event should be traced. `id` is used to create an <xref:System.Diagnostics.EventInstance> object and the <xref:System.Diagnostics.TraceEventType> is equated to an <xref:System.Diagnostics.EventLogEntryType> for the <xref:System.Diagnostics.EventInstance.EntryType%2A> property. The <xref:System.Diagnostics.EventInstance> is written to the event log with the `data` object, formatted as a string, using the <xref:System.Diagnostics.EventLog.WriteEvent%2A> method.      > [!NOTE] >  The maximum value of the `id` parameter is 65,535. If the `id` value specified is greater than 65,535, the maximum value is used."
+  summary: "Записывает сведения трассировки, объект данных и сведения о событии в журнал событий."
+  remarks: "> [!IMPORTANT]Настроек <xref:System.Diagnostics.EventLogTraceListener.TraceData%2A>методы, не предназначены для вызывается кодом приложения.</xref:System.Diagnostics.EventLogTraceListener.TraceData%2A> Они вызываются методы <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, и <xref:System.Diagnostics.TraceSource>классы для вывода данных трассировки.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>       <xref:System.Diagnostics.EventLogTraceListener.TraceData%2A>Метод, такой как <xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A>метод предназначен для автоматизированные средства, но также разрешение на подключение дополнительные объекты, например экземпляр исключения, в трассировку.</xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A> </xref:System.Diagnostics.EventLogTraceListener.TraceData%2A>       `eventCache` И `source` параметры используются для определения, должна выполняться трассировка событий. `id`используется для создания <xref:System.Diagnostics.EventInstance>объекта и <xref:System.Diagnostics.TraceEventType>сравнение для <xref:System.Diagnostics.EventLogEntryType>для <xref:System.Diagnostics.EventInstance.EntryType%2A>свойство.</xref:System.Diagnostics.EventInstance.EntryType%2A> </xref:System.Diagnostics.EventLogEntryType> </xref:System.Diagnostics.TraceEventType> </xref:System.Diagnostics.EventInstance> <xref:System.Diagnostics.EventInstance>Записывается в журнал событий с `data` object, отформатированному как строка, с помощью <xref:System.Diagnostics.EventLog.WriteEvent%2A>метод.</xref:System.Diagnostics.EventLog.WriteEvent%2A> </xref:System.Diagnostics.EventInstance>      Настроек [!NOTE] настроек максимальное значение `id` параметра составляет 65 535. Если `id` указанное значение больше 65 535, используется максимальное значение."
   syntax:
     content: public override void TraceData (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType severity, int id, object data);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "An object that contains the current process ID, thread ID, and stack trace information."
+      description: "Объект, содержащий текущие идентификатор процесса, идентификатор потока и сведения о трассировке стека."
     - id: source
       type: System.String
-      description: "A name used to identify the output; typically the name of the application that generated the trace event."
+      description: "Имя, используемое для идентификации выходных данных; Обычно имя приложения, создавшего событие трассировки."
     - id: severity
       type: System.Diagnostics.TraceEventType
-      description: "One of the enumeration values that specifies the type of event that has caused the trace."
+      description: "Одно из значений перечисления, указывающее тип события, ставшего причиной трассировки."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event. The combination of `source` and `id` uniquely identifies an event."
+      description: "Числовой идентификатор события. Сочетание `source` и `id` уникально идентифицирует событие."
     - id: data
       type: System.Object
-      description: "A data object to write to the output file or stream."
+      description: "Объект данных для записи в выходной файл или поток."
   overload: System.Diagnostics.EventLogTraceListener.TraceData*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>source</code> is not specified.       -or-       The log entry string exceeds 32,766 characters."
+    description: "<code>source</code>не указан.       - или - строка записи журнала превышает 32 766 символов."
   platform:
   - net462
 - uid: System.Diagnostics.EventLogTraceListener.TraceData(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.Object[])
@@ -265,31 +265,31 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, an array of data objects, and event information to the event log."
-  remarks: "> [!IMPORTANT] >  The <xref:System.Diagnostics.EventLogTraceListener.TraceData%2A> methods are not intended to be called by application code. They are called by methods of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to output trace data.       The <xref:System.Diagnostics.EventLogTraceListener.TraceData%2A> method, like the <xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A> method is intended for automated tools but also allows the attaching of additional objects, for example an exception instance, to the trace.       The `severity` and `id` parameter data is used to create an <xref:System.Diagnostics.EventInstance> object, which is written to the event log with the data from the array of data objects.       The `eventCache` and `source` parameters are used to determine if the event should be traced. `id` is used to create an <xref:System.Diagnostics.EventInstance> object and the <xref:System.Diagnostics.TraceEventType> is equated to an <xref:System.Diagnostics.EventLogEntryType> for the <xref:System.Diagnostics.EventInstance.EntryType%2A> property. The <xref:System.Diagnostics.EventInstance> is written to the event log with the `data` object array, formatted as a string array, using the <xref:System.Diagnostics.EventLog.WriteEvent%2A> method.      > [!NOTE] >  The maximum value of the `id` parameter is 65,535. If the `id` value specified is greater than 65,535, the maximum value is used."
+  summary: "Записывает сведения трассировки, массив объектов данных и сведения о событии в журнал событий."
+  remarks: "> [!IMPORTANT]Настроек <xref:System.Diagnostics.EventLogTraceListener.TraceData%2A>методы, не предназначены для вызывается кодом приложения.</xref:System.Diagnostics.EventLogTraceListener.TraceData%2A> Они вызываются методы <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, и <xref:System.Diagnostics.TraceSource>классы для вывода данных трассировки.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>       <xref:System.Diagnostics.EventLogTraceListener.TraceData%2A>Метод, такой как <xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A>метод предназначен для автоматизированные средства, но также разрешение на подключение дополнительные объекты, например экземпляр исключения, в трассировку.</xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A> </xref:System.Diagnostics.EventLogTraceListener.TraceData%2A>       `severity` И `id` данных параметра используется для создания <xref:System.Diagnostics.EventInstance>объекта, который записывается в журнал событий с данными из массива объектов данных.</xref:System.Diagnostics.EventInstance>       `eventCache` И `source` параметры используются для определения, должна выполняться трассировка событий. `id`используется для создания <xref:System.Diagnostics.EventInstance>объекта и <xref:System.Diagnostics.TraceEventType>сравнение для <xref:System.Diagnostics.EventLogEntryType>для <xref:System.Diagnostics.EventInstance.EntryType%2A>свойство.</xref:System.Diagnostics.EventInstance.EntryType%2A> </xref:System.Diagnostics.EventLogEntryType> </xref:System.Diagnostics.TraceEventType> </xref:System.Diagnostics.EventInstance> <xref:System.Diagnostics.EventInstance>Записывается в журнал событий с `data` массив объектов, в формате массив строк с помощью <xref:System.Diagnostics.EventLog.WriteEvent%2A>метод.</xref:System.Diagnostics.EventLog.WriteEvent%2A> </xref:System.Diagnostics.EventInstance>      Настроек [!NOTE] настроек максимальное значение `id` параметра составляет 65 535. Если `id` указанное значение больше 65 535, используется максимальное значение."
   syntax:
     content: public override void TraceData (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType severity, int id, object[] data);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "An object that contains the current process ID, thread ID, and stack trace information."
+      description: "Объект, содержащий текущие идентификатор процесса, идентификатор потока и сведения о трассировке стека."
     - id: source
       type: System.String
-      description: "A name used to identify the output; typically the name of the application that generated the trace event."
+      description: "Имя, используемое для идентификации выходных данных; Обычно имя приложения, создавшего событие трассировки."
     - id: severity
       type: System.Diagnostics.TraceEventType
-      description: "One of the enumeration values that specifies the type of event that has caused the trace."
+      description: "Одно из значений перечисления, указывающее тип события, ставшего причиной трассировки."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event. The combination of `source` and `id` uniquely identifies an event."
+      description: "Числовой идентификатор события. Сочетание `source` и `id` уникально идентифицирует событие."
     - id: data
       type: System.Object[]
-      description: "An array of data objects."
+      description: "Массив объектов данных."
   overload: System.Diagnostics.EventLogTraceListener.TraceData*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>source</code> is not specified.       -or-       The log entry string exceeds 32,766 characters."
+    description: "<code>source</code>не указан.       - или - строка записи журнала превышает 32 766 символов."
   platform:
   - net462
 - uid: System.Diagnostics.EventLogTraceListener.TraceEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String)
@@ -304,31 +304,31 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, a message, and event information to the event log."
-  remarks: "> [!IMPORTANT] >  The <xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A> methods are not intended to be called by application code. These methods are called by methods of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to write trace data.       The <xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A> method is intended to trace events that can be processed automatically by tools. For example a monitoring tool can notify an administrator if a specific event is traced by a specific source.       The `eventCache` and `source` parameters are used to determine if the event should be traced. `id` is used to create an <xref:System.Diagnostics.EventInstance> object and the <xref:System.Diagnostics.TraceEventType> is equated to an <xref:System.Diagnostics.EventLogEntryType> for the <xref:System.Diagnostics.EventInstance.EntryType%2A> property. The <xref:System.Diagnostics.EventInstance> is written to the event log with the `message` data using the <xref:System.Diagnostics.EventLog.WriteEvent%2A> method.      > [!NOTE] >  The maximum value of the `id` parameter is 65,535. If the `id` value specified is greater than 65,535, the maximum value is used."
+  summary: "Записывает сведения трассировки, сообщение и сведения о событии в журнал событий."
+  remarks: "> [!IMPORTANT]Настроек <xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A>методы, не предназначены для вызывается кодом приложения.</xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A> Эти методы вызываются методы <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, и <xref:System.Diagnostics.TraceSource>классы для записи данных трассировки.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>       <xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A>Метод предназначен для события трассировки, которые могут автоматически обрабатываться средств.</xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A> Пример средства мониторинга можно уведомить администратора определенное событие, это событие регистрируется определенным источником.       `eventCache` И `source` параметры используются для определения, должна выполняться трассировка событий. `id`используется для создания <xref:System.Diagnostics.EventInstance>объекта и <xref:System.Diagnostics.TraceEventType>сравнение для <xref:System.Diagnostics.EventLogEntryType>для <xref:System.Diagnostics.EventInstance.EntryType%2A>свойство.</xref:System.Diagnostics.EventInstance.EntryType%2A> </xref:System.Diagnostics.EventLogEntryType> </xref:System.Diagnostics.TraceEventType> </xref:System.Diagnostics.EventInstance> <xref:System.Diagnostics.EventInstance>Записывается в журнал событий с `message` данных с помощью <xref:System.Diagnostics.EventLog.WriteEvent%2A>метод.</xref:System.Diagnostics.EventLog.WriteEvent%2A> </xref:System.Diagnostics.EventInstance>      Настроек [!NOTE] настроек максимальное значение `id` параметра составляет 65 535. Если `id` указанное значение больше 65 535, используется максимальное значение."
   syntax:
     content: public override void TraceEvent (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType severity, int id, string message);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "An object that contains the current process ID, thread ID, and stack trace information."
+      description: "Объект, содержащий текущие идентификатор процесса, идентификатор потока и сведения о трассировке стека."
     - id: source
       type: System.String
-      description: "A name used to identify the output; typically the name of the application that generated the trace event."
+      description: "Имя, используемое для идентификации выходных данных; Обычно имя приложения, создавшего событие трассировки."
     - id: severity
       type: System.Diagnostics.TraceEventType
-      description: "One of the enumeration values that specifies the type of event that has caused the trace."
+      description: "Одно из значений перечисления, указывающее тип события, ставшего причиной трассировки."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event. The combination of `source` and `id` uniquely identifies an event."
+      description: "Числовой идентификатор события. Сочетание `source` и `id` уникально идентифицирует событие."
     - id: message
       type: System.String
-      description: "The trace message."
+      description: "Сообщение трассировки."
   overload: System.Diagnostics.EventLogTraceListener.TraceEvent*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>source</code> is not specified.       -or-       The log entry string exceeds 32,766 characters."
+    description: "<code>source</code>не указан.       - или - строка записи журнала превышает 32 766 символов."
   platform:
   - net462
 - uid: System.Diagnostics.EventLogTraceListener.TraceEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String,System.Object[])
@@ -343,34 +343,34 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, a formatted array of objects, and event information to the event log."
-  remarks: "> [!IMPORTANT] >  The <xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A> methods are not intended to be called by application code. These methods are called by methods of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to write trace data.       The <xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A> method is intended to trace events that can be processed automatically by tools. For example a monitoring tool can notify an administrator if a specific event is traced by a specific source.       The `eventCache` and `source` parameters are used to determine if the event should be traced. `id` is used to create an <xref:System.Diagnostics.EventInstance> object and the <xref:System.Diagnostics.TraceEventType> is equated to an <xref:System.Diagnostics.EventLogEntryType> for the <xref:System.Diagnostics.EventInstance.EntryType%2A> property. The <xref:System.Diagnostics.EventInstance> is written to the event log, using the <xref:System.Diagnostics.EventLog.WriteEvent%2A> method, with the message obtained from the `format` and `args` parameters. The `args` object array is converted to a string using the <xref:System.String.Format%2A> method, passing the `format` string and `args` array to format the string as the message for the event log.      > [!NOTE] >  The maximum value of the `id` parameter is 65,535. If the `id` value specified is greater than 65,535, the maximum value is used."
+  summary: "Записывает сведения трассировки, форматированный массив объектов и сведения о событии в журнал событий."
+  remarks: "> [!IMPORTANT]Настроек <xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A>методы, не предназначены для вызывается кодом приложения.</xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A> Эти методы вызываются методы <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, и <xref:System.Diagnostics.TraceSource>классы для записи данных трассировки.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>       <xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A>Метод предназначен для события трассировки, которые могут автоматически обрабатываться средств.</xref:System.Diagnostics.EventLogTraceListener.TraceEvent%2A> Пример средства мониторинга можно уведомить администратора определенное событие, это событие регистрируется определенным источником.       `eventCache` И `source` параметры используются для определения, должна выполняться трассировка событий. `id`используется для создания <xref:System.Diagnostics.EventInstance>объекта и <xref:System.Diagnostics.TraceEventType>сравнение для <xref:System.Diagnostics.EventLogEntryType>для <xref:System.Diagnostics.EventInstance.EntryType%2A>свойство.</xref:System.Diagnostics.EventInstance.EntryType%2A> </xref:System.Diagnostics.EventLogEntryType> </xref:System.Diagnostics.TraceEventType> </xref:System.Diagnostics.EventInstance> <xref:System.Diagnostics.EventInstance>Записывается в журнал событий с помощью <xref:System.Diagnostics.EventLog.WriteEvent%2A>метода с сообщения, полученные из `format` и `args` параметров.</xref:System.Diagnostics.EventLog.WriteEvent%2A> </xref:System.Diagnostics.EventInstance> `args` Объекта он преобразуется в строку с помощью <xref:System.String.Format%2A>метод, передавая `format` строки и `args` массива, чтобы отформатировать строку как сообщение в журнале событий.</xref:System.String.Format%2A>      Настроек [!NOTE] настроек максимальное значение `id` параметра составляет 65 535. Если `id` указанное значение больше 65 535, используется максимальное значение."
   syntax:
     content: public override void TraceEvent (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType severity, int id, string format, object[] args);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "An object that contains the current process ID, thread ID, and stack trace information."
+      description: "Объект, содержащий текущие идентификатор процесса, идентификатор потока и сведения о трассировке стека."
     - id: source
       type: System.String
-      description: "A name used to identify the output; typically the name of the application that generated the trace event."
+      description: "Имя, используемое для идентификации выходных данных; Обычно имя приложения, создавшего событие трассировки."
     - id: severity
       type: System.Diagnostics.TraceEventType
-      description: "One of the enumeration values that specifies the type of event that has caused the trace."
+      description: "Одно из значений перечисления, указывающее тип события, ставшего причиной трассировки."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event. The combination of `source` and `id` uniquely identifies an event."
+      description: "Числовой идентификатор события. Сочетание `source` и `id` уникально идентифицирует событие."
     - id: format
       type: System.String
-      description: "A format string that contains zero or more format items that correspond to objects in the `args` array."
+      description: "Строка формата, содержащая ноль или более элементов формата, которые соответствуют объектам в `args` массива."
     - id: args
       type: System.Object[]
-      description: "An <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;></xref> array containing zero or more objects to format."
+      description: "<xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;> </xref> Массив, содержащий ноль или более объектов для форматирования."
   overload: System.Diagnostics.EventLogTraceListener.TraceEvent*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>source</code> is not specified.       -or-       The log entry string exceeds 32,766 characters."
+    description: "<code>source</code>не указан.       - или - строка записи журнала превышает 32 766 символов."
   platform:
   - net462
 - uid: System.Diagnostics.EventLogTraceListener.Write(System.String)
@@ -385,18 +385,18 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes a message to the event log for this instance."
+  summary: "Записывает сообщение в журнал событий для данного экземпляра."
   syntax:
     content: public override void Write (string message);
     parameters:
     - id: message
       type: System.String
-      description: "The message to write."
+      description: "Записываемое сообщение."
   overload: System.Diagnostics.EventLogTraceListener.Write*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>message</code> exceeds 32,766 characters."
+    description: "<code>message</code>превышает 32 766 символов."
   platform:
   - net462
 - uid: System.Diagnostics.EventLogTraceListener.WriteLine(System.String)
@@ -411,18 +411,18 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes a message to the event log for this instance."
+  summary: "Записывает сообщение в журнал событий для данного экземпляра."
   syntax:
     content: public override void WriteLine (string message);
     parameters:
     - id: message
       type: System.String
-      description: "The message to write."
+      description: "Записываемое сообщение."
   overload: System.Diagnostics.EventLogTraceListener.WriteLine*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>message</code> exceeds 32,766 characters."
+    description: "<code>message</code>превышает 32 766 символов."
   platform:
   - net462
 references:

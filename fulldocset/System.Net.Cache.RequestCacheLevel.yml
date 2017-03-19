@@ -16,8 +16,8 @@ items:
   nameWithType: RequestCacheLevel
   fullName: System.Net.Cache.RequestCacheLevel
   type: Enum
-  summary: "Specifies caching behavior for resources obtained using <xref:System.Net.WebRequest> and its derived classes."
-  remarks: "Members of this enumeration are used to initialize <xref:System.Net.Cache.RequestCachePolicy> objects. The current setting for a <xref:System.Net.Cache.RequestCachePolicy> object is available in the <xref:System.Net.Cache.HttpRequestCachePolicy.Level%2A?displayProperty=fullName> property.       This <xref:System.Net.Cache.HttpRequestCacheLevel> value is the default cache behavior specified in the machine configuration file that ships with the .NET Framework. No entries are taken from caches, added to caches, or removed from caches between the client and server.       The <xref:System.Net.HttpWebRequest.DefaultCachePolicy%2A?displayProperty=fullName> property is used to get or set the default cache policy for <xref:System.Net.HttpWebRequest> instances. The <xref:System.Net.WebRequest.CachePolicy%2A?displayProperty=fullName> property is used to get or set the default cache policy for a <xref:System.Net.WebRequest> instances. The <xref:System.Net.WebRequest.CachePolicy%2A?displayProperty=fullName> property is used to get or set the cache policy for a specific request.       A copy of a resource is only added to the cache if the response stream for the resource is retrieved and read to the end of the stream. So another request for the same resource could use a cached copy, depending on the default cache policy level for this request."
+  summary: "Указывает поведение кэширования ресурсов, полученных с помощью <xref:System.Net.WebRequest>и его производные классы.</xref:System.Net.WebRequest>"
+  remarks: "Члены этого перечисления используются для инициализации <xref:System.Net.Cache.RequestCachePolicy>объектов.</xref:System.Net.Cache.RequestCachePolicy> Текущее значение параметра для <xref:System.Net.Cache.RequestCachePolicy>объект доступен в <xref:System.Net.Cache.HttpRequestCachePolicy.Level%2A?displayProperty=fullName>свойство.</xref:System.Net.Cache.HttpRequestCachePolicy.Level%2A?displayProperty=fullName> </xref:System.Net.Cache.RequestCachePolicy>       Это <xref:System.Net.Cache.HttpRequestCacheLevel>значение — поведение кэша по умолчанию, указанные в файле конфигурации компьютера, который поставляется с платформой .NET Framework.</xref:System.Net.Cache.HttpRequestCacheLevel> Записи не берутся из кэшей, добавляются в кэши или удаляются из кэшей между клиентом и сервером.       <xref:System.Net.HttpWebRequest.DefaultCachePolicy%2A?displayProperty=fullName>Свойство позволяет получить или задать политику кэширования для <xref:System.Net.HttpWebRequest>экземпляров.</xref:System.Net.HttpWebRequest> </xref:System.Net.HttpWebRequest.DefaultCachePolicy%2A?displayProperty=fullName> <xref:System.Net.WebRequest.CachePolicy%2A?displayProperty=fullName>Свойство позволяет получить или задать политику кэширования для <xref:System.Net.WebRequest>экземпляров.</xref:System.Net.WebRequest> </xref:System.Net.WebRequest.CachePolicy%2A?displayProperty=fullName> <xref:System.Net.WebRequest.CachePolicy%2A?displayProperty=fullName>Свойство используется для получения или задания политики кэша для конкретного запроса.</xref:System.Net.WebRequest.CachePolicy%2A?displayProperty=fullName>       Копии ресурса добавляется в кэш, только если получен и чтения в конец потока в поток ответа для ресурса. Поэтому другой запрос для того же ресурса может использовать кэшированную копию, в зависимости от уровня политики кэша по умолчанию для данного запроса."
   example:
   - "The following code example creates policy that returns a resource only if it is in the cache.  \n  \n [!code-cpp[NclSimpleCache#13](~/add/codesnippet/cpp/t-system.net.cache.reque_0_1.cpp)]\n [!code-cs[NclSimpleCache#13](~/add/codesnippet/csharp/t-system.net.cache.reque_0_1.cs)]"
   syntax:
@@ -38,12 +38,12 @@ items:
   assemblies:
   - System
   namespace: System.Net.Cache
-  summary: "Satisfies a request by using the server. No entries are taken from caches, added to caches, or removed from caches between the client and server. This is the default cache behavior specified in the machine configuration file that ships with the .NET Framework."
+  summary: "Выполняет запрос с помощью сервера. Записи не берутся из кэшей, добавляются в кэши или удаляются из кэшей между клиентом и сервером. Это поведение кэша по умолчанию, указанные в файле конфигурации компьютера, который поставляется с платформой .NET Framework."
   syntax:
     content: BypassCache
     return:
       type: System.Net.Cache.RequestCacheLevel
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -59,13 +59,13 @@ items:
   assemblies:
   - System
   namespace: System.Net.Cache
-  summary: "Satisfies a request for a resource from the cache, if the resource is available; otherwise, sends a request for a resource to the server. If the requested item is available in any cache between the client and the server, the request might be satisfied by the intermediate cache."
-  remarks: "A copy of a requested resource is only added to the cache if the response stream for the resource is retrieved and read to the end of the stream. So subsequent requests for the same resource would use a cached copy."
+  summary: "Выполняет запрос ресурса из кэша, если ресурс недоступен; в противном случае отправляет запрос ресурса на сервер. Если запрошенный элемент доступен в любой кэш между клиентом и сервером, запрос может быть выполнен промежуточный кэш."
+  remarks: "Копия запрошенного ресурса добавляется только в кэш, если получен и чтения в конец потока в поток ответа для ресурса. Поэтому последующие запросы для того же ресурса будут использовать кэшированную копию."
   syntax:
     content: CacheIfAvailable
     return:
       type: System.Net.Cache.RequestCacheLevel
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -81,12 +81,12 @@ items:
   assemblies:
   - System
   namespace: System.Net.Cache
-  summary: "Satisfies a request using the locally cached resource; does not send a request for an item that is not in the cache. When this cache policy level is specified, a <xref:System.Net.WebException> exception is thrown if the item is not in the client cache."
+  summary: "Выполняет запрос, используя локально кэшированные ресурс; не отправляет запрос элемента, который не находится в кэше. Если указан этот уровень политики кэша, <xref:System.Net.WebException>исключение вызывается, если элемент не находится в кэше клиента.</xref:System.Net.WebException>"
   syntax:
     content: CacheOnly
     return:
       type: System.Net.Cache.RequestCacheLevel
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -102,12 +102,12 @@ items:
   assemblies:
   - System
   namespace: System.Net.Cache
-  summary: "Satisfies a request for a resource either by using the cached copy of the resource or by sending a request for the resource to the server. The action taken is determined by the current cache policy and the age of the content in the cache. This is the cache level that should be used by most applications."
+  summary: "Выполняет запрос для ресурса с помощью кэшированной копии ресурса или путем отправки запроса к ресурсу на сервере. Действие, выполняемое определяется текущей политикой кэша и временем существования содержимого в кэше. Это уровень кэша, который должен использоваться большинством приложений."
   syntax:
     content: Default
     return:
       type: System.Net.Cache.RequestCacheLevel
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -123,12 +123,12 @@ items:
   assemblies:
   - System
   namespace: System.Net.Cache
-  summary: "Never satisfies a request by using resources from the cache and does not cache resources. If the resource is present in the local cache, it is removed. This policy level indicates to intermediate caches that they should remove the resource. In the HTTP caching protocol, this is achieved using the <xref uid=&quot;langword_csharp_no-cache&quot; name=&quot;no-cache&quot; href=&quot;&quot;></xref> cache control directive."
+  summary: "Никогда не выполняет запрос, используя ресурсы из кэша и не кэширует ресурсы. Если ресурс существует в локальном кэше, он удаляется. Этот уровень политики промежуточных кэшей указывает, что ресурс должен быть удален. В протоколе кэширования HTTP, это достигается с помощью <xref uid=&quot;langword_csharp_no-cache&quot; name=&quot;no-cache&quot; href=&quot;&quot;> </xref> директиву управления кэшем."
   syntax:
     content: NoCacheNoStore
     return:
       type: System.Net.Cache.RequestCacheLevel
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -144,12 +144,12 @@ items:
   assemblies:
   - System
   namespace: System.Net.Cache
-  summary: "Satisfies a request by using the server. The response might be saved in the cache. In the HTTP caching protocol, this is achieved using the <xref uid=&quot;langword_csharp_no-cache&quot; name=&quot;no-cache&quot; href=&quot;&quot;></xref> cache control directive and the no-cache <xref uid=&quot;langword_csharp_Pragma&quot; name=&quot;Pragma&quot; href=&quot;&quot;></xref> header."
+  summary: "Выполняет запрос с помощью сервера. Ответ может быть сохранен в кэше. В протоколе кэширования HTTP, это достигается с помощью <xref uid=&quot;langword_csharp_no-cache&quot; name=&quot;no-cache&quot; href=&quot;&quot;> </xref> кэша директива управления и кэш не <xref uid=&quot;langword_csharp_Pragma&quot; name=&quot;Pragma&quot; href=&quot;&quot;> </xref> заголовок."
   syntax:
     content: Reload
     return:
       type: System.Net.Cache.RequestCacheLevel
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -165,13 +165,13 @@ items:
   assemblies:
   - System
   namespace: System.Net.Cache
-  summary: "Satisfies a request by using the cached copy of the resource if the timestamp is the same as the timestamp of the resource on the server; otherwise, the resource is downloaded from the server, presented to the caller, and stored in the cache."
-  remarks: "A copy of a resource is only added to the cache if the response stream for the resource is retrieved and read to the end of the stream. So subsequent requests for the same resource would use a cached copy if the timestamp for the cached resource is the same as the timestamp of the resource on the server."
+  summary: "Выполняет запрос, используя кэшированную копию ресурса, если метка времени совпадает с меткой времени ресурса на сервере. в противном случае ресурс загружается с сервера, представляются в вызывающем объекте и хранится в кэше."
+  remarks: "Копии ресурса добавляется в кэш, только если получен и чтения в конец потока в поток ответа для ресурса. Поэтому последующие запросы для того же ресурса будут использовать кэшированную копию, если метка времени кэшируемого ресурса совпадает с меткой времени ресурса на сервере."
   syntax:
     content: Revalidate
     return:
       type: System.Net.Cache.RequestCacheLevel
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462

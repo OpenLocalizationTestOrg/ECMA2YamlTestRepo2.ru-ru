@@ -10,8 +10,8 @@ items:
   nameWithType: SecurityContext
   fullName: System.Messaging.SecurityContext
   type: Class
-  summary: "Represents the security context for a message in a queue."
-  remarks: "The security context contains cached security information such as an internal certificate, the corresponding private key, the user&quot;s SID, needed to attach a certificate and the sender identifier to a message when requesting authentication.       If a client, such as an ASP.NET application, impersonates a user to send a message to a queue, the identity of the user is used to access the queue. If the queue is remote, these credentials are cached and used for messages that are subsequently sent to the queue. Therefore, the SID in subsequent messages will be the cached identity of the first user that sent a message to the queue. The cached identity of the first user that sent a message to the queue will be used for subsequent users.       To overcome this problem, set the security context using <xref:System.Messaging.Message.SecurityContext%2A> before sending a message to a remote queue to ensure that the current user&quot;s credentials are used to gain access to the queue. However, the suggested best practice is to:      1.  Make the queue an authenticated queue.      2.  Run the ASP.NET application as a domain identity and authorize that application to write to the queue.      3.  Do not impersonate the user when using the queue. Instead, get the caller’s identity and either perform authorization checking in the ASP.NET application or include the caller’s identity as part of the message and perform authorization checking in the receiver application."
+  summary: "Представляет контекст безопасности для сообщения в очереди."
+  remarks: "Контекст безопасности содержит кэшированные сведения безопасности как внутренний сертификат, соответствующий закрытый ключ, идентификатор безопасности пользователя, необходимых для вложения сертификата и идентификатор отправителя сообщения при запросе проверки подлинности.       Если клиент, например приложение ASP.NET олицетворяет пользователя для отправки сообщения в очередь, для доступа к очереди используется удостоверение пользователя. Если очередь является удаленной, эти учетные данные кэшируются и используются для сообщений, которые затем отправляются в очередь. Таким образом идентификатор безопасности в последующих сообщениях будет кэшированное удостоверение первого пользователя, который отправил сообщение в очередь. Кэшированное удостоверение первого пользователя, который отправил сообщение в очередь будет использоваться для последующих пользователей.       Чтобы обойти эту проблему, задайте контекста безопасности с помощью <xref:System.Messaging.Message.SecurityContext%2A>перед отправкой сообщения в удаленной очереди, чтобы убедиться, что учетные данные текущего пользователя используются для получения доступа к очереди.</xref:System.Messaging.Message.SecurityContext%2A> Тем не менее, предлагаемые рекомендуется: 1.  Сделайте очередь очередью с проверкой подлинности.      2.  Запуск приложения ASP.NET в качестве удостоверения домена и разрешите приложению записи в очередь.      3.  Олицетворяет пользователя при использовании очереди. Вместо этого рекомендуется получать удостоверение и выполните проверку авторизации в приложении ASP.NET или включить это удостоверение как часть сообщения и выполните проверку авторизации в приложении получателя."
   syntax:
     content: 'public sealed class SecurityContext : IDisposable'
   inheritance:
@@ -33,7 +33,7 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Releases all resources used by the <xref href=&quot;System.Messaging.SecurityContext&quot;></xref>."
+  summary: "Освобождает все ресурсы, используемые <xref href=&quot;System.Messaging.SecurityContext&quot;> </xref>."
   syntax:
     content: public void Dispose ();
     parameters: []

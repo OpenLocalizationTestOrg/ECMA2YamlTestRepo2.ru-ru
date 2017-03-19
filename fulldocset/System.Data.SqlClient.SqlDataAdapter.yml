@@ -36,8 +36,8 @@ items:
   nameWithType: SqlDataAdapter
   fullName: System.Data.SqlClient.SqlDataAdapter
   type: Class
-  summary: "Represents a set of data commands and a database connection that are used to fill the <xref href=&quot;System.Data.DataSet&quot;></xref> and update a SQL Server database. This class cannot be inherited."
-  remarks: "The SqlDataAdapter, serves as a bridge between a <xref:System.Data.DataSet> and SQL Server for retrieving and saving data. The SqlDataAdapter provides this bridge by mapping <xref:System.Data.Common.DbDataAdapter.Fill%2A>, which changes the data in the <xref:System.Data.DataSet> to match the data in the data source, and <xref:System.Data.Common.DbDataAdapter.Update%2A>, which changes the data in the data source to match the data in the <xref:System.Data.DataSet>, using the appropriate Transact-SQL statements against the data source. The update is performed on a by-row basis. For every inserted, modified, and deleted row, the <xref:System.Data.Common.DbDataAdapter.Update%2A> method determines the type of change that has been performed on it (`Insert`, `Update`, or `Delete`). Depending on the type of change, the `Insert`, `Update`, or `Delete` command template executes to propagate the modified row to the data source. When the SqlDataAdapter fills a <xref:System.Data.DataSet>, it creates the necessary tables and columns for the returned data if they do not already exist. However, primary key information is not included in the implicitly created schema unless the <xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A> property is set to <xref:System.Data.MissingSchemaAction>. You may also have the SqlDataAdapter create the schema of the <xref:System.Data.DataSet>, including primary key information, before filling it with data using `FillSchema`. For more information, see [Adding Existing Constraints to a DataSet](~/add/includes/ajax-current-ext-md.md).       SqlDataAdapter is used in conjunction with <xref:System.Data.SqlClient.SqlConnection> and <xref:System.Data.SqlClient.SqlCommand> to increase performance when connecting to a SQL Server database.      > [!NOTE] >  If you are using SQL Server stored procedures to edit or delete data using a `DataAdapter`, make sure that you do not use SET NOCOUNT ON in the stored procedure definition. This causes the rows affected count returned to be zero, which the `DataAdapter` interprets as a concurrency conflict. In this event, a <xref:System.Data.DBConcurrencyException> will be thrown.       The SqlDataAdapter also includes the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>, <xref:System.Data.SqlClient.SqlDataAdapter.InsertCommand%2A>, <xref:System.Data.SqlClient.SqlDataAdapter.DeleteCommand%2A>, <xref:System.Data.SqlClient.SqlDataAdapter.UpdateCommand%2A>, and <xref:System.Data.Common.DataAdapter.TableMappings%2A> properties to facilitate the loading and updating of data.       When an instance of SqlDataAdapter is created, the read/write properties are set to initial values. For a list of these values, see the SqlDataAdapter constructor.       The <xref:System.Data.SqlClient.SqlDataAdapter.InsertCommand%2A>, <xref:System.Data.SqlClient.SqlDataAdapter.DeleteCommand%2A>, and <xref:System.Data.SqlClient.SqlDataAdapter.UpdateCommand%2A> are generic templates that are automatically filled with individual values from every modified row through the parameters mechanism.       For every column that you propagate to the data source on <xref:System.Data.Common.DbDataAdapter.Update%2A>, a parameter should be added to the `InsertCommand`, `UpdateCommand`, or `DeleteCommand`. The <xref:System.Data.Common.DbParameter.SourceColumn%2A> property of the <xref:System.Data.Common.DbParameter> object should be set to the name of the column. This setting indicates that the value of the parameter is not set manually, but is taken from the particular column in the currently processed row.      > [!NOTE] >  An <xref:System.InvalidOperationException> will occur if the <xref:System.Data.Common.DbDataAdapter.Fill%2A> method is called and the table contains a user-defined type that is not available on the client computer. For more information, see [Creating and Using User-Defined Types](http://go.microsoft.com/fwlink/?LinkId=139492) in SQL Server Books Online."
+  summary: "Представляет набор команд данных и подключение к базе данных, которые используются для заполнения <xref href=&quot;System.Data.DataSet&quot;> </xref> и обновления базы данных SQL Server. Этот класс не наследуется."
+  remarks: "Метод SqlDataAdapter выступает в качестве моста между <xref:System.Data.DataSet>и SQL Server для получения и сохранения данных.</xref:System.Data.DataSet> SqlDataAdapter предоставляет этот мост, сопоставление <xref:System.Data.Common.DbDataAdapter.Fill%2A>, который изменяет данные в <xref:System.Data.DataSet>в соответствии с данными в источнике данных и <xref:System.Data.Common.DbDataAdapter.Update%2A>, какие изменения данных в источнике данных в соответствии с данными в <xref:System.Data.DataSet>, с помощью соответствующих инструкций Transact-SQL в источнике данных.</xref:System.Data.DataSet> </xref:System.Data.Common.DbDataAdapter.Update%2A> </xref:System.Data.DataSet> </xref:System.Data.Common.DbDataAdapter.Fill%2A> Обновление выполняется по принципу по строкам. Для каждой вставленной, измененные и удаленные строки <xref:System.Data.Common.DbDataAdapter.Update%2A>метод определяет тип изменения, которое было выполнено на нем (`Insert`, `Update`, или `Delete`).</xref:System.Data.Common.DbDataAdapter.Update%2A> В зависимости от типа изменений `Insert`, `Update`, или `Delete` шаблон команды выполняется для распространения измененной строки в источнике данных. Когда заполняет SqlDataAdapter <xref:System.Data.DataSet>, он создает необходимые таблицы и столбцы для возвращаемых данных, если они еще не существует.</xref:System.Data.DataSet> Однако сведения о первичном ключе отсутствует в схеме неявно созданных <xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>свойству <xref:System.Data.MissingSchemaAction>.</xref:System.Data.MissingSchemaAction> </xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A> Возможно также создание схемы SqlDataAdapter <xref:System.Data.DataSet>, включая сведения о первичном ключе, перед заполнением ее данными с помощью `FillSchema`.</xref:System.Data.DataSet> Дополнительные сведения см. в разделе [Добавление существующих ограничений к набору данных](~/add/includes/ajax-current-ext-md.md).       SqlDataAdapter используется в сочетании с <xref:System.Data.SqlClient.SqlConnection>и <xref:System.Data.SqlClient.SqlCommand>для увеличения производительности при подключении к базе данных SQL Server.</xref:System.Data.SqlClient.SqlCommand> </xref:System.Data.SqlClient.SqlConnection>      Настроек [!NOTE] настроек при использовании хранимых процедур SQL Server для изменения или удаления данных с помощью `DataAdapter`, убедитесь, что не инструкция SET NOCOUNT ON в определении хранимой процедуры. В результате должно быть равно нулю, возвращается число затронутых строк которой `DataAdapter` интерпретирует как конфликт параллелизма. В этом случае <xref:System.Data.DBConcurrencyException>будет создано.</xref:System.Data.DBConcurrencyException>       Также включает SqlDataAdapter <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>, <xref:System.Data.SqlClient.SqlDataAdapter.InsertCommand%2A>, <xref:System.Data.SqlClient.SqlDataAdapter.DeleteCommand%2A>, <xref:System.Data.SqlClient.SqlDataAdapter.UpdateCommand%2A>, и <xref:System.Data.Common.DataAdapter.TableMappings%2A>для облегчения загрузки и обновления данных.</xref:System.Data.Common.DataAdapter.TableMappings%2A> </xref:System.Data.SqlClient.SqlDataAdapter.UpdateCommand%2A> </xref:System.Data.SqlClient.SqlDataAdapter.DeleteCommand%2A> </xref:System.Data.SqlClient.SqlDataAdapter.InsertCommand%2A> </xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>       При создании экземпляра SqlDataAdapter свойства чтения/записи устанавливаются в исходные значения. Список этих значений см. в разделе SqlDataAdapter конструктор.       <xref:System.Data.SqlClient.SqlDataAdapter.InsertCommand%2A>, <xref:System.Data.SqlClient.SqlDataAdapter.DeleteCommand%2A>, И <xref:System.Data.SqlClient.SqlDataAdapter.UpdateCommand%2A>являются универсальные шаблоны, которые автоматически заполняются отдельных значений из каждой измененной строки через механизм параметров.</xref:System.Data.SqlClient.SqlDataAdapter.UpdateCommand%2A> </xref:System.Data.SqlClient.SqlDataAdapter.DeleteCommand%2A> </xref:System.Data.SqlClient.SqlDataAdapter.InsertCommand%2A>       Для каждого столбца, который распространяется с источником данных на <xref:System.Data.Common.DbDataAdapter.Update%2A>, следует добавить параметр `InsertCommand`, `UpdateCommand`, или `DeleteCommand`.</xref:System.Data.Common.DbDataAdapter.Update%2A> <xref:System.Data.Common.DbParameter.SourceColumn%2A>Свойство <xref:System.Data.Common.DbParameter>объекта должно быть присвоено имя столбца.</xref:System.Data.Common.DbParameter> </xref:System.Data.Common.DbParameter.SourceColumn%2A> Этот параметр указывает, что значение параметра устанавливается не вручную, но берется из конкретного столбца в настоящее время в обрабатываемой в строке.      Настроек [!NOTE] настроек <xref:System.InvalidOperationException>будет возникать, если <xref:System.Data.Common.DbDataAdapter.Fill%2A>будет вызван, а таблица содержит определяемый пользователем тип, который доступен не на клиентском компьютере.</xref:System.Data.Common.DbDataAdapter.Fill%2A> </xref:System.InvalidOperationException> Дополнительные сведения см. в разделе [Создание и типы Using User-Defined](http://go.microsoft.com/fwlink/?LinkId=139492) в электронной документации по SQL Server."
   example:
   - "The following example uses the <xref:System.Data.SqlClient.SqlCommand>, SqlDataAdapter, and <xref:System.Data.SqlClient.SqlConnection> to select records from a database and populate a <xref:System.Data.DataSet> with the selected rows. The filled <xref:System.Data.DataSet> is then returned. To accomplish this, the method is passed an initialized <xref:System.Data.DataSet>, a connection string, and a query string that is a Transact-SQL SELECT statement.  \n  \n [!code-vb[Classic WebData SqlDataAdapter Example#1](~/add/codesnippet/visualbasic/t-system.data.sqlclient._14_1.vb)]\n [!code-cs[Classic WebData SqlDataAdapter Example#1](~/add/codesnippet/csharp/t-system.data.sqlclient._14_1.cs)]"
   syntax:
@@ -130,8 +130,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;></xref> class."
-  remarks: "When an instance of <xref:System.Data.SqlClient.SqlDataAdapter> is created, the following read/write properties are set to the following initial values.      |Properties|Initial value|   |----------------|-------------------|   |<xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>|`MissingMappingAction.Passthrough`|   |<xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>|`MissingSchemaAction.Add`|       You can change the value of any of these properties through a separate call to the property."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;> </xref> класса."
+  remarks: "При создании экземпляра <xref:System.Data.SqlClient.SqlDataAdapter>создается следующее чтения и записи свойствам присваиваются следующие начальные значения.</xref:System.Data.SqlClient.SqlDataAdapter>      | Свойства | Начальное значение |   |----------------|-------------------|   | <xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>| `MissingMappingAction.Passthrough`|   | <xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>| `MissingSchemaAction.Add`|       Можно изменить значение любого из этих свойств, вызвав его отдельно.</xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A> </xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>"
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlDataAdapter> and sets some of its properties.  \n  \n [!code-vb[Classic WebData SqlDataAdapter.SqlDataAdapter Example#1](~/add/codesnippet/visualbasic/m-system.data.sqlclient._37_1.vb)]\n [!code-cs[Classic WebData SqlDataAdapter.SqlDataAdapter Example#1](~/add/codesnippet/csharp/m-system.data.sqlclient._37_1.cs)]"
   syntax:
@@ -153,8 +153,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;></xref> class with the specified <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;></xref> as the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*> property."
-  remarks: "This implementation of the <xref:System.Data.SqlClient.SqlDataAdapter> constructor sets the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> property to the value specified in the `selectCommand` parameter.       When an instance of <xref:System.Data.SqlClient.SqlDataAdapter> is created, the following read/write properties are set to the following initial values.      |Properties|Initial value|   |----------------|-------------------|   |<xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>|`MissingMappingAction.Passthrough`|   |<xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>|`MissingSchemaAction.Add`|       You can change the value of any of these properties through a separate call to the property.       When <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> (or any of the other command properties) is assigned to a previously created <xref:System.Data.SqlClient.SqlCommand>, the <xref:System.Data.SqlClient.SqlCommand> is not cloned. The <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> maintains a reference to the previously created <xref:System.Data.SqlClient.SqlCommand> object."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;> </xref> класса с заданным <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;> </xref> как <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*>свойство.</xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*>"
+  remarks: "Эта реализация <xref:System.Data.SqlClient.SqlDataAdapter>конструктора задает <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>Свойства, значение, указанное в `selectCommand` параметр.</xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> </xref:System.Data.SqlClient.SqlDataAdapter>       При создании экземпляра <xref:System.Data.SqlClient.SqlDataAdapter>создается следующее чтения и записи свойствам присваиваются следующие начальные значения.</xref:System.Data.SqlClient.SqlDataAdapter>      | Свойства | Начальное значение |   |----------------|-------------------|   | <xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>| `MissingMappingAction.Passthrough`|   | <xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>| `MissingSchemaAction.Add`|       Можно изменить значение любого из этих свойств, вызвав его отдельно.</xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A> </xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>       При <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>(или любые другие свойства команды) назначается для ранее созданной <xref:System.Data.SqlClient.SqlCommand>, <xref:System.Data.SqlClient.SqlCommand>не клонируются.</xref:System.Data.SqlClient.SqlCommand> </xref:System.Data.SqlClient.SqlCommand> </xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>Сохраняет ссылку на ранее созданный <xref:System.Data.SqlClient.SqlCommand>объекта.</xref:System.Data.SqlClient.SqlCommand> </xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>"
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlDataAdapter> and sets some of its properties.  \n  \n [!code-cs[Classic WebData SqlDataAdapter.SqlDataAdapter1 Example#1](~/add/codesnippet/csharp/9d168a15-4587-40fd-a80e-_1.cs)]\n [!code-vb[Classic WebData SqlDataAdapter.SqlDataAdapter1 Example#1](~/add/codesnippet/visualbasic/9d168a15-4587-40fd-a80e-_1.vb)]"
   syntax:
@@ -162,7 +162,7 @@ items:
     parameters:
     - id: selectCommand
       type: System.Data.SqlClient.SqlCommand
-      description: "A <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;></xref> that is a Transact-SQL SELECT statement or stored procedure and is set as the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*> property of the <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;></xref>."
+      description: "Объект <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;> </xref> , инструкции Transact-SQL SELECT или хранимой процедуры, которое задается как <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*>свойство <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;> </xref>.</xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*>"
   overload: System.Data.SqlClient.SqlDataAdapter.#ctor*
   exceptions: []
   platform:
@@ -179,8 +179,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;></xref> class with a <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*> and a <xref href=&quot;System.Data.SqlClient.SqlConnection&quot;></xref> object."
-  remarks: "This implementation of the <xref:System.Data.SqlClient.SqlDataAdapter> opens and closes a <xref:System.Data.SqlClient.SqlConnection> if it is not already open. This can be useful in an application that must call the <xref:System.Data.Common.DbDataAdapter.Fill%2A> method for two or more <xref:System.Data.SqlClient.SqlDataAdapter> objects. If the <xref:System.Data.SqlClient.SqlConnection> is already open, you must explicitly call **Close** or **Dispose** to close it.       When an instance of <xref:System.Data.SqlClient.SqlDataAdapter> is created, the following read/write properties are set to the following initial values.      |Properties|Initial value|   |----------------|-------------------|   |<xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>|`MissingMappingAction.Passthrough`|   |<xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>|`MissingSchemaAction.Add`|       You can change the value of either of these properties through a separate call to the property."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;> </xref> класса <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*>и <xref href=&quot;System.Data.SqlClient.SqlConnection&quot;> </xref> объекта.</xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*>"
+  remarks: "Эта реализация <xref:System.Data.SqlClient.SqlDataAdapter>открывает и закрывает <xref:System.Data.SqlClient.SqlConnection>, если он еще не открыт.</xref:System.Data.SqlClient.SqlConnection> </xref:System.Data.SqlClient.SqlDataAdapter> Это может быть полезно в приложении, необходимо вызвать метод <xref:System.Data.Common.DbDataAdapter.Fill%2A>метод для двух или более <xref:System.Data.SqlClient.SqlDataAdapter>объектов.</xref:System.Data.SqlClient.SqlDataAdapter> </xref:System.Data.Common.DbDataAdapter.Fill%2A> Если <xref:System.Data.SqlClient.SqlConnection>является уже открыт, необходимо явно вызвать **закрыть** или **Dispose** закрыть его</xref:System.Data.SqlClient.SqlConnection>       При создании экземпляра <xref:System.Data.SqlClient.SqlDataAdapter>создается следующее чтения и записи свойствам присваиваются следующие начальные значения.</xref:System.Data.SqlClient.SqlDataAdapter>      | Свойства | Начальное значение |   |----------------|-------------------|   | <xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>| `MissingMappingAction.Passthrough`|   | <xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>| `MissingSchemaAction.Add`|       Можно изменить значение любого из этих свойств, вызвав его отдельно.</xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A> </xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>"
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlDataAdapter> and sets some of its properties.  \n  \n [!code-vb[Classic WebData SqlDataAdapter.SqlDataAdapter3 Example#1](~/add/codesnippet/visualbasic/fa8f1b27-cd12-4c35-bbde-_1.vb)]\n [!code-cs[Classic WebData SqlDataAdapter.SqlDataAdapter3 Example#1](~/add/codesnippet/csharp/fa8f1b27-cd12-4c35-bbde-_1.cs)]"
   syntax:
@@ -188,10 +188,10 @@ items:
     parameters:
     - id: selectCommandText
       type: System.String
-      description: "A <xref:System.String> that is a Transact-SQL SELECT statement or stored procedure to be used by the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*> property of the <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;></xref>."
+      description: "Объект <xref:System.String>, инструкции Transact-SQL SELECT или хранимой процедуры, используемые <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*>свойство <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;> </xref>.</xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*> </xref:System.String>"
     - id: selectConnection
       type: System.Data.SqlClient.SqlConnection
-      description: "A <xref href=&quot;System.Data.SqlClient.SqlConnection&quot;></xref> that represents the connection. If your connection string does not use <xref uid=&quot;langword_csharp_Integrated Security = true&quot; name=&quot;Integrated Security = true&quot; href=&quot;&quot;></xref>, you can use <xref href=&quot;System.Data.SqlClient.SqlCredential&quot;></xref> to pass the user ID and password more securely than by specifying the user ID and password as text in the connection string."
+      description: "Объект <xref href=&quot;System.Data.SqlClient.SqlConnection&quot;> </xref> , представляющий подключение. Если строка подключения не использует <xref uid=&quot;langword_csharp_Integrated Security = true&quot; name=&quot;Integrated Security = true&quot; href=&quot;&quot;> </xref>, можно использовать <xref href=&quot;System.Data.SqlClient.SqlCredential&quot;> </xref> для передачи идентификатора пользователя и пароля, более безопасно, чем при указании идентификатора пользователя и пароля в виде текста в строке подключения."
   overload: System.Data.SqlClient.SqlDataAdapter.#ctor*
   exceptions: []
   platform:
@@ -208,8 +208,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;></xref> class with a <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*> and a connection string."
-  remarks: "This overload of the <xref:System.Data.SqlClient.SqlDataAdapter> constructor uses the `selectCommandText` parameter to set the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> property. The <xref:System.Data.SqlClient.SqlDataAdapter> will create and maintain the connection created with the `selectConnectionString` parameter.       When an instance of <xref:System.Data.SqlClient.SqlDataAdapter> is created, the following read/write properties are set to the following initial values.      |Properties|Initial value|   |----------------|-------------------|   |<xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>|`MissingMappingAction.Passthrough`|   |<xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>|`MissingSchemaAction.Add`|       You can change the value of any of these properties through a separate call to the property."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;> </xref> класса <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*>и строку соединения.</xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*>"
+  remarks: "Эта перегрузка <xref:System.Data.SqlClient.SqlDataAdapter>конструктор использует `selectCommandText` параметра <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>свойство.</xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> </xref:System.Data.SqlClient.SqlDataAdapter> <xref:System.Data.SqlClient.SqlDataAdapter>Будет создавать и поддерживать соединение, созданное с помощью `selectConnectionString` параметр.</xref:System.Data.SqlClient.SqlDataAdapter>       При создании экземпляра <xref:System.Data.SqlClient.SqlDataAdapter>создается следующее чтения и записи свойствам присваиваются следующие начальные значения.</xref:System.Data.SqlClient.SqlDataAdapter>      | Свойства | Начальное значение |   |----------------|-------------------|   | <xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>| `MissingMappingAction.Passthrough`|   | <xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>| `MissingSchemaAction.Add`|       Можно изменить значение любого из этих свойств, вызвав его отдельно.</xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A> </xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>"
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlDataAdapter> and sets some of its properties.  \n  \n [!code-vb[Classic WebData SqlDataAdapter.SqlDataAdapter2 Example#1](~/add/codesnippet/visualbasic/m-system.data.sqlclient._6_1.vb)]\n [!code-cs[Classic WebData SqlDataAdapter.SqlDataAdapter2 Example#1](~/add/codesnippet/csharp/m-system.data.sqlclient._6_1.cs)]"
   syntax:
@@ -217,10 +217,10 @@ items:
     parameters:
     - id: selectCommandText
       type: System.String
-      description: "A <xref:System.String> that is a Transact-SQL SELECT statement or stored procedure to be used by the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*> property of the <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;></xref>."
+      description: "Объект <xref:System.String>, инструкции Transact-SQL SELECT или хранимой процедуры, используемые <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*>свойство <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;> </xref>.</xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand*> </xref:System.String>"
     - id: selectConnectionString
       type: System.String
-      description: "The connection string. If your connection string does not use <xref uid=&quot;langword_csharp_Integrated Security = true&quot; name=&quot;Integrated Security = true&quot; href=&quot;&quot;></xref>, you can use &lt;xref:System.Data.SqlClient.SqlDataAdapter.%23ctor%2A&gt; and <xref href=&quot;System.Data.SqlClient.SqlCredential&quot;></xref> to pass the user ID and password more securely than by specifying the user ID and password as text in the connection string."
+      description: "Строка подключения. Если строка подключения не использует <xref uid=&quot;langword_csharp_Integrated Security = true&quot; name=&quot;Integrated Security = true&quot; href=&quot;&quot;> </xref>, можно использовать &lt;xref:System.Data.SqlClient.SqlDataAdapter.%23ctor%2A&gt; и <xref href=&quot;System.Data.SqlClient.SqlCredential&quot;> </xref> для передачи идентификатора пользователя и пароля, более безопасно, чем при указании идентификатора пользователя и пароля в виде текста в строке подключения."
   overload: System.Data.SqlClient.SqlDataAdapter.#ctor*
   exceptions: []
   platform:
@@ -242,10 +242,10 @@ items:
     parameters:
     - id: command
       type: System.Data.IDbCommand
-      description: "To be added."
+      description: "Для добавления."
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Data.SqlClient.SqlDataAdapter.AddToBatch*
   exceptions: []
   platform:
@@ -286,19 +286,19 @@ items:
     parameters:
     - id: dataRow
       type: System.Data.DataRow
-      description: "To be added."
+      description: "Для добавления."
     - id: command
       type: System.Data.IDbCommand
-      description: "To be added."
+      description: "Для добавления."
     - id: statementType
       type: System.Data.StatementType
-      description: "To be added."
+      description: "Для добавления."
     - id: tableMapping
       type: System.Data.Common.DataTableMapping
-      description: "To be added."
+      description: "Для добавления."
     return:
       type: System.Data.Common.RowUpdatedEventArgs
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Data.SqlClient.SqlDataAdapter.CreateRowUpdatedEvent*
   exceptions: []
   platform:
@@ -320,19 +320,19 @@ items:
     parameters:
     - id: dataRow
       type: System.Data.DataRow
-      description: "To be added."
+      description: "Для добавления."
     - id: command
       type: System.Data.IDbCommand
-      description: "To be added."
+      description: "Для добавления."
     - id: statementType
       type: System.Data.StatementType
-      description: "To be added."
+      description: "Для добавления."
     - id: tableMapping
       type: System.Data.Common.DataTableMapping
-      description: "To be added."
+      description: "Для добавления."
     return:
       type: System.Data.Common.RowUpdatingEventArgs
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Data.SqlClient.SqlDataAdapter.CreateRowUpdatingEvent*
   exceptions: []
   platform:
@@ -349,15 +349,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a Transact-SQL statement or stored procedure to delete records from the data set."
-  remarks: "During <xref:System.Data.Common.DbDataAdapter.Update%2A>, if this property is not set and primary key information is present in the <xref:System.Data.DataSet>, the DeleteCommand can be generated automatically if you set the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> property and use the <xref:System.Data.SqlClient.SqlCommandBuilder>. Then, any additional commands that you do not set are generated by the <xref:System.Data.SqlClient.SqlCommandBuilder>. This generation logic requires key column information to be present in the <xref:System.Data.DataSet>. For more information, see [Generating Commands with CommandBuilders](~/add/includes/ajax-current-ext-md.md).       When DeleteCommand is assigned to a previously created <xref:System.Data.SqlClient.SqlCommand>, the <xref:System.Data.SqlClient.SqlCommand> is not cloned. The DeleteCommand maintains a reference to the previously created <xref:System.Data.SqlClient.SqlCommand> object.       For every column that you propagate to the data source on <xref:System.Data.Common.DbDataAdapter.Update%2A>, a parameter should be added to the `InsertCommand`, `UpdateCommand`, or `DeleteCommand`. The `SourceColumn` property of the parameter should be set to the name of the column. This indicates that the value of the parameter is not set manually, but is taken from the particular column in the currently processed row."
+  summary: "Возвращает или задает инструкцию Transact-SQL или хранимую процедуру для удаления записей из набора данных."
+  remarks: "Во время <xref:System.Data.Common.DbDataAdapter.Update%2A>, если это свойство не задано и сведения о первичном ключе присутствует в <xref:System.Data.DataSet>DeleteCommand может формировать автоматически, если вы установите <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>и используйте <xref:System.Data.SqlClient.SqlCommandBuilder>.</xref:System.Data.SqlClient.SqlCommandBuilder> </xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> </xref:System.Data.DataSet> </xref:System.Data.Common.DbDataAdapter.Update%2A> Затем создаются любые дополнительные команды, не устанавливайте <xref:System.Data.SqlClient.SqlCommandBuilder>.</xref:System.Data.SqlClient.SqlCommandBuilder> Эта логика создания требует сведения о ключевом столбце должны присутствовать в списке <xref:System.Data.DataSet>.</xref:System.Data.DataSet> Дополнительные сведения см. в разделе [создание команд с помощью построителей команд](~/add/includes/ajax-current-ext-md.md).       При назначении DeleteCommand ранее созданный <xref:System.Data.SqlClient.SqlCommand>, <xref:System.Data.SqlClient.SqlCommand>не клонируются.</xref:System.Data.SqlClient.SqlCommand> </xref:System.Data.SqlClient.SqlCommand> Свойство DeleteCommand сохраняет ссылку на ранее созданный <xref:System.Data.SqlClient.SqlCommand>объекта.</xref:System.Data.SqlClient.SqlCommand>       Для каждого столбца, который распространяется с источником данных на <xref:System.Data.Common.DbDataAdapter.Update%2A>, следует добавить параметр `InsertCommand`, `UpdateCommand`, или `DeleteCommand`.</xref:System.Data.Common.DbDataAdapter.Update%2A> `SourceColumn` Свойства параметра должно быть присвоено имя столбца. Это означает, что значение параметра устанавливается не вручную, но берется из конкретного столбца в настоящее время в обрабатываемой в строке."
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlDataAdapter> and sets the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>, <xref:System.Data.SqlClient.SqlDataAdapter.InsertCommand%2A>, <xref:System.Data.SqlClient.SqlDataAdapter.UpdateCommand%2A>, and DeleteCommand properties. It assumes you have already created a <xref:System.Data.SqlClient.SqlConnection> object.  \n  \n [!code-vb[DataWorks SqlDataAdapter.Command#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._16_1.vb)]\n [!code-cs[DataWorks SqlDataAdapter.Command#1](~/add/codesnippet/csharp/p-system.data.sqlclient._16_1.cs)]"
   syntax:
     content: public System.Data.SqlClient.SqlCommand DeleteCommand { get; set; }
     return:
       type: System.Data.SqlClient.SqlCommand
-      description: "A <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;></xref> used during <xref:System.Data.Common.DbDataAdapter.Update*> to delete records in the database that correspond to deleted rows in the <xref href=&quot;System.Data.DataSet&quot;></xref>."
+      description: "Объект <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;> </xref> во время <xref:System.Data.Common.DbDataAdapter.Update*>для удаления записей в базе данных, соответствующих удаленным строкам в <xref href=&quot;System.Data.DataSet&quot;> </xref>.</xref:System.Data.Common.DbDataAdapter.Update*>"
   overload: System.Data.SqlClient.SqlDataAdapter.DeleteCommand*
   exceptions: []
   platform:
@@ -379,7 +379,7 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Data.SqlClient.SqlDataAdapter.ExecuteBatch*
   exceptions: []
   platform:
@@ -401,13 +401,13 @@ items:
     parameters:
     - id: commandIdentifier
       type: System.Int32
-      description: "To be added."
+      description: "Для добавления."
     - id: parameterIndex
       type: System.Int32
-      description: "To be added."
+      description: "Для добавления."
     return:
       type: System.Data.IDataParameter
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Data.SqlClient.SqlDataAdapter.GetBatchedParameter*
   exceptions: []
   platform:
@@ -429,16 +429,16 @@ items:
     parameters:
     - id: commandIdentifier
       type: System.Int32
-      description: "To be added."
+      description: "Для добавления."
     - id: recordsAffected
       type: System.Int32
-      description: "To be added."
+      description: "Для добавления."
     - id: error
       type: System.Exception
-      description: "To be added."
+      description: "Для добавления."
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Data.SqlClient.SqlDataAdapter.GetBatchedRecordsAffected*
   exceptions: []
   platform:
@@ -474,15 +474,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a Transact-SQL statement or stored procedure to insert new records into the data source."
-  remarks: "During <xref:System.Data.Common.DbDataAdapter.Update%2A>, if this property is not set and primary key information is present in the <xref:System.Data.DataSet>, the InsertCommand can be generated automatically if you set the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> property and use the <xref:System.Data.SqlClient.SqlCommandBuilder>. Then, any additional commands that you do not set are generated by the <xref:System.Data.SqlClient.SqlCommandBuilder>. This generation logic requires key column information to be present in the <xref:System.Data.DataSet>. For more information, see [Generating Commands with CommandBuilders](~/add/includes/ajax-current-ext-md.md).       When InsertCommand is assigned to a previously created <xref:System.Data.SqlClient.SqlCommand>, the <xref:System.Data.SqlClient.SqlCommand> is not cloned. The InsertCommand maintains a reference to the previously created <xref:System.Data.SqlClient.SqlCommand> object.       If execution of this command returns rows, these rows can be added to the <xref:System.Data.DataSet> depending on how you set the **UpdatedRowSource** property of the <xref:System.Data.SqlClient.SqlCommand> object.       For every column that you propagate to the data source on <xref:System.Data.Common.DbDataAdapter.Update%2A>, a parameter should be added to `InsertCommand`, `UpdateCommand`, or `DeleteCommand`. The `SourceColumn` property of the parameter should be set to the name of the column. This indicates that the value of the parameter is not set manually, but is taken from the particular column in the currently processed row."
+  summary: "Возвращает или задает инструкцию Transact-SQL или хранимую процедуру для вставки новых записей в источнике данных."
+  remarks: "Во время <xref:System.Data.Common.DbDataAdapter.Update%2A>, если это свойство не задано и сведения о первичном ключе присутствует в <xref:System.Data.DataSet>InsertCommand может формировать автоматически, если вы установите <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>и используйте <xref:System.Data.SqlClient.SqlCommandBuilder>.</xref:System.Data.SqlClient.SqlCommandBuilder> </xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> </xref:System.Data.DataSet> </xref:System.Data.Common.DbDataAdapter.Update%2A> Затем создаются любые дополнительные команды, не устанавливайте <xref:System.Data.SqlClient.SqlCommandBuilder>.</xref:System.Data.SqlClient.SqlCommandBuilder> Эта логика создания требует сведения о ключевом столбце должны присутствовать в списке <xref:System.Data.DataSet>.</xref:System.Data.DataSet> Дополнительные сведения см. в разделе [создание команд с помощью построителей команд](~/add/includes/ajax-current-ext-md.md).       При назначении InsertCommand ранее созданный <xref:System.Data.SqlClient.SqlCommand>, <xref:System.Data.SqlClient.SqlCommand>не клонируются.</xref:System.Data.SqlClient.SqlCommand> </xref:System.Data.SqlClient.SqlCommand> InsertCommand сохраняет ссылку на ранее созданный <xref:System.Data.SqlClient.SqlCommand>объекта.</xref:System.Data.SqlClient.SqlCommand>       При выполнении этой команды возвращаются строки, эти строки добавляются в <xref:System.Data.DataSet>в зависимости от того, как задать **UpdatedRowSource** свойство <xref:System.Data.SqlClient.SqlCommand>объекта.</xref:System.Data.SqlClient.SqlCommand> </xref:System.Data.DataSet>       Для каждого столбца, который распространяется с источником данных на <xref:System.Data.Common.DbDataAdapter.Update%2A>, следует добавить параметр `InsertCommand`, `UpdateCommand`, или `DeleteCommand`.</xref:System.Data.Common.DbDataAdapter.Update%2A> `SourceColumn` Свойства параметра должно быть присвоено имя столбца. Это означает, что значение параметра устанавливается не вручную, но берется из конкретного столбца в настоящее время в обрабатываемой в строке."
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlDataAdapter> and sets the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>, InsertCommand, <xref:System.Data.SqlClient.SqlDataAdapter.UpdateCommand%2A>, and <xref:System.Data.SqlClient.SqlDataAdapter.DeleteCommand%2A> properties. It assumes you have already created a <xref:System.Data.SqlClient.SqlConnection> object.  \n  \n [!code-vb[DataWorks SqlDataAdapter.Command#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._33_1.vb)]\n [!code-cs[DataWorks SqlDataAdapter.Command#1](~/add/codesnippet/csharp/p-system.data.sqlclient._33_1.cs)]"
   syntax:
     content: public System.Data.SqlClient.SqlCommand InsertCommand { get; set; }
     return:
       type: System.Data.SqlClient.SqlCommand
-      description: "A <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;></xref> used during <xref:System.Data.Common.DbDataAdapter.Update*> to insert records into the database that correspond to new rows in the <xref href=&quot;System.Data.DataSet&quot;></xref>."
+      description: "Объект <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;> </xref> во время <xref:System.Data.Common.DbDataAdapter.Update*>для вставки записей в базе данных, соответствующих новым строкам в <xref href=&quot;System.Data.DataSet&quot;> </xref>.</xref:System.Data.Common.DbDataAdapter.Update*>"
   overload: System.Data.SqlClient.SqlDataAdapter.InsertCommand*
   exceptions: []
   platform:
@@ -504,7 +504,7 @@ items:
     parameters:
     - id: value
       type: System.Data.Common.RowUpdatedEventArgs
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Data.SqlClient.SqlDataAdapter.OnRowUpdated*
   exceptions: []
   platform:
@@ -526,7 +526,7 @@ items:
     parameters:
     - id: value
       type: System.Data.Common.RowUpdatingEventArgs
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Data.SqlClient.SqlDataAdapter.OnRowUpdating*
   exceptions: []
   platform:
@@ -543,15 +543,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Occurs during <xref:System.Data.Common.DbDataAdapter.Update*> after a command is executed against the data source. The attempt to update is made, so the event fires."
-  remarks: "When using <xref:System.Data.Common.DbDataAdapter.Update%2A>, there are two events that occur per data row updated. The order of execution is as follows:      1.  The values in the <xref:System.Data.DataRow> are moved to the parameter values.      2.  The <xref:System.Data.Common.DbDataAdapter.OnRowUpdating%2A> event is raised.      3.  The command executes.      4.  If the command is set to `FirstReturnedRecord`, the first returned result is placed in the <xref:System.Data.DataRow>.      5.  If there are output parameters, they are placed in the <xref:System.Data.DataRow>.      6.  The <xref:System.Data.Common.DbDataAdapter.OnRowUpdated%2A> event is raised.      7.  <xref:System.Data.DataRow.AcceptChanges%2A> is called."
+  summary: "Имеет место в процессе <xref:System.Data.Common.DbDataAdapter.Update*>после выполнения команды в источнике данных.</xref:System.Data.Common.DbDataAdapter.Update*> Выполняется попытка обновления, поэтому создается событие."
+  remarks: "При использовании <xref:System.Data.Common.DbDataAdapter.Update%2A>, два события, возникающие в каждой обновленной строки данных.</xref:System.Data.Common.DbDataAdapter.Update%2A> Порядок выполнения является следующим образом: 1.  Значения в <xref:System.Data.DataRow>перемещаются в значения параметров.</xref:System.Data.DataRow>      2.  <xref:System.Data.Common.DbDataAdapter.OnRowUpdating%2A>События.</xref:System.Data.Common.DbDataAdapter.OnRowUpdating%2A>      3.  Выполняется команда.      4.  Если команда имеет значение `FirstReturnedRecord`, первый возвращенный результат помещается в <xref:System.Data.DataRow>.</xref:System.Data.DataRow>      5.  Если имеются выходные параметры, они помещаются в <xref:System.Data.DataRow>.</xref:System.Data.DataRow>      6.  <xref:System.Data.Common.DbDataAdapter.OnRowUpdated%2A>События.</xref:System.Data.Common.DbDataAdapter.OnRowUpdated%2A>      7.  <xref:System.Data.DataRow.AcceptChanges%2A>вызывается.</xref:System.Data.DataRow.AcceptChanges%2A>"
   example:
   - "The following example shows how to use both the <xref:System.Data.SqlClient.SqlDataAdapter.RowUpdating> and RowUpdated events.  \n  \n The <xref:System.Data.SqlClient.SqlDataAdapter.RowUpdating> event returns this output:  \n  \n event args: (command=System.Data.SqlClient.SqlCommand commandType=2 status=0)  \n  \n The RowUpdated event returns this output:  \n  \n event args: (command=System.Data.SqlClient.SqlCommand commandType=2 recordsAffected=1 row=System.Data.DataRow[37] status=0)  \n  \n [!code-vb[Classic WebData SqlDataAdapter.RowUpdated Example#1](~/add/codesnippet/visualbasic/e-system.data.sqlclient._0_1.vb)]\n [!code-cs[Classic WebData SqlDataAdapter.RowUpdated Example#1](~/add/codesnippet/csharp/e-system.data.sqlclient._0_1.cs)]"
   syntax:
     content: public event System.Data.SqlClient.SqlRowUpdatedEventHandler RowUpdated;
     return:
       type: System.Data.SqlClient.SqlRowUpdatedEventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -567,15 +567,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Occurs during <xref:System.Data.Common.DbDataAdapter.Update*> before a command is executed against the data source. The attempt to update is made, so the event fires."
-  remarks: "When using <xref:System.Data.Common.DbDataAdapter.Update%2A>, there are two events that occur per data row updated. The order of execution is as follows:      1.  The values in the <xref:System.Data.DataRow> are moved to the parameter values.      2.  The <xref:System.Data.Common.DbDataAdapter.OnRowUpdating%2A> event is raised.      3.  The command executes.      4.  If the command is set to `FirstReturnedRecord`, the first returned result is placed in the <xref:System.Data.DataRow>.      5.  If there are output parameters, they are placed in the <xref:System.Data.DataRow>.      6.  The <xref:System.Data.Common.DbDataAdapter.OnRowUpdated%2A> event is raised.      7.  <xref:System.Data.DataRow.AcceptChanges%2A> is called."
+  summary: "Имеет место в процессе <xref:System.Data.Common.DbDataAdapter.Update*>перед выполнением команды в источнике данных.</xref:System.Data.Common.DbDataAdapter.Update*> Выполняется попытка обновления, поэтому создается событие."
+  remarks: "При использовании <xref:System.Data.Common.DbDataAdapter.Update%2A>, два события, возникающие в каждой обновленной строки данных.</xref:System.Data.Common.DbDataAdapter.Update%2A> Порядок выполнения является следующим образом: 1.  Значения в <xref:System.Data.DataRow>перемещаются в значения параметров.</xref:System.Data.DataRow>      2.  <xref:System.Data.Common.DbDataAdapter.OnRowUpdating%2A>События.</xref:System.Data.Common.DbDataAdapter.OnRowUpdating%2A>      3.  Выполняется команда.      4.  Если команда имеет значение `FirstReturnedRecord`, первый возвращенный результат помещается в <xref:System.Data.DataRow>.</xref:System.Data.DataRow>      5.  Если имеются выходные параметры, они помещаются в <xref:System.Data.DataRow>.</xref:System.Data.DataRow>      6.  <xref:System.Data.Common.DbDataAdapter.OnRowUpdated%2A>События.</xref:System.Data.Common.DbDataAdapter.OnRowUpdated%2A>      7.  <xref:System.Data.DataRow.AcceptChanges%2A>вызывается.</xref:System.Data.DataRow.AcceptChanges%2A>"
   example:
   - "The following example shows how to use both the RowUpdating and <xref:System.Data.SqlClient.SqlDataAdapter.RowUpdated> events.  \n  \n The RowUpdating event returns this output:  \n  \n event args: (command=System.Data.SqlClient.SqlCommand commandType=2 status=0)  \n  \n The <xref:System.Data.SqlClient.SqlDataAdapter.RowUpdated> event returns this output:  \n  \n event args: (command=System.Data.SqlClient.SqlCommand commandType=2 recordsAffected=1 row=System.Data.DataRow[37] status=0)  \n  \n [!code-vb[Classic WebData SqlDataAdapter.RowUpdated Example#1](~/add/codesnippet/visualbasic/e-system.data.sqlclient._1_1.vb)]\n [!code-cs[Classic WebData SqlDataAdapter.RowUpdated Example#1](~/add/codesnippet/csharp/e-system.data.sqlclient._1_1.cs)]"
   syntax:
     content: public event System.Data.SqlClient.SqlRowUpdatingEventHandler RowUpdating;
     return:
       type: System.Data.SqlClient.SqlRowUpdatingEventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -591,15 +591,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a Transact-SQL statement or stored procedure used to select records in the data source."
-  remarks: "When SelectCommand is assigned to a previously created <xref:System.Data.SqlClient.SqlCommand>, the <xref:System.Data.SqlClient.SqlCommand> is not cloned. The SelectCommand maintains a reference to the previously created <xref:System.Data.SqlClient.SqlCommand> object.       If the SelectCommand does not return any rows, no tables are added to the <xref:System.Data.DataSet>, and no exception is raised."
+  summary: "Возвращает или задает инструкцию Transact-SQL или хранимую процедуру, используемую для выбора записей в источнике данных."
+  remarks: "При назначении SelectCommand ранее созданный <xref:System.Data.SqlClient.SqlCommand>, <xref:System.Data.SqlClient.SqlCommand>не клонируются.</xref:System.Data.SqlClient.SqlCommand> </xref:System.Data.SqlClient.SqlCommand> SelectCommand сохраняет ссылку на ранее созданный <xref:System.Data.SqlClient.SqlCommand>объекта.</xref:System.Data.SqlClient.SqlCommand>       Если SelectCommand, не возвращает строк, таблицы не будут добавлены <xref:System.Data.DataSet>, и исключение не вызывается.</xref:System.Data.DataSet>"
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlDataAdapter> and sets the SelectCommand, <xref:System.Data.SqlClient.SqlDataAdapter.InsertCommand%2A>, <xref:System.Data.SqlClient.SqlDataAdapter.UpdateCommand%2A>, and <xref:System.Data.SqlClient.SqlDataAdapter.DeleteCommand%2A> properties. It assumes you have already created a <xref:System.Data.SqlClient.SqlConnection> object.  \n  \n [!code-vb[DataWorks SqlDataAdapter.Command#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._23_1.vb)]\n [!code-cs[DataWorks SqlDataAdapter.Command#1](~/add/codesnippet/csharp/p-system.data.sqlclient._23_1.cs)]"
   syntax:
     content: public System.Data.SqlClient.SqlCommand SelectCommand { get; set; }
     return:
       type: System.Data.SqlClient.SqlCommand
-      description: "A <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;></xref> used during <xref:System.Data.Common.DbDataAdapter.Fill*> to select records from the database for placement in the <xref href=&quot;System.Data.DataSet&quot;></xref>."
+      description: "Объект <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;> </xref> во время <xref:System.Data.Common.DbDataAdapter.Fill*>для выбора записей из базы данных для размещения в <xref href=&quot;System.Data.DataSet&quot;> </xref>.</xref:System.Data.Common.DbDataAdapter.Fill*>"
   overload: System.Data.SqlClient.SqlDataAdapter.SelectCommand*
   exceptions: []
   platform:
@@ -617,13 +617,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "For a description of this member, see <xref:System.Data.IDbDataAdapter.DeleteCommand*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.SqlClient.SqlDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface."
+  summary: "Описание этого члена см. в разделе <xref:System.Data.IDbDataAdapter.DeleteCommand*>.</xref:System.Data.IDbDataAdapter.DeleteCommand*>"
+  remarks: "Этот член представляет явную реализацию члена интерфейса. Он может использоваться только если <xref:System.Data.SqlClient.SqlDataAdapter>экземпляр приводится к <xref:System.Data.IDbDataAdapter>интерфейс.</xref:System.Data.IDbDataAdapter> </xref:System.Data.SqlClient.SqlDataAdapter>"
   syntax:
     content: System.Data.IDbCommand System.Data.IDbDataAdapter.DeleteCommand { get; set; }
     return:
       type: System.Data.IDbCommand
-      description: "An <xref href=&quot;System.Data.IDbCommand&quot;></xref> that is used during <xref:System.Data.Common.DbDataAdapter.Update*> to delete records in the data source for deleted rows in the data set."
+      description: "<xref href=&quot;System.Data.IDbCommand&quot;> </xref> , Используемый при <xref:System.Data.Common.DbDataAdapter.Update*>для удаления записей в источнике данных для удаленных строк в наборе данных.</xref:System.Data.Common.DbDataAdapter.Update*>"
   overload: System.Data.SqlClient.SqlDataAdapter.System#Data#IDbDataAdapter#DeleteCommand*
   exceptions: []
   platform:
@@ -641,13 +641,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "For a description of this member, see <xref:System.Data.IDbDataAdapter.InsertCommand*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.SqlClient.SqlDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface."
+  summary: "Описание этого члена см. в разделе <xref:System.Data.IDbDataAdapter.InsertCommand*>.</xref:System.Data.IDbDataAdapter.InsertCommand*>"
+  remarks: "Этот член представляет явную реализацию члена интерфейса. Он может использоваться только если <xref:System.Data.SqlClient.SqlDataAdapter>экземпляр приводится к <xref:System.Data.IDbDataAdapter>интерфейс.</xref:System.Data.IDbDataAdapter> </xref:System.Data.SqlClient.SqlDataAdapter>"
   syntax:
     content: System.Data.IDbCommand System.Data.IDbDataAdapter.InsertCommand { get; set; }
     return:
       type: System.Data.IDbCommand
-      description: "An <xref href=&quot;System.Data.IDbCommand&quot;></xref> that is used during <xref:System.Data.Common.DbDataAdapter.Update*> to insert records in the data source for new rows in the data set."
+      description: "<xref href=&quot;System.Data.IDbCommand&quot;> </xref> , Используемый при <xref:System.Data.Common.DbDataAdapter.Update*>для вставки записей в источнике данных для новых строк в наборе данных.</xref:System.Data.Common.DbDataAdapter.Update*>"
   overload: System.Data.SqlClient.SqlDataAdapter.System#Data#IDbDataAdapter#InsertCommand*
   exceptions: []
   platform:
@@ -665,13 +665,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "For a description of this member, see <xref:System.Data.IDbDataAdapter.SelectCommand*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.SqlClient.SqlDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface."
+  summary: "Описание этого члена см. в разделе <xref:System.Data.IDbDataAdapter.SelectCommand*>.</xref:System.Data.IDbDataAdapter.SelectCommand*>"
+  remarks: "Этот член представляет явную реализацию члена интерфейса. Он может использоваться только если <xref:System.Data.SqlClient.SqlDataAdapter>экземпляр приводится к <xref:System.Data.IDbDataAdapter>интерфейс.</xref:System.Data.IDbDataAdapter> </xref:System.Data.SqlClient.SqlDataAdapter>"
   syntax:
     content: System.Data.IDbCommand System.Data.IDbDataAdapter.SelectCommand { get; set; }
     return:
       type: System.Data.IDbCommand
-      description: "An <xref href=&quot;System.Data.IDbCommand&quot;></xref> that is used during <xref:System.Data.Common.DbDataAdapter.Update*> to select records from data source for placement in the data set."
+      description: "<xref href=&quot;System.Data.IDbCommand&quot;> </xref> , Используемый при <xref:System.Data.Common.DbDataAdapter.Update*>для выбора записей из источника данных для размещения в наборе данных.</xref:System.Data.Common.DbDataAdapter.Update*>"
   overload: System.Data.SqlClient.SqlDataAdapter.System#Data#IDbDataAdapter#SelectCommand*
   exceptions: []
   platform:
@@ -689,13 +689,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "For a description of this member, see <xref:System.Data.IDbDataAdapter.UpdateCommand*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.SqlClient.SqlDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface."
+  summary: "Описание этого члена см. в разделе <xref:System.Data.IDbDataAdapter.UpdateCommand*>.</xref:System.Data.IDbDataAdapter.UpdateCommand*>"
+  remarks: "Этот член представляет явную реализацию члена интерфейса. Он может использоваться только если <xref:System.Data.SqlClient.SqlDataAdapter>экземпляр приводится к <xref:System.Data.IDbDataAdapter>интерфейс.</xref:System.Data.IDbDataAdapter> </xref:System.Data.SqlClient.SqlDataAdapter>"
   syntax:
     content: System.Data.IDbCommand System.Data.IDbDataAdapter.UpdateCommand { get; set; }
     return:
       type: System.Data.IDbCommand
-      description: "An <xref:System.Data.IdbCommand> that is used during <xref:System.Data.Common.DbDataAdapter.Update*> to update records in the data source for modified rows in the data set."
+      description: "<xref:System.Data.IdbCommand>, Используемый при <xref:System.Data.Common.DbDataAdapter.Update*>для обновления записей в источнике данных для измененных строк в наборе данных.</xref:System.Data.Common.DbDataAdapter.Update*> </xref:System.Data.IdbCommand>"
   overload: System.Data.SqlClient.SqlDataAdapter.System#Data#IDbDataAdapter#UpdateCommand*
   exceptions: []
   platform:
@@ -713,14 +713,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "For a description of this member, see <xref:System.ICloneable.Clone*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.SqlClient.SqlDataAdapter> instance is cast to an <xref:System.ICloneable> interface."
+  summary: "Описание этого члена см. в разделе <xref:System.ICloneable.Clone*>.</xref:System.ICloneable.Clone*>"
+  remarks: "Этот член представляет явную реализацию члена интерфейса. Он может использоваться только если <xref:System.Data.SqlClient.SqlDataAdapter>экземпляр приводится к <xref:System.ICloneable>интерфейс.</xref:System.ICloneable> </xref:System.Data.SqlClient.SqlDataAdapter>"
   syntax:
     content: object ICloneable.Clone ();
     parameters: []
     return:
       type: System.Object
-      description: "A new object that is a copy of the current instance."
+      description: "Новый объект, являющийся копией текущего экземпляра."
   overload: System.Data.SqlClient.SqlDataAdapter.System#ICloneable#Clone*
   exceptions: []
   platform:
@@ -756,13 +756,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the number of rows that are processed in each round-trip to the server."
-  remarks: "Gets or sets a value that enables or disables batch processing support, and specifies the number of commands that can be executed in a batch.       Use the UpdateBatchSize property to update a data source with changes from a <xref:System.Data.DataSet>. This can increase application performance by reducing the number of round-trips to the server.       Executing an extremely large batch could decrease performance. Therefore, you should test for the optimum batch size setting before implementing your application.       An <xref:System.ArgumentOutOfRangeException> is thrown if the value is set to a number less than zero."
+  summary: "Возвращает или задает количество строк, обработанных при каждом обращении к серверу."
+  remarks: "Возвращает или задает значение, которое включает или отключает поддержку пакетной обработки и задает количество команд, которые могут быть выполнены в пакете.       Используйте свойство UpdateBatchSize для обновления источника данных с изменениями из <xref:System.Data.DataSet>.</xref:System.Data.DataSet> Это может повысить производительность приложения путем сокращения числа циклов приема-передачи на сервер.       Выполнение очень больших пакетов может снизить производительность. Таким образом следует проверить параметр размера оптимальный пакета перед реализацией приложения.       <xref:System.ArgumentOutOfRangeException>Возникает исключение, если число имеет значение меньше нуля.</xref:System.ArgumentOutOfRangeException>"
   syntax:
     content: public override int UpdateBatchSize { get; set; }
     return:
       type: System.Int32
-      description: "The number of rows to process per-batch.       <table><thead><tr><th> Value is       </th><th> Effect       </th></tr></thead><tbody><tr><td> 0       </td><td> There is no limit on the batch size..       </td></tr><tr><td> 1       </td><td> Disables batch updating.       </td></tr><tr><td> &gt;1       </td><td> Changes are sent using batches of UpdateBatchSize operations at a time.       </td></tr></tbody></table>       When setting this to a value other than 1, all the commands associated with the <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;></xref> have to have their **UpdatedRowSource** property set to <xref uid=&quot;langword_csharp_None&quot; name=&quot;None&quot; href=&quot;&quot;></xref> or <xref uid=&quot;langword_csharp_OutputParameters&quot; name=&quot;OutputParameters&quot; href=&quot;&quot;></xref>. An exception is thrown otherwise."
+      description: "Число строк для обработки каждого пакета.       <table><thead><tr><th> Значение       </th><th> Эффект       </th></tr></thead><tbody><tr><td> 0       </td><td> Нет ограничений на размер пакета...       </td></tr><tr><td> 1       </td><td> Обновление пакета отключено.       </td></tr><tr><td> &gt;1       </td><td> Изменения отправляются с помощью пакетов UpdateBatchSize операций одновременно.       </td></tr></tbody></table>       Этому параметру присвоено значение, отличное от 1, все команды, связанное с <xref href=&quot;System.Data.SqlClient.SqlDataAdapter&quot;> </xref> должны иметь их **UpdatedRowSource** свойство <xref uid=&quot;langword_csharp_None&quot; name=&quot;None&quot; href=&quot;&quot;> </xref> или <xref uid=&quot;langword_csharp_OutputParameters&quot; name=&quot;OutputParameters&quot; href=&quot;&quot;> </xref>. В противном случае возникает исключение."
   overload: System.Data.SqlClient.SqlDataAdapter.UpdateBatchSize*
   exceptions: []
   platform:
@@ -779,15 +779,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a Transact-SQL statement or stored procedure used to update records in the data source."
-  remarks: "During <xref:System.Data.Common.DbDataAdapter.Update%2A>, if this property is not set and primary key information is present in the <xref:System.Data.DataSet>, the UpdateCommand can be generated automatically if you set the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> property and use the <xref:System.Data.SqlClient.SqlCommandBuilder>. Then, any additional commands that you do not set are generated by the <xref:System.Data.SqlClient.SqlCommandBuilder>. This generation logic requires key column information to be present in the <xref:System.Data.DataSet>. For more information, see [Generating Commands with CommandBuilders](~/add/includes/ajax-current-ext-md.md).       When UpdateCommand is assigned to a previously created <xref:System.Data.SqlClient.SqlCommand>, the <xref:System.Data.SqlClient.SqlCommand> is not cloned. The UpdateCommand maintains a reference to the previously created <xref:System.Data.SqlClient.SqlCommand> object.      > [!NOTE] >  If execution of this command returns rows, the updated rows may be merged with the <xref:System.Data.DataSet> depending on how you set the **UpdatedRowSource** property of the <xref:System.Data.SqlClient.SqlCommand> object.       For every column that you propagate to the data source on <xref:System.Data.Common.DbDataAdapter.Update%2A>, a parameter should be added to `InsertCommand`, `UpdateCommand`, or `DeleteCommand`.       The `SourceColumn` property of the parameter should be set to the name of the column. This indicates that the value of the parameter is not set manually, but taken from the particular column in the currently processed row."
+  summary: "Возвращает или задает инструкцию Transact-SQL или хранимую процедуру, используемую для обновления записей в источнике данных."
+  remarks: "Во время <xref:System.Data.Common.DbDataAdapter.Update%2A>, если это свойство не задано и сведения о первичном ключе присутствует в <xref:System.Data.DataSet>UpdateCommand может формировать автоматически, если вы установите <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>и используйте <xref:System.Data.SqlClient.SqlCommandBuilder>.</xref:System.Data.SqlClient.SqlCommandBuilder> </xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A> </xref:System.Data.DataSet> </xref:System.Data.Common.DbDataAdapter.Update%2A> Затем создаются любые дополнительные команды, не устанавливайте <xref:System.Data.SqlClient.SqlCommandBuilder>.</xref:System.Data.SqlClient.SqlCommandBuilder> Эта логика создания требует сведения о ключевом столбце должны присутствовать в списке <xref:System.Data.DataSet>.</xref:System.Data.DataSet> Дополнительные сведения см. в разделе [создание команд с помощью построителей команд](~/add/includes/ajax-current-ext-md.md).       При назначении UpdateCommand ранее созданный <xref:System.Data.SqlClient.SqlCommand>, <xref:System.Data.SqlClient.SqlCommand>не клонируются.</xref:System.Data.SqlClient.SqlCommand> </xref:System.Data.SqlClient.SqlCommand> UpdateCommand сохраняет ссылку на ранее созданный <xref:System.Data.SqlClient.SqlCommand>объекта.</xref:System.Data.SqlClient.SqlCommand>      Настроек [!NOTE] настроек при выполнении этой команды возвращаются строки, обновленные строки могут быть объединены с <xref:System.Data.DataSet>в зависимости от того, как задать **UpdatedRowSource** свойство <xref:System.Data.SqlClient.SqlCommand>объекта.</xref:System.Data.SqlClient.SqlCommand> </xref:System.Data.DataSet>       Для каждого столбца, который распространяется с источником данных на <xref:System.Data.Common.DbDataAdapter.Update%2A>, следует добавить параметр `InsertCommand`, `UpdateCommand`, или `DeleteCommand`.</xref:System.Data.Common.DbDataAdapter.Update%2A>       `SourceColumn` Свойства параметра должно быть присвоено имя столбца. Это означает, что значение параметра не вручную, а берется из конкретного столбца в настоящее время в обрабатываемой в строке."
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlDataAdapter> and sets the <xref:System.Data.SqlClient.SqlDataAdapter.SelectCommand%2A>, <xref:System.Data.SqlClient.SqlDataAdapter.InsertCommand%2A>, UpdateCommand and <xref:System.Data.SqlClient.SqlDataAdapter.DeleteCommand%2A> properties. It assumes you have already created a <xref:System.Data.SqlClient.SqlConnection> object.  \n  \n [!code-vb[DataWorks SqlDataAdapter.Command#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._31_1.vb)]\n [!code-cs[DataWorks SqlDataAdapter.Command#1](~/add/codesnippet/csharp/p-system.data.sqlclient._31_1.cs)]"
   syntax:
     content: public System.Data.SqlClient.SqlCommand UpdateCommand { get; set; }
     return:
       type: System.Data.SqlClient.SqlCommand
-      description: "A <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;></xref> used during <xref:System.Data.Common.DbDataAdapter.Update*> to update records in the database that correspond to modified rows in the <xref href=&quot;System.Data.DataSet&quot;></xref>."
+      description: "Объект <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;> </xref> во время <xref:System.Data.Common.DbDataAdapter.Update*>для обновления записей в базе данных, соответствующих измененным строкам в <xref href=&quot;System.Data.DataSet&quot;> </xref>.</xref:System.Data.Common.DbDataAdapter.Update*>"
   overload: System.Data.SqlClient.SqlDataAdapter.UpdateCommand*
   exceptions: []
   platform:

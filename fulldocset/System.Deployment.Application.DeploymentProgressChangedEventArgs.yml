@@ -13,8 +13,8 @@ items:
   nameWithType: DeploymentProgressChangedEventArgs
   fullName: System.Deployment.Application.DeploymentProgressChangedEventArgs
   type: Class
-  summary: "Represents progress data reported in an asynchronous operation."
-  remarks: "This class contains properties that describe progress for the <xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateProgressChanged>, <xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupProgressChanged>, and <xref:System.Deployment.Application.ApplicationDeployment.UpdateProgressChanged> events. Not every property in this class applies to each event.       <xref:System.Deployment.Application.DeploymentProgressChangedEventArgs.BytesCompleted%2A> and <xref:System.Deployment.Application.DeploymentProgressChangedEventArgs.BytesTotal%2A> represent the total number of bytes downloaded to date and the total number of bytes in the download operation, respectively; they apply to all three events. <xref:System.Deployment.Application.DeploymentProgressChangedEventArgs.Group%2A> names the file group corresponding to the current <xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupProgressChanged> event, and <xref:System.Deployment.Application.DeploymentProgressChangedEventArgs.State%2A> reflects the current stage of the download operation."
+  summary: "Представляет состояние хода выполнения асинхронной операции."
+  remarks: "Этот класс содержит свойства, описывающие выполняется для <xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateProgressChanged>, <xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupProgressChanged>, и <xref:System.Deployment.Application.ApplicationDeployment.UpdateProgressChanged>события.</xref:System.Deployment.Application.ApplicationDeployment.UpdateProgressChanged> </xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupProgressChanged> </xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateProgressChanged> Не все свойства в этот класс применяется для каждого события.       <xref:System.Deployment.Application.DeploymentProgressChangedEventArgs.BytesCompleted%2A>и <xref:System.Deployment.Application.DeploymentProgressChangedEventArgs.BytesTotal%2A>представляют собой общее число байтов загружается даты и общее количество байтов в операции загрузки, соответственно, они относятся ко всем трем событиям.</xref:System.Deployment.Application.DeploymentProgressChangedEventArgs.BytesTotal%2A></xref:System.Deployment.Application.DeploymentProgressChangedEventArgs.BytesCompleted%2A> <xref:System.Deployment.Application.DeploymentProgressChangedEventArgs.Group%2A>Имя файловой группы, соответствующий текущему <xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupProgressChanged>события, и <xref:System.Deployment.Application.DeploymentProgressChangedEventArgs.State%2A>отражает текущее состояние операции загрузки.</xref:System.Deployment.Application.DeploymentProgressChangedEventArgs.State%2A> </xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupProgressChanged></xref:System.Deployment.Application.DeploymentProgressChangedEventArgs.Group%2A>"
   example:
   - "The following code example downloads a file group named `HelpFiles`, and displays download progress in a status bar. This example requires that you deploy a Windows Forms application, and that your main form has a <xref:System.Windows.Forms.StatusStrip> control, and a <xref:System.Windows.Forms.ToolStripStatusLabel> control named `downloadStatus`.  \n  \n [!code-cs[ClickOnceAPI#8](~/add/codesnippet/csharp/ClickOnceAPI/Form1.cs#8)]\n [!code-cpp[ClickOnceAPI#8](~/add/codesnippet/cpp/t-system.deployment.appl_5_1.cpp)]\n [!code-vb[ClickOnceAPI#8](~/add/codesnippet/visualbasic/ClickOnceAPIVB/Form1.vb#8)]"
   syntax:
@@ -37,15 +37,15 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Gets the number of bytes already downloaded by this operation."
-  remarks: "For <xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateProgressChanged>, the BytesCompleted property refers to the downloading of the deployment manifest. For <xref:System.Deployment.Application.ApplicationDeployment.UpdateProgressChanged>, the property refers to the download progress of the entire update, included the manifests, assemblies, and data files. For <xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupProgressChanged>, the property refers to the download progress of the entire set of files that are part of the named group."
+  summary: "Возвращает число байтов, которые уже загружены в этой операции."
+  remarks: "Для <xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateProgressChanged>, свойство BytesCompleted ссылается на загрузку манифеста развертывания.</xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateProgressChanged> Для <xref:System.Deployment.Application.ApplicationDeployment.UpdateProgressChanged>, свойство ссылается на ход выполнения загрузки всего обновления включены файлы манифесты, сборки и данных.</xref:System.Deployment.Application.ApplicationDeployment.UpdateProgressChanged> Для <xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupProgressChanged>, свойство ссылается на ход выполнения загрузки всего набора файлов, которые входят в именованную группу.</xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupProgressChanged>"
   example:
   - "The following code example downloads a file group named `HelpFiles`, and displays download progress in a status bar. This example requires that you deploy a Windows Forms application, and that your main form has a <xref:System.Windows.Forms.StatusStrip> control, and a <xref:System.Windows.Forms.ToolStripStatusLabel> control named `downloadStatus`.  \n  \n [!code-cs[ClickOnceAPI#8](~/add/codesnippet/csharp/ClickOnceAPI/Form1.cs#8)]\n [!code-cpp[ClickOnceAPI#8](~/add/codesnippet/cpp/c5260b60-c259-429d-9763-_1.cpp)]\n [!code-vb[ClickOnceAPI#8](~/add/codesnippet/visualbasic/ClickOnceAPIVB/Form1.vb#8)]"
   syntax:
     content: public long BytesCompleted { get; }
     return:
       type: System.Int64
-      description: "An <xref:System.Int64> representing the data already transferred, in bytes."
+      description: "<xref:System.Int64>Представляет данные, уже переданных байтов.</xref:System.Int64>"
   overload: System.Deployment.Application.DeploymentProgressChangedEventArgs.BytesCompleted*
   exceptions: []
   platform:
@@ -62,15 +62,15 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Gets the total number of bytes in the download operation."
-  remarks: "For <xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateProgressChanged>, the BytesTotal property refers to the downloading of the deployment manifest. For <xref:System.Deployment.Application.ApplicationDeployment.UpdateProgressChanged>, the property refers to the download progress of the entire update, included the manifests, assemblies, and data files. For <xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupProgressChanged>, the property refers to the download progress of the entire set of files that are part of the named group."
+  summary: "Возвращает общее число байтов в операции загрузки."
+  remarks: "Для <xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateProgressChanged>, свойство BytesTotal ссылается на загрузку манифеста развертывания.</xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateProgressChanged> Для <xref:System.Deployment.Application.ApplicationDeployment.UpdateProgressChanged>, свойство ссылается на ход выполнения загрузки всего обновления включены файлы манифесты, сборки и данных.</xref:System.Deployment.Application.ApplicationDeployment.UpdateProgressChanged> Для <xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupProgressChanged>, свойство ссылается на ход выполнения загрузки всего набора файлов, которые входят в именованную группу.</xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupProgressChanged>"
   example:
   - "The following code example downloads a file group named `HelpFiles`, and displays download progress in a status bar. This example requires that you deploy a Windows Forms application, and that your main form has a <xref:System.Windows.Forms.StatusStrip> control, and a <xref:System.Windows.Forms.ToolStripStatusLabel> control named `downloadStatus`.  \n  \n [!code-cs[ClickOnceAPI#8](~/add/codesnippet/csharp/ClickOnceAPI/Form1.cs#8)]\n [!code-cpp[ClickOnceAPI#8](~/add/codesnippet/cpp/p-system.deployment.appl_3_1.cpp)]\n [!code-vb[ClickOnceAPI#8](~/add/codesnippet/visualbasic/ClickOnceAPIVB/Form1.vb#8)]"
   syntax:
     content: public long BytesTotal { get; }
     return:
       type: System.Int64
-      description: "An <xref:System.Int64> representing the total size of the download, in bytes."
+      description: "<xref:System.Int64>Представляет общий размер загруженных данных в байтах.</xref:System.Int64>"
   overload: System.Deployment.Application.DeploymentProgressChangedEventArgs.BytesTotal*
   exceptions: []
   platform:
@@ -87,15 +87,15 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Gets the name of the file group being downloaded."
-  remarks: "You can initiate multiple calls to <xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupAsync%2A> and download multiple file groups simultaneously. Use Group to determine which event callbacks correspond to which group."
+  summary: "Возвращает имя файловой группы, время загрузки."
+  remarks: "Можно запустить несколько вызовов <xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupAsync%2A>и одновременное скачивание нескольких файловых групп.</xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupAsync%2A> В какую группу соответствуют группы используется для определения обратных вызовов событий."
   example:
   - "The following code example downloads a file group named `HelpFiles`, and displays download progress in a status bar. This example requires that you deploy a Windows Forms application, and that your main form has a <xref:System.Windows.Forms.StatusStrip> control, and a <xref:System.Windows.Forms.ToolStripStatusLabel> control named `downloadStatus`.  \n  \n [!code-cs[ClickOnceAPI#8](~/add/codesnippet/csharp/ClickOnceAPI/Form1.cs#8)]\n [!code-cpp[ClickOnceAPI#8](~/add/codesnippet/cpp/p-system.deployment.appl_4_1.cpp)]\n [!code-vb[ClickOnceAPI#8](~/add/codesnippet/visualbasic/ClickOnceAPIVB/Form1.vb#8)]"
   syntax:
     content: public string Group { get; }
     return:
       type: System.String
-      description: "A <xref:System.String> containing the name of the file group, if the event occurred as the result of a call to <xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupAsync*>; otherwise, a zero-length string."
+      description: "Объект <xref:System.String>содержащий имя файловой группы, если событие, возникающее в результате вызова <xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupAsync*>; в противном случае строка нулевой длины.</xref:System.Deployment.Application.ApplicationDeployment.DownloadFileGroupAsync*> </xref:System.String>"
   overload: System.Deployment.Application.DeploymentProgressChangedEventArgs.Group*
   exceptions: []
   platform:
@@ -112,7 +112,7 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Gets the action that the process is currently executing."
+  summary: "Возвращает действие, процесс, выполняющийся в данный момент."
   remarks: ''
   example:
   - "The following code example downloads a file group named `HelpFiles`, and displays download progress in a status bar. This example requires that you deploy a Windows Forms application, and that your main form has a <xref:System.Windows.Forms.StatusStrip> control, and a <xref:System.Windows.Forms.ToolStripStatusLabel> control named `downloadStatus`.  \n  \n [!code-cs[ClickOnceAPI#8](~/add/codesnippet/csharp/ClickOnceAPI/Form1.cs#8)]\n [!code-cpp[ClickOnceAPI#8](~/add/codesnippet/cpp/p-system.deployment.appl_11_1.cpp)]\n [!code-vb[ClickOnceAPI#8](~/add/codesnippet/visualbasic/ClickOnceAPIVB/Form1.vb#8)]"
@@ -120,7 +120,7 @@ items:
     content: public System.Deployment.Application.DeploymentProgressState State { get; }
     return:
       type: System.Deployment.Application.DeploymentProgressState
-      description: "A <xref href=&quot;System.Deployment.Application.DeploymentProgressState&quot;></xref> value, stating what element or elements the operation is currently downloading."
+      description: "Объект <xref href=&quot;System.Deployment.Application.DeploymentProgressState&quot;> </xref> значения, о том, что один или несколько элементов операцию в настоящее время загрузки."
   overload: System.Deployment.Application.DeploymentProgressChangedEventArgs.State*
   exceptions: []
   platform:
