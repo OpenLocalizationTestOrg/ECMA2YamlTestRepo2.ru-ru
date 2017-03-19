@@ -12,8 +12,8 @@ items:
   nameWithType: UrlIdentityPermissionAttribute
   fullName: System.Security.Permissions.UrlIdentityPermissionAttribute
   type: Class
-  summary: "Allows security actions for <xref href=&quot;System.Security.Permissions.UrlIdentityPermission&quot;></xref> to be applied to code using declarative security. This class cannot be inherited."
-  remarks: "The complete URL is considered, including the protocol (HTTP, HTTPS, FTP) and the file. For example, http://www.fourthcoffee.com/process/grind.htm is a complete URL.       The scope of the declaration that is allowed depends on the <xref:System.Security.Permissions.SecurityAction> that is used.      > [!IMPORTANT] >  Starting with the [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)], identity permissions are not used.   >    >  In the .NET Framework versions 1.0 and 1.1, demands on the identity permissions are effective even when the calling assembly is fully trusted. That is, although the calling assembly has full trust, a demand for an identity permission fails if the assembly does not meet the demanded criteria. In the .NET Framework version 2.0, demands for identity permissions are ineffective if the calling assembly has full trust. This assures consistency for all permissions, eliminating the treatment of identity permissions as a special case.       The security information declared by a security attribute is stored in the metadata of the attribute target and is accessed by the system at run time. Security attributes are used only for declarative security. For imperative security, use the corresponding permission class."
+  summary: "Разрешает выполнять действия по безопасности для <xref href=&quot;System.Security.Permissions.UrlIdentityPermission&quot;> </xref> для применения в коде с помощью декларативной безопасности. Этот класс не наследуется."
+  remarks: "Рассматривается полный URL-адрес, включая протокол (HTTP, HTTPS, FTP) и файл. Например http://www.fourthcoffee.com/process/grind.htm — полный URL-адрес.       Зависит от области объявление, которое может быть <xref:System.Security.Permissions.SecurityAction>используемая.</xref:System.Security.Permissions.SecurityAction>      Настроек [!IMPORTANT] настроек начиная с [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)], права доступа для удостоверения не используются.   >> В .NET Framework версий 1.0 и 1.1 требования разрешениям идентификации остаются в силе даже в том случае, если вызывающая сборка является полностью доверенным. То есть несмотря на то, что вызывающая сборка имеет полное доверие, требование разрешения идентификации завершается сбоем, если сборку не соответствует требуемому критерию. В платформе .NET Framework версии 2.0 к разрешениям идентификации теряют Если вызывающая сборка имеет полное доверие. Тем самым обеспечивается согласованность всех разрешений, что исключает интерпретации разрешений идентификации как особый случай.       Сведения безопасности, объявляемые атрибутом безопасности хранится в метаданных конечного объекта атрибута и доступен в системе во время выполнения. Атрибуты безопасности используются только для декларативной безопасности. Для принудительной безопасности используйте соответствующий класс разрешений."
   syntax:
     content: >-
       [System.AttributeUsage(System.AttributeTargets.Assembly | System.AttributeTargets.Class | System.AttributeTargets.Struct | System.AttributeTargets.Constructor | System.AttributeTargets.Method, AllowMultiple=true, Inherited=false)]
@@ -43,13 +43,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Permissions.UrlIdentityPermissionAttribute&quot;></xref> class with the specified <xref href=&quot;System.Security.Permissions.SecurityAction&quot;></xref>."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Security.Permissions.UrlIdentityPermissionAttribute&quot;> </xref> класса с заданным <xref href=&quot;System.Security.Permissions.SecurityAction&quot;> </xref>."
   syntax:
     content: public UrlIdentityPermissionAttribute (System.Security.Permissions.SecurityAction action);
     parameters:
     - id: action
       type: System.Security.Permissions.SecurityAction
-      description: "One of the <xref href=&quot;System.Security.Permissions.SecurityAction&quot;></xref> values."
+      description: "Один из <xref href=&quot;System.Security.Permissions.SecurityAction&quot;> </xref> значения."
   overload: System.Security.Permissions.UrlIdentityPermissionAttribute.#ctor*
   exceptions: []
   platform:
@@ -66,14 +66,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Creates and returns a new <xref href=&quot;System.Security.Permissions.UrlIdentityPermission&quot;></xref>."
-  remarks: "This method should only be called by the security system, never by application code.       At compile time, attributes convert security declarations to a serialized form in metadata. Declarative security data in metadata is created from the permission that this method returns that corresponds to this attribute."
+  summary: "Создает и возвращает новый <xref href=&quot;System.Security.Permissions.UrlIdentityPermission&quot;> </xref>."
+  remarks: "Этот метод должен вызываться только системой безопасности, вызывать в коде приложения.       Во время компиляции атрибуты преобразуют объявления безопасности в сериализованную форму в метаданных. Данные декларативной безопасности в метаданных создаются из разрешения, которое возвращает этот метод, соответствующий этому атрибуту."
   syntax:
     content: public override System.Security.IPermission CreatePermission ();
     parameters: []
     return:
       type: System.Security.IPermission
-      description: "A <xref href=&quot;System.Security.Permissions.UrlIdentityPermission&quot;></xref> that corresponds to this attribute."
+      description: "Объект <xref href=&quot;System.Security.Permissions.UrlIdentityPermission&quot;> </xref> , соответствующий этому атрибуту."
   overload: System.Security.Permissions.UrlIdentityPermissionAttribute.CreatePermission*
   exceptions: []
   platform:
@@ -90,13 +90,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets the full URL of the calling code."
-  remarks: "The complete URL is considered, including the protocol (HTTP, HTTPS, FTP) and the file, for example: http://www.fourthcoffee.com/process/grind.htm/.       URLs can be matched exactly or by a wildcard in the final position, for example: http://www.fourthcoffee.com/process/*."
+  summary: "Возвращает или задает полный URL-адрес вызывающего кода."
+  remarks: "Рассматривается полный URL-адрес, включая протокол (HTTP, HTTPS, FTP) и файл, например: http://www.fourthcoffee.com/process/grind.htm/.       URL-адреса могут быть сопоставлены точно или подстановочному знаку в последней позиции, например: http://www.fourthcoffee.com/process/ *."
   syntax:
     content: public string Url { get; set; }
     return:
       type: System.String
-      description: "The URL to match with the URL specified by the host."
+      description: "URL-адрес в соответствии с URL-адрес, указанный узлом."
   overload: System.Security.Permissions.UrlIdentityPermissionAttribute.Url*
   exceptions: []
   platform:

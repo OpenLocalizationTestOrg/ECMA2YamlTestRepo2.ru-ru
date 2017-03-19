@@ -20,8 +20,8 @@ items:
   nameWithType: LicenseManager
   fullName: System.ComponentModel.LicenseManager
   type: Class
-  summary: "Provides properties and methods to add a license to a component and to manage a <xref href=&quot;System.ComponentModel.LicenseProvider&quot;></xref>. This class cannot be inherited."
-  remarks: "The LicenseManager class provides the following `static` properties: <xref:System.ComponentModel.LicenseManager.CurrentContext%2A> and <xref:System.ComponentModel.LicenseManager.UsageMode%2A>. The class also provides the following `static` methods: <xref:System.ComponentModel.LicenseManager.CreateWithContext%2A>, <xref:System.ComponentModel.LicenseManager.IsValid%2A>, and <xref:System.ComponentModel.LicenseManager.Validate%2A>.       When you create a component that you want to license, you must do the following:      1.  Specify the <xref:System.ComponentModel.LicenseProvider> by marking the component with a <xref:System.ComponentModel.LicenseProviderAttribute>.      2.  Call <xref:System.ComponentModel.LicenseManager.Validate%2A> or <xref:System.ComponentModel.LicenseManager.IsValid%2A> in the constructor of the component. <xref:System.ComponentModel.LicenseManager.Validate%2A> throws a <xref:System.ComponentModel.LicenseException> when it tries to create an instance without a valid license. <xref:System.ComponentModel.LicenseManager.IsValid%2A> does not throw an exception.      3.  Call <xref:System.ComponentModel.License.Dispose%2A> on any license that is granted when the component is disposed or finalized.       For more information on licensing, see [How to: License Components and Controls](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Предоставляет свойства и методы для добавления лицензии для компонента и управления <xref href=&quot;System.ComponentModel.LicenseProvider&quot;> </xref>. Этот класс не наследуется."
+  remarks: "Класс LicenseManager предоставляет следующие `static` свойства: <xref:System.ComponentModel.LicenseManager.CurrentContext%2A>до <xref:System.ComponentModel.LicenseManager.UsageMode%2A>.</xref:System.ComponentModel.LicenseManager.UsageMode%2A> </xref:System.ComponentModel.LicenseManager.CurrentContext%2A> Этот класс также предоставляет следующие `static` методы: <xref:System.ComponentModel.LicenseManager.CreateWithContext%2A>, <xref:System.ComponentModel.LicenseManager.IsValid%2A>и <xref:System.ComponentModel.LicenseManager.Validate%2A>.</xref:System.ComponentModel.LicenseManager.Validate%2A> </xref:System.ComponentModel.LicenseManager.IsValid%2A> </xref:System.ComponentModel.LicenseManager.CreateWithContext%2A>       При создании компонента, необходимо предоставить лицензию, необходимо выполнить следующее: 1.  Укажите <xref:System.ComponentModel.LicenseProvider>, помечая компонента с <xref:System.ComponentModel.LicenseProviderAttribute>.</xref:System.ComponentModel.LicenseProviderAttribute> </xref:System.ComponentModel.LicenseProvider>      2.  Вызовите <xref:System.ComponentModel.LicenseManager.Validate%2A>или <xref:System.ComponentModel.LicenseManager.IsValid%2A>в конструкторе компонента.</xref:System.ComponentModel.LicenseManager.IsValid%2A> </xref:System.ComponentModel.LicenseManager.Validate%2A> <xref:System.ComponentModel.LicenseManager.Validate%2A>вызывает <xref:System.ComponentModel.LicenseException>при попытке создать экземпляр без действительной лицензии.</xref:System.ComponentModel.LicenseException></xref:System.ComponentModel.LicenseManager.Validate%2A> <xref:System.ComponentModel.LicenseManager.IsValid%2A>не вызывает исключение.</xref:System.ComponentModel.LicenseManager.IsValid%2A>      3.  Вызов <xref:System.ComponentModel.License.Dispose%2A>на любой предоставленную лицензию, когда компонент уничтожается или завершает работу.</xref:System.ComponentModel.License.Dispose%2A>       Дополнительные сведения о лицензировании см. в разделе [как: лицензии компонентов и элементов управления](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example creates a licensed control using the <xref:System.ComponentModel.LicenseManager.Validate%2A> method. It uses a <xref:System.ComponentModel.LicenseProvider> that is implemented by the <xref:System.ComponentModel.LicFileLicenseProvider> class.  \n  \n [!code-cs[Classic LicenseManager Example#1](~/add/codesnippet/csharp/t-system.componentmodel._63_1.cs)]\n [!code-vb[Classic LicenseManager Example#1](~/add/codesnippet/visualbasic/t-system.componentmodel._63_1.vb)]\n [!code-cpp[Classic LicenseManager Example#1](~/add/codesnippet/cpp/t-system.componentmodel._63_1.cpp)]"
   syntax:
@@ -44,20 +44,20 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Creates an instance of the specified type, given a context in which you can use the licensed instance."
-  remarks: "The <xref:System.ComponentModel.LicenseContext> you specify as the `creationContext` parameter is used as the <xref:System.ComponentModel.LicenseManager.CurrentContext%2A> for the life of this <xref:System.ComponentModel.License>. The CreateWithContext method blocks all other threads in the <xref:System.AppDomain> from modifying the <xref:System.ComponentModel.LicenseManager.CurrentContext%2A>, allowing CreateWithContext to behave as an atomic operation."
+  summary: "Создает экземпляр указанного типа, задавая контекст, в котором можно использовать лицензированный экземпляр."
+  remarks: "<xref:System.ComponentModel.LicenseContext>Указан в качестве `creationContext` используется в качестве <xref:System.ComponentModel.LicenseManager.CurrentContext%2A>в течение жизненного цикла <xref:System.ComponentModel.License>.</xref:System.ComponentModel.License> </xref:System.ComponentModel.LicenseManager.CurrentContext%2A> </xref:System.ComponentModel.LicenseContext> Метод CreateWithContext блокирует все другие потоки <xref:System.AppDomain>Изменение <xref:System.ComponentModel.LicenseManager.CurrentContext%2A>, позволяя CreateWithContext вести себя как атомарную операцию.</xref:System.ComponentModel.LicenseManager.CurrentContext%2A> </xref:System.AppDomain>"
   syntax:
     content: public static object CreateWithContext (Type type, System.ComponentModel.LicenseContext creationContext);
     parameters:
     - id: type
       type: System.Type
-      description: "A <xref:System.Type> that represents the type to create."
+      description: "Объект <xref:System.Type>, представляющий тип создаваемого.</xref:System.Type>"
     - id: creationContext
       type: System.ComponentModel.LicenseContext
-      description: "A <xref href=&quot;System.ComponentModel.LicenseContext&quot;></xref> that specifies when you can use the licensed instance."
+      description: "Объект <xref href=&quot;System.ComponentModel.LicenseContext&quot;> </xref> , указывающий, когда можно использовать лицензированный экземпляр."
     return:
       type: System.Object
-      description: "An instance of the specified type."
+      description: "Экземпляр указанного типа."
   overload: System.ComponentModel.LicenseManager.CreateWithContext*
   exceptions: []
   platform:
@@ -74,23 +74,23 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Creates an instance of the specified type with the specified arguments, given a context in which you can use the licensed instance."
-  remarks: "The <xref:System.ComponentModel.LicenseContext> you specify as the `creationContext` parameter is used as the <xref:System.ComponentModel.LicenseManager.CurrentContext%2A> for the life of this <xref:System.ComponentModel.License>. This method blocks all other threads in the <xref:System.AppDomain> from modifying the <xref:System.ComponentModel.LicenseManager.CurrentContext%2A>, allowing <xref:System.ComponentModel.LicenseManager.CreateWithContext%2A> to behave as an atomic operation."
+  summary: "Создает экземпляр указанного типа с заданными аргументами, задавая контекст, в котором можно использовать лицензированный экземпляр."
+  remarks: "<xref:System.ComponentModel.LicenseContext>Указан в качестве `creationContext` используется в качестве <xref:System.ComponentModel.LicenseManager.CurrentContext%2A>в течение жизненного цикла <xref:System.ComponentModel.License>.</xref:System.ComponentModel.License> </xref:System.ComponentModel.LicenseManager.CurrentContext%2A> </xref:System.ComponentModel.LicenseContext> Этот метод блокирует все другие потоки <xref:System.AppDomain>Изменение <xref:System.ComponentModel.LicenseManager.CurrentContext%2A>, обеспечивая <xref:System.ComponentModel.LicenseManager.CreateWithContext%2A>вести себя как атомарную операцию.</xref:System.ComponentModel.LicenseManager.CreateWithContext%2A> </xref:System.ComponentModel.LicenseManager.CurrentContext%2A> </xref:System.AppDomain>"
   syntax:
     content: public static object CreateWithContext (Type type, System.ComponentModel.LicenseContext creationContext, object[] args);
     parameters:
     - id: type
       type: System.Type
-      description: "A <xref:System.Type> that represents the type to create."
+      description: "Объект <xref:System.Type>, представляющий тип создаваемого.</xref:System.Type>"
     - id: creationContext
       type: System.ComponentModel.LicenseContext
-      description: "A <xref href=&quot;System.ComponentModel.LicenseContext&quot;></xref> that specifies when you can use the licensed instance."
+      description: "Объект <xref href=&quot;System.ComponentModel.LicenseContext&quot;> </xref> , указывающий, когда можно использовать лицензированный экземпляр."
     - id: args
       type: System.Object[]
-      description: "An array of type <xref:System.Object> that represents the arguments for the type."
+      description: "Массив объектов типа <xref:System.Object>, представляющий аргументы для данного типа.</xref:System.Object>"
     return:
       type: System.Object
-      description: "An instance of the specified type with the given array of arguments."
+      description: "Экземпляр указанного типа с заданным массивом аргументов."
   overload: System.ComponentModel.LicenseManager.CreateWithContext*
   exceptions: []
   platform:
@@ -107,18 +107,18 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets or sets the current <xref href=&quot;System.ComponentModel.LicenseContext&quot;></xref>, which specifies when you can use the licensed object."
-  remarks: "When the user requests a valid <xref:System.ComponentModel.License>, the user must give the context in which the <xref:System.ComponentModel.License> is valid to the <xref:System.ComponentModel.LicenseProvider.GetLicense%2A?displayProperty=fullName> method. The <xref:System.ComponentModel.LicenseContext> returned by this property should be passed to all <xref:System.ComponentModel.LicenseProvider> classes."
+  summary: "Возвращает или задает текущий <xref href=&quot;System.ComponentModel.LicenseContext&quot;> </xref>, которое указывает, когда можно использовать лицензированный объект."
+  remarks: "При запросе является допустимым пользователем <xref:System.ComponentModel.License>, пользователь должен будет дать контекст в котором <xref:System.ComponentModel.License>является допустимым для <xref:System.ComponentModel.LicenseProvider.GetLicense%2A?displayProperty=fullName>метод.</xref:System.ComponentModel.LicenseProvider.GetLicense%2A?displayProperty=fullName> </xref:System.ComponentModel.License> </xref:System.ComponentModel.License> <xref:System.ComponentModel.LicenseContext>Возвращаемый этим свойством должны быть переданы на все <xref:System.ComponentModel.LicenseProvider>классы.</xref:System.ComponentModel.LicenseProvider> </xref:System.ComponentModel.LicenseContext>"
   syntax:
     content: public static System.ComponentModel.LicenseContext CurrentContext { get; set; }
     return:
       type: System.ComponentModel.LicenseContext
-      description: "A <xref href=&quot;System.ComponentModel.LicenseContext&quot;></xref> that specifies when you can use the licensed object."
+      description: "Объект <xref href=&quot;System.ComponentModel.LicenseContext&quot;> </xref> , указывающий, когда можно использовать лицензированный объект."
   overload: System.ComponentModel.LicenseManager.CurrentContext*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The CurrentContext property is currently locked and cannot be changed."
+    description: "Свойство CurrentContext заблокирован и не может быть изменено."
   platform:
   - net462
 - uid: System.ComponentModel.LicenseManager.IsLicensed(System.Type)
@@ -133,16 +133,16 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Returns whether the given type has a valid license."
+  summary: "Показывает, имеет ли данный тип действительной лицензии."
   syntax:
     content: public static bool IsLicensed (Type type);
     parameters:
     - id: type
       type: System.Type
-      description: "The <xref:System.Type> to find a valid license for."
+      description: "<xref:System.Type>Чтобы найти for. действительной лицензии</xref:System.Type>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the given type is licensed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если данный тип является лицензированным; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.LicenseManager.IsLicensed*
   exceptions: []
   platform:
@@ -159,17 +159,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Determines whether a valid license can be granted for the specified type."
-  remarks: "The IsValid method returns `true` when the type is either not licensed, or is licensed and the license is valid.       This method does not throw a <xref:System.ComponentModel.LicenseException> when it cannot grant a valid <xref:System.ComponentModel.License>. The <xref:System.ComponentModel.LicenseManager.Validate%2A> method throws exceptions."
+  summary: "Определяет, может ли быть предоставлена действительная лицензия для указанного типа."
+  remarks: "Метод IsValid возвращает `true` когда тип не лицензирован или лицензируется и лицензия считается действительной.       Этот метод не исключение, <xref:System.ComponentModel.LicenseException>Если он не может предоставить допустимый <xref:System.ComponentModel.License>.</xref:System.ComponentModel.License> </xref:System.ComponentModel.LicenseException> <xref:System.ComponentModel.LicenseManager.Validate%2A>Метод вызывает исключения.</xref:System.ComponentModel.LicenseManager.Validate%2A>"
   syntax:
     content: public static bool IsValid (Type type);
     parameters:
     - id: type
       type: System.Type
-      description: "A <xref:System.Type> that represents the type of object that requests the <xref href=&quot;System.ComponentModel.License&quot;></xref>."
+      description: "Объект <xref:System.Type>, представляющий тип объекта, запрашивающего <xref href=&quot;System.ComponentModel.License&quot;> </xref>.</xref:System.Type>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a valid license can be granted; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если может быть предоставлена действительная лицензия; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.LicenseManager.IsValid*
   exceptions: []
   platform:
@@ -186,23 +186,23 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Determines whether a valid license can be granted for the specified instance of the type. This method creates a valid <xref href=&quot;System.ComponentModel.License&quot;></xref>."
-  remarks: "The <xref:System.ComponentModel.LicenseManager.IsValid%2A> method returns `true` when the `type` parameter is not licensed, or when it is licensed and the `license` parameter is valid.       This method does not throw a <xref:System.ComponentModel.LicenseException> when it cannot grant a valid <xref:System.ComponentModel.License>. The <xref:System.ComponentModel.LicenseManager.Validate%2A> method throws exceptions.       If the `license` parameter is not `null` after this call, the object asking for a <xref:System.ComponentModel.License> must dispose of the license by calling the <xref:System.ComponentModel.License.Dispose%2A> method when the object is disposed of or finalized."
+  summary: "Определяет, может ли быть предоставлена действительная лицензия для указанного экземпляра типа. Этот метод создает действительный <xref href=&quot;System.ComponentModel.License&quot;> </xref>."
+  remarks: "<xref:System.ComponentModel.LicenseManager.IsValid%2A>Возвращает `true` при `type` параметр не имеет лицензии, или когда он лицензирован и `license` параметр является допустимым.</xref:System.ComponentModel.LicenseManager.IsValid%2A>       Этот метод не исключение, <xref:System.ComponentModel.LicenseException>Если он не может предоставить допустимый <xref:System.ComponentModel.License>.</xref:System.ComponentModel.License> </xref:System.ComponentModel.LicenseException> <xref:System.ComponentModel.LicenseManager.Validate%2A>Метод вызывает исключения.</xref:System.ComponentModel.LicenseManager.Validate%2A>       Если `license` не `null` после этого вызова, объект, запрашивающий <xref:System.ComponentModel.License>необходимо уничтожить лицензию путем вызова <xref:System.ComponentModel.License.Dispose%2A>метод, когда объект уничтожается или завершает работу.</xref:System.ComponentModel.License.Dispose%2A> </xref:System.ComponentModel.License>"
   syntax:
     content: public static bool IsValid (Type type, object instance, out System.ComponentModel.License license);
     parameters:
     - id: type
       type: System.Type
-      description: "A <xref:System.Type> that represents the type of object that requests the license."
+      description: "Объект <xref:System.Type>, представляющий тип объекта, запрашивающего лицензию.</xref:System.Type>"
     - id: instance
       type: System.Object
-      description: "An object of the specified type or a type derived from the specified type."
+      description: "Объект указанного типа или типа, производным от указанного типа."
     - id: license
       type: System.ComponentModel.License
-      description: "A <xref href=&quot;System.ComponentModel.License&quot;></xref> that is a valid license, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if a valid license cannot be granted."
+      description: "Объект <xref href=&quot;System.ComponentModel.License&quot;> </xref> именно действительной лицензии или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если не может быть предоставлена действительная лицензия."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a valid <xref href=&quot;System.ComponentModel.License&quot;></xref> can be granted; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если допустимый <xref href=&quot;System.ComponentModel.License&quot;> </xref> может быть предоставлена; в противном случае — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.LicenseManager.IsValid*
   exceptions: []
   platform:
@@ -219,19 +219,19 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Prevents changes being made to the current <xref href=&quot;System.ComponentModel.LicenseContext&quot;></xref> of the given object."
-  remarks: "Use the <xref:System.ComponentModel.LicenseContext> to get the <xref:System.ComponentModel.License> of an object. This method locks the <xref:System.ComponentModel.LicenseContext>, preventing the <xref:System.ComponentModel.License> from being retrieved."
+  summary: "Не допускает внесения изменений в текущий <xref href=&quot;System.ComponentModel.LicenseContext&quot;> </xref> данного объекта."
+  remarks: "Используйте <xref:System.ComponentModel.LicenseContext>для получения <xref:System.ComponentModel.License>объекта.</xref:System.ComponentModel.License> </xref:System.ComponentModel.LicenseContext> Этот метод блокирует <xref:System.ComponentModel.LicenseContext>, предотвращая <xref:System.ComponentModel.License>Получение.</xref:System.ComponentModel.License> </xref:System.ComponentModel.LicenseContext>"
   syntax:
     content: public static void LockContext (object contextUser);
     parameters:
     - id: contextUser
       type: System.Object
-      description: "The object whose current context you want to lock."
+      description: "Объект, содержимое которого требуется заблокировать."
   overload: System.ComponentModel.LicenseManager.LockContext*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The context is already locked."
+    description: "Контекст уже заблокирован."
   platform:
   - net462
 - uid: System.ComponentModel.LicenseManager.UnlockContext(System.Object)
@@ -246,19 +246,19 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Allows changes to be made to the current <xref href=&quot;System.ComponentModel.LicenseContext&quot;></xref> of the given object."
-  remarks: "Use the <xref:System.ComponentModel.LicenseContext> to get the <xref:System.ComponentModel.License> of an object. This method unlocks the <xref:System.ComponentModel.LicenseContext>, allowing the <xref:System.ComponentModel.License> to be retrieved."
+  summary: "Позволяет вносить изменения в текущий <xref href=&quot;System.ComponentModel.LicenseContext&quot;> </xref> данного объекта."
+  remarks: "Используйте <xref:System.ComponentModel.LicenseContext>для получения <xref:System.ComponentModel.License>объекта.</xref:System.ComponentModel.License> </xref:System.ComponentModel.LicenseContext> Этот метод разблокирует <xref:System.ComponentModel.LicenseContext>, обеспечивая <xref:System.ComponentModel.License>извлекаемого.</xref:System.ComponentModel.License> </xref:System.ComponentModel.LicenseContext>"
   syntax:
     content: public static void UnlockContext (object contextUser);
     parameters:
     - id: contextUser
       type: System.Object
-      description: "The object whose current context you want to unlock."
+      description: "Объект, содержимое которого требуется разблокировать."
   overload: System.ComponentModel.LicenseManager.UnlockContext*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>contextUser</code> represents a different user than the one specified in a previous call to <xref:System.ComponentModel.LicenseManager.LockContext*>."
+    description: "<code>contextUser</code>Представляет другого пользователя, отличной от указанной в предыдущем вызове <xref:System.ComponentModel.LicenseManager.LockContext*>."
   platform:
   - net462
 - uid: System.ComponentModel.LicenseManager.UsageMode
@@ -273,13 +273,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Gets the <xref href=&quot;System.ComponentModel.LicenseUsageMode&quot;></xref> which specifies when you can use the licensed object for the <xref:System.ComponentModel.LicenseManager.CurrentContext*>."
-  remarks: "If this property cannot find a <xref:System.ComponentModel.LicenseManager.CurrentContext%2A> value, it returns <xref:System.ComponentModel.LicenseUsageMode>."
+  summary: "Возвращает <xref href=&quot;System.ComponentModel.LicenseUsageMode&quot;> </xref> указывает, когда можно использовать лицензированный объект для <xref:System.ComponentModel.LicenseManager.CurrentContext*>.</xref:System.ComponentModel.LicenseManager.CurrentContext*>"
+  remarks: "Если это свойство не может найти <xref:System.ComponentModel.LicenseManager.CurrentContext%2A>значение, возвращает <xref:System.ComponentModel.LicenseUsageMode>.</xref:System.ComponentModel.LicenseUsageMode> </xref:System.ComponentModel.LicenseManager.CurrentContext%2A>"
   syntax:
     content: public static System.ComponentModel.LicenseUsageMode UsageMode { get; }
     return:
       type: System.ComponentModel.LicenseUsageMode
-      description: "One of the <xref href=&quot;System.ComponentModel.LicenseUsageMode&quot;></xref> values, as specified in the <xref:System.ComponentModel.LicenseManager.CurrentContext*> property."
+      description: "Один из <xref href=&quot;System.ComponentModel.LicenseUsageMode&quot;> </xref> значения, как указано в <xref:System.ComponentModel.LicenseManager.CurrentContext*>свойство.</xref:System.ComponentModel.LicenseManager.CurrentContext*>"
   overload: System.ComponentModel.LicenseManager.UsageMode*
   exceptions: []
   platform:
@@ -296,19 +296,19 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Determines whether a license can be granted for the specified type."
-  remarks: "This method throws a <xref:System.ComponentModel.LicenseException> when a valid <xref:System.ComponentModel.License> cannot be granted. The <xref:System.ComponentModel.LicenseManager.IsValid%2A> method does not throw an exception."
+  summary: "Определяет, может ли быть предоставлена лицензия для указанного типа."
+  remarks: "Этот метод создает исключение <xref:System.ComponentModel.LicenseException>при является допустимым <xref:System.ComponentModel.License>не может быть предоставлено.</xref:System.ComponentModel.License> </xref:System.ComponentModel.LicenseException> <xref:System.ComponentModel.LicenseManager.IsValid%2A>Метод не вызывает исключение.</xref:System.ComponentModel.LicenseManager.IsValid%2A>"
   syntax:
     content: public static void Validate (Type type);
     parameters:
     - id: type
       type: System.Type
-      description: "A <xref:System.Type> that represents the type of object that requests the license."
+      description: "Объект <xref:System.Type>, представляющий тип объекта, запрашивающего лицензию.</xref:System.Type>"
   overload: System.ComponentModel.LicenseManager.Validate*
   exceptions:
   - type: System.ComponentModel.LicenseException
     commentId: T:System.ComponentModel.LicenseException
-    description: "A <xref href=&quot;System.ComponentModel.License&quot;></xref> cannot be granted."
+    description: "Объект <xref href=&quot;System.ComponentModel.License&quot;> </xref> не может быть предоставлено."
   platform:
   - net462
 - uid: System.ComponentModel.LicenseManager.Validate(System.Type,System.Object)
@@ -323,17 +323,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Determines whether a license can be granted for the instance of the specified type."
-  remarks: "This method throws a <xref:System.ComponentModel.LicenseException> when a valid <xref:System.ComponentModel.License> cannot be granted. The <xref:System.ComponentModel.LicenseManager.IsValid%2A> method does not throw an exception.       All objects asking for a <xref:System.ComponentModel.License> must dispose of the license by calling the <xref:System.ComponentModel.License.Dispose%2A> method when the object is disposed of or finalized."
+  summary: "Определяет, может ли быть предоставлена лицензия для экземпляра заданного типа."
+  remarks: "Этот метод создает исключение <xref:System.ComponentModel.LicenseException>при является допустимым <xref:System.ComponentModel.License>не может быть предоставлено.</xref:System.ComponentModel.License> </xref:System.ComponentModel.LicenseException> <xref:System.ComponentModel.LicenseManager.IsValid%2A>Метод не вызывает исключение.</xref:System.ComponentModel.LicenseManager.IsValid%2A>       Все объекты, запрашивающие <xref:System.ComponentModel.License>необходимо уничтожить лицензию путем вызова <xref:System.ComponentModel.License.Dispose%2A>метод, когда объект уничтожается или завершает работу.</xref:System.ComponentModel.License.Dispose%2A> </xref:System.ComponentModel.License>"
   syntax:
     content: public static System.ComponentModel.License Validate (Type type, object instance);
     parameters:
     - id: type
       type: System.Type
-      description: "A <xref:System.Type> that represents the type of object that requests the license."
+      description: "Объект <xref:System.Type>, представляющий тип объекта, запрашивающего лицензию.</xref:System.Type>"
     - id: instance
       type: System.Object
-      description: "An <xref:System.Object> of the specified type or a type derived from the specified type."
+      description: "<xref:System.Object>Указанного типа или типа, производного от указанного типа.</xref:System.Object>"
     return:
       type: System.ComponentModel.License
       description: "A valid <xref href=&quot;System.ComponentModel.License&quot;></xref>."
@@ -341,7 +341,7 @@ items:
   exceptions:
   - type: System.ComponentModel.LicenseException
     commentId: T:System.ComponentModel.LicenseException
-    description: "The type is licensed, but a <xref href=&quot;System.ComponentModel.License&quot;></xref> cannot be granted."
+    description: "Тип лицензии, но <xref href=&quot;System.ComponentModel.License&quot;> </xref> не может быть предоставлено."
   platform:
   - net462
 references:

@@ -11,8 +11,8 @@ items:
   nameWithType: TransactionMessageProperty
   fullName: System.ServiceModel.Channels.TransactionMessageProperty
   type: Class
-  summary: "Allows a custom channel, which uses a proprietary transaction flow mechanism, to inject its transaction into the [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] framework. This class cannot be inherited."
-  remarks: "This class allows third-party channel developers who use a proprietary transaction flow mechanism for their channel, to introduce their transaction into the ServiceModel framework. The transaction is then used when executing the service method. This mechanism cannot be used in conjunction with the <xref:System.ServiceModel.TransactionFlowAttribute>."
+  summary: "Разрешает пользовательскому каналу, использующему собственный механизм потока транзакций, встраивать свою транзакцию в [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] framework. Этот класс не наследуется."
+  remarks: "Этот класс позволяет разработчикам сторонних каналов, использующим собственный механизм потока транзакций для своего канала, встраивать свою транзакцию в инфраструктуру ServiceModel. Транзакции затем используется при выполнении метода службы. Этот механизм не может использоваться в сочетании с <xref:System.ServiceModel.TransactionFlowAttribute>.</xref:System.ServiceModel.TransactionFlowAttribute>"
   syntax:
     content: public sealed class TransactionMessageProperty
   inheritance:
@@ -33,25 +33,25 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Sets the transaction that will be used when executing the service method."
-  remarks: "A custom incoming channel (which is part of a service’s channel stack) can call this method to add a <xref:System.ServiceModel.Channels.TransactionMessageProperty>, containing the `transaction` parameter, to the `Properties` collection of the `message` parameter. This prompts the infrastructure to create a <xref:System.Transactions.TransactionScope> instance using the transaction passed in, before calling the service method requested in the incoming message. The service method must have the <xref:System.ServiceModel.OperationBehaviorAttribute.TransactionScopeRequired%2A> property set to `true`."
+  summary: "Задает транзакцию, которая будет использоваться при выполнении метода службы."
+  remarks: "Пользовательский входящий канал (являющийся частью стека каналов службы) может вызвать этот метод, чтобы добавить <xref:System.ServiceModel.Channels.TransactionMessageProperty>, который содержит `transaction` параметр в `Properties` коллекцию `message` параметр.</xref:System.ServiceModel.Channels.TransactionMessageProperty> По этой причине, появляется инфраструктура создает <xref:System.Transactions.TransactionScope>экземпляра с помощью переданной транзакции, прежде чем вызывать запрашиваемый во входящем сообщении метод службы.</xref:System.Transactions.TransactionScope> Метод службы должен иметь <xref:System.ServiceModel.OperationBehaviorAttribute.TransactionScopeRequired%2A>свойство `true`.</xref:System.ServiceModel.OperationBehaviorAttribute.TransactionScopeRequired%2A>"
   syntax:
     content: public static void Set (System.Transactions.Transaction transaction, System.ServiceModel.Channels.Message message);
     parameters:
     - id: transaction
       type: System.Transactions.Transaction
-      description: "The transaction that will be used when executing the service method."
+      description: "Транзакция, которая будет использоваться при выполнении метода службы."
     - id: message
       type: System.ServiceModel.Channels.Message
-      description: "The incoming message that results in calling the service method."
+      description: "Входящее сообщение, которое приводит к вызову метода службы."
   overload: System.ServiceModel.Channels.TransactionMessageProperty.Set*
   exceptions:
   - type: System.ServiceModel.FaultException
     commentId: T:System.ServiceModel.FaultException
-    description: "The property has already been set on <code>message</code>."
+    description: "Свойство уже задано в <code> message </code>."
   - type: System.Transactions.TransactionException
     commentId: T:System.Transactions.TransactionException
-    description: "<code>transaction</code> needs to be unmarshaled, and that operation fails."
+    description: "<code>transaction</code>необходимо распаковать, и операция завершается неудачей."
   platform:
   - net462
 - uid: System.ServiceModel.Channels.TransactionMessageProperty.Transaction
@@ -66,12 +66,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets the transaction that will be used when executing the service method."
+  summary: "Возвращает транзакцию, которая будет использоваться при выполнении метода службы."
   syntax:
     content: public System.Transactions.Transaction Transaction { get; }
     return:
       type: System.Transactions.Transaction
-      description: "A <xref href=&quot;System.Transactions.Transaction&quot;></xref> instance that will be used when executing the service method."
+      description: "Объект <xref href=&quot;System.Transactions.Transaction&quot;> </xref> экземпляр, который будет использоваться при выполнении метода службы."
   overload: System.ServiceModel.Channels.TransactionMessageProperty.Transaction*
   exceptions: []
   platform:

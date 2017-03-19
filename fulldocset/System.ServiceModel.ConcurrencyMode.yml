@@ -12,8 +12,8 @@ items:
   nameWithType: ConcurrencyMode
   fullName: System.ServiceModel.ConcurrencyMode
   type: Enum
-  summary: "Specifies whether a service class supports single-threaded or multi-threaded modes of operation."
-  remarks: "ConcurrencyMode is used in conjunction with the <xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode%2A> property to specify whether a service class supports single-threaded or multi-threaded modes of operation. A single-threaded operation can be either reentrant or non-reentrant.       The following table shows when [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] permits an operation to be invoked while another one is in progress, depending upon the ConcurrencyMode.      |ConcurrencyMode Value|Can a new operation be invoked?|   |---------------------------|-------------------------------------|   |Single|Never.|   |Reentrant|Only while invoking another service or a callback.|   |Multiple|Always.|"
+  summary: "Указывает, поддерживает ли класс службы — однопотоковый или многопотоковый режима работы."
+  remarks: "ConcurrencyMode используется в сочетании с <xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode%2A>свойство, указывающее, поддерживает ли класс службы — однопотоковый или многопотоковый режимы работы.</xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode%2A> Однопотоковая операция может быть реентерабельным или допускает повторные входы.       В следующей таблице показано, когда [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] разрешает вызов во время выполнения в данный момент, в зависимости от ConcurrencyMode другой операции.      | Значение ConcurrencyMode | Может быть вызвана новая операция? |   |---------------------------|-------------------------------------|   | Один | Никогда не. |   | Повторные | Только при вызове другой службы или обратном вызове. |   | Несколько | Всегда. |"
   example:
   - "The following code example demonstrates the different between using Single, Reentrant, and Multiple. This sample does not compile without a real implementation behind it, but does demonstrate the kind of threading guarantees that [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] makes and what that means for your operation code.  \n  \n [!code-cs[C_BestPractices-Concurrency#1](~/add/codesnippet/csharp/reentrantandmultiple/reentrantandmultiple.cs#1)]"
   syntax:
@@ -34,12 +34,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "The service instance is multi-threaded. No synchronization guarantees are made. Because other threads can change your service object at any time, you must handle synchronization and state consistency at all times."
+  summary: "Экземпляр службы является многопотоковым. Гарантии синхронизации не выполняются. Поскольку другие потоки могут изменить объект службы в любое время, необходимо всегда обеспечивать синхронизацию и согласованность состояний в любое время."
   syntax:
     content: Multiple
     return:
       type: System.ServiceModel.ConcurrencyMode
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -55,12 +55,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "The service instance is single-threaded and accepts reentrant calls. The reentrant service accepts calls when you call another service; it is therefore your responsibility to leave your object state consistent before callouts and you must confirm that operation-local data is valid after callouts. Note that the service instance is unlocked only by calling another service over a [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] channel. In this case, the called service can reenter the first service via a callback. If the first service is not reentrant, the sequence of calls results in a deadlock. For details, see <xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode*>."
+  summary: "Экземпляр службы является однопотоковым и допускает повторные входящие вызовы. Повторные служба принимает вызовы при вызове другой службы; Вот почему необходимо оставить перед выноски согласованное состояние объекта и необходимо подтвердить допустимость данных локальной операции после вызовов. Обратите внимание, что экземпляр службы разблокируется только путем вызова другой службы по [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] канала. В этом случае вызванная служба может повторно войти в первую службу через обратный вызов. Если первая служба не является реентерабельным, последовательность вызовов приводит к взаимоблокировке. Дополнительные сведения см. в разделе <xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode*>.</xref:System.ServiceModel.ServiceBehaviorAttribute.ConcurrencyMode*>"
   syntax:
     content: Reentrant
     return:
       type: System.ServiceModel.ConcurrencyMode
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -76,12 +76,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "The service instance is single-threaded and does not accept reentrant calls. If the <xref:System.ServiceModel.ServiceBehaviorAttribute.InstanceContextMode*> property is <xref href=&quot;System.ServiceModel.InstanceContextMode&quot;></xref>, and additional messages arrive while the instance services a call, these messages must wait until the service is available or until the messages time out."
+  summary: "Экземпляр службы является однопотоковым и не допускает повторные входящие вызовы. Если <xref:System.ServiceModel.ServiceBehaviorAttribute.InstanceContextMode*>свойство <xref href=&quot;System.ServiceModel.InstanceContextMode&quot;> </xref>и при вызове служб экземпляром поступают дополнительные сообщения, эти сообщения должны ждать, пока служба доступна или до времени ожидания.</xref:System.ServiceModel.ServiceBehaviorAttribute.InstanceContextMode*>"
   syntax:
     content: Single
     return:
       type: System.ServiceModel.ConcurrencyMode
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462

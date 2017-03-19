@@ -14,8 +14,8 @@ items:
   nameWithType: StreamUpgradeAcceptor
   fullName: System.ServiceModel.Channels.StreamUpgradeAcceptor
   type: Class
-  summary: "To implement a custom upgrade acceptor, inherited from this <xref uid=&quot;langword_csharp_abstract&quot; name=&quot;abstract&quot; href=&quot;&quot;></xref> base class."
-  remarks: "An example of a stream upgrade is to build a compression stream directly on top of the transport stream.       This class is used with <xref:System.ServiceModel.Channels.StreamUpgradeInitiator> and <xref:System.ServiceModel.Channels.StreamUpgradeProvider> to implement a custom stream upgrade.       For a detailed description of the upgrade process, see <xref:System.ServiceModel.Channels.StreamUpgradeProvider>."
+  summary: "Чтобы реализовать акцептор пользовательского обновления, наследуемый от этого <xref uid=&quot;langword_csharp_abstract&quot; name=&quot;abstract&quot; href=&quot;&quot;> </xref> базового класса."
+  remarks: "Пример обновления потока — создание потока сжатия непосредственно поверх транспортного потока.       Этот класс используется с <xref:System.ServiceModel.Channels.StreamUpgradeInitiator>и <xref:System.ServiceModel.Channels.StreamUpgradeProvider>для реализации обновления пользовательского потока.</xref:System.ServiceModel.Channels.StreamUpgradeProvider> </xref:System.ServiceModel.Channels.StreamUpgradeInitiator>       Подробное описание процесса обновления см. в разделе <xref:System.ServiceModel.Channels.StreamUpgradeProvider>.</xref:System.ServiceModel.Channels.StreamUpgradeProvider>"
   syntax:
     content: public abstract class StreamUpgradeAcceptor
   inheritance:
@@ -36,7 +36,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeAcceptor&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeAcceptor&quot;> </xref> класса."
   syntax:
     content: protected StreamUpgradeAcceptor ();
     parameters: []
@@ -56,17 +56,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Upgrades the transport stream and returns the upgraded stream."
-  remarks: "This method can be used to wrap the existing transport stream by providing additional capabilities; for example, a compressing stream."
+  summary: "Обновляет поток транспорта и возвращает обновленный поток."
+  remarks: "Этот метод можно использовать для создания оболочки для существующего потока транспорта, добавив дополнительные возможности; Например при сжатии потока."
   syntax:
     content: public virtual System.IO.Stream AcceptUpgrade (System.IO.Stream stream);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The stream to be upgraded."
+      description: "Поток должен быть обновлен."
     return:
       type: System.IO.Stream
-      description: "Returns the upgraded stream."
+      description: "Возвращает обновленный поток."
   overload: System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade*
   exceptions: []
   platform:
@@ -83,23 +83,23 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Asynchronous version of <xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade*>."
-  remarks: "For more information, see the remarks for <xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade%2A>."
+  summary: "Асинхронная версия <xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade*>.</xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade*>"
+  remarks: "Дополнительные сведения см. заметки для <xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade%2A>.</xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade%2A>"
   syntax:
     content: public abstract IAsyncResult BeginAcceptUpgrade (System.IO.Stream stream, AsyncCallback callback, object state);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The stream to be upgraded."
+      description: "Поток должен быть обновлен."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the <xref uid=&quot;langword_csharp_AcceptUpgrade&quot; name=&quot;AcceptUpgrade&quot; href=&quot;&quot;></xref> call has completed."
+      description: "Метод, вызываемый при <xref uid=&quot;langword_csharp_AcceptUpgrade&quot; name=&quot;AcceptUpgrade&quot; href=&quot;&quot;> </xref> завершении вызова."
     - id: state
       type: System.Object
-      description: "State information for the <xref uid=&quot;langword_csharp_AcceptUpgrade&quot; name=&quot;AcceptUpgrade&quot; href=&quot;&quot;></xref> call."
+      description: "Сведения о состоянии <xref uid=&quot;langword_csharp_AcceptUpgrade&quot; name=&quot;AcceptUpgrade&quot; href=&quot;&quot;> </xref> вызова."
     return:
       type: System.IAsyncResult
-      description: "Returns a result code that is passed into EndAcceptUpgrade to access the upgraded stream."
+      description: "Возвращает результирующий код, который передается endacceptupgrade для доступа к обновленному потоку."
   overload: System.ServiceModel.Channels.StreamUpgradeAcceptor.BeginAcceptUpgrade*
   exceptions: []
   platform:
@@ -116,17 +116,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Determines whether the upgrade requested is supported by this upgrade acceptor."
-  remarks: "The developer can inspect the requested content type and determine whether the resulting upgrade can be performed by this upgrade acceptor. This content type comes from the `GetNextUpgrade` method on the matching upgrade initiator."
+  summary: "Определяет, поддерживается ли запрошенное обновление текущим акцептором обновления."
+  remarks: "Разработчик может проверить запрошенный тип содержимого и определить, можно ли выполнить результирующее обновление текущим акцептором обновления. Этот тип содержимого получается от `GetNextUpgrade` метод на соответствующем инициаторе обновления."
   syntax:
     content: public abstract bool CanUpgrade (string contentType);
     parameters:
     - id: contentType
       type: System.String
-      description: "The type of content to be checked."
+      description: "Тип содержимого для проверки."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this kind of upgrade is supported; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если данное обновление поддерживается; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.StreamUpgradeAcceptor.CanUpgrade*
   exceptions: []
   platform:
@@ -143,17 +143,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Asynchronous version of <xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade*>."
-  remarks: "For more information, see the remarks in <xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade%2A>."
+  summary: "Асинхронная версия <xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade*>.</xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade*>"
+  remarks: "Дополнительные сведения см. заметки в <xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade%2A>.</xref:System.ServiceModel.Channels.StreamUpgradeAcceptor.AcceptUpgrade%2A>"
   syntax:
     content: public abstract System.IO.Stream EndAcceptUpgrade (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The IAsyncResult returned from <xref uid=&quot;langword_csharp_BeginAcceptUpgrade&quot; name=&quot;BeginAcceptUpgrade&quot; href=&quot;&quot;></xref>."
+      description: "IAsyncResult, возвращенный из <xref uid=&quot;langword_csharp_BeginAcceptUpgrade&quot; name=&quot;BeginAcceptUpgrade&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.IO.Stream
-      description: "Returns the upgraded stream."
+      description: "Возвращает обновленный поток."
   overload: System.ServiceModel.Channels.StreamUpgradeAcceptor.EndAcceptUpgrade*
   exceptions: []
   platform:

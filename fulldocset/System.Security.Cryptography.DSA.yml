@@ -26,8 +26,8 @@ items:
   nameWithType: DSA
   fullName: System.Security.Cryptography.DSA
   type: Class
-  summary: "Represents the abstract base class from which all implementations of the Digital Signature Algorithm (DSA) must inherit."
-  remarks: "You can use the DSA class and derived classes to create digital signatures that help protect the integrity of your data.  The <xref:System.Security.Cryptography.DSACryptoServiceProvider> provides an implementation of this class.       To use a public-key system to digitally sign a message, the sender first applies a hash function to the message to create a message digest. The sender then encrypts the message digest with the sender&quot;s private key to create the sender&quot;s personal signature. Upon receiving the message and signature, the receiver decrypts the signature using the sender&quot;s public key to recover the message digest and hashes the message using the same hash algorithm that the sender used. If the message digest that the receiver computes exactly matches the message digest received from the sender, the receiver can assume that the message was not altered while in transit. Note that a signature can be verified by anyone, because the sender&quot;s public key is common knowledge.       Newer asymmetric algorithms are available. Consider using the <xref:System.Security.Cryptography.RSA> class, the <xref:System.Security.Cryptography.ECDsa> class, or the <xref:System.Security.Cryptography.ECDiffieHellman> class instead of the DSA class. Use DSA only for compatibility with legacy applications and data.       This algorithm supports key lengths from 512 bits to 1024 bits in increments of 64 bits."
+  summary: "Представляет абстрактный базовый класс, от которого должны наследоваться все реализации алгоритма цифровой подписи (DSA)."
+  remarks: "Класс DSA и производные классы можно использовать для создания цифровых подписей для защиты целостности данных.  <xref:System.Security.Cryptography.DSACryptoServiceProvider>Предоставляет реализацию этого класса.</xref:System.Security.Cryptography.DSACryptoServiceProvider>       Для использования системной открытым ключом для создания цифровой подписи сообщения, отправитель сначала применяет хэш-функции для создания хэш-кода. Отправитель шифрует хэш сообщения закрытым ключом отправителя для создания личной цифровой подписи отправителя. При получении сообщения и цифровой подписи, получатель расшифровывает подпись с помощью открытого ключа отправителя, восстанавливая хэш сообщения и хэширует сообщение с помощью того же хэш-алгоритм, который использовал отправитель. Если хэш сообщения, вычисляемый получателем, точно совпадает с хэш-кода, полученным от отправителя, получатель можно предположить, что сообщение не было изменено во время передачи. Обратите внимание, что подпись может быть проверена любым лицом, так как открытый ключ отправителя является общедоступным.       Доступны более новые алгоритмы асимметричного. Рассмотрите возможность использования <xref:System.Security.Cryptography.RSA>класса <xref:System.Security.Cryptography.ECDsa>, или <xref:System.Security.Cryptography.ECDiffieHellman>класса вместо класса DSA.</xref:System.Security.Cryptography.ECDiffieHellman> </xref:System.Security.Cryptography.ECDsa> </xref:System.Security.Cryptography.RSA> Используйте DSA только для совместимости с прежних версий приложений и данных.       Этот алгоритм поддерживает ключи длиной от 512 до 1024 бит с приращениями по 64 бит."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -81,13 +81,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Creates the default cryptographic object used to perform the asymmetric algorithm."
+  summary: "Создает криптографический объект по умолчанию, используемый для выполнения алгоритма асимметричного шифрования."
   syntax:
     content: public static System.Security.Cryptography.DSA Create ();
     parameters: []
     return:
       type: System.Security.Cryptography.DSA
-      description: "A cryptographic object used to perform the asymmetric algorithm."
+      description: "Криптографический объект, используемый для выполнения алгоритма асимметричного шифрования."
   overload: System.Security.Cryptography.DSA.Create*
   exceptions: []
   platform:
@@ -104,17 +104,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Creates the specified cryptographic object used to perform the asymmetric algorithm."
-  remarks: "For <xref:System.Security.Cryptography.DSA>, use the name System.Security.Cryptography.DSA."
+  summary: "Создает заданный криптографический объект, используемый для выполнения алгоритма асимметричного шифрования."
+  remarks: "Для <xref:System.Security.Cryptography.DSA>, используйте имя System.Security.Cryptography.DSA.</xref:System.Security.Cryptography.DSA>"
   syntax:
     content: public static System.Security.Cryptography.DSA Create (string algName);
     parameters:
     - id: algName
       type: System.String
-      description: "The name of the specific implementation of <xref href=&quot;System.Security.Cryptography.DSA&quot;></xref> to use."
+      description: "Имя конкретной реализации <xref href=&quot;System.Security.Cryptography.DSA&quot;> </xref> для использования."
     return:
       type: System.Security.Cryptography.DSA
-      description: "A cryptographic object used to perform the asymmetric algorithm."
+      description: "Криптографический объект, используемый для выполнения алгоритма асимметричного шифрования."
   overload: System.Security.Cryptography.DSA.Create*
   exceptions: []
   platform:
@@ -131,16 +131,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "When overridden in a derived class, creates the <xref href=&quot;System.Security.Cryptography.DSA&quot;></xref> signature for the specified data."
+  summary: "При переопределении в производном классе создает <xref href=&quot;System.Security.Cryptography.DSA&quot;> </xref> подпись для указанных данных."
   syntax:
     content: public abstract byte[] CreateSignature (byte[] rgbHash);
     parameters:
     - id: rgbHash
       type: System.Byte[]
-      description: "The data to be signed."
+      description: "Данные должны быть подписаны."
     return:
       type: System.Byte[]
-      description: "The digital signature for the specified data."
+      description: "Цифровая подпись для указанных данных."
   overload: System.Security.Cryptography.DSA.CreateSignature*
   exceptions: []
   platform:
@@ -157,16 +157,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "When overridden in a derived class, exports the <xref href=&quot;System.Security.Cryptography.DSAParameters&quot;></xref>."
+  summary: "При переопределении в производном классе, экспортирует <xref href=&quot;System.Security.Cryptography.DSAParameters&quot;> </xref>."
   syntax:
     content: public abstract System.Security.Cryptography.DSAParameters ExportParameters (bool includePrivateParameters);
     parameters:
     - id: includePrivateParameters
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to include private parameters; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>для включения закрытых параметров; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Security.Cryptography.DSAParameters
-      description: "The parameters for <xref href=&quot;System.Security.Cryptography.DSA&quot;></xref>."
+      description: "Параметры для <xref href=&quot;System.Security.Cryptography.DSA&quot;> </xref>."
   overload: System.Security.Cryptography.DSA.ExportParameters*
   exceptions: []
   platform:
@@ -183,13 +183,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Reconstructs a <xref href=&quot;System.Security.Cryptography.DSA&quot;></xref> object from an XML string."
+  summary: "Восстанавливает <xref href=&quot;System.Security.Cryptography.DSA&quot;> </xref> объекта из строки XML."
   syntax:
     content: public override void FromXmlString (string xmlString);
     parameters:
     - id: xmlString
       type: System.String
-      description: "The XML string to use to reconstruct the <xref href=&quot;System.Security.Cryptography.DSA&quot;></xref> object."
+      description: "XML-строка, используемая для восстановления <xref href=&quot;System.Security.Cryptography.DSA&quot;> </xref> объекта."
   overload: System.Security.Cryptography.DSA.FromXmlString*
   exceptions:
   - type: System.ArgumentNullException
@@ -197,7 +197,7 @@ items:
     description: "The <code>xmlString</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The format of the <code>xmlString</code> parameter is not valid."
+    description: "Формат <code> xmlString </code> указан недопустимый параметр."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSA.HashData(System.IO.Stream,System.Security.Cryptography.HashAlgorithmName)
@@ -212,24 +212,24 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "When overridden in a derived class, computes the hash value of a specified binary stream by using a specified hashing algorithm."
+  summary: "При переопределении в производном классе вычисляет хэш-значение указанного двоичного потока с помощью заданного алгоритма хэширования."
   syntax:
     content: protected virtual byte[] HashData (System.IO.Stream data, System.Security.Cryptography.HashAlgorithmName hashAlgorithm);
     parameters:
     - id: data
       type: System.IO.Stream
-      description: "The binary stream to hash."
+      description: "Двоичный поток, хэширование которого требуется выполнить."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "The algorithm to use to hash the data."
+      description: "Алгоритм, используемый для хэширования данных."
     return:
       type: System.Byte[]
-      description: "The hashed data."
+      description: "Хэшированные данные."
   overload: System.Security.Cryptography.DSA.HashData*
   exceptions:
   - type: System.NotImplementedException
     commentId: T:System.NotImplementedException
-    description: "A derived class must override this method."
+    description: "Производный класс должен переопределять этот метод."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSA.HashData(System.Byte[],System.Int32,System.Int32,System.Security.Cryptography.HashAlgorithmName)
@@ -244,30 +244,30 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "When overridden in a derived class, computes the hash value of a specified portion of a byte array by using a specified hashing algorithm."
+  summary: "При переопределении в производном классе вычисляет хэш-значение указанного фрагмента массива байтов с помощью заданного алгоритма хэширования."
   syntax:
     content: protected virtual byte[] HashData (byte[] data, int offset, int count, System.Security.Cryptography.HashAlgorithmName hashAlgorithm);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The data to be hashed."
+      description: "Данные, предназначенные для хэширования."
     - id: offset
       type: System.Int32
-      description: "The index of the first byte in `data` that is to be hashed."
+      description: "Индекс первого байта в `data` , хэширование которого требуется выполнить."
     - id: count
       type: System.Int32
-      description: "The number of bytes to hash."
+      description: "Число байтов для хэширования."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "The algorithm to use to hash the data."
+      description: "Алгоритм, используемый для хэширования данных."
     return:
       type: System.Byte[]
-      description: "The hashed data."
+      description: "Хэшированные данные."
   overload: System.Security.Cryptography.DSA.HashData*
   exceptions:
   - type: System.NotImplementedException
     commentId: T:System.NotImplementedException
-    description: "A derived class must override this method."
+    description: "Производный класс должен переопределять этот метод."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSA.ImportParameters(System.Security.Cryptography.DSAParameters)
@@ -282,13 +282,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "When overridden in a derived class, imports the specified <xref href=&quot;System.Security.Cryptography.DSAParameters&quot;></xref>."
+  summary: "При переопределении в производном классе, импортирует заданный <xref href=&quot;System.Security.Cryptography.DSAParameters&quot;> </xref>."
   syntax:
     content: public abstract void ImportParameters (System.Security.Cryptography.DSAParameters parameters);
     parameters:
     - id: parameters
       type: System.Security.Cryptography.DSAParameters
-      description: "The parameters for <xref href=&quot;System.Security.Cryptography.DSA&quot;></xref>."
+      description: "Параметры для <xref href=&quot;System.Security.Cryptography.DSA&quot;> </xref>."
   overload: System.Security.Cryptography.DSA.ImportParameters*
   exceptions: []
   platform:
@@ -305,27 +305,27 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Computes the hash value of the specified byte array using the specified hash algorithm and signs the resulting hash value."
+  summary: "Вычисляет хэш-значение заданного массива байтов с помощью указанного алгоритма хэширования и подписывает результирующее хэш-значение."
   syntax:
     content: public byte[] SignData (byte[] data, System.Security.Cryptography.HashAlgorithmName hashAlgorithm);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The input data for which to compute the hash."
+      description: "Входные данные, для которых нужно вычислить хэш."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "The hash algorithm to use to create the hash value."
+      description: "Хэш-алгоритм, используемый для создания хэш-значения."
     return:
       type: System.Byte[]
-      description: "The DSA signature for the specified data."
+      description: "Подписи DSA для указанных данных."
   overload: System.Security.Cryptography.DSA.SignData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>data</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>hashAlgorithm</code>.<xref:System.Security.Cryptography.HashAlgorithmName.Name*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
+    description: "<code>hashAlgorithm</code>.<xref:System.Security.Cryptography.HashAlgorithmName.Name*> — <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> или &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSA.SignData(System.IO.Stream,System.Security.Cryptography.HashAlgorithmName)
@@ -340,27 +340,27 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Computes the hash value of the specified stream using the specified hash algorithm and signs the resulting hash value."
+  summary: "Вычисляет хэш-значение заданного потока, с помощью указанного алгоритма хэширования и подписывает результирующее хэш-значение."
   syntax:
     content: public virtual byte[] SignData (System.IO.Stream data, System.Security.Cryptography.HashAlgorithmName hashAlgorithm);
     parameters:
     - id: data
       type: System.IO.Stream
-      description: "The input stream for which to compute the hash."
+      description: "Входной поток, для которого нужно вычислить хэш."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "The hash algorithm to use to create the hash value."
+      description: "Хэш-алгоритм, используемый для создания хэш-значения."
     return:
       type: System.Byte[]
-      description: "The DSA signature for the specified data."
+      description: "Подписи DSA для указанных данных."
   overload: System.Security.Cryptography.DSA.SignData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>data</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>hashAlgorithm</code>.<xref:System.Security.Cryptography.HashAlgorithmName.Name*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
+    description: "<code>hashAlgorithm</code>.<xref:System.Security.Cryptography.HashAlgorithmName.Name*> — <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> или &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSA.SignData(System.Byte[],System.Int32,System.Int32,System.Security.Cryptography.HashAlgorithmName)
@@ -375,36 +375,36 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Computes the hash value of a portion of the specified byte array using the specified hash algorithm and signs the resulting hash value."
+  summary: "Вычисляет хэш-значение части заданного массива байтов с помощью указанного алгоритма хэширования и подписывает результирующее хэш-значение."
   syntax:
     content: public virtual byte[] SignData (byte[] data, int offset, int count, System.Security.Cryptography.HashAlgorithmName hashAlgorithm);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The input data for which to compute the hash."
+      description: "Входные данные, для которых нужно вычислить хэш."
     - id: offset
       type: System.Int32
-      description: "The offset into the array at which to begin using data."
+      description: "Смещение в массиве, с которого следует использовать данные."
     - id: count
       type: System.Int32
-      description: "The number of bytes in the array to use as data."
+      description: "Число байтов в массиве для использования в качестве данных."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "The hash algorithm to use to create the hash value."
+      description: "Хэш-алгоритм, используемый для создания хэш-значения."
     return:
       type: System.Byte[]
-      description: "The DSA signature for the specified data."
+      description: "Подписи DSA для указанных данных."
   overload: System.Security.Cryptography.DSA.SignData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>data</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>hashAlgorithm</code>.<xref:System.Security.Cryptography.HashAlgorithmName.Name*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
+    description: "<code>hashAlgorithm</code>.<xref:System.Security.Cryptography.HashAlgorithmName.Name*> — <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> или &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> is less than zero.       -or-       <code>count</code> is less than zero.       -or-       <code>offset</code> + <code>count</code> – 1 results in an index that is beyond the upper bound of <code>data</code>."
+    description: "<code>offset</code>меньше нуля.       - или - <code>count</code> меньше нуля.       - или - <code>offset</code>  + <code>count</code> – 1 приводит к индексу, который выходит за пределы верхней границы <code>data</code>."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSA.ToXmlString(System.Boolean)
@@ -419,16 +419,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Creates and returns an XML string representation of the current <xref href=&quot;System.Security.Cryptography.DSA&quot;></xref> object."
+  summary: "Создает и возвращает XML-представление строки текущего <xref href=&quot;System.Security.Cryptography.DSA&quot;> </xref> объекта."
   syntax:
     content: public override string ToXmlString (bool includePrivateParameters);
     parameters:
     - id: includePrivateParameters
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to include private parameters; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>для включения закрытых параметров; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.String
-      description: "An XML string encoding of the current <xref href=&quot;System.Security.Cryptography.DSA&quot;></xref> object."
+      description: "Кодировка XML-строки текущего <xref href=&quot;System.Security.Cryptography.DSA&quot;> </xref> объекта."
   overload: System.Security.Cryptography.DSA.ToXmlString*
   exceptions: []
   platform:
@@ -445,30 +445,30 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Verifies that a digital signature is valid by calculating the hash value of the specified data using the specified hash algorithm and comparing it to the provided signature."
+  summary: "Проверяет допустимость цифровой подписи, вычисляя хэш-значение указанных данных с помощью указанного алгоритма хэширования и его сравнения с предоставленной подписью."
   syntax:
     content: public bool VerifyData (byte[] data, byte[] signature, System.Security.Cryptography.HashAlgorithmName hashAlgorithm);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The signed data."
+      description: "Подписанные данные."
     - id: signature
       type: System.Byte[]
-      description: "The signature data to be verified."
+      description: "Данные подписи, которую требуется проверить."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "The hash algorithm used to create the hash value of the data."
+      description: "Хэш-алгоритм, используемый для создания хэш-значения данных."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the digital signature is valid; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если цифровая подпись является допустимой; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.DSA.VerifyData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>data</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>signature</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>signature</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>hashAlgorithm</code>.<xref:System.Security.Cryptography.HashAlgorithmName.Name*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
+    description: "<code>hashAlgorithm</code>.<xref:System.Security.Cryptography.HashAlgorithmName.Name*> — <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> или &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSA.VerifyData(System.IO.Stream,System.Byte[],System.Security.Cryptography.HashAlgorithmName)
@@ -483,30 +483,30 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Verifies that a digital signature is valid by calculating the hash value of the specified stream using the specified hash algorithm and comparing it to the provided signature."
+  summary: "Проверяет допустимость цифровой подписи, вычисляя хэш-значение заданного потока с помощью указанного алгоритма хэширования и сравнения его с предоставленной подписью."
   syntax:
     content: public virtual bool VerifyData (System.IO.Stream data, byte[] signature, System.Security.Cryptography.HashAlgorithmName hashAlgorithm);
     parameters:
     - id: data
       type: System.IO.Stream
-      description: "The signed data."
+      description: "Подписанные данные."
     - id: signature
       type: System.Byte[]
-      description: "The signature data to be verified."
+      description: "Данные подписи, которую требуется проверить."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "The hash algorithm used to create the hash value of the data."
+      description: "Хэш-алгоритм, используемый для создания хэш-значения данных."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the digital signature is valid; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если цифровая подпись является допустимой; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.DSA.VerifyData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>data</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>signature</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>signature</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>hashAlgorithm</code>.<xref:System.Security.Cryptography.HashAlgorithmName.Name*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
+    description: "<code>hashAlgorithm</code>.<xref:System.Security.Cryptography.HashAlgorithmName.Name*> — <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> или &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSA.VerifyData(System.Byte[],System.Int32,System.Int32,System.Byte[],System.Security.Cryptography.HashAlgorithmName)
@@ -521,39 +521,39 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Verifies that a digital signature is valid by calculating the hash value of the data in a portion of a byte array using the specified hash algorithm and comparing it to the provided signature."
+  summary: "Проверяет допустимость цифровой подписи, вычисляя хэш-значения данных в части байтовый массив с помощью указанного алгоритма хэширования и сравнения его с предоставленной подписью."
   syntax:
     content: public virtual bool VerifyData (byte[] data, int offset, int count, byte[] signature, System.Security.Cryptography.HashAlgorithmName hashAlgorithm);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The signed data."
+      description: "Подписанные данные."
     - id: offset
       type: System.Int32
-      description: "The starting index at which to compute the hash."
+      description: "Индекс, начиная с которого нужно вычислить хэш."
     - id: count
       type: System.Int32
-      description: "The number of bytes to hash."
+      description: "Число байтов для хэширования."
     - id: signature
       type: System.Byte[]
-      description: "The signature data to be verified."
+      description: "Данные подписи, которую требуется проверить."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "The hash algorithm used to create the hash value of the data."
+      description: "Хэш-алгоритм, используемый для создания хэш-значения данных."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the digital signature is valid; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если цифровая подпись является допустимой; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.DSA.VerifyData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>data</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>signature</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>signature</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>hashAlgorithm</code>.<xref:System.Security.Cryptography.HashAlgorithmName.Name*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
+    description: "<code>hashAlgorithm</code>.<xref:System.Security.Cryptography.HashAlgorithmName.Name*> — <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> или &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> is less than zero.       -or-       <code>count</code> is less than zero.       -or-       <code>offset</code> + <code>count</code> – 1 results in an index that is beyond the upper bound of <code>data</code>."
+    description: "<code>offset</code>меньше нуля.       - или - <code>count</code> меньше нуля.       - или - <code>offset</code>  + <code>count</code> – 1 приводит к индексу, который выходит за пределы верхней границы <code>data</code>."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSA.VerifySignature(System.Byte[],System.Byte[])
@@ -568,19 +568,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "When overridden in a derived class, verifies the <xref href=&quot;System.Security.Cryptography.DSA&quot;></xref> signature for the specified data."
+  summary: "При переопределении в производном классе проверяет <xref href=&quot;System.Security.Cryptography.DSA&quot;> </xref> подпись для указанных данных."
   syntax:
     content: public abstract bool VerifySignature (byte[] rgbHash, byte[] rgbSignature);
     parameters:
     - id: rgbHash
       type: System.Byte[]
-      description: "The hash of the data signed with `rgbSignature`."
+      description: "Хэш данных подписана `rgbSignature`."
     - id: rgbSignature
       type: System.Byte[]
-      description: "The signature to be verified for `rgbData`."
+      description: "Подпись для проверки для `rgbData`."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>rgbSignature</code> matches the signature computed using the specified hash algorithm and key on <code>rgbHash</code>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <code> rgbSignature </code> совпадает с подписью, вычисленной с помощью указанного хэш-алгоритма и ключа для <code> rgbHash </code>; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.DSA.VerifySignature*
   exceptions: []
   platform:

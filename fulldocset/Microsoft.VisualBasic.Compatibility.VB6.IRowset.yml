@@ -14,7 +14,7 @@ items:
   nameWithType: IRowset
   fullName: Microsoft.VisualBasic.Compatibility.VB6.IRowset
   type: Interface
-  summary: "Provides an implementation of the OLE DB <xref uid=&quot;langword_csharp_IRowset&quot; name=&quot;IRowset&quot; href=&quot;&quot;></xref> interface for use by applications upgraded from Visual Basic 6.0."
+  summary: "Предоставляет реализацию OLE DB <xref uid=&quot;langword_csharp_IRowset&quot; name=&quot;IRowset&quot; href=&quot;&quot;> </xref> интерфейса для использования в приложениях, обновленных с Visual Basic 6.0."
   remarks: '[!INCLUDE[Note_compatibility](~/add/includes/ajax-current-ext-md.md)]'
   syntax:
     content: >-
@@ -40,23 +40,23 @@ items:
   assemblies:
   - Microsoft.VisualBasic.Compatibility.Data
   namespace: Microsoft.VisualBasic.Compatibility.VB6
-  summary: "Adds a reference count to an existing row handle."
+  summary: "Добавляет счетчик ссылок в дескриптор существующей строки."
   remarks: '[!INCLUDE[Note_compatibility](~/add/includes/ajax-current-ext-md.md)]'
   syntax:
     content: public void AddRefRows (int cRows, int[] hRows, out int[] refCounts, out int[] rowStatus);
     parameters:
     - id: cRows
       type: System.Int32
-      description: "The number of rows for which to increment the reference count."
+      description: "Количество строк, для которого требуется увеличивает число ссылок."
     - id: hRows
       type: System.Int32[]
-      description: "An array of row handles for which to increment the reference count. The reference count of row handles is incremented by one for each time they appear in the array."
+      description: "Массив дескрипторов строк, для которого требуется увеличивает число ссылок. Счетчик дескрипторов строк увеличивается на единицу каждый раз, в котором они указаны в массиве."
     - id: refCounts
       type: System.Int32[]
-      description: "An array with `cRows` elements in which to return the new reference count for each row handle. The consumer allocates memory for this array. If `refCounts` is a null pointer, no reference counts are returned."
+      description: "Массив с `cRows` элементов, в который возвращается новый счетчик ссылок для каждого дескриптора строки. Потребитель выделяет память для данного массива. Если `refCounts` является указателем null, возвращаются числа ни одна ссылка."
     - id: rowStatus
       type: System.Int32[]
-      description: "An array with `cRows` elements in which to return values indicating the status of each row specified in `hRows`."
+      description: "Массив с `cRows` элементы, в которых для возврата значения, указывающие состояние каждой строки, указанной в `hRows`."
   overload: Microsoft.VisualBasic.Compatibility.VB6.IRowset.AddRefRows*
   exceptions: []
   platform:
@@ -73,20 +73,20 @@ items:
   assemblies:
   - Microsoft.VisualBasic.Compatibility.Data
   namespace: Microsoft.VisualBasic.Compatibility.VB6
-  summary: "Retrieves data from the rowset&quot;s copy of the row."
+  summary: "Извлекает данные из копии строки в наборе строк."
   remarks: '[!INCLUDE[Note_compatibility](~/add/includes/ajax-current-ext-md.md)]'
   syntax:
     content: public void GetData (int hRow, int hAccessor, IntPtr pData);
     parameters:
     - id: hRow
       type: System.Int32
-      description: "The handle of the row from which to get the data."
+      description: "Дескриптор строки, из которого необходимо получить данные."
     - id: hAccessor
       type: System.Int32
-      description: "The handle of the accessor to use."
+      description: "Дескриптор метода доступа."
     - id: pData
       type: System.IntPtr
-      description: "A pointer to a buffer in which to return the data."
+      description: "Указатель на буфер, в котором для возвращения данных."
   overload: Microsoft.VisualBasic.Compatibility.VB6.IRowset.GetData*
   exceptions: []
   platform:
@@ -103,26 +103,26 @@ items:
   assemblies:
   - Microsoft.VisualBasic.Compatibility.Data
   namespace: Microsoft.VisualBasic.Compatibility.VB6
-  summary: "Fetches rows sequentially, remembering the previous position."
+  summary: "Последовательно извлекает строки запоминание предыдущей позиции."
   remarks: '[!INCLUDE[Note_compatibility](~/add/includes/ajax-current-ext-md.md)]'
   syntax:
     content: public void GetNextRows (int hChapter, int lRowsOffset, int cRows, out int cRowsObtained, out int[] hRows);
     parameters:
     - id: hChapter
       type: System.Int32
-      description: "The chapter handle designating the rows to fetch."
+      description: "Дескриптор главы, обозначающий строк для выборки."
     - id: lRowsOffset
       type: System.Int32
-      description: "The signed count of rows to skip before fetching rows. Deleted rows that the provider has removed from the rowset are not counted in the skip."
+      description: "Счетчик строк необходимо пропустить перед выборкой строк со знаком. Удаленные строки, поставщик была удалена из набора строк, не учитываются при пропуске."
     - id: cRows
       type: System.Int32
-      description: "The number of rows to fetch. A negative number means to fetch backward."
+      description: "Число строк для выборки. Отрицательное число означает выборку в обратном порядке."
     - id: cRowsObtained
       type: System.Int32
-      description: "A pointer to memory in which to return the actual number of fetched rows."
+      description: "Указатель на область памяти, в которую будет возвращено фактическое число извлеченных строк."
     - id: hRows
       type: System.Int32[]
-      description: "A pointer to memory in which to return an array of handles of the fetched rows."
+      description: "Указатель на область памяти, в которую будет возвращен массив дескрипторов извлеченных строк."
   overload: Microsoft.VisualBasic.Compatibility.VB6.IRowset.GetNextRows*
   exceptions: []
   platform:
@@ -139,29 +139,29 @@ items:
   assemblies:
   - Microsoft.VisualBasic.Compatibility.Data
   namespace: Microsoft.VisualBasic.Compatibility.VB6
-  summary: "Releases rows."
+  summary: "Освобождает строк."
   remarks: '[!INCLUDE[Note_compatibility](~/add/includes/ajax-current-ext-md.md)]'
   syntax:
     content: public int ReleaseRows (int cRows, int[] hRows, IntPtr rowOptions, IntPtr rowRefCounts, IntPtr rgRowStatus);
     parameters:
     - id: cRows
       type: System.Int32
-      description: "The number of rows to release."
+      description: "Число строк для освобождения."
     - id: hRows
       type: System.Int32[]
-      description: "An array of handles of the rows to be released. The row handles do not need to form a logical cluster; they may have been obtained at separate times and need not be for contiguous underlying rows. Row handles are decremented by one reference count for each time they appear in the array."
+      description: "Массив дескрипторов строк освобождается. Дескрипторы строк не обязательно для формирования логической кластера; они могут быть получены в разное время и не обязательно должны быть дескрипторы. Дескрипторы строк, один счетчик ссылок уменьшается на единицу каждый раз, в котором они указаны в массиве."
     - id: rowOptions
       type: System.IntPtr
-      description: "An array of `cRows` elements containing bitmasks indicating additional options to be specified when a row is released."
+      description: "Массив `cRows` содержащий битовые маски, указывающее, дополнительные параметры указываются в стиле освобождения строки."
     - id: rowRefCounts
       type: System.IntPtr
-      description: "An array with `cRows` elements in which to return the new reference count of each row."
+      description: "Массив с `cRows` элементов, в который возвращается новый счетчик ссылок для каждой из строк."
     - id: rgRowStatus
       type: System.IntPtr
-      description: "An array with `cRows` elements in which to return values indicating the status of each row specified in `hRows`."
+      description: "Массив с `cRows` элементы, в которых для возврата значения, указывающие состояние каждой строки, указанной в `hRows`."
     return:
       type: System.Int32
-      description: "An <xref uid=&quot;langword_csharp_Integer&quot; name=&quot;Integer&quot; href=&quot;&quot;></xref> representing the result."
+      description: "<xref uid=&quot;langword_csharp_Integer&quot; name=&quot;Integer&quot; href=&quot;&quot;> </xref> Представляющее результат."
   overload: Microsoft.VisualBasic.Compatibility.VB6.IRowset.ReleaseRows*
   exceptions: []
   platform:
@@ -178,17 +178,17 @@ items:
   assemblies:
   - Microsoft.VisualBasic.Compatibility.Data
   namespace: Microsoft.VisualBasic.Compatibility.VB6
-  summary: "Repositions the next fetch position to its initial position."
+  summary: "Перемещает позицию следующей выборки в его начальное положение."
   remarks: '[!INCLUDE[Note_compatibility](~/add/includes/ajax-current-ext-md.md)]'
   syntax:
     content: public int RestartPosition (int hChapter);
     parameters:
     - id: hChapter
       type: System.Int32
-      description: "The chapter handle designating the rows on which to reposition."
+      description: "Дескриптор главы перемещаемые строки для изменения положения."
     return:
       type: System.Int32
-      description: "An <xref uid=&quot;langword_csharp_Integer&quot; name=&quot;Integer&quot; href=&quot;&quot;></xref> representing the result."
+      description: "<xref uid=&quot;langword_csharp_Integer&quot; name=&quot;Integer&quot; href=&quot;&quot;> </xref> Представляющее результат."
   overload: Microsoft.VisualBasic.Compatibility.VB6.IRowset.RestartPosition*
   exceptions: []
   platform:
