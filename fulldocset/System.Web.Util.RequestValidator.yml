@@ -13,8 +13,8 @@ items:
   nameWithType: RequestValidator
   fullName: System.Web.Util.RequestValidator
   type: Class
-  summary: "Defines base methods for custom request validation."
-  remarks: "By default, ASP.NET does not validate requests until code explicitly requests a value from the request. For example, ASP.NET does not validate query-string values until code accesses the <xref:System.Web.HttpRequest.QueryString%2A> collection. By default, ASP.NET also does not validate some types of request data, such as form values, cookies, the names of files that have been uploaded using HTTP, and the value of the <xref:System.Web.HttpRequest.RawUrl%2A> property.       The RequestValidator class is a base class that you can implement in order to provide custom request validation. By implementing this class, you can determine when validation occurs and what type of request data to perform validation on.       By default, ASP.NET provides cross-site scripting (XSS) checks. However, you can supplement or replace the request validation logic that is provided in ASP.NET by creating a custom implementation of the XSS. For example, you can write a custom request validation implementation that scans for SQL injection attacks in addition to checking for XSS attacks.       To create custom request validation, you write a custom class that derives from the RequestValidator base class. You then configure ASP.NET to use the custom request validator in the application-level Web.config file. You can put the custom class in the App_Code folder, in a compiled class library in the Bin folder, or in a compiled class library in the GAC.      > [!NOTE] >  Only one custom request validation type can be configured for an application. It is not possible to configure a different request validation type for individual virtual paths or pages."
+  summary: "Определяет основные методы проверки пользовательского запроса."
+  remarks: "По умолчанию ASP.NET не проверяет запросы, пока код явно не запросит значение из запроса. Например, ASP.NET не проверяет значения строки запроса, пока код обращается к <xref:System.Web.HttpRequest.QueryString%2A>коллекции.</xref:System.Web.HttpRequest.QueryString%2A> По умолчанию ASP.NET также не проверяет некоторые типы данных запроса, такие как значения формы, файлы cookie, имена файлов, которые были переданы с помощью HTTP и значение <xref:System.Web.HttpRequest.RawUrl%2A>Свойства.</xref:System.Web.HttpRequest.RawUrl%2A>       Класс RequestValidator является базовым классом, который можно реализовать, чтобы обеспечить проверку пользовательских запросов. При реализации этого класса, можно определить, когда происходит проверка и какого рода данные запроса для выполнения проверки.       По умолчанию ASP.NET предоставляет межсайтовых сценариев (XSS) проверки. Однако можно дополнить или заменить логику проверки запроса, которая предоставляется в ASP.NET, создав пользовательскую реализацию XSS. Например можно написать реализацию проверки пользовательского запроса, которое проверяет для атак путем внедрения кода SQL в дополнение к проверке для атак с XSS.       Для создания настраиваемой проверки запросов, необходимо написать пользовательский класс, производный от базового класса RequestValidator. После этого настроить ASP.NET для использования пользовательского запроса проверяющий элемент управления в файле Web.config уровня приложения. Пользовательский класс можно поместить в папку App_Code, в скомпилированную библиотеку классов в папке Bin или в скомпилированную библиотеку классов в глобальном кэше СБОРОК.      Настроек [!NOTE] настроек для приложения можно настроить только один тип проверки пользовательского запроса. Настройка типа проверки других запросов для отдельных виртуальных путей или страниц невозможна."
   example:
   - "The following example shows how to create a custom request validator that allows only a specific string to be used for query-string values.  \n  \n [!code-cs[System.Web.Util.RequestValidator#1](~/add/codesnippet/csharp/t-system.web.util.reques_1.cs)]\n [!code-vb[System.Web.Util.RequestValidator#1](~/add/codesnippet/visualbasic/t-system.web.util.reques_1.vb)]  \n  \n The following example shows how to configure ASP.NET to use the custom validator in the Web.config file for an application.  \n  \n```  \n<system.web>  \n  <httpRuntime requestValidationType=\"CustomRequestValidation\" />  \n</system.web>  \n```"
   syntax:
@@ -37,8 +37,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Util.RequestValidator&quot;></xref> class."
-  remarks: "The <xref:System.Web.Util.RequestValidator> class has a default constructor. When a new instance of the class is initialized, an internal method retrieves custom validation details from the application&quot;s configuration information. The configuration details are contained in the <xref:System.Web.Configuration.HttpRuntimeSection> section. For more information, see [httpRuntime Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/e9b81350-8aaf-47cc-9843-5f7d0c59f369) and the <xref:System.Web.Configuration.HttpRuntimeSection.RequestValidationType%2A> attribute.       During initialization, a single instance of the <xref:System.Web.Util.RequestValidator> class is created, and a reference to the instance is maintained in the <xref:System.Web.Util.RequestValidator.Current%2A> property. ASP.NET does not create a new request validator instance per request. Therefore, custom implementations of the <xref:System.Web.Util.RequestValidator> class must be thread-safe."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Web.Util.RequestValidator&quot;> </xref> класса."
+  remarks: "<xref:System.Web.Util.RequestValidator>Класс имеет конструктор по умолчанию.</xref:System.Web.Util.RequestValidator> При инициализации нового экземпляра класса внутренний метод извлекает сведения настраиваемой проверки из данных конфигурации. Сведения о конфигурации находятся в <xref:System.Web.Configuration.HttpRuntimeSection>раздела.</xref:System.Web.Configuration.HttpRuntimeSection> Дополнительные сведения см. в разделе [httpRuntime (схема параметров ASP.NET) элемент](http://msdn.microsoft.com/en-us/e9b81350-8aaf-47cc-9843-5f7d0c59f369) и <xref:System.Web.Configuration.HttpRuntimeSection.RequestValidationType%2A>атрибут.</xref:System.Web.Configuration.HttpRuntimeSection.RequestValidationType%2A>       Во время инициализации, один экземпляр <xref:System.Web.Util.RequestValidator>создается класс, и ссылку на экземпляр сохраняется в <xref:System.Web.Util.RequestValidator.Current%2A>свойство.</xref:System.Web.Util.RequestValidator.Current%2A> </xref:System.Web.Util.RequestValidator> ASP.NET не создает новый экземпляр средства проверки запроса на запрос. Таким образом пользовательские реализации <xref:System.Web.Util.RequestValidator>класс должен быть поточно ориентированного.</xref:System.Web.Util.RequestValidator>"
   syntax:
     content: public RequestValidator ();
     parameters: []
@@ -58,18 +58,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Gets or sets a reference to the current <xref href=&quot;System.Web.Util.RequestValidator&quot;></xref> instance that will be used in an application."
-  remarks: "The Current property maintains a reference to the single allowed instance of the <xref:System.Web.Util.RequestValidator> class. If no instance exists, a new one is created. If an instance already exists, the current instance is returned.       During initialization, a single instance of the <xref:System.Web.Util.RequestValidator> class is created, and a reference to the instance is made available in the Current property. ASP.NET does not create a new request validator instance per request. Therefore, custom implementations of the <xref:System.Web.Util.RequestValidator> class must be thread-safe.      > [!NOTE] >  The Current property is not thread-safe while the property is setting a reference to the current <xref:System.Web.Util.RequestValidator> class."
+  summary: "Возвращает или задает ссылку на текущий <xref href=&quot;System.Web.Util.RequestValidator&quot;> </xref> экземпляр, который будет использоваться в приложении."
+  remarks: "Сохраняет текущее свойство ссылку единственный допустимый экземпляр <xref:System.Web.Util.RequestValidator>класса.</xref:System.Web.Util.RequestValidator> Если экземпляр не существует, создается новый. Если экземпляр уже существует, возвращается текущий экземпляр.       Во время инициализации, один экземпляр <xref:System.Web.Util.RequestValidator>создается класс, и ссылку на экземпляр становится доступным в текущее свойство.</xref:System.Web.Util.RequestValidator> ASP.NET не создает новый экземпляр средства проверки запроса на запрос. Таким образом пользовательские реализации <xref:System.Web.Util.RequestValidator>класс должен быть поточно ориентированного.</xref:System.Web.Util.RequestValidator>      Настроек [!NOTE] настроек текущее свойство не является потокобезопасным, пока свойство устанавливает ссылку на текущий <xref:System.Web.Util.RequestValidator>класс.</xref:System.Web.Util.RequestValidator>"
   syntax:
     content: public static System.Web.Util.RequestValidator Current { get; set; }
     return:
       type: System.Web.Util.RequestValidator
-      description: "An instance of the <xref href=&quot;System.Web.Util.RequestValidator&quot;></xref> class."
+      description: "Экземпляр <xref href=&quot;System.Web.Util.RequestValidator&quot;> </xref> класса."
   overload: System.Web.Util.RequestValidator.Current*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Свойство <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.Web.Util.RequestValidator.InvokeIsValidRequestString(System.Web.HttpContext,System.String,System.Web.Util.RequestValidationSource,System.String,System.Int32@)
@@ -84,29 +84,29 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Provides a public method that calls the protected <xref:System.Web.Util.RequestValidator.IsValidRequestString*> method in order to validate HTTP request data."
-  remarks: "The InvokeIsValidRequestString method provides public access to the protected <xref:System.Web.Util.RequestValidator.IsValidRequestString%2A> method. This lets you create a custom wrapper class for the <xref:System.Web.Util.RequestValidator> class and call the <xref:System.Web.Util.RequestValidator.IsValidRequestString%2A> method without having to inherit from the <xref:System.Web.Util.RequestValidator> class.       For information about request validation, see <xref:System.Web.UnvalidatedRequestValues>."
+  summary: "Предоставляет открытый метод, который вызывает защищенный <xref:System.Web.Util.RequestValidator.IsValidRequestString*>метод, чтобы проверить данные HTTP-запроса.</xref:System.Web.Util.RequestValidator.IsValidRequestString*>"
+  remarks: "Метод InvokeIsValidRequestString предоставляет общий доступ к защищаемым <xref:System.Web.Util.RequestValidator.IsValidRequestString%2A>метод.</xref:System.Web.Util.RequestValidator.IsValidRequestString%2A> Это позволяет создавать класс пользовательскую программу-оболочку для <xref:System.Web.Util.RequestValidator>класса и вызовите <xref:System.Web.Util.RequestValidator.IsValidRequestString%2A>метод без необходимости наследования от <xref:System.Web.Util.RequestValidator>класса.</xref:System.Web.Util.RequestValidator> </xref:System.Web.Util.RequestValidator.IsValidRequestString%2A> </xref:System.Web.Util.RequestValidator>       Сведения о проверке запроса см. в разделе <xref:System.Web.UnvalidatedRequestValues>.</xref:System.Web.UnvalidatedRequestValues>"
   syntax:
     content: public bool InvokeIsValidRequestString (System.Web.HttpContext context, string value, System.Web.Util.RequestValidationSource requestValidationSource, string collectionKey, out int validationFailureIndex);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The HTTP context of the request."
+      description: "Контекст запроса HTTP."
     - id: value
       type: System.String
-      description: "The HTTP request data to validate."
+      description: "Данные HTTP-запроса для проверки."
     - id: requestValidationSource
       type: System.Web.Util.RequestValidationSource
-      description: "An enumeration that represents the source of request data that is being validated. The following are possible values for the enumeration:      -   <xref uid=&quot;langword_csharp_QueryString&quot; name=&quot;QueryString&quot; href=&quot;&quot;></xref>      -   <xref uid=&quot;langword_csharp_Form &quot; name=&quot;Form &quot; href=&quot;&quot;></xref>      -   <xref uid=&quot;langword_csharp_Cookies&quot; name=&quot;Cookies&quot; href=&quot;&quot;></xref>      -   <xref uid=&quot;langword_csharp_Files&quot; name=&quot;Files&quot; href=&quot;&quot;></xref>      -   <xref uid=&quot;langword_csharp_Path&quot; name=&quot;Path&quot; href=&quot;&quot;></xref>      -   <xref uid=&quot;langword_csharp_PathInfo&quot; name=&quot;PathInfo&quot; href=&quot;&quot;></xref>      -   <xref uid=&quot;langword_csharp_Headers&quot; name=&quot;Headers&quot; href=&quot;&quot;></xref>"
+      description: "Перечисление, представляющее источник данных запроса, который проверяется. Ниже приведены возможные значения перечисления:-<xref uid=&quot;langword_csharp_QueryString&quot; name=&quot;QueryString&quot; href=&quot;&quot;></xref>      -   <xref uid=&quot;langword_csharp_Form &quot; name=&quot;Form &quot; href=&quot;&quot;></xref>      -   <xref uid=&quot;langword_csharp_Cookies&quot; name=&quot;Cookies&quot; href=&quot;&quot;></xref>      -   <xref uid=&quot;langword_csharp_Files&quot; name=&quot;Files&quot; href=&quot;&quot;></xref>      -   <xref uid=&quot;langword_csharp_Path&quot; name=&quot;Path&quot; href=&quot;&quot;></xref>      -   <xref uid=&quot;langword_csharp_PathInfo&quot; name=&quot;PathInfo&quot; href=&quot;&quot;></xref>      -   <xref uid=&quot;langword_csharp_Headers&quot; name=&quot;Headers&quot; href=&quot;&quot;></xref>"
     - id: collectionKey
       type: System.String
-      description: "(Optional) The key in the request collection of the item to validate. This parameter is used if the data to validate is obtained from a collection. If the data to validate is not from a collection, this parameter can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "(Необязательно) Ключ в коллекции запроса элемента для проверки. Этот параметр используется в том случае, если данные для проверки, получены из коллекции. Если данные для проверки не из коллекции, этот параметр может иметь <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     - id: validationFailureIndex
       type: System.Int32
-      description: "When this method returns, indicates the zero-based starting point of the problematic or invalid text in the request collection. This parameter is passed uninitialized."
+      description: "По возвращении из этого метода указывает проблемного или недопустимого текста в коллекции запроса (с нуля) начальной точки. Этот параметр передается неинициализированным."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the string to validate does not contain unencoded characters that could be used in a malicious scripting attack; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если строка для проверки не содержит без кодировки символов, которые могут использоваться во вредоносных сценариев атаки; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Util.RequestValidator.InvokeIsValidRequestString*
   exceptions: []
   platform:
@@ -123,29 +123,29 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Validates a string that contains HTTP request data."
-  remarks: "You implement this method to perform custom validation of request data. The base behavior of the IsValidRequestString method is like the behavior that ASP.NET implements internally to check for dangerous strings in cross-site scripting validation. For more information, see [How To: Prevent Cross-Site Scripting in ASP.NET](http://go.microsoft.com/fwlink/?LinkID=178708).       If custom validation logic detects an error, this method should return `false` and provide a value in `validationFailureIndex` to indicate the starting point of the text that caused the error. The value in `validationFailureIndex` must be 0 or a positive integer.       The logic in a request validation check proceeds as follows:      -   The <xref:System.Web.HttpRequest> class performs a null-character removal check on the incoming data.      -   The <xref:System.Web.HttpRequest> class calls either the IsValidRequestString method (the default implementation of the base method) or calls a derived version of the method.      -   If IsValidRequestString method returns `false` to indicate a validation failure, ASP.NET constructs an error string (if necessary) and throws an <xref:System.Web.HttpRequestValidationException> exception."
+  summary: "Проверяет строку, содержащую данные HTTP-запроса."
+  remarks: "Можно реализовать этот метод для выполнения пользовательской проверки данных запроса. Базовый метод IsValidRequestString поведение аналогично поведения, который реализуется ASP.NET, внутренне проверьте опасных строк в проверка межсайтовых скриптов. Дополнительные сведения см. в разделе [How To: предотвращения межсайтовых сценариев в ASP.NET](http://go.microsoft.com/fwlink/?LinkID=178708).       Если пользовательскую логику проверки обнаруживает ошибку, этот метод должен возвращать `false` и ввести значение в `validationFailureIndex` для указания начальной точки текста, который вызвал ошибку. Значение `validationFailureIndex` должно быть 0 или положительным целым числом.       Логика в проверке запроса происходит следующим образом: - <xref:System.Web.HttpRequest>класс выполняет проверку удаления нуль символа для входящих данных.</xref:System.Web.HttpRequest>      - <xref:System.Web.HttpRequest>Класса вызывает IsValidRequestString метод (по умолчанию реализация метода базового класса) или вызывает производной версии этого метода.</xref:System.Web.HttpRequest>      -Если метод IsValidRequestString возвращает `false` для сигнализации об ошибке проверки ASP.NET создает строку об ошибке (при необходимости) и создает исключение <xref:System.Web.HttpRequestValidationException>исключение.</xref:System.Web.HttpRequestValidationException>"
   syntax:
     content: protected virtual bool IsValidRequestString (System.Web.HttpContext context, string value, System.Web.Util.RequestValidationSource requestValidationSource, string collectionKey, out int validationFailureIndex);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The context of the current request."
+      description: "Контекст текущего запроса."
     - id: value
       type: System.String
-      description: "The HTTP request data to validate."
+      description: "Данные HTTP-запроса для проверки."
     - id: requestValidationSource
       type: System.Web.Util.RequestValidationSource
-      description: "An enumeration that represents the source of request data that is being validated. The following are possible values for the enumeration:       <xref uid=&quot;langword_csharp_QueryString&quot; name=&quot;QueryString&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_Form &quot; name=&quot;Form &quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_Cookies&quot; name=&quot;Cookies&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_Files&quot; name=&quot;Files&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_RawUrl&quot; name=&quot;RawUrl&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_Path&quot; name=&quot;Path&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_PathInfo&quot; name=&quot;PathInfo&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_Headers&quot; name=&quot;Headers&quot; href=&quot;&quot;></xref>"
+      description: "Перечисление, представляющее источник данных запроса, который проверяется. Ниже приведены возможные значения для перечисления.<xref uid=&quot;langword_csharp_QueryString&quot; name=&quot;QueryString&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_Form &quot; name=&quot;Form &quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_Cookies&quot; name=&quot;Cookies&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_Files&quot; name=&quot;Files&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_RawUrl&quot; name=&quot;RawUrl&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_Path&quot; name=&quot;Path&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_PathInfo&quot; name=&quot;PathInfo&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_Headers&quot; name=&quot;Headers&quot; href=&quot;&quot;></xref>"
     - id: collectionKey
       type: System.String
-      description: "The key in the request collection of the item to validate. This parameter is optional. This parameter is used if the data to validate is obtained from a collection. If the data to validate is not from a collection, `collectionKey` can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Ключ в коллекции запроса элемента для проверки. Этот параметр является необязательным. Этот параметр используется в том случае, если данные для проверки, получены из коллекции. Если данные для проверки из коллекции, `collectionKey` может быть <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     - id: validationFailureIndex
       type: System.Int32
-      description: "When this method returns, indicates the zero-based starting point of the problematic or invalid text in the request collection. This parameter is passed uninitialized."
+      description: "По возвращении из этого метода указывает проблемного или недопустимого текста в коллекции запроса (с нуля) начальной точки. Этот параметр передается неинициализированным."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the string to be validated is valid; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если строка для проверки допустима; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Util.RequestValidator.IsValidRequestString*
   exceptions: []
   platform:
