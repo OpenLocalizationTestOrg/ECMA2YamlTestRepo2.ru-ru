@@ -10,8 +10,8 @@ items:
   nameWithType: IContributeEnvoySink
   fullName: System.Runtime.Remoting.Contexts.IContributeEnvoySink
   type: Interface
-  summary: "Contributes an envoy message sink on the client end."
-  remarks: "The IContributeEnvoySink interface is implemented by context properties in the server <xref:System.Runtime.Remoting.Contexts.Context> class that want to contribute an envoy message sink on the client end. The server envoy chain is composed from those context properties that implement IContributeEnvoySink. The envoy chain resides on the client end and acts as a representative of the corresponding message sinks from the server context properties."
+  summary: "Вносит свой вклад приемника делегатов сообщения на стороне клиента."
+  remarks: "Свойства контекста на сервере реализуется интерфейс IContributeEnvoySink <xref:System.Runtime.Remoting.Contexts.Context>класс, нужно участие приемника делегатов сообщений со стороны клиента.</xref:System.Runtime.Remoting.Contexts.Context> Цепочка envoy сервера состоит из этих свойства контекста, которые реализуют IContributeEnvoySink. Цепочка envoy находится на стороне клиента и выступает в качестве представителя соответствующего сообщения приемники из свойства контекста сервера."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -32,20 +32,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Contexts
-  summary: "Takes the first sink in the chain of sinks composed so far, and then chains its message sink in front of the chain already formed."
-  remarks: "The GetEnvoySink method is used as an optimization to create an envoy sink when the destination is a different context in the same application domain and is used by the Wrap operation."
+  summary: "Принимает первый приемник в цепочке приемников, сформированной и помещает его приемник сообщения перед уже сформированной цепочки."
+  remarks: "Метод GetEnvoySink используется для оптимизации для создании приемника делегатов, когда назначением является другой контекст в том же домене приложения и используется при выполнении операции Wrap."
   syntax:
     content: public System.Runtime.Remoting.Messaging.IMessageSink GetEnvoySink (MarshalByRefObject obj, System.Runtime.Remoting.Messaging.IMessageSink nextSink);
     parameters:
     - id: obj
       type: System.MarshalByRefObject
-      description: "The server object for which the chain is being created."
+      description: "Объект сервера, для которого создается цепочка."
     - id: nextSink
       type: System.Runtime.Remoting.Messaging.IMessageSink
-      description: "The chain of sinks composed so far."
+      description: "Цепочки приемников сформированная на данный момент."
     return:
       type: System.Runtime.Remoting.Messaging.IMessageSink
-      description: "The composite sink chain."
+      description: "Составная цепочка приемников."
   overload: System.Runtime.Remoting.Contexts.IContributeEnvoySink.GetEnvoySink*
   exceptions: []
   platform:

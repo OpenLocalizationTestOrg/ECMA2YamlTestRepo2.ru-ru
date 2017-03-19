@@ -17,7 +17,7 @@ items:
   nameWithType: SqlFunctionAttribute
   fullName: Microsoft.SqlServer.Server.SqlFunctionAttribute
   type: Class
-  summary: "Used to mark a method definition of a user-defined aggregate as a function in SQL Server. The properties on the attribute reflect the physical characteristics used when the type is registered with SQL Server."
+  summary: "Используется, чтобы пометить метод определение определяемой пользователем статистической функции в виде функции в SQL Server. Свойства атрибута отражают физические характеристики, используемые при регистрации типа в SQL Server."
   remarks: ''
   example:
   - "The following example shows an aggregate function that returns a list of files in the specified directory path.  \n  \n [!code-cs[DataWorks SqlFunctionAttribute Sample#1](~/add/codesnippet/csharp/t-microsoft.sqlserver.se_0_1.cs)]\n [!code-vb[DataWorks SqlFunctionAttribute Sample#1](~/add/codesnippet/visualbasic/t-microsoft.sqlserver.se_0_1.vb)]"
@@ -44,7 +44,7 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "An optional attribute on a user-defined aggregate, used to indicate that the method should be registered in SQL Server as a function. Also used to set the <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.DataAccess*>, <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.FillRowMethodName*>, <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.IsDeterministic*>, <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.IsPrecise*>, <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.Name*>, <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.SystemDataAccess*>, and <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.TableDefinition*> properties of the function attribute."
+  summary: "Необязательный атрибут пользовательской агрегатной функции, используемые для указания, что метод должен быть зарегистрирован в SQL Server как функцию. Также используется для задания <> </> *настроек, <> </> *настроек, <> </> *настроек, <> </> *настроек, <> </> *настроек, <> </> *настроек, и <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.TableDefinition*>Свойства атрибута функция.</xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.TableDefinition*>"
   syntax:
     content: public SqlFunctionAttribute ();
     parameters: []
@@ -64,13 +64,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the function involves access to user data stored in the local instance of SQL Server."
-  remarks: "The default is <xref:Microsoft.SqlServer.Server.DataAccessKind>.DataAccess is also required when connecting to remote servers if transactions integration is required (the default).       If a Transact-SQL query is executed from inside a table-valued function (TVF), the <xref:Microsoft.SqlServer.Server.DataAccessKind>.`Read` property should be set."
+  summary: "Указывает, что функция производит доступ к пользовательским данным, хранимым в локальном экземпляре SQL Server."
+  remarks: "Значение по умолчанию — <xref:Microsoft.SqlServer.Server.DataAccessKind>. DataAccess требуется также при подключении к удаленным серверам, если интеграция транзакций требуется (по умолчанию).</xref:Microsoft.SqlServer.Server.DataAccessKind>       При выполнении запроса Transact-SQL внутри табличной функции (TVF), <xref:Microsoft.SqlServer.Server.DataAccessKind>.`Read` </xref:Microsoft.SqlServer.Server.DataAccessKind> свойство должно быть установлено."
   syntax:
     content: public Microsoft.SqlServer.Server.DataAccessKind DataAccess { get; set; }
     return:
       type: Microsoft.SqlServer.Server.DataAccessKind
-      description: '<xref href=&quot;Microsoft.SqlServer.Server.DataAccessKind&quot;></xref>.<xref uid=&quot;langword_csharp_None&quot; name=&quot;None&quot; href=&quot;&quot;></xref>: Does not access data. <xref href=&quot;Microsoft.SqlServer.Server.DataAccessKind&quot;></xref>.<xref uid=&quot;langword_csharp_Read&quot; name=&quot;Read&quot; href=&quot;&quot;></xref>: Only reads user data.'
+      description: '<xref href=&quot;Microsoft.SqlServer.Server.DataAccessKind&quot;></xref>. <xref uid=&quot;langword_csharp_None&quot; name=&quot;None&quot; href=&quot;&quot;> </xref>: Доступ к данным не производится. <xref href=&quot;Microsoft.SqlServer.Server.DataAccessKind&quot;></xref>. <xref uid=&quot;langword_csharp_Read&quot; name=&quot;Read&quot; href=&quot;&quot;> </xref>: Считываются только пользовательские данные.'
   overload: Microsoft.SqlServer.Server.SqlFunctionAttribute.DataAccess*
   exceptions: []
   platform:
@@ -87,8 +87,8 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "The name of a method in the same class as the table-valued function (TVF) that is used by the TVF contract."
-  remarks: "For more information, see [CLR Triggers](http://go.microsoft.com/fwlink/?LinkId=128026)."
+  summary: "Имя метода в том же классе, возвращающие табличные значения функции (TVF), используемый в контракте возвращающей табличное значение функции."
+  remarks: "Дополнительные сведения см. в разделе [триггеры CLR](http://go.microsoft.com/fwlink/?LinkId=128026)."
   example:
   - >-
     [!code-cs[VbRaddataSQLObjects#10](~/add/codesnippet/csharp/CS/Function1.cs#10)]
@@ -97,7 +97,7 @@ items:
     content: public string FillRowMethodName { get; set; }
     return:
       type: System.String
-      description: "A <xref:System.String> value representing the name of a method used by the TVF contract."
+      description: "Объект <xref:System.String>значение, представляющее имя метода, используемого контрактом TVF.</xref:System.String>"
   overload: Microsoft.SqlServer.Server.SqlFunctionAttribute.FillRowMethodName*
   exceptions: []
   platform:
@@ -114,13 +114,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the user-defined function is deterministic."
-  remarks: "A user-defined function is said to be deterministic if it always produces the same output values given the same input values and the same database state.       The IsDeterministic property is also useful for indexing the result of the function in the form of indexed computed columns and indexed views. If this property is not specified, the function is assumed to be non-deterministic.       Functions that access local data can be deterministic. The data access characteristic is captured separately by the <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.DataAccess%2A> and <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.SystemDataAccess%2A> properties.       Note that data access to remote servers (for example, using a <xref:System.Data.SqlClient.SqlConnection> to connect to another SQL Server instance) is available in user-defined functions. However, you must still honor the IsDeterministic declaration. If the common language runtime (CLR) function is marked as deterministic, it should not cause side-effects in the remote server. While side-effects against the context connection are restricted, SQL Server will not enforce the restriction for side-effects over remote connections.       The default value of this attribute is `false`.       Do not mark a function as deterministic if the function does not always produce the same output values, given the same input values and the same database state. Marking a function as deterministic when the function is not truly deterministic can result in corrupted indexed views and computed columns."
+  summary: "Указывает, детерминирована ли определяемая пользователем функция."
+  remarks: "Определяемая пользователем функция называется детерминированной, если он всегда выводятся те же выходные значения при одинаковых входных значений и то же состояние базы данных.       Свойство IsDeterministic также полезен для индексирования результат функции в форме индексированных вычисляемых столбцов и индексированных представлений. Если это свойство не указано, функция полагается равным является недетерминированным.       Функции, доступ к локальным данным может быть детерминированным. Характеристика доступа данных фиксируется по отдельности <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.DataAccess%2A>и <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.SystemDataAccess%2A>Свойства.</xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.SystemDataAccess%2A> </xref:Microsoft.SqlServer.Server.SqlFunctionAttribute.DataAccess%2A>       Обратите внимание на серверы удаленного доступа к данным (например, с помощью <xref:System.Data.SqlClient.SqlConnection>для подключения к другому экземпляру SQL Server) доступен в определяемых пользователем функций.</xref:System.Data.SqlClient.SqlConnection> Однако по-прежнему должна поддерживать IsDeterministic объявления. Если общие функции среды выполнения (CLR) языка, отмечается как детерминированная, она не должна вызывать побочных эффектов на удаленном сервере. Хотя запрещены побочные эффекты в контекстном соединении, SQL Server не будет применять ограничения проверки побочные эффекты через удаленные соединения.       Значение по умолчанию этого атрибута — `false`.       Не следует помечать функцию как детерминированную, если функция не всегда выдает одинаковые выходные значения передаче одинаковых входных значений и то же состояние базы данных. Определять функцию как детерминированную когда функция не подлинно детерминистической может привести к повреждению индексированных представлений и вычисляемых столбцов."
   syntax:
     content: public bool IsDeterministic { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the function is deterministic; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если функция является детерминированной; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.SqlServer.Server.SqlFunctionAttribute.IsDeterministic*
   exceptions: []
   platform:
@@ -137,13 +137,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the function involves imprecise computations, such as floating point operations."
-  remarks: "Precision of a function is one of the properties used to determine if computed columns that use this function can be indexed.       The default value of this attribute is `false`."
+  summary: "Указывает, является ли функция вычисления с потерей точности, например операций с плавающей запятой."
+  remarks: "Точность функции — одно из свойств, используемых для определения вычисляемые столбцы, использующие эту функцию можно индексировать.       Значение по умолчанию этого атрибута — `false`."
   syntax:
     content: public bool IsPrecise { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the function involves precise computations; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если функция выполняет точные вычисления; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.SqlServer.Server.SqlFunctionAttribute.IsPrecise*
   exceptions: []
   platform:
@@ -160,8 +160,8 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "The name under which the function should be registered in SQL Server."
-  remarks: "This attribute is used only by Microsoft Visual Studio to automatically register the specified method as a user-defined function. It is not used by SQL Server.       Thee following example specifies that the user-defined function is referenced using the name `sp_scalarFunc`."
+  summary: "Имя, под которой функция должна быть зарегистрирована в SQL Server."
+  remarks: "Этот атрибут используется только в Microsoft Visual Studio для автоматической регистрации указанного метода как определяемая пользователем функция. Он не используется SQL Server.       В следующем примере указывает, что определяемая пользователем функция ссылаются с помощью имени `sp_scalarFunc`."
   example:
   - >-
     [!code-cs[VbRaddataSQLObjects#10](~/add/codesnippet/csharp/CS/Function1.cs#10)]
@@ -170,7 +170,7 @@ items:
     content: public string Name { get; set; }
     return:
       type: System.String
-      description: "A <xref:System.String> value representing the name under which the function should be registered."
+      description: "Объект <xref:System.String>значение, представляющее имя, под которой функция должна быть зарегистрирована.</xref:System.String>"
   overload: Microsoft.SqlServer.Server.SqlFunctionAttribute.Name*
   exceptions: []
   platform:
@@ -187,13 +187,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the function requires access to data stored in the system catalogs or virtual system tables of SQL Server."
-  remarks: "The default is <xref:Microsoft.SqlServer.Server.SystemDataAccessKind>."
+  summary: "Указывает, требуется ли функция доступ к данным, хранящимся в системных каталогах или виртуальных системных таблицах SQL Server."
+  remarks: "Значение по умолчанию — <xref:Microsoft.SqlServer.Server.SystemDataAccessKind>.</xref:Microsoft.SqlServer.Server.SystemDataAccessKind>"
   syntax:
     content: public Microsoft.SqlServer.Server.SystemDataAccessKind SystemDataAccess { get; set; }
     return:
       type: Microsoft.SqlServer.Server.SystemDataAccessKind
-      description: '<xref href=&quot;Microsoft.SqlServer.Server.DataAccessKind&quot;></xref>.<xref uid=&quot;langword_csharp_None&quot; name=&quot;None&quot; href=&quot;&quot;></xref>: Does not access system data. <xref href=&quot;Microsoft.SqlServer.Server.DataAccessKind&quot;></xref>.<xref uid=&quot;langword_csharp_Read&quot; name=&quot;Read&quot; href=&quot;&quot;></xref>: Only reads system data.'
+      description: '<xref href=&quot;Microsoft.SqlServer.Server.DataAccessKind&quot;></xref>. <xref uid=&quot;langword_csharp_None&quot; name=&quot;None&quot; href=&quot;&quot;> </xref>: Не доступ к системным данным. <xref href=&quot;Microsoft.SqlServer.Server.DataAccessKind&quot;></xref>. <xref uid=&quot;langword_csharp_Read&quot; name=&quot;Read&quot; href=&quot;&quot;> </xref>: Только чтение системных данных.'
   overload: Microsoft.SqlServer.Server.SqlFunctionAttribute.SystemDataAccess*
   exceptions: []
   platform:
@@ -210,8 +210,8 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "A string that represents the table definition of the results, if the method is used as a table-valued function (TVF)."
-  remarks: "This attribute is used only by Microsoft Visual Studio to automatically register the specified method as a TVF. It is not used by SQL Server.       The following example specifies that the user-defined function is referenced using the name `sp_tableFunc`. The `TableDefinition` property has the value `letter nchar(1)`."
+  summary: "Строка, представляющая определение таблицы результатов, если метод используется в качестве табличной функции (TVF)."
+  remarks: "Этот атрибут используется только в Microsoft Visual Studio для автоматической регистрации указанного метода в виде возвращающей табличное значение функции. Он не используется SQL Server.       В следующем примере указывается, что определяемая пользователем функция ссылаются с помощью имени `sp_tableFunc`. `TableDefinition` Свойство имеет значение `letter nchar(1)`."
   example:
   - >-
     [!code-cs[VbRaddataSQLObjects#11](~/add/codesnippet/csharp/CS/Function1.cs#11)]
@@ -220,7 +220,7 @@ items:
     content: public string TableDefinition { get; set; }
     return:
       type: System.String
-      description: "A <xref:System.String> value representing the table definition of the results."
+      description: "Объект <xref:System.String>значение, представляющее определение таблицы результатов.</xref:System.String>"
   overload: Microsoft.SqlServer.Server.SqlFunctionAttribute.TableDefinition*
   exceptions: []
   platform:

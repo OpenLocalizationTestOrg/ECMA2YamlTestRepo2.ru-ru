@@ -15,8 +15,8 @@ items:
   nameWithType: ExpressionContext
   fullName: System.ComponentModel.Design.Serialization.ExpressionContext
   type: Class
-  summary: "Provides a means of passing context state among serializers. This class cannot be inherited."
-  remarks: "An ExpressionContext is placed on the context stack and contains the most relevant expression during serialization. The following C# code demonstrates an assignment.      ```   button1.Text = &quot;Hello&quot;;   ```       During serialization, several serializers are responsible for creating this single statement. One of those serializers is responsible for creating &quot;Hello&quot;. There are times when that serializer may need to know the context in which it is creating its expression. In the previous example, this context is not needed. The following C# code shows a situation in which knowledge of the context is necessary.      ```   button1.Text = rm.GetString(&quot;button1_Text&quot;);   ```       In this case, the serializer responsible for creating the resource expression needs to be informed of the names of the target objects. The ExpressionContext class can be used for this. As each serializer creates an expression and invokes a serializer to handle a smaller part of the statement as a whole, the serializer pushes an expression context on the context stack. Each expression context has a parent property that locates the next expression context on the stack. This provides a convenient traversal capability."
+  summary: "Предоставляет средство передачи состояния контекста сериализаторам. Этот класс не наследуется."
+  remarks: "ExpressionContext помещается в стек контекстов и содержит наиболее важные выражение во время сериализации. Следующий код C# демонстрирует назначение.      ```   button1.Text = &quot;Hello&quot;;   ```В процессе сериализации несколько сериализаторов отвечают за создание одного оператора. Один из сериализаторов отвечает за создание «Hello». Бывают случаи, когда сериализатор может потребоваться знание контекста, в котором создается выражение. В предыдущем примере этот контекст не требуется. Следующий код C# показывает ситуацию, в которой требуется знание контекста.      ```   button1.Text = rm.GetString(&quot;button1_Text&quot;);   ```В этом случае сериализатор, ответственный за создание выражения ресурса необходимо знать имена целевых объектов. Для этого можно использовать класс ExpressionContext. Каждый сериализатор создает выражение, и вызывает сериализатор для обработки меньших частей инструкции в целом, сериализатор передает контекст выражения в стек контекста. Каждый контекст выражения обладает родительским свойством, которое находит следующего контекста выражения в стеке. Это обеспечивает удобную возможность обхода."
   syntax:
     content: public sealed class ExpressionContext
   inheritance:
@@ -37,19 +37,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.Serialization.ExpressionContext&quot;></xref> class with the given expression and owner."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ComponentModel.Design.Serialization.ExpressionContext&quot;> </xref> класса с указанным выражением и владельцем."
   syntax:
     content: public ExpressionContext (System.CodeDom.CodeExpression expression, Type expressionType, object owner);
     parameters:
     - id: expression
       type: System.CodeDom.CodeExpression
-      description: "The given code expression."
+      description: "Заданное выражение кода."
     - id: expressionType
       type: System.Type
-      description: "The given code expression type."
+      description: "Тип заданного выражения кода."
     - id: owner
       type: System.Object
-      description: "The given code expression owner."
+      description: "Владелец заданного выражения кода."
   overload: System.ComponentModel.Design.Serialization.ExpressionContext.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -69,22 +69,22 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.Serialization.ExpressionContext&quot;></xref> class with a current value."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ComponentModel.Design.Serialization.ExpressionContext&quot;> </xref> класса с текущим значением."
   syntax:
     content: public ExpressionContext (System.CodeDom.CodeExpression expression, Type expressionType, object owner, object presetValue);
     parameters:
     - id: expression
       type: System.CodeDom.CodeExpression
-      description: "The given code expression."
+      description: "Заданное выражение кода."
     - id: expressionType
       type: System.Type
-      description: "The given code expression type."
+      description: "Тип заданного выражения кода."
     - id: owner
       type: System.Object
-      description: "The given code expression owner."
+      description: "Владелец заданного выражения кода."
     - id: presetValue
       type: System.Object
-      description: "The given code expression preset value."
+      description: "Заданное выражение кода предустановленное значение."
   overload: System.ComponentModel.Design.Serialization.ExpressionContext.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -104,12 +104,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the expression this context represents."
+  summary: "Возвращает выражение, представленное контекстом."
   syntax:
     content: public System.CodeDom.CodeExpression Expression { get; }
     return:
       type: System.CodeDom.CodeExpression
-      description: "The expression this context represents."
+      description: "Выражение представляет этого контекста."
   overload: System.ComponentModel.Design.Serialization.ExpressionContext.Expression*
   exceptions: []
   platform:
@@ -126,13 +126,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the <xref:System.Type> of the expression."
-  remarks: "You can use <xref:System.ComponentModel.Design.Serialization.ExpressionContext> to determine if a cast is needed when assigning to the expression."
+  summary: "Возвращает <xref:System.Type>выражения.</xref:System.Type>"
+  remarks: "Можно использовать <xref:System.ComponentModel.Design.Serialization.ExpressionContext>для определения необходимости приведения к типу при присвоении выражения.</xref:System.ComponentModel.Design.Serialization.ExpressionContext>"
   syntax:
     content: public Type ExpressionType { get; }
     return:
       type: System.Type
-      description: "The <xref:System.Type> of the expression."
+      description: "<xref:System.Type>Выражения.</xref:System.Type>"
   overload: System.ComponentModel.Design.Serialization.ExpressionContext.ExpressionType*
   exceptions: []
   platform:
@@ -149,13 +149,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the object owning this expression."
-  remarks: "If the expression is a property reference to the <xref:System.Windows.Forms.Control.Text%2A> property of an instance of <xref:System.Windows.Forms.Button> called `button1`, Owner returns `button1`."
+  summary: "Возвращает объект, владеющий этим выражением."
+  remarks: "Если выражение является ссылка на свойство в <xref:System.Windows.Forms.Control.Text%2A>Свойства экземпляра <xref:System.Windows.Forms.Button>вызывается `button1`, возвращает владельца `button1`.</xref:System.Windows.Forms.Button> </xref:System.Windows.Forms.Control.Text%2A>"
   syntax:
     content: public object Owner { get; }
     return:
       type: System.Object
-      description: "The object owning this expression."
+      description: "Объект, владеющий этим выражением."
   overload: System.ComponentModel.Design.Serialization.ExpressionContext.Owner*
   exceptions: []
   platform:
@@ -172,13 +172,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the preset value of an expression."
-  remarks: "Contains the preset value of an expression, should one exist. For example, if the expression is a property reference expression referring to the <xref:System.Windows.Forms.Control.Controls%2A> property of a <xref:System.Windows.Forms.Button>, the PresetValue property contains the instance of the <xref:System.Windows.Forms.Control.Controls%2A> property. This is because the property is read-only and preset by the object to contain a value. On the other hand, a property such as <xref:System.Windows.Forms.Control.Text%2A> or <xref:System.Windows.Forms.Control.Visible%2A> does not have a preset value and therefore the PresetValue property returns `null`.       The following C# code shows how serializers can use this information to guide serialization.       [C#]      ```   Padding p = new Padding();   p.Left = 5;   button1.Padding = p;      button1.Padding.Left = 5;   ```       The serializer of the <xref:System.Windows.Forms.Padding> structure needs to be informed if it should generate the first or second form. The first form is generated by default. The second form is only generated if there is an <xref:System.ComponentModel.Design.Serialization.ExpressionContext> on the context stack that contains a PresetValue equal to the value of the <xref:System.Windows.Forms.Padding> currently being serialized."
+  summary: "Возвращает заранее установленное значение выражения."
+  remarks: "Содержит заранее установленное значение выражения, оно существует. Например, если выражение является выражением свойства ссылки, ссылающиеся на <xref:System.Windows.Forms.Control.Controls%2A>свойство <xref:System.Windows.Forms.Button>, свойство PresetValue содержит экземпляр <xref:System.Windows.Forms.Control.Controls%2A>свойство.</xref:System.Windows.Forms.Control.Controls%2A> </xref:System.Windows.Forms.Button> </xref:System.Windows.Forms.Control.Controls%2A> Это, поскольку свойство только для чтения и заранее установленное объектом значение. С другой стороны, что свойство <xref:System.Windows.Forms.Control.Text%2A>или <xref:System.Windows.Forms.Control.Visible%2A>не имеет заранее установленное значение и, следовательно, свойство PresetValue возвращает `null`.</xref:System.Windows.Forms.Control.Visible%2A> </xref:System.Windows.Forms.Control.Text%2A>       Следующий код C# показано, как сериализаторов можно использовать эту информацию для проведения сериализации.       [C#]      ```   Padding p = new Padding();   p.Left = 5;   button1.Padding = p;      button1.Padding.Left = 5;   ``` Сериализатор <xref:System.Windows.Forms.Padding>структуры должен быть в курсе он должен создать первой или второй формы.</xref:System.Windows.Forms.Padding> Первая форма создается по умолчанию. Вторая форма создается только в том случае, если имеется <xref:System.ComponentModel.Design.Serialization.ExpressionContext>стека контекста, который содержит PresetValue равно значению <xref:System.Windows.Forms.Padding>в настоящее время сериализации.</xref:System.Windows.Forms.Padding> </xref:System.ComponentModel.Design.Serialization.ExpressionContext>"
   syntax:
     content: public object PresetValue { get; }
     return:
       type: System.Object
-      description: "The preset value of this expression, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if not assigned."
+      description: "Заранее установленное значение этого выражения или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если не назначено."
   overload: System.ComponentModel.Design.Serialization.ExpressionContext.PresetValue*
   exceptions: []
   platform:

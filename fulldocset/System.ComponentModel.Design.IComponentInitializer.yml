@@ -11,8 +11,8 @@ items:
   nameWithType: IComponentInitializer
   fullName: System.ComponentModel.Design.IComponentInitializer
   type: Interface
-  summary: "Provides a set of recommended default values during component creation."
-  remarks: "The IComponentInitializer interface can be implemented by any designer, which is a component that also implements <xref:System.ComponentModel.Design.IDesigner>, which receives a recommended set of default values for the component it is designing. IComponentInitializer is queried during new component creation. Recommended default values for the component&quot;s properties are passed in as name/value pairs in a dictionary.       This design provides two customization points: the toolbox item itself can be replaced or changed to perform custom actions, or the designer for a component can be changed to provide a custom action. A designer that implements IComponentInitializer should not depend on either of its methods—<xref:System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent%2A> or <xref:System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent%2A>—being called, because toolbox items are not obligated to call these methods.       For an overview of creating design components, see [Extending Design-Time Support](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Предоставляет набор рекомендованных значений по умолчанию во время создания компонента."
+  remarks: "В любой конструктор, который представляет собой компонент, также реализует можно реализовать интерфейс IComponentInitializer <xref:System.ComponentModel.Design.IDesigner>, которое получает рекомендуемый набор значений по умолчанию для компонента с разрабатываемым.</xref:System.ComponentModel.Design.IDesigner> IComponentInitializer запрашивается во время создания нового компонента. Рекомендованные значения по умолчанию для свойств компонента передаются в качестве пары имен и значений в словаре.       Такой подход позволяет получить две точки настройки: можно заменить или изменить для выполнения настраиваемых действий сам элемент панели инструментов или конструктора для компонента, можно изменить для предоставления пользовательского действия. Конструктор, который реализует IComponentInitializer не должны зависеть от любого из его методов —<xref:System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent%2A> или <xref:System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent%2A>— вызывается, поскольку элементы панели элементов не обязаны вызывать эти методы.</xref:System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent%2A> </xref:System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent%2A>       Общие сведения о создании компонентов конструктора см. в разделе [расширения поддержки времени разработки](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public interface IComponentInitializer
   implements: []
@@ -30,14 +30,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Restores an instance of a component to its default state."
-  remarks: "The InitializeExistingComponent method is called when a designer will re-initialize an existing component. For example, InitializeExistingComponent is commonly called after a drag-and-drop operation. The `defaultValues` parameter is a dictionary containing name/value pairs of default values that should be applied to properties of the associated component. This dictionary may be `null` if no default values have been specified.      > [!CAUTION] >  When implementing this method, generally you should not modify the component properties beyond those recommendations found in `defaultValue`. The existing component may already have had its properties set by the user or other design-time code."
+  summary: "Восстанавливает состояние по умолчанию экземпляр компонента."
+  remarks: "Метод InitializeExistingComponent вызывается в том случае, когда конструктор повторно инициализирует существующий компонент. Например после выполнения операции перетаскивания и вставки обычно называется InitializeExistingComponent. `defaultValues` Параметр является словарь, содержащий пары имен и значений, значений по умолчанию, которые должны быть применены к свойствам сопоставленного компонента. Этот словарь может представлять `null` Если значения по умолчанию не были указаны.      Настроек [!CAUTION] настроек при реализации этого метода, обычно не следует изменять свойства компонента за эти рекомендации, приведенные в `defaultValue`. Существующий компонент могли быть заданы пользователем или другой код во время разработки."
   syntax:
     content: public void InitializeExistingComponent (System.Collections.IDictionary defaultValues);
     parameters:
     - id: defaultValues
       type: System.Collections.IDictionary
-      description: "A dictionary of default property values, which are name/value pairs, with which to reset the component&quot;s state."
+      description: "Словарь значений свойства по умолчанию, которые являются пары имя/значение, с которого нужно сбросить состояние компонента."
   overload: System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent*
   exceptions: []
   platform:
@@ -54,14 +54,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Initializes a new component using a set of recommended values."
-  remarks: "The InitializeNewComponent method is called after a new component is created. It is typically called by the toolbox item itself and is used to configure the component’s default values.       This dictionary may be `null` if no default values are specified. If the dictionary is `null`, the component properties should be left in their implicit default states."
+  summary: "Инициализирует новый компонент с помощью набора рекомендуемые значения."
+  remarks: "Метод InitializeNewComponent вызывается после создания нового компонента. Он вызывается обычно сам элемент панели инструментов и используется для настройки значений по умолчанию для компонента.       Этот словарь может представлять `null` Если указаны значения по умолчанию отсутствуют. Если словарь доступен `null`, для свойств компонента следует оставить в состояние по умолчанию, неявные."
   syntax:
     content: public void InitializeNewComponent (System.Collections.IDictionary defaultValues);
     parameters:
     - id: defaultValues
       type: System.Collections.IDictionary
-      description: "A dictionary of default property values, which are name/value pairs, with which to initialize the component&quot;s state."
+      description: "Словарь значений свойства по умолчанию, которые являются пары имя/значение, с которым требуется инициализировать состояние компонента."
   overload: System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent*
   exceptions: []
   platform:
