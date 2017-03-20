@@ -35,7 +35,7 @@ items:
   nameWithType: SmtpClient
   fullName: System.Net.Mail.SmtpClient
   type: Class
-  summary: "Allows applications to send e-mail by using the Simple Mail Transfer Protocol (SMTP)."
+  summary: "Позволяет приложениям для отправки электронной почты с помощью SMTP Simple Mail Transfer Protocol ()."
   remarks: "The SmtpClient class is used to send e-mail to an SMTP server for delivery. The SMTP protocol is defined in RFC 2821, which is available at [http://www.ietf.org](http://www.ietf.org/).  \n  \n The classes shown in the following table are used to construct e-mail messages that can be sent using SmtpClient.  \n  \n|Class|Description|  \n|-----------|-----------------|  \n|<xref:System.Net.Mail.Attachment>|Represents file attachments. This class allows you to attach files, streams, or text to an e-mail message.|  \n|<xref:System.Net.Mail.MailAddress>|Represents the e-mail address of the sender and recipients.|  \n|<xref:System.Net.Mail.MailMessage>|Represents an e-mail message.|  \n  \n To construct and send an e-mail message by using SmtpClient, you must specify the following information:  \n  \n-   The SMTP host server that you use to send e-mail. See the <xref:System.Net.Mail.SmtpClient.Host%2A> and <xref:System.Net.Mail.SmtpClient.Port%2A> properties.  \n  \n-   Credentials for authentication, if required by the SMTP server. See the <xref:System.Net.Mail.SmtpClient.Credentials%2A> property.  \n  \n-   The e-mail address of the sender. See the <xref:System.Net.Mail.SmtpClient.Send%2A> and <xref:System.Net.Mail.SmtpClient.SendAsync%2A> methods that take a `from` parameter. Also see the <xref:System.Net.Mail.MailMessage.From%2A?displayProperty=fullName> property.  \n  \n-   The e-mail address or addresses of the recipients. See the <xref:System.Net.Mail.SmtpClient.Send%2A> and <xref:System.Net.Mail.SmtpClient.SendAsync%2A> methods that take a `recipient` parameter. Also see the <xref:System.Net.Mail.MailMessage.To%2A?displayProperty=fullName> property.  \n  \n-   The message content. See the <xref:System.Net.Mail.SmtpClient.Send%2A> and <xref:System.Net.Mail.SmtpClient.SendAsync%2A> methods that take a `body` parameter. Also see the <xref:System.Net.Mail.MailMessage.Body%2A?displayProperty=fullName> property.  \n  \n To include an attachment with an e-mail message, first create the attachment by using the <xref:System.Net.Mail.Attachment> class, and then add it to the message by using the <xref:System.Net.Mail.MailMessage.Attachments%2A?displayProperty=fullName> property. Depending on the e-mail reader used by the recipients and the file type of the attachment, some recipients might not be able to read the attachment. For clients that cannot display the attachment in its original form, you can specify alternate views by using the <xref:System.Net.Mail.MailMessage.AlternateViews%2A?displayProperty=fullName> property.  \n  \n You can use the application or machine configuration files to specify default host, port, and credentials values for all SmtpClient objects. For more information, see [\\&lt;mailSettings\\&gt; Element (Network Settings)](../Topic/%3CmailSettings%3E%20Element%20\\(Network%20Settings\\).md).  \n  \n To send the e-mail message and block while waiting for the e-mail to be transmitted to the SMTP server, use one of the synchronous <xref:System.Net.Mail.SmtpClient.Send%2A> methods. To allow your program's main thread to continue executing while the e-mail is transmitted, use one of the asynchronous <xref:System.Net.Mail.SmtpClient.SendAsync%2A> methods. The <xref:System.Net.Mail.SmtpClient.SendCompleted> event is raised when a <xref:System.Net.Mail.SmtpClient.SendAsync%2A> operation completes. To receive this event, you must add a <xref:System.Net.Mail.SendCompletedEventHandler> delegate to <xref:System.Net.Mail.SmtpClient.SendCompleted>. The <xref:System.Net.Mail.SendCompletedEventHandler> delegate must reference a callback method that handles notification of <xref:System.Net.Mail.SmtpClient.SendCompleted> events. To cancel an asynchronous e-mail transmission, use the <xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A> method.  \n  \n> [!NOTE]\n>  If there is an e-mail transmission in progress and you call <xref:System.Net.Mail.SmtpClient.SendAsync%2A> or <xref:System.Net.Mail.SmtpClient.Send%2A> again, you will receive an <xref:System.InvalidOperationException>.  \n  \n The connection established by the current instance of the SmtpClient class to the SMTP server may be re-used if an application wishes to send multiple messages to the same SMTP server. This is particularly useful when authentication or encryption are used establish a connection to the SMTP server. The process of authenticating and establishing a TLS session can be expensive operations. A requirement to re-establish a connection for each message when sending a large quantity of email to the same SMTP server could have a significant impact on performance. There are a number of high-volume email applications that send email status updates, newsletter distributions, or email alerts. Also many email client applications support an off-line mode where users can compose many email messages that are sent later when a connection to the SMTP server is established. It is typical for an email client to send all SMTP messages to a specific SMTP server (provided by the Internet service provider) that then forwards this email to other SMTP servers.  \n  \n The SmtpClient class implementation pools SMTP connections so that it can avoid the overhead of re-establishing a connection for every message to the same server. An application may re-use the same SmtpClient object to send many different emails to the same SMTP server and to many different SMTP servers. As a result, there is no way to determine when an application is finished using the SmtpClient object and it should be cleaned up.  \n  \n When an SMTP session is finished and the client wishes to terminate the connection, it must send a QUIT message to the server to indicate that it has no more messages to send. This allows the server to free up resources associated with the connection from the client and process the messages which were sent by the client.  \n  \n The SmtpClient class has no `Finalize` method, so an application must call <xref:System.Net.Mail.SmtpClient.Dispose%2A> to explicitly free up resources. The <xref:System.Net.Mail.SmtpClient.Dispose%2A> method iterates through all established connections to the SMTP server specified in the <xref:System.Net.Mail.SmtpClient.Host%2A> property and sends a QUIT message followed by gracefully ending the TCP connection. The <xref:System.Net.Mail.SmtpClient.Dispose%2A> method also releases the unmanaged resources used by the <xref:System.Net.Sockets.Socket> and optionally disposes of the managed resources.  \n  \n Call <xref:System.Net.Mail.SmtpClient.Dispose%2A> when you are finished using the SmtpClient. The <xref:System.Net.Mail.SmtpClient.Dispose%2A> method leaves the SmtpClient in an unusable state. After calling <xref:System.Net.Mail.SmtpClient.Dispose%2A>, you must release all references to the SmtpClient so the garbage collector can reclaim the memory that the SmtpClient was occupying."
   example:
   - "The following code example demonstrates sending an e-mail message asynchronously.  \n  \n [!code-cs[NclMailAsync#1](~/add/codesnippet/csharp/t-system.net.mail.smtpcl_1.cs)]\n [!code-cpp[NclMailAsync#1](~/add/codesnippet/cpp/t-system.net.mail.smtpcl_1.cpp)]\n [!code-vb[NclMailAsync#1](~/add/codesnippet/visualbasic/t-system.net.mail.smtpcl_1.vb)]"
@@ -60,8 +60,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref> class by using configuration file settings."
-  remarks: "This constructor initializes the <xref:System.Net.Mail.SmtpClient.Host%2A>, <xref:System.Net.Mail.SmtpClient.Credentials%2A>, and <xref:System.Net.Mail.SmtpClient.Port%2A> properties for the new <xref:System.Net.Mail.SmtpClient> by using the settings in the application or machine configuration files. For more information, see [\\&lt;mailSettings\\&gt; Element (Network Settings)](../Topic/%3CmailSettings%3E%20Element%20\\(Network%20Settings\\).md)."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref> , используя параметры файла конфигурации."
+  remarks: "Этот конструктор инициализирует <xref:System.Net.Mail.SmtpClient.Host%2A>, <xref:System.Net.Mail.SmtpClient.Credentials%2A>, и <xref:System.Net.Mail.SmtpClient.Port%2A>Свойства для нового <xref:System.Net.Mail.SmtpClient>с помощью параметров в приложении или файлов конфигурации компьютера.</xref:System.Net.Mail.SmtpClient> </xref:System.Net.Mail.SmtpClient.Port%2A> </xref:System.Net.Mail.SmtpClient.Credentials%2A> </xref:System.Net.Mail.SmtpClient.Host%2A> Дополнительные сведения см. в разделе [ \\&lt; mailSettings\\&gt; Элемент (параметры сети)](../Topic/%3CmailSettings%3E%20Element%20\\(Network%20Settings\\).md)."
   example:
   - "The following code example demonstrates sending an e-mail message.  \n  \n [!code-cpp[NclMailSync#4](~/add/codesnippet/cpp/m-system.net.mail.smtpcl_4_1.cpp)]\n [!code-cs[NclMailSync#4](~/add/codesnippet/csharp/m-system.net.mail.smtpcl_4_1.cs)]  \n  \n For an example of the \\<mailSettings> node in the application or machine configuration file, see [\\&lt;mailSettings\\&gt; Element (Network Settings)](../Topic/%3CmailSettings%3E%20Element%20\\(Network%20Settings\\).md)."
   syntax:
@@ -83,7 +83,7 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref> class that sends e-mail by using the specified SMTP server."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref> класс, который отправляет по электронной почте, используя указанный SMTP-сервер."
   remarks: "The `host` parameter is used to initialize the value of the <xref:System.Net.Mail.SmtpClient.Host%2A> property. The <xref:System.Net.Mail.SmtpClient.Credentials%2A> and <xref:System.Net.Mail.SmtpClient.Port%2A> properties are initialized by using the settings in the application or machine configuration files. If `host` is `null` or equal to <xref:System.String.Empty?displayProperty=fullName>, <xref:System.Net.Mail.SmtpClient.Host%2A> is initialized using the settings in the application or machine configuration files.  \n  \n For more information about using the application and machine configuration files, see [\\&lt;mailSettings\\&gt; Element (Network Settings)](../Topic/%3CmailSettings%3E%20Element%20\\(Network%20Settings\\).md). If information is specified using <xref:System.Net.Mail.SmtpClient> constructors or properties, this information overrides the configuration file settings."
   example:
   - "The following code example demonstrates calling this constructor.  \n  \n [!code-cpp[NclMailSync#3](~/add/codesnippet/cpp/m-system.net.mail.smtpcl_1_1.cpp)]\n [!code-cs[NclMailSync#3](~/add/codesnippet/csharp/m-system.net.mail.smtpcl_1_1.cs)]"
@@ -92,7 +92,7 @@ items:
     parameters:
     - id: host
       type: System.String
-      description: "A <xref:System.String> that contains the name or IP address of the host computer used for SMTP transactions."
+      description: "Объект <xref:System.String>, содержащее имя или IP-адрес главного компьютера для SMTP-транзакций.</xref:System.String>"
   overload: System.Net.Mail.SmtpClient.#ctor*
   exceptions: []
   platform:
@@ -109,7 +109,7 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref> class that sends e-mail by using the specified SMTP server and port."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref> класс, который отправляет по электронной почте, используя указанный SMTP-сервер и порт."
   remarks: "The `host` and `port` parameters set the value of the <xref:System.Net.Mail.SmtpClient.Host%2A> and <xref:System.Net.Mail.SmtpClient.Port%2A> properties, respectively. If `host` is `null` or equal to <xref:System.String.Empty?displayProperty=fullName>, <xref:System.Net.Mail.SmtpClient.Host%2A> is initialized using the settings in the application or machine configuration files. If `port` is zero, <xref:System.Net.Mail.SmtpClient.Port%2A> is initialized using the settings in the application or machine configuration files. The <xref:System.Net.Mail.SmtpClient.Credentials%2A> property is initialized using the settings in the application or machine configuration files.  \n  \n For more information about using the application and machine configuration files, see [\\&lt;mailSettings\\&gt; Element (Network Settings)](../Topic/%3CmailSettings%3E%20Element%20\\(Network%20Settings\\).md). If information is specified using <xref:System.Net.Mail.SmtpClient> constructors or properties, this information overrides the configuration file settings."
   example:
   - "The following code example demonstrates calling this constructor.  \n  \n [!code-cpp[NclMailSync#1](~/add/codesnippet/cpp/m-system.net.mail.smtpcl_0_1.cpp)]\n [!code-cs[NclMailSync#1](~/add/codesnippet/csharp/m-system.net.mail.smtpcl_0_1.cs)]"
@@ -118,15 +118,15 @@ items:
     parameters:
     - id: host
       type: System.String
-      description: "A <xref:System.String> that contains the name or IP address of the host used for SMTP transactions."
+      description: "Объект <xref:System.String>, содержащее имя или IP-адрес узла, используемый для SMTP-транзакций.</xref:System.String>"
     - id: port
       type: System.Int32
-      description: "An <xref:System.Int32> greater than zero that contains the port to be used on `host`."
+      description: "<xref:System.Int32>Больше нуля, содержащий порт для использования на `host`.</xref:System.Int32>"
   overload: System.Net.Mail.SmtpClient.#ctor*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>port</code> cannot be less than zero."
+    description: "<code>port</code>не может быть меньше нуля."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.ClientCertificates
@@ -141,15 +141,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Specify which certificates should be used to establish the Secure Sockets Layer (SSL) connection."
-  remarks: "Client certificates are, by default, optional; however, the server configuration might require that the client present a valid certificate as part of the initial connection negotiation.      > [!NOTE] >  The Framework caches SSL sessions as they are created and attempts to reuse a cached session for a new request, if possible. When attempting to reuse an SSL session, the Framework uses the first element of ClientCertificates (if there is one), or tries to reuse an anonymous sessions if ClientCertificates is empty."
+  summary: "Укажите, какие сертификаты следует использовать для установления соединения Secure Sockets Layer (SSL)."
+  remarks: "Сертификаты клиентов, по умолчанию необязательно; Настройка сервера может потребоваться что клиент присутствовать действительный сертификат как часть согласования начального подключения.      Настроек [!NOTE] настроек Framework кэширует сеансы SSL при их создании и пытается повторно использовать кэшированный сеанс для нового запроса, если это возможно. При попытке повторно использовать сеанс SSL, платформа использует первый элемент ClientCertificates (если есть), либо пустое значение пытается повторно использовать анонимные сеансы, если ClientCertificates."
   example:
   - "The following code example establishes an SSL connection with the SMTP server and uses the connection to send an email.  \n  \n [!code-cs[NclSSLMailSync#1](~/add/codesnippet/csharp/p-system.net.mail.smtpcl_3_1.cs)]"
   syntax:
     content: public System.Security.Cryptography.X509Certificates.X509CertificateCollection ClientCertificates { get; }
     return:
       type: System.Security.Cryptography.X509Certificates.X509CertificateCollection
-      description: "An <xref href=&quot;System.Security.Cryptography.X509Certificates.X509CertificateCollection&quot;></xref>, holding one or more client certificates. The default value is derived from the mail configuration attributes in a configuration file."
+      description: "<xref href=&quot;System.Security.Cryptography.X509Certificates.X509CertificateCollection&quot;> </xref>, Содержащий один или несколько сертификатов клиента. Значение по умолчанию является производным от атрибутов конфигурации почты в файле конфигурации."
   overload: System.Net.Mail.SmtpClient.ClientCertificates*
   exceptions: []
   platform:
@@ -166,7 +166,7 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Gets or sets the credentials used to authenticate the sender."
+  summary: "Возвращает или задает учетные данные, используемые для проверки подлинности отправителя."
   remarks: "Some SMTP servers require that the client be authenticated before the server will send e-mail on its behalf. To use your default network credentials, you can set the <xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A> to `true` instead of setting this property. If the <xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A> property is set to `false,` then the value set in the Credentials property will be used for the credentials when connecting to the server. If the <xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A> property is set to `false` and the Credentials property has not been set, then mail is sent to the server anonymously.  \n  \n Credentials information can also be specified using the application and machine configuration files. For more information, see [\\&lt;mailSettings\\&gt; Element (Network Settings)](../Topic/%3CmailSettings%3E%20Element%20\\(Network%20Settings\\).md). If information is specified using the Credentials property, this information overrides the configuration file settings.  \n  \n> [!CAUTION]\n>  If you provide credentials for basic authentication, they are sent to the server in clear text. This can present a security issue because your credentials can be seen, and then used by others."
   example:
   - "The following code example demonstrates setting the credentials used to send an e-mail.  \n  \n [!code-cpp[NclMailSync#1](~/add/codesnippet/cpp/p-system.net.mail.smtpcl_0_1.cpp)]\n [!code-cs[NclMailSync#1](~/add/codesnippet/csharp/p-system.net.mail.smtpcl_0_1.cs)]"
@@ -174,12 +174,12 @@ items:
     content: public System.Net.ICredentialsByHost Credentials { get; set; }
     return:
       type: System.Net.ICredentialsByHost
-      description: "An <xref:System.Net.ICredentialsByHost> that represents the credentials to use for authentication; or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no credentials have been specified."
+      description: "<xref:System.Net.ICredentialsByHost>, Представляющий учетные данные, используемые для проверки подлинности или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если учетные данные не были указаны.</xref:System.Net.ICredentialsByHost>"
   overload: System.Net.Mail.SmtpClient.Credentials*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "You cannot change the value of this property when an email is being sent."
+    description: "При отправке сообщения электронной почты, нельзя изменить значение этого свойства."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.DeliveryFormat
@@ -194,12 +194,12 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Gets or sets the delivery format used by <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref> to send e-mail."
+  summary: "Возвращает или задает формат доставки, используемый <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref> для отправки электронной почты."
   syntax:
     content: public System.Net.Mail.SmtpDeliveryFormat DeliveryFormat { get; set; }
     return:
       type: System.Net.Mail.SmtpDeliveryFormat
-      description: "Returns <xref href=&quot;System.Net.Mail.SmtpDeliveryFormat&quot;></xref>.       The delivery format used by <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref>."
+      description: "Returns <xref href=&quot;System.Net.Mail.SmtpDeliveryFormat&quot;></xref>.       Формат доставки, используемый <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref>."
   overload: System.Net.Mail.SmtpClient.DeliveryFormat*
   exceptions: []
   platform:
@@ -216,13 +216,13 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Specifies how outgoing email messages will be handled."
-  remarks: "Delivery methods include:      -   An SMTP server.      -   Moving the email into the pickup directory for IIS, which then delivers the message.      -   Moving the email to a directory specified by <xref:System.Net.Mail.SmtpClient.PickupDirectoryLocation%2A> for later delivery by another application.       The default value for this property can also be set in a machine or application configuration file. Any changes made to the <xref:System.Net.Mail.SmtpClient.PickupDirectoryLocation%2A> property override the configuration file settings."
+  summary: "Указывает, каким образом исходящие сообщения электронной почты, сообщения будут обработаны."
+  remarks: "Методы доставки включают:-SMTP-сервера.      -Перемещение почты в каталог раскладки для IIS, который доставляет сообщение.      -Перемещение сообщения электронной почты в каталоге, заданном параметром <xref:System.Net.Mail.SmtpClient.PickupDirectoryLocation%2A>для последующей доставки другим приложением.</xref:System.Net.Mail.SmtpClient.PickupDirectoryLocation%2A>       Значение по умолчанию для этого свойства можно также задать на машине или в файле конфигурации приложения. Любые изменения, внесенные <xref:System.Net.Mail.SmtpClient.PickupDirectoryLocation%2A>свойство переопределить параметры файла конфигурации.</xref:System.Net.Mail.SmtpClient.PickupDirectoryLocation%2A>"
   syntax:
     content: public System.Net.Mail.SmtpDeliveryMethod DeliveryMethod { get; set; }
     return:
       type: System.Net.Mail.SmtpDeliveryMethod
-      description: "An <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> that indicates how email messages are delivered."
+      description: "<xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;> </xref> , Указывающее способ доставки сообщений электронной почты."
   overload: System.Net.Mail.SmtpClient.DeliveryMethod*
   exceptions: []
   platform:
@@ -239,8 +239,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Sends a QUIT message to the SMTP server, gracefully ends the TCP connection, and releases all resources used by the current instance of the <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref> class."
-  remarks: "The connection established by the current instance of the <xref:System.Net.Mail.SmtpClient> class to the SMTP server may be re-used if an application wishes to send multiple messages to the same SMTP server. This is particularly useful when authentication or encryption are used establish a connection to the SMTP server. The process of authenticating and establishing a TLS session can be expensive operations. A requirement to re-establish a connection for each message when sending a large quantity of email to the same SMTP server could have a significant impact on performance. There are a number of high-volume email applications that send email status updates, newsletter distributions, or email alerts. Also many email client applications support an off-line mode where users can compose many email messages that are sent later when a connection to the SMTP server is established. It is typical for an email client to send all SMTP messages to a specific SMTP server (provided by the Internet service provider) that then forwards this email to other SMTP servers.       The <xref:System.Net.Mail.SmtpClient> class implementation pools SMTP connections so that it can avoid the overhead of re-establishing a connection for every message to the same server. An application may re-use the same <xref:System.Net.Mail.SmtpClient> object to send many different emails to the same SMTP server and to many different SMTP servers. As a result, there is no way to determine when an application is finished using the <xref:System.Net.Mail.SmtpClient> object and it should be cleaned up.       When an SMTP session is finished and the client wishes to terminate the connection, it must send a QUIT message to the server to indicate that it has no more messages to send. This allows the server to free up resources associated with the connection from the client and process the messages which were sent by the client.       Calling the Dispose method on a <xref:System.Net.Mail.SmtpClient> object that is executing an asynchronous <xref:System.Net.Mail.SmtpClient.SendAsync%2A> operation will cancel the send operation as though the <xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A> method had been called.       The <xref:System.Net.Mail.SmtpClient> class has no `Finalize` method. So an application must call <xref:System.Net.Mail.SmtpClient.Dispose%2A> to explicitly free up resources.       The Dispose method iterates through all established connections to the SMTP server specified in the <xref:System.Net.Mail.SmtpClient.Host%2A> property and sends a QUIT message followed by gracefully ending the TCP connection. The Dispose method also releases the unmanaged resources used by the underlying <xref:System.Net.Sockets.Socket>.       Call <xref:System.Net.Mail.SmtpClient.Dispose%2A> when you are finished using the <xref:System.Net.Mail.SmtpClient>. The <xref:System.Net.Mail.SmtpClient.Dispose%2A> method leaves the <xref:System.Net.Mail.SmtpClient> in an unusable state. After calling <xref:System.Net.Mail.SmtpClient.Dispose%2A>, you must release all references to the <xref:System.Net.Mail.SmtpClient> so the garbage collector can reclaim the memory that the <xref:System.Net.Mail.SmtpClient> was occupying.       For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call <xref:System.Net.Mail.SmtpClient.Dispose%2A> before you release your last reference to the <xref:System.Net.Mail.SmtpClient>. Otherwise, the resources it is using will not be freed so the garbage collector can reclaim the memory."
+  summary: "Отправляет сообщение QUIT на SMTP-сервер, правильно завершает TCP-подключение и освобождает все ресурсы, используемые текущим экземпляром <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref> класса."
+  remarks: "Соединения, установленные с текущим экземпляром <xref:System.Net.Mail.SmtpClient>класс на SMTP-сервер может быть повторно используется, если приложение необходимо отправить несколько сообщений на тот же сервер SMTP.</xref:System.Net.Mail.SmtpClient> Это особенно полезно при использовании проверки подлинности и шифрования подключения к SMTP-сервера. Процесс проверки подлинности и установки сеанса TLS может быть дорогостоящей операцией. Требование, чтобы заново установить соединение для каждого сообщения при отправке большого количества электронной почты на тот же сервер SMTP может оказать значительное влияние на производительность. Существует ряд крупномасштабных почтовые приложения, которые отправляют обновления состояния рассылки по электронной почте или оповещения по электронной почте. Также многие клиентские приложения электронной почты поддерживает автономный режим, в котором пользователи могут формировать несколько сообщений электронной почты, отправляемых позже, когда будет установлено подключение к серверу SMTP. Он является типичным для почтовый клиент на отправку всех сообщений SMTP конкретного SMTP-сервер (предоставляется поставщиком услуг Интернета), которая затем пересылает это сообщение электронной почты на другие серверы SMTP.       <xref:System.Net.Mail.SmtpClient>Реализацию класса пулов соединений SMTP, чтобы его можно избежать повторного подключения для каждого сообщения на тот же сервер.</xref:System.Net.Mail.SmtpClient> Приложение может повторно использовать тот же <xref:System.Net.Mail.SmtpClient>объект для отправки много разных сообщений электронной почты на тот же сервер SMTP и многим разным серверам SMTP.</xref:System.Net.Mail.SmtpClient> В результате нет возможности для определения завершении приложения с помощью <xref:System.Net.Mail.SmtpClient>объекта и он должен быть очищены.</xref:System.Net.Mail.SmtpClient>       При завершении сеанса SMTP и клиенту требуется разорвать соединение, отправьте сообщение QUIT серверу, чтобы указать, что больше нет сообщений для отправки. Это позволяет серверу для освобождения ресурсов, связанных с подключения от клиента и обработки сообщений, которые были отправлены клиентом.       Вызов метода Dispose для <xref:System.Net.Mail.SmtpClient>объект, который выполняется в асинхронном <xref:System.Net.Mail.SmtpClient.SendAsync%2A>операции будут отменены при вызове операции отправки <xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A>был вызван метод.</xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A> </xref:System.Net.Mail.SmtpClient.SendAsync%2A> </xref:System.Net.Mail.SmtpClient>       <xref:System.Net.Mail.SmtpClient>Класса не имеет `Finalize` метод.</xref:System.Net.Mail.SmtpClient> Поэтому приложение должно вызвать <xref:System.Net.Mail.SmtpClient.Dispose%2A>явно освобождать ресурсы.</xref:System.Net.Mail.SmtpClient.Dispose%2A>       Метод Dispose проходит через все соединения, установленные на SMTP-сервер, указанный в <xref:System.Net.Mail.SmtpClient.Host%2A>свойство и отправляет сообщение QUIT следуют корректно Завершение подключения TCP.</xref:System.Net.Mail.SmtpClient.Host%2A> Метод Dispose также освобождает неуправляемые ресурсы, используемые базового <xref:System.Net.Sockets.Socket>.</xref:System.Net.Sockets.Socket>       Вызывается <xref:System.Net.Mail.SmtpClient.Dispose%2A>при завершении использования <xref:System.Net.Mail.SmtpClient>.</xref:System.Net.Mail.SmtpClient> </xref:System.Net.Mail.SmtpClient.Dispose%2A> <xref:System.Net.Mail.SmtpClient.Dispose%2A>Метода <xref:System.Net.Mail.SmtpClient>окажется в неработоспособном состоянии.</xref:System.Net.Mail.SmtpClient> </xref:System.Net.Mail.SmtpClient.Dispose%2A> После вызова метода <xref:System.Net.Mail.SmtpClient.Dispose%2A>, необходимо освободить все ссылки на <xref:System.Net.Mail.SmtpClient>, сборщик мусора мог освободить память, <xref:System.Net.Mail.SmtpClient>занимаемую.</xref:System.Net.Mail.SmtpClient> </xref:System.Net.Mail.SmtpClient> </xref:System.Net.Mail.SmtpClient.Dispose%2A>       Дополнительные сведения см. в разделе [очистки неуправляемых ресурсов](~/add/includes/ajax-current-ext-md.md) и [метода](~/add/includes/ajax-current-ext-md.md).      Настроек [!NOTE] настроек всегда вызывайте метод <xref:System.Net.Mail.SmtpClient.Dispose%2A>перед освобождением последней ссылки на <xref:System.Net.Mail.SmtpClient>.</xref:System.Net.Mail.SmtpClient> </xref:System.Net.Mail.SmtpClient.Dispose%2A> В противном случае им ресурсы не будут освобождены, сборщик мусора мог освободить память."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -260,14 +260,14 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Sends a QUIT message to the SMTP server, gracefully ends the TCP connection, releases all resources used by the current instance of the <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref> class, and optionally disposes of the managed resources."
-  remarks: "The connection established by the current instance of the <xref:System.Net.Mail.SmtpClient> class to the SMTP server may be re-used if an application wishes to send multiple messages to the same SMTP server. This is particularly useful when authentication or encryption are used establish a connection to the SMTP server. The process of authenticating and establishing a TLS session can be expensive operations. A requirement to re-establish a connection for each message when sending a large quantity of email to the same SMTP server could have a significant impact on performance. There are a number of high-volume email applications that send email status updates, newsletter distributions, or email alerts. Also many email client applications support an off-line mode where users can compose many email messages that are sent later when a connection to the SMTP server is established. It is typical for an email client to send all SMTP messages to a specific SMTP server (provided by the Internet service provider) that then forwards this email to other SMTP servers.       The <xref:System.Net.Mail.SmtpClient> class implementation pools SMTP connections so that it can avoid the overhead of re-establishing a connection for every message to the same server. An application may re-use the same <xref:System.Net.Mail.SmtpClient> object to send many different emails to the same SMTP server and to many different SMTP servers. As a result, there is no way to determine when an application is finished using the <xref:System.Net.Mail.SmtpClient> object and it should be cleaned up.       When an SMTP session is finished and the client wishes to terminate the connection, it must send a QUIT message to the server to indicate that it has no more messages to send. This allows the server to free up resources associated with the connection from the client and process the messages which were sent by the client.       Calling the Dispose method on a <xref:System.Net.Mail.SmtpClient> object that is executing an asynchronous <xref:System.Net.Mail.SmtpClient.SendAsync%2A> operation will cancel the send operation as though the <xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A> method had been called.       The <xref:System.Net.Mail.SmtpClient> class has no `Finalize` method. So an application must call <xref:System.Net.Mail.SmtpClient.Dispose%2A> to explicitly free up resources.       The Dispose method iterates through all established connections to the SMTP server specified in the <xref:System.Net.Mail.SmtpClient.Host%2A> property and sends a QUIT message followed by gracefully ending the TCP connection. The Dispose method also releases the unmanaged resources used by the <xref:System.Net.Sockets.Socket> and optionally disposes of the managed resources.       Call <xref:System.Net.Mail.SmtpClient.Dispose%2A> when you are finished using the <xref:System.Net.Mail.SmtpClient>. The <xref:System.Net.Mail.SmtpClient.Dispose%2A> method leaves the <xref:System.Net.Mail.SmtpClient> in an unusable state. After calling <xref:System.Net.Mail.SmtpClient.Dispose%2A>, you must release all references to the <xref:System.Net.Mail.SmtpClient> so the garbage collector can reclaim the memory that the <xref:System.Net.Mail.SmtpClient> was occupying.       For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call <xref:System.Net.Mail.SmtpClient.Dispose%2A> before you release your last reference to the <xref:System.Net.Mail.SmtpClient>. Otherwise, the resources it is using will not be freed so the garbage collector can reclaim the memory."
+  summary: "Отправляет сообщение QUIT на SMTP-сервер, правильно завершает TCP-соединения, освобождает все ресурсы, используемые текущим экземпляром <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref> класса и при необходимости освобождает также управляемые ресурсы."
+  remarks: "Соединения, установленные с текущим экземпляром <xref:System.Net.Mail.SmtpClient>класс на SMTP-сервер может быть повторно используется, если приложение необходимо отправить несколько сообщений на тот же сервер SMTP.</xref:System.Net.Mail.SmtpClient> Это особенно полезно при использовании проверки подлинности и шифрования подключения к SMTP-сервера. Процесс проверки подлинности и установки сеанса TLS может быть дорогостоящей операцией. Требование, чтобы заново установить соединение для каждого сообщения при отправке большого количества электронной почты на тот же сервер SMTP может оказать значительное влияние на производительность. Существует ряд крупномасштабных почтовые приложения, которые отправляют обновления состояния рассылки по электронной почте или оповещения по электронной почте. Также многие клиентские приложения электронной почты поддерживает автономный режим, в котором пользователи могут формировать несколько сообщений электронной почты, отправляемых позже, когда будет установлено подключение к серверу SMTP. Он является типичным для почтовый клиент на отправку всех сообщений SMTP конкретного SMTP-сервер (предоставляется поставщиком услуг Интернета), которая затем пересылает это сообщение электронной почты на другие серверы SMTP.       <xref:System.Net.Mail.SmtpClient>Реализацию класса пулов соединений SMTP, чтобы его можно избежать повторного подключения для каждого сообщения на тот же сервер.</xref:System.Net.Mail.SmtpClient> Приложение может повторно использовать тот же <xref:System.Net.Mail.SmtpClient>объект для отправки много разных сообщений электронной почты на тот же сервер SMTP и многим разным серверам SMTP.</xref:System.Net.Mail.SmtpClient> В результате нет возможности для определения завершении приложения с помощью <xref:System.Net.Mail.SmtpClient>объекта и он должен быть очищены.</xref:System.Net.Mail.SmtpClient>       При завершении сеанса SMTP и клиенту требуется разорвать соединение, отправьте сообщение QUIT серверу, чтобы указать, что больше нет сообщений для отправки. Это позволяет серверу для освобождения ресурсов, связанных с подключения от клиента и обработки сообщений, которые были отправлены клиентом.       Вызов метода Dispose для <xref:System.Net.Mail.SmtpClient>объект, который выполняется в асинхронном <xref:System.Net.Mail.SmtpClient.SendAsync%2A>операции будут отменены при вызове операции отправки <xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A>был вызван метод.</xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A> </xref:System.Net.Mail.SmtpClient.SendAsync%2A> </xref:System.Net.Mail.SmtpClient>       <xref:System.Net.Mail.SmtpClient>Класса не имеет `Finalize` метод.</xref:System.Net.Mail.SmtpClient> Поэтому приложение должно вызвать <xref:System.Net.Mail.SmtpClient.Dispose%2A>явно освобождать ресурсы.</xref:System.Net.Mail.SmtpClient.Dispose%2A>       Метод Dispose проходит через все соединения, установленные на SMTP-сервер, указанный в <xref:System.Net.Mail.SmtpClient.Host%2A>свойство и отправляет сообщение QUIT следуют корректно Завершение подключения TCP.</xref:System.Net.Mail.SmtpClient.Host%2A> Метод Dispose также освобождает неуправляемые ресурсы, используемые <xref:System.Net.Sockets.Socket>и при необходимости освобождает также управляемые ресурсы.</xref:System.Net.Sockets.Socket>       Вызывается <xref:System.Net.Mail.SmtpClient.Dispose%2A>при завершении использования <xref:System.Net.Mail.SmtpClient>.</xref:System.Net.Mail.SmtpClient> </xref:System.Net.Mail.SmtpClient.Dispose%2A> <xref:System.Net.Mail.SmtpClient.Dispose%2A>Метода <xref:System.Net.Mail.SmtpClient>окажется в неработоспособном состоянии.</xref:System.Net.Mail.SmtpClient> </xref:System.Net.Mail.SmtpClient.Dispose%2A> После вызова метода <xref:System.Net.Mail.SmtpClient.Dispose%2A>, необходимо освободить все ссылки на <xref:System.Net.Mail.SmtpClient>, сборщик мусора мог освободить память, <xref:System.Net.Mail.SmtpClient>занимаемую.</xref:System.Net.Mail.SmtpClient> </xref:System.Net.Mail.SmtpClient> </xref:System.Net.Mail.SmtpClient.Dispose%2A>       Дополнительные сведения см. в разделе [очистки неуправляемых ресурсов](~/add/includes/ajax-current-ext-md.md) и [метода](~/add/includes/ajax-current-ext-md.md).      Настроек [!NOTE] настроек всегда вызывайте метод <xref:System.Net.Mail.SmtpClient.Dispose%2A>перед освобождением последней ссылки на <xref:System.Net.Mail.SmtpClient>.</xref:System.Net.Mail.SmtpClient> </xref:System.Net.Mail.SmtpClient.Dispose%2A> В противном случае им ресурсы не будут освобождены, сборщик мусора мог освободить память."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to releases only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>для освобождения управляемых и неуправляемых ресурсов; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> для освобождения только неуправляемых ресурсов."
   overload: System.Net.Mail.SmtpClient.Dispose*
   exceptions: []
   platform:
@@ -284,15 +284,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Specify whether the <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref> uses Secure Sockets Layer (SSL) to encrypt the connection."
-  remarks: "The EnableSsl property specifies whether SSL is used to access the specified SMTP mail server.       The default value for this property can also be set in a machine or application configuration file. Any changes made to the EnableSsl property override the configuration file settings.       The <xref:System.Net.Mail.SmtpClient> class only supports the SMTP Service Extension for Secure SMTP over Transport Layer Security as defined in RFC 3207. In this mode, the SMTP session begins on an unencrypted channel, then a STARTTLS command is issued by the client to the server to switch to secure communication using SSL. See RFC 3207 published by the Internet Engineering Task Force (IETF) for more information.       An alternate connection method is where an SSL session is established up front before any protocol commands are sent. This connection method is sometimes called SMTP/SSL, SMTP over SSL, or SMTPS and by default uses port 465. This alternate connection method using SSL is not currently supported.       You can use <xref:System.Net.Mail.SmtpClient.ClientCertificates%2A> to specify which client certificates should be used to establish the SSL connection. The <xref:System.Net.ServicePointManager.ServerCertificateValidationCallback%2A> allows you to reject the certificate provided by the SMTP server. The <xref:System.Net.ServicePointManager.SecurityProtocol%2A> property allows you to specify the version of the SSL protocol to use.      > [!NOTE] >  If the EnableSsl property is set to `true`, and the SMTP mail server does not advertise STARTTLS in the response to the EHLO command, then a call to the <xref:System.Net.Mail.SmtpClient.Send%2A> or <xref:System.Net.Mail.SmtpClient.SendAsync%2A> methods will throw an <xref:System.Net.Mail.SmtpException>."
+  summary: "Укажите ли <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref> использует Secure Sockets Layer (SSL) для шифрования соединения."
+  remarks: "Свойство EnableSsl указывает, используется ли протокол SSL для доступа к указанным почтового SMTP-сервера.       Значение по умолчанию для этого свойства можно также задать на машине или в файле конфигурации приложения. Любые изменения, внесенные в свойство EnableSsl переопределить параметры файла конфигурации.       <xref:System.Net.Mail.SmtpClient>Класс поддерживает только расширения службы SMTP для защиты SMTP через протокол TLS как определено в документе RFC 3207.</xref:System.Net.Mail.SmtpClient> В этом режиме сеанс SMTP начинается в незашифрованном канале, а затем выдает команды STARTTLS клиента на сервере, чтобы переключиться на безопасное соединение с помощью протокола SSL. См. в RFC 3207 публикации по IETF Internet Engineering Task Force () для получения дополнительной информации.       Альтернативный способ подключения — где сеанс SSL устанавливается заранее перед любой протокол отправки команд. Этот способ подключения иногда называют SMTP/SSL, SMTP через протокол SSL или SMTPS и по умолчанию используется порт 465. Это альтернативный способ подключения с помощью протокола SSL в настоящее время не поддерживается.       Можно использовать <xref:System.Net.Mail.SmtpClient.ClientCertificates%2A>для указания, какие сертификаты клиента следует использовать для подключения SSL.</xref:System.Net.Mail.SmtpClient.ClientCertificates%2A> <xref:System.Net.ServicePointManager.ServerCertificateValidationCallback%2A>Позволяет отклонять сертификат, предоставленный для SMTP-сервера.</xref:System.Net.ServicePointManager.ServerCertificateValidationCallback%2A> <xref:System.Net.ServicePointManager.SecurityProtocol%2A>Позволяет указать версию протокола SSL для использования.</xref:System.Net.ServicePointManager.SecurityProtocol%2A>      Настроек [!NOTE] настроек Если EnableSsl является свойство `true`, и SMTP-сервер не объявляет команды STARTTLS в ответ на команду EHLO, затем вызов <xref:System.Net.Mail.SmtpClient.Send%2A>или <xref:System.Net.Mail.SmtpClient.SendAsync%2A>методы создают исключение <xref:System.Net.Mail.SmtpException>.</xref:System.Net.Mail.SmtpException> </xref:System.Net.Mail.SmtpClient.SendAsync%2A> </xref:System.Net.Mail.SmtpClient.Send%2A>"
   example:
   - "The following code example establishes an SSL connection with the SMTP server and uses the connection to send an email.  \n  \n [!code-cs[NclSSLMailSync#1](~/add/codesnippet/csharp/p-system.net.mail.smtpcl_1_1.cs)]"
   syntax:
     content: public bool EnableSsl { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref> uses SSL; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref> использует протокол SSL; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Net.Mail.SmtpClient.EnableSsl*
   exceptions: []
   platform:
@@ -309,7 +309,7 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Gets or sets the name or IP address of the host used for SMTP transactions."
+  summary: "Возвращает или задает имя или IP-адрес узла, используемый для SMTP-транзакций."
   remarks: "The value of the Host property can also be set using constructors or the application or machine configuration file. For more information, see [\\&lt;mailSettings\\&gt; Element (Network Settings)](../Topic/%3CmailSettings%3E%20Element%20\\(Network%20Settings\\).md).  \n  \n If information is specified using this property, this information overrides the configuration file settings."
   example:
   - "The following code example demonstrates sending an e-mail message by using the host and port specified in an application configuration file.  \n  \n [!code-cpp[NclMailSync#7](~/add/codesnippet/cpp/p-system.net.mail.smtpcl_2_1.cpp)]\n [!code-cs[NclMailSync#7](~/add/codesnippet/csharp/p-system.net.mail.smtpcl_2_1.cs)]"
@@ -317,18 +317,18 @@ items:
     content: public string Host { get; set; }
     return:
       type: System.String
-      description: "A <xref:System.String> that contains the name or IP address of the computer to use for SMTP transactions."
+      description: "Объект <xref:System.String>, содержащее имя или IP-адрес компьютера, используемый для SMTP-транзакций.</xref:System.String>"
   overload: System.Net.Mail.SmtpClient.Host*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value specified for a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Значение, указанное для операции задания, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value specified for a set operation is equal to &lt;xref:System.String?displayProperty=fullName&gt; (&quot;&quot;)."
+    description: "Значение, указанное для операции задания равен &lt;xref:System.String?displayProperty=fullName&gt; (»»)."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "You cannot change the value of this property when an email is being sent."
+    description: "При отправке сообщения электронной почты, нельзя изменить значение этого свойства."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.OnSendCompleted(System.ComponentModel.AsyncCompletedEventArgs)
@@ -343,14 +343,14 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Raises the <xref href=&quot;System.Net.Mail.SmtpClient.SendCompleted&quot;></xref> event."
-  remarks: "Classes that inherit from the <xref:System.Net.Mail.SmtpClient> class can override the OnSendCompleted method to perform additional tasks when the <xref:System.Net.Mail.SmtpClient.SendCompleted> event occurs.       OnSendCompleted also allows derived classes to handle <xref:System.Net.Mail.SmtpClient.SendCompleted> without attaching a delegate. This is the preferred technique for handling <xref:System.Net.Mail.SmtpClient.SendCompleted> in a derived class."
+  summary: "Вызывает <xref href=&quot;System.Net.Mail.SmtpClient.SendCompleted&quot;> </xref> событий."
+  remarks: "Классы, наследующие от <xref:System.Net.Mail.SmtpClient>класс может переопределить OnSendCompleted метод для выполнения дополнительных задач при <xref:System.Net.Mail.SmtpClient.SendCompleted>событием.</xref:System.Net.Mail.SmtpClient.SendCompleted> </xref:System.Net.Mail.SmtpClient>       OnSendCompleted также позволяет производным классам обрабатывать <xref:System.Net.Mail.SmtpClient.SendCompleted>не присоединяя делегат.</xref:System.Net.Mail.SmtpClient.SendCompleted> Это предпочтительная методика обработки <xref:System.Net.Mail.SmtpClient.SendCompleted>в производном классе.</xref:System.Net.Mail.SmtpClient.SendCompleted>"
   syntax:
     content: protected void OnSendCompleted (System.ComponentModel.AsyncCompletedEventArgs e);
     parameters:
     - id: e
       type: System.ComponentModel.AsyncCompletedEventArgs
-      description: "An <xref:System.ComponentModel.AsyncCompletedEventArgs> that contains event data."
+      description: "<xref:System.ComponentModel.AsyncCompletedEventArgs>, Содержащий данные события.</xref:System.ComponentModel.AsyncCompletedEventArgs>"
   overload: System.Net.Mail.SmtpClient.OnSendCompleted*
   exceptions: []
   platform:
@@ -367,13 +367,13 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Gets or sets the folder where applications save mail messages to be processed by the local SMTP server."
-  remarks: "Mail messages in the pickup directory are automatically sent by a local SMTP server (if present), such as IIS.       The default value for this property can also be set in a machine or application configuration file. Any changes made to the PickupDirectoryLocation property override the configuration file settings."
+  summary: "Возвращает или задает папку, в которой приложения сохраняют почтовые сообщения для обработки локальным SMTP-сервером."
+  remarks: "Почтовые сообщения из каталога раскладки автоматически отправляются локальный SMTP-сервера (при его наличии), такими как службы IIS.       Значение по умолчанию для этого свойства можно также задать на машине или в файле конфигурации приложения. Любые изменения, внесенные в свойство PickupDirectoryLocation переопределить параметры файла конфигурации."
   syntax:
     content: public string PickupDirectoryLocation { get; set; }
     return:
       type: System.String
-      description: "A <xref:System.String> that specifies the pickup directory for mail messages."
+      description: "Объект <xref:System.String>, определяющая каталог раскладки для почтовых сообщений.</xref:System.String>"
   overload: System.Net.Mail.SmtpClient.PickupDirectoryLocation*
   exceptions: []
   platform:
@@ -390,23 +390,23 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Gets or sets the port used for SMTP transactions."
-  remarks: "The value of the Port property can also be set using constructors or the application or machine configuration file. For more information about using configuration files, see [\\&lt;mailSettings\\&gt; Element (Network Settings)](../Topic/%3CmailSettings%3E%20Element%20\\(Network%20Settings\\).md). If information is specified using this property, this information overrides the configuration file settings."
+  summary: "Возвращает или задает порт, используемый для SMTP-транзакций."
+  remarks: "Значение свойства порта можно также задать с помощью конструкторов или приложения или в файле конфигурации компьютера. Дополнительные сведения об использовании файлов конфигурации см. в разделе [ \\&lt; mailSettings\\&gt; Элемент (параметры сети)](../Topic/%3CmailSettings%3E%20Element%20\\(Network%20Settings\\).md). Если информация задана с помощью этого свойства, она переопределяет настройки из файла конфигурации."
   example:
   - "The following code example demonstrates sending an e-mail message by using the host and port specified in an application configuration file.  \n  \n [!code-cpp[NclMailSync#7](~/add/codesnippet/cpp/p-system.net.mail.smtpcl_5_1.cpp)]\n [!code-cs[NclMailSync#7](~/add/codesnippet/csharp/p-system.net.mail.smtpcl_5_1.cs)]"
   syntax:
     content: public int Port { get; set; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> that contains the port number on the SMTP host. The default value is 25."
+      description: "<xref:System.Int32>, Содержащее номер порта на узел SMTP.</xref:System.Int32> По умолчанию используется значение 25."
   overload: System.Net.Mail.SmtpClient.Port*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value specified for a set operation is less than or equal to zero."
+    description: "Значение, указанное для операции задания меньше или равно нулю."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "You cannot change the value of this property when an email is being sent."
+    description: "При отправке сообщения электронной почты, нельзя изменить значение этого свойства."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.Send(System.Net.Mail.MailMessage)
@@ -421,8 +421,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Sends the specified message to an SMTP server for delivery."
-  remarks: "This method blocks while the e-mail is transmitted. You can specify a time-out value using the <xref:System.Net.Mail.SmtpClient.Timeout%2A> property to ensure that the method returns after a specified amount of time elapses.       Before calling this method, the <xref:System.Net.Mail.SmtpClient.Host%2A> and <xref:System.Net.Mail.SmtpClient.Port%2A> properties must be set either through the configuration files by setting the relevant properties, or by passing this information into the <xref:System.Net.Mail.SmtpClient.%23ctor%28System.String%2CSystem.Int32%29> constructor.       You cannot call this method if there is a message being sent asynchronously.       If the SMTP host requires credentials, you must set them before calling this method. To specify credentials, use the <xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A> or <xref:System.Net.Mail.SmtpClient.Credentials%2A> properties.       If you receive an <xref:System.Net.Mail.SmtpException> exception, check the <xref:System.Net.Mail.SmtpException.StatusCode%2A> property to find the reason the operation failed. The <xref:System.Net.Mail.SmtpException> can also contain an inner exception that indicates the reason the operation failed.       When sending e-mail using <xref:System.Net.Mail.SmtpClient.Send%2A> to multiple recipients and the SMTP server accepts some recipients as valid and rejects others, <xref:System.Net.Mail.SmtpClient.Send%2A> sends e-mail to the accepted recipients and then a <xref:System.Net.Mail.SmtpFailedRecipientsException> is thrown. The exception will contain a listing of the recipients that were rejected.      > [!NOTE] >  If the <xref:System.Net.Mail.SmtpClient.EnableSsl%2A> property is set to `true`, and the SMTP mail server does not advertise STARTTLS in the response to the EHLO command, then a call to the <xref:System.Net.Mail.SmtpClient.Send%2A> or <xref:System.Net.Mail.SmtpClient.SendAsync%2A> methods will throw an <xref:System.Net.Mail.SmtpException>."
+  summary: "Отправляет указанное сообщение на сервер SMTP для доставки."
+  remarks: "Этот метод блокируется во время передачи сообщения электронной почты. Можно указать значение времени ожидания с помощью <xref:System.Net.Mail.SmtpClient.Timeout%2A>свойство, чтобы убедиться, что этот метод возвращает через указанный промежуток времени.</xref:System.Net.Mail.SmtpClient.Timeout%2A>       Перед вызовом этого метода <xref:System.Net.Mail.SmtpClient.Host%2A>и <xref:System.Net.Mail.SmtpClient.Port%2A>свойства должны задаваться через файлы конфигурации, установив соответствующие свойства или путем передачи этих данных в <xref:System.Net.Mail.SmtpClient.%23ctor%28System.String%2CSystem.Int32%29>конструктор.</xref:System.Net.Mail.SmtpClient.%23ctor%28System.String%2CSystem.Int32%29> </xref:System.Net.Mail.SmtpClient.Port%2A> </xref:System.Net.Mail.SmtpClient.Host%2A>       Этот метод нельзя вызывать, если сообщения, передаваемого асинхронно.       Если узел SMTP требует учетные данные, необходимо установить их перед вызовом этого метода. Чтобы указать учетные данные, используйте <xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A>или <xref:System.Net.Mail.SmtpClient.Credentials%2A>Свойства.</xref:System.Net.Mail.SmtpClient.Credentials%2A> </xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A>       При получении <xref:System.Net.Mail.SmtpException>исключение проверки <xref:System.Net.Mail.SmtpException.StatusCode%2A>свойство, чтобы найти причину операцию не удалось.</xref:System.Net.Mail.SmtpException.StatusCode%2A> </xref:System.Net.Mail.SmtpException> <xref:System.Net.Mail.SmtpException>Также могут содержать внутреннее исключение, указывающее причину неудачного завершения операции.</xref:System.Net.Mail.SmtpException>       При отправке электронной почты с использованием <xref:System.Net.Mail.SmtpClient.Send%2A>несколько получателей и SMTP сервер принимает некоторым получателям как допустимый и отклоняет другими пользователями, <xref:System.Net.Mail.SmtpClient.Send%2A>отправляет по электронной почте получателям, принятые и затем <xref:System.Net.Mail.SmtpFailedRecipientsException>возникает исключение.</xref:System.Net.Mail.SmtpFailedRecipientsException> </xref:System.Net.Mail.SmtpClient.Send%2A> </xref:System.Net.Mail.SmtpClient.Send%2A> Исключение будет содержать список получателей, которые были отклонены.      Настроек [!NOTE] настроек Если <xref:System.Net.Mail.SmtpClient.EnableSsl%2A>свойству `true`, и SMTP-сервер не объявляет команды STARTTLS в ответ на команду EHLO, затем вызов <xref:System.Net.Mail.SmtpClient.Send%2A>или <xref:System.Net.Mail.SmtpClient.SendAsync%2A>методы создают исключение <xref:System.Net.Mail.SmtpException>.</xref:System.Net.Mail.SmtpException> </xref:System.Net.Mail.SmtpClient.SendAsync%2A> </xref:System.Net.Mail.SmtpClient.Send%2A> </xref:System.Net.Mail.SmtpClient.EnableSsl%2A>"
   example:
   - "The following code example demonstrates using this method.  \n  \n [!code-cpp[NclMailSync#2](~/add/codesnippet/cpp/m-system.net.mail.smtpcl_2_1.cpp)]\n [!code-cs[NclMailSync#2](~/add/codesnippet/csharp/m-system.net.mail.smtpcl_2_1.cs)]"
   syntax:
@@ -430,24 +430,24 @@ items:
     parameters:
     - id: message
       type: System.Net.Mail.MailMessage
-      description: "A <xref href=&quot;System.Net.Mail.MailMessage&quot;></xref> that contains the message to send."
+      description: "Объект <xref href=&quot;System.Net.Mail.MailMessage&quot;> </xref> , содержащее сообщение для отправки."
   overload: System.Net.Mail.SmtpClient.Send*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>message</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>message</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref> has a <xref:System.Net.Mail.SmtpClient.SendAsync*> call in progress.       -or-       &lt;xref:System.Net.Mail.MailMessage.From%2A?displayProperty=fullName&gt; is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       There are no recipients specified in &lt;xref:System.Net.Mail.MailMessage.To%2A?displayProperty=fullName&gt;, &lt;xref:System.Net.Mail.MailMessage.CC%2A?displayProperty=fullName&gt;, and &lt;xref:System.Net.Mail.MailMessage.Bcc%2A?displayProperty=fullName&gt; properties.       -or-       <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <xref:System.Net.Mail.SmtpClient.Host*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <xref:System.Net.Mail.SmtpClient.Host*> is equal to the empty string (&quot;&quot;).       -or-       <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <xref:System.Net.Mail.SmtpClient.Port*> is zero, a negative number, or greater than 65,535."
+    description: "Это <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref> имеет <> </> *настроек выполняется вызов.       - или - &lt;xref:System.Net.Mail.MailMessage.From%2A?displayProperty=fullName&gt; — <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.       - или - не указаны получатели указан в &lt;xref:System.Net.Mail.MailMessage.To%2A?displayProperty=fullName&gt;, &lt;xref:System.Net.Mail.MailMessage.CC%2A?displayProperty=fullName&gt;, и &lt;xref:System.Net.Mail.MailMessage.Bcc%2A?displayProperty=fullName&gt; свойства.       -or-       <>*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <>*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - или - <> </> *настроек свойству <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;> </xref> и <> </> *настроек равен пустой строке (»»).       - или - <> </> *настроек свойству <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;> </xref> и <xref:System.Net.Mail.SmtpClient.Port*>равно 0, то отрицательное число или больше 65 535.</xref:System.Net.Mail.SmtpClient.Port*>"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been disposed."
+    description: "Этот объект был удален."
   - type: System.Net.Mail.SmtpException
     commentId: T:System.Net.Mail.SmtpException
-    description: "The connection to the SMTP server failed.       -or-       Authentication failed.       -or-       The operation timed out.       -or-       <xref:System.Net.Mail.SmtpClient.EnableSsl*> is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> but the <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> or <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref>.       -or-       <xref:System.Net.Mail.SmtpClient.EnableSsl*> is set to <xref uid=&quot;langword_csharp_true,&quot; name=&quot;true,&quot; href=&quot;&quot;></xref> but the SMTP mail server did not advertise STARTTLS in the response to the EHLO command."
+    description: "Сбой подключения к серверу SMTP.       - или - проверка подлинности не пройдена.       - или - истекло время ожидания операции.       -or-       <>*> is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> but the <>*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> or <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref>.       - или - <xref:System.Net.Mail.SmtpClient.EnableSsl*>равно <xref uid=&quot;langword_csharp_true,&quot; name=&quot;true,&quot; href=&quot;&quot;> </xref> , но SMTP-сервер не объявляет STARTTLS в ответ на команду EHLO.</xref:System.Net.Mail.SmtpClient.EnableSsl*>"
   - type: System.Net.Mail.SmtpFailedRecipientsException
     commentId: T:System.Net.Mail.SmtpFailedRecipientsException
-    description: "The <code>message</code> could not be delivered to one or more of the recipients in &lt;xref:System.Net.Mail.MailMessage.To%2A?displayProperty=fullName&gt;, &lt;xref:System.Net.Mail.MailMessage.CC%2A?displayProperty=fullName&gt;, or &lt;xref:System.Net.Mail.MailMessage.Bcc%2A?displayProperty=fullName&gt;."
+    description: "<code> message </code> Не может быть доставлено к одному или нескольким получателям, указанным в &lt;xref:System.Net.Mail.MailMessage.To%2A?displayProperty=fullName&gt;, &lt;xref:System.Net.Mail.MailMessage.CC%2A?displayProperty=fullName&gt;, или &lt;xref:System.Net.Mail.MailMessage.Bcc%2A?displayProperty=fullName&gt;."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.Send(System.String,System.String,System.String,System.String)
@@ -462,43 +462,43 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Sends the specified e-mail message to an SMTP server for delivery. The message sender, recipients, subject, and message body are specified using <xref:System.String> objects."
-  remarks: "This method blocks while the e-mail is transmitted. You can specify a time-out value using the <xref:System.Net.Mail.SmtpClient.Timeout%2A> property to ensure that the method returns after a specified amount of time elapses.       Before calling this method, the <xref:System.Net.Mail.SmtpClient.Host%2A> and <xref:System.Net.Mail.SmtpClient.Port%2A> properties must be set either through the configuration files by setting the relevant properties, or by passing this information into the <xref:System.Net.Mail.SmtpClient.%23ctor%28System.String%2CSystem.Int32%29> constructor.       You cannot call this method if there is a message being sent asynchronously.       If the SMTP host requires credentials, you must set them before calling this method. To specify credentials, use the <xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A> or <xref:System.Net.Mail.SmtpClient.Credentials%2A> properties.       If you receive an <xref:System.Net.Mail.SmtpException> exception, check the <xref:System.Net.Mail.SmtpException.StatusCode%2A> property to find the reason the operation failed. The <xref:System.Net.Mail.SmtpException> can also contain an inner exception that indicates the reason the operation failed.       When sending e-mail using <xref:System.Net.Mail.SmtpClient.Send%2A> to multiple recipients and the SMTP server accepts some recipients as valid and rejects others, <xref:System.Net.Mail.SmtpClient.Send%2A> sends e-mail to the accepted recipients and then a <xref:System.Net.Mail.SmtpFailedRecipientsException> is thrown. The exception will contain a listing of the recipients that were rejected.      > [!NOTE] >  If the <xref:System.Net.Mail.SmtpClient.EnableSsl%2A> property is set to `true`, and the SMTP mail server does not advertise STARTTLS in the response to the EHLO command, then a call to the <xref:System.Net.Mail.SmtpClient.Send%2A> or <xref:System.Net.Mail.SmtpClient.SendAsync%2A> methods will throw an <xref:System.Net.Mail.SmtpException>."
+  summary: "Отправляет указанное сообщение электронной почты на сервер SMTP для доставки. Отправитель сообщения, получателей, темы и текст сообщения задаются с помощью <xref:System.String>объектов.</xref:System.String>"
+  remarks: "Этот метод блокируется во время передачи сообщения электронной почты. Можно указать значение времени ожидания с помощью <xref:System.Net.Mail.SmtpClient.Timeout%2A>свойство, чтобы убедиться, что этот метод возвращает через указанный промежуток времени.</xref:System.Net.Mail.SmtpClient.Timeout%2A>       Перед вызовом этого метода <xref:System.Net.Mail.SmtpClient.Host%2A>и <xref:System.Net.Mail.SmtpClient.Port%2A>свойства должны задаваться через файлы конфигурации, установив соответствующие свойства или путем передачи этих данных в <xref:System.Net.Mail.SmtpClient.%23ctor%28System.String%2CSystem.Int32%29>конструктор.</xref:System.Net.Mail.SmtpClient.%23ctor%28System.String%2CSystem.Int32%29> </xref:System.Net.Mail.SmtpClient.Port%2A> </xref:System.Net.Mail.SmtpClient.Host%2A>       Этот метод нельзя вызывать, если сообщения, передаваемого асинхронно.       Если узел SMTP требует учетные данные, необходимо установить их перед вызовом этого метода. Чтобы указать учетные данные, используйте <xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A>или <xref:System.Net.Mail.SmtpClient.Credentials%2A>Свойства.</xref:System.Net.Mail.SmtpClient.Credentials%2A> </xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A>       При получении <xref:System.Net.Mail.SmtpException>исключение проверки <xref:System.Net.Mail.SmtpException.StatusCode%2A>свойство, чтобы найти причину операцию не удалось.</xref:System.Net.Mail.SmtpException.StatusCode%2A> </xref:System.Net.Mail.SmtpException> <xref:System.Net.Mail.SmtpException>Также могут содержать внутреннее исключение, указывающее причину неудачного завершения операции.</xref:System.Net.Mail.SmtpException>       При отправке электронной почты с использованием <xref:System.Net.Mail.SmtpClient.Send%2A>несколько получателей и SMTP сервер принимает некоторым получателям как допустимый и отклоняет другими пользователями, <xref:System.Net.Mail.SmtpClient.Send%2A>отправляет по электронной почте получателям, принятые и затем <xref:System.Net.Mail.SmtpFailedRecipientsException>возникает исключение.</xref:System.Net.Mail.SmtpFailedRecipientsException> </xref:System.Net.Mail.SmtpClient.Send%2A> </xref:System.Net.Mail.SmtpClient.Send%2A> Исключение будет содержать список получателей, которые были отклонены.      Настроек [!NOTE] настроек Если <xref:System.Net.Mail.SmtpClient.EnableSsl%2A>свойству `true`, и SMTP-сервер не объявляет команды STARTTLS в ответ на команду EHLO, затем вызов <xref:System.Net.Mail.SmtpClient.Send%2A>или <xref:System.Net.Mail.SmtpClient.SendAsync%2A>методы создают исключение <xref:System.Net.Mail.SmtpException>.</xref:System.Net.Mail.SmtpException> </xref:System.Net.Mail.SmtpClient.SendAsync%2A> </xref:System.Net.Mail.SmtpClient.Send%2A> </xref:System.Net.Mail.SmtpClient.EnableSsl%2A>"
   syntax:
     content: public void Send (string from, string recipients, string subject, string body);
     parameters:
     - id: from
       type: System.String
-      description: "A <xref:System.String> that contains the address information of the message sender."
+      description: "Объект <xref:System.String>, содержащий сведения об адресе отправителя сообщения.</xref:System.String>"
     - id: recipients
       type: System.String
-      description: "A <xref:System.String> that contains the addresses that the message is sent to."
+      description: "Объект <xref:System.String>, содержащий адреса, будет отправлено.</xref:System.String>"
     - id: subject
       type: System.String
-      description: "A <xref:System.String> that contains the subject line for the message."
+      description: "Объект <xref:System.String>, содержащий строку темы сообщения.</xref:System.String>"
     - id: body
       type: System.String
-      description: "A <xref:System.String> that contains the message body."
+      description: "Объект <xref:System.String>, содержащий тело сообщения.</xref:System.String>"
   overload: System.Net.Mail.SmtpClient.Send*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>from</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>recipients</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>from</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>recipients</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>from</code> is <xref:System.String>.       -or-       <code>recipients</code> is <xref:System.String>."
+    description: "<code>from</code>is <xref:System.String>.       -or-       <code>recipients</code> is <xref:System.String>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref> has a <xref:System.Net.Mail.SmtpClient.SendAsync*> call in progress.       -or-       <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <xref:System.Net.Mail.SmtpClient.Host*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <xref:System.Net.Mail.SmtpClient.Host*> is equal to the empty string (&quot;&quot;).       -or-       <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <xref:System.Net.Mail.SmtpClient.Port*> is zero, a negative number, or greater than 65,535."
+    description: "Это <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref> имеет <> </> *настроек выполняется вызов.       -or-       <>*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <>*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - или - <> </> *настроек свойству <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;> </xref> и <> </> *настроек равен пустой строке (»»).       - или - <> </> *настроек свойству <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;> </xref> и <xref:System.Net.Mail.SmtpClient.Port*>равно 0, то отрицательное число или больше 65 535.</xref:System.Net.Mail.SmtpClient.Port*>"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been disposed."
+    description: "Этот объект был удален."
   - type: System.Net.Mail.SmtpException
     commentId: T:System.Net.Mail.SmtpException
-    description: "The connection to the SMTP server failed.       -or-       Authentication failed.       -or-       The operation timed out.       -or-       <xref:System.Net.Mail.SmtpClient.EnableSsl*> is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> but the <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> or <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref>.       -or-       <xref:System.Net.Mail.SmtpClient.EnableSsl*> is set to <xref uid=&quot;langword_csharp_true,&quot; name=&quot;true,&quot; href=&quot;&quot;></xref> but the SMTP mail server did not advertise STARTTLS in the response to the EHLO command."
+    description: "Сбой подключения к серверу SMTP.       - или - проверка подлинности не пройдена.       - или - истекло время ожидания операции.       -or-       <>*> is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> but the <>*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> or <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref>.       - или - <xref:System.Net.Mail.SmtpClient.EnableSsl*>равно <xref uid=&quot;langword_csharp_true,&quot; name=&quot;true,&quot; href=&quot;&quot;> </xref> , но SMTP-сервер не объявляет STARTTLS в ответ на команду EHLO.</xref:System.Net.Mail.SmtpClient.EnableSsl*>"
   - type: System.Net.Mail.SmtpFailedRecipientsException
     commentId: T:System.Net.Mail.SmtpFailedRecipientsException
-    description: "The message could not be delivered to one or more of the recipients in <code>recipients</code>."
+    description: "Сообщение не может быть доставлено к одному или нескольким получателям, указанным в <code> recipients </code>."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.SendAsync(System.Net.Mail.MailMessage,System.Object)
@@ -513,8 +513,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Sends the specified e-mail message to an SMTP server for delivery. This method does not block the calling thread and allows the caller to pass an object to the method that is invoked when the operation completes."
-  remarks: "To receive notification when the e-mail has been sent or the operation has been canceled, add an event handler to the <xref:System.Net.Mail.SmtpClient.SendCompleted> event. You can cancel a <xref:System.Net.Mail.SmtpClient.SendAsync%2A> operation by calling the <xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A> method.       After calling <xref:System.Net.Mail.SmtpClient.SendAsync%2A>, you must wait for the e-mail transmission to complete before attempting to send another e-mail message using <xref:System.Net.Mail.SmtpClient.Send%2A> or <xref:System.Net.Mail.SmtpClient.SendAsync%2A>.       Before calling this method, the <xref:System.Net.Mail.SmtpClient.Host%2A> and <xref:System.Net.Mail.SmtpClient.Port%2A> must be set through the configuration files by setting the relevant properties, or by passing this information into the <xref:System.Net.Mail.SmtpClient.%23ctor%28System.String%2CSystem.Int32%29> constructor.       If the SMTP host requires credentials, you must set them before calling this method. To specify credentials, use the <xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A> or <xref:System.Net.Mail.SmtpClient.Credentials%2A> properties.       If you receive an <xref:System.Net.Mail.SmtpException> exception, check the <xref:System.Net.Mail.SmtpException.StatusCode%2A> property to find the reason the operation failed. The <xref:System.Net.Mail.SmtpException> can also contain an inner exception that indicates the reason the operation failed.       When sending e-mail using <xref:System.Net.Mail.SmtpClient.SendAsync%2A> to multiple recipients, if the SMTP server accepts some recipients as valid and rejects others, a <xref:System.Net.Mail.SmtpException> is thrown with a <xref:System.NullReferenceException> for the inner exception. If this occurs, <xref:System.Net.Mail.SmtpClient.SendAsync%2A> fails to send e-mail to any of the recipients.       Your application can detect a server certificate validation error by examining the <xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A> property passed into the <xref:System.Net.Mail.SendCompletedEventHandler> delegate.       The <xref:System.Net.Mail.SmtpClient.Timeout%2A> property does not have any effect on a <xref:System.Net.Mail.SmtpClient.SendAsync%2A> call.       To send mail and block while it is transmitted to the SMTP server, use one of the <xref:System.Net.Mail.SmtpClient.Send%2A> methods.      > [!NOTE] >  If the <xref:System.Net.Mail.SmtpClient.EnableSsl%2A> property is set to `true`, and the SMTP mail server does not advertise STARTTLS in the response to the EHLO command, then a call to the <xref:System.Net.Mail.SmtpClient.Send%2A> or <xref:System.Net.Mail.SmtpClient.SendAsync%2A> methods will throw an <xref:System.Net.Mail.SmtpException>."
+  summary: "Отправляет указанное сообщение электронной почты на сервер SMTP для доставки. Этот метод не блокирует вызывающий поток и позволяет вызывающему объекту передать объект в метод, вызываемый после завершения операции."
+  remarks: "Чтобы получать уведомления, когда было отправлено сообщение электронной почты или операция отменена, добавьте обработчик событий для <xref:System.Net.Mail.SmtpClient.SendCompleted>событий.</xref:System.Net.Mail.SmtpClient.SendCompleted> Вы можете отменить <xref:System.Net.Mail.SmtpClient.SendAsync%2A>операции путем вызова <xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A>метод.</xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A> </xref:System.Net.Mail.SmtpClient.SendAsync%2A>       После вызова <xref:System.Net.Mail.SmtpClient.SendAsync%2A>, необходимо подождать завершения перед попыткой отправки другого сообщения электронной почты, с помощью <xref:System.Net.Mail.SmtpClient.Send%2A>или <xref:System.Net.Mail.SmtpClient.SendAsync%2A>.</xref:System.Net.Mail.SmtpClient.SendAsync%2A> </xref:System.Net.Mail.SmtpClient.Send%2A> передачи почты</xref:System.Net.Mail.SmtpClient.SendAsync%2A>       Перед вызовом этого метода <xref:System.Net.Mail.SmtpClient.Host%2A>и <xref:System.Net.Mail.SmtpClient.Port%2A>необходимо задать с помощью файлов конфигурации, установив соответствующие свойства или путем передачи этих данных в <xref:System.Net.Mail.SmtpClient.%23ctor%28System.String%2CSystem.Int32%29>конструктор.</xref:System.Net.Mail.SmtpClient.%23ctor%28System.String%2CSystem.Int32%29> </xref:System.Net.Mail.SmtpClient.Port%2A> </xref:System.Net.Mail.SmtpClient.Host%2A>       Если узел SMTP требует учетные данные, необходимо установить их перед вызовом этого метода. Чтобы указать учетные данные, используйте <xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A>или <xref:System.Net.Mail.SmtpClient.Credentials%2A>Свойства.</xref:System.Net.Mail.SmtpClient.Credentials%2A> </xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A>       При получении <xref:System.Net.Mail.SmtpException>исключение проверки <xref:System.Net.Mail.SmtpException.StatusCode%2A>свойство, чтобы найти причину операцию не удалось.</xref:System.Net.Mail.SmtpException.StatusCode%2A> </xref:System.Net.Mail.SmtpException> <xref:System.Net.Mail.SmtpException>Также могут содержать внутреннее исключение, указывающее причину неудачного завершения операции.</xref:System.Net.Mail.SmtpException>       При отправке электронной почты с использованием <xref:System.Net.Mail.SmtpClient.SendAsync%2A>нескольким получателям, если SMTP-сервер принимает некоторым получателям как допустимый и другие, отклоняет <xref:System.Net.Mail.SmtpException>со <xref:System.NullReferenceException>о внутреннем исключении.</xref:System.NullReferenceException> </xref:System.Net.Mail.SmtpException> </xref:System.Net.Mail.SmtpClient.SendAsync%2A> В этом случае <xref:System.Net.Mail.SmtpClient.SendAsync%2A>не удалось отправить все сообщения электронной почты.</xref:System.Net.Mail.SmtpClient.SendAsync%2A>       Приложение может определять ошибка проверки сертификата сервера с помощью проверки <xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A>переданные свойство <xref:System.Net.Mail.SendCompletedEventHandler>делегировать.</xref:System.Net.Mail.SendCompletedEventHandler> </xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A>       <xref:System.Net.Mail.SmtpClient.Timeout%2A>Свойство не имеет влияния <xref:System.Net.Mail.SmtpClient.SendAsync%2A>вызовите.</xref:System.Net.Mail.SmtpClient.SendAsync%2A> </xref:System.Net.Mail.SmtpClient.Timeout%2A>       Чтобы отправить почту и блока, передаваемые на сервер SMTP, воспользуйтесь одним из <xref:System.Net.Mail.SmtpClient.Send%2A>методы.</xref:System.Net.Mail.SmtpClient.Send%2A>      Настроек [!NOTE] настроек Если <xref:System.Net.Mail.SmtpClient.EnableSsl%2A>свойству `true`, и SMTP-сервер не объявляет команды STARTTLS в ответ на команду EHLO, затем вызов <xref:System.Net.Mail.SmtpClient.Send%2A>или <xref:System.Net.Mail.SmtpClient.SendAsync%2A>методы создают исключение <xref:System.Net.Mail.SmtpException>.</xref:System.Net.Mail.SmtpException> </xref:System.Net.Mail.SmtpClient.SendAsync%2A> </xref:System.Net.Mail.SmtpClient.Send%2A> </xref:System.Net.Mail.SmtpClient.EnableSsl%2A>"
   example:
   - "The following code example demonstrates calling this method.  \n  \n [!code-cs[NclMailAsync#1](~/add/codesnippet/csharp/92b04d2f-ebb5-4da9-8cad-_1.cs)]\n [!code-cpp[NclMailAsync#1](~/add/codesnippet/cpp/92b04d2f-ebb5-4da9-8cad-_1.cpp)]\n [!code-vb[NclMailAsync#1](~/add/codesnippet/visualbasic/92b04d2f-ebb5-4da9-8cad-_1.vb)]"
   syntax:
@@ -522,24 +522,24 @@ items:
     parameters:
     - id: message
       type: System.Net.Mail.MailMessage
-      description: "A <xref href=&quot;System.Net.Mail.MailMessage&quot;></xref> that contains the message to send."
+      description: "Объект <xref href=&quot;System.Net.Mail.MailMessage&quot;> </xref> , содержащее сообщение для отправки."
     - id: userToken
       type: System.Object
-      description: "A user-defined object that is passed to the method invoked when the asynchronous operation completes."
+      description: "Определенный пользователем объект, который передается в метод, вызываемый при завершении асинхронной операции."
   overload: System.Net.Mail.SmtpClient.SendAsync*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>message</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       &lt;xref:System.Net.Mail.MailMessage.From%2A?displayProperty=fullName&gt; is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>message</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - или - &lt;xref:System.Net.Mail.MailMessage.From%2A?displayProperty=fullName&gt; — <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref> has a <xref:System.Net.Mail.SmtpClient.SendAsync*> call in progress.       -or-       There are no recipients specified in &lt;xref:System.Net.Mail.MailMessage.To%2A?displayProperty=fullName&gt;, &lt;xref:System.Net.Mail.MailMessage.CC%2A?displayProperty=fullName&gt;, and &lt;xref:System.Net.Mail.MailMessage.Bcc%2A?displayProperty=fullName&gt; properties.       -or-       <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <xref:System.Net.Mail.SmtpClient.Host*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <xref:System.Net.Mail.SmtpClient.Host*> is equal to the empty string (&quot;&quot;).       -or-       <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <xref:System.Net.Mail.SmtpClient.Port*> is zero, a negative number, or greater than 65,535."
+    description: "Это <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref> имеет <> </> *настроек выполняется вызов.       - или - не указаны получатели указан в &lt;xref:System.Net.Mail.MailMessage.To%2A?displayProperty=fullName&gt;, &lt;xref:System.Net.Mail.MailMessage.CC%2A?displayProperty=fullName&gt;, и &lt;xref:System.Net.Mail.MailMessage.Bcc%2A?displayProperty=fullName&gt; свойства.       -or-       <>*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <>*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - или - <> </> *настроек свойству <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;> </xref> и <> </> *настроек равен пустой строке (»»).       - или - <> </> *настроек свойству <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;> </xref> и <xref:System.Net.Mail.SmtpClient.Port*>равно 0, то отрицательное число или больше 65 535.</xref:System.Net.Mail.SmtpClient.Port*>"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been disposed."
+    description: "Этот объект был удален."
   - type: System.Net.Mail.SmtpException
     commentId: T:System.Net.Mail.SmtpException
-    description: "The connection to the SMTP server failed.       -or-       Authentication failed.       -or-       The operation timed out.       -or-       <xref:System.Net.Mail.SmtpClient.EnableSsl*> is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> but the <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> or <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref>.       -or-       <xref:System.Net.Mail.SmtpClient.EnableSsl*> is set to <xref uid=&quot;langword_csharp_true,&quot; name=&quot;true,&quot; href=&quot;&quot;></xref> but the SMTP mail server did not advertise STARTTLS in the response to the EHLO command.       -or-       The <code>message</code> could not be delivered to one or more of the recipients in &lt;xref:System.Net.Mail.MailMessage.To%2A?displayProperty=fullName&gt;, &lt;xref:System.Net.Mail.MailMessage.CC%2A?displayProperty=fullName&gt;, or &lt;xref:System.Net.Mail.MailMessage.Bcc%2A?displayProperty=fullName&gt;."
+    description: "Сбой подключения к серверу SMTP.       - или - проверка подлинности не пройдена.       - или - истекло время ожидания операции.       -or-       <>*> is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> but the <>*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> or <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref>.       - или - <xref:System.Net.Mail.SmtpClient.EnableSsl*>равно <xref uid=&quot;langword_csharp_true,&quot; name=&quot;true,&quot; href=&quot;&quot;> </xref> , но SMTP-сервер не объявляет STARTTLS в ответ на команду EHLO.</xref:System.Net.Mail.SmtpClient.EnableSsl*>       - или - <code> message </code> не может быть доставлено к одному или нескольким получателям, указанным в &lt;xref:System.Net.Mail.MailMessage.To%2A?displayProperty=fullName&gt;, &lt;xref:System.Net.Mail.MailMessage.CC%2A?displayProperty=fullName&gt;, или &lt;xref:System.Net.Mail.MailMessage.Bcc%2A?displayProperty=fullName&gt;."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.SendAsync(System.String,System.String,System.String,System.String,System.Object)
@@ -554,43 +554,43 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Sends an e-mail message to an SMTP server for delivery. The message sender, recipients, subject, and message body are specified using <xref:System.String> objects. This method does not block the calling thread and allows the caller to pass an object to the method that is invoked when the operation completes."
-  remarks: "To receive notification when the e-mail has been sent or the operation has been canceled, add an event handler to the <xref:System.Net.Mail.SmtpClient.SendCompleted> event. You can cancel a <xref:System.Net.Mail.SmtpClient.SendAsync%2A> operation by calling the <xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A> method.       After calling <xref:System.Net.Mail.SmtpClient.SendAsync%2A>, you must wait for the e-mail transmission to complete before attempting to send another e-mail message using <xref:System.Net.Mail.SmtpClient.Send%2A> or <xref:System.Net.Mail.SmtpClient.SendAsync%2A>.       Before calling this method, the <xref:System.Net.Mail.SmtpClient.Host%2A> and <xref:System.Net.Mail.SmtpClient.Port%2A> properties must be set either through the configuration files or by setting the properties or passing this information into the <xref:System.Net.Mail.SmtpClient.%23ctor%28System.String%2CSystem.Int32%29> constructor.       If the SMTP host requires credentials, you must set them before calling this method. To specify credentials, use the <xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A> or <xref:System.Net.Mail.SmtpClient.Credentials%2A> property.       If you receive an <xref:System.Net.Mail.SmtpException> exception, check the <xref:System.Net.Mail.SmtpException.StatusCode%2A> property to find the reason the operation failed. The <xref:System.Net.Mail.SmtpException> can also contain an inner exception that indicates the reason the operation failed.       When sending e-mail using <xref:System.Net.Mail.SmtpClient.SendAsync%2A> to multiple recipients, if the SMTP server accepts some recipients as valid and rejects others, a <xref:System.Net.Mail.SmtpException> is thrown with a <xref:System.NullReferenceException> for the inner exception. If this occurs, <xref:System.Net.Mail.SmtpClient.SendAsync%2A> fails to send e-mail to any of the recipients.       Your application can detect a server certificate validation error by examining the <xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A> property passed into the <xref:System.Net.Mail.SendCompletedEventHandler> delegate.       The <xref:System.Net.Mail.SmtpClient.Timeout%2A> property does not have any effect on a <xref:System.Net.Mail.SmtpClient.SendAsync%2A> call.       To send mail and block while it is transmitted to the SMTP server, use one of the <xref:System.Net.Mail.SmtpClient.Send%2A> methods.      > [!NOTE] >  If the <xref:System.Net.Mail.SmtpClient.EnableSsl%2A> property is set to `true`, and the SMTP mail server does not advertise STARTTLS in the response to the EHLO command, then a call to the <xref:System.Net.Mail.SmtpClient.Send%2A> or <xref:System.Net.Mail.SmtpClient.SendAsync%2A> methods will throw an <xref:System.Net.Mail.SmtpException>."
+  summary: "Отправляет сообщение электронной почты на сервер SMTP для доставки. Отправитель сообщения, получателей, темы и текст сообщения задаются с помощью <xref:System.String>объектов.</xref:System.String> Этот метод не блокирует вызывающий поток и позволяет вызывающему объекту передать объект в метод, вызываемый после завершения операции."
+  remarks: "Чтобы получать уведомления, когда было отправлено сообщение электронной почты или операция отменена, добавьте обработчик событий для <xref:System.Net.Mail.SmtpClient.SendCompleted>событий.</xref:System.Net.Mail.SmtpClient.SendCompleted> Вы можете отменить <xref:System.Net.Mail.SmtpClient.SendAsync%2A>операции путем вызова <xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A>метод.</xref:System.Net.Mail.SmtpClient.SendAsyncCancel%2A> </xref:System.Net.Mail.SmtpClient.SendAsync%2A>       После вызова <xref:System.Net.Mail.SmtpClient.SendAsync%2A>, необходимо подождать завершения перед попыткой отправки другого сообщения электронной почты, с помощью <xref:System.Net.Mail.SmtpClient.Send%2A>или <xref:System.Net.Mail.SmtpClient.SendAsync%2A>.</xref:System.Net.Mail.SmtpClient.SendAsync%2A> </xref:System.Net.Mail.SmtpClient.Send%2A> передачи почты</xref:System.Net.Mail.SmtpClient.SendAsync%2A>       Перед вызовом этого метода <xref:System.Net.Mail.SmtpClient.Host%2A>и <xref:System.Net.Mail.SmtpClient.Port%2A>свойства должны задаваться в файлах конфигурации или установив свойства или передача этих данных в <xref:System.Net.Mail.SmtpClient.%23ctor%28System.String%2CSystem.Int32%29>конструктор.</xref:System.Net.Mail.SmtpClient.%23ctor%28System.String%2CSystem.Int32%29> </xref:System.Net.Mail.SmtpClient.Port%2A> </xref:System.Net.Mail.SmtpClient.Host%2A>       Если узел SMTP требует учетные данные, необходимо установить их перед вызовом этого метода. Чтобы указать учетные данные, используйте <xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A>или <xref:System.Net.Mail.SmtpClient.Credentials%2A>свойство.</xref:System.Net.Mail.SmtpClient.Credentials%2A> </xref:System.Net.Mail.SmtpClient.UseDefaultCredentials%2A>       При получении <xref:System.Net.Mail.SmtpException>исключение проверки <xref:System.Net.Mail.SmtpException.StatusCode%2A>свойство, чтобы найти причину операцию не удалось.</xref:System.Net.Mail.SmtpException.StatusCode%2A> </xref:System.Net.Mail.SmtpException> <xref:System.Net.Mail.SmtpException>Также могут содержать внутреннее исключение, указывающее причину неудачного завершения операции.</xref:System.Net.Mail.SmtpException>       При отправке электронной почты с использованием <xref:System.Net.Mail.SmtpClient.SendAsync%2A>нескольким получателям, если SMTP-сервер принимает некоторым получателям как допустимый и другие, отклоняет <xref:System.Net.Mail.SmtpException>со <xref:System.NullReferenceException>о внутреннем исключении.</xref:System.NullReferenceException> </xref:System.Net.Mail.SmtpException> </xref:System.Net.Mail.SmtpClient.SendAsync%2A> В этом случае <xref:System.Net.Mail.SmtpClient.SendAsync%2A>не удалось отправить все сообщения электронной почты.</xref:System.Net.Mail.SmtpClient.SendAsync%2A>       Приложение может определять ошибка проверки сертификата сервера с помощью проверки <xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A>переданные свойство <xref:System.Net.Mail.SendCompletedEventHandler>делегировать.</xref:System.Net.Mail.SendCompletedEventHandler> </xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A>       <xref:System.Net.Mail.SmtpClient.Timeout%2A>Свойство не имеет влияния <xref:System.Net.Mail.SmtpClient.SendAsync%2A>вызовите.</xref:System.Net.Mail.SmtpClient.SendAsync%2A> </xref:System.Net.Mail.SmtpClient.Timeout%2A>       Чтобы отправить почту и блока, передаваемые на сервер SMTP, воспользуйтесь одним из <xref:System.Net.Mail.SmtpClient.Send%2A>методы.</xref:System.Net.Mail.SmtpClient.Send%2A>      Настроек [!NOTE] настроек Если <xref:System.Net.Mail.SmtpClient.EnableSsl%2A>свойству `true`, и SMTP-сервер не объявляет команды STARTTLS в ответ на команду EHLO, затем вызов <xref:System.Net.Mail.SmtpClient.Send%2A>или <xref:System.Net.Mail.SmtpClient.SendAsync%2A>методы создают исключение <xref:System.Net.Mail.SmtpException>.</xref:System.Net.Mail.SmtpException> </xref:System.Net.Mail.SmtpClient.SendAsync%2A> </xref:System.Net.Mail.SmtpClient.Send%2A> </xref:System.Net.Mail.SmtpClient.EnableSsl%2A>"
   syntax:
     content: public void SendAsync (string from, string recipients, string subject, string body, object userToken);
     parameters:
     - id: from
       type: System.String
-      description: "A <xref:System.String> that contains the address information of the message sender."
+      description: "Объект <xref:System.String>, содержащий сведения об адресе отправителя сообщения.</xref:System.String>"
     - id: recipients
       type: System.String
-      description: "A <xref:System.String> that contains the address that the message is sent to."
+      description: "Объект <xref:System.String>, содержащий адрес, который отправляется сообщение.</xref:System.String>"
     - id: subject
       type: System.String
-      description: "A <xref:System.String> that contains the subject line for the message."
+      description: "Объект <xref:System.String>, содержащий строку темы сообщения.</xref:System.String>"
     - id: body
       type: System.String
-      description: "A <xref:System.String> that contains the message body."
+      description: "Объект <xref:System.String>, содержащий тело сообщения.</xref:System.String>"
     - id: userToken
       type: System.Object
-      description: "A user-defined object that is passed to the method invoked when the asynchronous operation completes."
+      description: "Определенный пользователем объект, который передается в метод, вызываемый при завершении асинхронной операции."
   overload: System.Net.Mail.SmtpClient.SendAsync*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>from</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>recipient</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>from</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>recipient</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>from</code> is <xref:System.String>.       -or-       <code>recipient</code> is <xref:System.String>."
+    description: "<code>from</code>is <xref:System.String>.       -or-       <code>recipient</code> is <xref:System.String>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This <xref href=&quot;System.Net.Mail.SmtpClient&quot;></xref> has a <xref:System.Net.Mail.SmtpClient.SendAsync*> call in progress.       -or-       <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <xref:System.Net.Mail.SmtpClient.Host*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <xref:System.Net.Mail.SmtpClient.Host*> is equal to the empty string (&quot;&quot;).       -or-       <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <xref:System.Net.Mail.SmtpClient.Port*> is zero, a negative number, or greater than 65,535."
+    description: "Это <xref href=&quot;System.Net.Mail.SmtpClient&quot;> </xref> имеет <> </> *настроек выполняется вызов.       -or-       <>*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> and <>*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - или - <> </> *настроек свойству <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;> </xref> и <> </> *настроек равен пустой строке (»»).       - или - <> </> *настроек свойству <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;> </xref> и <xref:System.Net.Mail.SmtpClient.Port*>равно 0, то отрицательное число или больше 65 535.</xref:System.Net.Mail.SmtpClient.Port*>"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been disposed."
+    description: "Этот объект был удален."
   - type: System.Net.Mail.SmtpException
     commentId: T:System.Net.Mail.SmtpException
-    description: "The connection to the SMTP server failed.       -or-       Authentication failed.       -or-       The operation timed out.       -or-       <xref:System.Net.Mail.SmtpClient.EnableSsl*> is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> but the <xref:System.Net.Mail.SmtpClient.DeliveryMethod*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> or <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref>.       -or-       <xref:System.Net.Mail.SmtpClient.EnableSsl*> is set to <xref uid=&quot;langword_csharp_true,&quot; name=&quot;true,&quot; href=&quot;&quot;></xref> but the SMTP mail server did not advertise STARTTLS in the response to the EHLO command.       -or-       The message could not be delivered to one or more of the recipients in <code>recipients</code>."
+    description: "Сбой подключения к серверу SMTP.       - или - проверка подлинности не пройдена.       - или - истекло время ожидания операции.       -or-       <>*> is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> but the <>*> property is set to <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref> or <xref href=&quot;System.Net.Mail.SmtpDeliveryMethod&quot;></xref>.       - или - <xref:System.Net.Mail.SmtpClient.EnableSsl*>равно <xref uid=&quot;langword_csharp_true,&quot; name=&quot;true,&quot; href=&quot;&quot;> </xref> , но SMTP-сервер не объявляет STARTTLS в ответ на команду EHLO.</xref:System.Net.Mail.SmtpClient.EnableSsl*>       - или - сообщение не может быть доставлено к одному или нескольким получателям, указанным в <code> recipients </code>."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.SendAsyncCancel
@@ -605,8 +605,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Cancels an asynchronous operation to send an e-mail message."
-  remarks: "Use the SendAsyncCancel method to cancel a pending <xref:System.Net.Mail.SmtpClient.SendAsync%2A> operation. If there is mail waiting to be sent, this method releases resources used to store the mail. If there is no mail waiting to be sent, this method does nothing."
+  summary: "Отменяет асинхронную операцию отправки сообщения электронной почты."
+  remarks: "Используйте метод SendAsyncCancel отменить ожидающие <xref:System.Net.Mail.SmtpClient.SendAsync%2A>операции.</xref:System.Net.Mail.SmtpClient.SendAsync%2A> Если нет ожидающих отправки почты, данный метод освобождает ресурсы, используемые для хранения этой почты. Если нет ожидающих отправки почты, этот метод не выполняет никаких действий."
   example:
   - "The following code example demonstrates sending an e-mail message asynchronously. The user has the option to cancel the mail if it has not been sent.  \n  \n [!code-cs[NclMailAsync#1](~/add/codesnippet/csharp/m-system.net.mail.smtpcl_3_1.cs)]\n [!code-cpp[NclMailAsync#1](~/add/codesnippet/cpp/m-system.net.mail.smtpcl_3_1.cpp)]\n [!code-vb[NclMailAsync#1](~/add/codesnippet/visualbasic/m-system.net.mail.smtpcl_3_1.vb)]"
   syntax:
@@ -616,7 +616,7 @@ items:
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "This object has been disposed."
+    description: "Этот объект был удален."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.SendCompleted
@@ -631,15 +631,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Occurs when an asynchronous e-mail send operation completes."
-  remarks: "The SendCompleted event is raised each time an e-mail message is sent asynchronously when the send operation completes. To send an e-mail message asynchronously, use the <xref:System.Net.Mail.SmtpClient.SendAsync%2A> methods.       <xref:System.Net.Mail.SendCompletedEventHandler> is the delegate for SendCompleted. The <xref:System.ComponentModel.AsyncCompletedEventArgs> class provides the event handler with event data."
+  summary: "Происходит после завершения операции отправки асинхронных электронной почты."
+  remarks: "Событие SendCompleted вызывается каждый раз, когда сообщение электронной почты отправляется асинхронно после завершения операции отправки. Чтобы отправить сообщение электронной почты в асинхронном режиме, используйте <xref:System.Net.Mail.SmtpClient.SendAsync%2A>методы.</xref:System.Net.Mail.SmtpClient.SendAsync%2A>       <xref:System.Net.Mail.SendCompletedEventHandler>Представляет делегат для SendCompleted.</xref:System.Net.Mail.SendCompletedEventHandler> <xref:System.ComponentModel.AsyncCompletedEventArgs>Класс предоставляет обработчик событий с данными событий.</xref:System.ComponentModel.AsyncCompletedEventArgs>"
   example:
   - "The following code example demonstrates sending an e-mail message asynchronously.  \n  \n [!code-cs[NclMailAsync#1](~/add/codesnippet/csharp/e-system.net.mail.smtpcl_1.cs)]\n [!code-cpp[NclMailAsync#1](~/add/codesnippet/cpp/e-system.net.mail.smtpcl_1.cpp)]\n [!code-vb[NclMailAsync#1](~/add/codesnippet/visualbasic/e-system.net.mail.smtpcl_1.vb)]"
   syntax:
     content: public event System.Net.Mail.SendCompletedEventHandler SendCompleted;
     return:
       type: System.Net.Mail.SendCompletedEventHandler
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -655,22 +655,22 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Sends the specified message to an SMTP server for delivery as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task>> object will complete once the message has been sent."
+  summary: "Отправляет указанное сообщение на сервер SMTP для доставки в асинхронной операции."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task>настроек объекта будет выполнена после отправки сообщения.</xref:System.Threading.Tasks.Task>"
   syntax:
     content: public System.Threading.Tasks.Task SendMailAsync (System.Net.Mail.MailMessage message);
     parameters:
     - id: message
       type: System.Net.Mail.MailMessage
-      description: "A <xref href=&quot;System.Net.Mail.MailMessage&quot;></xref> that contains the message to send."
+      description: "Объект <xref href=&quot;System.Net.Mail.MailMessage&quot;> </xref> , содержащее сообщение для отправки."
     return:
       type: System.Threading.Tasks.Task
-      description: "Returns <xref:System.Threading.Tasks.Task>.       The task object representing the asynchronous operation."
+      description: "Возвращает <xref:System.Threading.Tasks.Task>.</xref:System.Threading.Tasks.Task>       Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Mail.SmtpClient.SendMailAsync*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>message</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>message</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.SendMailAsync(System.String,System.String,System.String,System.String)
@@ -685,34 +685,34 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Sends the specified message to an SMTP server for delivery as an asynchronous operation. . The message sender, recipients, subject, and message body are specified using <xref:System.String> objects."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task>> object will complete once the message has been sent."
+  summary: "Отправляет указанное сообщение на сервер SMTP для доставки в асинхронной операции. . Отправитель сообщения, получателей, темы и текст сообщения задаются с помощью <xref:System.String>объектов.</xref:System.String>"
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task>настроек объекта будет выполнена после отправки сообщения.</xref:System.Threading.Tasks.Task>"
   syntax:
     content: public System.Threading.Tasks.Task SendMailAsync (string from, string recipients, string subject, string body);
     parameters:
     - id: from
       type: System.String
-      description: "A <xref:System.String> that contains the address information of the message sender."
+      description: "Объект <xref:System.String>, содержащий сведения об адресе отправителя сообщения.</xref:System.String>"
     - id: recipients
       type: System.String
-      description: "A <xref:System.String> that contains the addresses that the message is sent to."
+      description: "Объект <xref:System.String>, содержащий адреса, будет отправлено.</xref:System.String>"
     - id: subject
       type: System.String
-      description: "A <xref:System.String> that contains the subject line for the message."
+      description: "Объект <xref:System.String>, содержащий строку темы сообщения.</xref:System.String>"
     - id: body
       type: System.String
-      description: "A <xref:System.String> that contains the message body."
+      description: "Объект <xref:System.String>, содержащий тело сообщения.</xref:System.String>"
     return:
       type: System.Threading.Tasks.Task
-      description: "Returns <xref:System.Threading.Tasks.Task>.       The task object representing the asynchronous operation."
+      description: "Возвращает <xref:System.Threading.Tasks.Task>.</xref:System.Threading.Tasks.Task>       Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Mail.SmtpClient.SendMailAsync*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>from</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>recipients</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>from</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>recipients</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>from</code> is <xref:System.String.Empty>.       -or-       <code>recipients</code> is <xref:System.String.Empty>."
+    description: "<code>from</code>is <xref:System.String.Empty>.       -or-       <code>recipients</code> is <xref:System.String.Empty>."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.ServicePoint
@@ -727,20 +727,20 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Gets the network connection used to transmit the e-mail message."
-  remarks: "The settings for the ServicePoint property are created using defaults specified in the application or machine configuration files and the <xref:System.Net.ServicePointManager> class."
+  summary: "Возвращает сетевое подключение, используемое для передачи сообщения электронной почты."
+  remarks: "Свойство ServicePoint создаются с помощью значений по умолчанию, указанное в приложении или файлов конфигурации компьютера и <xref:System.Net.ServicePointManager>класса.</xref:System.Net.ServicePointManager>"
   example:
   - "The following code example demonstrates accessing the ServicePoint property.  \n  \n [!code-cpp[NclMailSync#1](~/add/codesnippet/cpp/p-system.net.mail.smtpcl_7_1.cpp)]\n [!code-cs[NclMailSync#1](~/add/codesnippet/csharp/p-system.net.mail.smtpcl_7_1.cs)]"
   syntax:
     content: public System.Net.ServicePoint ServicePoint { get; }
     return:
       type: System.Net.ServicePoint
-      description: "A <xref href=&quot;System.Net.ServicePoint&quot;></xref> that connects to the <xref:System.Net.Mail.SmtpClient.Host*> property used for SMTP."
+      description: "Объект <xref href=&quot;System.Net.ServicePoint&quot;> </xref> , при подключении к <xref:System.Net.Mail.SmtpClient.Host*>свойство, используемое для SMTP.</xref:System.Net.Mail.SmtpClient.Host*>"
   overload: System.Net.Mail.SmtpClient.ServicePoint*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<xref:System.Net.Mail.SmtpClient.Host*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or the empty string (&quot;&quot;).       -or-       <xref:System.Net.Mail.SmtpClient.Port*> is zero."
+    description: "<>*настроек — <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> или пустая строка (»»).       -or-       <>*> is zero."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.TargetName
@@ -755,13 +755,13 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Gets or sets the Service Provider Name (SPN) to use for authentication when using extended protection."
-  remarks: "The TargetName property is used with integrated Windows authentication when an application is using extended protection. The <xref:System.Net.Mail.SmtpClient> can then provide extended protection to ensure that credential challenge responses contain service specific information (a SPN) and, if necessary, channel specific information (a channel binding token or CBT). With this information in the credential exchanges, services are able to better protect against malicious use of credential challenge responses that might have been improperly obtained.       The default value for this property can also be set in a machine or application configuration file. Any changes made to the TargetName property override the configuration file settings."
+  summary: "Возвращает или задает имя поставщика службы (SPN) для проверки подлинности при использовании расширенной защиты."
+  remarks: "Свойство TargetName со встроенной проверкой подлинности Windows используется, когда приложение использует расширенную защиту. <xref:System.Net.Mail.SmtpClient>Может предоставить расширенную защиту, чтобы убедиться, что ответы на запрос учетных данных содержат сведения об определенной службы (SPN) и, при необходимости, канал конкретных сведений (токен привязки канала или CBT).</xref:System.Net.Mail.SmtpClient> С этой информацией в обмене учетных данных службы способны лучше защитить от несанкционированного использования запросам учетных данных, которые могут быть неправильно получен.       Значение по умолчанию для этого свойства можно также задать на машине или в файле конфигурации приложения. Любые изменения, внесенные в свойство TargetName переопределить параметры файла конфигурации."
   syntax:
     content: public string TargetName { get; set; }
     return:
       type: System.String
-      description: "A <xref:System.String> that specifies the SPN to use for extended protection. The default value for this SPN is of the form &quot;SMTPSVC/&lt;host&gt;&quot; where &lt;host&gt; is the hostname of the SMTP mail server."
+      description: "Объект <xref:System.String>, указывающий имя участника-службы для использования расширенной защиты.</xref:System.String> Значение по умолчанию для этого имени SPN имеет форму «SMTPSVC /&lt;узла&gt;«где &lt;узла&gt; имя узла почтового SMTP-сервера."
   overload: System.Net.Mail.SmtpClient.TargetName*
   exceptions: []
   platform:
@@ -778,23 +778,23 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Gets or sets a value that specifies the amount of time after which a synchronous <xref:System.Net.Mail.SmtpClient.Send*> call times out."
-  remarks: "By default, calls to the <xref:System.Net.Mail.SmtpClient.Send%2A> method block until the operation completes. If you set the Timeout property to a positive value, and a <xref:System.Net.Mail.SmtpClient.Send%2A> operation cannot complete in the allotted time, the <xref:System.Net.Mail.SmtpClient> class throws an <xref:System.Net.Mail.SmtpException> exception.       To send a message and continue executing in the application thread, use the <xref:System.Net.Mail.SmtpClient.SendAsync%2A> method."
+  summary: "Возвращает или задает значение, указывающее количество времени, после чего синхронной <xref:System.Net.Mail.SmtpClient.Send*>время ожидания вызова.</xref:System.Net.Mail.SmtpClient.Send*>"
+  remarks: "По умолчанию, вызывает <xref:System.Net.Mail.SmtpClient.Send%2A>метод блокируется до завершения операции.</xref:System.Net.Mail.SmtpClient.Send%2A> Если значение свойства Timeout положительное значение и <xref:System.Net.Mail.SmtpClient.Send%2A>не удалось выполнить операцию за выделенное время <xref:System.Net.Mail.SmtpClient>класса вызывает <xref:System.Net.Mail.SmtpException>исключение.</xref:System.Net.Mail.SmtpException> </xref:System.Net.Mail.SmtpClient> </xref:System.Net.Mail.SmtpClient.Send%2A>       Чтобы отправить сообщение и продолжить выполнение в потоке приложения, используйте <xref:System.Net.Mail.SmtpClient.SendAsync%2A>метод.</xref:System.Net.Mail.SmtpClient.SendAsync%2A>"
   example:
   - "The following code example demonstrates getting and setting the time-out value.  \n  \n [!code-cpp[NclMailSync#3](~/add/codesnippet/cpp/p-system.net.mail.smtpcl_6_1.cpp)]\n [!code-cs[NclMailSync#3](~/add/codesnippet/csharp/p-system.net.mail.smtpcl_6_1.cs)]"
   syntax:
     content: public int Timeout { get; set; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> that specifies the time-out value in milliseconds. The default value is 100,000 (100 seconds)."
+      description: "<xref:System.Int32>, Указывает время ожидания в миллисекундах.</xref:System.Int32> Значение по умолчанию — 100 000 (100 секунд)."
   overload: System.Net.Mail.SmtpClient.Timeout*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value specified for a set operation was less than zero."
+    description: "Значение, указанное для операции задания меньше нуля."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "You cannot change the value of this property when an email is being sent."
+    description: "При отправке сообщения электронной почты, нельзя изменить значение этого свойства."
   platform:
   - net462
 - uid: System.Net.Mail.SmtpClient.UseDefaultCredentials
@@ -809,7 +809,7 @@ items:
   assemblies:
   - System
   namespace: System.Net.Mail
-  summary: "Gets or sets a <xref:System.Boolean> value that controls whether the <xref:System.Net.CredentialCache.DefaultCredentials*> are sent with requests."
+  summary: "Возвращает или задает <xref:System.Boolean>ли значение, которое определяет <xref:System.Net.CredentialCache.DefaultCredentials*>отправляется вместе с запросами.</xref:System.Net.CredentialCache.DefaultCredentials*> </xref:System.Boolean>"
   remarks: "Some SMTP servers require that the client be authenticated before the server sends e-mail on its behalf. Set this property to `true` when this <xref:System.Net.Mail.SmtpClient> object should, if requested by the server, authenticate using the default credentials of the currently logged on user. For client applications, this is the desired behavior in most scenarios.  \n  \n Credentials information can also be specified using the application and machine configuration files. For more information, see [\\&lt;mailSettings\\&gt; Element (Network Settings)](../Topic/%3CmailSettings%3E%20Element%20\\(Network%20Settings\\).md).  \n  \n If the UseDefaultCredentials property is set to `false,` then the value set in the <xref:System.Net.Mail.SmtpClient.Credentials%2A> property will be used for the credentials when connecting to the server. If the UseDefaultCredentials property is set to `false` and the <xref:System.Net.Mail.SmtpClient.Credentials%2A> property has not been set, then mail is sent to the server anonymously.  \n  \n> [!CAUTION]\n>  If you provide credentials for basic authentication, they are sent to the server in clear text. This can present a security issue because your credentials can be seen, and then used by others."
   example:
   - "The following code example demonstrates using this property.  \n  \n [!code-cpp[NclMailSync#2](~/add/codesnippet/cpp/p-system.net.mail.smtpcl_4_1.cpp)]\n [!code-cs[NclMailSync#2](~/add/codesnippet/csharp/p-system.net.mail.smtpcl_4_1.cs)]"
@@ -817,12 +817,12 @@ items:
     content: public bool UseDefaultCredentials { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the default credentials are used; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если используются учетные данные по умолчанию; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Net.Mail.SmtpClient.UseDefaultCredentials*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "You cannot change the value of this property when an e-mail is being sent."
+    description: "При отправке сообщения электронной почты, нельзя изменить значение этого свойства."
   platform:
   - net462
 references:

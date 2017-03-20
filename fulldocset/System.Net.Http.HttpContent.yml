@@ -23,7 +23,7 @@ items:
   nameWithType: HttpContent
   fullName: System.Net.Http.HttpContent
   type: Class
-  summary: "A base class representing an HTTP entity body and content headers."
+  summary: "Базовый класс, представляющий тело сущности HTTP и заголовки содержимого."
   syntax:
     content: 'public abstract class HttpContent : IDisposable'
   inheritance:
@@ -45,7 +45,7 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Http.HttpContent&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Net.Http.HttpContent&quot;> </xref> класса."
   syntax:
     content: protected HttpContent ();
     parameters: []
@@ -65,17 +65,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content into a stream of bytes and copies it to the stream object provided as the <code>stream</code> parameter."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been written to the stream object passed as the `stream` parameter."
+  summary: "Сериализация содержимого HTTP в поток байтов и копирует его в объект потока указано как <code> stream </code> параметра."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task%601>объекта завершит все содержимое, произошло после записи в объект потока, переданного в качестве `stream` параметр.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task CopyToAsync (System.IO.Stream stream);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The target stream."
+      description: "Целевой поток."
     return:
       type: System.Threading.Tasks.Task
-      description: "The task object representing the asynchronous operation."
+      description: "Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Http.HttpContent.CopyToAsync*
   exceptions: []
   platform:
@@ -92,20 +92,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content into a stream of bytes and copies it to the stream object provided as the <code>stream</code> parameter."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been written to the stream object passed as the `stream` parameter."
+  summary: "Сериализация содержимого HTTP в поток байтов и копирует его в объект потока указано как <code> stream </code> параметра."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task%601>объекта завершит все содержимое, произошло после записи в объект потока, переданного в качестве `stream` параметр.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task CopyToAsync (System.IO.Stream stream, System.Net.TransportContext context);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The target stream."
+      description: "Целевой поток."
     - id: context
       type: System.Net.TransportContext
-      description: "Information about the transport (channel binding token, for example). This parameter may be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Сведения о транспорте (например, маркер привязки канала). Этот параметр может быть <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Threading.Tasks.Task
-      description: "The task object representing the asynchronous operation."
+      description: "Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Http.HttpContent.CopyToAsync*
   exceptions: []
   platform:
@@ -122,14 +122,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content to a memory stream as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been written to the memory stream.       Once the operation completes, the  <xref:System.Threading.Tasks.Task%601.Result%2A> property on the returned task object contains the memory stream that that represents the HTTP content. The returned stream can then be used to read the content using various stream APIs.       The CreateContentReadStreamAsync method buffers the content to a memory stream. Derived classes can override this behavior if there is a better way to retrieve the content as stream. For example, a byte array or a string could use a more efficient method way such as wrapping a read-only <xref:System.IO.MemoryStream> around the bytes or string.)"
+  summary: "Сериализация содержимого HTTP в поток в памяти в качестве асинхронной операции."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task%601>объекта завершит все содержимое, произошло после записи в поток памяти.</xref:System.Threading.Tasks.Task%601>       После завершения операции, <xref:System.Threading.Tasks.Task%601.Result%2A>свойство объекта возвращаемая задача содержит поток памяти, который представляет содержимое HTTP.</xref:System.Threading.Tasks.Task%601.Result%2A> Затем возвращенный поток используется для считывания содержимого с помощью различных потока API-интерфейсы.       Метод CreateContentReadStreamAsync выполняет буферизацию содержимого в поток памяти. Это поведение можно переопределить в производных классах при наличии более эффективный способ получения содержимого, как поток. Например, массив байтов или строка может использовать более эффективный способ метода, такие как обтекания только для чтения <xref:System.IO.MemoryStream>вокруг байт или строку.)</xref:System.IO.MemoryStream>"
   syntax:
     content: protected virtual System.Threading.Tasks.Task<System.IO.Stream> CreateContentReadStreamAsync ();
     parameters: []
     return:
       type: System.Threading.Tasks.Task{System.IO.Stream}
-      description: "The task object representing the asynchronous operation."
+      description: "Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Http.HttpContent.CreateContentReadStreamAsync*
   exceptions: []
   platform:
@@ -146,7 +146,7 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Releases the unmanaged resources and disposes of the managed resources used by the <xref href=&quot;System.Net.Http.HttpContent&quot;></xref>."
+  summary: "Выпуски неуправляемые ресурсы и освобождает управляемые ресурсы, используемые <xref href=&quot;System.Net.Http.HttpContent&quot;> </xref>."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -166,14 +166,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Net.Http.HttpContent&quot;></xref> and optionally disposes of the managed resources."
-  remarks: "This method is called by the public `Dispose()` method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.When the `disposing` parameter is `true`, this method releases all resources held by any managed objects that this <xref:System.Net.Http.HttpContent> references. This method invokes the `Dispose()` method of each referenced object."
+  summary: "Освобождает неуправляемые ресурсы, используемые <xref href=&quot;System.Net.Http.HttpContent&quot;> </xref> и при необходимости освобождает также управляемые ресурсы."
+  remarks: "Этот метод вызывается методом открытые `Dispose()` метод и <xref:System.Object.Finalize%2A>метод.</xref:System.Object.Finalize%2A> `Dispose()`вызывает защищенный `Dispose(Boolean)` метод с `disposing` равным `true`. <xref:System.Object.Finalize%2A>вызывает `Dispose` с `disposing` значение `false`. При `disposing` параметр `true`, данный метод освобождает все ресурсы, занятые любыми управляемыми объектами, которые <xref:System.Net.Http.HttpContent>ссылки.</xref:System.Net.Http.HttpContent></xref:System.Object.Finalize%2A> Этот метод вызывает `Dispose()` метод для каждого объекта, на который указывает ссылка."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to releases only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>для освобождения управляемых и неуправляемых ресурсов; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> для освобождения только неуправляемых ресурсов."
   overload: System.Net.Http.HttpContent.Dispose*
   exceptions: []
   platform:
@@ -190,12 +190,12 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Gets the HTTP content headers as defined in RFC 2616."
+  summary: "Получает заголовки содержимого HTTP согласно спецификации RFC 2616."
   syntax:
     content: public System.Net.Http.Headers.HttpContentHeaders Headers { get; }
     return:
       type: System.Net.Http.Headers.HttpContentHeaders
-      description: "The content headers as defined in RFC 2616."
+      description: "Заголовки содержимого, как определено в RFC 2616."
   overload: System.Net.Http.HttpContent.Headers*
   exceptions: []
   platform:
@@ -212,14 +212,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content to a memory buffer as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task> object will complete after all of the content has been serialized to the memory buffer.       After content is serialized to a memory buffer, calls to one of the  <xref:System.Net.Http.HttpContent.CopyToAsync%2A> methods will copy the content of the memory buffer to the target stream."
+  summary: "Сериализация содержимого HTTP в буфер в памяти в качестве асинхронной операции."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task>объекта будет выполнена после сериализации все содержимое в буфер памяти.</xref:System.Threading.Tasks.Task>       После сериализации содержимого буфер памяти, вызывает одно из <xref:System.Net.Http.HttpContent.CopyToAsync%2A>методов будет скопировано содержимое буфера памяти в целевой поток.</xref:System.Net.Http.HttpContent.CopyToAsync%2A>"
   syntax:
     content: public System.Threading.Tasks.Task LoadIntoBufferAsync ();
     parameters: []
     return:
       type: System.Threading.Tasks.Task
-      description: "The task object representing the asynchronous operation."
+      description: "Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Http.HttpContent.LoadIntoBufferAsync*
   exceptions: []
   platform:
@@ -236,17 +236,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content to a memory buffer as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task> object will complete after all of the content has been serialized to the memory buffer.       After content is serialized to a memory buffer, calls to one of the  <xref:System.Net.Http.HttpContent.CopyToAsync%2A> methods will copy the content of the memory buffer to the target stream.       If the content exceeds the value  passed in the `maxBufferSize` parameter , an exception is thrown."
+  summary: "Сериализация содержимого HTTP в буфер в памяти в качестве асинхронной операции."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task>объекта будет выполнена после сериализации все содержимое в буфер памяти.</xref:System.Threading.Tasks.Task>       После сериализации содержимого буфер памяти, вызывает одно из <xref:System.Net.Http.HttpContent.CopyToAsync%2A>методов будет скопировано содержимое буфера памяти в целевой поток.</xref:System.Net.Http.HttpContent.CopyToAsync%2A>       Если содержимое превышает значение, переданное в `maxBufferSize` параметра, возникает исключение."
   syntax:
     content: public System.Threading.Tasks.Task LoadIntoBufferAsync (long maxBufferSize);
     parameters:
     - id: maxBufferSize
       type: System.Int64
-      description: "The maximum size, in bytes, of the buffer to use."
+      description: "Максимальный размер в байтах буфера."
     return:
       type: System.Threading.Tasks.Task
-      description: "The task object representing the asynchronous operation."
+      description: "Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Http.HttpContent.LoadIntoBufferAsync*
   exceptions: []
   platform:
@@ -263,14 +263,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content to a byte array as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been written as a byte array.       Once the operation completes, the  <xref:System.Threading.Tasks.Task%601.Result%2A> property on the returned task object contains the byte array with the HTTP content."
+  summary: "Сериализация содержимого HTTP в массив байтов в асинхронной операции."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task%601>объекта будет выполнена после написания все содержимое в виде массива байтов.</xref:System.Threading.Tasks.Task%601>       После завершения операции, <xref:System.Threading.Tasks.Task%601.Result%2A>свойство объекта возвращаемая задача содержит массив байтов с содержимым HTTP.</xref:System.Threading.Tasks.Task%601.Result%2A>"
   syntax:
     content: public System.Threading.Tasks.Task<byte[]> ReadAsByteArrayAsync ();
     parameters: []
     return:
       type: System.Threading.Tasks.Task{System.Byte[]}
-      description: "The task object representing the asynchronous operation."
+      description: "Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Http.HttpContent.ReadAsByteArrayAsync*
   exceptions: []
   platform:
@@ -287,14 +287,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content and return a stream that represents the content as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the stream that represents content has been read.       Once the operation completes, the  <xref:System.Threading.Tasks.Task%601.Result%2A> property on the returned task object contains the stream that that represents the HTTP content. The returned stream can then be used to read the content using various stream APIs."
+  summary: "Сериализация содержимого HTTP и возвращать поток, который представляет содержимое в асинхронной операции."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task%601>объекта будет выполнена после всех потока считаны представляет содержимое.</xref:System.Threading.Tasks.Task%601>       После завершения операции, <xref:System.Threading.Tasks.Task%601.Result%2A>свойство объекта возвращаемая задача содержит поток, который представляет содержимое HTTP.</xref:System.Threading.Tasks.Task%601.Result%2A> Затем возвращенный поток используется для считывания содержимого с помощью различных потока API-интерфейсы."
   syntax:
     content: public System.Threading.Tasks.Task<System.IO.Stream> ReadAsStreamAsync ();
     parameters: []
     return:
       type: System.Threading.Tasks.Task{System.IO.Stream}
-      description: "The task object representing the asynchronous operation."
+      description: "Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Http.HttpContent.ReadAsStreamAsync*
   exceptions: []
   platform:
@@ -311,14 +311,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content to a string as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been written as a string.       Once the operation completes, the  <xref:System.Threading.Tasks.Task%601.Result%2A> property on the returned task object contains the string with the HTTP content."
+  summary: "Сериализация содержимого HTTP в строку в качестве асинхронной операции."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task%601>объекта будет выполнена после того как строку все содержимое записан.</xref:System.Threading.Tasks.Task%601>       После завершения операции, <xref:System.Threading.Tasks.Task%601.Result%2A>Свойства в объекте возвращаемая задача содержит строку с помощью содержимого HTTP.</xref:System.Threading.Tasks.Task%601.Result%2A>"
   syntax:
     content: public System.Threading.Tasks.Task<string> ReadAsStringAsync ();
     parameters: []
     return:
       type: System.Threading.Tasks.Task{System.String}
-      description: "The task object representing the asynchronous operation."
+      description: "Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Http.HttpContent.ReadAsStringAsync*
   exceptions: []
   platform:
@@ -335,20 +335,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Serialize the HTTP content to a stream as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after all of the content has been serialized to the stream object passed in the `stream` parameter."
+  summary: "Сериализация содержимого HTTP в поток в качестве асинхронной операции."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task%601>объекта будет выполнена после сериализации все содержимое в объект потока, переданный `stream` параметр.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: protected abstract System.Threading.Tasks.Task SerializeToStreamAsync (System.IO.Stream stream, System.Net.TransportContext context);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The target stream."
+      description: "Целевой поток."
     - id: context
       type: System.Net.TransportContext
-      description: "Information about the transport (channel binding token, for example). This parameter may be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Сведения о транспорте (например, маркер привязки канала). Этот параметр может быть <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Threading.Tasks.Task
-      description: "The task object representing the asynchronous operation."
+      description: "Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Http.HttpContent.SerializeToStreamAsync*
   exceptions: []
   platform:
@@ -365,17 +365,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Determines whether the HTTP content has a valid length in bytes."
-  remarks: "The TryComputeLength method gives a HTTP content the ability to calculate the content length. This is useful for content types which are able to easily calculate the content length. If computing the content length is not possible or expensive (would require the system to buffer the whole content where the serialization would be expensive or require the system to allocate a lot of memory), this method can return `false`. If this method returns `false`, this implies that either chunked transfer is needed or the content must get buffered before being sent to the server."
+  summary: "Определяет, имеет ли содержимое HTTP допустимую длину в байтах."
+  remarks: "Метод TryComputeLength позволяет содержимого HTTP для вычисления длины содержимого. Это полезно для типов содержимого, которые поддерживают возможность легко вычислить длину содержимого. Если вычисление длину содержимого невозможно или ресурсоемкие (потребует системы для буферизации все содержимое, где бы требует много ресурсов или требуют выделения большого объема памяти системы сериализации), этот метод может возвращать `false`. Если этот метод возвращает `false`, это означает, что необходимости поблочное или содержимое должно получить буфер перед его отправкой на сервер."
   syntax:
     content: protected abstract bool TryComputeLength (out long length);
     parameters:
     - id: length
       type: System.Int64
-      description: "The length in bytes of the HTTP content."
+      description: "Длина содержимого HTTP в байтах."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>length</code> is a valid length; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <code> length </code> является допустимой; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Net.Http.HttpContent.TryComputeLength*
   exceptions: []
   platform:

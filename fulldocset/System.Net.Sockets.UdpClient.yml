@@ -50,7 +50,7 @@ items:
   nameWithType: UdpClient
   fullName: System.Net.Sockets.UdpClient
   type: Class
-  summary: "Provides User Datagram Protocol (UDP) network services."
+  summary: "Предоставляет сетевые службы протокола UDP (User Datagram)."
   remarks: "The UdpClient class provides simple methods for sending and receiving connectionless UDP datagrams in blocking synchronous mode. Because UDP is a connectionless transport protocol, you do not need to establish a remote host connection prior to sending and receiving data. You do, however, have the option of establishing a default remote host in one of the following two ways:  \n  \n-   Create an instance of the UdpClient class using the remote host name and port number as parameters.  \n  \n-   Create an instance of the UdpClient class and then call the <xref:System.Net.Sockets.UdpClient.Connect%2A> method.  \n  \n You can use any of the send methods provided in the UdpClient to send data to a remote device. Use the <xref:System.Net.Sockets.UdpClient.Receive%2A> method to receive data from remote hosts.  \n  \n> [!NOTE]\n>  Do not call [Send(Byte\\[\\], Int32, IPEndPoint)](assetId:///M:System.Net.Sockets.UdpClient.Send(System.Byte[],System.Int32,System.Net.IPEndPoint)?qualifyHint=False&autoUpgrade=True) using a host name or <xref:System.Net.IPEndPoint> if you have already specified a default remote host. If you do, UdpClient will throw an exception.  \n  \n UdpClient methods also allow you to send and receive multicast datagrams. Use the <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A> method to subscribe a UdpClient to a multicast group. Use the <xref:System.Net.Sockets.UdpClient.DropMulticastGroup%2A> method to unsubscribe a UdpClient from a multicast group."
   example:
   - "The following example establishes a UdpClient connection using the host name www.contoso.com on port 11000. A small string message is sent to two separate remote host machines. The <xref:System.Net.Sockets.UdpClient.Receive%2A> method blocks execution until a message is received. Using the <xref:System.Net.IPEndPoint> passed to <xref:System.Net.Sockets.UdpClient.Receive%2A>, the identity of the responding host is revealed.  \n  \n [!code-vb[Classic UdpClientExample#1](~/add/codesnippet/visualbasic/t-system.net.sockets.udp_1.vb)]\n [!code-cpp[Classic UdpClientExample#1](~/add/codesnippet/cpp/t-system.net.sockets.udp_1.cpp)]\n [!code-cs[Classic UdpClientExample#1](~/add/codesnippet/csharp/t-system.net.sockets.udp_1.cs)]"
@@ -76,7 +76,7 @@ items:
   - System
   namespace: System.Net.Sockets
   summary: "Initializes a new instance of the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> class."
-  remarks: "This constructor creates a new <xref:System.Net.Sockets.UdpClient> and allows the underlying service provider to assign the most appropriate local IPv4 address and port number. If this constructor is used, the <xref:System.Net.Sockets.UdpClient> instance is set with an address family of IPv4 that cannot be changed or overwritten by a connect method call with an IPv6 target.      > [!NOTE] >  If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error.       This constructor is not suitable for joining a multicast group because it does not perform socket binding. Also, it works only with IPv4 address types."
+  remarks: "Этот конструктор создает новый <xref:System.Net.Sockets.UdpClient>и позволяет основному поставщику услуг присвоить наиболее подходящий локальный IPv4 адрес и номер порта.</xref:System.Net.Sockets.UdpClient> Если используется этот конструктор, <xref:System.Net.Sockets.UdpClient>набор экземпляров с семейству адресов IPv4, который не может быть изменен или перезаписана при вызове метода соединение с целевым IPv6.</xref:System.Net.Sockets.UdpClient>      Настроек [!NOTE] настроек при получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN.       Этот конструктор не годится для объединения группы многоадресной рассылки, так как он не позволяет выполнять привязку сокета. Кроме того он работает только с IPv4-адресами."
   example:
   - "The following example demonstrates how to use the default constructor to create an instance of the <xref:System.Net.Sockets.UdpClient> class.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#4](~/add/codesnippet/csharp/m-system.net.sockets.udp_11_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#4](~/add/codesnippet/cpp/m-system.net.sockets.udp_11_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#4](~/add/codesnippet/visualbasic/m-system.net.sockets.udp_11_1.vb)]"
   syntax:
@@ -86,7 +86,7 @@ items:
   exceptions:
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.#ctor(System.Int32)
@@ -101,8 +101,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> class and binds it to the local port number provided."
-  remarks: "This constructor creates an underlying <xref:System.Net.Sockets.Socket> and binds it to the port number from which you intend to communicate. Use this constructor if you are only interested in setting the local port number. The underlying service provider will assign the local IP address. If you pass 0 to the constructor, the underlying service provider will assign a port number. If this constructor is used, the <xref:System.Net.Sockets.UdpClient> instance is set with an address family of IPv4 that cannot be changed or overwritten by a connect method call with an IPv6 target.      > [!NOTE] >  If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error.       This constructor works only with IPv4 address types."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> класса и привязывает его к заданным номером локального порта."
+  remarks: "Этот конструктор создает основной <xref:System.Net.Sockets.Socket>и связывает его с номером порта, который предполагается использовать для обмена данными.</xref:System.Net.Sockets.Socket> Этот конструктор используется, если нужны только при задании номера локального порта. Основной поставщик услуг присвоит локальный IP-адрес. Если в конструктор передается значение 0, основной поставщик услуг назначит номер порта. Если используется этот конструктор, <xref:System.Net.Sockets.UdpClient>набор экземпляров с семейству адресов IPv4, который не может быть изменен или перезаписана при вызове метода соединение с целевым IPv6.</xref:System.Net.Sockets.UdpClient>      Настроек [!NOTE] настроек при получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN.       Этот конструктор работает только с IPv4-адресами."
   example:
   - "The following example demonstrates using a local port number to create an instance of the <xref:System.Net.Sockets.UdpClient> class.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#1](~/add/codesnippet/csharp/m-system.net.sockets.udp_4_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#1](~/add/codesnippet/cpp/m-system.net.sockets.udp_4_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#1](~/add/codesnippet/visualbasic/m-system.net.sockets.udp_4_1.vb)]"
   syntax:
@@ -110,15 +110,15 @@ items:
     parameters:
     - id: port
       type: System.Int32
-      description: "The local port number from which you intend to communicate."
+      description: "Номер локального порта, который предполагается использовать для обмена данными."
   overload: System.Net.Sockets.UdpClient.#ctor*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>port</code> parameter is greater than <xref:System.Net.IPEndPoint.MaxPort> or less than <xref:System.Net.IPEndPoint.MinPort>."
+    description: "<code> port </code> Параметра больше <xref:System.Net.IPEndPoint.MaxPort>или меньше, чем <xref:System.Net.IPEndPoint.MinPort>.</xref:System.Net.IPEndPoint.MinPort> </xref:System.Net.IPEndPoint.MaxPort>"
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.#ctor(System.Net.IPEndPoint)
@@ -133,8 +133,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> class and binds it to the specified local endpoint."
-  remarks: "This constructor creates a new <xref:System.Net.Sockets.UdpClient> and binds it to the <xref:System.Net.IPEndPoint> specified by the `localEP` parameter. Before you call this constructor, you must create an <xref:System.Net.IPEndPoint> using the IP address and port number from which you intend to send and receive data. You do not need to specify a local IP address and port number for sending and receiving data. If you do not, the underlying service provider will assign the most appropriate local IP address and port number.       If this constructor is used, the <xref:System.Net.Sockets.UdpClient> instance is set with the address family specified by the `localEP` parameter  that cannot be changed or overwritten by a connect method call with a different address family.      > [!NOTE] >  If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> класса и связывает его с заданной локальной конечной точкой."
+  remarks: "Этот конструктор создает новый <xref:System.Net.Sockets.UdpClient>и привязывает его к <xref:System.Net.IPEndPoint>заданные `localEP` параметр.</xref:System.Net.IPEndPoint> </xref:System.Net.Sockets.UdpClient> Перед вызовом этого конструктора необходимо создать <xref:System.Net.IPEndPoint>с помощью IP-номер адреса и порта, который предполагается использовать для отправки и получения данных.</xref:System.Net.IPEndPoint> Необходимо указать локальный IP-адрес и порт номер для отправки и получения данных. Если этого не сделать, основной поставщик услуг присвоит наиболее подходящий локальный IP-адрес и порт номер.       Если используется этот конструктор, <xref:System.Net.Sockets.UdpClient>набор экземпляров с заданные семейство адресов `localEP` параметр, который не может быть изменен или перезаписана при вызове метода connect с семейством другой адрес.</xref:System.Net.Sockets.UdpClient>      Настроек [!NOTE] настроек при получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN."
   example:
   - "The following example demonstrates how to create an instance of the <xref:System.Net.Sockets.UdpClient> class using a local endpoint.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#2](~/add/codesnippet/csharp/m-system.net.sockets.udp_9_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#2](~/add/codesnippet/cpp/m-system.net.sockets.udp_9_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#2](~/add/codesnippet/visualbasic/m-system.net.sockets.udp_9_1.vb)]"
   syntax:
@@ -142,15 +142,15 @@ items:
     parameters:
     - id: localEP
       type: System.Net.IPEndPoint
-      description: "An <xref:System.Net.IPEndPoint> that respresents the local endpoint to which you bind the UDP connection."
+      description: "<xref:System.Net.IPEndPoint>, Предоставляющий локальную конечную точку, к которой выполняется привязка UDP-подключения.</xref:System.Net.IPEndPoint>"
   overload: System.Net.Sockets.UdpClient.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>localEP</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>localEP</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.#ctor(System.Net.Sockets.AddressFamily)
@@ -166,21 +166,21 @@ items:
   - System
   namespace: System.Net.Sockets
   summary: "Initializes a new instance of the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> class."
-  remarks: "The `family` parameter determines whether the listener uses an IP version 4 address (IPv4) or an IP version 6 (IPv6) address. To use an IPv4 address, pass the <xref:System.Net.Sockets.AddressFamily> value. To use an IPv6 address, pass the <xref:System.Net.Sockets.AddressFamily> value. Passing any other value will cause the method to throw an <xref:System.ArgumentException>.       If this constructor is used, the <xref:System.Net.Sockets.UdpClient> instance is set with the address family specified by the `family` parameter  that cannot be changed or overwritten by a connect method call with a different address family.      > [!NOTE] >  If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error.       The UdpClient is not suitable for joining a multicast group because it does not perform socket binding."
+  remarks: "`family` Параметр определяет, является ли прослушиватель использует IP-адрес версии 4 (IPv4) или IP версии 6 (IPv6) адрес. Чтобы использовать адрес IPv4, передайте <xref:System.Net.Sockets.AddressFamily>значение.</xref:System.Net.Sockets.AddressFamily> Чтобы использовать IPv6-адрес, передайте <xref:System.Net.Sockets.AddressFamily>значение.</xref:System.Net.Sockets.AddressFamily> Передача любого другого значения метод создаст исключение <xref:System.ArgumentException>.</xref:System.ArgumentException>       Если используется этот конструктор, <xref:System.Net.Sockets.UdpClient>набор экземпляров с заданные семейство адресов `family` параметр, который не может быть изменен или перезаписана при вызове метода connect с семейством другой адрес.</xref:System.Net.Sockets.UdpClient>      Настроек [!NOTE] настроек при получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN.       Класс UdpClient не годится для объединения группы многоадресной рассылки, так как он не позволяет выполнять привязку сокета."
   syntax:
     content: public UdpClient (System.Net.Sockets.AddressFamily family);
     parameters:
     - id: family
       type: System.Net.Sockets.AddressFamily
-      description: "One of the <xref:System.Net.Sockets.AddressFamily> values that specifies the addressing scheme of the socket."
+      description: "Один из <xref:System.Net.Sockets.AddressFamily>значений, которое задает схему адресации сокета.</xref:System.Net.Sockets.AddressFamily>"
   overload: System.Net.Sockets.UdpClient.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>family</code> is not <xref:System.Net.Sockets.AddressFamily> or <xref:System.Net.Sockets.AddressFamily>."
+    description: "<code>family</code>is not <xref:System.Net.Sockets.AddressFamily> or <xref:System.Net.Sockets.AddressFamily>."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.#ctor(System.Int32,System.Net.Sockets.AddressFamily)
@@ -195,8 +195,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> class and binds it to the local port number provided."
-  remarks: "This constructor creates an underlying <xref:System.Net.Sockets.Socket> and binds it to the port number from which you intend to communicate.       The `family` parameter determines whether the listener uses an IP version 4 address (IPv4) or an IP version 6 (IPv6) address. To use an IPv4 address, pass the <xref:System.Net.Sockets.AddressFamily> value. To use an IPv6 address, pass the <xref:System.Net.Sockets.AddressFamily> value. Passing any other value will cause the method to throw an <xref:System.ArgumentException>.       If this constructor is used, the <xref:System.Net.Sockets.UdpClient> instance is set with the address family specified by the `family` parameter  that cannot be changed or overwritten by a connect method call with a different address family.      > [!NOTE] >  If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> класса и привязывает его к заданным номером локального порта."
+  remarks: "Этот конструктор создает основной <xref:System.Net.Sockets.Socket>и связывает его с номером порта, который предполагается использовать для обмена данными.</xref:System.Net.Sockets.Socket>       `family` Параметр определяет, является ли прослушиватель использует IP-адрес версии 4 (IPv4) или IP версии 6 (IPv6) адрес. Чтобы использовать адрес IPv4, передайте <xref:System.Net.Sockets.AddressFamily>значение.</xref:System.Net.Sockets.AddressFamily> Чтобы использовать IPv6-адрес, передайте <xref:System.Net.Sockets.AddressFamily>значение.</xref:System.Net.Sockets.AddressFamily> Передача любого другого значения метод создаст исключение <xref:System.ArgumentException>.</xref:System.ArgumentException>       Если используется этот конструктор, <xref:System.Net.Sockets.UdpClient>набор экземпляров с заданные семейство адресов `family` параметр, который не может быть изменен или перезаписана при вызове метода connect с семейством другой адрес.</xref:System.Net.Sockets.UdpClient>      Настроек [!NOTE] настроек при получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код, см. Подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN."
   example:
   - "The following code example shows how to create a UDP client to use in a multicast group.  \n  \n [!code-cpp[System.Net.Sockets.UdpClient.JoinMulticastGroup#3](~/add/codesnippet/cpp/c2c91fdb-fd73-47cc-8239-_1.cpp)]\n [!code-vb[System.Net.Sockets.UdpClient.JoinMulticastGroup#3](~/add/codesnippet/visualbasic/c2c91fdb-fd73-47cc-8239-_1.vb)]\n [!code-cs[System.Net.Sockets.UdpClient.JoinMulticastGroup#3](~/add/codesnippet/csharp/c2c91fdb-fd73-47cc-8239-_1.cs)]"
   syntax:
@@ -204,21 +204,21 @@ items:
     parameters:
     - id: port
       type: System.Int32
-      description: "The port on which to listen for incoming connection attempts."
+      description: "Порт для прослушивания входящих попыток подключения."
     - id: family
       type: System.Net.Sockets.AddressFamily
-      description: "One of the <xref:System.Net.Sockets.AddressFamily> values that specifies the addressing scheme of the socket."
+      description: "Один из <xref:System.Net.Sockets.AddressFamily>значений, которое задает схему адресации сокета.</xref:System.Net.Sockets.AddressFamily>"
   overload: System.Net.Sockets.UdpClient.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>family</code> is not <xref:System.Net.Sockets.AddressFamily> or <xref:System.Net.Sockets.AddressFamily>."
+    description: "<code>family</code>is not <xref:System.Net.Sockets.AddressFamily> or <xref:System.Net.Sockets.AddressFamily>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>port</code> is greater than <xref:System.Net.IPEndPoint.MaxPort> or less than <xref:System.Net.IPEndPoint.MinPort>."
+    description: "<code>port</code>больше, чем <xref:System.Net.IPEndPoint.MaxPort> или меньше, чем <xref:System.Net.IPEndPoint.MinPort>."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.#ctor(System.String,System.Int32)
@@ -233,8 +233,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> class and establishes a default remote host."
-  remarks: "This constructor initializes a new <xref:System.Net.Sockets.UdpClient> and establishes a remote host using the `hostname` and `port` parameters. Establishing a default remote host is optional. If you use this constructor, you do not have to specify a remote host in each call to the <xref:System.Net.Sockets.UdpClient.Send%2A> method. Specifying a default remote host limits you to that host only. You can change the default remote host at any time by calling the <xref:System.Net.Sockets.UdpClient.Connect%2A> method. If you want to specify a remote host in your call to the <xref:System.Net.Sockets.UdpClient.Send%2A> method, do not use this constructor.      > [!NOTE] >  If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> класса и устанавливает удаленный узел по умолчанию."
+  remarks: "Этот конструктор инициализирует новый <xref:System.Net.Sockets.UdpClient>и устанавливает удаленному узлу, используя `hostname` и `port` параметров.</xref:System.Net.Sockets.UdpClient> Установка удаленный узел по умолчанию является необязательным. При использовании этого конструктора не нужно указывать удаленный хост при каждом обращении к <xref:System.Net.Sockets.UdpClient.Send%2A>метод.</xref:System.Net.Sockets.UdpClient.Send%2A> Указание удаленный узел по умолчанию ограничена только узел. Удаленный узел по умолчанию можно изменить в любое время путем вызова <xref:System.Net.Sockets.UdpClient.Connect%2A>метод.</xref:System.Net.Sockets.UdpClient.Connect%2A> Если вы хотите указать удаленного узла при вызове <xref:System.Net.Sockets.UdpClient.Send%2A>метода, не используйте этот конструктор.</xref:System.Net.Sockets.UdpClient.Send%2A>      Настроек [!NOTE] настроек при получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN."
   example:
   - "The following example demonstrates how to create an instance of the <xref:System.Net.Sockets.UdpClient> class using a host name and port number.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#3](~/add/codesnippet/csharp/m-system.net.sockets.udp_7_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#3](~/add/codesnippet/cpp/m-system.net.sockets.udp_7_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#3](~/add/codesnippet/visualbasic/m-system.net.sockets.udp_7_1.vb)]"
   syntax:
@@ -242,21 +242,21 @@ items:
     parameters:
     - id: hostname
       type: System.String
-      description: "The name of the remote DNS host to which you intend to connect."
+      description: "Имя удаленного DNS-узла, к которому планируется подключение."
     - id: port
       type: System.Int32
-      description: "The remote port number to which you intend to connect."
+      description: "Номер удаленного порта, к которому планируется подключение."
   overload: System.Net.Sockets.UdpClient.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>hostname</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>hostname</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>port</code> is not between <xref:System.Net.IPEndPoint.MinPort> and <xref:System.Net.IPEndPoint.MaxPort>."
+    description: "<code>port</code>не находится между <xref:System.Net.IPEndPoint.MinPort> и <xref:System.Net.IPEndPoint.MaxPort>."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.Active
@@ -271,13 +271,13 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Gets or sets a value indicating whether a default remote host has been established."
-  remarks: "Classes deriving from <xref:System.Net.Sockets.UdpClient> can use this property to determine if a default remote host has been established. You can establish a default remote host by using the appropriate constructor or by calling the <xref:System.Net.Sockets.UdpClient.Connect%2A> method. If you do establish a default remote host, you cannot specify a remote host in your call to <xref:System.Net.Sockets.UdpClient.Send%2A>."
+  summary: "Возвращает или задает значение, указывающее, установлен ли удаленный узел по умолчанию."
+  remarks: "Классы, производные от <xref:System.Net.Sockets.UdpClient>это свойство можно использовать для определения того, установлен ли удаленный узел по умолчанию.</xref:System.Net.Sockets.UdpClient> Удаленный узел по умолчанию можно установить с помощью соответствующего конструктора или путем вызова <xref:System.Net.Sockets.UdpClient.Connect%2A>метод.</xref:System.Net.Sockets.UdpClient.Connect%2A> Если установить удаленный узел по умолчанию, невозможно указать удаленный узел в вызове <xref:System.Net.Sockets.UdpClient.Send%2A>.</xref:System.Net.Sockets.UdpClient.Send%2A>"
   syntax:
     content: protected bool Active { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a connection is active; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если подключение активно; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Net.Sockets.UdpClient.Active*
   exceptions: []
   platform:
@@ -294,14 +294,14 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Enables or disables Network Address Translation (NAT) traversal on a <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> instance."
-  remarks: "The AllowNatTraversal method is used to enable or disable NAT traversal for a <xref:System.Net.Sockets.UdpClient> instance. NAT traversal may be provided using Teredo, 6to4, or an ISATAP tunnel.       When the `allowed` parameter is false, the <xref:System.Net.Sockets.SocketOptionName> option on the associated socket is set to <xref:System.Net.Sockets.IPProtectionLevel>. This explicitly disables NAT traversal for a <xref:System.Net.Sockets.UdpClient> instance.       When the `allowed` parameter is true, the <xref:System.Net.Sockets.SocketOptionName> option on the associated socket is set to <xref:System.Net.Sockets.IPProtectionLevel>. This may allow NAT traversal for a <xref:System.Net.Sockets.UdpClient> depending on firewall rules in place on the system.       A Teredo address is an IPv6 address with the prefix of 2001::/32. Teredo addresses can be returned through normal DNS name resolution or enumerated as an IPv6 address assigned to a local interface."
+  summary: "Включает или отключает обход сетевых адресов (NAT) для <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> экземпляра."
+  remarks: "Метод AllowNatTraversal используется для включения или отключения прохождения NAT для <xref:System.Net.Sockets.UdpClient>экземпляра.</xref:System.Net.Sockets.UdpClient> Обход NAT может предоставляться Teredo, 6to4 или туннель ISATAP.       Когда `allowed` параметр имеет значение false, <xref:System.Net.Sockets.SocketOptionName>на связанного сокета был установлен в <xref:System.Net.Sockets.IPProtectionLevel>.</xref:System.Net.Sockets.IPProtectionLevel> </xref:System.Net.Sockets.SocketOptionName> Это явно отключает прохождения NAT для <xref:System.Net.Sockets.UdpClient>экземпляра.</xref:System.Net.Sockets.UdpClient>       Когда `allowed` параметр имеет значение true, <xref:System.Net.Sockets.SocketOptionName>для связанного сокета был установлен в <xref:System.Net.Sockets.IPProtectionLevel>.</xref:System.Net.Sockets.IPProtectionLevel> </xref:System.Net.Sockets.SocketOptionName> Это может позволить прохождения NAT для <xref:System.Net.Sockets.UdpClient>в зависимости от правил брандмауэра на месте в системе.</xref:System.Net.Sockets.UdpClient>       Адрес Teredo — IPv6-адрес с префиксом 2001:: / 32. Адреса Teredo можно возвращенные с помощью обычного разрешения имен DNS или перечислены как IPv6-адрес локального интерфейса."
   syntax:
     content: public void AllowNatTraversal (bool allowed);
     parameters:
     - id: allowed
       type: System.Boolean
-      description: "A Boolean value that specifies whether to enable or disable NAT traversal."
+      description: "Логическое значение, указывающее, следует ли включить или отключить прохождения NAT."
   overload: System.Net.Sockets.UdpClient.AllowNatTraversal*
   exceptions: []
   platform:
@@ -318,23 +318,23 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Gets the amount of data received from the network that is available to read."
-  remarks: "The Available property is used to determine the amount of data queued in the network buffer for reading. If data is available, call <xref:System.Net.Sockets.NetworkStream.Read%2A> to get the data. If no data is available, the Available property returns 0.       If the remote host shuts down or closes the connection, the Available property throws a <xref:System.Net.Sockets.SocketException>.      > [!NOTE] >  If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code and refer to the Windows Sockets version 2 API error code documentation in the MSDN library at [http://msdn.microsoft.com/library](http://msdn.microsoft.com/library)/ for a detailed description of the error."
+  summary: "Получает объем данных, полученных из сети, которая доступна для чтения."
+  remarks: "Доступные свойства используется для определения объема данных, помещенных в сетевой буфер для чтения. При наличии данных, вызовите <xref:System.Net.Sockets.NetworkStream.Read%2A>для получения данных.</xref:System.Net.Sockets.NetworkStream.Read%2A> Если данные недоступны, доступных свойств возвращает 0.       Если удаленный узел отключается или закрывает соединение, доступных свойств вызывает <xref:System.Net.Sockets.SocketException>.</xref:System.Net.Sockets.SocketException>      Настроек [!NOTE] настроек при получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки и обратитесь к документации Windows Sockets версии 2 API ошибок кода в библиотеке MSDN по [http://msdn.microsoft.com/library](http://msdn.microsoft.com/library)/ подробное описание ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException>"
   example:
   - "The following code example shows the use of the Available property.  \n  \n [!code-cs[System.Net.Sockets.UdpClient#1](~/add/codesnippet/csharp/p-system.net.sockets.udp_1_1.cs)]\n [!code-cpp[System.Net.Sockets.UdpClient#1](~/add/codesnippet/cpp/p-system.net.sockets.udp_1_1.cpp)]"
   syntax:
     content: public int Available { get; }
     return:
       type: System.Int32
-      description: "The number of bytes of data received from the network."
+      description: "Число байтов данных, полученных из сети."
   overload: System.Net.Sockets.UdpClient.Available*
   exceptions:
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred while attempting to access the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при попытке доступа к сокету. Дополнительные сведения см."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref:System.Net.Sockets.Socket> has been closed."
+    description: "<xref:System.Net.Sockets.Socket>Было закрыто.</xref:System.Net.Sockets.Socket>"
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.BeginReceive(System.AsyncCallback,System.Object)
@@ -349,8 +349,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Receives a datagram from a remote host asynchronously."
-  remarks: "The asynchronous BeginReceive operation must be completed by calling the <xref:System.Net.Sockets.UdpClient.EndReceive%2A> method. Typically, the method is invoked by the `requestCallback` delegate.       This method does not block until the operation is complete. To block until the operation is complete, use the <xref:System.Net.Sockets.UdpClient.Receive%2A> method.       For detailed information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Асинхронно получает датаграмму с удаленного узла."
+  remarks: "Асинхронная операция BeginReceive необходимо завершить путем вызова <xref:System.Net.Sockets.UdpClient.EndReceive%2A>метод.</xref:System.Net.Sockets.UdpClient.EndReceive%2A> Как правило, вызывается метод `requestCallback` делегата.       Этот метод не приводит к блокировке до завершения операции. Для блокирования до завершения операции, используйте <xref:System.Net.Sockets.UdpClient.Receive%2A>метод.</xref:System.Net.Sockets.UdpClient.Receive%2A>       Подробные сведения об использовании модели асинхронного программирования см. в разделе [асинхронный вызов синхронных методов](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example uses BeginReceive to asynchronously receive a server response.  \n  \n [!code-cpp[System.Net.Sockets.UdpClient1#1](~/add/codesnippet/cpp/m-system.net.sockets.udp_12_1.cpp)]\n [!code-cs[System.Net.Sockets.UdpClient1#1](~/add/codesnippet/csharp/m-system.net.sockets.udp_12_1.cs)]"
   syntax:
@@ -358,13 +358,13 @@ items:
     parameters:
     - id: requestCallback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> delegate that references the method to invoke when the operation is complete."
+      description: "<xref:System.AsyncCallback>Делегат, который ссылается на метод, который вызывается при завершении операции.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "A user-defined object that contains information about the receive operation. This object is passed to the `requestCallback` delegate when the operation is complete."
+      description: "Определяемые пользователем объект, содержащий сведения об операции получения. Этот объект передается `requestCallback` делегат при завершении операции."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object that references the asynchronous receive."
+      description: "<xref:System.IAsyncResult>Объект, который ссылается на асинхронное получение.</xref:System.IAsyncResult>"
   overload: System.Net.Sockets.UdpClient.BeginReceive*
   exceptions: []
   platform:
@@ -381,8 +381,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Sends a datagram to a remote host asynchronously. The destination was specified previously by a call to <xref:System.Net.Sockets.UdpClient.Connect*>."
-  remarks: "The asynchronous BeginSend operation must be completed by calling the <xref:System.Net.Sockets.UdpClient.EndSend%2A> method. Typically, the method is invoked by the `requestCallback` delegate.       This method does not block until the operation completes. To block until the operation is complete, use one of the <xref:System.Net.Sockets.UdpClient.Send%2A> method overloads.       For detailed information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Асинхронно отправляет датаграмму к удаленному узлу. Назначение был указан ранее вызовом <xref:System.Net.Sockets.UdpClient.Connect*>.</xref:System.Net.Sockets.UdpClient.Connect*>"
+  remarks: "Асинхронная операция BeginSend необходимо завершить путем вызова <xref:System.Net.Sockets.UdpClient.EndSend%2A>метод.</xref:System.Net.Sockets.UdpClient.EndSend%2A> Как правило, вызывается метод `requestCallback` делегата.       Этот метод блокируется до завершения операции. Для блокирования до завершения операции, воспользуйтесь одним из <xref:System.Net.Sockets.UdpClient.Send%2A>перегруженных версий метода.</xref:System.Net.Sockets.UdpClient.Send%2A>       Подробные сведения об использовании модели асинхронного программирования см. в разделе [асинхронный вызов синхронных методов](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example uses BeginSend to asynchronously send a server request.  \n  \n [!code-cpp[System.Net.Sockets.UdpClient1#2](~/add/codesnippet/cpp/8a1303c1-e75f-4620-9cd1-_1.cpp)]\n [!code-cs[System.Net.Sockets.UdpClient1#2](~/add/codesnippet/csharp/8a1303c1-e75f-4620-9cd1-_1.cs)]  \n  \n [!code-cpp[System.Net.Sockets.UdpClient1#3](~/add/codesnippet/cpp/8a1303c1-e75f-4620-9cd1-_2.cpp)]\n [!code-cs[System.Net.Sockets.UdpClient1#3](~/add/codesnippet/csharp/8a1303c1-e75f-4620-9cd1-_2.cs)]"
   syntax:
@@ -390,19 +390,19 @@ items:
     parameters:
     - id: datagram
       type: System.Byte[]
-      description: "A <xref:System.Byte> array that contains the data to be sent."
+      description: "Объект <xref:System.Byte>массив, содержащий данные для отправки.</xref:System.Byte>"
     - id: bytes
       type: System.Int32
-      description: "The number of bytes to send."
+      description: "Число байтов для отправки."
     - id: requestCallback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> delegate that references the method to invoke when the operation is complete."
+      description: "<xref:System.AsyncCallback>Делегат, который ссылается на метод, который вызывается при завершении операции.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "A user-defined object that contains information about the send operation. This object is passed to the `requestCallback` delegate when the operation is complete."
+      description: "Определяемые пользователем объект, содержащий сведения об операции отправки. Этот объект передается `requestCallback` делегат при завершении операции."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object that references the asynchronous send."
+      description: "<xref:System.IAsyncResult>Объект, который ссылается на асинхронную передачу.</xref:System.IAsyncResult>"
   overload: System.Net.Sockets.UdpClient.BeginSend*
   exceptions: []
   platform:
@@ -419,8 +419,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Sends a datagram to a destination asynchronously. The destination is specified by a <xref:System.Net.EndPoint>."
-  remarks: "The asynchronous BeginSend operation must be completed by calling the <xref:System.Net.Sockets.UdpClient.EndSend%2A> method. Typically, the method is invoked by the `requestCallback` delegate.       This method does not block until the operation is complete. To block until the operation is complete, use one of the <xref:System.Net.Sockets.UdpClient.Send%2A> method overloads.       For detailed information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Асинхронно отправляет датаграмму в место назначения. Целевой объект указывается <xref:System.Net.EndPoint>.</xref:System.Net.EndPoint>"
+  remarks: "Асинхронная операция BeginSend необходимо завершить путем вызова <xref:System.Net.Sockets.UdpClient.EndSend%2A>метод.</xref:System.Net.Sockets.UdpClient.EndSend%2A> Как правило, вызывается метод `requestCallback` делегата.       Этот метод не приводит к блокировке до завершения операции. Для блокирования до завершения операции, воспользуйтесь одним из <xref:System.Net.Sockets.UdpClient.Send%2A>перегруженных версий метода.</xref:System.Net.Sockets.UdpClient.Send%2A>       Подробные сведения об использовании модели асинхронного программирования см. в разделе [асинхронный вызов синхронных методов](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example uses <xref:System.Net.Sockets.UdpClient.BeginSend%2A> to asynchronously send a server request.  \n  \n [!code-cpp[System.Net.Sockets.UdpClient1#2](~/add/codesnippet/cpp/baa8f51b-e44a-4d9b-997b-_1.cpp)]\n [!code-cs[System.Net.Sockets.UdpClient1#2](~/add/codesnippet/csharp/baa8f51b-e44a-4d9b-997b-_1.cs)]  \n  \n [!code-cpp[System.Net.Sockets.UdpClient1#4](~/add/codesnippet/cpp/baa8f51b-e44a-4d9b-997b-_2.cpp)]\n [!code-cs[System.Net.Sockets.UdpClient1#4](~/add/codesnippet/csharp/baa8f51b-e44a-4d9b-997b-_2.cs)]"
   syntax:
@@ -428,22 +428,22 @@ items:
     parameters:
     - id: datagram
       type: System.Byte[]
-      description: "A <xref:System.Byte> array that contains the data to be sent."
+      description: "Объект <xref:System.Byte>массив, содержащий данные для отправки.</xref:System.Byte>"
     - id: bytes
       type: System.Int32
-      description: "The number of bytes to send."
+      description: "Число байтов для отправки."
     - id: endPoint
       type: System.Net.IPEndPoint
-      description: "The <xref:System.Net.EndPoint> that represents the destination for the data."
+      description: "<xref:System.Net.EndPoint>, Представляющий данные.</xref:System.Net.EndPoint>"
     - id: requestCallback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> delegate that references the method to invoke when the operation is complete."
+      description: "<xref:System.AsyncCallback>Делегат, который ссылается на метод, который вызывается при завершении операции.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "A user-defined object that contains information about the send operation. This object is passed to the `requestCallback` delegate when the operation is complete."
+      description: "Определяемые пользователем объект, содержащий сведения об операции отправки. Этот объект передается `requestCallback` делегат при завершении операции."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object that references the asynchronous send."
+      description: "<xref:System.IAsyncResult>Объект, который ссылается на асинхронную передачу.</xref:System.IAsyncResult>"
   overload: System.Net.Sockets.UdpClient.BeginSend*
   exceptions: []
   platform:
@@ -460,8 +460,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Sends a datagram to a destination asynchronously. The destination is specified by the host name and port number."
-  remarks: "The asynchronous BeginSend operation must be completed by calling the <xref:System.Net.Sockets.UdpClient.EndSend%2A> method. Typically, the method is invoked by the `requestCallback` delegate.       This method does not block until the operation is complete. To block until the operation is complete, use one of the <xref:System.Net.Sockets.UdpClient.Send%2A> method overloads.       For detailed information about using the asynchronous programming model, see [Calling Synchronous Methods Asynchronously](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Асинхронно отправляет датаграмму в место назначения. Пункт назначения задается имя узла и номер порта."
+  remarks: "Асинхронная операция BeginSend необходимо завершить путем вызова <xref:System.Net.Sockets.UdpClient.EndSend%2A>метод.</xref:System.Net.Sockets.UdpClient.EndSend%2A> Как правило, вызывается метод `requestCallback` делегата.       Этот метод не приводит к блокировке до завершения операции. Для блокирования до завершения операции, воспользуйтесь одним из <xref:System.Net.Sockets.UdpClient.Send%2A>перегруженных версий метода.</xref:System.Net.Sockets.UdpClient.Send%2A>       Подробные сведения об использовании модели асинхронного программирования см. в разделе [асинхронный вызов синхронных методов](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example uses <xref:System.Net.Sockets.UdpClient.BeginSend%2A> to asynchronously send a server request.  \n  \n [!code-cpp[System.Net.Sockets.UdpClient1#2](~/add/codesnippet/cpp/b00a89c3-67f5-4a47-8f24-_1.cpp)]\n [!code-cs[System.Net.Sockets.UdpClient1#2](~/add/codesnippet/csharp/b00a89c3-67f5-4a47-8f24-_1.cs)]  \n  \n [!code-cpp[System.Net.Sockets.UdpClient1#5](~/add/codesnippet/cpp/b00a89c3-67f5-4a47-8f24-_2.cpp)]\n [!code-cs[System.Net.Sockets.UdpClient1#5](~/add/codesnippet/csharp/b00a89c3-67f5-4a47-8f24-_2.cs)]"
   syntax:
@@ -469,25 +469,25 @@ items:
     parameters:
     - id: datagram
       type: System.Byte[]
-      description: "A <xref:System.Byte> array that contains the data to be sent."
+      description: "Объект <xref:System.Byte>массив, содержащий данные для отправки.</xref:System.Byte>"
     - id: bytes
       type: System.Int32
-      description: "The number of bytes to send."
+      description: "Число байтов для отправки."
     - id: hostname
       type: System.String
-      description: "The destination host."
+      description: "Конечный узел."
     - id: port
       type: System.Int32
-      description: "The destination port number."
+      description: "Номер порта назначения."
     - id: requestCallback
       type: System.AsyncCallback
-      description: "An <xref:System.AsyncCallback> delegate that references the method to invoke when the operation is complete."
+      description: "<xref:System.AsyncCallback>Делегат, который ссылается на метод, который вызывается при завершении операции.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "A user-defined object that contains information about the send operation. This object is passed to the `requestCallback` delegate when the operation is complete."
+      description: "Определяемые пользователем объект, содержащий сведения об операции отправки. Этот объект передается `requestCallback` делегат при завершении операции."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object that references the asynchronous send."
+      description: "<xref:System.IAsyncResult>Объект, который ссылается на асинхронную передачу.</xref:System.IAsyncResult>"
   overload: System.Net.Sockets.UdpClient.BeginSend*
   exceptions: []
   platform:
@@ -504,15 +504,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Gets or sets the underlying network <xref:System.Net.Sockets.Socket>."
-  remarks: "<xref:System.Net.Sockets.UdpClient> creates a <xref:System.Net.Sockets.Socket> used to send and receive data over a network. Classes deriving from <xref:System.Net.Sockets.UdpClient> can use this property to get or set this <xref:System.Net.Sockets.Socket>. Use the underlying <xref:System.Net.Sockets.Socket> returned from Client if you require access beyond that which <xref:System.Net.Sockets.UdpClient> provides. You can also use Client to set the underlying <xref:System.Net.Sockets.Socket> to an existing <xref:System.Net.Sockets.Socket>. This is useful if you want to take advantage of the simplicity of <xref:System.Net.Sockets.UdpClient> using a pre-existing <xref:System.Net.Sockets.Socket>."
+  summary: "Возвращает или задает основной сетевой <xref:System.Net.Sockets.Socket>.</xref:System.Net.Sockets.Socket>"
+  remarks: "<xref:System.Net.Sockets.UdpClient>Создает <xref:System.Net.Sockets.Socket>используется для отправки и получения данных по сети.</xref:System.Net.Sockets.Socket></xref:System.Net.Sockets.UdpClient> Классы, производные от <xref:System.Net.Sockets.UdpClient>можно использовать это свойство для получения или задания <xref:System.Net.Sockets.Socket>.</xref:System.Net.Sockets.Socket> </xref:System.Net.Sockets.UdpClient> Используйте основной <xref:System.Net.Sockets.Socket>возвращается из клиента, если требуется доступ, выходящих за пределы которой <xref:System.Net.Sockets.UdpClient>предоставляет.</xref:System.Net.Sockets.UdpClient> </xref:System.Net.Sockets.Socket> Также можно использовать клиентского задаваемое базовой <xref:System.Net.Sockets.Socket>существующей <xref:System.Net.Sockets.Socket>.</xref:System.Net.Sockets.Socket> </xref:System.Net.Sockets.Socket> Это полезно, если вы хотите воспользоваться преимуществами Простота <xref:System.Net.Sockets.UdpClient>использования существующих <xref:System.Net.Sockets.Socket>.</xref:System.Net.Sockets.Socket> </xref:System.Net.Sockets.UdpClient>"
   example:
   - "The following example demonstrates the use of the Client property. In this example, broadcasting is enabled for the underlying <xref:System.Net.Sockets.Socket>.  \n  \n [!code-cs[Classic UdpClient.ProtectedMethodsAndPropertiesExample#1](~/add/codesnippet/csharp/p-system.net.sockets.udp_0_1.cs)]\n [!code-cpp[Classic UdpClient.ProtectedMethodsAndPropertiesExample#1](~/add/codesnippet/cpp/p-system.net.sockets.udp_0_1.cpp)]\n [!code-vb[Classic UdpClient.ProtectedMethodsAndPropertiesExample#1](~/add/codesnippet/visualbasic/p-system.net.sockets.udp_0_1.vb)]"
   syntax:
     content: public System.Net.Sockets.Socket Client { get; set; }
     return:
       type: System.Net.Sockets.Socket
-      description: "The underlying Network <xref:System.Net.Sockets.Socket>."
+      description: "Основной сетевой <xref:System.Net.Sockets.Socket>.</xref:System.Net.Sockets.Socket>"
   overload: System.Net.Sockets.UdpClient.Client*
   exceptions: []
   platform:
@@ -529,8 +529,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Closes the UDP connection."
-  remarks: "The Close disables the underlying <xref:System.Net.Sockets.Socket> and releases all managed and unmanaged resources associated with the <xref:System.Net.Sockets.UdpClient>.      > [!NOTE] >  If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error."
+  summary: "Закрывает UDP-подключения."
+  remarks: "Закрытие отключает базовых <xref:System.Net.Sockets.Socket>и освобождает все управляемые и неуправляемые ресурсы, связанные с <xref:System.Net.Sockets.UdpClient>.</xref:System.Net.Sockets.UdpClient> </xref:System.Net.Sockets.Socket>      Настроек [!NOTE] настроек при получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN."
   example:
   - "The following example demonstrates closing a <xref:System.Net.Sockets.UdpClient> by calling the Close method.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#15](~/add/codesnippet/csharp/m-system.net.sockets.udp_10_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#15](~/add/codesnippet/cpp/m-system.net.sockets.udp_10_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#15](~/add/codesnippet/visualbasic/m-system.net.sockets.udp_10_1.vb)]"
   syntax:
@@ -540,7 +540,7 @@ items:
   exceptions:
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.Connect(System.Net.IPEndPoint)
@@ -555,8 +555,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Establishes a default remote host using the specified network endpoint."
-  remarks: "The <xref:System.Net.Sockets.UdpClient.Connect%2A> method establishes a default remote host using the value specified in the `endPoint` parameter. Once established, you do not have to specify a remote host in each call to the <xref:System.Net.Sockets.UdpClient.Send%2A> method.       Establishing a default remote host is optional. Specifying a default remote host limits you to that host only. If you want to send datagrams to a different remote host, you must make another call to the <xref:System.Net.Sockets.UdpClient.Connect%2A> method or create another <xref:System.Net.Sockets.UdpClient> without a default remote host. If you have established a default remote host and you also provide a remote host in your call to the <xref:System.Net.Sockets.UdpClient.Send%2A> method, <xref:System.Net.Sockets.UdpClient.Send%2A> will throw a <xref:System.Net.Sockets.SocketException>. If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error.       If you call the <xref:System.Net.Sockets.Socket.Connect%2A> method, any datagrams that arrive from an address other than the specified default will be discarded. You cannot set the default remote host to a broadcast address using this method unless you inherit from <xref:System.Net.Sockets.UdpClient>, use the Client method to obtain the underlying <xref:System.Net.Sockets.Socket>, and set the socket option to <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>.       You can however, broadcast data to the default broadcast address, 255.255.255.255, if you specify <xref:System.Net.IPAddress.Broadcast?displayProperty=fullName> in your call to the <xref:System.Net.Sockets.UdpClient.Send%2A> method. If your application requires greater control over broadcast addresses, you can also revert to using the <xref:System.Net.Sockets.Socket> class.      > [!NOTE] >  Since the UDP protocol is connectionless, the <xref:System.Net.Sockets.UdpClient.Connect%2A> method does not block. Do not call the <xref:System.Net.Sockets.UdpClient.Connect%2A> method if you intend to receive multicasted datagrams."
+  summary: "Устанавливает удаленный узел по умолчанию, используя указанную сетевую конечную точку."
+  remarks: "<xref:System.Net.Sockets.UdpClient.Connect%2A>Метод устанавливает удаленный узел по умолчанию, используя значение, указанное в `endPoint` параметр.</xref:System.Net.Sockets.UdpClient.Connect%2A> После установления не нужно указывать удаленный хост при каждом обращении к <xref:System.Net.Sockets.UdpClient.Send%2A>метод.</xref:System.Net.Sockets.UdpClient.Send%2A>       Установка удаленный узел по умолчанию является необязательным. Указание удаленный узел по умолчанию ограничена только узел. Если вы хотите отправить датаграмм другой удаленный хост, необходимо выполнение другого вызова <xref:System.Net.Sockets.UdpClient.Connect%2A>метода или создайте другой <xref:System.Net.Sockets.UdpClient>без удаленный узел по умолчанию.</xref:System.Net.Sockets.UdpClient> </xref:System.Net.Sockets.UdpClient.Connect%2A> Если установлено значение по умолчанию удаленного узла и также предоставляют удаленного узла при вызове <xref:System.Net.Sockets.UdpClient.Send%2A>метода, <xref:System.Net.Sockets.UdpClient.Send%2A>вызывает <xref:System.Net.Sockets.SocketException>.</xref:System.Net.Sockets.SocketException> </xref:System.Net.Sockets.UdpClient.Send%2A> </xref:System.Net.Sockets.UdpClient.Send%2A> При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN.       При вызове <xref:System.Net.Sockets.Socket.Connect%2A>метода, любые датаграммы, поступившие с адреса, отличного от заданного по умолчанию будут потеряны.</xref:System.Net.Sockets.Socket.Connect%2A> Невозможно задать удаленный узел по умолчанию адрес широковещательной рассылки, если не используется наследование от <xref:System.Net.Sockets.UdpClient>, использовать метод, чтобы получить основной <xref:System.Net.Sockets.Socket>и задать параметр сокета для <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>.</xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName> </xref:System.Net.Sockets.Socket> </xref:System.Net.Sockets.UdpClient>       Однако вы можете, широковещательных данных по умолчанию широковещательный адрес 255.255.255.255, при указании <xref:System.Net.IPAddress.Broadcast?displayProperty=fullName>при вызове <xref:System.Net.Sockets.UdpClient.Send%2A>метода.</xref:System.Net.Sockets.UdpClient.Send%2A> </xref:System.Net.IPAddress.Broadcast?displayProperty=fullName> Если приложению требуется больший контроль над широковещательные адреса, можно также можно вернуться к использованию <xref:System.Net.Sockets.Socket>класса.</xref:System.Net.Sockets.Socket>      Настроек [!NOTE] настроек протокола UDP с момента без установления соединения, <xref:System.Net.Sockets.UdpClient.Connect%2A>метод не блокирует.</xref:System.Net.Sockets.UdpClient.Connect%2A> Не вызывайте <xref:System.Net.Sockets.UdpClient.Connect%2A>метод, если вы собираетесь прием многоадресных датаграмм.</xref:System.Net.Sockets.UdpClient.Connect%2A>"
   example:
   - "The following example uses an <xref:System.Net.IPEndPoint> to establish a default remote host.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#7](~/add/codesnippet/csharp/m-system.net.sockets.udp_1_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#7](~/add/codesnippet/cpp/m-system.net.sockets.udp_1_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#7](~/add/codesnippet/visualbasic/m-system.net.sockets.udp_1_1.vb)]"
   syntax:
@@ -564,18 +564,18 @@ items:
     parameters:
     - id: endPoint
       type: System.Net.IPEndPoint
-      description: "An <xref:System.Net.IPEndPoint> that specifies the network endpoint to which you intend to send data."
+      description: "<xref:System.Net.IPEndPoint>, Указывающий конечную точку сети, к которому выполняется для отправки данных.</xref:System.Net.IPEndPoint>"
   overload: System.Net.Sockets.UdpClient.Connect*
   exceptions:
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>endPoint</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>endPoint</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> is closed."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> Закрыт."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.Connect(System.Net.IPAddress,System.Int32)
@@ -590,8 +590,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Establishes a default remote host using the specified IP address and port number."
-  remarks: "The <xref:System.Net.Sockets.UdpClient.Connect%2A> method establishes a default remote host using the values specified in the `addr` and `port` parameters. Once established, you do not have to specify a remote host in each call to the <xref:System.Net.Sockets.UdpClient.Send%2A> method.       Establishing a default remote host is optional. Specifying a default remote host limits you to that host only. If you want to send datagrams to a different remote host, you must make another call to the <xref:System.Net.Sockets.UdpClient.Connect%2A> method or create another <xref:System.Net.Sockets.UdpClient> without a default remote host. If you have established a default remote host and you also provide a remote host in your call to the <xref:System.Net.Sockets.UdpClient.Send%2A> method, <xref:System.Net.Sockets.UdpClient.Send%2A> will throw a <xref:System.Net.Sockets.SocketException>. If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error.       If you call the <xref:System.Net.Sockets.Socket.Connect%2A> method, any datagrams that arrive from an address other than the specified default will be discarded. You cannot set the default remote host to a broadcast address using this method unless you inherit from <xref:System.Net.Sockets.UdpClient>, use the client method to obtain the underlying <xref:System.Net.Sockets.Socket>, and set the socket option to <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>.       You can however, broadcast data to the default broadcast address, 255.255.255.255, if you specify <xref:System.Net.IPAddress.Broadcast?displayProperty=fullName> in your call to the <xref:System.Net.Sockets.UdpClient.Send%2A> method. If your application requires greater control over broadcast addresses, you can also revert to using the <xref:System.Net.Sockets.Socket> class.      > [!NOTE] >  Since the UDP protocol is connectionless, the <xref:System.Net.Sockets.UdpClient.Connect%2A> method does not block. Do not call the <xref:System.Net.Sockets.UdpClient.Connect%2A> method if you intend to receive multicasted datagrams."
+  summary: "Устанавливает удаленный узел по умолчанию, используя указанный IP-адрес и порт номер."
+  remarks: "<xref:System.Net.Sockets.UdpClient.Connect%2A>Метод устанавливает удаленный узел по умолчанию, используя значения, указанные в `addr` и `port` параметров.</xref:System.Net.Sockets.UdpClient.Connect%2A> После установления не нужно указывать удаленный хост при каждом обращении к <xref:System.Net.Sockets.UdpClient.Send%2A>метод.</xref:System.Net.Sockets.UdpClient.Send%2A>       Установка удаленный узел по умолчанию является необязательным. Указание удаленный узел по умолчанию ограничена только узел. Если вы хотите отправить датаграмм другой удаленный хост, необходимо выполнение другого вызова <xref:System.Net.Sockets.UdpClient.Connect%2A>метода или создайте другой <xref:System.Net.Sockets.UdpClient>без удаленный узел по умолчанию.</xref:System.Net.Sockets.UdpClient> </xref:System.Net.Sockets.UdpClient.Connect%2A> Если установлено значение по умолчанию удаленного узла и также предоставляют удаленного узла при вызове <xref:System.Net.Sockets.UdpClient.Send%2A>метода, <xref:System.Net.Sockets.UdpClient.Send%2A>вызывает <xref:System.Net.Sockets.SocketException>.</xref:System.Net.Sockets.SocketException> </xref:System.Net.Sockets.UdpClient.Send%2A> </xref:System.Net.Sockets.UdpClient.Send%2A> При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN.       При вызове <xref:System.Net.Sockets.Socket.Connect%2A>метода, любые датаграммы, поступившие с адреса, отличного от заданного по умолчанию будут потеряны.</xref:System.Net.Sockets.Socket.Connect%2A> Невозможно задать удаленный узел по умолчанию адрес широковещательной рассылки, если не используется наследование от <xref:System.Net.Sockets.UdpClient>, использовать метод, чтобы получить основной <xref:System.Net.Sockets.Socket>и задать параметр сокета для <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>.</xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName> </xref:System.Net.Sockets.Socket> </xref:System.Net.Sockets.UdpClient>       Однако вы можете, широковещательных данных по умолчанию широковещательный адрес 255.255.255.255, при указании <xref:System.Net.IPAddress.Broadcast?displayProperty=fullName>при вызове <xref:System.Net.Sockets.UdpClient.Send%2A>метода.</xref:System.Net.Sockets.UdpClient.Send%2A> </xref:System.Net.IPAddress.Broadcast?displayProperty=fullName> Если приложению требуется больший контроль над широковещательные адреса, можно также можно вернуться к использованию <xref:System.Net.Sockets.Socket>класса.</xref:System.Net.Sockets.Socket>      Настроек [!NOTE] настроек протокола UDP с момента без установления соединения, <xref:System.Net.Sockets.UdpClient.Connect%2A>метод не блокирует.</xref:System.Net.Sockets.UdpClient.Connect%2A> Не вызывайте <xref:System.Net.Sockets.UdpClient.Connect%2A>метод, если вы собираетесь прием многоадресных датаграмм.</xref:System.Net.Sockets.UdpClient.Connect%2A>"
   example:
   - "The following example uses an IP address and port number to connect with a remote host.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#6](~/add/codesnippet/csharp/m-system.net.sockets.udp_6_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#6](~/add/codesnippet/cpp/m-system.net.sockets.udp_6_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#6](~/add/codesnippet/visualbasic/m-system.net.sockets.udp_6_1.vb)]"
   syntax:
@@ -599,24 +599,24 @@ items:
     parameters:
     - id: addr
       type: System.Net.IPAddress
-      description: "The <xref:System.Net.IPAddress> of the remote host to which you intend to send data."
+      description: "<xref:System.Net.IPAddress>Удаленного узла, к которому выполняется для отправки данных.</xref:System.Net.IPAddress>"
     - id: port
       type: System.Int32
-      description: "The port number to which you intend send data."
+      description: "Номер порта, к которому выполняется отправка данных."
   overload: System.Net.Sockets.UdpClient.Connect*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> is closed."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref>закрыт."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>addr</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>addr</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>port</code> is not between <xref:System.Net.IPEndPoint.MinPort> and <xref:System.Net.IPEndPoint.MaxPort>."
+    description: "<code>port</code>не находится между <xref:System.Net.IPEndPoint.MinPort> и <xref:System.Net.IPEndPoint.MaxPort>."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.Connect(System.String,System.Int32)
@@ -631,8 +631,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Establishes a default remote host using the specified host name and port number."
-  remarks: "The Connect method establishes a default remote host using the values specified in the `port` and `hostname` parameters. Once established, you do not have to specify a remote host in each call to the <xref:System.Net.Sockets.UdpClient.Send%2A> method.       Establishing a default remote host is optional. Specifying a default remote host limits you to that host only. If you want to send datagrams to a different remote host, you must make another call to the Connect method or create another <xref:System.Net.Sockets.UdpClient> without a default remote host.       If you have established a default remote host and you also provide a remote host in your call to the <xref:System.Net.Sockets.UdpClient.Send%2A> method, <xref:System.Net.Sockets.UdpClient.Send%2A> will throw a <xref:System.Net.Sockets.SocketException>. If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error.       If you call the <xref:System.Net.Sockets.Socket.Connect%2A> method, any datagrams that arrive from an address other than the specified default will be discarded. You cannot set the default remote host to a broadcast address using this method unless you inherit from <xref:System.Net.Sockets.UdpClient>, use the client method to obtain the underlying <xref:System.Net.Sockets.Socket>, and set the socket option to <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>.       You can however, broadcast data to the default broadcast address, 255.255.255.255, if you specify <xref:System.Net.IPAddress.Broadcast?displayProperty=fullName> in your call to the <xref:System.Net.Sockets.UdpClient.Send%2A> method. If your application requires greater control over broadcast addresses, you can also revert to using the <xref:System.Net.Sockets.Socket> class.      > [!NOTE] >  Since the UDP protocol is connectionless, the Connect method does not block. Do not call the Connect method if you intend to receive multicasted datagrams."
+  summary: "Устанавливает удаленный узел по умолчанию с помощью указанного узла имя и номер порта."
+  remarks: "Метод Connect устанавливает удаленный узел по умолчанию, используя значения, указанные в `port` и `hostname` параметров. После установления не нужно указывать удаленный хост при каждом обращении к <xref:System.Net.Sockets.UdpClient.Send%2A>метод.</xref:System.Net.Sockets.UdpClient.Send%2A>       Установка удаленный узел по умолчанию является необязательным. Указание удаленный узел по умолчанию ограничена только узел. Если вы хотите отправить датаграмм другой удаленный хост, необходимо убедиться в другой вызов метода Connect или создайте другой <xref:System.Net.Sockets.UdpClient>без удаленный узел по умолчанию.</xref:System.Net.Sockets.UdpClient>       Если установлено значение по умолчанию удаленного узла и также предоставляют удаленного узла при вызове <xref:System.Net.Sockets.UdpClient.Send%2A>метода, <xref:System.Net.Sockets.UdpClient.Send%2A>вызывает <xref:System.Net.Sockets.SocketException>.</xref:System.Net.Sockets.SocketException> </xref:System.Net.Sockets.UdpClient.Send%2A> </xref:System.Net.Sockets.UdpClient.Send%2A> При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN.       При вызове <xref:System.Net.Sockets.Socket.Connect%2A>метода, любые датаграммы, поступившие с адреса, отличного от заданного по умолчанию будут потеряны.</xref:System.Net.Sockets.Socket.Connect%2A> Невозможно задать удаленный узел по умолчанию адрес широковещательной рассылки, если не используется наследование от <xref:System.Net.Sockets.UdpClient>, использовать метод, чтобы получить основной <xref:System.Net.Sockets.Socket>и задать параметр сокета для <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>.</xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName> </xref:System.Net.Sockets.Socket> </xref:System.Net.Sockets.UdpClient>       Однако вы можете, широковещательных данных по умолчанию широковещательный адрес 255.255.255.255, при указании <xref:System.Net.IPAddress.Broadcast?displayProperty=fullName>при вызове <xref:System.Net.Sockets.UdpClient.Send%2A>метода.</xref:System.Net.Sockets.UdpClient.Send%2A> </xref:System.Net.IPAddress.Broadcast?displayProperty=fullName> Если приложению требуется больший контроль над широковещательные адреса, можно также можно вернуться к использованию <xref:System.Net.Sockets.Socket>класса.</xref:System.Net.Sockets.Socket>      Настроек [!NOTE] настроек протокола UDP, так как является протоколом без установления соединения, метод Connect блокирует. Не вызывайте метод Connect, если вы собираетесь прием многоадресных датаграмм."
   example:
   - "The following example uses the host name and port number to connect to a remote host.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#5](~/add/codesnippet/csharp/m-system.net.sockets.udp_13_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#5](~/add/codesnippet/cpp/m-system.net.sockets.udp_13_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#5](~/add/codesnippet/visualbasic/m-system.net.sockets.udp_13_1.vb)]"
   syntax:
@@ -640,21 +640,21 @@ items:
     parameters:
     - id: hostname
       type: System.String
-      description: "The DNS name of the remote host to which you intend send data."
+      description: "DNS-имя удаленного узла, к которому выполняется отправка данных."
     - id: port
       type: System.Int32
-      description: "The port number on the remote host to which you intend to send data."
+      description: "Номер порта удаленного узла, к которому выполняется для отправки данных."
   overload: System.Net.Sockets.UdpClient.Connect*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> is closed."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> Закрыт."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>port</code> is not between <xref:System.Net.IPEndPoint.MinPort> and <xref:System.Net.IPEndPoint.MaxPort>."
+    description: "<code>port</code>не находится между <xref:System.Net.IPEndPoint.MinPort> и <xref:System.Net.IPEndPoint.MaxPort>."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.Dispose
@@ -669,7 +669,7 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Releases the managed and unmanaged resources used by the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref>."
+  summary: "Освобождает управляемые и неуправляемые ресурсы, используемые <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref>."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -689,14 +689,14 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> and optionally releases the managed resources."
-  remarks: "This method is called by the public `Dispose()`method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.       When the `disposing` parameter is true, this method releases all resources held by any managed objects that this <xref:System.Net.Sockets.UdpClient> references. This method invokes the `Dispose()` method of each referenced object."
+  summary: "Освобождает неуправляемые ресурсы, используемые <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> и при необходимости освобождает также управляемые ресурсы."
+  remarks: "Этот метод вызывается методом открытые `Dispose()`метод и <xref:System.Object.Finalize%2A>метод.</xref:System.Object.Finalize%2A> `Dispose()`вызывает защищенный `Dispose(Boolean)` метод с `disposing` равным `true`. <xref:System.Object.Finalize%2A>вызывает `Dispose` с `disposing` значение `false`.</xref:System.Object.Finalize%2A>       При `disposing` параметр имеет значение true, данный метод освобождает все ресурсы, занятые любыми управляемыми объектами, которые <xref:System.Net.Sockets.UdpClient>ссылки.</xref:System.Net.Sockets.UdpClient> Этот метод вызывает `Dispose()` метод для каждого объекта, на который указывает ссылка."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>для освобождения управляемых и неуправляемых ресурсов; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> для освобождения только неуправляемых ресурсов."
   overload: System.Net.Sockets.UdpClient.Dispose*
   exceptions: []
   platform:
@@ -713,20 +713,20 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Gets or sets a <xref:System.Boolean> value that specifies whether the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> allows Internet Protocol (IP) datagrams to be fragmented."
-  remarks: "Datagrams require fragmentation when their size exceeds the Maximum Transfer Unit (MTU) of the transmission medium. Datagrams may be fragmented by the sending host or by an intermediate router. If a datagram must be fragmented, and the <xref:System.Net.Sockets.Socket.DontFragment%2A> option is set, the datagram is discarded, and an Internet Control Message Protocol (ICMP) error message is sent back to the sender of the datagram."
+  summary: "Возвращает или задает <xref:System.Boolean>значение, указывающее, является ли <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> позволяет датаграмм Internet Protocol (IP) фрагментация.</xref:System.Boolean>"
+  remarks: "Необходима фрагментация датаграмм, когда их размер превышает максимальный передачи единицы (MTU) среды передачи. Может фрагментация датаграмм, отправляющим узлом или промежуточным маршрутизатором. Если необходимо Фрагментировано датаграмм и <xref:System.Net.Sockets.Socket.DontFragment%2A>был установлен, датаграмма отбрасывается и сообщение об ошибке управления сообщений протокола ICMP (Internet) отправляется обратно отправителю датаграммы.</xref:System.Net.Sockets.Socket.DontFragment%2A>"
   example:
   - "The following code example shows the use of the <xref:System.Net.Sockets.Socket.DontFragment%2A> property.  \n  \n [!code-cs[System.Net.Sockets.UdpClient#2](~/add/codesnippet/csharp/p-system.net.sockets.udp_5_1.cs)]\n [!code-cpp[System.Net.Sockets.UdpClient#2](~/add/codesnippet/cpp/p-system.net.sockets.udp_5_1.cpp)]"
   syntax:
     content: public bool DontFragment { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> allows datagram fragmentation; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> позволяет фрагментации датаграмм; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Net.Sockets.UdpClient.DontFragment*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This property can be set only for sockets that use the <xref:System.Net.Sockets.AddressFamily> flag or the <xref:System.Net.Sockets.AddressFamily> flag."
+    description: "Это свойство можно задать только для сокетов, использующих <xref:System.Net.Sockets.AddressFamily>флаг или <xref:System.Net.Sockets.AddressFamily>флаг.</xref:System.Net.Sockets.AddressFamily> </xref:System.Net.Sockets.AddressFamily>"
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.DropMulticastGroup(System.Net.IPAddress)
@@ -741,8 +741,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Leaves a multicast group."
-  remarks: "The DropMulticastGroup method withdraws the <xref:System.Net.Sockets.UdpClient> from the multicast group identified by the specified <xref:System.Net.IPAddress>. After calling the DropMulticastGroup method, the underlying <xref:System.Net.Sockets.Socket> sends an Internet Group Management Protocol (IGMP) packet to the router, removing the router from the multicast group. After a <xref:System.Net.Sockets.UdpClient> withdraws from the group, it will no longer be able to receive datagrams sent to that group.      > [!NOTE] >  If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error."
+  summary: "Оставляет группу многоадресной рассылки."
+  remarks: "Метод DropMulticastGroup удаления объекта <xref:System.Net.Sockets.UdpClient>из группы многоадресной рассылки, определяемый указанным <xref:System.Net.IPAddress>.</xref:System.Net.IPAddress> </xref:System.Net.Sockets.UdpClient> После вызова метода DropMulticastGroup, базовый <xref:System.Net.Sockets.Socket>отправляет пакет протокола управления группы Интернета (IGMP) на маршрутизатор, удаляя маршрутизатор из группы многоадресной рассылки.</xref:System.Net.Sockets.Socket> После <xref:System.Net.Sockets.UdpClient>удаления объекта из группы, он не будет возможности приема датаграмм, посылаемых в эту группу.</xref:System.Net.Sockets.UdpClient>      Настроек [!NOTE] настроек при получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN."
   example:
   - "The following example demonstrates how to drop a multicast group by providing a multicast address.  \n  \n [!code-cpp[System.Net.Sockets.UdpClient.JoinMulticastGroup#2](~/add/codesnippet/cpp/m-system.net.sockets.udp_3_1.cpp)]\n [!code-vb[System.Net.Sockets.UdpClient.JoinMulticastGroup#2](~/add/codesnippet/visualbasic/m-system.net.sockets.udp_3_1.vb)]\n [!code-cs[System.Net.Sockets.UdpClient.JoinMulticastGroup#2](~/add/codesnippet/csharp/m-system.net.sockets.udp_3_1.cs)]"
   syntax:
@@ -750,21 +750,21 @@ items:
     parameters:
     - id: multicastAddr
       type: System.Net.IPAddress
-      description: "The <xref:System.Net.IPAddress> of the multicast group to leave."
+      description: "<xref:System.Net.IPAddress>Группы многоадресной рассылки, чтобы оставить.</xref:System.Net.IPAddress>"
   overload: System.Net.Sockets.UdpClient.DropMulticastGroup*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The underlying <xref:System.Net.Sockets.Socket> has been closed."
+    description: "Базовый <xref:System.Net.Sockets.Socket>было закрыто.</xref:System.Net.Sockets.Socket>"
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The IP address is not compatible with the <xref:System.Net.Sockets.AddressFamily> value that defines the addressing scheme of the socket."
+    description: "IP-адрес не совместим с <xref:System.Net.Sockets.AddressFamily>значение, которое определяет схему адресации сокета.</xref:System.Net.Sockets.AddressFamily>"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>multicastAddr</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>multicastAddr</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.DropMulticastGroup(System.Net.IPAddress,System.Int32)
@@ -779,8 +779,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Leaves a multicast group."
-  remarks: "The DropMulticastGroup method withdraws the <xref:System.Net.Sockets.UdpClient> from the multicast group identified by the specified <xref:System.Net.IPAddress>. After calling the DropMulticastGroup method, the underlying <xref:System.Net.Sockets.Socket> sends an Internet Group Management Protocol (IGMP) packet to the router, removing the router from the multicast group. After a <xref:System.Net.Sockets.UdpClient> withdraws from the group, it will no longer be able to receive datagrams sent to that group.      > [!NOTE] >  If you receive a <xref:System.Net.Sockets.SocketException>, use the <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> property to obtain the specific error code. After you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error."
+  summary: "Оставляет группу многоадресной рассылки."
+  remarks: "Метод DropMulticastGroup удаления объекта <xref:System.Net.Sockets.UdpClient>из группы многоадресной рассылки, определяемый указанным <xref:System.Net.IPAddress>.</xref:System.Net.IPAddress> </xref:System.Net.Sockets.UdpClient> После вызова метода DropMulticastGroup, базовый <xref:System.Net.Sockets.Socket>отправляет пакет протокола управления группы Интернета (IGMP) на маршрутизатор, удаляя маршрутизатор из группы многоадресной рассылки.</xref:System.Net.Sockets.Socket> После <xref:System.Net.Sockets.UdpClient>удаления объекта из группы, он не будет возможности приема датаграмм, посылаемых в эту группу.</xref:System.Net.Sockets.UdpClient>      Настроек [!NOTE] настроек при получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>, чтобы получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN."
   example:
   - "The following code example demonstrates how to drop a multicast group by providing a multicast address.  \n  \n [!code-cpp[System.Net.Sockets.UdpClient.JoinMulticastGroup#2](~/add/codesnippet/cpp/d83f3217-6e3e-43a5-a5d8-_1.cpp)]\n [!code-vb[System.Net.Sockets.UdpClient.JoinMulticastGroup#2](~/add/codesnippet/visualbasic/d83f3217-6e3e-43a5-a5d8-_1.vb)]\n [!code-cs[System.Net.Sockets.UdpClient.JoinMulticastGroup#2](~/add/codesnippet/csharp/d83f3217-6e3e-43a5-a5d8-_1.cs)]"
   syntax:
@@ -788,24 +788,24 @@ items:
     parameters:
     - id: multicastAddr
       type: System.Net.IPAddress
-      description: "The <xref:System.Net.IPAddress> of the multicast group to leave."
+      description: "<xref:System.Net.IPAddress>Группы многоадресной рассылки, чтобы оставить.</xref:System.Net.IPAddress>"
     - id: ifindex
       type: System.Int32
-      description: "The local address of the multicast group to leave."
+      description: "Локальный адрес группы многоадресной рассылки, чтобы выйти."
   overload: System.Net.Sockets.UdpClient.DropMulticastGroup*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The underlying <xref:System.Net.Sockets.Socket> has been closed."
+    description: "Базовый <xref:System.Net.Sockets.Socket>было закрыто.</xref:System.Net.Sockets.Socket>"
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The IP address is not compatible with the <xref:System.Net.Sockets.AddressFamily> value that defines the addressing scheme of the socket."
+    description: "IP-адрес не совместим с <xref:System.Net.Sockets.AddressFamily>значение, которое определяет схему адресации сокета.</xref:System.Net.Sockets.AddressFamily>"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>multicastAddr</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>multicastAddr</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.EnableBroadcast
@@ -820,15 +820,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Gets or sets a <xref:System.Boolean> value that specifies whether the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> may send or receive broadcast packets."
-  remarks: "Broadcasting is limited to a specific subnet. You can broadcast to your local subnet by sending a packet to 255.255.255.255; or, you can use the directed broadcast address, which is the network portion of an Internet Protocol (IP) address with all bits set in the host portion. For example, if your IP address is 192.168.1.40 (a Class C address, with the network portion as the first three octets, and the host portion is the last octet), your directed broadcast address is 192.168.1.255."
+  summary: "Возвращает или задает <xref:System.Boolean>значение, указывающее, является ли <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> может отправлять или получать широковещательных пакетов.</xref:System.Boolean>"
+  remarks: "Широковещательная рассылка ограничена определенной подсети. Можно выполнить рассылку в локальной подсети путем отправки пакета по адресу 255.255.255.255; или можно использовать адрес направленной широковещательной рассылки, который является частью сети Интернет протокола IP-адрес с установлены все биты в часть узла. Например если IP-адреса 192.168.1.40 (это адрес класса C с сетевой части как первые три октета, а часть узла – это последний октет), направленный широковещательный адрес — 192.168.1.255."
   example:
   - "The following code example shows the use of the EnableBroadcast property.  \n  \n [!code-cs[System.Net.Sockets.UdpClient#3](~/add/codesnippet/csharp/p-system.net.sockets.udp_3_1.cs)]\n [!code-cpp[System.Net.Sockets.UdpClient#3](~/add/codesnippet/cpp/p-system.net.sockets.udp_3_1.cpp)]"
   syntax:
     content: public bool EnableBroadcast { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> allows broadcast packets; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> позволяет широковещательных пакетов; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Net.Sockets.UdpClient.EnableBroadcast*
   exceptions: []
   platform:
@@ -845,8 +845,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Ends a pending asynchronous receive."
-  remarks: "This method blocks until the operation is complete.       To perform this operation synchronously, use the <xref:System.Net.Sockets.UdpClient.Receive%2A> method."
+  summary: "Завершает отложенный асинхронный прием."
+  remarks: "Этот метод блокируется до операции завершения.       Для синхронного выполнения этой операции, используйте <xref:System.Net.Sockets.UdpClient.Receive%2A>метод.</xref:System.Net.Sockets.UdpClient.Receive%2A>"
   example:
   - "The following code example uses <xref:System.Net.Sockets.UdpClient.BeginSend%2A> to complete an asynchronous receive of a server response.  \n  \n [!code-cpp[System.Net.Sockets.UdpClient1#1](~/add/codesnippet/cpp/5ace0ab2-d0e9-4f1f-a415-_1.cpp)]\n [!code-cs[System.Net.Sockets.UdpClient1#1](~/add/codesnippet/csharp/5ace0ab2-d0e9-4f1f-a415-_1.cs)]"
   syntax:
@@ -854,30 +854,30 @@ items:
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object returned by a call to <xref:System.Net.Sockets.UdpClient.BeginReceive*>."
+      description: "<xref:System.IAsyncResult>Объект, возвращенный вызовом <xref:System.Net.Sockets.UdpClient.BeginReceive*>.</xref:System.Net.Sockets.UdpClient.BeginReceive*> </xref:System.IAsyncResult>"
     - id: remoteEP
       type: System.Net.IPEndPoint
-      description: "The specified remote endpoint."
+      description: "Указанной удаленной конечной точке."
     return:
       type: System.Byte[]
-      description: "If successful, the number of bytes received. If unsuccessful, this method returns 0."
+      description: "В случае успешного выполнения количество полученных байтов. Если операция завершилась неудачно, этот метод возвращает 0."
   overload: System.Net.Sockets.UdpClient.EndReceive*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>asyncResult</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>asyncResult</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>asyncResult</code> was not returned by a call to the <xref:System.Net.Sockets.UdpClient.BeginReceive*> method."
+    description: "<code>asyncResult</code>не был возвращен вызов <xref:System.Net.Sockets.UdpClient.BeginReceive*> метод."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "EndReceive was previously called for the asynchronous read."
+    description: "EndReceive был вызван ранее для асинхронного чтения."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when attempting to access the underlying <xref:System.Net.Sockets.Socket>. See the Remarks section for more information."
+    description: "Произошла ошибка при попытке доступа к базовой <xref:System.Net.Sockets.Socket>.</xref:System.Net.Sockets.Socket> Дополнительные сведения см."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The underlying <xref:System.Net.Sockets.Socket> has been closed."
+    description: "Базовый <xref:System.Net.Sockets.Socket>было закрыто.</xref:System.Net.Sockets.Socket>"
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.EndSend(System.IAsyncResult)
@@ -892,8 +892,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Ends a pending asynchronous send."
-  remarks: "This method blocks until the operation is complete.       To perform this operation synchronously, use the <xref:System.Net.Sockets.UdpClient.Send%2A> method."
+  summary: "Завершает асинхронную ожидающие отправки."
+  remarks: "Этот метод блокируется до операции завершения.       Для синхронного выполнения этой операции, используйте <xref:System.Net.Sockets.UdpClient.Send%2A>метод.</xref:System.Net.Sockets.UdpClient.Send%2A>"
   example:
   - "The following code example uses <xref:System.Net.Sockets.UdpClient.BeginSend%2A> to complete an asynchronous send of a server request.  \n  \n [!code-cpp[System.Net.Sockets.UdpClient1#2](~/add/codesnippet/cpp/m-system.net.sockets.udp_0_1.cpp)]\n [!code-cs[System.Net.Sockets.UdpClient1#2](~/add/codesnippet/csharp/m-system.net.sockets.udp_0_1.cs)]"
   syntax:
@@ -901,27 +901,27 @@ items:
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object returned by a call to <xref:System.Net.Sockets.UdpClient.BeginSend*>."
+      description: "<xref:System.IAsyncResult>Объект, возвращенный вызовом <xref:System.Net.Sockets.UdpClient.BeginSend*>.</xref:System.Net.Sockets.UdpClient.BeginSend*> </xref:System.IAsyncResult>"
     return:
       type: System.Int32
-      description: "If successful, the number of bytes sent to the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref>."
+      description: "Если успешно, число байт отправлено <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref>."
   overload: System.Net.Sockets.UdpClient.EndSend*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>asyncResult</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>asyncResult</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>asyncResult</code> was not returned by a call to the <xref:System.Net.Sockets.Socket.BeginSend*> method."
+    description: "<code>asyncResult</code>не был возвращен вызов <xref:System.Net.Sockets.Socket.BeginSend*> метод."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<xref:System.Net.Sockets.Socket.EndSend*> was previously called for the asynchronous read."
+    description: "<xref:System.Net.Sockets.Socket.EndSend*>был вызван ранее для асинхронного чтения.</xref:System.Net.Sockets.Socket.EndSend*>"
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when attempting to access the underlying socket. See the Remarks section for more information."
+    description: "Произошла ошибка при попытке доступа к основному сокету. Дополнительные сведения см."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The underlying <xref:System.Net.Sockets.Socket> has been closed."
+    description: "Базовый <xref:System.Net.Sockets.Socket>было закрыто.</xref:System.Net.Sockets.Socket>"
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.ExclusiveAddressUse
@@ -936,23 +936,23 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Gets or sets a <xref:System.Boolean> value that specifies whether the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> allows only one client to use a port."
-  remarks: "By default, multiple clients can use a specific port; however, only one of the clients can perform operations on the network traffic sent to the port. You can use the ExclusiveAddressUse property to prevent multiple clients from using a specific port.       This property must be set before the underlying socket is bound to a client port. If you call <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Int32%29?displayProperty=fullName>, <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Int32%2CSystem.Net.Sockets.AddressFamily%29?displayProperty=fullName>, <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.IPEndPoint%29?displayProperty=fullName>, or <xref:System.Net.Sockets.UdpClient.%23ctor%28System.String%2CSystem.Int32%29?displayProperty=fullName>, the client port is bound as a side effect of the constructor, and you cannot subsequently set the ExclusiveAddressUse property"
+  summary: "Возвращает или задает <xref:System.Boolean>значение, указывающее, является ли <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> позволяет использовать порт только одному клиенту</xref:System.Boolean>"
+  remarks: "По умолчанию несколько клиентов могут использовать конкретный порт; Однако только один из клиентов может выполняться на сетевом трафике, отправляемом на порт. Свойство ExclusiveAddressUse предотвратить использование определенного порта несколько клиентов.       Это свойство задается перед привязкой базового сокета с клиентским портом. При вызове метода <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Int32%29?displayProperty=fullName>, <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Int32%2CSystem.Net.Sockets.AddressFamily%29?displayProperty=fullName>, <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.IPEndPoint%29?displayProperty=fullName>, или <xref:System.Net.Sockets.UdpClient.%23ctor%28System.String%2CSystem.Int32%29?displayProperty=fullName>, порт клиентского привязан как побочный эффект конструктора, и впоследствии невозможно задать свойство ExclusiveAddressUse</xref:System.Net.Sockets.UdpClient.%23ctor%28System.String%2CSystem.Int32%29?displayProperty=fullName> </xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.IPEndPoint%29?displayProperty=fullName> </xref:System.Net.Sockets.UdpClient.%23ctor%28System.Int32%2CSystem.Net.Sockets.AddressFamily%29?displayProperty=fullName> </xref:System.Net.Sockets.UdpClient.%23ctor%28System.Int32%29?displayProperty=fullName>"
   example:
   - "The following code example creates a <xref:System.Net.Sockets.UdpClient>, and gets and sets the ExclusiveAddressUse property.  \n  \n [!code-cs[System.Net.Sockets.UdpClient#4](~/add/codesnippet/csharp/p-system.net.sockets.udp_4_1.cs)]\n [!code-cpp[System.Net.Sockets.UdpClient#4](~/add/codesnippet/cpp/p-system.net.sockets.udp_4_1.cpp)]"
   syntax:
     content: public bool ExclusiveAddressUse { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> allows only one client to use a specific port; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> for Windows Server 2003 and Windows XP Service Pack 2 and later, and <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> for all other versions."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> разрешает только одному клиенту использовать конкретный порт; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> для Windows Server 2003 и Windows XP с пакетом обновления 2 и более поздней версии, и <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> для всех остальных версий."
   overload: System.Net.Sockets.UdpClient.ExclusiveAddressUse*
   exceptions:
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when attempting to access the underlying socket."
+    description: "Произошла ошибка при попытке доступа к основному сокету."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The underlying <xref:System.Net.Sockets.Socket> has been closed."
+    description: "Базовый <xref:System.Net.Sockets.Socket>было закрыто.</xref:System.Net.Sockets.Socket>"
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.JoinMulticastGroup(System.Net.IPAddress)
@@ -967,8 +967,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Adds a <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> to a multicast group."
-  remarks: "The JoinMulticastGroup method subscribes the <xref:System.Net.Sockets.UdpClient> to a multicast group using the specified <xref:System.Net.IPAddress>. After calling the JoinMulticastGroup method, the underlying <xref:System.Net.Sockets.Socket> sends an Internet Group Management Protocol (IGMP) packet to the router requesting membership to the multicast group. The multicast address range is 224.0.0.0 to 239.255.255.255. If you specify an address outside this range or if the router to which the request is made is not multicast enabled, <xref:System.Net.Sockets.UdpClient> will throw a <xref:System.Net.Sockets.SocketException>. If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error. Once the <xref:System.Net.Sockets.UdpClient> is listed with the router as a member of the multicast group, it will be able to receive multicasted datagrams sent to the specified <xref:System.Net.IPAddress>.      > [!NOTE] >  You must create the <xref:System.Net.Sockets.UdpClient> using the multicast port number; otherwise, you will not be able to receive multicasted datagrams. Do not call the <xref:System.Net.Sockets.UdpClient.Connect%2A> method prior to calling the JoinMulticastGroup method, or the <xref:System.Net.Sockets.UdpClient.Receive%2A> method will not work. You do not need to belong to a multicast group to send datagrams to a multicast IP address.       Before joining a multicast group, make sure the socket is bound to the port or endpoint. You do that by calling one of the constructors that accept a port or an endpoint as a parameter.       To stop receiving multicasted datagrams, call the <xref:System.Net.Sockets.UdpClient.DropMulticastGroup%2A> method and provide the <xref:System.Net.IPAddress> of the group from which you would like to withdraw.      > [!NOTE] >  In the IPv6 case, there are several multicast address ranges you can choose from. Please, refer to the IETF RFC 2375.      > [!NOTE] >  You cannot call <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A> on a <xref:System.Net.Sockets.UdpClient> constructed without a specific local port (that is, using the <xref:System.Net.Sockets.UdpClient.%23ctor> or <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.Sockets.AddressFamily%29> constructor)."
+  summary: "Добавляет <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> в группу многоадресной рассылки."
+  remarks: "Метод JoinMulticastGroup подписывается <xref:System.Net.Sockets.UdpClient>на группу многоадресной рассылки с использованием указанного <xref:System.Net.IPAddress>.</xref:System.Net.IPAddress> </xref:System.Net.Sockets.UdpClient> После вызова метода JoinMulticastGroup, базовый <xref:System.Net.Sockets.Socket>отправляет пакет протокола управления группы Интернета (IGMP) на маршрутизатор, запросившего членство в группе многоадресной рассылки.</xref:System.Net.Sockets.Socket> Диапазон адресов многоадресной рассылки: от 224.0.0.0 до 239.255.255.255. Если указан адрес за пределами этого диапазона или маршрутизатор, на который производится запрос не многоадресной рассылки включен, <xref:System.Net.Sockets.UdpClient>вызовет <xref:System.Net.Sockets.SocketException>.</xref:System.Net.Sockets.SocketException> </xref:System.Net.Sockets.UdpClient> При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN. Один раз <xref:System.Net.Sockets.UdpClient>указана с маршрутизатора в качестве члена группы многоадресной рассылки, будут иметь возможность получать групповых датаграмм, посылаемых на указанный <xref:System.Net.IPAddress>.</xref:System.Net.IPAddress> </xref:System.Net.Sockets.UdpClient>      Настроек [!NOTE] настроек необходимо создать <xref:System.Net.Sockets.UdpClient>с помощью номера портов для многоадресной рассылки; в противном случае нельзя получать групповых датаграмм.</xref:System.Net.Sockets.UdpClient> Не вызывайте <xref:System.Net.Sockets.UdpClient.Connect%2A>метод перед вызовом метода JoinMulticastGroup или <xref:System.Net.Sockets.UdpClient.Receive%2A>метод не будет работать.</xref:System.Net.Sockets.UdpClient.Receive%2A> </xref:System.Net.Sockets.UdpClient.Connect%2A> Необходимо входить в группу многоадресной рассылки для отправки датаграмм многоадресной IP-адрес.       Перед присоединением к группе многоадресной рассылки, убедитесь, что сокет связан с портом или конечной точки. Для этого вызова одного из конструкторов, принимающих порта или конечной точки в качестве параметра.       Чтобы прекратить прием групповых датаграмм, вызовите <xref:System.Net.Sockets.UdpClient.DropMulticastGroup%2A>метод и предоставить <xref:System.Net.IPAddress>группы, из которого вы хотите отозвать.</xref:System.Net.IPAddress> </xref:System.Net.Sockets.UdpClient.DropMulticastGroup%2A>      Настроек [!NOTE] настроек в случае IPv6, имеется несколько диапазонов адресов многоадресной рассылки, можно выбрать. Обратитесь к документу IETF RFC 2375.      Настроек [!NOTE] настроек невозможно вызвать <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A>на <xref:System.Net.Sockets.UdpClient>созданных без определенного локального порта (то есть с использованием <xref:System.Net.Sockets.UdpClient.%23ctor>или <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.Sockets.AddressFamily%29>конструктор).</xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.Sockets.AddressFamily%29> </xref:System.Net.Sockets.UdpClient.%23ctor> </xref:System.Net.Sockets.UdpClient> </xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A>"
   example:
   - "The following code example demonstrates how to join a multicast group by providing a multicast address.  \n  \n [!code-cpp[System.Net.Sockets.UdpClient.JoinMulticastGroup#1](~/add/codesnippet/cpp/m-system.net.sockets.udp_8_1.cpp)]\n [!code-vb[System.Net.Sockets.UdpClient.JoinMulticastGroup#1](~/add/codesnippet/visualbasic/m-system.net.sockets.udp_8_1.vb)]\n [!code-cs[System.Net.Sockets.UdpClient.JoinMulticastGroup#1](~/add/codesnippet/csharp/m-system.net.sockets.udp_8_1.cs)]"
   syntax:
@@ -976,18 +976,18 @@ items:
     parameters:
     - id: multicastAddr
       type: System.Net.IPAddress
-      description: "The multicast <xref:System.Net.IPAddress> of the group you want to join."
+      description: "Многоадресная рассылка <xref:System.Net.IPAddress>группы, которые нужно соединить.</xref:System.Net.IPAddress>"
   overload: System.Net.Sockets.UdpClient.JoinMulticastGroup*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The underlying <xref:System.Net.Sockets.Socket> has been closed."
+    description: "Базовый <xref:System.Net.Sockets.Socket>было закрыто.</xref:System.Net.Sockets.Socket>"
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The IP address is not compatible with the <xref:System.Net.Sockets.AddressFamily> value that defines the addressing scheme of the socket."
+    description: "IP-адрес не совместим с <xref:System.Net.Sockets.AddressFamily>значение, которое определяет схему адресации сокета.</xref:System.Net.Sockets.AddressFamily>"
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.JoinMulticastGroup(System.Int32,System.Net.IPAddress)
@@ -1002,8 +1002,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Adds a <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> to a multicast group."
-  remarks: "Before joining a multicast group, be sure the socket is bound to the port or endpoint. You can do this by calling one of the constructors that accepts a port or an endpoint as parameter.       The `infindex` parameter is used to identify a hardware interface on the same link.      > [!NOTE] >  There are several multicast address ranges to choose from. Refer to the IETF RFC 2375.      > [!NOTE] >  You cannot call <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A> on a <xref:System.Net.Sockets.UdpClient> constructed without a specific local port (that is, using the <xref:System.Net.Sockets.UdpClient.%23ctor?displayProperty=fullName> or <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.Sockets.AddressFamily%29?displayProperty=fullName> constructor)."
+  summary: "Добавляет <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> в группу многоадресной рассылки."
+  remarks: "Перед присоединением к группе многоадресной рассылки, убедитесь, что сокет связан с портом или конечной точки. Это можно сделать путем вызова одного из конструкторов, принимающих порта или конечной точки в качестве параметра.       `infindex` Параметр используется для идентификации аппаратного интерфейса на той же связи.      Настроек [!NOTE] настроек имеется несколько диапазонов адресов многоадресной рассылки для выбора. Обратитесь к документу IETF RFC 2375.      Настроек [!NOTE] настроек невозможно вызвать <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A>на <xref:System.Net.Sockets.UdpClient>созданных без определенного локального порта (то есть с использованием <xref:System.Net.Sockets.UdpClient.%23ctor?displayProperty=fullName>или <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.Sockets.AddressFamily%29?displayProperty=fullName>конструктор).</xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.Sockets.AddressFamily%29?displayProperty=fullName> </xref:System.Net.Sockets.UdpClient.%23ctor?displayProperty=fullName> </xref:System.Net.Sockets.UdpClient> </xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A>"
   example:
   - >-
     [!code-cpp[System.Net.Sockets.UdpClient.JoinMulticastGroup#5](~/add/codesnippet/cpp/f675abdc-8a60-48f5-a8c6-_1.cpp)]
@@ -1014,18 +1014,18 @@ items:
     parameters:
     - id: ifindex
       type: System.Int32
-      description: "The interface index associated with the local IP address on which to join the multicast group."
+      description: "Индекс интерфейса, связанного с IP-адрес локального объединения группы многоадресной рассылки."
     - id: multicastAddr
       type: System.Net.IPAddress
-      description: "The multicast <xref:System.Net.IPAddress> of the group you want to join."
+      description: "Многоадресная рассылка <xref:System.Net.IPAddress>группы, которые нужно соединить.</xref:System.Net.IPAddress>"
   overload: System.Net.Sockets.UdpClient.JoinMulticastGroup*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The underlying <xref:System.Net.Sockets.Socket> has been closed."
+    description: "Базовый <xref:System.Net.Sockets.Socket>было закрыто.</xref:System.Net.Sockets.Socket>"
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.JoinMulticastGroup(System.Net.IPAddress,System.Int32)
@@ -1040,8 +1040,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Adds a <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> to a multicast group with the specified Time to Live (TTL)."
-  remarks: "The <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A> method subscribes the <xref:System.Net.Sockets.UdpClient> to a multicast group using the specified <xref:System.Net.IPAddress>. After calling the <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A> method, the underlying <xref:System.Net.Sockets.Socket> sends an Internet Group Management Protocol (IGMP) packet to the router requesting membership to the multicast group. The multicast address range is 224.0.0.0 to 239.255.255.255. If you specify an address outside this range or if the router to which the request is made is not multicast enabled, <xref:System.Net.Sockets.UdpClient> will throw a <xref:System.Net.Sockets.SocketException>. If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error. The `timeToLive` parameter specifies how many router hops will be allowed for a multicasted datagram before being discarded. Once the <xref:System.Net.Sockets.UdpClient> is listed with the router as a member of the multicast group, it will be able to receive multicasted datagrams sent to the specified <xref:System.Net.IPAddress>.      > [!NOTE] >  You must create the <xref:System.Net.Sockets.UdpClient> using the multicast port number otherwise you will not be able to receive multicasted datagrams. Do not call the <xref:System.Net.Sockets.UdpClient.Connect%2A> method prior to calling the <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A> method or the receive method will not work. You do not need to belong to a multicast group to send datagrams to a multicast IP address.       Before joining a multicast group make sure the socket is bound to the port or endpoint. You do that by calling one of the constructors that accept as parameter a port or an endpoint.       To stop receiving multicasted datagrams, call the <xref:System.Net.Sockets.UdpClient.DropMulticastGroup%2A> method and provide the <xref:System.Net.IPAddress> of the group from which you would like to withdraw.      > [!NOTE] >  You cannot call <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A> on a <xref:System.Net.Sockets.UdpClient> constructed without a specific local port (that is, using the <xref:System.Net.Sockets.UdpClient.%23ctor> or <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.Sockets.AddressFamily%29> constructor)."
+  summary: "Добавляет <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> в группу многоадресной рассылки с заданным временем жизни (TTL)."
+  remarks: "<xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A>Метод подписывается <xref:System.Net.Sockets.UdpClient>в группу многоадресной рассылки с помощью указанного <xref:System.Net.IPAddress>.</xref:System.Net.IPAddress> </xref:System.Net.Sockets.UdpClient> </xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A> После вызова метода <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A>базовый метод <xref:System.Net.Sockets.Socket>отправляет пакет протокола управления группы Интернета (IGMP) на маршрутизатор, запросившего членство в группе многоадресной рассылки.</xref:System.Net.Sockets.Socket> </xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A> Диапазон адресов многоадресной рассылки: от 224.0.0.0 до 239.255.255.255. Если указан адрес за пределами этого диапазона или маршрутизатор, на который производится запрос не многоадресной рассылки включен, <xref:System.Net.Sockets.UdpClient>вызовет <xref:System.Net.Sockets.SocketException>.</xref:System.Net.Sockets.SocketException> </xref:System.Net.Sockets.UdpClient> При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN. `timeToLive` Параметр указывает, сколько прыжков маршрутизатора может для многоадресной датаграммы уничтожается. Один раз <xref:System.Net.Sockets.UdpClient>указана с маршрутизатора в качестве члена группы многоадресной рассылки, будут иметь возможность получать групповых датаграмм, посылаемых на указанный <xref:System.Net.IPAddress>.</xref:System.Net.IPAddress> </xref:System.Net.Sockets.UdpClient>      Настроек [!NOTE] настроек необходимо создать <xref:System.Net.Sockets.UdpClient>с помощью номера порта многоадресной рассылки в противном случае вы не сможете получать групповых датаграмм.</xref:System.Net.Sockets.UdpClient> Не вызывайте <xref:System.Net.Sockets.UdpClient.Connect%2A>метод до вызова метода <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A>метода или метода получения не будет работать.</xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A> </xref:System.Net.Sockets.UdpClient.Connect%2A> Необходимо входить в группу многоадресной рассылки для отправки датаграмм многоадресной IP-адрес.       Перед присоединением к группе многоадресной рассылки убедитесь, что сокет связан с портом или конечной точки. Для этого вызова одного из конструкторов, которые принимают в качестве параметра порта или конечной точки.       Чтобы прекратить прием групповых датаграмм, вызовите <xref:System.Net.Sockets.UdpClient.DropMulticastGroup%2A>метод и предоставить <xref:System.Net.IPAddress>группы, из которого вы хотите отозвать.</xref:System.Net.IPAddress> </xref:System.Net.Sockets.UdpClient.DropMulticastGroup%2A>      Настроек [!NOTE] настроек невозможно вызвать <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A>на <xref:System.Net.Sockets.UdpClient>созданных без определенного локального порта (то есть с использованием <xref:System.Net.Sockets.UdpClient.%23ctor>или <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.Sockets.AddressFamily%29>конструктор).</xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.Sockets.AddressFamily%29> </xref:System.Net.Sockets.UdpClient.%23ctor> </xref:System.Net.Sockets.UdpClient> </xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A>"
   example:
   - "The following example demonstrates how to join a multicast group by providing two parameters, a multicast address, and a number that represents the TTL.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#13](~/add/codesnippet/csharp/2ab5d1d5-1bd6-4398-ae63-_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#13](~/add/codesnippet/cpp/2ab5d1d5-1bd6-4398-ae63-_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#13](~/add/codesnippet/visualbasic/2ab5d1d5-1bd6-4398-ae63-_1.vb)]"
   syntax:
@@ -1049,27 +1049,27 @@ items:
     parameters:
     - id: multicastAddr
       type: System.Net.IPAddress
-      description: "The <xref:System.Net.IPAddress> of the multicast group to join."
+      description: "<xref:System.Net.IPAddress>Группы многоадресной рассылки для присоединения.</xref:System.Net.IPAddress>"
     - id: timeToLive
       type: System.Int32
-      description: "The Time to Live (TTL), measured in router hops."
+      description: "Время жизни (TTL), измеряемый в прыжков маршрутизатора."
   overload: System.Net.Sockets.UdpClient.JoinMulticastGroup*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The TTL provided is not between 0 and 255"
+    description: "Значение параметра TTL не от 0 до 255"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The underlying <xref:System.Net.Sockets.Socket> has been closed."
+    description: "Базовый <xref:System.Net.Sockets.Socket>было закрыто.</xref:System.Net.Sockets.Socket>"
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>multicastAddr</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>multicastAddr</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The IP address is not compatible with the <xref:System.Net.Sockets.AddressFamily> value that defines the addressing scheme of the socket."
+    description: "IP-адрес не совместим с <xref:System.Net.Sockets.AddressFamily>значение, которое определяет схему адресации сокета.</xref:System.Net.Sockets.AddressFamily>"
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.JoinMulticastGroup(System.Net.IPAddress,System.Net.IPAddress)
@@ -1084,8 +1084,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Adds a <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> to a multicast group."
-  remarks: "Before you join a multicast group, be sure that the socket is bound to the port or endpoint. You can do this by calling one of the constructors that accepts a port or an endpoint as parameter.      > [!NOTE] >  There are several multicast address ranges to choose from. You can find them in the IETF RFC 2375.      > [!NOTE] >  You cannot call <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A> on a <xref:System.Net.Sockets.UdpClient> constructed without a specific local port (that is, using the <xref:System.Net.Sockets.UdpClient.%23ctor> or <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.Sockets.AddressFamily%29> constructor)."
+  summary: "Добавляет <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> в группу многоадресной рассылки."
+  remarks: "Перед присоединением группы многоадресной рассылки, убедитесь, что сокет связан с портом или конечной точки. Это можно сделать путем вызова одного из конструкторов, принимающих порта или конечной точки в качестве параметра.      Настроек [!NOTE] настроек имеется несколько диапазонов адресов многоадресной рассылки для выбора. Их можно найти в описание см.      Настроек [!NOTE] настроек невозможно вызвать <xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A>на <xref:System.Net.Sockets.UdpClient>созданных без определенного локального порта (то есть с использованием <xref:System.Net.Sockets.UdpClient.%23ctor>или <xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.Sockets.AddressFamily%29>конструктор).</xref:System.Net.Sockets.UdpClient.%23ctor%28System.Net.Sockets.AddressFamily%29> </xref:System.Net.Sockets.UdpClient.%23ctor> </xref:System.Net.Sockets.UdpClient> </xref:System.Net.Sockets.UdpClient.JoinMulticastGroup%2A>"
   example:
   - "The following code example shows the use of the JoinMulticastGroup method.  \n  \n [!code-cs[System.Net.Sockets.UdpClient#6](~/add/codesnippet/csharp/83ef7d63-bccd-4c55-a88d-_1.cs)]\n [!code-cpp[System.Net.Sockets.UdpClient#6](~/add/codesnippet/cpp/83ef7d63-bccd-4c55-a88d-_1.cpp)]"
   syntax:
@@ -1093,18 +1093,18 @@ items:
     parameters:
     - id: multicastAddr
       type: System.Net.IPAddress
-      description: "The multicast <xref:System.Net.IPAddress> of the group you want to join."
+      description: "Многоадресная рассылка <xref:System.Net.IPAddress>группы, которые нужно соединить.</xref:System.Net.IPAddress>"
     - id: localAddress
       type: System.Net.IPAddress
-      description: "The local <xref:System.Net.IPAddress>."
+      description: "Локальный <xref:System.Net.IPAddress>.</xref:System.Net.IPAddress>"
   overload: System.Net.Sockets.UdpClient.JoinMulticastGroup*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The underlying <xref:System.Net.Sockets.Socket> has been closed."
+    description: "Базовый <xref:System.Net.Sockets.Socket>было закрыто.</xref:System.Net.Sockets.Socket>"
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.MulticastLoopback
@@ -1119,15 +1119,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Gets or sets a <xref:System.Boolean> value that specifies whether outgoing multicast packets are delivered to the sending application."
-  remarks: "Multicast is a scalable method for many-to-many communication on the Internet. If a process subscribes to a multicast address, any packets sent by that process are received by every other process that has subscribed to the multicast address."
+  summary: "Возвращает или задает <xref:System.Boolean>значение, указывающее, доставляются ли исходящих пакетов многоадресной рассылки в передающее приложение.</xref:System.Boolean>"
+  remarks: "Многоадресная рассылка — это масштабируемая метод многие ко многим обмен данными через Интернет. Если процесс подписывается на адрес многоадресной рассылки, любые пакеты, отправленные этим процессом, получаются любым другим процессом, который подписался на адрес многоадресной рассылки."
   example:
   - "The following code example shows the use of the MulticastLoopback property.  \n  \n [!code-cs[System.Net.Sockets.UdpClient#7](~/add/codesnippet/csharp/p-system.net.sockets.udp_2_1.cs)]\n [!code-cpp[System.Net.Sockets.UdpClient#7](~/add/codesnippet/cpp/p-system.net.sockets.udp_2_1.cpp)]"
   syntax:
     content: public bool MulticastLoopback { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> receives outgoing multicast packets; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> получает исходящих пакетов многоадресной рассылки; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Net.Sockets.UdpClient.MulticastLoopback*
   exceptions: []
   platform:
@@ -1144,8 +1144,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Returns a UDP datagram that was sent by a remote host."
-  remarks: "The Receive method will block until a datagram arrives from a remote host. When data is available, the Receive method will read the first enqueued datagram and return the data portion as a byte array. This method populates the `remoteEP` parameter with the <xref:System.Net.IPAddress> and port number of the sender.       If you specify a default remote host in the <xref:System.Net.Sockets.UdpClient.Connect%2A> method, the Receive method will accept datagrams from that host only. All other datagrams will be discarded.       If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error.      > [!NOTE] >  If you intend to receive multicasted datagrams, do not call the <xref:System.Net.Sockets.UdpClient.Connect%2A> method prior to calling the Receive method. The <xref:System.Net.Sockets.UdpClient> you use to receive datagrams must be created using the multicast port number."
+  summary: "Возвращает UDP-датаграмму, которое было отправлено с удаленного узла."
+  remarks: "Метод Receive будет блокироваться, пока не получена датаграмма с удаленного узла. При наличии данных метода получения чтение первой датаграммы из очереди и вернет блок данных в виде массива байтов. Этот метод заполняет `remoteEP` параметр с <xref:System.Net.IPAddress>и номер порта отправителя.</xref:System.Net.IPAddress>       Если указан удаленный узел по умолчанию в <xref:System.Net.Sockets.UdpClient.Connect%2A>метода, метод Receive будет принимать датаграмм с этого узла, только.</xref:System.Net.Sockets.UdpClient.Connect%2A> Все остальные датаграммы будут отменены.       При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN.      Настроек [!NOTE] настроек, если вы собираетесь прием многоадресных датаграмм, не следует вызывать <xref:System.Net.Sockets.UdpClient.Connect%2A>метод перед вызовом метода Receive.</xref:System.Net.Sockets.UdpClient.Connect%2A> <xref:System.Net.Sockets.UdpClient>Используется для получения датаграммы должны создаваться с помощью номера портов для многоадресной рассылки.</xref:System.Net.Sockets.UdpClient>"
   example:
   - "The following example demonstrates the Receive method. The Receive method blocks execution until it receives a message. Using the <xref:System.Net.IPEndPoint> passed to Receive, the identity of the responding host is revealed.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#11](~/add/codesnippet/csharp/m-system.net.sockets.udp_5_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#11](~/add/codesnippet/cpp/m-system.net.sockets.udp_5_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#11](~/add/codesnippet/visualbasic/m-system.net.sockets.udp_5_1.vb)]"
   syntax:
@@ -1153,18 +1153,18 @@ items:
     parameters:
     - id: remoteEP
       type: System.Net.IPEndPoint
-      description: "An <xref:System.Net.IPEndPoint> that represents the remote host from which the data was sent."
+      description: "<xref:System.Net.IPEndPoint>, Представляющий удаленный узел, с которого было отправлено данные.</xref:System.Net.IPEndPoint>"
     return:
       type: System.Byte[]
-      description: "An array of type <xref:System.Byte> that contains datagram data."
+      description: "Массив объектов типа <xref:System.Byte>, содержащий данные датаграмм.</xref:System.Byte>"
   overload: System.Net.Sockets.UdpClient.Receive*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The underlying <xref:System.Net.Sockets.Socket> has been closed."
+    description: "Базовый <xref:System.Net.Sockets.Socket>было закрыто.</xref:System.Net.Sockets.Socket>"
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.ReceiveAsync
@@ -1179,22 +1179,22 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Returns a UDP datagram asynchronously that was sent by a remote host."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601>> object will complete after the UDP packet has been received.       If you specify a default remote host in the <xref:System.Net.Sockets.UdpClient.Connect%2A> method, this method will accept datagrams from that host only. All other datagrams will be discarded.       If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error.      > [!WARNING] >  If you intend to receive multicasted datagrams, do not call the <xref:System.Net.Sockets.UdpClient.Connect%2A> method prior to calling this method. The <xref:System.Net.Sockets.UdpClient> you use to receive datagrams must be created using the multicast port number."
+  summary: "Возвращает UDP-датаграмму асинхронно, отправленное удаленному узлу."
+  remarks: "Эта операция не будет блокирована. Возвращенный <xref:System.Threading.Tasks.Task%601>настроек объекта будет выполнена после получения пакетов UDP.</xref:System.Threading.Tasks.Task%601>       Если указан удаленный узел по умолчанию в <xref:System.Net.Sockets.UdpClient.Connect%2A>метода, этот метод принимает датаграмм с этого узла, только.</xref:System.Net.Sockets.UdpClient.Connect%2A> Все остальные датаграммы будут отменены.       При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN.      Настроек [!WARNING] настроек, если вы собираетесь прием многоадресных датаграмм, не следует вызывать <xref:System.Net.Sockets.UdpClient.Connect%2A>метод до вызова этого метода.</xref:System.Net.Sockets.UdpClient.Connect%2A> <xref:System.Net.Sockets.UdpClient>Используется для получения датаграммы должны создаваться с помощью номера портов для многоадресной рассылки.</xref:System.Net.Sockets.UdpClient>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Sockets.UdpReceiveResult> ReceiveAsync ();
     parameters: []
     return:
       type: System.Threading.Tasks.Task{System.Net.Sockets.UdpReceiveResult}
-      description: "Returns &lt;xref:System.Threading.Tasks.Task%601&gt;.       The task object representing the asynchronous operation."
+      description: "Возвращает &lt;xref:System.Threading.Tasks.Task%601&gt;.       Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Sockets.UdpClient.ReceiveAsync*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The underlying <xref:System.Net.Sockets.Socket> has been closed."
+    description: "Базовый <xref:System.Net.Sockets.Socket>было закрыто.</xref:System.Net.Sockets.Socket>"
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.Send(System.Byte[],System.Int32)
@@ -1209,8 +1209,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Sends a UDP datagram to a remote host."
-  remarks: "This overload sends datagrams to the remote host established in the <xref:System.Net.Sockets.UdpClient.Connect%2A> method and returns the number of bytes sent. If you do not call <xref:System.Net.Sockets.UdpClient.Connect%2A> before calling this overload, the <xref:System.Net.Sockets.UdpClient.Send%2A> method will throw a <xref:System.Net.Sockets.SocketException>. If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error.       If you want to send datagrams to a different remote host, you must call the <xref:System.Net.Sockets.UdpClient.Connect%2A> method and specify the desired remote host. Use either of the other <xref:System.Net.Sockets.UdpClient.Send%2A> method overloads to send datagrams to a broadcast address."
+  summary: "Отправляет датаграмму UDP в удаленный узел."
+  remarks: "Эта перегрузка датаграмм удаленного узла, заданного в <xref:System.Net.Sockets.UdpClient.Connect%2A>метод и возвращает число байтов, отправленных.</xref:System.Net.Sockets.UdpClient.Connect%2A> Если не вызывается <xref:System.Net.Sockets.UdpClient.Connect%2A>перед вызовом этой перегрузки, <xref:System.Net.Sockets.UdpClient.Send%2A>метод вызывает исключение <xref:System.Net.Sockets.SocketException>.</xref:System.Net.Sockets.SocketException> </xref:System.Net.Sockets.UdpClient.Send%2A> </xref:System.Net.Sockets.UdpClient.Connect%2A> При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN.       Если вы хотите отправить датаграмм другой удаленный хост, необходимо вызвать <xref:System.Net.Sockets.UdpClient.Connect%2A>метод и укажите нужное удаленного узла.</xref:System.Net.Sockets.UdpClient.Connect%2A> Используйте один из других <xref:System.Net.Sockets.UdpClient.Send%2A>перегруженных версий метода для отправки датаграмм адрес широковещательной рассылки.</xref:System.Net.Sockets.UdpClient.Send%2A>"
   example:
   - "The following example demonstrates the <xref:System.Net.Sockets.UdpClient.Send%2A> method. You must establish a default remote host prior to using this overload.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#10](~/add/codesnippet/csharp/m-system.net.sockets.udp_2_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#10](~/add/codesnippet/cpp/m-system.net.sockets.udp_2_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#10](~/add/codesnippet/visualbasic/m-system.net.sockets.udp_2_1.vb)]"
   syntax:
@@ -1218,27 +1218,27 @@ items:
     parameters:
     - id: dgram
       type: System.Byte[]
-      description: "An array of type <xref:System.Byte> that specifies the UDP datagram that you intend to send represented as an array of bytes."
+      description: "Массив объектов типа <xref:System.Byte>, задающий UDP-датаграмму, которую планируется отправить в виде массива байтов.</xref:System.Byte>"
     - id: bytes
       type: System.Int32
-      description: "The number of bytes in the datagram."
+      description: "Число байт в датаграмме."
     return:
       type: System.Int32
-      description: "The number of bytes sent."
+      description: "Число отправленных байтов."
   overload: System.Net.Sockets.UdpClient.Send*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>dgram</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>dgram</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> has already established a default remote host."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> Уже установил удаленный узел по умолчанию."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> is closed."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> Закрыт."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.Send(System.Byte[],System.Int32,System.Net.IPEndPoint)
@@ -1253,8 +1253,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Sends a UDP datagram to the host at the specified remote endpoint."
-  remarks: "The Send method sends datagrams to the specified endpoint and returns the number of bytes successfully sent. Before calling this overload, you must first create an <xref:System.Net.IPEndPoint> using the IP address and port number of the remote host to which your datagrams will be delivered. You can send datagrams to the default broadcast address, 255.255.255.255, by specifying <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName> for the <xref:System.Net.IPAddress.Address%2A> property of the <xref:System.Net.IPEndPoint>. After you have created this <xref:System.Net.IPEndPoint>, pass it to the Send method as the `endPoint` parameter.       If you want to send datagrams to any other broadcast address, use the <xref:System.Net.Sockets.UdpClient.Client%2A> method to obtain the underlying <xref:System.Net.Sockets.Socket>, and set the socket option to <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>. You can also revert to using the <xref:System.Net.Sockets.Socket> class.      > [!NOTE] >  Do not provide an `endPoint` parameter to this method if you have already established a remote host with the <xref:System.Net.Sockets.UdpClient.Connect%2A> method. If you do, the Send method will throw a <xref:System.Net.Sockets.SocketException>. If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error."
+  summary: "Отправляет UDP-датаграмму в узел в указанной удаленной конечной точке."
+  remarks: "Метод Send отправляет датаграмм в заданную конечную точку и возвращает количество успешно отправленных байт. Перед вызовом этой перегрузки необходимо сначала создать <xref:System.Net.IPEndPoint>с помощью IP-адреса и порта удаленного узла, на который будут доставляться датаграммы номер.</xref:System.Net.IPEndPoint> Можно посылать датаграммы адрес широковещательной рассылки по умолчанию 255.255.255.255, задав <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>для <xref:System.Net.IPAddress.Address%2A>Свойства <xref:System.Net.IPEndPoint>.</xref:System.Net.IPEndPoint> </xref:System.Net.IPAddress.Address%2A> </xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName> После создания этого <xref:System.Net.IPEndPoint>, передать его в качестве метода Send `endPoint` параметр.</xref:System.Net.IPEndPoint>       Если вы хотите отправить датаграмм широковещательный адрес, используйте <xref:System.Net.Sockets.UdpClient.Client%2A>метод, чтобы получить основной <xref:System.Net.Sockets.Socket>и задать параметр сокета для <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>.</xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName> </xref:System.Net.Sockets.Socket> </xref:System.Net.Sockets.UdpClient.Client%2A> Можно также вернуться к использованию <xref:System.Net.Sockets.Socket>класса.</xref:System.Net.Sockets.Socket>      Настроек [!NOTE] настроек не имеют `endPoint` параметр этого метода, если вы уже установили удаленного узла с <xref:System.Net.Sockets.UdpClient.Connect%2A>метод.</xref:System.Net.Sockets.UdpClient.Connect%2A> В противном случае метод Send вызовет <xref:System.Net.Sockets.SocketException>.</xref:System.Net.Sockets.SocketException> При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN."
   example:
   - "The following example demonstrates the Send method. This example uses an <xref:System.Net.IPEndPoint> to specify the target host.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#8](~/add/codesnippet/csharp/2c594ef1-b462-42a1-adc5-_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#8](~/add/codesnippet/cpp/2c594ef1-b462-42a1-adc5-_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#8](~/add/codesnippet/visualbasic/2c594ef1-b462-42a1-adc5-_1.vb)]"
   syntax:
@@ -1262,30 +1262,30 @@ items:
     parameters:
     - id: dgram
       type: System.Byte[]
-      description: "An array of type <xref:System.Byte> that specifies the UDP datagram that you intend to send, represented as an array of bytes."
+      description: "Массив объектов типа <xref:System.Byte>, задающий UDP-датаграмму, которую планируется отправить, в виде массива байтов.</xref:System.Byte>"
     - id: bytes
       type: System.Int32
-      description: "The number of bytes in the datagram."
+      description: "Число байт в датаграмме."
     - id: endPoint
       type: System.Net.IPEndPoint
-      description: "An <xref:System.Net.IPEndPoint> that represents the host and port to which to send the datagram."
+      description: "<xref:System.Net.IPEndPoint>, Представляющий узел и порт, в который требуется отправить датаграмму.</xref:System.Net.IPEndPoint>"
     return:
       type: System.Int32
-      description: "The number of bytes sent."
+      description: "Число отправленных байтов."
   overload: System.Net.Sockets.UdpClient.Send*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>dgram</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>dgram</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> has already established a default remote host."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref>уже установил удаленный узел по умолчанию."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> is closed."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref>закрыт."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.Send(System.Byte[],System.Int32,System.String,System.Int32)
@@ -1300,8 +1300,8 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Sends a UDP datagram to a specified port on a specified remote host."
-  remarks: "The <xref:System.Net.Sockets.UdpClient.Send%2A> method sends datagrams to the values specified by the `hostname` and `port` parameters and returns the number of bytes successfully sent. You can send datagrams to the default broadcast address by specifying &quot;255.255.255.255&quot; for the `hostname` parameter value.       If you want to send datagrams to any other broadcast address, use the <xref:System.Net.Sockets.UdpClient.Client%2A> method to obtain the underlying <xref:System.Net.Sockets.Socket>, and set the socket option to <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>. You can also revert to using the <xref:System.Net.Sockets.Socket> class.      > [!NOTE] >  Do not provide a host name or port number to this method if you have already established a remote host with the <xref:System.Net.Sockets.UdpClient.Connect%2A> method. If you do, the <xref:System.Net.Sockets.UdpClient.Send%2A> method will throw a <xref:System.Net.Sockets.SocketException>. If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error."
+  summary: "Отправляет UDP-датаграмму на заданный порт указанного удаленного узла."
+  remarks: "<xref:System.Net.Sockets.UdpClient.Send%2A>Метод датаграмм значения, указанные в `hostname` и `port` параметров и возвращает количество успешно переданных байтов.</xref:System.Net.Sockets.UdpClient.Send%2A> Можно посылать датаграммы адрес широковещательной рассылки по умолчанию путем задания значения «255.255.255.255» для `hostname` значение параметра.       Если вы хотите отправить датаграмм широковещательный адрес, используйте <xref:System.Net.Sockets.UdpClient.Client%2A>метод, чтобы получить основной <xref:System.Net.Sockets.Socket>и задать параметр сокета для <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>.</xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName> </xref:System.Net.Sockets.Socket> </xref:System.Net.Sockets.UdpClient.Client%2A> Можно также вернуться к использованию <xref:System.Net.Sockets.Socket>класса.</xref:System.Net.Sockets.Socket>      Настроек [!NOTE] настроек не введите имя узла и номер порта для этого метода, если вы создали удаленного узла с <xref:System.Net.Sockets.UdpClient.Connect%2A>метод.</xref:System.Net.Sockets.UdpClient.Connect%2A> В противном случае <xref:System.Net.Sockets.UdpClient.Send%2A>метод вызывает исключение <xref:System.Net.Sockets.SocketException>.</xref:System.Net.Sockets.SocketException> </xref:System.Net.Sockets.UdpClient.Send%2A> При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN."
   example:
   - "The following example demonstrates the <xref:System.Net.Sockets.UdpClient.Send%2A> method. This example uses a host name and a port number to identify the target host.  \n  \n [!code-cs[Classic UdpClient.PublicMethodsAndPropertiesExample#9](~/add/codesnippet/csharp/5d28964f-8575-4595-a91e-_1.cs)]\n [!code-cpp[Classic UdpClient.PublicMethodsAndPropertiesExample#9](~/add/codesnippet/cpp/5d28964f-8575-4595-a91e-_1.cpp)]\n [!code-vb[Classic UdpClient.PublicMethodsAndPropertiesExample#9](~/add/codesnippet/visualbasic/5d28964f-8575-4595-a91e-_1.vb)]"
   syntax:
@@ -1309,33 +1309,33 @@ items:
     parameters:
     - id: dgram
       type: System.Byte[]
-      description: "An array of type <xref:System.Byte> that specifies the UDP datagram that you intend to send represented as an array of bytes."
+      description: "Массив объектов типа <xref:System.Byte>, задающий UDP-датаграмму, которую планируется отправить в виде массива байтов.</xref:System.Byte>"
     - id: bytes
       type: System.Int32
-      description: "The number of bytes in the datagram."
+      description: "Число байт в датаграмме."
     - id: hostname
       type: System.String
-      description: "The name of the remote host to which you intend to send the datagram."
+      description: "Имя удаленного узла, на который планируется отправить датаграмму."
     - id: port
       type: System.Int32
-      description: "The remote port number with which you intend to communicate."
+      description: "Номер удаленного порта, который планируется для обмена данными."
     return:
       type: System.Int32
-      description: "The number of bytes sent."
+      description: "Число отправленных байтов."
   overload: System.Net.Sockets.UdpClient.Send*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>dgram</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>dgram</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> has already established a default remote host."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> Уже установил удаленный узел по умолчанию."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> is closed."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> Закрыт."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.SendAsync(System.Byte[],System.Int32)
@@ -1350,34 +1350,34 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Sends a UDP datagram asynchronously to a remote host."
-  remarks: "This overload sends datagrams to the remote host established in the <xref:System.Net.Sockets.UdpClient.Connect%2A> method. If you do not call <xref:System.Net.Sockets.UdpClient.Connect%2A> before calling this overload, the method will throw a <xref:System.Net.Sockets.SocketException>. If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error.       If you want to send datagrams to a different remote host, you must call the <xref:System.Net.Sockets.UdpClient.Connect%2A> method and specify the desired remote host. Use either of the other <xref:System.Net.Sockets.UdpClient.SendAsync%2A> method overloads to send datagrams to a broadcast address."
+  summary: "Асинхронно отправляет датаграмму UDP в удаленный узел."
+  remarks: "Эта перегрузка датаграмм удаленного узла, заданного в <xref:System.Net.Sockets.UdpClient.Connect%2A>метод.</xref:System.Net.Sockets.UdpClient.Connect%2A> Если не следует вызывать <xref:System.Net.Sockets.UdpClient.Connect%2A>перед вызовом этой перегрузки метода вызовет <xref:System.Net.Sockets.SocketException>.</xref:System.Net.Sockets.SocketException> </xref:System.Net.Sockets.UdpClient.Connect%2A> При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN.       Если вы хотите отправить датаграмм другой удаленный хост, необходимо вызвать <xref:System.Net.Sockets.UdpClient.Connect%2A>метод и укажите нужное удаленного узла.</xref:System.Net.Sockets.UdpClient.Connect%2A> Используйте один из других <xref:System.Net.Sockets.UdpClient.SendAsync%2A>перегруженных версий метода для отправки датаграмм адрес широковещательной рассылки.</xref:System.Net.Sockets.UdpClient.SendAsync%2A>"
   syntax:
     content: public System.Threading.Tasks.Task<int> SendAsync (byte[] datagram, int bytes);
     parameters:
     - id: datagram
       type: System.Byte[]
-      description: "An array of type <xref:System.Byte> that specifies the UDP datagram that you intend to send represented as an array of bytes."
+      description: "Массив объектов типа <xref:System.Byte>, задающий UDP-датаграмму, которую планируется отправить в виде массива байтов.</xref:System.Byte>"
     - id: bytes
       type: System.Int32
-      description: "The number of bytes in the datagram."
+      description: "Число байт в датаграмме."
     return:
       type: System.Threading.Tasks.Task{System.Int32}
-      description: "Returns &lt;xref:System.Threading.Tasks.Task%601&gt;."
+      description: "Возвращает &lt;xref:System.Threading.Tasks.Task%601&gt;."
   overload: System.Net.Sockets.UdpClient.SendAsync*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>dgram</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>dgram</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> has already established a default remote host."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> Уже установил удаленный узел по умолчанию."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> is closed."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> Закрыт."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.SendAsync(System.Byte[],System.Int32,System.Net.IPEndPoint)
@@ -1392,37 +1392,37 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Sends a UDP datagram asynchronously to a remote host."
-  remarks: "This method sends datagrams to the specified endpoint. Before calling this overload, you must first create an <xref:System.Net.IPEndPoint> using the IP address and port number of the remote host to which your datagrams will be delivered. You can send datagrams to the default broadcast address, 255.255.255.255, by specifying <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName> for the <xref:System.Net.IPAddress.Address%2A> property of the <xref:System.Net.IPEndPoint>. After you have created this <xref:System.Net.IPEndPoint>, pass it to this method as the `endPoint` parameter.       If you want to send datagrams to any other broadcast address, use the <xref:System.Net.Sockets.UdpClient.Client%2A> method to obtain the underlying <xref:System.Net.Sockets.Socket>, and set the socket option to <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>. You can also revert to using the <xref:System.Net.Sockets.Socket> class.      > [!WARNING] >  Do not provide an `endPoint` parameter to this method if you have already established a remote host with the <xref:System.Net.Sockets.UdpClient.Connect%2A> method. If you do, this method will throw a <xref:System.Net.Sockets.SocketException>. If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error."
+  summary: "Асинхронно отправляет датаграмму UDP в удаленный узел."
+  remarks: "Этот метод отправляет датаграммы на указанную конечную точку. Перед вызовом этой перегрузки необходимо сначала создать <xref:System.Net.IPEndPoint>с помощью IP-адреса и порта удаленного узла, на который будут доставляться датаграммы номер.</xref:System.Net.IPEndPoint> Можно посылать датаграммы адрес широковещательной рассылки по умолчанию 255.255.255.255, задав <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>для <xref:System.Net.IPAddress.Address%2A>Свойства <xref:System.Net.IPEndPoint>.</xref:System.Net.IPEndPoint> </xref:System.Net.IPAddress.Address%2A> </xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName> После создания этого <xref:System.Net.IPEndPoint>, передать его этому методу в качестве `endPoint` параметр.</xref:System.Net.IPEndPoint>       Если вы хотите отправить датаграмм широковещательный адрес, используйте <xref:System.Net.Sockets.UdpClient.Client%2A>метод, чтобы получить основной <xref:System.Net.Sockets.Socket>и задать параметр сокета для <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>.</xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName> </xref:System.Net.Sockets.Socket> </xref:System.Net.Sockets.UdpClient.Client%2A> Можно также вернуться к использованию <xref:System.Net.Sockets.Socket>класса.</xref:System.Net.Sockets.Socket>      Настроек [!WARNING] настроек не имеют `endPoint` параметр этого метода, если вы уже установили удаленного узла с <xref:System.Net.Sockets.UdpClient.Connect%2A>метод.</xref:System.Net.Sockets.UdpClient.Connect%2A> В противном случае этот метод вызывает исключение <xref:System.Net.Sockets.SocketException>.</xref:System.Net.Sockets.SocketException> При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN."
   syntax:
     content: public System.Threading.Tasks.Task<int> SendAsync (byte[] datagram, int bytes, System.Net.IPEndPoint endPoint);
     parameters:
     - id: datagram
       type: System.Byte[]
-      description: "An array of type <xref:System.Byte> that specifies the UDP datagram that you intend to send represented as an array of bytes."
+      description: "Массив объектов типа <xref:System.Byte>, задающий UDP-датаграмму, которую планируется отправить в виде массива байтов.</xref:System.Byte>"
     - id: bytes
       type: System.Int32
-      description: "The number of bytes in the datagram."
+      description: "Число байт в датаграмме."
     - id: endPoint
       type: System.Net.IPEndPoint
-      description: "An <xref:System.Net.IPEndPoint> that represents the host and port to which to send the datagram."
+      description: "<xref:System.Net.IPEndPoint>, Представляющий узел и порт, в который требуется отправить датаграмму.</xref:System.Net.IPEndPoint>"
     return:
       type: System.Threading.Tasks.Task{System.Int32}
-      description: "Returns &lt;xref:System.Threading.Tasks.Task%601&gt;."
+      description: "Возвращает &lt;xref:System.Threading.Tasks.Task%601&gt;."
   overload: System.Net.Sockets.UdpClient.SendAsync*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>dgram</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>dgram</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> has already established a default remote host."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref>уже установил удаленный узел по умолчанию."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> is closed."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref>закрыт."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.SendAsync(System.Byte[],System.Int32,System.String,System.Int32)
@@ -1437,40 +1437,40 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Sends a UDP datagram asynchronously to a remote host."
-  remarks: "This method sends datagrams to the values specified by the `hostname` and `port` parameters. You can send datagrams to the default broadcast address by specifying &quot;255.255.255.255&quot; for the `hostname` parameter value.       If you want to send datagrams to any other broadcast address, use the <xref:System.Net.Sockets.UdpClient.Client%2A> method to obtain the underlying <xref:System.Net.Sockets.Socket>, and set the socket option to <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>. You can also revert to using the <xref:System.Net.Sockets.Socket> class.      > [!WARNING] >  Do not provide a host name or port number to this method if you have already established a remote host with the <xref:System.Net.Sockets.UdpClient.Connect%2A> method. If you do, this method will throw a <xref:System.Net.Sockets.SocketException>. If you receive a <xref:System.Net.Sockets.SocketException>, use <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> to obtain the specific error code. Once you have obtained this code, you can refer to the Windows Sockets version 2 API error code documentation in MSDN for a detailed description of the error."
+  summary: "Асинхронно отправляет датаграмму UDP в удаленный узел."
+  remarks: "Этот метод передает датаграммы на значения, указанные в `hostname` и `port` параметров. Можно посылать датаграммы адрес широковещательной рассылки по умолчанию путем задания значения «255.255.255.255» для `hostname` значение параметра.       Если вы хотите отправить датаграмм широковещательный адрес, используйте <xref:System.Net.Sockets.UdpClient.Client%2A>метод, чтобы получить основной <xref:System.Net.Sockets.Socket>и задать параметр сокета для <xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName>.</xref:System.Net.Sockets.SocketOptionName?displayProperty=fullName> </xref:System.Net.Sockets.Socket> </xref:System.Net.Sockets.UdpClient.Client%2A> Можно также вернуться к использованию <xref:System.Net.Sockets.Socket>класса.</xref:System.Net.Sockets.Socket>      Настроек [!WARNING] настроек не введите имя узла и номер порта для этого метода, если вы создали удаленного узла с <xref:System.Net.Sockets.UdpClient.Connect%2A>метод.</xref:System.Net.Sockets.UdpClient.Connect%2A> В противном случае этот метод вызывает исключение <xref:System.Net.Sockets.SocketException>.</xref:System.Net.Sockets.SocketException> При получении <xref:System.Net.Sockets.SocketException>, используйте <xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName>получить конкретный код ошибки.</xref:System.Net.Sockets.SocketException.ErrorCode%2A?displayProperty=fullName> </xref:System.Net.Sockets.SocketException> Получив этот код можно было подробное описание ошибки документации по кодам ошибок API Windows Sockets версии 2 в библиотеке MSDN."
   syntax:
     content: public System.Threading.Tasks.Task<int> SendAsync (byte[] datagram, int bytes, string hostname, int port);
     parameters:
     - id: datagram
       type: System.Byte[]
-      description: "An array of type <xref:System.Byte> that specifies the UDP datagram that you intend to send represented as an array of bytes."
+      description: "Массив объектов типа <xref:System.Byte>, задающий UDP-датаграмму, которую планируется отправить в виде массива байтов.</xref:System.Byte>"
     - id: bytes
       type: System.Int32
-      description: "The number of bytes in the datagram."
+      description: "Число байт в датаграмме."
     - id: hostname
       type: System.String
-      description: "The name of the remote host to which you intend to send the datagram."
+      description: "Имя удаленного узла, на который планируется отправить датаграмму."
     - id: port
       type: System.Int32
-      description: "The remote port number with which you intend to communicate."
+      description: "Номер удаленного порта, который планируется для обмена данными."
     return:
       type: System.Threading.Tasks.Task{System.Int32}
-      description: "Returns &lt;xref:System.Threading.Tasks.Task%601&gt;."
+      description: "Возвращает &lt;xref:System.Threading.Tasks.Task%601&gt;."
   overload: System.Net.Sockets.UdpClient.SendAsync*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>dgram</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>dgram</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> has already established a default remote host."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> Уже установил удаленный узел по умолчанию."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref> is closed."
+    description: "<xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref> Закрыт."
   - type: System.Net.Sockets.SocketException
     commentId: T:System.Net.Sockets.SocketException
-    description: "An error occurred when accessing the socket. See the Remarks section for more information."
+    description: "Произошла ошибка при обращении к сокету. Дополнительные сведения см."
   platform:
   - net462
 - uid: System.Net.Sockets.UdpClient.Ttl
@@ -1485,15 +1485,15 @@ items:
   assemblies:
   - System
   namespace: System.Net.Sockets
-  summary: "Gets or sets a value that specifies the Time to Live (TTL) value of Internet Protocol (IP) packets sent by the <xref href=&quot;System.Net.Sockets.UdpClient&quot;></xref>."
-  remarks: "The TTL value indicates the maximum number of routers a packet can traverse before the router discards the packet and an Internet Control Message Protocol (ICMP) &quot;TTL exceeded&quot; error message is returned to the sender."
+  summary: "Возвращает или задает значение, указывающее оставшееся время существования (TTL) для пакетов протокола Интернета (IP), отправленных <xref href=&quot;System.Net.Sockets.UdpClient&quot;> </xref>."
+  remarks: "Значение TTL указывает максимальное число маршрутизаторов, пакет может пересекать перед маршрутизатор отменяет пакет и протокол управления сообщений протокола ICMP (Internet) «Превышено TTL» отправителю возвращается сообщение об ошибке."
   example:
   - "The following code example shows the use of the Ttl property.  \n  \n [!code-cs[System.Net.Sockets.UdpClient#5](~/add/codesnippet/csharp/p-system.net.sockets.udp_6_1.cs)]\n [!code-cpp[System.Net.Sockets.UdpClient#5](~/add/codesnippet/cpp/p-system.net.sockets.udp_6_1.cpp)]"
   syntax:
     content: public short Ttl { get; set; }
     return:
       type: System.Int16
-      description: "The TTL value."
+      description: "Значение срока ЖИЗНИ."
   overload: System.Net.Sockets.UdpClient.Ttl*
   exceptions: []
   platform:
