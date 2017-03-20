@@ -15,8 +15,8 @@ items:
   nameWithType: RegisterInfo
   fullName: System.ServiceModel.PeerResolvers.RegisterInfo
   type: Class
-  summary: "Defines the  peer registration information to be supplied to a peer resolver service."
-  remarks: "This class defines the information used to register the tuple of a peer node and a mesh ID with a peer resolver service. This information is inserted as an entry in the registration lookup table of the resolver service, which can be queried by other peers for the endpoint addresses of the inserted peer.       Instances of this class are created when <xref:System.ServiceModel.PeerResolvers.CustomPeerResolverService.Register%2A> (or an implementation of  <xref:System.ServiceModel.PeerResolvers.IPeerResolverContract.Register%2A>) is called to register with a peer resolver service. They are primarily used to pass registration request information to a peer resolver service from a network client of that service."
+  summary: "Определяет сведения о регистрации однорангового предоставляться в службе распознавателя одноранговых узлов."
+  remarks: "Этот класс определяет сведения, используемые для регистрации кортежа однорангового узла и идентификатора сетки в службе распознавателя одноранговых узлов. Эти сведения добавляются в виде записи в таблице подстановок регистрации службы распознавателя, которые можно запросить на других узлах адреса конечных точек добавленных одноранговых узлов.       Экземпляры этого класса создаются <xref:System.ServiceModel.PeerResolvers.CustomPeerResolverService.Register%2A>(или реализации метода <xref:System.ServiceModel.PeerResolvers.IPeerResolverContract.Register%2A>) вызывается для регистрации в службе распознавателя одноранговых узлов.</xref:System.ServiceModel.PeerResolvers.IPeerResolverContract.Register%2A> </xref:System.ServiceModel.PeerResolvers.CustomPeerResolverService.Register%2A> В основном они используются для передачи данных запроса регистрации службы распознавателя одноранговых узлов из сетевого клиента данной службы."
   syntax:
     content: >-
       [System.ServiceModel.MessageContract(IsWrapped=false)]
@@ -40,7 +40,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.PeerResolvers
-  summary: "Initializes a new default instance of the <xref href=&quot;System.ServiceModel.PeerResolvers.RegisterInfo&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр по умолчанию <xref href=&quot;System.ServiceModel.PeerResolvers.RegisterInfo&quot;> </xref> класса."
   syntax:
     content: public RegisterInfo ();
     parameters: []
@@ -60,19 +60,19 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.PeerResolvers
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.PeerResolvers.RegisterInfo&quot;></xref> class with the supplied client ID, mesh ID, and endpoint address(es)."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.PeerResolvers.RegisterInfo&quot;> </xref> класса с предоставленным Идентификатором клиента, идентификатор сетки и адреса конечной точки."
   syntax:
     content: public RegisterInfo (Guid client, string meshId, System.ServiceModel.PeerNodeAddress address);
     parameters:
     - id: client
       type: System.Guid
-      description: "<xref:System.Guid> that uniquely identifies the peer node to be registered."
+      description: "<xref:System.Guid>однозначно определяющий регистрируемый одноранговый узел.</xref:System.Guid>"
     - id: meshId
       type: System.String
-      description: "<xref:System.String> that specifies the ID of the mesh in which the peer node participates."
+      description: "<xref:System.String>указывающий идентификатор сетки, в которой участвует одноранговый узел.</xref:System.String>"
     - id: address
       type: System.ServiceModel.PeerNodeAddress
-      description: "<xref href=&quot;System.ServiceModel.PeerNodeAddress&quot;></xref> that specifies the endpoint address(es) of the peer node to be registered."
+      description: "<xref href=&quot;System.ServiceModel.PeerNodeAddress&quot;></xref>указывающий адреса конечной точки однорангового узла для регистрации."
   overload: System.ServiceModel.PeerResolvers.RegisterInfo.#ctor*
   exceptions: []
   platform:
@@ -89,12 +89,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.PeerResolvers
-  summary: "Gets a <xref:System.Guid> that uniquely identifies the registration entry for a peer node."
+  summary: "Возвращает <xref:System.Guid>, однозначно идентифицирующий регистрационную запись для однорангового узла.</xref:System.Guid>"
   syntax:
     content: public Guid ClientId { get; }
     return:
       type: System.Guid
-      description: "<xref:System.Guid> that uniquely identifies the registration entry of a peer node."
+      description: "<xref:System.Guid>однозначно идентифицирующий регистрационную запись для однорангового узла.</xref:System.Guid>"
   overload: System.ServiceModel.PeerResolvers.RegisterInfo.ClientId*
   exceptions: []
   platform:
@@ -111,13 +111,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.PeerResolvers
-  summary: "Indicates whether the body of the message containing a serialized instance of this type is correctly formed."
+  summary: "Указывает, имеет ли текст сообщения, содержащего сериализованный экземпляр данного типа, правильный формат."
   syntax:
     content: public bool HasBody ();
     parameters: []
     return:
       type: System.Boolean
-      description: "True if the registration information body is correctly-formed by the sender; false if it is not."
+      description: "Значение true, если текст сведений о регистрации правильно сформировано отправителем; значение false, если это не так."
   overload: System.ServiceModel.PeerResolvers.RegisterInfo.HasBody*
   exceptions: []
   platform:
@@ -134,12 +134,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.PeerResolvers
-  summary: "Gets a mesh ID associated with the registration entry."
+  summary: "Получает идентификатор сетки, связанный с регистрационной записью."
   syntax:
     content: public string MeshId { get; }
     return:
       type: System.String
-      description: "<xref:System.String> that contains the mesh ID (or mesh name) associated with the registration entry."
+      description: "<xref:System.String>содержащий сетки Идентификатором (либо имя сетки), связанный с регистрационной записи.</xref:System.String>"
   overload: System.ServiceModel.PeerResolvers.RegisterInfo.MeshId*
   exceptions: []
   platform:
@@ -156,12 +156,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.PeerResolvers
-  summary: "Gets the endpoint address(es) to associate with the node that is registering with the resolver service."
+  summary: "Получает адреса конечной точки для связи с узлом, регистрация в службе распознавателя."
   syntax:
     content: public System.ServiceModel.PeerNodeAddress NodeAddress { get; }
     return:
       type: System.ServiceModel.PeerNodeAddress
-      description: "<xref href=&quot;System.ServiceModel.PeerNodeAddress&quot;></xref> that contains the endpoint address(es) to associate with the node that is registering with the resolver service. The address or addresses contained in this instance can be used to connect with the peer node within the mesh."
+      description: "<xref href=&quot;System.ServiceModel.PeerNodeAddress&quot;></xref>содержащий адреса конечной точки для связи с узлом, регистрация в службе распознавателя. Адрес или адреса, содержащиеся в этом экземпляре можно использовать для подключения к одноранговому узлу в сетке."
   overload: System.ServiceModel.PeerResolvers.RegisterInfo.NodeAddress*
   exceptions: []
   platform:

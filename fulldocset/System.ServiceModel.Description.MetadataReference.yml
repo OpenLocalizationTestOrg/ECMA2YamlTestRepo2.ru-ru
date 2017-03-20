@@ -16,8 +16,8 @@ items:
   nameWithType: MetadataReference
   fullName: System.ServiceModel.Description.MetadataReference
   type: Class
-  summary: "Represents a reference to a metadata document returned from a metadata exchange endpoint."
-  remarks: "When using [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)], a metadata endpoint can be created for any service. The endpoint can be queried for metadata that allows a client to communicate with the endpoint. For example, a metadata endpoint can return a Web Services Description Language (WSDL) document that describes the methods and data types of a service.       The MetadataReference class is used with WS-MetadataExchange responses where references are directly encoded as `<mex:MetadataReference>` or `<mex:MetadataLocation``>`.       Metadata documents can reference many other documents that describe types and those documents can contain even more references. The MetadataReference class represents a single endpoint that returns a document that can itself contain multiple WSDL or XSD items as well as other metadata references to other WS-MetadataExchange endpoints.       Instances of the MetadataReference class are commonly used when processing a <xref:System.ServiceModel.Description.MetadataSet>, which represents the total metadata exchange point. The <xref:System.ServiceModel.Description.MetadataResolver> class is designed to resolve all references used to return the metadata. If, however, you need to examine each reference, use the MetadataReference class to represent each endpoint.      ## Specifications    [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] implements the Web Services Metadata Exchange (WS-MetadataExchange) specification for returning metadata. That specification further uses the Web Services Transfer (WS-Transfer) specification to define the mechanism for retrieving XML-based data."
+  summary: "Представляет ссылку на документ метаданных, возвращаемых из конечной точки обмена метаданными."
+  remarks: "При использовании [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)], конечную точку метаданных, которые могут быть созданы для любых служб. Конечная точка может запрашиваться для метаданных, позволяющий клиенту взаимодействовать с конечной точкой. Например конечная точка метаданных может возвращать документ языка описания веб-служб (WSDL), описывающий методы и типы данных службы.       Адрес MetadataReference класс используется с ответами WS-MetadataExchange, где ссылки шифруются непосредственно как `<mex:MetadataReference>` или `<mex:MetadataLocation``>`.       Документы метаданных могут ссылаться на множество других документов, которые описывают типы и такие документы могут содержать собственные ссылки. Класс адрес MetadataReference представляет одну конечную точку, возвращающую документ, который может сам содержать несколько элементов WSDL или XSD, а также другие ссылки метаданных на остальные конечные точки WS-MetadataExchange.       Экземпляры класса адрес MetadataReference обычно используются при обработке <xref:System.ServiceModel.Description.MetadataSet>, который представляет контрольную точку обмена метаданными.</xref:System.ServiceModel.Description.MetadataSet> <xref:System.ServiceModel.Description.MetadataResolver>Класс предназначен для разрешения ссылок, используемых для возврата метаданных.</xref:System.ServiceModel.Description.MetadataResolver> Если необходимо проверить каждую ссылку, используйте адрес MetadataReference класс для представления каждой конечной точки.      ## Спецификации [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] реализует спецификацию обмена метаданными веб служб (WS-MetadataExchange) для возврата метаданных. Эта спецификация далее использует спецификацию Web Services передачи (WS-Transfer) для определения механизм для извлечения данных на основе XML."
   syntax:
     content: >-
       [System.Xml.Serialization.XmlRoot(ElementName="MetadataReference", Namespace="http://schemas.xmlsoap.org/ws/2004/09/mex")]
@@ -42,7 +42,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Description.MetadataReference&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.Description.MetadataReference&quot;> </xref> класса."
   syntax:
     content: public MetadataReference ();
     parameters: []
@@ -62,16 +62,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Description.MetadataReference&quot;></xref> class and specifies the network address and address version of the endpoint."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.Description.MetadataReference&quot;> </xref> класса и указывает сетевой адрес и версию адреса конечной точки."
   syntax:
     content: public MetadataReference (System.ServiceModel.EndpointAddress address, System.ServiceModel.Channels.AddressingVersion addressVersion);
     parameters:
     - id: address
       type: System.ServiceModel.EndpointAddress
-      description: "An <xref:System.ServiceModel.EndpointAddress> that contains the URI of the endpoint."
+      description: "<xref:System.ServiceModel.EndpointAddress>, Содержащий URI конечной точки.</xref:System.ServiceModel.EndpointAddress>"
     - id: addressVersion
       type: System.ServiceModel.Channels.AddressingVersion
-      description: "An <xref:System.ServiceModel.Channels.AddressingVersion> that contains the WS-Addressing version implemented by the endpoint."
+      description: "<xref:System.ServiceModel.Channels.AddressingVersion>, Содержащее версию WS-Addressing, реализуемых конечной точкой.</xref:System.ServiceModel.Channels.AddressingVersion>"
   overload: System.ServiceModel.Description.MetadataReference.#ctor*
   exceptions: []
   platform:
@@ -88,12 +88,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Gets or sets the network address of a service that returns metadata."
+  summary: "Возвращает или задает сетевой адрес службы, которая возвращает метаданные."
   syntax:
     content: public System.ServiceModel.EndpointAddress Address { get; set; }
     return:
       type: System.ServiceModel.EndpointAddress
-      description: "An endpoint that returns metadata."
+      description: "Конечная точка, которая возвращает метаданные."
   overload: System.ServiceModel.Description.MetadataReference.Address*
   exceptions: []
   platform:
@@ -110,12 +110,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Gets or sets the version implemented in, or used by the endpoint."
+  summary: "Возвращает или задает версию реализуемую или используемую конечной точкой."
   syntax:
     content: public System.ServiceModel.Channels.AddressingVersion AddressVersion { get; set; }
     return:
       type: System.ServiceModel.Channels.AddressingVersion
-      description: "An <xref:System.ServiceModel.Channels.AddressingVersion> that represents the version implemented in, or used by the endpoint."
+      description: "<xref:System.ServiceModel.Channels.AddressingVersion>, Представляющее версию реализуемую или используемую конечной точкой.</xref:System.ServiceModel.Channels.AddressingVersion>"
   overload: System.ServiceModel.Description.MetadataReference.AddressVersion*
   exceptions: []
   platform:
@@ -133,13 +133,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Returns an XML schema document for the metadata reference endpoint."
+  summary: "Возвращает документ схемы XML для конечной точки ссылки метаданных."
   syntax:
     content: System.Xml.Schema.XmlSchema IXmlSerializable.GetSchema ();
     parameters: []
     return:
       type: System.Xml.Schema.XmlSchema
-      description: "An <xref:System.Xml.Schema.XmlSchema> that represents the XML Schema Document (XSD) for the metadata endpoint reference."
+      description: "<xref:System.Xml.Schema.XmlSchema>, Представляющий документ схемы XML (XSD) для ссылки конечной точки метаданных.</xref:System.Xml.Schema.XmlSchema>"
   overload: System.ServiceModel.Description.MetadataReference.System#Xml#Serialization#IXmlSerializable#GetSchema*
   exceptions: []
   platform:
@@ -157,13 +157,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Reads using the supplied reader object."
+  summary: "Выполняет чтение с помощью предоставленного объекта средства чтения."
   syntax:
     content: void IXmlSerializable.ReadXml (System.Xml.XmlReader reader);
     parameters:
     - id: reader
       type: System.Xml.XmlReader
-      description: "An <xref:System.Xml.XmlReader> used to read with."
+      description: "<xref:System.Xml.XmlReader>Используется для считывания.</xref:System.Xml.XmlReader>"
   overload: System.ServiceModel.Description.MetadataReference.System#Xml#Serialization#IXmlSerializable#ReadXml*
   exceptions: []
   platform:
@@ -181,13 +181,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Writes an XML stream with the specified writer object."
+  summary: "Записывает XML-поток с указанным модулем записи объектов."
   syntax:
     content: void IXmlSerializable.WriteXml (System.Xml.XmlWriter writer);
     parameters:
     - id: writer
       type: System.Xml.XmlWriter
-      description: "An <xref:System.Xml.XmlWriter> used to write with."
+      description: "<xref:System.Xml.XmlWriter>Используемый для записи.</xref:System.Xml.XmlWriter>"
   overload: System.ServiceModel.Description.MetadataReference.System#Xml#Serialization#IXmlSerializable#WriteXml*
   exceptions: []
   platform:
