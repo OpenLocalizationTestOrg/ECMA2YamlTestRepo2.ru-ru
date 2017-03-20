@@ -14,8 +14,8 @@ items:
   nameWithType: MessageProcessingHandler
   fullName: System.Net.Http.MessageProcessingHandler
   type: Class
-  summary: "A base type for handlers which only do some small processing of request and/or response messages."
-  remarks: "The actual creation of response messages is delegated to an inner handler. The MessageProcessingHandler is useful if the handler doesn&quot;t require asynchronous operations, because operations on request and response messages are fast.       The most common usage is to derive from this class and override the <xref:System.Net.Http.MessageProcessingHandler.ProcessRequest%2A> and  <xref:System.Net.Http.MessageProcessingHandler.ProcessResponse%2A> methods."
+  summary: "Базовый тип для обработчиков, которые выполняют только часть обработки сообщений запросов и ответов."
+  remarks: "Внутренний обработчик делегируется фактическое создание ответных сообщений. MessageProcessingHandler полезно, если обработчик не требует асинхронные операции, так как операции с сообщениями запроса и ответа работают быстро.       Наиболее распространенным вариантом применения является являются производными от этого класса и переопределить <xref:System.Net.Http.MessageProcessingHandler.ProcessRequest%2A>и <xref:System.Net.Http.MessageProcessingHandler.ProcessResponse%2A>методы.</xref:System.Net.Http.MessageProcessingHandler.ProcessResponse%2A> </xref:System.Net.Http.MessageProcessingHandler.ProcessRequest%2A>"
   syntax:
     content: 'public abstract class MessageProcessingHandler : System.Net.Http.DelegatingHandler'
   inheritance:
@@ -41,7 +41,7 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Creates an instance of a <xref href=&quot;System.Net.Http.MessageProcessingHandler&quot;></xref> class."
+  summary: "Создает экземпляр <xref href=&quot;System.Net.Http.MessageProcessingHandler&quot;> </xref> класса."
   syntax:
     content: protected MessageProcessingHandler ();
     parameters: []
@@ -61,13 +61,13 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Creates an instance of a <xref href=&quot;System.Net.Http.MessageProcessingHandler&quot;></xref> class with a specific inner handler."
+  summary: "Создает экземпляр <xref href=&quot;System.Net.Http.MessageProcessingHandler&quot;> </xref> класса с указанным внутренним обработчиком."
   syntax:
     content: protected MessageProcessingHandler (System.Net.Http.HttpMessageHandler innerHandler);
     parameters:
     - id: innerHandler
       type: System.Net.Http.HttpMessageHandler
-      description: "The inner handler which is responsible for processing the HTTP response messages."
+      description: "Внутренний обработчик, который отвечает за обработку сообщений ответов HTTP."
   overload: System.Net.Http.MessageProcessingHandler.#ctor*
   exceptions: []
   platform:
@@ -84,20 +84,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Performs processing on each request sent to the server."
-  remarks: "An application would override this method to implement custom processing of the HTTP request message before it is sent to the server."
+  summary: "Выполняет обработку на каждый запрос, отправленный на сервер."
+  remarks: "Приложение может переопределить этот метод для реализации пользовательской обработки сообщения HTTP-запроса перед его отправкой на сервер."
   syntax:
     content: protected abstract System.Net.Http.HttpRequestMessage ProcessRequest (System.Net.Http.HttpRequestMessage request, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: "The HTTP request message to process."
+      description: "Сообщение HTTP-запроса для обработки."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Токен отмены, который может использоваться другими объектами или потоками для получения уведомления об отмене."
     return:
       type: System.Net.Http.HttpRequestMessage
-      description: "The HTTP request message that was processed."
+      description: "Сообщение HTTP-запроса, который был обработан."
   overload: System.Net.Http.MessageProcessingHandler.ProcessRequest*
   exceptions: []
   platform:
@@ -114,20 +114,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Perform processing on each response from the server."
-  remarks: "An application would override this method to implement custom processing of the HTTP response message after it is received from the server."
+  summary: "Выполнение обработки каждого ответа, полученного от сервера."
+  remarks: "Приложение может переопределить этот метод для реализации пользовательской обработки сообщения HTTP-ответа, после его получения с сервера."
   syntax:
     content: protected abstract System.Net.Http.HttpResponseMessage ProcessResponse (System.Net.Http.HttpResponseMessage response, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: response
       type: System.Net.Http.HttpResponseMessage
-      description: "The HTTP response message to process."
+      description: "Сообщение ответа HTTP для обработки."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Токен отмены, который может использоваться другими объектами или потоками для получения уведомления об отмене."
     return:
       type: System.Net.Http.HttpResponseMessage
-      description: "The HTTP response message that was processed."
+      description: "Сообщение ответа HTTP, который был обработан."
   overload: System.Net.Http.MessageProcessingHandler.ProcessResponse*
   exceptions: []
   platform:
@@ -144,20 +144,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Sends an HTTP request to the inner handler to send to the server as an asynchronous operation."
-  remarks: "This operation does not block. This overridable implementation of SendAsync method forwards the HTTP request to the inner handler to send to the server as an asynchronous operation."
+  summary: "Отправляет HTTP-запрос внутреннему обработчику для отправки на сервер в качестве асинхронной операции."
+  remarks: "Эта операция не блокируется. Эта реализация переопределяемый метод SendAsync перенаправляет HTTP-запрос внутреннему обработчику для отправки на сервер в качестве асинхронной операции."
   syntax:
     content: protected override sealed System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> SendAsync (System.Net.Http.HttpRequestMessage request, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: "The HTTP request message to send to the server."
+      description: "Сообщение HTTP-запроса для отправки на сервер."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Токен отмены, который может использоваться другими объектами или потоками для получения уведомления об отмене."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Объект задачи, представляющий асинхронную операцию."
   overload: System.Net.Http.MessageProcessingHandler.SendAsync*
   exceptions:
   - type: System.ArgumentNullException
