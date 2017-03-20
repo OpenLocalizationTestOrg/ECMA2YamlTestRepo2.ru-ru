@@ -12,8 +12,8 @@ items:
   nameWithType: IKeyboardInputSite
   fullName: System.Windows.Interop.IKeyboardInputSite
   type: Interface
-  summary: "Manages keyboard focus within the container.  This interface implements keyboard message management in [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)]-[!INCLUDE[TLA2#tla_win32](~/add/includes/tla2sharptla-win32-md.md)] interoperation scenarios."
-  remarks: "A container should provide a unique instance of this interface for each of its contained components.       The IKeyboardInputSite interface and the <xref:System.Windows.Interop.IKeyboardInputSink> are used together to provide support for keyboard actions across interoperation boundaries. A site (IKeyboardInputSite implementation) represents a parent of a sink (<xref:System.Windows.Interop.IKeyboardInputSink>). The sink (<xref:System.Windows.Interop.IKeyboardInputSink>) implements the majority of keyboard behavior. Each site must also provide a sink, because the site-specific sink is returned by a property of the IKeyboardInputSite interface.       For a discussion of the input architecture specifically implemented for [!INCLUDE[TLA#tla_winforms](~/add/includes/ajax-current-ext-md.md)] interoperation, see [Windows Forms and WPF Interoperability Input Architecture](~/add/includes/ajax-current-ext-md.md).       For more information about [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)]-[!INCLUDE[TLA2#tla_win32](~/add/includes/tla2sharptla-win32-md.md)] interoperation scenarios, see [WPF and Win32 Interoperation](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Управление фокусом ввода в контейнере.  Этот интерфейс реализует управление сообщениями от клавиатуры в [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] - [!INCLUDE[TLA2#tla_win32](~/add/includes/tla2sharptla-win32-md.md)] сценарии взаимодействия."
+  remarks: "Контейнер должен предоставляет уникальный экземпляр этого интерфейса для каждого из содержащихся в нем компонентов.       Интерфейс IKeyboardInputSite и <xref:System.Windows.Interop.IKeyboardInputSink>используются совместно для обеспечения поддержки действия клавиатуры через границы взаимодействия.</xref:System.Windows.Interop.IKeyboardInputSink> Узел (IKeyboardInputSite реализации) представляет родительский элемент приемник (<xref:System.Windows.Interop.IKeyboardInputSink>).</xref:System.Windows.Interop.IKeyboardInputSink> Приемник (<xref:System.Windows.Interop.IKeyboardInputSink>) реализует большую часть поведение клавиатуры.</xref:System.Windows.Interop.IKeyboardInputSink> Каждый сайт необходимо также указать приемник, потому что конкретного узла приемника возвращается свойством IKeyboardInputSite интерфейса.       Сведения о реализации архитектуры ввода специально для [!INCLUDE[TLA#tla_winforms](~/add/includes/ajax-current-ext-md.md)] взаимодействия, см. в разделе [Windows Forms и архитектура ввода взаимодействия WPF](~/add/includes/ajax-current-ext-md.md).       Дополнительные сведения о [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] - [!INCLUDE[TLA2#tla_win32](~/add/includes/tla2sharptla-win32-md.md)] сценарии взаимодействия в разделе [WPF и взаимодействие Win32](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public interface IKeyboardInputSite
   implements: []
@@ -31,17 +31,17 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Interop
-  summary: "Called by a contained component when it has reached its last tab stop and has no further items to tab to."
-  remarks: "Components call OnNoMoreTabStops when the component attempts a requested focus move but there are no further tab stops in that direction within that own component."
+  summary: "Вызывается размещаемым компонентом при его достиг его последней позиции табуляции, когда больше нет элементов для вкладки."
+  remarks: "Компоненты вызов OnNoMoreTabStops компонент предпринимает перемещения запрошенного фокус, но есть дальнейшая табуляции в этом направлении внутри собственного компонента."
   syntax:
     content: public bool OnNoMoreTabStops (System.Windows.Input.TraversalRequest request);
     parameters:
     - id: request
       type: System.Windows.Input.TraversalRequest
-      description: "Specifies whether focus should be set to the first or the last tab stop."
+      description: "Указывает, следует ли установить фокус на первой или последней позиции табуляции."
     return:
       type: System.Boolean
-      description: "If this method returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, the site has shifted focus to another component. If this method returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, focus is still within the calling component. The component should &quot;wrap around&quot; and set focus to its first contained tab stop."
+      description: "Если этот метод возвращает <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, узел переместил фокус на другой компонент. Если этот метод возвращает <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>, фокус будет по-прежнему внутри вызывающего компонента. Компонент должен «обернуться по кругу» и установить фокус на его первую позицию табуляции."
   overload: System.Windows.Interop.IKeyboardInputSite.OnNoMoreTabStops*
   exceptions: []
   platform:
@@ -58,13 +58,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Interop
-  summary: "Gets the keyboard sink associated with this site."
-  remarks: "This property does not return the parent <xref:System.Windows.Interop.IKeyboardInputSink> interface."
+  summary: "Получает приемник клавиатуры, связанный с этим узлом."
+  remarks: "Это свойство возвращает родительский <xref:System.Windows.Interop.IKeyboardInputSink>интерфейса.</xref:System.Windows.Interop.IKeyboardInputSink>"
   syntax:
     content: public System.Windows.Interop.IKeyboardInputSink Sink { get; }
     return:
       type: System.Windows.Interop.IKeyboardInputSink
-      description: "The current site&quot;s <xref href=&quot;System.Windows.Interop.IKeyboardInputSink&quot;></xref> interface."
+      description: "Текущий сайт <xref href=&quot;System.Windows.Interop.IKeyboardInputSink&quot;> </xref> интерфейса."
   overload: System.Windows.Interop.IKeyboardInputSite.Sink*
   exceptions: []
   platform:
@@ -81,8 +81,8 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Interop
-  summary: "Unregisters a child keyboard input sink from this site."
-  remarks: "This property does not affect the site on the container."
+  summary: "Отменяет регистрацию входной приемник клавиатуры дочерних с этого сайта."
+  remarks: "Это свойство не влияет на узел контейнера."
   syntax:
     content: public void Unregister ();
     parameters: []
