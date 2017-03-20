@@ -11,8 +11,8 @@ items:
   nameWithType: WorkflowEnvironment
   fullName: System.Workflow.Runtime.WorkflowEnvironment
   type: Class
-  summary: "Represents the transactional environment of the workflow instance that is running on the current thread."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       The WorkflowEnvironment represents the transactional environment of the workflow instance that is running on the current thread. WorkflowEnvironment has two properties: the <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A> property, which exposes the current work batch and allows a host or a host service to participate in the current transaction by adding <xref:System.Workflow.Runtime.IPendingWork> items to this property; and the <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkflowInstanceId%2A> property, which exposes the <xref:System.Guid> of the workflow instance currently running on this thread."
+  summary: "Представляет среду выполнения транзакций экземпляра рабочего процесса, который выполняется в текущем потоке."
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]WorkflowEnvironment представляет среду выполнения транзакций экземпляра рабочего процесса, который выполняется в текущем потоке. WorkflowEnvironment имеет два свойства: <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>свойство, которое показывает текущий пакет работ и позволяет узлу или службе узла участвовать в текущей транзакции, добавляя <xref:System.Workflow.Runtime.IPendingWork>элементов, это свойство; и <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkflowInstanceId%2A>Свойства, которое предоставляет <xref:System.Guid>экземпляра рабочего процесса, выполняющегося в данный момент в этом потоке.</xref:System.Guid> </xref:System.Workflow.Runtime.WorkflowEnvironment.WorkflowInstanceId%2A> </xref:System.Workflow.Runtime.IPendingWork> </xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>"
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -36,13 +36,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime
-  summary: "Gets the current work batch."
-  remarks: "The WorkBatch property allows hosts or host services to participate in the current transaction by adding pending work items to the current work batch. A host or a host service that wants to participate in the current transaction must implement the <xref:System.Workflow.Runtime.IPendingWork> interface and use <xref:System.Workflow.Runtime.IWorkBatch.Add%2A?displayProperty=fullName> to add pending work items to WorkBatch. Durable services should add items to WorkBatch to keep the state of their data stores consistent with the state of the workflow instance. The out-of-box durable services, <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> and <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>, both implement this functionality."
+  summary: "Возвращает текущий пакет работ."
+  remarks: "Свойство пакета WorkBatch позволяет узлам или службам узлов участвовать в текущей транзакции, добавляя ожидающие работы в текущий пакет работ. Узел или служба узла, в которой необходимо участвовать в текущей транзакции должны реализовывать <xref:System.Workflow.Runtime.IPendingWork>интерфейса и использовать <xref:System.Workflow.Runtime.IWorkBatch.Add%2A?displayProperty=fullName>для добавления ожидающих работ для пакета WorkBatch.</xref:System.Workflow.Runtime.IWorkBatch.Add%2A?displayProperty=fullName> </xref:System.Workflow.Runtime.IPendingWork> Постоянные службы должны добавлять элементы для пакета WorkBatch, чтобы поддерживать состояние своих хранилищ данных, согласованные с состоянием экземпляра рабочего процесса. Out-of-box устойчивых служб, а также <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>и <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>, как реализовать эту функцию.</xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService> </xref:System.Workflow.Runtime.Tracking.SqlTrackingService>"
   syntax:
     content: public static System.Workflow.Runtime.IWorkBatch WorkBatch { get; }
     return:
       type: System.Workflow.Runtime.IWorkBatch
-      description: "The <xref href=&quot;System.Workflow.Runtime.IWorkBatch&quot;></xref> that represents the current work batch."
+      description: "<xref href=&quot;System.Workflow.Runtime.IWorkBatch&quot;> </xref> , Представляющий текущий пакет работ."
   overload: System.Workflow.Runtime.WorkflowEnvironment.WorkBatch*
   exceptions: []
   platform:
@@ -59,13 +59,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime
-  summary: "Gets the <xref:System.Guid> of the workflow instance associated with the current thread."
-  remarks: "WorkflowInstanceId contains the <xref:System.Guid> of the workflow instance currently running in this thread. Whenever code is run from within a workflow thread, you can get the <xref:System.Guid> of the workflow instance through the WorkflowInstanceId property. For example, if your code is in a service called by an activity, WorkflowInstanceId will provide <xref:System.Guid> of the workflow instance for the calling activity."
+  summary: "Возвращает <xref:System.Guid>экземпляра рабочего процесса, связанного с текущим потоком.</xref:System.Guid>"
+  remarks: "Содержит WorkflowInstanceId <xref:System.Guid>экземпляра рабочего процесса, выполняемых в этом потоке.</xref:System.Guid> Когда код запускается из потока рабочего процесса, можно получить <xref:System.Guid>экземпляра рабочего процесса через свойство WorkflowInstanceId.</xref:System.Guid> Например, если код находится в службе, вызванной действием, WorkflowInstanceId предоставляет <xref:System.Guid>экземпляра рабочего процесса для вызывающего действия.</xref:System.Guid>"
   syntax:
     content: public static Guid WorkflowInstanceId { get; }
     return:
       type: System.Guid
-      description: "The <xref:System.Guid> that identifies the current workflow instance."
+      description: "<xref:System.Guid>Определяет текущий экземпляр рабочего процесса.</xref:System.Guid>"
   overload: System.Workflow.Runtime.WorkflowEnvironment.WorkflowInstanceId*
   exceptions: []
   platform:
