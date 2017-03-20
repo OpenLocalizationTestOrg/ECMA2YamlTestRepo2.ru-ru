@@ -12,7 +12,7 @@ items:
   nameWithType: PackagingProgressEventArgs
   fullName: System.Windows.Xps.Packaging.PackagingProgressEventArgs
   type: Class
-  summary: "Provides data for the <xref href=&quot;System.Windows.Xps.Serialization.XpsPackagingPolicy.PackagingProgressEvent&quot;></xref> event."
+  summary: "Предоставляет данные для <xref href=&quot;System.Windows.Xps.Serialization.XpsPackagingPolicy.PackagingProgressEvent&quot;> </xref> событий."
   syntax:
     content: 'public class PackagingProgressEventArgs : EventArgs'
   inheritance:
@@ -33,17 +33,17 @@ items:
   assemblies:
   - ReachFramework
   namespace: System.Windows.Xps.Packaging
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Xps.Packaging.PackagingProgressEventArgs&quot;></xref> class."
-  remarks: "In certain situations and for specific types, multiple packaging progress events occur at the same time. These logically distinct, but temporally identical, events are combined into a single <xref:System.Windows.Xps.Serialization.XpsPackagingPolicy.PackagingProgressEvent> and `numberCompleted` is more than 1. For example, when you print, font subsetting is performed every four pages. Each page must be cached until the subsetting is complete, and then all four <xref:System.Windows.Xps.Packaging.PackagingAction> events occur at the same time. The constructor for the resulting <xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs> sets `action` to <xref:System.Windows.Xps.Packaging.PackagingAction> and sets `numberCompleted` to 4.       For example, if a package consists of a single four-page document that uses one font and no images or other resources, the sequence of events might occur as shown in the following table.       **The sequence of events for a simple package**       AddingDocumentSequence    1       AddingFixedDocument    1       AddingFixedPage    1       AddingFixedPage    1       AddingFixedPage    1       AddingFixedPage    1       FontAdded    1       FixedPageCompleted    4       FixedDocumentCompleted    1       DocumentSequenceCompleted    1       XpsDocumentCommitted    1"
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Windows.Xps.Packaging.PackagingProgressEventArgs&quot;> </xref> класса."
+  remarks: "В определенных ситуациях и для определенных типов в то же время произойти несколько событий хода выполнения упаковки. Эти события логически distinct, но временно идентичен, объединяются в один <xref:System.Windows.Xps.Serialization.XpsPackagingPolicy.PackagingProgressEvent>и `numberCompleted` превышает 1.</xref:System.Windows.Xps.Serialization.XpsPackagingPolicy.PackagingProgressEvent> Например если вы печати поднабор шрифта выполняется каждые четыре страницы. Каждая страница должны находиться в кэше до завершения, разбиение и затем все четыре <xref:System.Windows.Xps.Packaging.PackagingAction>события происходят в то же время.</xref:System.Windows.Xps.Packaging.PackagingAction> Конструктор для результирующего <xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs>задает `action` для <xref:System.Windows.Xps.Packaging.PackagingAction>и задает `numberCompleted` 4.</xref:System.Windows.Xps.Packaging.PackagingAction> </xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs>       Например если пакет состоит из одного документа четыре страницы, использующей несколько шрифтов и не изображения или другие ресурсы, могут возникнуть последовательность событий, как показано в следующей таблице.       **Последовательность событий для простого пакета** AddingDocumentSequence 1 AddingFixedDocument 1 AddingFixedPage 1 AddingFixedPage 1 AddingFixedPage 1 AddingFixedPage 1 FontAdded 1 FixedPageCompleted 4 FixedDocumentCompleted 1 DocumentSequenceCompleted 1 XpsDocumentCommitted 1"
   syntax:
     content: public PackagingProgressEventArgs (System.Windows.Xps.Packaging.PackagingAction action, int numberCompleted);
     parameters:
     - id: action
       type: System.Windows.Xps.Packaging.PackagingAction
-      description: "The action that the packaging process is currently performing."
+      description: "Действие, которое в настоящее время выполняет процесс упаковки."
     - id: numberCompleted
       type: System.Int32
-      description: "The number of simultaneous times that the specified `action` occurred."
+      description: "Количество одновременных времени, указанного `action` произошла."
   overload: System.Windows.Xps.Packaging.PackagingProgressEventArgs.#ctor*
   exceptions: []
   platform:
@@ -60,12 +60,12 @@ items:
   assemblies:
   - ReachFramework
   namespace: System.Windows.Xps.Packaging
-  summary: "Gets a value that indicates what action is currently occurring in the packaging process."
+  summary: "Возвращает значение, указывающее, какое действие происходит в данный момент в процессе упаковки."
   syntax:
     content: public System.Windows.Xps.Packaging.PackagingAction Action { get; }
     return:
       type: System.Windows.Xps.Packaging.PackagingAction
-      description: "A <xref href=&quot;System.Windows.Xps.Packaging.PackagingAction&quot;></xref> that represents the part of the packaging process that is currently occurring."
+      description: "Объект <xref href=&quot;System.Windows.Xps.Packaging.PackagingAction&quot;> </xref> , представляющий часть обработки пакетов, которое происходит в данный момент."
   overload: System.Windows.Xps.Packaging.PackagingProgressEventArgs.Action*
   exceptions: []
   platform:
@@ -82,13 +82,13 @@ items:
   assemblies:
   - ReachFramework
   namespace: System.Windows.Xps.Packaging
-  summary: "Gets the number of simultaneous times that the action that is identified in <xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs.Action*> has occurred."
-  remarks: "In certain situations and for specific types, multiple packaging progress events occur at the same time. These logically distinct, but temporally identical, events are combined into a single <xref:System.Windows.Xps.Serialization.XpsPackagingPolicy.PackagingProgressEvent> and NumberCompleted is more than 1. For example, when you print, font subsetting is performed every four pages. Each page must be cached until the subsetting is complete, and then all four <xref:System.Windows.Xps.Packaging.PackagingAction> events occur at the same time. The resulting <xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs> sets <xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs.Action%2A> to <xref:System.Windows.Xps.Packaging.PackagingAction> and sets NumberCompleted to 4.       For example, if a package consists of a single four-page document that uses one font and no images or other resources, the sequence of events might occur as shown in the following table:       **The sequence of events for a simple package**       AddingDocumentSequence    1       AddingFixedDocument    1       AddingFixedPage    1       AddingFixedPage    1       AddingFixedPage    1       AddingFixedPage    1       FontAdded    1       FixedPageCompleted    4       FixedDocumentCompleted    1       DocumentSequenceCompleted    1       XpsDocumentCommitted    1"
+  summary: "Возвращает количество одновременных, действие, которое определяется в <xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs.Action*>произошла.</xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs.Action*>"
+  remarks: "В определенных ситуациях и для определенных типов в то же время произойти несколько событий хода выполнения упаковки. Эти события логически distinct, но временно идентичен, объединяются в один <xref:System.Windows.Xps.Serialization.XpsPackagingPolicy.PackagingProgressEvent>и NumberCompleted более чем 1.</xref:System.Windows.Xps.Serialization.XpsPackagingPolicy.PackagingProgressEvent> Например если вы печати поднабор шрифта выполняется каждые четыре страницы. Каждая страница должны находиться в кэше до завершения, разбиение и затем все четыре <xref:System.Windows.Xps.Packaging.PackagingAction>события происходят в то же время.</xref:System.Windows.Xps.Packaging.PackagingAction> Итоговый <xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs>задает <xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs.Action%2A>для <xref:System.Windows.Xps.Packaging.PackagingAction>и задает NumberCompleted 4.</xref:System.Windows.Xps.Packaging.PackagingAction> </xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs.Action%2A> </xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs>       Например, если пакет состоит из одного документа четыре страницы, использующий несколько шрифтов и не изображений или других ресурсов, последовательность событий могут возникать как показано в следующей таблице: **последовательность событий для простого пакета** AddingDocumentSequence 1 AddingFixedDocument 1 AddingFixedPage 1 AddingFixedPage 1 AddingFixedPage 1 AddingFixedPage 1 FontAdded 1 FixedPageCompleted 4 FixedDocumentCompleted 1 DocumentSequenceCompleted 1 XpsDocumentCommitted 1"
   syntax:
     content: public int NumberCompleted { get; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> that represents the number of simultaneous times that the action that is identified in <xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs.Action*> has occurred."
+      description: "<xref:System.Int32>, Представляющий количество одновременных, действие, которое определяется в <xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs.Action*>произошла.</xref:System.Windows.Xps.Packaging.PackagingProgressEventArgs.Action*> </xref:System.Int32>"
   overload: System.Windows.Xps.Packaging.PackagingProgressEventArgs.NumberCompleted*
   exceptions: []
   platform:

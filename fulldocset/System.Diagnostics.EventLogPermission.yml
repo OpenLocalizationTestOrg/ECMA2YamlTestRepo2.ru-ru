@@ -14,8 +14,8 @@ items:
   nameWithType: EventLogPermission
   fullName: System.Diagnostics.EventLogPermission
   type: Class
-  summary: "Controls code access permissions for event logging."
-  remarks: "Do not grant EventLogPermission to partially trusted code. The ability to read and write the event log enables code to perform actions such as issuing event log messages in the name of another application.      > [!NOTE] >  If the event source that is specified by the <xref:System.Diagnostics.EventLog.Source%2A?displayProperty=fullName> property for the event log does not exist, a new event source is created. To create an event source in Windows Vista and later versions of Windows, or Windows Server 2003, you must have administrative privileges.   >    >  The reason for this requirement is that all event logs, including security, must be searched to determine whether the event source is unique. Starting with Windows Vista, users do not have permission to access the security log; therefore, a <xref:System.Security.SecurityException> is thrown.   >    >  Starting with Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that accesses the security log, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator."
+  summary: "Определяет разрешения доступа к коду для ведения журнала событий."
+  remarks: "Не предоставляйте EventLogPermission коду с частичным доверием. Возможность чтения и записи в журнал событий позволяет коду выполнять действия, такие как помещение сообщений журнала событий имя другого приложения.      Настроек [!NOTE] настроек Если источник события, задается <xref:System.Diagnostics.EventLog.Source%2A?displayProperty=fullName>свойство для журнала событий не существует, создается новый источник событий.</xref:System.Diagnostics.EventLog.Source%2A?displayProperty=fullName> Для создания источника событий в Windows Vista и более поздних версиях Windows или Windows Server 2003, необходимо иметь права администратора.   >> Это требование обусловлено тем, чтобы определить, является ли источник событий уникальный необходимо произвести поиск всех журналов событий, включая безопасность. Начиная с Windows Vista, пользователи не имеют разрешения на доступ к журналу безопасности; Таким образом <xref:System.Security.SecurityException>возникает исключение.</xref:System.Security.SecurityException>   >> Начиная с Windows Vista привилегии пользователя определяются управления учетных записей (UAC). Если вы являетесь членом группы администраторов, вы присваивается два маркера доступа на время выполнения: маркер доступа обычного пользователя и маркер доступа администратора. По умолчанию назначена роль обычного пользователя. Для выполнения кода, который обращается к журнал безопасности, необходимо сначала повысить права доступа со стандартного пользователя до администратора. Это можно сделать при запуске приложения, щелкнув значок приложения правой кнопкой мыши и указав, что приложение должно запускаться от имени администратора."
   syntax:
     content: 'public sealed class EventLogPermission : System.Security.Permissions.ResourcePermissionBase'
   inheritance:
@@ -64,7 +64,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.EventLogPermission&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Diagnostics.EventLogPermission&quot;> </xref> класса."
   syntax:
     content: public EventLogPermission ();
     parameters: []
@@ -84,18 +84,18 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.EventLogPermission&quot;></xref> class with the specified permission entries."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Diagnostics.EventLogPermission&quot;> </xref> класса с указанными элементами разрешений."
   syntax:
     content: public EventLogPermission (System.Diagnostics.EventLogPermissionEntry[] permissionAccessEntries);
     parameters:
     - id: permissionAccessEntries
       type: System.Diagnostics.EventLogPermissionEntry[]
-      description: "An array of  objects that represent permission entries. The <xref:System.Diagnostics.EventLogPermission.PermissionEntries*> property is set to this value."
+      description: "Массив объектов, представляющих записи разрешений. <xref:System.Diagnostics.EventLogPermission.PermissionEntries*>Свойству присвоено значение.</xref:System.Diagnostics.EventLogPermission.PermissionEntries*>"
   overload: System.Diagnostics.EventLogPermission.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>permissionAccessEntries</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>permissionAccessEntries</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Diagnostics.EventLogPermission.#ctor(System.Security.Permissions.PermissionState)
@@ -110,18 +110,18 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.EventLogPermission&quot;></xref> class with the specified permission state."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Diagnostics.EventLogPermission&quot;> </xref> класса с указанным состоянием разрешения."
   syntax:
     content: public EventLogPermission (System.Security.Permissions.PermissionState state);
     parameters:
     - id: state
       type: System.Security.Permissions.PermissionState
-      description: "One of the enumeration values that specifies the permission state (full access or no access to resources)."
+      description: "Одно из значений перечисления, указывающее состояние разрешения (полный доступ или нет доступа к ресурсам)."
   overload: System.Diagnostics.EventLogPermission.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>state</code> parameter is not a valid value of <xref href=&quot;System.Security.Permissions.PermissionState&quot;></xref>."
+    description: "<code> state </code> Параметр не является допустимым значением для <xref href=&quot;System.Security.Permissions.PermissionState&quot;> </xref>."
   platform:
   - net462
 - uid: System.Diagnostics.EventLogPermission.#ctor(System.Diagnostics.EventLogPermissionAccess,System.String)
@@ -136,16 +136,16 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.EventLogPermission&quot;></xref> class with the specified access levels and the name of the computer to use."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Diagnostics.EventLogPermission&quot;> </xref> класс с указанными уровнями доступа и имя компьютера для использования."
   syntax:
     content: public EventLogPermission (System.Diagnostics.EventLogPermissionAccess permissionAccess, string machineName);
     parameters:
     - id: permissionAccess
       type: System.Diagnostics.EventLogPermissionAccess
-      description: "One of the enumeration values that specifies an access level."
+      description: "Одно из значений перечисления, указывающее уровень доступа."
     - id: machineName
       type: System.String
-      description: "The name of the computer on which to read or write events."
+      description: "Имя компьютера, на котором производится чтение или запись событий."
   overload: System.Diagnostics.EventLogPermission.#ctor*
   exceptions: []
   platform:
@@ -162,12 +162,12 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the collection of permission entries for this permissions request."
+  summary: "Возвращает коллекцию элементов разрешений для данного запроса разрешений."
   syntax:
     content: public System.Diagnostics.EventLogPermissionEntryCollection PermissionEntries { get; }
     return:
       type: System.Diagnostics.EventLogPermissionEntryCollection
-      description: "A collection that contains the permission entries for this permissions request."
+      description: "Коллекция, содержащая разрешения для этого запроса разрешений."
   overload: System.Diagnostics.EventLogPermission.PermissionEntries*
   exceptions: []
   platform:
