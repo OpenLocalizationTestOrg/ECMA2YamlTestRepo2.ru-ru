@@ -27,7 +27,7 @@ items:
   nameWithType: UserPrincipal
   fullName: System.DirectoryServices.AccountManagement.UserPrincipal
   type: Class
-  summary: "Encapsulates principals that are user accounts."
+  summary: "Инкапсулирует участников, которые являются учетные записи пользователей."
   syntax:
     content: >-
       [System.DirectoryServices.AccountManagement.DirectoryRdnPrefix("CN")]
@@ -115,8 +115,8 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Initializes a new instance of the <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;></xref> class by using the specified context."
-  remarks: "The user principal account is not persisted when it is created. To save the account, call the <xref:System.DirectoryServices.AccountManagement.Principal.Save%2A> method."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;> </xref> , используя заданный контекст."
+  remarks: "Основной учетной записи пользователя не сохраняется при его создании. Чтобы сохранить учетную запись, вызовите <xref:System.DirectoryServices.AccountManagement.Principal.Save%2A>метод.</xref:System.DirectoryServices.AccountManagement.Principal.Save%2A>"
   example:
   - "The following code example connects to the LDAP domain \"fabrikam.com\" with the username and password initialized in the <xref:System.DirectoryServices.AccountManagement.PrincipalContext> constructor to \"administrator\" and \"securelyStoredPassword.\"  \n  \n The properties set in the example, such as user name and e-mail address, are created under the container specified in the <xref:System.DirectoryServices.AccountManagement.PrincipalContext> constructor: \"CN=Users,DC=fabrikam,DC=com.\"  \n  \n```  \n  \nPrincipalContext ctx = new PrincipalContext(  \n                                         ContextType.Domain,  \n                                         \"fabrikam.com\",   \n                                         \"CN=Users,DC=fabrikam,DC=com\",  \n                                         \"administrator\",   \n                                         \"securelyStoredPassword\");   \n  \nUserPrincipal usr = new UserPrincipal(ctx);  \n  \nusr.Name = \"Jim Daly\";  \nusr.Description = \"This is the user account for Jim Daly\";  \nusr.EmailAddress = \"jimdaly@fabrikam.com\";  \nusr.SetPassword(\"securelyStoredPassword\");  \nusr.Save();  \n  \nusr.Dispose();  \nctx.Dispose();   \n```"
   syntax:
@@ -124,7 +124,7 @@ items:
     parameters:
     - id: context
       type: System.DirectoryServices.AccountManagement.PrincipalContext
-      description: "The <xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;></xref> that specifies the server or domain against which operations are performed."
+      description: "<xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;> </xref> , Указывающий сервер или домен, в которой выполняются операции."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.#ctor*
   exceptions: []
   platform:
@@ -141,23 +141,23 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Initializes a new instance of the <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;></xref> class by using the specified context, SAM account name, password, and enabled value."
-  remarks: "The user principal account is not persisted when it is created. To save the account, call the <xref:System.DirectoryServices.AccountManagement.Principal.Save%2A> method."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;> </xref> класса, используя заданный контекст, имя учетной записи SAM, пароль и включить значение."
+  remarks: "Основной учетной записи пользователя не сохраняется при его создании. Чтобы сохранить учетную запись, вызовите <xref:System.DirectoryServices.AccountManagement.Principal.Save%2A>метод.</xref:System.DirectoryServices.AccountManagement.Principal.Save%2A>"
   syntax:
     content: public UserPrincipal (System.DirectoryServices.AccountManagement.PrincipalContext context, string samAccountName, string password, bool enabled);
     parameters:
     - id: context
       type: System.DirectoryServices.AccountManagement.PrincipalContext
-      description: "The <xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;></xref> that specifies the server or domain against which operations are performed."
+      description: "<xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;> </xref> , Указывающий сервер или домен, в которой выполняются операции."
     - id: samAccountName
       type: System.String
-      description: "The SAM account name for this user principal."
+      description: "Имя учетной записи SAM для участника-пользователя."
     - id: password
       type: System.String
-      description: "The password for this account."
+      description: "Пароль для этой учетной записи."
     - id: enabled
       type: System.Boolean
-      description: "A Boolean value that specifies whether the account is enabled."
+      description: "Логическое значение, указывающее, включена ли учетная запись."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.#ctor*
   exceptions: []
   platform:
@@ -174,12 +174,12 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Returns an <xref href=&quot;System.DirectoryServices.AccountManagement.AdvancedFilters&quot;></xref> object to set read-only properties before passing the object to the <xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalSearcher&quot;></xref>."
+  summary: "Возвращает <xref href=&quot;System.DirectoryServices.AccountManagement.AdvancedFilters&quot;> </xref> объекта, чтобы задать свойства только для чтения перед передачей объекта <xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalSearcher&quot;> </xref>."
   syntax:
     content: public override System.DirectoryServices.AccountManagement.AdvancedFilters AdvancedSearchFilter { get; }
     return:
       type: System.DirectoryServices.AccountManagement.AdvancedFilters
-      description: "An <xref href=&quot;System.DirectoryServices.AccountManagement.AdvancedFilters&quot;></xref> object."
+      description: "<xref href=&quot;System.DirectoryServices.AccountManagement.AdvancedFilters&quot;> </xref> Объекта."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.AdvancedSearchFilter*
   exceptions: []
   platform:
@@ -196,23 +196,23 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Gets a user principal object that represents the current user under which the thread is running."
+  summary: "Возвращает объект пользователя субъекта, представляющий текущего пользователя, под которой выполняется поток."
   syntax:
     content: public static System.DirectoryServices.AccountManagement.UserPrincipal Current { get; }
     return:
       type: System.DirectoryServices.AccountManagement.UserPrincipal
-      description: "A <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;></xref> representing the current user."
+      description: "Объект <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;> </xref> представляет текущего пользователя."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.Current*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The underlying store does not support this property."
+    description: "Базовое хранилище не поддерживает это свойство."
   - type: System.DirectoryServices.AccountManagement.NoMatchingPrincipalException
     commentId: T:System.DirectoryServices.AccountManagement.NoMatchingPrincipalException
-    description: "The user principal object for the current user could not be found. The principal object may contain an access control list to prevent access by unauthorized users."
+    description: "Не удалось найти объект участник-пользователь для текущего пользователя. Основной объект может содержать список управления доступом, чтобы предотвратить несанкционированный доступ."
   - type: System.MultipleMatchesException
     commentId: T:System.MultipleMatchesException
-    description: "Multiple user principal objects matching the current user were found."
+    description: "Найдено несколько объектов участников-пользователей, соответствующих текущему пользователю."
   platform:
   - net462
 - uid: System.DirectoryServices.AccountManagement.UserPrincipal.EmailAddress
@@ -227,17 +227,17 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Gets or sets the e-mail address for this account."
+  summary: "Возвращает или задает адрес электронной почты для этой учетной записи."
   syntax:
     content: public string EmailAddress { get; set; }
     return:
       type: System.String
-      description: "The e-mail address of the user principal."
+      description: "Адрес электронной почты участника-пользователя."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.EmailAddress*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The underlying store does not support this property."
+    description: "Базовое хранилище не поддерживает это свойство."
   platform:
   - net462
 - uid: System.DirectoryServices.AccountManagement.UserPrincipal.EmployeeId
@@ -252,17 +252,17 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Gets or sets the employee ID for this user principal."
+  summary: "Возвращает или задает идентификатор сотрудника участника-пользователя."
   syntax:
     content: public string EmployeeId { get; set; }
     return:
       type: System.String
-      description: "The employee ID of the user principal."
+      description: "Идентификатор сотрудника участника-пользователя."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.EmployeeId*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The underlying store does not support this property."
+    description: "Базовое хранилище не поддерживает это свойство."
   platform:
   - net462
 - uid: System.DirectoryServices.AccountManagement.UserPrincipal.FindByBadPasswordAttempt(System.DirectoryServices.AccountManagement.PrincipalContext,System.DateTime,System.DirectoryServices.AccountManagement.MatchType)
@@ -277,23 +277,23 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Returns a collection of &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; objects for users that have an incorrect password attempt recorded in the specified date and time range."
-  remarks: "The time will default to UTC. If you want to specify the time in local time, then specify the <xref:System.DateTime.Kind%2A> property of the `time` object as <xref:System.DateTimeKind?displayProperty=fullName>."
+  summary: "Возвращает коллекцию &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; объектов для пользователей, имеющих неправильного пароля попытка записи в заданном диапазоне дат и времени."
+  remarks: "По умолчанию время UTC. Если вы хотите указать время в формате местного времени, укажите <xref:System.DateTime.Kind%2A>свойство `time` объект как <xref:System.DateTimeKind?displayProperty=fullName>.</xref:System.DateTimeKind?displayProperty=fullName> </xref:System.DateTime.Kind%2A>"
   syntax:
     content: public static System.DirectoryServices.AccountManagement.PrincipalSearchResult<System.DirectoryServices.AccountManagement.UserPrincipal> FindByBadPasswordAttempt (System.DirectoryServices.AccountManagement.PrincipalContext context, DateTime time, System.DirectoryServices.AccountManagement.MatchType type);
     parameters:
     - id: context
       type: System.DirectoryServices.AccountManagement.PrincipalContext
-      description: "The <xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;></xref> object that specifies the server or domain against which operations are performed."
+      description: "<xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;> </xref> , Указывающий сервер или домен, в которой выполняются операции."
     - id: time
       type: System.DateTime
-      description: "A <xref:System.DateTime> object that identifies the date and time of the incorrect password try. This parameter is used with the type parameter to determine the range of time in which the returned objects have an incorrect logon try recorded."
+      description: "Объект <xref:System.DateTime>, определяющий дату и время, повторите неправильный пароль.</xref:System.DateTime> Этот параметр используется вместе с параметром типа, чтобы определить диапазон времени, в котором были зарегистрированы попытки неверного входа возвращаемых объектов."
     - id: type
       type: System.DirectoryServices.AccountManagement.MatchType
-      description: "A <xref href=&quot;System.DirectoryServices.AccountManagement.MatchType&quot;></xref> enumeration value that specifies the type of match that is applied to the `time` parameter."
+      description: "Объект <xref href=&quot;System.DirectoryServices.AccountManagement.MatchType&quot;> </xref> значение перечисления, указывающее тип соответствия, который применяется к `time` параметра."
     return:
       type: System.DirectoryServices.AccountManagement.PrincipalSearchResult{System.DirectoryServices.AccountManagement.UserPrincipal}
-      description: "A &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; that contains one or more <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;></xref> objects, or an empty collection if no results are found."
+      description: "Объект &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; , содержит один или несколько <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;> </xref> объектов или пустая коллекция, если ничего не найдено."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.FindByBadPasswordAttempt*
   exceptions: []
   platform:
@@ -310,23 +310,23 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Returns a collection of &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; objects for users that have an account expiration time in the specified date and time range."
-  remarks: "The time will default to UTC. If you want to specify the time in local time, then specify the <xref:System.DateTime.Kind%2A> property of the `time` object as <xref:System.DateTimeKind?displayProperty=fullName>."
+  summary: "Возвращает коллекцию &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; объектов для пользователей, имеющих время истечения срока действия учетной записи в заданном диапазоне дат и времени."
+  remarks: "По умолчанию время UTC. Если вы хотите указать время в формате местного времени, укажите <xref:System.DateTime.Kind%2A>свойство `time` объект как <xref:System.DateTimeKind?displayProperty=fullName>.</xref:System.DateTimeKind?displayProperty=fullName> </xref:System.DateTime.Kind%2A>"
   syntax:
     content: public static System.DirectoryServices.AccountManagement.PrincipalSearchResult<System.DirectoryServices.AccountManagement.UserPrincipal> FindByExpirationTime (System.DirectoryServices.AccountManagement.PrincipalContext context, DateTime time, System.DirectoryServices.AccountManagement.MatchType type);
     parameters:
     - id: context
       type: System.DirectoryServices.AccountManagement.PrincipalContext
-      description: "The <xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;></xref> object that specifies the server or domain against which operations are performed."
+      description: "<xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;> </xref> , Указывающий сервер или домен, в которой выполняются операции."
     - id: time
       type: System.DateTime
-      description: "A <xref:System.DateTime> object that identifies the date and time of the incorrect password try. This parameter is used with the type parameter to determine the range of time in which the returned objects have an incorrect logon try recorded."
+      description: "Объект <xref:System.DateTime>, определяющий дату и время, повторите неправильный пароль.</xref:System.DateTime> Этот параметр используется вместе с параметром типа, чтобы определить диапазон времени, в котором были зарегистрированы попытки неверного входа возвращаемых объектов."
     - id: type
       type: System.DirectoryServices.AccountManagement.MatchType
-      description: "A <xref href=&quot;System.DirectoryServices.AccountManagement.MatchType&quot;></xref> enumeration value that specifies the type of match that is applied to the `time` parameter."
+      description: "Объект <xref href=&quot;System.DirectoryServices.AccountManagement.MatchType&quot;> </xref> значение перечисления, указывающее тип соответствия, который применяется к `time` параметра."
     return:
       type: System.DirectoryServices.AccountManagement.PrincipalSearchResult{System.DirectoryServices.AccountManagement.UserPrincipal}
-      description: "A &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; that contains one or more <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;></xref> objects, or an empty collection if no results are found."
+      description: "Объект &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; , содержит один или несколько <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;> </xref> объектов или пустая коллекция, если ничего не найдено."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.FindByExpirationTime*
   exceptions: []
   platform:
@@ -343,24 +343,24 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Returns a user principal object that matches the specified identity value."
+  summary: "Возвращает объект участник-пользователь, соответствующий заданному значению удостоверения."
   syntax:
     content: public static System.DirectoryServices.AccountManagement.UserPrincipal FindByIdentity (System.DirectoryServices.AccountManagement.PrincipalContext context, string identityValue);
     parameters:
     - id: context
       type: System.DirectoryServices.AccountManagement.PrincipalContext
-      description: "The <xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;></xref> that specifies the server or domain against which operations are performed."
+      description: "<xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;> </xref> , Указывающий сервер или домен, в которой выполняются операции."
     - id: identityValue
       type: System.String
-      description: "The identity of the user principal. This parameter can be any format that is contained in the <xref href=&quot;System.DirectoryServices.AccountManagement.IdentityType&quot;></xref> enumeration."
+      description: "Удостоверение участника-пользователя. Этот параметр может иметь любой формат, который содержится в <xref href=&quot;System.DirectoryServices.AccountManagement.IdentityType&quot;> </xref> перечисления."
     return:
       type: System.DirectoryServices.AccountManagement.UserPrincipal
-      description: "A <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;></xref> object that matches the specified identity value, or null if no matches are found."
+      description: "Объект <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;> </xref> объекта, который соответствует заданному значению удостоверения, или значение null, если совпадения не найдены."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.FindByIdentity*
   exceptions:
   - type: System.DirectoryServices.AccountManagement.MultipleMatchesException
     commentId: T:System.DirectoryServices.AccountManagement.MultipleMatchesException
-    description: "Multiple user principal objects matching the current user object were found."
+    description: "Найдено несколько объектов участников-пользователей, соответствующих текущему объекту пользователя."
   platform:
   - net462
 - uid: System.DirectoryServices.AccountManagement.UserPrincipal.FindByIdentity(System.DirectoryServices.AccountManagement.PrincipalContext,System.DirectoryServices.AccountManagement.IdentityType,System.String)
@@ -375,7 +375,7 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Returns a user principal object that matches the specified identity type, and value. This version of the <xref:System.DirectoryServices.AccountManagement.UserPrincipal.FindByIdentity*> method determines the format of the identity value."
+  summary: "Возвращает объект участник-пользователь, соответствующий тип указанного удостоверения и значения. Эта версия <xref:System.DirectoryServices.AccountManagement.UserPrincipal.FindByIdentity*>метод определяет формат значений идентификаторов.</xref:System.DirectoryServices.AccountManagement.UserPrincipal.FindByIdentity*>"
   remarks: ''
   example:
   - "The following code connects to the local computer store. Since the credentials are not specified in the <xref:System.DirectoryServices.AccountManagement.PrincipalContext> constructor, the credentials of the user running the current thread are used.  \n  \n A search is performed to find the user who has SamAccountName \"Guest\".  \n  \n If the user is found, a check is performed to determine whether this user's account is enabled. If the account is not enabled, the example code enables it.  \n  \n```  \nPrincipalContext ctx = new PrincipalContext(ContextType.Machine);  \n  \nUserPrincipal usr = UserPrincipal.FindByIdentity(ctx,   \n                                           IdentityType.SamAccountName,   \n                                           \"Guest\");  \n  \nif(usr != null)  \n{  \n    if (usr.Enabled == false)  \n        usr.Enabled = true;  \n  \n    usr.Save();  \n    usr.Dispose();  \n}  \nctx.Dispose();   \n```"
@@ -384,24 +384,24 @@ items:
     parameters:
     - id: context
       type: System.DirectoryServices.AccountManagement.PrincipalContext
-      description: "The <xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;></xref> that specifies the server or domain against which operations are performed."
+      description: "<xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;> </xref> , Указывающий сервер или домен, в которой выполняются операции."
     - id: identityType
       type: System.DirectoryServices.AccountManagement.IdentityType
-      description: "A <xref href=&quot;System.DirectoryServices.AccountManagement.IdentityType&quot;></xref> enumeration value that specifies the format of the `identityValue` parameter."
+      description: "Объект <xref href=&quot;System.DirectoryServices.AccountManagement.IdentityType&quot;> </xref> значение перечисления, указывающее формат `identityValue` параметра."
     - id: identityValue
       type: System.String
-      description: "The identity of the user principal. This parameter can be any format that is contained in the <xref href=&quot;System.DirectoryServices.AccountManagement.IdentityType&quot;></xref> enumeration."
+      description: "Удостоверение участника-пользователя. Этот параметр может иметь любой формат, который содержится в <xref href=&quot;System.DirectoryServices.AccountManagement.IdentityType&quot;> </xref> перечисления."
     return:
       type: System.DirectoryServices.AccountManagement.UserPrincipal
-      description: "A <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;></xref> object that matches the specified identity value and type, or null if no matches are found."
+      description: "Объект <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;> </xref> объекта, соответствующего заданным значением идентификации и тип, или значение null, если совпадения не найдены."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.FindByIdentity*
   exceptions:
   - type: System.DirectoryServices.AccountManagement.MultipleMatchesException
     commentId: T:System.DirectoryServices.AccountManagement.MultipleMatchesException
-    description: "Multiple user principal objects matching the current user object were found."
+    description: "Найдено несколько объектов участников-пользователей, соответствующих текущему объекту пользователя."
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "The identity value is not a valid <xref href=&quot;System.DirectoryServices.AccountManagement.IdentityType&quot;></xref> enumeration value."
+    description: "Не является допустимым значением идентификатора <xref href=&quot;System.DirectoryServices.AccountManagement.IdentityType&quot;> </xref> значение перечисления."
   platform:
   - net462
 - uid: System.DirectoryServices.AccountManagement.UserPrincipal.FindByLockoutTime(System.DirectoryServices.AccountManagement.PrincipalContext,System.DateTime,System.DirectoryServices.AccountManagement.MatchType)
@@ -416,23 +416,23 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Returns a collection of &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; objects for users that have an account lockout time in the specified date and time range."
-  remarks: "The time will default to UTC. If you want to specify the time in local time, then specify the <xref:System.DateTime.Kind%2A> property of the `time` object as <xref:System.DateTimeKind?displayProperty=fullName>."
+  summary: "Возвращает коллекцию &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; объектов для пользователей, имеющих время блокировки учетной записи в заданном диапазоне дат и времени."
+  remarks: "По умолчанию время UTC. Если вы хотите указать время в формате местного времени, укажите <xref:System.DateTime.Kind%2A>свойство `time` объект как <xref:System.DateTimeKind?displayProperty=fullName>.</xref:System.DateTimeKind?displayProperty=fullName> </xref:System.DateTime.Kind%2A>"
   syntax:
     content: public static System.DirectoryServices.AccountManagement.PrincipalSearchResult<System.DirectoryServices.AccountManagement.UserPrincipal> FindByLockoutTime (System.DirectoryServices.AccountManagement.PrincipalContext context, DateTime time, System.DirectoryServices.AccountManagement.MatchType type);
     parameters:
     - id: context
       type: System.DirectoryServices.AccountManagement.PrincipalContext
-      description: "The <xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;></xref> object that specifies the server or domain against which operations are performed."
+      description: "<xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;> </xref> , Указывающий сервер или домен, в которой выполняются операции."
     - id: time
       type: System.DateTime
-      description: "A <xref:System.DateTime> object that identifies the date and time of the incorrect password try. This parameter is used with the type parameter to determine the range of time in which the returned objects have an incorrect logon try recorded."
+      description: "Объект <xref:System.DateTime>, определяющий дату и время, повторите неправильный пароль.</xref:System.DateTime> Этот параметр используется вместе с параметром типа, чтобы определить диапазон времени, в котором были зарегистрированы попытки неверного входа возвращаемых объектов."
     - id: type
       type: System.DirectoryServices.AccountManagement.MatchType
-      description: "A <xref href=&quot;System.DirectoryServices.AccountManagement.MatchType&quot;></xref> enumeration value that specifies the type of match that is applied to the `time` parameter."
+      description: "Объект <xref href=&quot;System.DirectoryServices.AccountManagement.MatchType&quot;> </xref> значение перечисления, указывающее тип соответствия, который применяется к `time` параметра."
     return:
       type: System.DirectoryServices.AccountManagement.PrincipalSearchResult{System.DirectoryServices.AccountManagement.UserPrincipal}
-      description: "A &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; that contains one or more <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;></xref> objects, or an empty collection if no results are found."
+      description: "Объект &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; , содержит один или несколько <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;> </xref> объектов или пустая коллекция, если ничего не найдено."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.FindByLockoutTime*
   exceptions: []
   platform:
@@ -449,23 +449,23 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Returns a collection of &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; objects for users that have account logon recorded in the specified date and time range."
-  remarks: "The time will default to UTC. If you want to specify the time in local time, then specify the <xref:System.DateTime.Kind%2A> property of the `time` object as <xref:System.DateTimeKind?displayProperty=fullName>."
+  summary: "Возвращает коллекцию &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; объектов для пользователей, имеющих учетную запись входа, записанные в заданном диапазоне дат и времени."
+  remarks: "По умолчанию время UTC. Если вы хотите указать время в формате местного времени, укажите <xref:System.DateTime.Kind%2A>свойство `time` объект как <xref:System.DateTimeKind?displayProperty=fullName>.</xref:System.DateTimeKind?displayProperty=fullName> </xref:System.DateTime.Kind%2A>"
   syntax:
     content: public static System.DirectoryServices.AccountManagement.PrincipalSearchResult<System.DirectoryServices.AccountManagement.UserPrincipal> FindByLogonTime (System.DirectoryServices.AccountManagement.PrincipalContext context, DateTime time, System.DirectoryServices.AccountManagement.MatchType type);
     parameters:
     - id: context
       type: System.DirectoryServices.AccountManagement.PrincipalContext
-      description: "The <xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;></xref> object that specifies the server or domain against which operations are performed."
+      description: "<xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;> </xref> , Указывающий сервер или домен, в которой выполняются операции."
     - id: time
       type: System.DateTime
-      description: "A <xref:System.DateTime> object that identifies the date and time of the incorrect password try. This parameter is used with the type parameter to determine the range of time in which the returned objects have an incorrect logon try recorded."
+      description: "Объект <xref:System.DateTime>, определяющий дату и время, повторите неправильный пароль.</xref:System.DateTime> Этот параметр используется вместе с параметром типа, чтобы определить диапазон времени, в котором были зарегистрированы попытки неверного входа возвращаемых объектов."
     - id: type
       type: System.DirectoryServices.AccountManagement.MatchType
-      description: "A <xref href=&quot;System.DirectoryServices.AccountManagement.MatchType&quot;></xref> enumeration value that specifies the type of match that is applied to the `time` parameter."
+      description: "Объект <xref href=&quot;System.DirectoryServices.AccountManagement.MatchType&quot;> </xref> значение перечисления, указывающее тип соответствия, который применяется к `time` параметра."
     return:
       type: System.DirectoryServices.AccountManagement.PrincipalSearchResult{System.DirectoryServices.AccountManagement.UserPrincipal}
-      description: "A &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; that contains one or more <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;></xref> objects, or an empty collection if no results are found."
+      description: "Объект &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; , содержит один или несколько <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;> </xref> объектов или пустая коллекция, если ничего не найдено."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.FindByLogonTime*
   exceptions: []
   platform:
@@ -482,23 +482,23 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Returns a collection of &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; objects for users that have set their password within the specified date and time range."
-  remarks: "The time will default to UTC. If you want to specify the time in local time, then specify the <xref:System.DateTime.Kind%2A> property of the `time` object as <xref:System.DateTimeKind?displayProperty=fullName>."
+  summary: "Возвращает коллекцию &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; объектов для пользователей, которые задали пароль в заданном диапазоне дат и времени."
+  remarks: "По умолчанию время UTC. Если вы хотите указать время в формате местного времени, укажите <xref:System.DateTime.Kind%2A>свойство `time` объект как <xref:System.DateTimeKind?displayProperty=fullName>.</xref:System.DateTimeKind?displayProperty=fullName> </xref:System.DateTime.Kind%2A>"
   syntax:
     content: public static System.DirectoryServices.AccountManagement.PrincipalSearchResult<System.DirectoryServices.AccountManagement.UserPrincipal> FindByPasswordSetTime (System.DirectoryServices.AccountManagement.PrincipalContext context, DateTime time, System.DirectoryServices.AccountManagement.MatchType type);
     parameters:
     - id: context
       type: System.DirectoryServices.AccountManagement.PrincipalContext
-      description: "The <xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;></xref> object that specifies the server or domain against which operations are performed."
+      description: "<xref href=&quot;System.DirectoryServices.AccountManagement.PrincipalContext&quot;> </xref> , Указывающий сервер или домен, в которой выполняются операции."
     - id: time
       type: System.DateTime
-      description: "A <xref:System.DateTime> object that identifies the date and time of the incorrect password try. This parameter is used with the type parameter to determine the range of time in which the returned objects have an incorrect logon try recorded."
+      description: "Объект <xref:System.DateTime>, определяющий дату и время, повторите неправильный пароль.</xref:System.DateTime> Этот параметр используется вместе с параметром типа, чтобы определить диапазон времени, в котором были зарегистрированы попытки неверного входа возвращаемых объектов."
     - id: type
       type: System.DirectoryServices.AccountManagement.MatchType
-      description: "A <xref href=&quot;System.DirectoryServices.AccountManagement.MatchType&quot;></xref> enumeration value that specifies the type of match that is applied to the `time` parameter."
+      description: "Объект <xref href=&quot;System.DirectoryServices.AccountManagement.MatchType&quot;> </xref> значение перечисления, указывающее тип соответствия, который применяется к `time` параметра."
     return:
       type: System.DirectoryServices.AccountManagement.PrincipalSearchResult{System.DirectoryServices.AccountManagement.UserPrincipal}
-      description: "A &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; that contains one or more <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;></xref> objects, or an empty collection if no results are found."
+      description: "Объект &lt;xref:System.DirectoryServices.AccountManagement.PrincipalSearchResult%601&gt; , содержит один или несколько <xref href=&quot;System.DirectoryServices.AccountManagement.UserPrincipal&quot;> </xref> объектов или пустая коллекция, если ничего не найдено."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.FindByPasswordSetTime*
   exceptions: []
   platform:
@@ -515,22 +515,22 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Returns a collection of principal objects that contains all the authorization groups of which this user is a member. This function only returns groups that are security groups; distribution groups are not returned."
-  remarks: "This method searches all groups recursively and returns the groups in which the user is a member. The returned set may also include additional groups that system would consider the user a member of for authorization purposes.       The groups that are returned by this method may include groups from a different scope and store than the principal. For example, if the principal is an AD DS object that has a DN of &quot;CN=SpecialGroups,DC=Fabrikam,DC=com, the returned set can contain groups that belong to the &quot;CN=NormalGroups,DC=Fabrikam,DC=com."
+  summary: "Возвращает коллекцию объектов-участников, содержит все группы авторизации, членом которых является этот пользователь. Эта функция возвращает только группы, которые являются группами безопасности; группы распространения не возвращаются."
+  remarks: "Этот метод осуществляет рекурсивно, все группы и возвращает групп, членом которых является пользователь. Возвращенный набор может также включать дополнительные группы, что система будет учитывать пользователь является членом для проверки подлинности.       Группы, возвращаемые этим методом может включать группы из другой области и хранилища, чем участника. Например, если объект AD DS, имеющий DN объекта является основной» CN = SpecialGroups, DC = Fabrikam, DC = com, возвращаемый набор может содержать группы, принадлежащие» CN = NormalGroups, DC = Fabrikam, DC = com."
   syntax:
     content: public System.DirectoryServices.AccountManagement.PrincipalSearchResult<System.DirectoryServices.AccountManagement.Principal> GetAuthorizationGroups ();
     parameters: []
     return:
       type: System.DirectoryServices.AccountManagement.PrincipalSearchResult{System.DirectoryServices.AccountManagement.Principal}
-      description: "A collection of <xref href=&quot;System.DirectoryServices.AccountManagement.Principal&quot;></xref> objects that contain the groups of which the user is a member, or null if the user does not belong to any groups."
+      description: "Коллекция <xref href=&quot;System.DirectoryServices.AccountManagement.Principal&quot;> </xref> объекты, которые содержат группы, членом которых является пользователь, или значение null, если пользователь не принадлежит ни одной из групп."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.GetAuthorizationGroups*
   exceptions:
   - type: System.DirectoryServices.AccountManagement.PrincipalOperationException
     commentId: T:System.DirectoryServices.AccountManagement.PrincipalOperationException
-    description: "The attempt to retrieve authorization groups failed."
+    description: "Не удалось получить группы авторизации."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The retrieval of authorization groups is not supported by this operating system."
+    description: "Получение групп авторизации не поддерживается этой операционной системе."
   platform:
   - net462
 - uid: System.DirectoryServices.AccountManagement.UserPrincipal.GivenName
@@ -545,17 +545,17 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Gets or sets the given name for the user principal."
+  summary: "Возвращает или задает имя участника-пользователя."
   syntax:
     content: public string GivenName { get; set; }
     return:
       type: System.String
-      description: "The given name of the user principal."
+      description: "Заданное имя участника-пользователя."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.GivenName*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The underlying store does not support this property."
+    description: "Базовое хранилище не поддерживает это свойство."
   platform:
   - net462
 - uid: System.DirectoryServices.AccountManagement.UserPrincipal.MiddleName
@@ -570,17 +570,17 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Gets or sets the middle name for the user principal."
+  summary: "Возвращает или задает второе имя участника-пользователя."
   syntax:
     content: public string MiddleName { get; set; }
     return:
       type: System.String
-      description: "The middle name of the user principal."
+      description: "Второе имя участника-пользователя."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.MiddleName*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The underlying store does not support this property."
+    description: "Базовое хранилище не поддерживает это свойство."
   platform:
   - net462
 - uid: System.DirectoryServices.AccountManagement.UserPrincipal.Surname
@@ -595,17 +595,17 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Gets or sets the surname for the user principal."
+  summary: "Возвращает или задает фамилию участника-пользователя."
   syntax:
     content: public string Surname { get; set; }
     return:
       type: System.String
-      description: "The surname of the user principal."
+      description: "Фамилия участника-пользователя."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.Surname*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The underlying store does not support this property."
+    description: "Базовое хранилище не поддерживает это свойство."
   platform:
   - net462
 - uid: System.DirectoryServices.AccountManagement.UserPrincipal.VoiceTelephoneNumber
@@ -620,17 +620,17 @@ items:
   assemblies:
   - System.DirectoryServices.AccountManagement
   namespace: System.DirectoryServices.AccountManagement
-  summary: "Gets or sets the voice telephone number for the user principal."
+  summary: "Возвращает или задает основной номер телефона пользователя."
   syntax:
     content: public string VoiceTelephoneNumber { get; set; }
     return:
       type: System.String
-      description: "The voice telephone number of the user principal."
+      description: "Номер телефона участника-пользователя."
   overload: System.DirectoryServices.AccountManagement.UserPrincipal.VoiceTelephoneNumber*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The underlying store does not support this property."
+    description: "Базовое хранилище не поддерживает это свойство."
   platform:
   - net462
 references:

@@ -19,8 +19,8 @@ items:
   nameWithType: ISymbolReader
   fullName: System.Diagnostics.SymbolStore.ISymbolReader
   type: Interface
-  summary: "Represents a symbol reader for managed code."
-  remarks: "The interface provides access to documents, methods, and variables.      > [!NOTE] >  This interface is the managed counterpart of the `ISymUnmanagedReader` interface, one of the unmanaged symbol store interfaces that provide an alternative way to read and write debug symbol information."
+  summary: "Представляет средство чтения символов для управляемого кода."
+  remarks: "Интерфейс предоставляет доступ к документам, методам и переменным.      Настроек [!NOTE] настроек этот интерфейс является управляемым аналогом `ISymUnmanagedReader` интерфейса, один из интерфейсов хранилища неуправляемые символов, которые предоставляют альтернативный способ чтения и записи информации о символах отладки."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -41,25 +41,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets a document specified by the language, vendor, and type."
+  summary: "Получает документ на основании заданного языка, поставщика и типа."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolDocument GetDocument (string url, Guid language, Guid languageVendor, Guid documentType);
     parameters:
     - id: url
       type: System.String
-      description: "The URL that identifies the document."
+      description: "URL-адрес для идентификации документа."
     - id: language
       type: System.Guid
-      description: "The document language. You can specify this parameter as &lt;xref:System.Guid?displayProperty=fullName&gt;."
+      description: "Язык документа. Этому параметру можно присвоить &lt;xref:System.Guid?displayProperty=fullName&gt;."
     - id: languageVendor
       type: System.Guid
-      description: "The identity of the vendor for the document language. You can specify this parameter as &lt;xref:System.Guid?displayProperty=fullName&gt;."
+      description: "Удостоверение поставщика языка документа. Этому параметру можно присвоить &lt;xref:System.Guid?displayProperty=fullName&gt;."
     - id: documentType
       type: System.Guid
-      description: "The type of the document. You can specify this parameter as &lt;xref:System.Guid?displayProperty=fullName&gt;."
+      description: "Тип документа. Этому параметру можно присвоить &lt;xref:System.Guid?displayProperty=fullName&gt;."
     return:
       type: System.Diagnostics.SymbolStore.ISymbolDocument
-      description: "The specified document."
+      description: "Указанный документ."
   overload: System.Diagnostics.SymbolStore.ISymbolReader.GetDocument*
   exceptions: []
   platform:
@@ -76,13 +76,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets an array of all documents defined in the symbol store."
+  summary: "Получает массив всех документов, определенных в хранилище символов."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolDocument[] GetDocuments ();
     parameters: []
     return:
       type: System.Diagnostics.SymbolStore.ISymbolDocument[]
-      description: "An array of all documents defined in the symbol store."
+      description: "Массив всех документов, определенных в хранилище символов."
   overload: System.Diagnostics.SymbolStore.ISymbolReader.GetDocuments*
   exceptions: []
   platform:
@@ -99,13 +99,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets all global variables in the module."
+  summary: "Возвращает все глобальные переменные в модуле."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolVariable[] GetGlobalVariables ();
     parameters: []
     return:
       type: System.Diagnostics.SymbolStore.ISymbolVariable[]
-      description: "An array of all variables in the module."
+      description: "Массив всех переменных в модуле."
   overload: System.Diagnostics.SymbolStore.ISymbolReader.GetGlobalVariables*
   exceptions: []
   platform:
@@ -122,16 +122,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets a symbol reader method object when given the identifier of a method."
+  summary: "Получает объект метода средства чтения символов для заданного идентификатора метода."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolMethod GetMethod (System.Diagnostics.SymbolStore.SymbolToken method);
     parameters:
     - id: method
       type: System.Diagnostics.SymbolStore.SymbolToken
-      description: "The metadata token of the method."
+      description: "Токен метаданных метода."
     return:
       type: System.Diagnostics.SymbolStore.ISymbolMethod
-      description: "The symbol reader method object for the specified method identifier."
+      description: "Объект метода средства чтения символов для заданного идентификатора метода."
   overload: System.Diagnostics.SymbolStore.ISymbolReader.GetMethod*
   exceptions: []
   platform:
@@ -148,19 +148,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets a symbol reader method object when given the identifier of a method and its edit and continue version."
+  summary: "Получает метод средства чтения символов объекта для заданного идентификатора метода и его изменение версии и продолжить."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolMethod GetMethod (System.Diagnostics.SymbolStore.SymbolToken method, int version);
     parameters:
     - id: method
       type: System.Diagnostics.SymbolStore.SymbolToken
-      description: "The metadata token of the method."
+      description: "Токен метаданных метода."
     - id: version
       type: System.Int32
-      description: "The edit and continue version of the method."
+      description: "Изменить и продолжить версию метода."
     return:
       type: System.Diagnostics.SymbolStore.ISymbolMethod
-      description: "The symbol reader method object for the specified method identifier."
+      description: "Объект метода средства чтения символов для заданного идентификатора метода."
   overload: System.Diagnostics.SymbolStore.ISymbolReader.GetMethod*
   exceptions: []
   platform:
@@ -177,22 +177,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets a symbol reader method object that contains a specified position in a document."
+  summary: "Возвращает символ объект метода средства чтения, содержащий указанную позицию в документе."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolMethod GetMethodFromDocumentPosition (System.Diagnostics.SymbolStore.ISymbolDocument document, int line, int column);
     parameters:
     - id: document
       type: System.Diagnostics.SymbolStore.ISymbolDocument
-      description: "The document in which the method is located."
+      description: "Документ, в котором находится метод."
     - id: line
       type: System.Int32
-      description: "The position of the line within the document. The lines are numbered, beginning with 1."
+      description: "Позиция строки в документе. Нумерация строк начинается с 1."
     - id: column
       type: System.Int32
-      description: "The position of column within the document. The columns are numbered, beginning with 1."
+      description: "Позиция столбца в документе. Столбцы нумеруются, начиная с 1."
     return:
       type: System.Diagnostics.SymbolStore.ISymbolMethod
-      description: "The reader method object for the specified position in the document."
+      description: "Объект метода средства чтения для заданной позиции в документе."
   overload: System.Diagnostics.SymbolStore.ISymbolReader.GetMethodFromDocumentPosition*
   exceptions: []
   platform:
@@ -209,13 +209,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the namespaces that are defined in the global scope within the current symbol store."
+  summary: "Возвращает пространства имен, определенные в глобальной области в текущем хранилище символов."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolNamespace[] GetNamespaces ();
     parameters: []
     return:
       type: System.Diagnostics.SymbolStore.ISymbolNamespace[]
-      description: "The namespaces defined in the global scope within the current symbol store."
+      description: "Пространства имен, определенные в глобальной области в текущем хранилище символов."
   overload: System.Diagnostics.SymbolStore.ISymbolReader.GetNamespaces*
   exceptions: []
   platform:
@@ -232,20 +232,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets an attribute value when given the attribute name."
-  remarks: "This attribute is only associated with symbolic information and is not a metadata custom attribute."
+  summary: "Возвращает значение атрибута для заданного имени атрибута."
+  remarks: "Этот атрибут используется только связанные с символьными данными и не является пользовательским атрибутом метаданных."
   syntax:
     content: public byte[] GetSymAttribute (System.Diagnostics.SymbolStore.SymbolToken parent, string name);
     parameters:
     - id: parent
       type: System.Diagnostics.SymbolStore.SymbolToken
-      description: "The metadata token for the object for which the attribute is requested."
+      description: "Токен метаданных для объекта, для которого запрашивается атрибут."
     - id: name
       type: System.String
-      description: "The attribute name."
+      description: "Имя атрибута."
     return:
       type: System.Byte[]
-      description: "The value of the attribute."
+      description: "Значение атрибута."
   overload: System.Diagnostics.SymbolStore.ISymbolReader.GetSymAttribute*
   exceptions: []
   platform:
@@ -262,16 +262,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the variables that are not local when given the parent."
+  summary: "Возвращает переменные, которые не являются локальными, для заданного родительского объекта."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolVariable[] GetVariables (System.Diagnostics.SymbolStore.SymbolToken parent);
     parameters:
     - id: parent
       type: System.Diagnostics.SymbolStore.SymbolToken
-      description: "The metadata token for the type for which the variables are requested."
+      description: "Токен метаданных для типа, для которого запрашиваются эти переменные."
     return:
       type: System.Diagnostics.SymbolStore.ISymbolVariable[]
-      description: "An array of variables for the parent."
+      description: "Массив переменных для родительского элемента."
   overload: System.Diagnostics.SymbolStore.ISymbolReader.GetVariables*
   exceptions: []
   platform:
@@ -288,13 +288,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the metadata token for the method that was specified as the user entry point for the module, if any."
-  remarks: "This is normally your main method, rather than compiler-generated stubs before the main method."
+  summary: "Возвращает метаданные токен для метода, заданного в качестве точки входа пользователя для модуля, если таковые имеются."
+  remarks: "Обычно это основной метод, а не созданные компилятором заглушки перед основным методом."
   syntax:
     content: public System.Diagnostics.SymbolStore.SymbolToken UserEntryPoint { get; }
     return:
       type: System.Diagnostics.SymbolStore.SymbolToken
-      description: "The metadata token for the method that is the user entry point for the module."
+      description: "Токен метаданных для метода, который является входа пользователя точкой для модуля."
   overload: System.Diagnostics.SymbolStore.ISymbolReader.UserEntryPoint*
   exceptions: []
   platform:
