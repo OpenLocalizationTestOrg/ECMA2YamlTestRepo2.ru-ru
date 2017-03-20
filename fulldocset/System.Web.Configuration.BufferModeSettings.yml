@@ -19,8 +19,8 @@ items:
   nameWithType: BufferModeSettings
   fullName: System.Web.Configuration.BufferModeSettings
   type: Class
-  summary: "Configures the ASP.NET event-buffering settings for event providers. This class cannot be inherited."
-  remarks: "The BufferModeSettings class is used to define roles for event providers, such as Critical, Notification, Analysis, and Logging. Each role would buffer events differently, as appropriate for that role. For example a Critical role would keep the <xref:System.Web.Configuration.BufferModeSettings.MaxBufferSize%2A>, <xref:System.Web.Configuration.BufferModeSettings.MaxFlushSize%2A>, and <xref:System.Web.Configuration.BufferModeSettings.UrgentFlushInterval%2A> properties small, whereas an Analysis role would set those properties to higher values.       This class corresponds to the `bufferModes` configuration-file element."
+  summary: "Настройка параметров буферизации событий ASP.NET для поставщиков событий. Этот класс не наследуется."
+  remarks: "Класс BufferModeSettings используется для определения ролей для поставщиков событий, таких как критическое, уведомления, анализа и ведения журнала. Каждая роль выполняет буферизацию событий по-разному, в соответствии с этой ролью. Например важную роль обеспечит оперативность <xref:System.Web.Configuration.BufferModeSettings.MaxBufferSize%2A>, <xref:System.Web.Configuration.BufferModeSettings.MaxFlushSize%2A>, и <xref:System.Web.Configuration.BufferModeSettings.UrgentFlushInterval%2A>Свойства небольшой, тогда как роли Analysis нужно задать более высокие значения этих свойств.</xref:System.Web.Configuration.BufferModeSettings.UrgentFlushInterval%2A> </xref:System.Web.Configuration.BufferModeSettings.MaxFlushSize%2A> </xref:System.Web.Configuration.BufferModeSettings.MaxBufferSize%2A>       Этот класс соответствует `bufferModes` элемент файла конфигурации."
   example:
   - "The following configuration file excerpt shows how to declaratively specify values for several properties of the BufferModeSettings class.  \n  \n```  \n<healthMonitoring>  \n  <bufferModes>  \n    <add name=\"Critical Notification\"  \n      maxBufferSize=\"100\"  \n      maxFlushSize=\"20\"  \n      urgentFlushThreshold=\"1\"  \n      regularFlushInterval=\"Infinite\"  \n      urgentFlushInterval=\"00:01:00\"  \n      maxBufferThreads=\"1\"  \n    />  \n    <add name=\"Notification\"  \n      maxBufferSize=\"300\"  \n      maxFlushSize=\"20\"  \n      urgentFlushThreshold=\"1\"  \n      regularFlushInterval=\"Infinite\"  \n      urgentFlushInterval=\"00:01:00\"  \n      maxBufferThreads=\"1\"  \n    />  \n    <add name=\"Analysis\"  \n      maxBufferSize=\"1000\"  \n      maxFlushSize=\"100\"  \n      urgentFlushThreshold=\"100\"  \n      regularFlushInterval=\"00:05:00\"  \n      urgentFlushInterval=\"00:01:00\"  \n      maxBufferThreads=\"1\"  \n    />  \n    <add name=\"Logging\"  \n      maxBufferSize=\"1000\"  \n      maxFlushSize=\"200\"  \n      urgentFlushThreshold=\"800\"  \n      regularFlushInterval=\"00:30:00\"  \n      urgentFlushInterval=\"00:05:00\"  \n      maxBufferThreads=\"1\"  \n    />  \n  </bufferModes>  \n</healthMonitoring>  \n```"
   syntax:
@@ -77,7 +77,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Configuration.BufferModeSettings&quot;></xref> class using specified settings."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Web.Configuration.BufferModeSettings&quot;> </xref> класса, используя указанные параметры."
   remarks: ''
   example:
   - "The following code example shows how to use the BufferModeSettings constructor. This code example is part of a larger example provided for the <xref:System.Web.Configuration.HealthMonitoringSection> class.  \n  \n [!code-cs[System.Web.Configuration.HealthMonitoringSection#10](~/add/codesnippet/csharp/32496253-e371-44fd-9d57-_1.cs)]\n [!code-vb[System.Web.Configuration.HealthMonitoringSection#10](~/add/codesnippet/visualbasic/32496253-e371-44fd-9d57-_1.vb)]"
@@ -86,25 +86,25 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the <xref href=&quot;System.Web.Configuration.BufferModeSettings&quot;></xref> object being created."
+      description: "Имя <xref href=&quot;System.Web.Configuration.BufferModeSettings&quot;> </xref> объекта в процессе создания."
     - id: maxBufferSize
       type: System.Int32
-      description: "The maximum number of events buffered at one time. The value must be greater than zero."
+      description: "Максимальное число событий, буферизовать одновременно. Значение должно быть больше нуля."
     - id: maxFlushSize
       type: System.Int32
-      description: "The maximum number of events per buffer flush. Must be greater than zero."
+      description: "Максимальное число событий каждого буфера на диск. Должно быть больше нуля."
     - id: urgentFlushThreshold
       type: System.Int32
-      description: "The number of events buffered before a buffer flush is triggered. The value must be greater than zero and less than or equal to `maxBufferSize`."
+      description: "Число событий, прежде чем запускается Очистка буфера в буфер. Значение должно быть больше нуля и меньше или равно `maxBufferSize`."
     - id: regularFlushInterval
       type: System.TimeSpan
-      description: "The standard amount of time between buffer flushes. The value can be made infinite by setting it to <xref:System.Int32> ticks."
+      description: "Очищает стандартный период времени между буфера. Значение можно сделать бесконечный присвоив ему значение <xref:System.Int32>тактов.</xref:System.Int32>"
     - id: urgentFlushInterval
       type: System.TimeSpan
-      description: "The minimum length of time that can pass between buffer flushes. The value must be less than or equal to `regularFlushInterval`."
+      description: "Минимальный интервал времени, которое может пройти между очистками буфера. Значение должно быть меньше или равно `regularFlushInterval`."
     - id: maxBufferThreads
       type: System.Int32
-      description: "The maximum number of buffer-flushing threads that can be active at one time."
+      description: "Максимальное число очистки буфера потоков, который может быть активна одновременно."
   overload: System.Web.Configuration.BufferModeSettings.#ctor*
   exceptions: []
   platform:
@@ -125,7 +125,7 @@ items:
     content: protected override System.Configuration.ConfigurationElementProperty ElementProperty { get; }
     return:
       type: System.Configuration.ConfigurationElementProperty
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Web.Configuration.BufferModeSettings.ElementProperty*
   exceptions: []
   platform:
@@ -142,15 +142,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the maximum number of events that can be buffered at one time."
-  remarks: "This property must have a value greater than zero. Invalid values may cause an exception to be thrown when the configuration section is saved.       The default value varies based on the provider. The <xref:System.Web.Configuration.BufferModeSettings> objects in the <xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A> collection are referred to by name by the providers in the <xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A> collection."
+  summary: "Возвращает или задает максимальное число событий, которые могут быть помещены в буфер за один раз."
+  remarks: "Это свойство должно иметь значение больше нуля. Недопустимые значения может вызвать исключение, при сохранении раздела конфигурации.       Значение по умолчанию варьируется в зависимости от поставщика. <xref:System.Web.Configuration.BufferModeSettings>Объекты в <xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A>коллекцию под именем поставщиками в <xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A>коллекции.</xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A> </xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A> </xref:System.Web.Configuration.BufferModeSettings>"
   example:
   - "The following code example shows how to use the MaxBufferSize property. This code example is part of a larger example provided for the <xref:System.Web.Configuration.HealthMonitoringSection> class.  \n  \n [!code-cs[System.Web.Configuration.HealthMonitoringSection#16](~/add/codesnippet/csharp/p-system.web.configurati_330_1.cs)]\n [!code-vb[System.Web.Configuration.HealthMonitoringSection#16](~/add/codesnippet/visualbasic/p-system.web.configurati_330_1.vb)]"
   syntax:
     content: public int MaxBufferSize { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of events that can be buffered at one time."
+      description: "Максимальное число событий, которые могут быть помещены в буфер за один раз."
   overload: System.Web.Configuration.BufferModeSettings.MaxBufferSize*
   exceptions: []
   platform:
@@ -167,15 +167,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the maximum number of flushing threads that can be active at one time."
-  remarks: "This property must have a value greater than zero. Invalid values may cause an exception to be thrown when the configuration section is saved."
+  summary: "Возвращает или задает максимальное число потоков, которые могут быть активны одновременно очистки."
+  remarks: "Это свойство должно иметь значение больше нуля. Недопустимые значения может вызвать исключение, при сохранении раздела конфигурации."
   example:
   - "The following code example shows how to use the <xref:System.Web.Configuration.BufferModeSettings.MaxBufferSize%2A> property. This code example is part of a larger example provided for the <xref:System.Web.Configuration.HealthMonitoringSection> class.  \n  \n [!code-cs[System.Web.Configuration.HealthMonitoringSection#17](~/add/codesnippet/csharp/p-system.web.configurati_378_1.cs)]\n [!code-vb[System.Web.Configuration.HealthMonitoringSection#17](~/add/codesnippet/visualbasic/p-system.web.configurati_378_1.vb)]"
   syntax:
     content: public int MaxBufferThreads { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of flushing threads that can be active at one time. The default is 1."
+      description: "Максимальное число потоков, которые могут быть активны одновременно очистки. Значение по умолчанию — 1."
   overload: System.Web.Configuration.BufferModeSettings.MaxBufferThreads*
   exceptions: []
   platform:
@@ -192,15 +192,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the maximum number of events per flush."
-  remarks: "This property must have a value greater than zero. Invalid values may cause an exception to be thrown when the configuration section is saved.       The default value varies based on the provider. The <xref:System.Web.Configuration.BufferModeSettings> objects in the <xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A> collection are referred to by name by the providers in the <xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A> collection."
+  summary: "Возвращает или задает максимальное число событий на каждую очистку."
+  remarks: "Это свойство должно иметь значение больше нуля. Недопустимые значения может вызвать исключение, при сохранении раздела конфигурации.       Значение по умолчанию варьируется в зависимости от поставщика. <xref:System.Web.Configuration.BufferModeSettings>Объекты в <xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A>коллекцию под именем поставщиками в <xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A>коллекции.</xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A> </xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A> </xref:System.Web.Configuration.BufferModeSettings>"
   example:
   - "The following code example shows how to use the <xref:System.Web.Configuration.BufferModeSettings.MaxBufferSize%2A> property. This code example is part of a larger example provided for the <xref:System.Web.Configuration.HealthMonitoringSection> class.  \n  \n [!code-cs[System.Web.Configuration.HealthMonitoringSection#18](~/add/codesnippet/csharp/p-system.web.configurati_27_1.cs)]\n [!code-vb[System.Web.Configuration.HealthMonitoringSection#18](~/add/codesnippet/visualbasic/p-system.web.configurati_27_1.vb)]"
   syntax:
     content: public int MaxFlushSize { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of events per flush."
+      description: "Максимальное количество очищаемых событий."
   overload: System.Web.Configuration.BufferModeSettings.MaxFlushSize*
   exceptions: []
   platform:
@@ -217,15 +217,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the name of the <xref href=&quot;System.Web.Configuration.BufferModeSettings&quot;></xref> object."
-  remarks: "A unique name is required."
+  summary: "Возвращает или задает имя <xref href=&quot;System.Web.Configuration.BufferModeSettings&quot;> </xref> объекта."
+  remarks: "Уникальное имя является обязательным."
   example:
   - "The following code example shows how to use the <xref:System.Web.Configuration.BufferModeSettings.MaxBufferSize%2A> property. This code example is part of a larger example provided for the <xref:System.Web.Configuration.HealthMonitoringSection> class.  \n  \n [!code-cs[System.Web.Configuration.HealthMonitoringSection#15](~/add/codesnippet/csharp/p-system.web.configurati_101_1.cs)]\n [!code-vb[System.Web.Configuration.HealthMonitoringSection#15](~/add/codesnippet/visualbasic/p-system.web.configurati_101_1.vb)]"
   syntax:
     content: public string Name { get; set; }
     return:
       type: System.String
-      description: "The name of the <xref href=&quot;System.Web.Configuration.BufferModeSettings&quot;></xref> object. The default value is an empty string."
+      description: "Имя <xref href=&quot;System.Web.Configuration.BufferModeSettings&quot;> </xref> объекта. Значение по умолчанию — пустая строка."
   overload: System.Web.Configuration.BufferModeSettings.Name*
   exceptions: []
   platform:
@@ -246,7 +246,7 @@ items:
     content: protected override System.Configuration.ConfigurationPropertyCollection Properties { get; }
     return:
       type: System.Configuration.ConfigurationPropertyCollection
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Web.Configuration.BufferModeSettings.Properties*
   exceptions: []
   platform:
@@ -263,15 +263,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the amount of time between buffer flushes."
-  remarks: "This property must have a value greater than zero. The value can be made infinite by setting it to <xref:System.Int32.MaxValue> ticks. Invalid values may cause an exception when the configuration section is saved.       The default value varies based on the provider. The <xref:System.Web.Configuration.BufferModeSettings> objects in the <xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A> collection are referred to by name by the providers in the <xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A> collection."
+  summary: "Возвращает или задает временной интервал между очистками буфера."
+  remarks: "Это свойство должно иметь значение больше нуля. Значение можно сделать бесконечный присвоив ему значение <xref:System.Int32.MaxValue>тактов.</xref:System.Int32.MaxValue> Недопустимые значения могут вызвать исключение при сохранении раздела конфигурации.       Значение по умолчанию варьируется в зависимости от поставщика. <xref:System.Web.Configuration.BufferModeSettings>Объекты в <xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A>коллекцию под именем поставщиками в <xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A>коллекции.</xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A> </xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A> </xref:System.Web.Configuration.BufferModeSettings>"
   example:
   - "The following code example shows how to use the <xref:System.Web.Configuration.BufferModeSettings.MaxBufferSize%2A> property. This code example is part of a larger example provided for the <xref:System.Web.Configuration.HealthMonitoringSection> class.  \n  \n [!code-cs[System.Web.Configuration.HealthMonitoringSection#19](~/add/codesnippet/csharp/p-system.web.configurati_314_1.cs)]\n [!code-vb[System.Web.Configuration.HealthMonitoringSection#19](~/add/codesnippet/visualbasic/p-system.web.configurati_314_1.vb)]"
   syntax:
     content: public TimeSpan RegularFlushInterval { get; set; }
     return:
       type: System.TimeSpan
-      description: "The regular amount of time between buffer flushes."
+      description: "Очищает регулярного промежуток времени между буфера."
   overload: System.Web.Configuration.BufferModeSettings.RegularFlushInterval*
   exceptions: []
   platform:
@@ -288,15 +288,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the minimum amount of time that can pass between buffer flushes."
-  remarks: "This property must have a value greater than zero and less than or equal to the value of the <xref:System.Web.Configuration.BufferModeSettings.RegularFlushInterval%2A> property. Invalid values may cause an exception to be thrown when the configuration section is saved.       The default value varies based on the provider. The <xref:System.Web.Configuration.BufferModeSettings> objects in the <xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A> collection are referred to by name by the providers in the <xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A> collection."
+  summary: "Возвращает или задает минимальное количество времени, которое может пройти между очистками буфера."
+  remarks: "Это свойство должно иметь значение больше нуля и меньше или равно значению <xref:System.Web.Configuration.BufferModeSettings.RegularFlushInterval%2A>свойство.</xref:System.Web.Configuration.BufferModeSettings.RegularFlushInterval%2A> Недопустимые значения может вызвать исключение, при сохранении раздела конфигурации.       Значение по умолчанию варьируется в зависимости от поставщика. <xref:System.Web.Configuration.BufferModeSettings>Объекты в <xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A>коллекцию под именем поставщиками в <xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A>коллекции.</xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A> </xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A> </xref:System.Web.Configuration.BufferModeSettings>"
   example:
   - "The following code example shows how to use the <xref:System.Web.Configuration.BufferModeSettings.MaxBufferSize%2A> property. This code example is part of a larger example provided for the <xref:System.Web.Configuration.HealthMonitoringSection> class.  \n  \n [!code-cs[System.Web.Configuration.HealthMonitoringSection#20](~/add/codesnippet/csharp/p-system.web.configurati_133_1.cs)]\n [!code-vb[System.Web.Configuration.HealthMonitoringSection#20](~/add/codesnippet/visualbasic/p-system.web.configurati_133_1.vb)]"
   syntax:
     content: public TimeSpan UrgentFlushInterval { get; set; }
     return:
       type: System.TimeSpan
-      description: "The minimum amount of time that can pass between buffer flushes."
+      description: "Минимальное количество времени, которое может пройти между очистками буфера."
   overload: System.Web.Configuration.BufferModeSettings.UrgentFlushInterval*
   exceptions: []
   platform:
@@ -313,15 +313,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the number of events that can be buffered before a flush is triggered."
-  remarks: "This property must have a value greater than zero and less than or equal to the value of the <xref:System.Web.Configuration.BufferModeSettings.MaxBufferSize%2A> property. Invalid values may cause an exception when the configuration section is saved.       The default value varies based on the provider. The <xref:System.Web.Configuration.BufferModeSettings> objects in the <xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A> collection are referred to by name by the providers in the <xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A> collection."
+  summary: "Возвращает или задает количество событий, которые можно сохранить в буфере до запуска обновления данных."
+  remarks: "Это свойство должно иметь значение больше нуля и меньше или равно значению <xref:System.Web.Configuration.BufferModeSettings.MaxBufferSize%2A>свойство.</xref:System.Web.Configuration.BufferModeSettings.MaxBufferSize%2A> Недопустимые значения могут вызвать исключение при сохранении раздела конфигурации.       Значение по умолчанию варьируется в зависимости от поставщика. <xref:System.Web.Configuration.BufferModeSettings>Объекты в <xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A>коллекцию под именем поставщиками в <xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A>коллекции.</xref:System.Web.Configuration.HealthMonitoringSection.Providers%2A> </xref:System.Web.Configuration.HealthMonitoringSection.BufferModes%2A> </xref:System.Web.Configuration.BufferModeSettings>"
   example:
   - "The following code example shows how to use the <xref:System.Web.Configuration.BufferModeSettings.MaxBufferSize%2A> property. This code example is part of a larger example provided for the <xref:System.Web.Configuration.HealthMonitoringSection> class.  \n  \n [!code-cs[System.Web.Configuration.HealthMonitoringSection#21](~/add/codesnippet/csharp/p-system.web.configurati_197_1.cs)]\n [!code-vb[System.Web.Configuration.HealthMonitoringSection#21](~/add/codesnippet/visualbasic/p-system.web.configurati_197_1.vb)]"
   syntax:
     content: public int UrgentFlushThreshold { get; set; }
     return:
       type: System.Int32
-      description: "The number of events that can be buffered before a flush is triggered."
+      description: "Число событий, которые можно сохранить в буфере до запуска обновления данных."
   overload: System.Web.Configuration.BufferModeSettings.UrgentFlushThreshold*
   exceptions: []
   platform:

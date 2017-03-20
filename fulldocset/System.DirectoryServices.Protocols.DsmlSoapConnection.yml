@@ -14,7 +14,7 @@ items:
   nameWithType: DsmlSoapConnection
   fullName: System.DirectoryServices.Protocols.DsmlSoapConnection
   type: Class
-  summary: "The DsmlSoapConnection class is an abstract class that cannot be instantiated. It enables stateless and stateful protocols to be handled similarly by providing session-oriented features."
+  summary: "Класс DsmlSoapConnection является абстрактным классом, который не может быть создан. Она позволяет протоколы без сохранения состояния и с отслеживанием состояния схожим образом обрабатывать с помощью компонентов, ориентированных на сеанс."
   syntax:
     content: 'public abstract class DsmlSoapConnection : System.DirectoryServices.Protocols.DirectoryConnection'
   inheritance:
@@ -41,7 +41,7 @@ items:
   assemblies:
   - System.DirectoryServices.Protocols
   namespace: System.DirectoryServices.Protocols
-  summary: "The DsmlSoapConnection constructor initializes a new instance of a <xref href=&quot;System.DirectoryServices.Protocols.DsmlSoapConnection&quot;></xref> class."
+  summary: "DsmlSoapConnection конструктор инициализирует новый экземпляр <xref href=&quot;System.DirectoryServices.Protocols.DsmlSoapConnection&quot;> </xref> класса."
   syntax:
     content: protected DsmlSoapConnection ();
     parameters: []
@@ -61,8 +61,8 @@ items:
   assemblies:
   - System.DirectoryServices.Protocols
   namespace: System.DirectoryServices.Protocols
-  summary: "The BeginSession method instructs the DSML server to start a new session."
-  remarks: "The method will block while waiting for a response from the DSML server and will timeout according to the <xref:System.DirectoryServices.Protocols.DirectoryConnection.Timeout%2A> property."
+  summary: "Метод BeginSession инструктирует сервер DSML для запуска нового сеанса."
+  remarks: "Метод будет блокировать во время ожидания ответа от сервера DSML и ожидания в соответствии с <xref:System.DirectoryServices.Protocols.DirectoryConnection.Timeout%2A>свойство.</xref:System.DirectoryServices.Protocols.DirectoryConnection.Timeout%2A>"
   syntax:
     content: public abstract void BeginSession ();
     parameters: []
@@ -70,13 +70,13 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Thrown when a session is already open on the connection."
+    description: "Возникает, если сеанс уже открыт в соединении."
   - type: System.DirectoryServices.Protocols.DsmlInvalidDocumentException
     commentId: T:System.DirectoryServices.Protocols.DsmlInvalidDocumentException
-    description: "Thrown when the XML returned from the Server in response to the BeginSession is not well-formed."
+    description: "Вызывается, если XML, возвращенный сервером в ответ на BeginSession не является правильным."
   - type: System.Net.WebException
     commentId: T:System.Net.WebException
-    description: "Thrown when there is a communications failure with the DSML server."
+    description: "Возникает при сбое связи с сервером DSML."
   platform:
   - net462
 - uid: System.DirectoryServices.Protocols.DsmlSoapConnection.EndSession
@@ -91,8 +91,8 @@ items:
   assemblies:
   - System.DirectoryServices.Protocols
   namespace: System.DirectoryServices.Protocols
-  summary: "The EndSession method ends the session with the DSML server and clears the <xref:System.DirectoryServices.Protocols.DsmlSoapConnection.SessionId*> property."
-  remarks: "The method will block while waiting for a response from the DSML server and will timeout according to the <xref:System.DirectoryServices.Protocols.DirectoryConnection.Timeout%2A> property.       If the DSML server terminates the session, a <xref:System.Net.WebException>       is thrown. If <xref:System.DirectoryServices.Protocols.DsmlSoapConnection.SessionId%2A> is still valid after the exception is thrown, the request never reached the server and the connection is still considered valid."
+  summary: "Метод EndSession завершает сеанс с сервером DSML и очищает <xref:System.DirectoryServices.Protocols.DsmlSoapConnection.SessionId*>свойство.</xref:System.DirectoryServices.Protocols.DsmlSoapConnection.SessionId*>"
+  remarks: "Метод будет блокировать во время ожидания ответа от сервера DSML и ожидания в соответствии с <xref:System.DirectoryServices.Protocols.DirectoryConnection.Timeout%2A>свойство.</xref:System.DirectoryServices.Protocols.DirectoryConnection.Timeout%2A>       Если сервер DSML завершает сеанс, <xref:System.Net.WebException>возникает исключение.</xref:System.Net.WebException> Если <xref:System.DirectoryServices.Protocols.DsmlSoapConnection.SessionId%2A>действительна после исключения, запрос никогда не достигает сервера и соединения по-прежнему считается допустимым.</xref:System.DirectoryServices.Protocols.DsmlSoapConnection.SessionId%2A>"
   syntax:
     content: public abstract void EndSession ();
     parameters: []
@@ -100,10 +100,10 @@ items:
   exceptions:
   - type: System.Net.WebException
     commentId: T:System.Net.WebException
-    description: "Thrown when a communications failure occurs with the DSML server."
+    description: "Создается в случае сбоя связи с сервером DSML."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Thrown when there is no open session."
+    description: "Возникает, если нет открытых сеансов."
   platform:
   - net462
 - uid: System.DirectoryServices.Protocols.DsmlSoapConnection.SessionId
@@ -118,13 +118,13 @@ items:
   assemblies:
   - System.DirectoryServices.Protocols
   namespace: System.DirectoryServices.Protocols
-  summary: "The SessionId property contains the active session ID."
-  remarks: "A null value signifies no active session."
+  summary: "Свойство SessionId содержит идентификатор активного сеанса."
+  remarks: "Значение null означает отсутствие активного сеанса."
   syntax:
     content: public abstract string SessionId { get; }
     return:
       type: System.String
-      description: "The active session ID."
+      description: "Идентификатор активного сеанса."
   overload: System.DirectoryServices.Protocols.DsmlSoapConnection.SessionId*
   exceptions: []
   platform:
@@ -141,13 +141,13 @@ items:
   assemblies:
   - System.DirectoryServices.Protocols
   namespace: System.DirectoryServices.Protocols
-  summary: "The SoapRequestHeader property contains the SOAP Header attached to outgoing requests."
-  remarks: "The API uses <xref:System.DirectoryServices.Protocols.DsmlSoapConnection.BeginSession%2A> and <xref:System.DirectoryServices.Protocols.DsmlSoapConnection.EndSession%2A> to track the lifetime of a session.       **Caution** Attaching an EndSession header to the SoapRequestHeader causes the API to become inconsistent with the connection and should be avoided."
+  summary: "Свойство SoapRequestHeader содержит заголовок SOAP, прикрепляемый к исходящим запросам."
+  remarks: "Использует API <xref:System.DirectoryServices.Protocols.DsmlSoapConnection.BeginSession%2A>и <xref:System.DirectoryServices.Protocols.DsmlSoapConnection.EndSession%2A>для отслеживания времени существования сеанса.</xref:System.DirectoryServices.Protocols.DsmlSoapConnection.EndSession%2A> </xref:System.DirectoryServices.Protocols.DsmlSoapConnection.BeginSession%2A>       **Внимание** присоединения заголовок EndSession SoapRequestHeader вызывает API несогласованности с соединением и его следует избегать."
   syntax:
     content: public System.Xml.XmlNode SoapRequestHeader { get; set; }
     return:
       type: System.Xml.XmlNode
-      description: "The SOAP Header attached to outgoing requests."
+      description: "Заголовок SOAP, прикрепляемый к исходящим запросам."
   overload: System.DirectoryServices.Protocols.DsmlSoapConnection.SoapRequestHeader*
   exceptions: []
   platform:

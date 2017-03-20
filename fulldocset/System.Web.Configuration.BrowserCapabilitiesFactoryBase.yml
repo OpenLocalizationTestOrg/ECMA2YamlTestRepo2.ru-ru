@@ -17,8 +17,8 @@ items:
   nameWithType: BrowserCapabilitiesFactoryBase
   fullName: System.Web.Configuration.BrowserCapabilitiesFactoryBase
   type: Class
-  summary: "The BrowserCapabilitiesFactoryBase class is the base class from which <see cref=&quot;T:System.Web.Configuration.BrowserCapabilitiesFactory&quot;></see> is derived. It is used internally at run time by the configuration system to create request-specific instances of the <see cref=&quot;T:System.Web.Configuration.HttpCapabilitiesBase&quot;></see> class, publicly accessed through the ASP.NET intrinsic <xref uid=&quot;langword_csharp_Request.Browser&quot; name=&quot;Request.Browser&quot; href=&quot;&quot;></xref> property."
-  remarks: "You define browser capabilities in a .browser file. You can use the default hierarchy in the .browser file or create a custom hierarchy to define the browser capabilities."
+  summary: "Базовый класс, от которого является класс BrowserCapabilitiesFactoryBase <xref href=&quot;System.Web.Configuration.BrowserCapabilitiesFactory&quot;> </xref> является производным. Используется внутренне во время выполнения системой конфигурации для создания связанных с запросом экземпляров <xref href=&quot;System.Web.Configuration.HttpCapabilitiesBase&quot;> </xref> класса, открыты для общего доступа через встроенный ASP.NET <xref uid=&quot;langword_csharp_Request.Browser&quot; name=&quot;Request.Browser&quot; href=&quot;&quot;> </xref> свойство."
+  remarks: "Возможности обозревателя определяются в файле BROWSER. Можно использовать иерархию по умолчанию в файле BROWSER, или создать пользовательскую иерархию для определения возможностей браузера."
   syntax:
     content: public class BrowserCapabilitiesFactoryBase
   inheritance:
@@ -26,9 +26,7 @@ items:
   implements: []
   inheritedMembers: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Web.Configuration.BrowserCapabilitiesFactoryBase.#ctor
   id: '#ctor'
   parent: System.Web.Configuration.BrowserCapabilitiesFactoryBase
@@ -41,16 +39,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Used internally by the configuration system to create a new instance of this class."
+  summary: "Используется системой конфигурации для создания нового экземпляра этого класса."
   syntax:
     content: public BrowserCapabilitiesFactoryBase ();
     parameters: []
   overload: System.Web.Configuration.BrowserCapabilitiesFactoryBase.#ctor*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Web.Configuration.BrowserCapabilitiesFactoryBase.BrowserElements
   id: BrowserElements
   parent: System.Web.Configuration.BrowserCapabilitiesFactoryBase
@@ -63,18 +59,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Used internally by the configuration system to represent a collection of information relating to various browser capabilities."
+  summary: "Используется системой конфигурации для представления коллекции сведений, относящихся к различным возможностям обозревателя."
   syntax:
     content: protected System.Collections.IDictionary BrowserElements { get; }
     return:
       type: System.Collections.IDictionary
-      description: "A dictionary of browser capabilities."
+      description: "Словарь возможностей браузера."
   overload: System.Web.Configuration.BrowserCapabilitiesFactoryBase.BrowserElements*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Web.Configuration.BrowserCapabilitiesFactoryBase.ConfigureBrowserCapabilities(System.Collections.Specialized.NameValueCollection,System.Web.HttpBrowserCapabilities)
   id: ConfigureBrowserCapabilities(System.Collections.Specialized.NameValueCollection,System.Web.HttpBrowserCapabilities)
   parent: System.Web.Configuration.BrowserCapabilitiesFactoryBase
@@ -87,22 +81,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Used internally at run time to configure an <see cref=&quot;T:System.Web.HttpBrowserCapabilities&quot;></see> object."
+  summary: "Используется внутренним образом во время выполнения для настройки <xref href=&quot;System.Web.HttpBrowserCapabilities&quot;> </xref> объекта."
   syntax:
     content: public virtual void ConfigureBrowserCapabilities (System.Collections.Specialized.NameValueCollection headers, System.Web.HttpBrowserCapabilities browserCaps);
     parameters:
     - id: headers
       type: System.Collections.Specialized.NameValueCollection
-      description: "A collection of request headers."
+      description: "Коллекция заголовков запроса."
     - id: browserCaps
       type: System.Web.HttpBrowserCapabilities
-      description: "An  object."
+      description: "<xref href=&quot;System.Web.HttpBrowserCapabilities&quot;> </xref> Объекта."
   overload: System.Web.Configuration.BrowserCapabilitiesFactoryBase.ConfigureBrowserCapabilities*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Web.Configuration.BrowserCapabilitiesFactoryBase.ConfigureCustomCapabilities(System.Collections.Specialized.NameValueCollection,System.Web.HttpBrowserCapabilities)
   id: ConfigureCustomCapabilities(System.Collections.Specialized.NameValueCollection,System.Web.HttpBrowserCapabilities)
   parent: System.Web.Configuration.BrowserCapabilitiesFactoryBase
@@ -115,23 +107,21 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Used internally at run time to configure custom hierarchies of browser capabilities."
-  remarks: "You define browser capabilities in a .browser file. You can use the default hierarchy in the .browser file or create a custom hierarchy to define the browser capabilities. The ConfigureCustomCapabilities method processes a custom hierarchy. The custom hierarchy must contain a `parentID` value in the `browser` element."
+  summary: "Используется внутренним образом во время выполнения для настройки пользовательских иерархий возможностей браузера."
+  remarks: "Возможности обозревателя определяются в файле BROWSER. Можно использовать иерархию по умолчанию в файле BROWSER, или создать пользовательскую иерархию для определения возможностей браузера. Метод ConfigureCustomCapabilities обрабатывает пользовательские иерархии. Пользовательская иерархия может содержать `parentID` значение в `browser` элемент."
   syntax:
     content: public virtual void ConfigureCustomCapabilities (System.Collections.Specialized.NameValueCollection headers, System.Web.HttpBrowserCapabilities browserCaps);
     parameters:
     - id: headers
       type: System.Collections.Specialized.NameValueCollection
-      description: "A collection of request headers."
+      description: "Коллекция заголовков запроса."
     - id: browserCaps
       type: System.Web.HttpBrowserCapabilities
-      description: "An object that specifies the capabilities of the browser."
+      description: "Объект, задающий возможности браузера."
   overload: System.Web.Configuration.BrowserCapabilitiesFactoryBase.ConfigureCustomCapabilities*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Web.Configuration.BrowserCapabilitiesFactoryBase.IsBrowserUnknown(System.Web.Configuration.HttpCapabilitiesBase)
   id: IsBrowserUnknown(System.Web.Configuration.HttpCapabilitiesBase)
   parent: System.Web.Configuration.BrowserCapabilitiesFactoryBase
@@ -144,22 +134,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Used internally by the configuration system to determine whether the browser represented by the specified <see cref=&quot;T:System.Web.HttpBrowserCapabilities&quot;></see> object does not have an available adapter."
+  summary: "Используется внутренним образом системой конфигурации для определения, является ли браузер, представленный указанным <xref href=&quot;System.Web.HttpBrowserCapabilities&quot;> </xref> объект не имеет доступного адаптера."
   syntax:
     content: protected bool IsBrowserUnknown (System.Web.Configuration.HttpCapabilitiesBase browserCaps);
     parameters:
     - id: browserCaps
       type: System.Web.Configuration.HttpCapabilitiesBase
-      description: "An  object."
+      description: "<xref href=&quot;System.Web.HttpBrowserCapabilities&quot;> </xref> Объекта."
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если у представленного обозревателя нет доступного адаптера; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Configuration.BrowserCapabilitiesFactoryBase.IsBrowserUnknown*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Web.Configuration.BrowserCapabilitiesFactoryBase.MatchedHeaders
   id: MatchedHeaders
   parent: System.Web.Configuration.BrowserCapabilitiesFactoryBase
@@ -172,18 +160,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Used internally by the configuration system to represent a collection of request-header values."
+  summary: "Используется системой конфигурации для представления коллекции значений заголовка запроса."
   syntax:
     content: protected System.Collections.IDictionary MatchedHeaders { get; }
     return:
       type: System.Collections.IDictionary
-      description: "A collection of request headers."
+      description: "Коллекция заголовков запроса."
   overload: System.Web.Configuration.BrowserCapabilitiesFactoryBase.MatchedHeaders*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Web.Configuration.BrowserCapabilitiesFactoryBase.PopulateBrowserElements(System.Collections.IDictionary)
   id: PopulateBrowserElements(System.Collections.IDictionary)
   parent: System.Web.Configuration.BrowserCapabilitiesFactoryBase
@@ -196,19 +182,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Used internally by the configuration system to populate a collection of browser capabilities based on the supported browser."
+  summary: "Используется системой конфигурации для заполнения коллекции возможностей браузера, в зависимости от поддерживаемого браузера."
   syntax:
     content: protected virtual void PopulateBrowserElements (System.Collections.IDictionary dictionary);
     parameters:
     - id: dictionary
       type: System.Collections.IDictionary
-      description: "A collection of key/value pairs representing the browser capabilities."
+      description: "Коллекция пар &quot;ключ значение&quot;, представляющих возможности браузера."
   overload: System.Web.Configuration.BrowserCapabilitiesFactoryBase.PopulateBrowserElements*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Web.Configuration.BrowserCapabilitiesFactoryBase.PopulateMatchedHeaders(System.Collections.IDictionary)
   id: PopulateMatchedHeaders(System.Collections.IDictionary)
   parent: System.Web.Configuration.BrowserCapabilitiesFactoryBase
@@ -221,19 +205,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Used internally by the configuration system to populate a collection of request headers based on the supported browser."
+  summary: "Используется системой конфигурации для заполнения коллекции заголовков запросов, в зависимости от поддерживаемого браузера."
   syntax:
     content: protected virtual void PopulateMatchedHeaders (System.Collections.IDictionary dictionary);
     parameters:
     - id: dictionary
       type: System.Collections.IDictionary
-      description: "A collection of key/value pairs representing the browser capabilities."
+      description: "Коллекция пар &quot;ключ значение&quot;, представляющих возможности браузера."
   overload: System.Web.Configuration.BrowserCapabilitiesFactoryBase.PopulateMatchedHeaders*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 references:
 - uid: System.Object
   isExternal: false

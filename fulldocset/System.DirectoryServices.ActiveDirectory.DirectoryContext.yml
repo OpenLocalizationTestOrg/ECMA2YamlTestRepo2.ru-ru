@@ -16,8 +16,8 @@ items:
   nameWithType: DirectoryContext
   fullName: System.DirectoryServices.ActiveDirectory.DirectoryContext
   type: Class
-  summary: "The DirectoryContext class identifies a specific directory and the credentials that are used to access the directory."
-  remarks: "A directory context must be created before accessing the methods and properties of a System.DirectoryServices.ActiveDirectory directory object such as a domain or forest.       When creating a directory context, the process&quot; current credentials or alternate credentials can be applied to that context by using the appropriate constructor.  These credentials determine the permissions that are in effect when the program accesses directory objects.  Because Active Directory Domain Services objects might be protected against retrieval or modification by non-administrative users, the use of alternate credentials with permission to access the target objects is sometimes necessary for proper program functionality.       The following table contains a list of the target types that are allowed and a description of the format of the target string.      |Target type|<xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType> member|Target name format|   |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|   |Domain Controller|<xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>|The DNS name of the domain controller.|   |AD LDS Instance|<xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>|The DNS name of the AD LDS server and the LDAP port number, for example, ad_lds_instance.fabrikam.com:389.|   |Domain|<xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>|The DNS name of the domain, for example, sales.corp.fabrikam.com.|   |Forest|<xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>|The DNS name of the forest, for example, corp.fabrikam.com.|   |Application Partition|<xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>|The DNS name of the application partition.|   |AD LDS Configuration Set|<xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>|One of the keywords that is associated with the service connection point registered by AD LDS instances for the configuration set.|"
+  summary: "Класс DirectoryContext определяет конкретный каталог и учетные данные, используемые для доступа к каталогу."
+  remarks: "Контекста каталога должен быть создан до доступа к методам и свойствам объекта каталога System.DirectoryServices.ActiveDirectory например домена или леса.       При создании контекста каталога, учетные данные текущего процесса или альтернативные учетные данные могут применяться к этому контексту с помощью соответствующего конструктора.  Эти данные определяют разрешения, которые вступают в силу, когда программа обращается к объектам каталога.  Так как объекты доменных служб Active Directory могут быть защищены от извлечения или изменения пользователями без прав администратора, использование альтернативных учетных данных с разрешением на доступ к целевым объектам иногда это необходимо для правильного функционирования программы.       Следующая таблица содержит список разрешенных типов целевого объекта и описание формата целевой строки.      | Целевой тип | член <xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>| Имя целевой формат |   |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|   | Контроллер домена | <xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>| DNS-имя контроллера домена. |   | Экземпляр AD LDS | <xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>| Номер, например, ad_lds_instance.fabrikam.com:389.| порта DNS-имя сервера AD LDS и LDAP   | Домен | <xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>| DNS-имя домена, например, sales.corp.fabrikam.com.|   | Лес | <xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>| DNS-имя леса, к примеру, corp.fabrikam.com.|   | Раздел приложения | <xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>| DNS-имя раздела приложений. |   | Набор конфигурации AD LDS | <xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>| Одно из ключевых слов, связанных с точкой подключения службы зарегистрирована, экземпляры AD LDS в наборе конфигурации. |</xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType> </xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType> </xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType> </xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType> </xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType> </xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType> </xref:System.DirectoryServices.ActiveDirectory.DirectoryContextType>"
   syntax:
     content: public class DirectoryContext
   inheritance:
@@ -38,21 +38,21 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Initializes a new instance of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;></xref> class of the specified type that contains the credentials of the current user context."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;> </xref> класс указанного типа, содержащее учетные данные текущего пользователя."
   syntax:
     content: public DirectoryContext (System.DirectoryServices.ActiveDirectory.DirectoryContextType contextType);
     parameters:
     - id: contextType
       type: System.DirectoryServices.ActiveDirectory.DirectoryContextType
-      description: "One of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;></xref> members that specifies the type of context to create.  For this constructor, the context type must be <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;></xref> or <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;></xref>.  Other types of directory contexts cannot be created using this constructor because other types require a constructor that includes a parameter specifying the directory or target name."
+      description: "Один из <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;> </xref> , которое указывает тип контекста для создания элементов.  Для этого конструктора должен быть тип контекста <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;> </xref> или <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;> </xref>.  Другие типы контекстов каталога нельзя создать, используя этот конструктор, так как другие типы требуют конструктор, который включает параметр, указывающий каталог или целевое имя."
   overload: System.DirectoryServices.ActiveDirectory.DirectoryContext.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>contextType</code> is not valid."
+    description: "<code>contextType</code>не допускается."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "This class does not work on the current platform."
+    description: "Этот класс не работает на текущей платформе."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.DirectoryContext.#ctor(System.DirectoryServices.ActiveDirectory.DirectoryContextType,System.String)
@@ -67,30 +67,30 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Initializes a new instance of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;></xref> class of the specified type that contains the specified name and the credentials of the current user context."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;> </xref> класс объекта указанного типа, который содержит указанное имя и учетные данные текущего пользователя."
   syntax:
     content: public DirectoryContext (System.DirectoryServices.ActiveDirectory.DirectoryContextType contextType, string name);
     parameters:
     - id: contextType
       type: System.DirectoryServices.ActiveDirectory.DirectoryContextType
-      description: "One of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;></xref> members that specifies the type of context to create."
+      description: "Один из <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;> </xref> , которое указывает тип контекста для создания элементов."
     - id: name
       type: System.String
-      description: "The target of the directory context. This string can take any of the formats defined in the Remarks section of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;></xref> topic."
+      description: "Цель контекста каталога. Эта строка может принимать любую из форматов, определенных в подразделе &quot;Примечания&quot; <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;> </xref> раздела."
   overload: System.DirectoryServices.ActiveDirectory.DirectoryContext.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>name</code> is not valid."
+    description: "<code>name</code>не допускается."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "<code>contextType</code> is not valid."
+    description: "<code>contextType</code>не допускается."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "This class does not work on the current platform."
+    description: "Этот класс не работает на текущей платформе."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.DirectoryContext.#ctor(System.DirectoryServices.ActiveDirectory.DirectoryContextType,System.String,System.String)
@@ -105,27 +105,27 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Initializes a new instance of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;></xref> class of the specified type that contains the specified user name and password."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;> </xref> класс указанного типа, содержащий указанное имя пользователя и пароль."
   syntax:
     content: public DirectoryContext (System.DirectoryServices.ActiveDirectory.DirectoryContextType contextType, string username, string password);
     parameters:
     - id: contextType
       type: System.DirectoryServices.ActiveDirectory.DirectoryContextType
-      description: "One of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;></xref> members that specifies the type of context to create. For this constructor, this parameter must be <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;></xref> or <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;></xref>."
+      description: "Один из <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;> </xref> , которое указывает тип контекста для создания элементов. Для этого конструктора, этот параметр должен быть <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;> </xref> или <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;> </xref>."
     - id: username
       type: System.String
-      description: "The user name to use for access."
+      description: "Имя пользователя, используемое для доступа."
     - id: password
       type: System.String
-      description: "The password to use for access."
+      description: "Пароль, используемый для доступа."
   overload: System.DirectoryServices.ActiveDirectory.DirectoryContext.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>contextType</code> is not valid."
+    description: "<code>contextType</code>не допускается."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "This class does not work on the current platform."
+    description: "Этот класс не работает на текущей платформе."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.DirectoryContext.#ctor(System.DirectoryServices.ActiveDirectory.DirectoryContextType,System.String,System.String,System.String)
@@ -140,36 +140,36 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Initializes a new instance of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;></xref> class of the specified type that contains the specified target, user name, and password."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;> </xref> класс типа, который содержит указанный целевой объект, имя пользователя и пароль."
   syntax:
     content: public DirectoryContext (System.DirectoryServices.ActiveDirectory.DirectoryContextType contextType, string name, string username, string password);
     parameters:
     - id: contextType
       type: System.DirectoryServices.ActiveDirectory.DirectoryContextType
-      description: "One of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;></xref> members that specifies the type of context to create."
+      description: "Один из <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;> </xref> , которое указывает тип контекста для создания элементов."
     - id: name
       type: System.String
-      description: "The target of the directory context. This string can take any of the formats defined in the Remarks section of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;></xref> topic."
+      description: "Цель контекста каталога. Эта строка может принимать любую из форматов, определенных в подразделе &quot;Примечания&quot; <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;> </xref> раздела."
     - id: username
       type: System.String
-      description: "The user name to use for access."
+      description: "Имя пользователя, используемое для доступа."
     - id: password
       type: System.String
-      description: "The password to use for access."
+      description: "Пароль, используемый для доступа."
   overload: System.DirectoryServices.ActiveDirectory.DirectoryContext.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>name</code> is not valid."
+    description: "<code>name</code>не допускается."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "<code>contextType</code> is not valid."
+    description: "<code>contextType</code>не допускается."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "This class does not work on the current platform."
+    description: "Этот класс не работает на текущей платформе."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.DirectoryContext.ContextType
@@ -184,12 +184,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the type of the context object."
+  summary: "Возвращает тип объекта контекста."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DirectoryContextType ContextType { get; }
     return:
       type: System.DirectoryServices.ActiveDirectory.DirectoryContextType
-      description: "One of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;></xref> members that specifies the type of context."
+      description: "Один из <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContextType&quot;> </xref> элементов, которое указывает тип контекста."
   overload: System.DirectoryServices.ActiveDirectory.DirectoryContext.ContextType*
   exceptions: []
   platform:
@@ -206,12 +206,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the name of the context."
+  summary: "Возвращает имя контекста."
   syntax:
     content: public string Name { get; }
     return:
       type: System.String
-      description: "The name of the context."
+      description: "Имя контекста."
   overload: System.DirectoryServices.ActiveDirectory.DirectoryContext.Name*
   exceptions: []
   platform:
@@ -228,12 +228,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the user name of the context."
+  summary: "Возвращает имя пользователя контекста."
   syntax:
     content: public string UserName { get; }
     return:
       type: System.String
-      description: "The user name to use for access by this context."
+      description: "Имя пользователя, используемое для доступа в данном контексте."
   overload: System.DirectoryServices.ActiveDirectory.DirectoryContext.UserName*
   exceptions: []
   platform:

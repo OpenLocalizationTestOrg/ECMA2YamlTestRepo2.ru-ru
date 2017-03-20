@@ -39,8 +39,8 @@ items:
   nameWithType: ProcessModelSection
   fullName: System.Web.Configuration.ProcessModelSection
   type: Class
-  summary: "Configures the ASP.NET process model settings on an Internet Information Services (IIS) Web server. This class cannot be inherited."
-  remarks: "The ProcessModelSection class provides a way to programmatically access and modify the `processModel` section of a configuration file.       The ProcessModelSection class controls various aspects of the ASP.NET worker process, including its lifetime, the number of instances created at a time, what security identity it runs under, and the size of the CLR thread pool to service requests.       When ASP.NET is running under IIS 6 in native mode, ASP.NET uses the IIS 6 process model and ignores most settings in this section. Use the IIS administration user interface (UI) to configure those properties. ASP.NET still uses the following properties, which can be configured through the configuration file: <xref:System.Web.Configuration.ProcessModelSection.RequestQueueLimit%2A>, <xref:System.Web.Configuration.ProcessModelSection.ResponseDeadlockInterval%2A>, <xref:System.Web.Configuration.ProcessModelSection.MaxWorkerThreads%2A>, <xref:System.Web.Configuration.ProcessModelSection.MaxIOThreads%2A>, <xref:System.Web.Configuration.ProcessModelSection.MinWorkerThreads%2A>, and <xref:System.Web.Configuration.ProcessModelSection.MinWorkerThreads%2A>.       The `processModel` section cannot be encrypted using the protected-configuration feature or tools because it is consumed by the ASP.NET ISAPI extension."
+  summary: "Настройка модели процессов ASP.NET на веб-сервер Internet Information Services (IIS) сервере. Этот класс не наследуется."
+  remarks: "Класс ProcessModelSection предоставляет способ получить программный доступ и изменение `processModel` раздел файла конфигурации.       Класс ProcessModelSection управляет различными аспектами рабочего процесса ASP.NET, включая его время жизни, количество экземпляров, созданного во время, его идентификатор безопасности и пул для запросов на обслуживание потоков размер среды CLR.       Когда ASP.NET выполняется в IIS 6 в собственном режиме, ASP.NET использует модель процесса IIS 6 и игнорирует большинство настроек в этом разделе. Используйте пользовательский интерфейс (UI) администрирования IIS для настройки этих свойств. ASP.NET по-прежнему использует следующие свойства, которые можно настроить с помощью файла конфигурации: <xref:System.Web.Configuration.ProcessModelSection.RequestQueueLimit%2A>, <xref:System.Web.Configuration.ProcessModelSection.ResponseDeadlockInterval%2A>, <xref:System.Web.Configuration.ProcessModelSection.MaxWorkerThreads%2A>, <xref:System.Web.Configuration.ProcessModelSection.MaxIOThreads%2A>, <xref:System.Web.Configuration.ProcessModelSection.MinWorkerThreads%2A>и <xref:System.Web.Configuration.ProcessModelSection.MinWorkerThreads%2A>.</xref:System.Web.Configuration.ProcessModelSection.MinWorkerThreads%2A> </xref:System.Web.Configuration.ProcessModelSection.MinWorkerThreads%2A> </xref:System.Web.Configuration.ProcessModelSection.MaxIOThreads%2A> </xref:System.Web.Configuration.ProcessModelSection.MaxWorkerThreads%2A> </xref:System.Web.Configuration.ProcessModelSection.ResponseDeadlockInterval%2A> </xref:System.Web.Configuration.ProcessModelSection.RequestQueueLimit%2A>       `processModel` Раздел не могут быть зашифрованы с помощью функции защищенной конфигурации или средства, так как он используется расширение ASP.NET ISAPI."
   example:
   - "This example demonstrates how to specify values declaratively for several attributes of the `processModel` section, which can also be accessed as members of the ProcessModelSection class.  \n  \n The following configuration file example shows how to specify values declaratively for the `processModel` section.  \n  \n```  \n<processModel   \n  enable=\"True\" timeout=\"Infinite\"   \n  idleTimeout=\"Infinite\"   \n  shutdownTimeout=\"00:00:05\" requestLimit=\"Infinite\"  \n  requestQueueLimit=\"5000\" restartQueueLimit=\"10\"   \n  memoryLimit=\"60\" webGarden=\"False\" cpuMask=\"0xffffffff\"   \n  userName=\"machine\" password=\"AutoGenerate\" logLevel=\"Errors\"  \n  clientConnectedCheck=\"00:00:05\"   \n  comAuthenticationLevel=\"Connect\" comImpersonationLevel=\"Impersonate\"  \n  responseDeadlockInterval=\"00:03:00\"   \n  responseRestartDeadlockInterval=\"00:03:00\" autoConfig=\"True\"  \n  maxWorkerThreads=\"20\" maxIoThreads=\"20\" minWorkerThreads=\"1\"  \n  minIoThreads=\"1\" serverErrorMessageFile=\"\" pingFrequency=\"Infinite\"  \n  pingTimeout=\"Infinite\" asyncOption=\"20\" maxAppDomains=\"2000\"   \n/>  \n```  \n  \n The following code example demonstrates how to use the ProcessModelSection class.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#1](~/add/codesnippet/csharp/t-system.web.configurati_87_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#1](~/add/codesnippet/visualbasic/t-system.web.configurati_87_1.vb)]"
   syntax:
@@ -105,8 +105,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Configuration.ProcessModelSection&quot;></xref> class using default settings."
-  remarks: "The ProcessModelSection constructor is not intended to be used directly from your code. It is called by the ASP.NET configuration system. You obtain an instance of the <xref:System.Web.Configuration.ProcessModelSection> class by using the <xref:System.Configuration.Configuration.GetSection%2A> method."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Web.Configuration.ProcessModelSection&quot;> </xref> класса с использованием параметров по умолчанию."
+  remarks: "Конструктор ProcessModelSection не предназначен для использования непосредственно из программного кода. Он вызывается системой конфигурации ASP.NET. Получение экземпляра <xref:System.Web.Configuration.ProcessModelSection>, используя <xref:System.Configuration.Configuration.GetSection%2A>метод.</xref:System.Configuration.Configuration.GetSection%2A> </xref:System.Web.Configuration.ProcessModelSection>"
   syntax:
     content: public ProcessModelSection ();
     parameters: []
@@ -126,13 +126,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating whether ASP.NET performance settings are automatically configured for ASP.NET applications."
-  remarks: "If the AutoConfig value is set to `false`, explicit Web.config values are used to determine performance configuration for the ASP.NET application. If the AutoConfig value is set to `true`, the performance settings are automatically configured for the ASP.NET application.       The AutoConfig value is explicitly set to `true` in the Machine.config file. The default code value is set to `false`.  If the AutoConfig value is removed from Machine.config, the explicit settings are used instead of the auto-configured settings."
+  summary: "Возвращает или задает значение, указывающее, является ли автоматически настройки производительности ASP.NET для приложений ASP.NET."
+  remarks: "Если AutoConfig имеет значение `false`, явные значения в файле Web.config используются для определения конфигурации производительности для приложения ASP.NET. Если AutoConfig имеет значение `true`, автоматически настраиваются параметры производительности для приложения ASP.NET.       Явно присвоено значение автонастройки `true` в файле Machine.config. Значение кода по умолчанию равно `false`.  Если это значение автонастройки удаляется из файла Machine.config, явных параметров используются вместо параметров автоматической настройки."
   syntax:
     content: public bool AutoConfig { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if performance settings are automatically configured for ASP.NET applications; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если для приложений ASP.NET, автоматически настраиваются параметры производительности в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Configuration.ProcessModelSection.AutoConfig*
   exceptions: []
   platform:
@@ -149,15 +149,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating how long a request is left in the queue."
-  remarks: "This property specifies how long a request is queued before ASP.NET performs a client connected check.      > [!NOTE] >  If the interval expires while the request is still queued, a client connected check is done before passing the request over to the ASP.NET worker process for handling."
+  summary: "Возвращает или задает значение, указывающее, сколько времени запрос останется в очереди."
+  remarks: "Это свойство указывает продолжительность нахождения запроса в очереди до выполнения ASP.NET выполняет проверку подключения клиента.      Настроек [!NOTE] настроек Если запрос по-прежнему в очередь по истечении интервала, клиенту, подключившемуся проверьте, может выполняться до его передачи запроса рабочему процессу ASP.NET для обработки."
   example:
   - "The following code example shows how to access and modify the ClientConnectedCheck property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#18](~/add/codesnippet/csharp/p-system.web.configurati_355_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#18](~/add/codesnippet/visualbasic/p-system.web.configurati_355_1.vb)]"
   syntax:
     content: public TimeSpan ClientConnectedCheck { get; set; }
     return:
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> value indicating the queuing time. The default value is 5 seconds."
+      description: "Объект <xref:System.TimeSpan>значение, указывающее, время постановки в очередь.</xref:System.TimeSpan> Значение по умолчанию — 5 секунд."
   overload: System.Web.Configuration.ProcessModelSection.ClientConnectedCheck*
   exceptions: []
   platform:
@@ -174,15 +174,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the level of authentication for DCOM security."
-  remarks: "When this property value is set to <xref:System.Web.Configuration.ProcessModelComAuthenticationLevel>, DCOM determines the authentication level using its normal security-negotiation algorithm. The default value assigned to this property, as specified in the Machine.config file, is <xref:System.Web.Configuration.ProcessModelComAuthenticationLevel>. In this case, DCOM authenticates the credentials of the client only when the client establishes a relationship with the server."
+  summary: "Возвращает или задает значение, указывающее уровень проверки подлинности для безопасности DCOM."
+  remarks: "Если значение этого свойства равно <xref:System.Web.Configuration.ProcessModelComAuthenticationLevel>, DCOM определяет уровень проверки подлинности с помощью обычных безопасности-алгоритма.</xref:System.Web.Configuration.ProcessModelComAuthenticationLevel> Значение по умолчанию, назначенный этому свойству, как указано в файле Machine.config — <xref:System.Web.Configuration.ProcessModelComAuthenticationLevel>.</xref:System.Web.Configuration.ProcessModelComAuthenticationLevel> В этом случае DCOM выполняет проверку подлинности учетных данных клиента только в том случае, когда клиент устанавливает связь с сервером."
   example:
   - "The following code example shows how to access the ComAuthenticationLevel property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#21](~/add/codesnippet/csharp/p-system.web.configurati_143_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#21](~/add/codesnippet/visualbasic/p-system.web.configurati_143_1.vb)]"
   syntax:
     content: public System.Web.Configuration.ProcessModelComAuthenticationLevel ComAuthenticationLevel { get; set; }
     return:
       type: System.Web.Configuration.ProcessModelComAuthenticationLevel
-      description: "One of the <xref href=&quot;System.Web.Configuration.ProcessModelComAuthenticationLevel&quot;></xref> values. The default value is <xref href=&quot;System.Web.Configuration.ProcessModelComAuthenticationLevel&quot;></xref>."
+      description: "Один из <xref href=&quot;System.Web.Configuration.ProcessModelComAuthenticationLevel&quot;> </xref> значения. Значение по умолчанию — <xref href=&quot;System.Web.Configuration.ProcessModelComAuthenticationLevel&quot;> </xref>."
   overload: System.Web.Configuration.ProcessModelSection.ComAuthenticationLevel*
   exceptions: []
   platform:
@@ -199,15 +199,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the level of authentication for COM security."
-  remarks: "When this property value is set to <xref:System.Web.Configuration.ProcessModelComImpersonationLevel>, DCOM determines the impersonation level using its normal security-negotiation algorithm. The default value assigned to this property, as specified in the Machine.config file, is <xref:System.Web.Configuration.ProcessModelComImpersonationLevel>. In this case, the server process can impersonate the client&quot;s security context while acting on behalf of the client."
+  summary: "Возвращает или задает значение, указывающее уровень проверки подлинности для обеспечения безопасности."
+  remarks: "Если значение этого свойства равно <xref:System.Web.Configuration.ProcessModelComImpersonationLevel>, DCOM определяет уровень олицетворения с помощью обычного безопасности-алгоритма.</xref:System.Web.Configuration.ProcessModelComImpersonationLevel> Значение по умолчанию, назначенный этому свойству, как указано в файле Machine.config — <xref:System.Web.Configuration.ProcessModelComImpersonationLevel>.</xref:System.Web.Configuration.ProcessModelComImpersonationLevel> В этом случае серверный процесс может олицетворять контекст безопасности клиента, действуя от имени клиента."
   example:
   - "The following code example shows how to access the ComImpersonationLevel property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#22](~/add/codesnippet/csharp/p-system.web.configurati_249_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#22](~/add/codesnippet/visualbasic/p-system.web.configurati_249_1.vb)]"
   syntax:
     content: public System.Web.Configuration.ProcessModelComImpersonationLevel ComImpersonationLevel { get; set; }
     return:
       type: System.Web.Configuration.ProcessModelComImpersonationLevel
-      description: "One of the <xref href=&quot;System.Web.Configuration.ProcessModelComImpersonationLevel&quot;></xref> values. The default value is <xref href=&quot;System.Web.Configuration.ProcessModelComImpersonationLevel&quot;></xref>."
+      description: "Один из <xref href=&quot;System.Web.Configuration.ProcessModelComImpersonationLevel&quot;> </xref> значения. Значение по умолчанию — <xref href=&quot;System.Web.Configuration.ProcessModelComImpersonationLevel&quot;> </xref>."
   overload: System.Web.Configuration.ProcessModelSection.ComImpersonationLevel*
   exceptions: []
   platform:
@@ -224,15 +224,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating which processors on a multiprocessor server are eligible to run ASP.NET processes."
-  remarks: "The CpuMask value specifies a bit pattern that indicates the CPUs eligible to run ASP.NET threads. If the <xref:System.Web.Configuration.ProcessModelSection.WebGarden%2A> property is set to `true`, the CpuMask limits worker processes to the number of eligible CPUs. The maximum allowed number of worker processes is equal to the number of CPUs. By default, all CPUs are enabled and ASP.NET launches one process for each CPU. If the <xref:System.Web.Configuration.ProcessModelSection.WebGarden%2A> property is set to `false`, the CpuMask attribute is ignored and only one worker process will run."
+  summary: "Возвращает или задает значение, указывающее, какие процессоры многопроцессорного сервера, которые имеют право выполнять процессы ASP.NET."
+  remarks: "Значение CpuMask определяет битовый шаблон, задающий процессоры, подходящие для выполнения потоков ASP.NET. Если <xref:System.Web.Configuration.ProcessModelSection.WebGarden%2A>свойству `true`, CpuMask ограничивает число рабочих процессов числу доступных процессоров.</xref:System.Web.Configuration.ProcessModelSection.WebGarden%2A> Максимальное число рабочих процессов равно числу процессоров. По умолчанию доступны все процессоры и ASP.NET запускает один процесс для каждого ЦП. Если <xref:System.Web.Configuration.ProcessModelSection.WebGarden%2A>свойству `false`, атрибут CpuMask игнорируется, и выполняется только один рабочий процесс.</xref:System.Web.Configuration.ProcessModelSection.WebGarden%2A>"
   example:
   - "The following code example shows how to access the CpuMask property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#25](~/add/codesnippet/csharp/p-system.web.configurati_174_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#25](~/add/codesnippet/visualbasic/p-system.web.configurati_174_1.vb)]"
   syntax:
     content: public int CpuMask { get; set; }
     return:
       type: System.Int32
-      description: "The number representing the bit pattern to apply. The default value is 0xFFFFFFFF."
+      description: "Число, представляющее битовый шаблон для применения. Значение по умолчанию — 0xFFFFFFFF."
   overload: System.Web.Configuration.ProcessModelSection.CpuMask*
   exceptions: []
   platform:
@@ -253,7 +253,7 @@ items:
     content: protected override System.Configuration.ConfigurationElementProperty ElementProperty { get; }
     return:
       type: System.Configuration.ConfigurationElementProperty
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Web.Configuration.ProcessModelSection.ElementProperty*
   exceptions: []
   platform:
@@ -270,15 +270,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating whether the process model is enabled."
-  remarks: "The Enable property specifies whether ASP.NET is hosted in an external worker process. If Enable is `true`, ASP.NET is hosted in an external worker process; otherwise, it runs directly in Inetinfo.exe.      > [!NOTE] >  Running ASP.NET in Inetinfo.exe is not recommended, because this involves running the application in the Local System security context. When ASP.NET runs in Internet Information Services (IIS) 6 native mode, this setting is ignored, so there is usually no reason to set it to `false`."
+  summary: "Возвращает или задает значение, указывающее, включена ли модель процесса."
+  remarks: "Свойства включения определяет, размещен ли внешние рабочего процесса ASP.NET. Если включить `true`, ASP.NET, размещенных в внешний рабочий процесс; в противном случае, оно выполняется непосредственно в Inetinfo.exe.      Настроек [!NOTE] настроек под управлением ASP.NET в Inetinfo.exe не рекомендуется, поскольку это приложение выполняется в контексте безопасности локальной системы. Когда ASP.NET выполняется в собственном режиме службы Internet Information Services (IIS) 6, этот параметр игнорируется, поэтому обычно нет необходимости устанавливать его `false`."
   example:
   - "The following code example shows how to access the Enable property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#2](~/add/codesnippet/csharp/p-system.web.configurati_95_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#2](~/add/codesnippet/visualbasic/p-system.web.configurati_95_1.vb)]"
   syntax:
     content: public bool Enable { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the process model is enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если включена модель процесса; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Значение по умолчанию — <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Configuration.ProcessModelSection.Enable*
   exceptions: []
   platform:
@@ -295,15 +295,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the period of inactivity after which ASP.NET automatically ends the worker process."
-  remarks: 'The worker process is restarted (bounced) when the IdleTimeout property value is reached. By default, only two conditions cause the process to bounce: the process exceeds the allowed memory limit, or the process exceeds the allowed number of requests that can be queued. You can add other conditions to the default ones. For example, you can use the IdleTimeout property to limit the time the worker process is idle.'
+  summary: "Возвращает или задает значение, указывающее период ожидания, после которого ASP.NET автоматически завершает рабочий процесс."
+  remarks: 'Рабочий процесс перезапускается (отклоненных), при достижении IdleTimeout значение свойства. По умолчанию только два условия приводят к возвращению процесса: процесс превышает допустимый предел памяти или превышает допустимое количество запросов, которые могут быть поставлены в очередь. Можно добавить другие условия к условиям по умолчанию. Например можно использовать свойство IdleTimeout для ограничения времени, рабочий процесс находится в состоянии простоя.'
   example:
   - "The following code example shows how to access the IdleTimeout property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#16](~/add/codesnippet/csharp/p-system.web.configurati_88_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#16](~/add/codesnippet/visualbasic/p-system.web.configurati_88_1.vb)]"
   syntax:
     content: public TimeSpan IdleTimeout { get; set; }
     return:
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> value indicating the idle time. The default value is Infinite, which corresponds to <xref:System.TimeSpan>."
+      description: "Объект <xref:System.TimeSpan>значение, указывающее, время простоя.</xref:System.TimeSpan> Значение по умолчанию равно Infinite, что соответствует <xref:System.TimeSpan>.</xref:System.TimeSpan>"
   overload: System.Web.Configuration.ProcessModelSection.IdleTimeout*
   exceptions: []
   platform:
@@ -320,15 +320,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the event types to be logged to the event log."
-  remarks: "By using this property correctly, you can filter the errors the system can log. After you have an idea of the application&quot;s malfunctions or bottlenecks, you might want to devise a strategy that narrows the range of errors you are interested in."
+  summary: "Возвращает или задает значение, указывающее типы событий, регистрируемых в журнале событий."
+  remarks: "С помощью этого свойства правильно, можно фильтровать системой в журнале ошибок. После того как вы о том, как сбои или узких мест в приложении, можно разработать стратегию, которая сужает диапазон ошибок, которые вас интересуют."
   example:
   - "The following code example shows how to access the LogLevel property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#23](~/add/codesnippet/csharp/p-system.web.configurati_246_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#23](~/add/codesnippet/visualbasic/p-system.web.configurati_246_1.vb)]"
   syntax:
     content: public System.Web.Configuration.ProcessModelLogLevel LogLevel { get; set; }
     return:
       type: System.Web.Configuration.ProcessModelLogLevel
-      description: "One of the <xref href=&quot;System.Web.Configuration.ProcessModelLogLevel&quot;></xref> values. The default value is <xref href=&quot;System.Web.Configuration.ProcessModelLogLevel&quot;></xref>."
+      description: "Один из <xref href=&quot;System.Web.Configuration.ProcessModelLogLevel&quot;> </xref> значения. Значение по умолчанию — <xref href=&quot;System.Web.Configuration.ProcessModelLogLevel&quot;> </xref>."
   overload: System.Web.Configuration.ProcessModelSection.LogLevel*
   exceptions: []
   platform:
@@ -345,15 +345,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the maximum allowed number of application domains in one process."
-  remarks: "If the MaxAppDomains threshold is exceeded, the least-used application domain is shut down if a new application domain must start."
+  summary: "Возвращает или задает максимальное число доменов приложений в одном процессе."
+  remarks: "В случае превышения порогового значения MaxAppDomains домен приложения, используется наименее завершается, если необходимо запустить новый домен приложения."
   example:
   - "The following code example shows how to access the MaxAppDomains property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#27](~/add/codesnippet/csharp/p-system.web.configurati_284_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#27](~/add/codesnippet/visualbasic/p-system.web.configurati_284_1.vb)]"
   syntax:
     content: public int MaxAppDomains { get; set; }
     return:
       type: System.Int32
-      description: "The maximum allowed number of application domains in one process."
+      description: "Максимально допустимое количество доменов приложений в одном процессе."
   overload: System.Web.Configuration.ProcessModelSection.MaxAppDomains*
   exceptions: []
   platform:
@@ -370,15 +370,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the maximum number of I/O threads per CPU in the CLR thread pool."
-  remarks: "The value of MaxIOThreads must be equal to or greater than the <xref:System.Web.Configuration.HttpRuntimeSection.MinFreeThreads%2A> setting in the `httpRuntime` configuration section.       You can have some control over the CPU utilization by setting the number of worker threads and I/O threads, using the <xref:System.Web.Configuration.ProcessModelSection.MaxWorkerThreads%2A> property and the MaxIOThreads property respectively.       The difference between the two types of threads is that the latter are bound to I/O objects, such as a stream or a pipe, and the former are traditional unrestricted threads. For Internet Information Services (IIS) version 6.0 and later, ASP.NET processes requests on worker threads. This is because ASP.NET is integrated within IIS.       These threads are obtained from the process-wide CLR thread pool belonging to an application.      > [!NOTE] >  Usually the default values for the allowed threads are sufficient to keep the CPU utilization high. If for some reason your application is slow, perhaps waiting for external resources, you could try to increase the number of threads to a value less than 100."
+  summary: "Возвращает или задает значение, указывающее максимальное число потоков ввода-вывода для Процессора в пуле потоков среды CLR."
+  remarks: "Значение MaxIOThreads должно быть больше или равно <xref:System.Web.Configuration.HttpRuntimeSection.MinFreeThreads%2A>в `httpRuntime` раздел конфигурации.</xref:System.Web.Configuration.HttpRuntimeSection.MinFreeThreads%2A>       Может иметь некоторые контролировать использование ЦП, задав число рабочих потоков и потоков ввода-вывода с помощью <xref:System.Web.Configuration.ProcessModelSection.MaxWorkerThreads%2A>Свойства и свойства MaxIOThreads соответственно.</xref:System.Web.Configuration.ProcessModelSection.MaxWorkerThreads%2A>       Различие между этими двумя типами потоков — что последний привязаны к объектам ввода-вывода, например поток или канал, и первый из них является традиционным неограниченным потоком. Для Internet Information Services (IIS) 6.0 и более поздних версий, ASP.NET обрабатывает запросы на рабочих потоках. Это происходит потому интеграции ASP.NET в IIS.       Эти потоки получаются из пула потоков CLR всего процесса, принадлежащих приложению.      Настроек [!NOTE] настроек обычно значения по умолчанию для допустимых потоков, достаточно для поддержания высокого уровня использования Процессора. Если по некоторым причинам приложение выполняется медленно, возможно для внешних ресурсов, может попытаться увеличить число потоков, значение меньше 100."
   example:
   - "The following code example shows how to access the MaxIOThreads property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#5](~/add/codesnippet/csharp/p-system.web.configurati_295_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#5](~/add/codesnippet/visualbasic/p-system.web.configurati_295_1.vb)]"
   syntax:
     content: public int MaxIOThreads { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of threads. The default is 20."
+      description: "Максимальное число потоков. Значение по умолчанию — 20."
   overload: System.Web.Configuration.ProcessModelSection.MaxIOThreads*
   exceptions: []
   platform:
@@ -395,15 +395,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the maximum amount of worker threads per CPU in the CLR thread pool."
-  remarks: "The value of MaxWorkerThreads must be equal to or greater than the <xref:System.Web.Configuration.HttpRuntimeSection.MinFreeThreads%2A> setting in the `httpRuntime` configuration section.       You can have some control over the CPU utilization by setting the number of worker threads and I/O threads, using the MaxWorkerThreads property and, the <xref:System.Web.Configuration.ProcessModelSection.MaxIOThreads%2A> property, respectively.       The difference between the two types of threads is that the latter are bound to I/O objects, such as a stream or a pipe, and the former are traditional unrestricted threads. For Internet Information Services (IIS) version 6.0 and higher, ASP.NET processes requests on worker threads. This is because ASP.NET is integrated within IIS.       These threads are obtained from the process-wide CLR thread pool belonging to an application.      > [!NOTE] >  Usually the default values for the allowed threads are sufficient to keep the CPU utilization high. If for some reason your application is slow, perhaps waiting for external resources, you could try to increase the number of threads to a value less than 100."
+  summary: "Возвращает или задает значение, указывающее максимальное количество рабочих потоков для Процессора в пуле потоков среды CLR."
+  remarks: "Значение MaxWorkerThreads должно быть больше или равно <xref:System.Web.Configuration.HttpRuntimeSection.MinFreeThreads%2A>в `httpRuntime` раздел конфигурации.</xref:System.Web.Configuration.HttpRuntimeSection.MinFreeThreads%2A>       Может иметь некоторый контроль над использованием ЦП, задав число рабочих потоков и потоков ввода-вывода, используя свойство MaxWorkerThreads и <xref:System.Web.Configuration.ProcessModelSection.MaxIOThreads%2A>Свойства, соответственно.</xref:System.Web.Configuration.ProcessModelSection.MaxIOThreads%2A>       Различие между этими двумя типами потоков — что последний привязаны к объектам ввода-вывода, например поток или канал, и первый из них является традиционным неограниченным потоком. Для Internet Information Services (IIS) версии 6.0 и более поздней версии, ASP.NET обрабатывает запросы на рабочих потоках. Это происходит потому интеграции ASP.NET в IIS.       Эти потоки получаются из пула потоков CLR всего процесса, принадлежащих приложению.      Настроек [!NOTE] настроек обычно значения по умолчанию для допустимых потоков, достаточно для поддержания высокого уровня использования Процессора. Если по некоторым причинам приложение выполняется медленно, возможно для внешних ресурсов, может попытаться увеличить число потоков, значение меньше 100."
   example:
   - "The following code example shows how to access the MaxWorkerThreads property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#7](~/add/codesnippet/csharp/p-system.web.configurati_48_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#7](~/add/codesnippet/visualbasic/p-system.web.configurati_48_1.vb)]"
   syntax:
     content: public int MaxWorkerThreads { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of threads. The default is 20."
+      description: "Максимальное число потоков. Значение по умолчанию — 20."
   overload: System.Web.Configuration.ProcessModelSection.MaxWorkerThreads*
   exceptions: []
   platform:
@@ -420,15 +420,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the maximum allowed memory size."
-  remarks: "The memory size is expressed as a percentage of the total system memory. This is the amount of memory a worker process can consume before ASP.NET restarts (bounces) it."
+  summary: "Возвращает или задает значение, указывающее максимально допустимый объем памяти."
+  remarks: "Объем памяти выражается в процентах от общего объема памяти системы. Это объем памяти, может использовать рабочий процесс до запуска ASP.NET (возвращения) его."
   example:
   - "The following code example shows how to access the MemoryLimit property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#3](~/add/codesnippet/csharp/p-system.web.configurati_265_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#3](~/add/codesnippet/visualbasic/p-system.web.configurati_265_1.vb)]"
   syntax:
     content: public int MemoryLimit { get; set; }
     return:
       type: System.Int32
-      description: "The percentage of the total system memory. The default is 60 percent."
+      description: "Процент общего объема памяти системы. Значение по умолчанию — 60 процентов."
   overload: System.Web.Configuration.ProcessModelSection.MemoryLimit*
   exceptions: []
   platform:
@@ -445,7 +445,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the minimum number of I/O threads per CPU in the CLR thread pool."
+  summary: "Возвращает или задает минимальное количество потоков ввода-вывода для Процессора в пуле потоков среды CLR."
   remarks: ''
   example:
   - "The following code example shows how to access the MinIOThreads property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#4](~/add/codesnippet/csharp/p-system.web.configurati_296_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#4](~/add/codesnippet/visualbasic/p-system.web.configurati_296_1.vb)]"
@@ -453,7 +453,7 @@ items:
     content: public int MinIOThreads { get; set; }
     return:
       type: System.Int32
-      description: "The minimum number of I/O threads per CPU in the CLR thread pool."
+      description: "Минимальное количество потоков ввода-вывода для Процессора в пуле потоков среды CLR."
   overload: System.Web.Configuration.ProcessModelSection.MinIOThreads*
   exceptions: []
   platform:
@@ -470,7 +470,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the minimum number of worker threads per CPU in the CLR thread pool."
+  summary: "Возвращает или задает минимальное количество рабочих потоков на ЦП в пуле потоков среды CLR."
   remarks: ''
   example:
   - "The following code example shows how to access the MinWorkerThreads property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#6](~/add/codesnippet/csharp/p-system.web.configurati_183_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#6](~/add/codesnippet/visualbasic/p-system.web.configurati_183_1.vb)]"
@@ -478,7 +478,7 @@ items:
     content: public int MinWorkerThreads { get; set; }
     return:
       type: System.Int32
-      description: "The minimum number of worker threads per CPU in the CLR thread pool"
+      description: "Минимальное количество рабочих потоков на ЦП в пуле потоков среды CLR"
   overload: System.Web.Configuration.ProcessModelSection.MinWorkerThreads*
   exceptions: []
   platform:
@@ -495,15 +495,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the password to use for the Windows identity."
-  remarks: "The Password property must be used with the <xref:System.Web.Configuration.ProcessModelSection.UserName%2A> property.       When present, these property values cause the worker process to run with the configured Windows identity."
+  summary: "Возвращает или задает значение, указывающее пароль, используемый для удостоверения Windows."
+  remarks: "Свойство пароля должно использоваться с <xref:System.Web.Configuration.ProcessModelSection.UserName%2A>свойство.</xref:System.Web.Configuration.ProcessModelSection.UserName%2A>       Если параметр присутствует, значения этих свойств вызвать рабочий процесс выполняется с указанными учетными данными Windows."
   example:
   - "The following code example shows how to access the Password property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#20](~/add/codesnippet/csharp/p-system.web.configurati_258_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#20](~/add/codesnippet/visualbasic/p-system.web.configurati_258_1.vb)]"
   syntax:
     content: public string Password { get; set; }
     return:
       type: System.String
-      description: "The password to use. The default value is AutoGenerate."
+      description: "Пароль для использования. Значение по умолчанию — AutoGenerate."
   overload: System.Web.Configuration.ProcessModelSection.Password*
   exceptions: []
   platform:
@@ -520,15 +520,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the time interval at which the ISAPI extension pings the worker process to determine whether it is running."
-  remarks: "The worker process is restarted (bounced) if it is not running after the PingFrequency interval has expired."
+  summary: "Возвращает или задает значение, указывающее интервал времени, в течение которого расширение ISAPI опрашивает рабочий процесс, чтобы определить, выполняется ли он."
+  remarks: "Рабочий процесс перезапускается (отклоненных), если она не работает после атрибуте pingFrequency истек."
   example:
   - "The following code example shows how to access the PingFrequency property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#13](~/add/codesnippet/csharp/p-system.web.configurati_14_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#13](~/add/codesnippet/visualbasic/p-system.web.configurati_14_1.vb)]"
   syntax:
     content: public TimeSpan PingFrequency { get; set; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> defining the time interval. The default is 30 seconds."
+      description: "<xref:System.TimeSpan>Определение интервала времени.</xref:System.TimeSpan> Значение по умолчанию — 30 секунд."
   overload: System.Web.Configuration.ProcessModelSection.PingFrequency*
   exceptions: []
   platform:
@@ -545,15 +545,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the time interval after which a non-responsive worker process is restarted."
-  remarks: "The ISAPI extensions ping the worker process at the <xref:System.Web.Configuration.ProcessModelSection.PingFrequency%2A> interval. If the worker process does not respond within the PingTimeout interval, the process is restarted."
+  summary: "Возвращает или задает значение, указывающее интервал времени, после которого не отвечающий рабочий процесс перезапускается."
+  remarks: "Расширения ISAPI опрос рабочего процесса в <xref:System.Web.Configuration.ProcessModelSection.PingFrequency%2A>интервала.</xref:System.Web.Configuration.ProcessModelSection.PingFrequency%2A> Если рабочий процесс не отвечает в течение интервала PingTimeout, процесс будет перезапущен."
   example:
   - "The following code example shows how to access the PingTimeout property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#14](~/add/codesnippet/csharp/p-system.web.configurati_399_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#14](~/add/codesnippet/visualbasic/p-system.web.configurati_399_1.vb)]"
   syntax:
     content: public TimeSpan PingTimeout { get; set; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> defining the time interval. The default is 5 seconds."
+      description: "<xref:System.TimeSpan>Определение интервала времени.</xref:System.TimeSpan> Значение по умолчанию — 5 секунд."
   overload: System.Web.Configuration.ProcessModelSection.PingTimeout*
   exceptions: []
   platform:
@@ -574,7 +574,7 @@ items:
     content: protected override System.Configuration.ConfigurationPropertyCollection Properties { get; }
     return:
       type: System.Configuration.ConfigurationPropertyCollection
-      description: "To be added."
+      description: "Для добавления."
   overload: System.Web.Configuration.ProcessModelSection.Properties*
   exceptions: []
   platform:
@@ -591,15 +591,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the number of requests allowed before a worker process is recycled."
-  remarks: "If the number of requests is exceeded, ASP.NET automatically launches a new worker process to take the place of the current one."
+  summary: "Возвращает или задает значение, указывающее количество запросов, допустимых до перезапуска рабочего процесса."
+  remarks: "Если Превышено число запросов ASP.NET автоматически запускает новый рабочий процесс вместо текущего."
   example:
   - "The following code example shows how to use the RequestLimit property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#8](~/add/codesnippet/csharp/p-system.web.configurati_185_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#8](~/add/codesnippet/visualbasic/p-system.web.configurati_185_1.vb)]"
   syntax:
     content: public int RequestLimit { get; set; }
     return:
       type: System.Int32
-      description: "The number of allowed requests. The default is Infinite."
+      description: "Количество допустимых запросов. Значение по умолчанию равно Infinite."
   overload: System.Web.Configuration.ProcessModelSection.RequestLimit*
   exceptions: []
   platform:
@@ -616,15 +616,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the number of requests allowed in the queue."
-  remarks: "If the number of requests allowed in the queue is exceeded, ASP.NET begins returning &quot;503 – Server Too Busy&quot; errors to new requests. When this limit is reached, the system is operating in abnormal conditions. This might be a symptom of a malfunction or, maybe, just high load. Restarting (bouncing) the worker process might become the only way to prevent further problems."
+  summary: "Возвращает или задает значение, указывающее количество допустимых в очереди запросов."
+  remarks: "Если превышено количество допустимых в очереди запросов, ASP.NET начинает возвращать «503 — Сервер занят» ошибок для новых запросов. При достижении этого предела система работает в нештатных ситуаций. Это может быть признаком сбоя или, возможно, высокая нагрузка. Перезапуск (возвращение) рабочего процесса может быть единственный способ предотвратить возникновение дальнейших проблем."
   example:
   - "The following code example shows how to use the RequestQueueLimit property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#10](~/add/codesnippet/csharp/p-system.web.configurati_126_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#10](~/add/codesnippet/visualbasic/p-system.web.configurati_126_1.vb)]"
   syntax:
     content: public int RequestQueueLimit { get; set; }
     return:
       type: System.Int32
-      description: "The number of requests allowed to be queued. The default is 5000."
+      description: "Количество запросов, допустимых в очереди. Значение по умолчанию — 5000."
   overload: System.Web.Configuration.ProcessModelSection.RequestQueueLimit*
   exceptions: []
   platform:
@@ -641,15 +641,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the time interval for the worker process to respond."
-  remarks: "The process is restarted if there are queued requests and if there has not been a response during the time interval that is defined by ResponseDeadlockInterval."
+  summary: "Возвращает или задает значение, указывающее временной интервал для ответа рабочего процесса."
+  remarks: "При наличии запросов в очереди, и если не получен ответ в период времени, определяемый ResponseDeadlockInterval перезапуска процесса."
   example:
   - "The following code example shows how to use the ResponseDeadlockInterval property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#17](~/add/codesnippet/csharp/p-system.web.configurati_402_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#17](~/add/codesnippet/visualbasic/p-system.web.configurati_402_1.vb)]"
   syntax:
     content: public TimeSpan ResponseDeadlockInterval { get; set; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> defining the interval. The default is 3 minutes."
+      description: "<xref:System.TimeSpan>Определение интервала.</xref:System.TimeSpan> Значение по умолчанию равно 3 минутам."
   overload: System.Web.Configuration.ProcessModelSection.ResponseDeadlockInterval*
   exceptions: []
   platform:
@@ -666,15 +666,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "No longer used."
-  remarks: "This property is no longer used by ASP.NET and is provided for backward compatibility only. It will not cause a configuration error if it is already present in a configuration file. All recycling in the event of a deadlock condition is now controlled by the <xref:System.Web.Configuration.ProcessModelSection.ResponseDeadlockInterval%2A> property."
+  summary: "Больше не используется."
+  remarks: "Это свойство больше не используется ASP.NET и предоставляется только для обратной совместимости. Он не приведет к ошибке конфигурации, если он уже существует в файле конфигурации. Все операции перезапуска в случае условие взаимоблокировки теперь управляется <xref:System.Web.Configuration.ProcessModelSection.ResponseDeadlockInterval%2A>свойство.</xref:System.Web.Configuration.ProcessModelSection.ResponseDeadlockInterval%2A>"
   example:
   - "The following code example shows how to access the ResponseRestartDeadlockInterval property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#11](~/add/codesnippet/csharp/p-system.web.configurati_58_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#11](~/add/codesnippet/visualbasic/p-system.web.configurati_58_1.vb)]"
   syntax:
     content: public TimeSpan ResponseRestartDeadlockInterval { get; set; }
     return:
       type: System.TimeSpan
-      description: "Not applicable."
+      description: "Неприменимо."
   overload: System.Web.Configuration.ProcessModelSection.ResponseRestartDeadlockInterval*
   exceptions: []
   platform:
@@ -691,15 +691,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the maximum number of requests queued by the ISAPI while waiting for a new worker process to start handling the requests."
-  remarks: "When this limit is exceeded, a client request will receive a 503 error until the worker process is ready."
+  summary: "Возвращает или задает значение, указывающее максимальное количество запросов в очереди ISAPI при ожидании нового рабочего процесса для начала обработки запросов."
+  remarks: "При превышении этого ограничения, пока рабочий процесс будет готов запрос клиента получит сообщение об ошибке 503."
   example:
   - "The following code example shows how to access the RestartQueueLimit property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#9](~/add/codesnippet/csharp/p-system.web.configurati_255_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#9](~/add/codesnippet/visualbasic/p-system.web.configurati_255_1.vb)]"
   syntax:
     content: public int RestartQueueLimit { get; set; }
     return:
       type: System.Int32
-      description: "The number of requests queued. The default is 10."
+      description: "Количество запросов в очереди. Значение по умолчанию — 10."
   overload: System.Web.Configuration.ProcessModelSection.RestartQueueLimit*
   exceptions: []
   platform:
@@ -716,15 +716,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the file whose content must be used when a fatal error occurs."
-  remarks: "The file whose content is used instead of the default Server Unavailable message.       The file location can be a relative or an absolute file path."
+  summary: "Возвращает или задает значение, указывающее файл, содержимое которого должно использоваться при возникновении неустранимой ошибки."
+  remarks: "Файл, содержимое которого используется вместо сообщения по умолчанию сервер недоступен.       Расположение файла может быть относительный или абсолютный путь на диске."
   example:
   - "The following code example shows how to use the ServerErrorMessageFile property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#28](~/add/codesnippet/csharp/p-system.web.configurati_154_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#28](~/add/codesnippet/visualbasic/p-system.web.configurati_154_1.vb)]"
   syntax:
     content: public string ServerErrorMessageFile { get; set; }
     return:
       type: System.String
-      description: "The path of the file used when a fatal error occurs."
+      description: "Путь к файлу, используемый при возникновении неустранимой ошибки."
   overload: System.Web.Configuration.ProcessModelSection.ServerErrorMessageFile*
   exceptions: []
   platform:
@@ -741,15 +741,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the time allowed for the worker process to shut down."
-  remarks: "This property specifies the number of minutes allowed for the worker process to shut itself down gracefully. When the timeout expires, ASP.NET shuts down the worker process forcibly."
+  summary: "Возвращает или задает значение, указывающее время, отведенное на рабочий процесс завершить работу."
+  remarks: "Это свойство указывает количество минут, допустимое для самостоятельного выключения рабочего процесса. По истечении времени ожидания ASP.NET принудительно завершает работу рабочий процесс."
   example:
   - "The following code example shows how to use the ShutdownTimeout property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#15](~/add/codesnippet/csharp/p-system.web.configurati_202_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#15](~/add/codesnippet/visualbasic/p-system.web.configurati_202_1.vb)]"
   syntax:
     content: public TimeSpan ShutdownTimeout { get; set; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> defining the interval. The default is 5 seconds."
+      description: "<xref:System.TimeSpan>Определение интервала.</xref:System.TimeSpan> Значение по умолчанию — 5 секунд."
   overload: System.Web.Configuration.ProcessModelSection.ShutdownTimeout*
   exceptions: []
   platform:
@@ -766,15 +766,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the number of minutes until ASP.NET launches a new worker process."
-  remarks: "ASP.NET launches a new worker process to take the place of the current one."
+  summary: "Возвращает или задает значение, указывающее количество минут до запуска нового рабочего процесса ASP.NET."
+  remarks: "ASP.NET запускает новый рабочий процесс вместо текущего."
   example:
   - "The following code example shows how to use the Timeout property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#10](~/add/codesnippet/csharp/p-system.web.configurati_144_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#10](~/add/codesnippet/visualbasic/p-system.web.configurati_144_1.vb)]"
   syntax:
     content: public TimeSpan Timeout { get; set; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> defining the interval. The default is Infinite."
+      description: "<xref:System.TimeSpan>Определение интервала.</xref:System.TimeSpan> Значение по умолчанию равно Infinite."
   overload: System.Web.Configuration.ProcessModelSection.Timeout*
   exceptions: []
   platform:
@@ -791,15 +791,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value indicating the user name for a Windows identity."
-  remarks: "If present, the UserName defines a Windows identity different from that of the default process. This identity is used to run the ASP.NET worker process.       By default, UserName is set to the special value Machine, and the process runs under a user account named ASPNET that is created automatically when ASP.NET is installed.       The <xref:System.Web.Configuration.ProcessModelSection.Password%2A> property must be used with the UserName property.       When present, these property values cause the worker process to run with the configured Windows identity.      > [!NOTE] >  If the UserName property is set to System, with the password AutoGenerate, it defines an entity that runs the process as an administrative account and allows all ASP.NET user code running under the process to have full administrative privileges. So, pay close attention to this case, for the permissions allowed."
+  summary: "Возвращает или задает значение, указывающее имя пользователя для удостоверения Windows."
+  remarks: "Если он имеется, имя пользователя определяет удостоверение Windows, отличается от процесса, по умолчанию. Этот идентификатор используется для запуска рабочего процесса ASP.NET.       По умолчанию имя пользователя равно специальное значение Machine и процесс выполняется под учетной записью с именем ASPNET, которая создается автоматически при установке ASP.NET.       <xref:System.Web.Configuration.ProcessModelSection.Password%2A>Свойства должен использоваться с Свойство UserName.</xref:System.Web.Configuration.ProcessModelSection.Password%2A>       Если параметр присутствует, значения этих свойств вызвать рабочий процесс выполняется с указанными учетными данными Windows.      Настроек [!NOTE] настроек Если имя пользователя является свойство систему, с помощью пароля AutoGenerate, он определяет сущности, которая запускает процесс учетную запись администратора и разрешающую всему коду пользователя ASP.NET, выполняемых в рамках процесса обладать правами администратора. Таким образом Обратите особое внимание в данном случае для предоставления разрешений."
   example:
   - "The following code example shows how to access the UserName property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#19](~/add/codesnippet/csharp/p-system.web.configurati_166_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#19](~/add/codesnippet/visualbasic/p-system.web.configurati_166_1.vb)]"
   syntax:
     content: public string UserName { get; set; }
     return:
       type: System.String
-      description: "The user name. The default value is Machine."
+      description: "Имя пользователя. Значение по умолчанию — машины."
   overload: System.Web.Configuration.ProcessModelSection.UserName*
   exceptions: []
   platform:
@@ -816,15 +816,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets a value enabling the available CPUs to run the worker processes."
-  remarks: "The WebGarden property must be used with the <xref:System.Web.Configuration.ProcessModelSection.CpuMask%2A> property.       If the WebGarden property is set to `false`, the <xref:System.Web.Configuration.ProcessModelSection.CpuMask%2A> attribute is ignored and only one worker process runs.      > [!NOTE] >  A multiprocessor Web server is called a Web garden."
+  summary: "Возвращает или задает значение, позволяющее доступным процессорам выполнять рабочие процессы."
+  remarks: "Свойство WebGarden должен использоваться с <xref:System.Web.Configuration.ProcessModelSection.CpuMask%2A>свойство.</xref:System.Web.Configuration.ProcessModelSection.CpuMask%2A>       Если WebGarden является свойство `false`, <xref:System.Web.Configuration.ProcessModelSection.CpuMask%2A>атрибут учитывается и выполняется только один рабочий процесс.</xref:System.Web.Configuration.ProcessModelSection.CpuMask%2A>      Настроек [!NOTE] настроек многопроцессорный веб-сервер называется веб-сада."
   example:
   - "The following code example shows how to access the WebGarden property.  \n  \n [!code-cs[System.Web.Configuration.ProcessModelSection#24](~/add/codesnippet/csharp/p-system.web.configurati_94_1.cs)]\n [!code-vb[System.Web.Configuration.ProcessModelSection#24](~/add/codesnippet/visualbasic/p-system.web.configurati_94_1.vb)]"
   syntax:
     content: public bool WebGarden { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, if <xref:System.Web.Configuration.ProcessModelSection.CpuMask*> is used to map the worker processes to the number of eligible CPUs; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if <xref:System.Web.Configuration.ProcessModelSection.CpuMask*> is ignored."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, если <> </> *настроек используется для сопоставления рабочих процессов в число доступных процессоров; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if <>*> is ignored."
   overload: System.Web.Configuration.ProcessModelSection.WebGarden*
   exceptions: []
   platform:

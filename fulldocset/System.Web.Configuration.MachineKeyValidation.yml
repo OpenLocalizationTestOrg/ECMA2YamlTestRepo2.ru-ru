@@ -17,8 +17,8 @@ items:
   nameWithType: MachineKeyValidation
   fullName: System.Web.Configuration.MachineKeyValidation
   type: Enum
-  summary: "Specifies the hashing algorithm that ASP.NET uses for forms authentication and for validating view state data, and for out-of-process session state identification."
-  remarks: "ASP.NET uses a hash-based message authentication code (HMAC) to help detect whether data that is used for forms authentication or view state has been tampered with. The HMAC is generated when view state content is created, and the HMAC is checked on subsequent requests. The HMAC helps ASP.NET determine whether someone has changed data that is sent between the server and the client, but the data can be read by anyone as it travels through the Internet unless it is also encrypted. By default, view state is validated but not encrypted. For more information, see <xref:System.Web.UI.Page.ViewStateEncryptionMode%2A> and <xref:System.Web.UI.Page.RegisterRequiresViewStateEncryption%2A>.       The MachineKeyValidation enumeration lets you specify the algorithm that ASP.NET uses to create the HMAC. The default value is HMACSHA256. ASP.NET uses the value of the <xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A> property with the selected algorithm to generate the HMAC."
+  summary: "Задает алгоритм хэширования, используемого ASP.NET для проверки подлинности форм и проверки данных состояния представления и для идентификации состояния сеанса вне процесса."
+  remarks: "ASP.NET использует кода подлинности сообщения на основе хэша (HMAC) для обнаружения подделки данных, используемый для проверки подлинности или представление состояния формы с. HMAC формируется при создании представления состояния содержимого и HMAC проверяется при последующих запросах. HMAC помогает определить, является ли изменения данных, передаваемых между сервером и клиентом, но данные могут быть прочитаны никем другим, как он проходит через Интернет, если он зашифрован также ASP.NET. По умолчанию состояние представления проверены, но не шифруются. Дополнительные сведения см. в разделе <xref:System.Web.UI.Page.ViewStateEncryptionMode%2A>и <xref:System.Web.UI.Page.RegisterRequiresViewStateEncryption%2A>.</xref:System.Web.UI.Page.RegisterRequiresViewStateEncryption%2A> </xref:System.Web.UI.Page.ViewStateEncryptionMode%2A>       Перечисление MachineKeyValidation позволяет указать алгоритм, используемый для создания кода HMAC ASP.NET. Значение по умолчанию — HMACSHA256. ASP.NET использует значение <xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A>Свойства с выбранным алгоритмом для создания кода HMAC.</xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A>"
   example:
   - "The following code example shows how to use the MachineKeyValidation enumeration. In the example, `configSection` is an instance of <xref:System.Web.Configuration.MachineKeySection>.This code example is part of a larger example provided for the <xref:System.Web.Configuration.MachineKeySection> class.  \n  \n [!code-vb[System.Web.Configuration.MachineKeySection#5](~/add/codesnippet/visualbasic/t-system.web.configurati_93_1.vb)]\n [!code-cs[System.Web.Configuration.MachineKeySection#5](~/add/codesnippet/csharp/t-system.web.configurati_93_1.cs)]"
   syntax:
@@ -39,13 +39,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Specifies that ASP.NET uses the <xref uid=&quot;langword_csharp_AES&quot; name=&quot;AES&quot; href=&quot;&quot;></xref> (Rijndael) encryption algorithm."
-  remarks: "Choose this option if you want to encrypt view state in your Web application. If you choose this option, the <xref:System.Web.Configuration.MachineKeySection.DecryptionKey%2A> property will be used for encryption and decryption, and the `HMACSHA1` hash algorithm will be used with the <xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A> property for validation."
+  summary: "Указывает, что ASP.NET использует <xref uid=&quot;langword_csharp_AES&quot; name=&quot;AES&quot; href=&quot;&quot;> </xref> алгоритма шифрования (Rijndael)."
+  remarks: "Выберите этот параметр, если требуется шифровать состояние просмотра в веб-приложении. При выборе этого параметра <xref:System.Web.Configuration.MachineKeySection.DecryptionKey%2A>свойство будет использоваться для шифрования и расшифровки и `HMACSHA1` хэш-алгоритма, которые будут использоваться с <xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A>свойство для проверки.</xref:System.Web.Configuration.MachineKeySection.ValidationKey%2A> </xref:System.Web.Configuration.MachineKeySection.DecryptionKey%2A>"
   syntax:
     content: AES
     return:
       type: System.Web.Configuration.MachineKeyValidation
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -61,13 +61,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Specifies that ASP.NET uses a custom hashing algorithm."
-  remarks: "The custom hashing algorithm can be implemented in any class that derives from <xref:System.Security.Cryptography.KeyedHashAlgorithm>.       The custom algorithm is typically specified declaratively in the validation attribute of the  element, in the format `alg:`*algorithm_name*. For information about how to specify a custom algorithm in code, see the <xref:System.Web.Configuration.MachineKeySection.ValidationAlgorithm%2A?displayProperty=fullName> property."
+  summary: "Указывает, что ASP.NET использует пользовательский алгоритм хэширования."
+  remarks: "Пользовательский алгоритм хэширования, которые могут быть реализованы в любой класс, производный от <xref:System.Security.Cryptography.KeyedHashAlgorithm>.</xref:System.Security.Cryptography.KeyedHashAlgorithm>       Пользовательский алгоритм обычно задается декларативно в атрибут проверки элемента в формате `alg:` *algorithm_name*. Сведения об указании пользовательского алгоритма в коде см. в разделе <xref:System.Web.Configuration.MachineKeySection.ValidationAlgorithm%2A?displayProperty=fullName>свойство.</xref:System.Web.Configuration.MachineKeySection.ValidationAlgorithm%2A?displayProperty=fullName>"
   syntax:
     content: Custom
     return:
       type: System.Web.Configuration.MachineKeyValidation
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -83,13 +83,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Specifies that ASP.NET uses the <xref uid=&quot;langword_csharp_HMACSHA256&quot; name=&quot;HMACSHA256&quot; href=&quot;&quot;></xref> hashing algorithm.  This is the default value."
-  remarks: '`HMACSHA256` is an SHA2 hashing algorithm that generates a 256-bit hash code.'
+  summary: "Указывает, что ASP.NET использует <xref uid=&quot;langword_csharp_HMACSHA256&quot; name=&quot;HMACSHA256&quot; href=&quot;&quot;> </xref> хэш-алгоритм.  Это значение по умолчанию."
+  remarks: '`HMACSHA256`является SHA2 алгоритм хэширования, который создает 256-разрядный хэш-код.'
   syntax:
     content: HMACSHA256
     return:
       type: System.Web.Configuration.MachineKeyValidation
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -105,13 +105,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Specifies that ASP.NET uses the <xref uid=&quot;langword_csharp_HMACSHA384&quot; name=&quot;HMACSHA384&quot; href=&quot;&quot;></xref> hashing algorithm."
-  remarks: '`HMACSHA384` is an SHA2 hashing algorithm that generates a 384-bit hash code. This option is available for applications that require stronger security than is provided by the `HMACSHA256`algorithm.'
+  summary: "Указывает, что ASP.NET использует <xref uid=&quot;langword_csharp_HMACSHA384&quot; name=&quot;HMACSHA384&quot; href=&quot;&quot;> </xref> хэш-алгоритм."
+  remarks: '`HMACSHA384`является SHA2 алгоритм хэширования, который приводит к возникновению ошибки 384-разрядный хэш-код. Этот параметр доступен для приложений, требующих более высокий уровень безопасности, чем в `HMACSHA256`алгоритма.'
   syntax:
     content: HMACSHA384
     return:
       type: System.Web.Configuration.MachineKeyValidation
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -127,13 +127,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Specifies that ASP.NET uses the <xref uid=&quot;langword_csharp_HMACSHA512&quot; name=&quot;HMACSHA512&quot; href=&quot;&quot;></xref> hashing algorithm."
-  remarks: '`HMACSHA512` is an SHA2 hashing algorithm that generates a 512-bit hash code. This option is available for applications that require stronger security than is provided by the `HMACSHA384` algorithm.'
+  summary: "Указывает, что ASP.NET использует <xref uid=&quot;langword_csharp_HMACSHA512&quot; name=&quot;HMACSHA512&quot; href=&quot;&quot;> </xref> хэш-алгоритм."
+  remarks: '`HMACSHA512`является SHA2 алгоритм хэширования, который приводит к возникновению ошибки 512-разрядный хэш-код. Этот параметр доступен для приложений, требующих более высокий уровень безопасности, чем в `HMACSHA384` алгоритма.'
   syntax:
     content: HMACSHA512
     return:
       type: System.Web.Configuration.MachineKeyValidation
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -149,13 +149,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Specifies that ASP.NET uses the Message Digest 5 (<xref uid=&quot;langword_csharp_MD5&quot; name=&quot;MD5&quot; href=&quot;&quot;></xref>) hashing algorithm."
-  remarks: '`MD5` is a hashing algorithm that generates a 128-bit hash value. This option is included for legacy purposes and should be selected only if compatibility with earlier versions of ASP.NET is required.'
+  summary: "Указывает, что ASP.NET использует Message Digest 5 (<xref uid=&quot;langword_csharp_MD5&quot; name=&quot;MD5&quot; href=&quot;&quot;></xref>) хэш-алгоритм."
+  remarks: '`MD5`представляет алгоритм хэширования, который создает 128-разрядный хэш-значение. Этот параметр включен для обратной совместимости и должен быть установлен только в том случае, если требуется совместимость с предыдущими версиями ASP.NET.'
   syntax:
     content: MD5
     return:
       type: System.Web.Configuration.MachineKeyValidation
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -171,13 +171,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Specifies that ASP.NET uses the <xref uid=&quot;langword_csharp_HMACSHA1&quot; name=&quot;HMACSHA1&quot; href=&quot;&quot;></xref> hash algorithm."
-  remarks: '`HMACSHA1` is a hashing algorithm that generates a 160-bit hash value. This option is included for legacy purposes and should be selected only if compatibility with earlier versions of ASP.NET is required.'
+  summary: "Указывает, что ASP.NET использует <xref uid=&quot;langword_csharp_HMACSHA1&quot; name=&quot;HMACSHA1&quot; href=&quot;&quot;> </xref> хэш-алгоритм."
+  remarks: '`HMACSHA1`представляет алгоритм хэширования, который формирует 160-разрядный хэш-значение. Этот параметр включен для обратной совместимости и должен быть установлен только в том случае, если требуется совместимость с предыдущими версиями ASP.NET.'
   syntax:
     content: SHA1
     return:
       type: System.Web.Configuration.MachineKeyValidation
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -193,13 +193,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Specifies that ASP.NET uses the TripleDES (<xref uid=&quot;langword_csharp_3DES&quot; name=&quot;3DES&quot; href=&quot;&quot;></xref>) encryption algorithm."
-  remarks: "TripleDES is an encryption algorithm that is used only if you specify that view state is encrypted. This option is included for legacy purposes and should be selected only if compatibility with earlier versions of ASP.NET is required."
+  summary: "Указывает, что ASP.NET использует TripleDES (<xref uid=&quot;langword_csharp_3DES&quot; name=&quot;3DES&quot; href=&quot;&quot;></xref>) алгоритм шифрования."
+  remarks: "TripleDES — это алгоритм шифрования, который используется только в том случае, если указать шифровании состояния просмотра. Этот параметр включен для обратной совместимости и должен быть установлен только в том случае, если требуется совместимость с предыдущими версиями ASP.NET."
   syntax:
     content: TripleDES
     return:
       type: System.Web.Configuration.MachineKeyValidation
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
