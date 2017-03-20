@@ -13,8 +13,8 @@ items:
   nameWithType: IStackWalk
   fullName: System.Security.IStackWalk
   type: Interface
-  summary: "Manages the stack walk that determines whether all callers in the call stack have the required permissions to access a protected resource."
-  remarks: "Partially trusted code always presents a security risk. It can sometimes be manipulated to perform actions on behalf of malicious code that does not have permission to access a resource. In this way, malicious code can achieve higher security access than it should be allowed.       The common language runtime helps protect managed code from these attacks by running a stack walk on all calls. The stack walk requires that all code in the call stack has permission to access a protected resource. Because the code attempting the attack will always be somewhere in the call stack, it will be unable to exceed its own security permissions."
+  summary: "Управляет проверкой стека, который определяет, имеют ли все вызывающие объекты в стеке вызовов разрешения, необходимые для доступа к защищенному ресурсу."
+  remarks: "Частично доверенный код всегда представляет угрозу безопасности. Иногда, ими можно управлять для выполнения действий от имени вредоносный код, который не имеет разрешения на доступ к ресурсу. Таким образом вредоносный код может получить высокий уровень доступа, чем следует разрешить.       Общеязыковая среда выполнения защищает управляемый код от подобных атак, выполнив проверку стека вызова. Обход стека требует, что весь код в стеке вызовов имеет разрешение на доступ к защищенному ресурсу. Поскольку коду, выполняющему атаки, всегда попадает в стек вызовов, он сможет превышать свои собственные разрешения безопасности."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -35,8 +35,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Asserts that the calling code can access the resource identified by the current permission object, even if callers higher in the stack have not been granted permission to access the resource."
-  remarks: "Calling Assert stops the permission check on callers higher in the call stack. Therefore, even if these callers do not have the requisite permissions, they can still access resources. An assertion is effective only if the code that calls Assert passes the security check for the permission that it is asserting.       A call to Assert is effective until the calling code returns to its caller or until a subsequent call to Assert renders the previous assertion ineffective. Also, <xref:System.Security.CodeAccessPermission.RevertAssert%2A> or <xref:System.Security.CodeAccessPermission.RevertAll%2A> removes a pending Assert.       Assert is ignored for a permission not granted because a demand for that permission will not succeed. However, if code lower on the call stack calls <xref:System.Security.IStackWalk.Demand%2A> for that permission, a <xref:System.Security.SecurityException> is thrown when the stack walk reaches the code that tried to call Assert. This happens because the code that called Assert has not been granted the permission, even though it tried to Assert it.      > [!CAUTION] >  Because calling Assert removes the requirement that all code in the call chain must be granted permission to access the specified resource, it can open up security vulnerabilities if used incorrectly or inappropriately. Therefore, it should be used with great caution."
+  summary: "Подтверждает, что вызывающий код может получить доступ к ресурсу, определяемому текущим объектом разрешения, даже если вызывающим объектам выше в стеке вызовов не предоставлено разрешение на доступ к ресурсу."
+  remarks: "Вызов Assert прекращает проверку наличия разрешений на вызывающим объектам выше в стеке вызовов. Таким образом даже если эти вызывающие объекты не имеют необходимых разрешений, они по-прежнему доступны ресурсы. Утверждение действует только в том случае, если код, который вызывает Assert проходит проверку безопасности на наличие утверждающего разрешения.       Вызов Assert действует до возвращается вызывающему коду, вызвавшему его или в последующем вызове Assert сделает предыдущее утверждение неэффективным. Кроме того <xref:System.Security.CodeAccessPermission.RevertAssert%2A>или <xref:System.Security.CodeAccessPermission.RevertAll%2A>удаляет ожидающие утверждения.</xref:System.Security.CodeAccessPermission.RevertAll%2A> </xref:System.Security.CodeAccessPermission.RevertAssert%2A>       Утверждение учитывается для разрешения не предоставляются, так как запрос на это разрешение не будет успешным. Тем не менее если код, расположенный ниже в стеке вызовов вызывает <xref:System.Security.IStackWalk.Demand%2A>для этого разрешения <xref:System.Security.SecurityException>возникает при проверке стека достигается код, который пытался вызвать Assert.</xref:System.Security.SecurityException> </xref:System.Security.IStackWalk.Demand%2A> Это происходит, так как код, который вызвал Assert не предоставлено разрешение, несмотря на то, что он пытался подтверждает его.      Настроек [!CAUTION] настроек из-за вызова Assert удаляет требование, что весь код в цепочке вызовов должны предоставляться разрешения на доступ к указанному ресурсу, может привести к возникновению уязвимости системы безопасности неправильное или неверно. Таким образом он должен использоваться с большой осторожностью."
   syntax:
     content: public void Assert ();
     parameters: []
@@ -44,7 +44,7 @@ items:
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The calling code does not have <xref href=&quot;System.Security.Permissions.SecurityPermissionFlag&quot;></xref>."
+    description: "Вызывающий код не имеет <xref href=&quot;System.Security.Permissions.SecurityPermissionFlag&quot;> </xref>."
   platform:
   - net462
 - uid: System.Security.IStackWalk.Demand
@@ -59,8 +59,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines at run time whether all callers in the call stack have been granted the permission specified by the current permission object."
-  remarks: "This method is typically used by secure libraries to ensure that callers have permission to access a resource. For example, a file class in a secure class library calls Demand for the necessary <xref:System.Security.Permissions.FileIOPermission> before performing a file operation requested by the caller.       The permissions of the code that calls this method are not examined; the check begins from the immediate caller of that code and proceeds up the stack. Demand succeeds only if no <xref:System.Security.SecurityException> is raised."
+  summary: "Определяет во время выполнения все вызывающие объекты в стеке вызовов было предоставлено разрешение, указанное текущим объектом разрешений."
+  remarks: "Этот метод обычно используется с защищенными библиотеками для обеспечения наличия у вызывающих объектов разрешений на доступ к ресурсу. Например, файл класса в безопасной библиотеке классов вызывает требование для необходимого <xref:System.Security.Permissions.FileIOPermission>перед выполнением операции файл запрошенную вызывающим.</xref:System.Security.Permissions.FileIOPermission>       Разрешения для кода, который вызывает этот метод, не проверяется; Проверка начинается с непосредственный вызывающий объект кода и продолжается вверх по стеку. Требование завершается успешно, только если не <xref:System.Security.SecurityException>возникает.</xref:System.Security.SecurityException>"
   syntax:
     content: public void Demand ();
     parameters: []
@@ -68,7 +68,7 @@ items:
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "A caller higher in the call stack does not have the permission specified by the current permission object.       -or-       A caller in the call stack has called <xref:System.Security.IStackWalk.Deny*> on the current permission object."
+    description: "Вызывающий объект выше в стеке вызовов не имеет разрешения, указанного в текущем объекте разрешений.       - или - У вызывающего кода в стеке вызовов вызвал <xref:System.Security.IStackWalk.Deny*>с текущим объектом разрешений.</xref:System.Security.IStackWalk.Deny*>"
   platform:
   - net462
 - uid: System.Security.IStackWalk.Deny
@@ -83,8 +83,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Causes every <xref:System.Security.IStackWalk.Demand*> for the current object that passes through the calling code to fail."
-  remarks: "This method prevents callers higher in the call stack from accessing the protected resource through the code that calls this method, even if those callers have been granted permission to access it. The call stack is typically represented as growing down, so that methods higher in the call stack call methods lower in the call stack.       Deny can limit the liability of the programmer or help prevent accidental security vulnerabilities because it helps prevent the method that calls Deny from being used to access the resource protected by the denied permission. If a method calls Deny on a permission, and if a <xref:System.Security.IStackWalk.Demand%2A> for that permission is invoked by a caller lower in the call stack, that security check will fail when it reaches the Deny.       Deny is ignored for a permission not granted because a demand for that permission will not succeed."
+  summary: "Вызывает каждый <xref:System.Security.IStackWalk.Demand*>для текущего объекта, проходящего через вызывающий код.</xref:System.Security.IStackWalk.Demand*>"
+  remarks: "Этот метод не позволяет вызывающим объектам выше в стеке вызовов доступ к защищенному ресурсу через код, вызывающий этот метод, даже если этим вызывающим предоставлено разрешение на доступ к нему. Стек вызовов обычно представляется как растет вниз, так что методы, расположенные выше в стеке вызовов вызывать методы, расположенные в стеке вызовов.       Инструкция DENY может ограничить ответственность программиста или предотвратить случайное уязвимостей, поскольку он не позволяет использовать метод, вызывающий Deny не могут использоваться для доступа к ресурсу, защищенному путем отказа в разрешении. Если метод вызывает метод Deny для разрешения и <xref:System.Security.IStackWalk.Demand%2A>для этого разрешения вызывающий объект, расположенный ниже в стеке вызовов, то проверка безопасности завершится ошибкой при достижении Deny.</xref:System.Security.IStackWalk.Demand%2A>       Запретить учитывается для разрешения не предоставляются, так как запрос на это разрешение не будет успешным."
   syntax:
     content: public void Deny ();
     parameters: []
@@ -104,8 +104,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Causes every <xref:System.Security.IStackWalk.Demand*> for all objects except the current one that passes through the calling code to fail, even if code higher in the call stack has been granted permission to access other resources."
-  remarks: "PermitOnly is similar to <xref:System.Security.IStackWalk.Deny%2A>, in that both cause stack walks to fail when they would otherwise succeed. The difference is that <xref:System.Security.IStackWalk.Deny%2A> specifies permissions that will cause the stack walk to fail, but PermitOnly specifies the only permissions that do not cause the stack walk to fail. Call this method to ensure that your code can be used to access only the specified resources.       PermitOnly is ignored for a permission not granted because a demand for that permission will not succeed. However, if code lower on the call stack later calls <xref:System.Security.IStackWalk.Demand%2A> for that permission, a <xref:System.Security.SecurityException> is thrown when the stack walk reaches the code that tried to call PermitOnly. This is because the code that called PermitOnly has not been granted the permission, even though it called PermitOnly for that permission. The call stack is typically represented as growing down, so that methods higher in the call stack call methods lower in the call stack."
+  summary: "Вызывает каждый <xref:System.Security.IStackWalk.Demand*>для всех объектов, кроме текущего, проходящих через вызывающий код, даже если коду выше в стеке вызовов предоставлено разрешение на доступ к другим ресурсам.</xref:System.Security.IStackWalk.Demand*>"
+  remarks: "Аналогично PermitOnly <xref:System.Security.IStackWalk.Deny%2A>, в том, что оба метода приводят стека с ошибкой, когда в противном случае они бы успешно.</xref:System.Security.IStackWalk.Deny%2A> Различие состоит в том <xref:System.Security.IStackWalk.Deny%2A>Указывает разрешения, которые вызовут стека пройти сбой, но PermitOnly задает только те разрешения, не приводят к сбою стека.</xref:System.Security.IStackWalk.Deny%2A> Вызовите этот метод, чтобы убедиться, что код может использоваться для доступа к только к заданным ресурсам.       PermitOnly учитывается для разрешения не предоставляются, так как запрос на это разрешение не будет успешным. Тем не менее если код, расположенный ниже, при вызове стеке вызовов <xref:System.Security.IStackWalk.Demand%2A>этим разрешением, <xref:System.Security.SecurityException>возникает при проверке стека достигается код, который пытался вызвать PermitOnly.</xref:System.Security.SecurityException> </xref:System.Security.IStackWalk.Demand%2A> Это так, как код, который вызвал PermitOnly не предоставлено разрешение, несмотря на вызов PermitOnly для этого разрешения. Стек вызовов обычно представляется как растет вниз, так что методы, расположенные выше в стеке вызовов вызывать методы, расположенные в стеке вызовов."
   syntax:
     content: public void PermitOnly ();
     parameters: []
