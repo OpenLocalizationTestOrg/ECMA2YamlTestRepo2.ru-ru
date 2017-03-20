@@ -14,8 +14,8 @@ items:
   nameWithType: SinglePhaseEnlistment
   fullName: System.Transactions.SinglePhaseEnlistment
   type: Class
-  summary: "Provides a set of callbacks that facilitate communication between a participant enlisted for Single Phase Commit and the transaction manager when the <xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit*> notification is received."
-  remarks: "When a resource manager&quot;s implementation of <xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit%2A> is called, and an instance of this type is passsed in, the participant then notifies the transaction manager via the <xref:System.Transactions.SinglePhaseEnlistment.Committed%2A> method or the <xref:System.Transactions.SinglePhaseEnlistment.Aborted%2A> method to indicate whether the transaction should be committed or rolled back."
+  summary: "Предоставляет набор обратных вызовов, предназначенных для упрощения взаимодействия между участником прикрепления для одного двухфазной фиксации и диспетчером транзакций при <xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit*>Получено уведомление.</xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit*>"
+  remarks: "При реализации диспетчера ресурсов <xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit%2A>вызывается и экземпляр этого типа passsed в, участник затем Уведомляет диспетчер транзакций через <xref:System.Transactions.SinglePhaseEnlistment.Committed%2A>метода или <xref:System.Transactions.SinglePhaseEnlistment.Aborted%2A>метод указывающее зафиксирована или выполнен откат транзакции.</xref:System.Transactions.SinglePhaseEnlistment.Aborted%2A> </xref:System.Transactions.SinglePhaseEnlistment.Committed%2A> </xref:System.Transactions.ISinglePhaseNotification.SinglePhaseCommit%2A>"
   syntax:
     content: 'public class SinglePhaseEnlistment : System.Transactions.Enlistment'
   inheritance:
@@ -38,8 +38,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Represents a callback that is used to indicate to the transaction manager that the transaction should be rolled back."
-  remarks: "A transaction participant implementing the <xref:System.Transactions.ISinglePhaseNotification> interface uses this method to notify the transaction manager that it cannot commit, and that the transaction should be rolled back."
+  summary: "Представляет обратный вызов, который используется для указания диспетчеру транзакций, следует выполнить откат транзакции."
+  remarks: "Транзакции участника реализации <xref:System.Transactions.ISinglePhaseNotification>интерфейса с помощью этого метода диспетчеру транзакций, его не удается зафиксировать, и произойдет откат транзакции.</xref:System.Transactions.ISinglePhaseNotification>"
   syntax:
     content: public void Aborted ();
     parameters: []
@@ -59,13 +59,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Represents a callback that is used to indicate to the transaction manager that the transaction should be rolled back, and provides an explanation."
+  summary: "Представляет обратный вызов, который используется для указания диспетчера транзакций, должен быть выполнен откат транзакции и объяснение причин."
   syntax:
     content: public void Aborted (Exception e);
     parameters:
     - id: e
       type: System.Exception
-      description: "An explanation of why a rollback is initiated."
+      description: "Объяснение, почему был инициирован откат."
   overload: System.Transactions.SinglePhaseEnlistment.Aborted*
   exceptions: []
   platform:
@@ -82,8 +82,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Represents a callback that is used to indicate to the transaction manager that the SinglePhaseCommit was successful."
-  remarks: "A transaction participant implementing the <xref:System.Transactions.ISinglePhaseNotification> interface uses this method to notify the transaction manager that the transaction should be committed."
+  summary: "Представляет обратный вызов, который используется для указания диспетчеру транзакций, однофазная фиксация выполнена успешно."
+  remarks: "Транзакции участника реализации <xref:System.Transactions.ISinglePhaseNotification>интерфейса с помощью этого метода диспетчеру транзакций, транзакции должен быть зафиксирован.</xref:System.Transactions.ISinglePhaseNotification>"
   syntax:
     content: public void Committed ();
     parameters: []
@@ -103,8 +103,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Represents a callback that is used to indicate to the transaction manager that the status of the transaction is in doubt."
-  remarks: "A transaction participant implementing the <xref:System.Transactions.ISinglePhaseNotification> interface uses this method to notify the transaction manager that the transaction is in doubt. A transaction is in doubt when one or more of the enlisted resource managers cannot be contacted."
+  summary: "Представляет обратный вызов, который используется для указания диспетчеру транзакций, что состояние транзакции не известен."
+  remarks: "Транзакции участника реализации <xref:System.Transactions.ISinglePhaseNotification>интерфейса с помощью этого метода диспетчеру транзакций, транзакции не известен.</xref:System.Transactions.ISinglePhaseNotification> Транзакции не известен, когда один или несколько диспетчеров ресурсов прикрепленная не удается связаться с."
   syntax:
     content: public void InDoubt ();
     parameters: []
@@ -124,13 +124,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Represents a callback that is used to indicate to the transaction manager that the status of the transaction is in doubt, and provides an explanation."
+  summary: "Представляет обратный вызов, который используется для указания диспетчера транзакций, состояние транзакции не известен, которое предоставляет пояснения по."
   syntax:
     content: public void InDoubt (Exception e);
     parameters:
     - id: e
       type: System.Exception
-      description: "An explanation of why the transaction is in doubt."
+      description: "Объяснение, почему транзакция сомнительна."
   overload: System.Transactions.SinglePhaseEnlistment.InDoubt*
   exceptions: []
   platform:

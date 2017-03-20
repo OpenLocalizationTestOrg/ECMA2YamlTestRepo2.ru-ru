@@ -19,8 +19,8 @@ items:
   nameWithType: WebMessageEncodingElement
   fullName: System.ServiceModel.Configuration.WebMessageEncodingElement
   type: Class
-  summary: "Represents the configuration element that specifies the character encoding used for non-SOAP messages. This class cannot be inherited."
-  remarks: "Encoding is the process of transforming a set of Unicode characters into a sequence of bytes. The types of encoding for non-SOAP messages are text, JSON and raw.       The WebMessageEncodingElement represents the <xref:System.ServiceModel.Channels.WebMessageEncodingBindingElement> in configuration. The <xref:System.ServiceModel.Channels.WebMessageEncodingBindingElement> provides the extensibility point for plugging in a composite encoder that can be used to override how incoming message content-types map to the various inner encoders (text/JSON/raw binary) provided by [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)]. The composite message encoder does not support SOAP or WS-Addressing."
+  summary: "Представляет элемент конфигурации, который указывает кодировку, используемую для сообщений, не использующие протокол SOAP. Этот класс не наследуется."
+  remarks: "Кодирование-это процесс преобразования набора символов Юникода в последовательность байтов. Типы кодирования для сообщений не протокола SOAP, текст, JSON и необработанных.       Представляет WebMessageEncodingElement <xref:System.ServiceModel.Channels.WebMessageEncodingBindingElement>в конфигурации.</xref:System.ServiceModel.Channels.WebMessageEncodingBindingElement> <xref:System.ServiceModel.Channels.WebMessageEncodingBindingElement>Предоставляет точку расширения для подключения составного кодировщика, который может использоваться для переопределения входящих сообщений сопоставления типов содержимого к различным внутренним кодировщикам (текстовый, JSON, необработанные двоичные), предоставляемые [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)].</xref:System.ServiceModel.Channels.WebMessageEncodingBindingElement> Составной кодировщик сообщений не поддерживает SOAP и WS-Addressing."
   example:
   - "```c#  \nusing System;  \nusing System.Text;  \nusing System.ServiceModel;  \nusing System.ServiceModel.Web;  \nusing System.ServiceModel.Configuration;  \n  \nclass Program  \n{  \n  static void Main(string[] args)  \n  {  \n      WebMessageEncodingElement webMEE = new WebMessageEncodingElement();  \n      Console.WriteLine(\"The BE type is: {0}\", webMEE.BindingElementType);  \n  \n      int maxReadPoolSize = webMEE.MaxReadPoolSize;  \n      Console.WriteLine(\"The MaxReadPoolSize is: {0}\", maxReadPoolSize);  \n      maxReadPoolSize = 128;  \n      Console.WriteLine(\"The MaxReadPoolSize has been changed to: {0}\", maxReadPoolSize);  \n  \n      int maxWritePoolSize = webMEE.MaxWritePoolSize;  \n      Console.WriteLine(\"The MaxWritePoolSize is: {0}\", maxWritePoolSize);  \n      maxWritePoolSize = 48;  \n      Console.WriteLine(\"The MaxWritePoolSize has been changed to: {0}\", maxWritePoolSize);  \n  \n      Encoding webMessageEncoding = webMEE.WriteEncoding;  \n      Console.WriteLine(\"The write encoding is: {0}\", webMessageEncoding);  \n      webMessageEncoding = UnicodeEncoding.Unicode;  \n      Console.WriteLine(\"The write encoding has been changed to: {0}\", webMessageEncoding);  \n  \n      XmlDictionaryReaderQuotasElement webMessageReaderQuotasElement = webMEE.ReaderQuotas;  \n      Console.WriteLine(\"The max depth of the reader Quotas is: {0}\", webMessageReaderQuotasElement.MaxDepth);  \n  \n      Console.WriteLine(\"Press <ENTER> to terminate the program.\");  \n      Console.ReadLine();  \n        }  \n    }  \n```"
   syntax:
@@ -108,13 +108,13 @@ items:
   assemblies:
   - System.ServiceModel.Web
   namespace: System.ServiceModel.Configuration
-  summary: "Applies the content of a specified binding element to this binding configuration section."
+  summary: "Применяет содержимое указанного элемента привязки к данному разделу конфигурации привязки."
   syntax:
     content: public override void ApplyConfiguration (System.ServiceModel.Channels.BindingElement bindingElement);
     parameters:
     - id: bindingElement
       type: System.ServiceModel.Channels.BindingElement
-      description: "The <xref:System.ServiceModel.Channels.BindingElement> to be applied."
+      description: "<xref:System.ServiceModel.Channels.BindingElement>Применяемый.</xref:System.ServiceModel.Channels.BindingElement>"
   overload: System.ServiceModel.Configuration.WebMessageEncodingElement.ApplyConfiguration*
   exceptions: []
   platform:
@@ -131,7 +131,7 @@ items:
   assemblies:
   - System.ServiceModel.Web
   namespace: System.ServiceModel.Configuration
-  summary: "Gets the type of the binding element enabled by this configuration element."
+  summary: "Получает тип элемента привязки, включенный данным элементом конфигурации."
   remarks: ''
   example:
   - "```  \nstatic void Main(string[] args)  \n{  \n   WebMessageEncodingElement webMEE = new WebMessageEncodingElement();  \n   Console.WriteLine(\"The BE type is: {0}\", webMEE.BindingElementType);  \n }  \n```"
@@ -139,7 +139,7 @@ items:
     content: public override Type BindingElementType { get; }
     return:
       type: System.Type
-      description: 'The type of binding element enabled by this configuration element: <xref href=&quot;System.ServiceModel.Channels.WebMessageEncodingBindingElement&quot;></xref>.'
+      description: 'Тип элемента привязки, включенный данным элементом конфигурации: <xref href=&quot;System.ServiceModel.Channels.WebMessageEncodingBindingElement&quot;> </xref>.'
   overload: System.ServiceModel.Configuration.WebMessageEncodingElement.BindingElementType*
   exceptions: []
   platform:
@@ -156,13 +156,13 @@ items:
   assemblies:
   - System.ServiceModel.Web
   namespace: System.ServiceModel.Configuration
-  summary: "Copies the content of the specified configuration section to this element."
+  summary: "Копирует содержимое указанного раздела конфигурации в данный элемент."
   syntax:
     content: public override void CopyFrom (System.ServiceModel.Configuration.ServiceModelExtensionElement from);
     parameters:
     - id: from
       type: System.ServiceModel.Configuration.ServiceModelExtensionElement
-      description: "The <xref href=&quot;System.ServiceModel.Configuration.ServiceModelExtensionElement&quot;></xref> to be copied."
+      description: "<xref href=&quot;System.ServiceModel.Configuration.ServiceModelExtensionElement&quot;> </xref> Для копирования."
   overload: System.ServiceModel.Configuration.WebMessageEncodingElement.CopyFrom*
   exceptions: []
   platform:
@@ -184,7 +184,7 @@ items:
     parameters: []
     return:
       type: System.ServiceModel.Channels.BindingElement
-      description: "To be added."
+      description: "Для добавления."
   overload: System.ServiceModel.Configuration.WebMessageEncodingElement.CreateBindingElement*
   exceptions: []
   platform:
@@ -201,15 +201,15 @@ items:
   assemblies:
   - System.ServiceModel.Web
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets a value that specifies the maximum number of messages that can be read simultaneously without allocating new readers."
-  remarks: "Larger pool sizes make the system more tolerant to activity spikes at the cost of a larger working set. The `WebMessageEncodingElement` configures a composite encoder that is capable of reading and writing plain-text XML, JSON, and raw binary. This encoder is composed of three separate encoders. This setting affects the maximum number of readers for each individual encoder."
+  summary: "Возвращает или задает значение, указывающее максимальное количество сообщений, которые можно считать одновременно без выделения новых средств чтения."
+  remarks: "Пул больших размеров устойчивость системы более устойчивы к пикам активности за счет большего рабочего набора. `WebMessageEncodingElement` Настраивает составного кодировщика, поддерживающий чтение и запись обычного текста XML, JSON и двоичном. Этот кодировщик состоит из трех отдельных кодировщиков. Этот параметр влияет на максимальное число агентов чтения для каждого отдельного кодировщика."
   example:
   - "```  \nstatic void Main(string[] args)  \n{  \n    WebMessageEncodingElement webMEE = new WebMessageEncodingElement();  \n    int maxReadPoolSize = webMEE.MaxReadPoolSize;  \n    Console.WriteLine(\"The MaxReadPoolSize is: {0}\", maxReadPoolSize);  \n    maxReadPoolSize = 128;  \n    Console.WriteLine(\"The MaxReadPoolSize has been changed to: {0}\", maxReadPoolSize);  \n}  \n```"
   syntax:
     content: public int MaxReadPoolSize { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of messages that can be read simultaneously without allocating new readers. The default is 64."
+      description: "Максимальное количество сообщений, которые можно считать одновременно без выделения новых средств чтения. Значение по умолчанию — 64."
   overload: System.ServiceModel.Configuration.WebMessageEncodingElement.MaxReadPoolSize*
   exceptions: []
   platform:
@@ -226,15 +226,15 @@ items:
   assemblies:
   - System.ServiceModel.Web
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets a value that specifies the maximum number of messages that can be sent simultaneously without allocating new writers."
-  remarks: "Larger pool sizes make the system more tolerant to activity spikes at the cost of a larger working set. The `WebMessageEncodingElement` configures a composite encoder that is capable of reading and writing plain-text XML, JSON, and raw binary. This encoder is composed of three separate encoders. This setting affects the maximum number of writers for each individual encoder."
+  summary: "Возвращает или задает значение, указывающее максимальное количество сообщений, которые можно отправить одновременно без выделения новых модулей записи."
+  remarks: "Пул больших размеров устойчивость системы более устойчивы к пикам активности за счет большего рабочего набора. `WebMessageEncodingElement` Настраивает составного кодировщика, поддерживающий чтение и запись обычного текста XML, JSON и двоичном. Этот кодировщик состоит из трех отдельных кодировщиков. Этот параметр влияет на максимальное число модулей записи для каждого отдельного кодировщика."
   example:
   - "```  \nstatic void Main(string[] args)  \n{  \n   int maxWritePoolSize = webMEE.MaxWritePoolSize;  \n   Console.WriteLine(\"The MaxWritePoolSize is: {0}\", maxWritePoolSize);  \n   maxWritePoolSize = 48;  \n   Console.WriteLine(\"The MaxWritePoolSize has been changed to: {0}\", maxWritePoolSize);  \n}  \n```"
   syntax:
     content: public int MaxWritePoolSize { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of messages that can be sent simultaneously without allocating new writers. The default is 16."
+      description: "Максимальное количество сообщений, которые можно отправить одновременно без выделения новых модулей записи. Значение по умолчанию — 16."
   overload: System.ServiceModel.Configuration.WebMessageEncodingElement.MaxWritePoolSize*
   exceptions: []
   platform:
@@ -251,15 +251,15 @@ items:
   assemblies:
   - System.ServiceModel.Web
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets constraints on the complexity of SOAP messages that can be processed by endpoints configured with this binding."
-  remarks: "The complexity constraints include items like a maximum element depth, or a maximum length for string content within the message. The constraints protect against a type of denial of service (DOS) attacks that attempt to use message complexity to tie up endpoint processing resources."
+  summary: "Возвращает или задает ограничения по сложности сообщений SOAP, которые могут обрабатываться конечными точками, настроенными с этой привязкой."
+  remarks: "Ограничения по сложности включают такие элементы, как максимальная глубина элемента или Максимальная длина строкового содержимого сообщения. Ограничения защищают от атак отказа в обслуживании (DOS), сложность сообщения используется для перегрузки ресурсов процессора конечной точки типа."
   example:
   - "```  \nXmlDictionaryReaderQuotasElement webMessageReaderQuotasElement = webMEE.ReaderQuotas;  \nConsole.WriteLine(\"The max depth of the reader Quotas is: {0}\", webMessageReaderQuotasElement.MaxDepth);  \n```"
   syntax:
     content: public System.ServiceModel.Configuration.XmlDictionaryReaderQuotasElement ReaderQuotas { get; }
     return:
       type: System.ServiceModel.Configuration.XmlDictionaryReaderQuotasElement
-      description: "The <xref href=&quot;System.ServiceModel.Configuration.XmlDictionaryReaderQuotasElement&quot;></xref> that specifies the complexity constraints."
+      description: "<xref href=&quot;System.ServiceModel.Configuration.XmlDictionaryReaderQuotasElement&quot;> </xref> , Задает ограничения по сложности."
   overload: System.ServiceModel.Configuration.WebMessageEncodingElement.ReaderQuotas*
   exceptions: []
   platform:
@@ -276,13 +276,13 @@ items:
   assemblies:
   - System.ServiceModel.Web
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets the type name of a <xref href=&quot;System.ServiceModel.Channels.WebContentTypeMapper&quot;></xref> that specifies the format to which the content type of an incoming message is mapped."
-  remarks: "This is an extensibility point in the programming model that is used by the Web message encoder to override how content types are mapped to formats."
+  summary: "Возвращает или задает имя типа <xref href=&quot;System.ServiceModel.Channels.WebContentTypeMapper&quot;> </xref> , задающий формат, который сопоставляется тип контента входящего сообщения."
+  remarks: "Это точка расширения в модели программирования, используемой кодировщиком веб-сообщений для переопределения способов сопоставления типов контента форматам."
   syntax:
     content: public string WebContentTypeMapperType { get; set; }
     return:
       type: System.String
-      description: "The type name of a <xref href=&quot;System.ServiceModel.Channels.WebContentTypeMapper&quot;></xref>."
+      description: "Имя типа <xref href=&quot;System.ServiceModel.Channels.WebContentTypeMapper&quot;> </xref>."
   overload: System.ServiceModel.Configuration.WebMessageEncodingElement.WebContentTypeMapperType*
   exceptions: []
   platform:
@@ -299,7 +299,7 @@ items:
   assemblies:
   - System.ServiceModel.Web
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets the character set encoding to be used for emitting messages on the binding."
+  summary: "Возвращает или задает кодировку, используемую при отправке сообщений через привязку."
   remarks: ''
   example:
   - "```  \nusing System;  \nusing System.Text;  \nusing System.ServiceModel;  \nusing System.ServiceModel.Web;  \nusing System.ServiceModel.Configuration;  \n  \nstatic void Main()  \n{  \n    Encoding webMessageEncoding = webMEE.WriteEncoding;  \n    Console.WriteLine(\"The write encoding is: {0}\",     webMessageEncoding);  \n    webMessageEncoding = UnicodeEncoding.Unicode;  \n    Console.WriteLine(\"The write encoding has been changed to: {0}\", webMessageEncoding);  \n}  \n```"
@@ -307,12 +307,12 @@ items:
     content: public System.Text.Encoding WriteEncoding { get; set; }
     return:
       type: System.Text.Encoding
-      description: "A valid <xref:System.Text.Encoding> value that specifies the character set encoding to be used for emitting messages on the binding. The default is <xref:System.Text.UTF8Encoding>."
+      description: "Является допустимым <xref:System.Text.Encoding>значение, указывающее знак кодировка, используемая при отправке сообщений через привязку.</xref:System.Text.Encoding> Значение по умолчанию — <xref:System.Text.UTF8Encoding>.</xref:System.Text.UTF8Encoding>"
   overload: System.ServiceModel.Configuration.WebMessageEncodingElement.WriteEncoding*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value set is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Задано значение <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 references:

@@ -15,8 +15,8 @@ items:
   nameWithType: TransactedBatchingBehavior
   fullName: System.ServiceModel.Description.TransactedBatchingBehavior
   type: Class
-  summary: "Represents a behavior that optimizes the receive operations for transports that support transactional receives."
-  remarks: "A transport that is configured with this behavior attempts to batch several receive operations into one transaction. By doing so, the relatively high cost of creating a transaction and committing it in every receive operation is avoided."
+  summary: "Представляет поведение, которое оптимизирует операции получения для транспорта, поддерживающего транзакционные получения."
+  remarks: "Транспорт, настроенный с этим поведением пытается объединить несколько операций получения в одной транзакции. Таким образом, относительно высоких затрат ресурсов на создание транзакции и отправку каждого получать избегать операции."
   example:
   - "The following example shows how to add the transacted batching behavior to a service in a configuration file.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]  \n  \n The following example shows how to add the transacted batching behavior to a service in code.  \n  \n [!code-cs[UETransactedBatchingCode#0](~/add/codesnippet/csharp/t-system.servicemodel.de_10_2.cs)]\n [!code-cs[UETransactedBatchingCode#0](~/add/codesnippet/csharp/t-system.servicemodel.de_10_2.cs)]"
   syntax:
@@ -40,8 +40,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Description.TransactedBatchingBehavior&quot;></xref> class with the specified batch size."
-  remarks: "The `maxBatchSize` value passed into the constructor is only a hint. It is possible that all messages are received before reaching the `maxBatchSize`. When that occurs, it is unnecessary to wait indefinitely for another message to be received. To prevent this from happening, [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] commits the batch early and open a new batch to receive additional messages. The batch is committed if there are no messages to be received and 20 percent of the transaction time-out value has elapsed."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.Description.TransactedBatchingBehavior&quot;> </xref> класса с заданным размером пакета."
+  remarks: "`maxBatchSize` Значение, переданное в конструктор является лишь подсказкой. Возможно получение всех сообщений до достижения `maxBatchSize`. Когда это происходит, нет необходимости бесконечное ожидание для получения другого сообщения. Чтобы предотвратить возникновение этой ситуации, [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] рано фиксирует пакет и открывает новый пакет для получения дополнительных сообщений. Фиксация пакета происходит, если нет сообщений для получения и 20 процентов значения времени ожидания транзакции прошло."
   example:
   - "The following code shows how to create a new instance of <xref:System.ServiceModel.Description.TransactedBatchingBehavior> specifying the maximum number of messages to be processed in a batch.  \n  \n [!code-cs[UETransactedBatchingCode#1](~/add/codesnippet/csharp/39fc090e-5527-4a2d-a64d-_1.cs)]"
   syntax:
@@ -49,12 +49,12 @@ items:
     parameters:
     - id: maxBatchSize
       type: System.Int32
-      description: "The maximum number of receive operations that can be batched together."
+      description: "Максимальное число операций получения, которые могут быть объединены."
   overload: System.ServiceModel.Description.TransactedBatchingBehavior.#ctor*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>MaxBatchSize</code> is less than 0."
+    description: "<code>MaxBatchSize</code>меньше 0."
   platform:
   - net462
 - uid: System.ServiceModel.Description.TransactedBatchingBehavior.MaxBatchSize
@@ -69,20 +69,20 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Gets or sets the maximum number of receive operations that can be batched together in one transaction."
-  remarks: "The `maxBatchSize` value is only a hint. It is possible that all messages are received before reaching the `maxBatchSize`. When that occurs, it is unnecessary to wait indefinitely for another message to be received. To prevent this from happening, [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] commits the batch early and open a new batch to receive additional messages. The batch is committed if there are no messages to be received and 20 percent of the transaction time-out value has elapsed."
+  summary: "Возвращает или задает максимальное число операций получения, которые могут быть объединены в одну транзакцию."
+  remarks: "`maxBatchSize` Значение является лишь подсказкой. Возможно получение всех сообщений до достижения `maxBatchSize`. Когда это происходит, нет необходимости бесконечное ожидание для получения другого сообщения. Чтобы предотвратить возникновение этой ситуации, [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] рано фиксирует пакет и открывает новый пакет для получения дополнительных сообщений. Фиксация пакета происходит, если нет сообщений для получения и 20 процентов значения времени ожидания транзакции прошло."
   example:
   - "The following code shows how to set the MaxBatchSize property.  \n  \n [!code-cs[UETransactedBatchingCode#2](~/add/codesnippet/csharp/p-system.servicemodel.de_7_1.cs)]"
   syntax:
     content: public int MaxBatchSize { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of receive operations that can be batched together in one transaction."
+      description: "Максимальное число операций получения, которые могут быть объединены вместе в одной транзакции."
   overload: System.ServiceModel.Description.TransactedBatchingBehavior.MaxBatchSize*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>MaxBatchSize</code> is less than 0."
+    description: "<code>MaxBatchSize</code>меньше 0."
   platform:
   - net462
 - uid: System.ServiceModel.Description.TransactedBatchingBehavior.System#ServiceModel#Description#IEndpointBehavior#AddBindingParameters(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Channels.BindingParameterCollection)
@@ -98,17 +98,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Applies binding settings to the specified service endpoint. This method cannot be inherited."
-  remarks: "Enables you to add additional binding parameters to the specified service endpoint. This is normally used when working with a custom binding."
+  summary: "Применяет параметры привязки к заданной конечной точке службы. Этот метод не может наследоваться."
+  remarks: "Можно добавить дополнительные параметры привязки к заданной конечной точке службы. Это обычно используется при работе с пользовательской привязки."
   syntax:
     content: void IEndpointBehavior.AddBindingParameters (System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Channels.BindingParameterCollection bindingParameters);
     parameters:
     - id: serviceEndpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "A service endpoint where behavior settings are applied."
+      description: "Конечная точка службы, где применяются параметры поведения."
     - id: bindingParameters
       type: System.ServiceModel.Channels.BindingParameterCollection
-      description: "A collection of binding parameters that store information used by binding elements to build factories."
+      description: "Коллекция параметров привязки, хранящих сведения, которые используются элементами привязки для создания фабрик."
   overload: System.ServiceModel.Description.TransactedBatchingBehavior.System#ServiceModel#Description#IEndpointBehavior#AddBindingParameters*
   exceptions: []
   platform:
@@ -126,16 +126,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Applies transaction batching behavior settings to the specified service endpoint. This method cannot be inherited."
+  summary: "Применяет указанную конечную точку службы параметры поведения объединения транзакций. Этот метод не может наследоваться."
   syntax:
     content: void IEndpointBehavior.ApplyClientBehavior (System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Dispatcher.ClientRuntime behavior);
     parameters:
     - id: serviceEndpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "A service endpoint where behavior settings are applied."
+      description: "Конечная точка службы, где применяются параметры поведения."
     - id: behavior
       type: System.ServiceModel.Dispatcher.ClientRuntime
-      description: "Contains the transaction batching behavior."
+      description: "Содержит поведение объединения транзакций."
   overload: System.ServiceModel.Description.TransactedBatchingBehavior.System#ServiceModel#Description#IEndpointBehavior#ApplyClientBehavior*
   exceptions: []
   platform:
@@ -153,17 +153,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Associates an endpoint dispatcher with the specified service endpoint. This method cannot be inherited."
-  remarks: "This method is called by [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] to associate a service endpoint with an endpoint dispatcher."
+  summary: "Связывает диспетчера конечной точки с указанной конечной точки службы. Этот метод не может наследоваться."
+  remarks: "Этот метод вызывается методом [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] для связи конечной точки службы с диспетчером конечной точки."
   syntax:
     content: void IEndpointBehavior.ApplyDispatchBehavior (System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Dispatcher.EndpointDispatcher endpointDispatcher);
     parameters:
     - id: serviceEndpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "A service endpoint where behavior settings are applied."
+      description: "Конечная точка службы, где применяются параметры поведения."
     - id: endpointDispatcher
       type: System.ServiceModel.Dispatcher.EndpointDispatcher
-      description: "An endpoint dispatching for dispatching messages"
+      description: "Диспетчеризация конечной точки для диспетчеризации сообщений"
   overload: System.ServiceModel.Description.TransactedBatchingBehavior.System#ServiceModel#Description#IEndpointBehavior#ApplyDispatchBehavior*
   exceptions: []
   platform:
@@ -181,14 +181,14 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Ensures that transacted batching is applicable only for the bindings that support transacted receive operation. This method cannot be inherited."
-  remarks: "This method is called by [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] to ensure that batching is available only for bindings that support transacted receive operations."
+  summary: "Гарантирует, что объединение транзакций применимо только к привязкам, поддерживающим операцию получения транзакции. Этот метод не может наследоваться."
+  remarks: "Этот метод вызывается методом [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] чтобы убедиться, что объединение доступно только для привязок, поддержку получения транзакции операции."
   syntax:
     content: void IEndpointBehavior.Validate (System.ServiceModel.Description.ServiceEndpoint serviceEndpoint);
     parameters:
     - id: serviceEndpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "A service endpoint for which batching behavior is validated."
+      description: "Конечная точка службы, для которой проверяется поведение объединения."
   overload: System.ServiceModel.Description.TransactedBatchingBehavior.System#ServiceModel#Description#IEndpointBehavior#Validate*
   exceptions: []
   platform:

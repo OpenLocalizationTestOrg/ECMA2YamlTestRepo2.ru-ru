@@ -14,8 +14,8 @@ items:
   nameWithType: IFormatter
   fullName: System.Runtime.Serialization.IFormatter
   type: Interface
-  summary: "Provides functionality for formatting serialized objects."
-  remarks: "This interface must be implemented by any class identified as a formatter in the <xref:System.Runtime.Serialization> architecture.       Objects controlling their own serialization can do so by implementing the <xref:System.Runtime.Serialization.ISerializable> interface. In order for an object to be serialized, you must mark that object as being serializable. You can do this by applying the serializable attribute to a class. If any object in the graph is not serializable, serialization will fail."
+  summary: "Предоставляет функциональные возможности для форматирования сериализованных объектов."
+  remarks: "Этот интерфейс должен быть реализован любым классом, идентифицированным как форматер <xref:System.Runtime.Serialization>архитектуры.</xref:System.Runtime.Serialization>       Объекты управления собственную сериализацию можно сделать путем реализации <xref:System.Runtime.Serialization.ISerializable>интерфейса.</xref:System.Runtime.Serialization.ISerializable> Объект для сериализации, следует пометить этот объект как сериализуемый. Это можно сделать, применив к классу атрибут serializable. Если любой объект в графе является несериализуемым, произойдет сбой сериализации."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -36,13 +36,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Gets or sets the <xref href=&quot;System.Runtime.Serialization.SerializationBinder&quot;></xref> that performs type lookups during deserialization."
-  remarks: "When trying to resolve a type from information encoded on the stream, the formatter calls the <xref:System.Runtime.Serialization.SerializationBinder.BindToType%2A> method on the <xref:System.Runtime.Serialization.SerializationBinder>. This method resolves these parameters to a <xref:System.Type> object. The binder can find a <xref:System.Type> at deserialization time that is in a different assembly than it was at serialization time.       Setting this property has no effect during serialization."
+  summary: "Возвращает или задает <xref href=&quot;System.Runtime.Serialization.SerializationBinder&quot;> </xref> , выполняет поиск типа во время десериализации."
+  remarks: "При попытке разрешения типа на основе данных, закодированных в потоке, форматер вызывает <xref:System.Runtime.Serialization.SerializationBinder.BindToType%2A>метод <xref:System.Runtime.Serialization.SerializationBinder>.</xref:System.Runtime.Serialization.SerializationBinder> </xref:System.Runtime.Serialization.SerializationBinder.BindToType%2A> Этот метод разрешает эти параметры для <xref:System.Type>объекта.</xref:System.Type> Связыватель может найти <xref:System.Type>во время десериализации, который находится в другой сборке, чем во время сериализации.</xref:System.Type>       Задание этого свойства не оказывает влияния во время сериализации."
   syntax:
     content: public System.Runtime.Serialization.SerializationBinder Binder { get; set; }
     return:
       type: System.Runtime.Serialization.SerializationBinder
-      description: "The <xref href=&quot;System.Runtime.Serialization.SerializationBinder&quot;></xref> that performs type lookups during deserialization."
+      description: "<xref href=&quot;System.Runtime.Serialization.SerializationBinder&quot;> </xref> , Выполняет поиск типа во время десериализации."
   overload: System.Runtime.Serialization.IFormatter.Binder*
   exceptions: []
   platform:
@@ -59,13 +59,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Gets or sets the <xref:System.Runtime.Serialization.StreamingContext> used for serialization and deserialization."
-  remarks: "The value of this property is passed to any object implementing <xref:System.Runtime.Serialization.ISerializable> or <xref:System.Runtime.Serialization.ISerializationSurrogate>. The <xref:System.Runtime.Serialization.StreamingContext> indicates the destination (during serialization) or the source (during deserialization) of the data. An object implementing <xref:System.Runtime.Serialization.ISerializable> can alter the data that it transmits depending on value of the Context."
+  summary: "Возвращает или задает <xref:System.Runtime.Serialization.StreamingContext>используется для сериализации и десериализации.</xref:System.Runtime.Serialization.StreamingContext>"
+  remarks: "Значение этого свойства передается на любой объект, реализующий <xref:System.Runtime.Serialization.ISerializable>или <xref:System.Runtime.Serialization.ISerializationSurrogate>.</xref:System.Runtime.Serialization.ISerializationSurrogate> </xref:System.Runtime.Serialization.ISerializable> <xref:System.Runtime.Serialization.StreamingContext>Указывает назначение (во время сериализации) или источник (во время десериализации) данных.</xref:System.Runtime.Serialization.StreamingContext> Объект, реализующий <xref:System.Runtime.Serialization.ISerializable>можно изменить данные, которые она передает в зависимости от значения контекста.</xref:System.Runtime.Serialization.ISerializable>"
   syntax:
     content: public System.Runtime.Serialization.StreamingContext Context { get; set; }
     return:
       type: System.Runtime.Serialization.StreamingContext
-      description: "The <xref:System.Runtime.Serialization.StreamingContext> used for serialization and deserialization."
+      description: "<xref:System.Runtime.Serialization.StreamingContext>Используется для сериализации и десериализации.</xref:System.Runtime.Serialization.StreamingContext>"
   overload: System.Runtime.Serialization.IFormatter.Context*
   exceptions: []
   platform:
@@ -82,17 +82,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Deserializes the data on the provided stream and reconstitutes the graph of objects."
-  remarks: "The Deserialize method reads graph information from the stream and reconstructs a clone of the original graph. The topology of the graph is preserved.       The deserialization process allocates an empty object of the appropriate type and repopulates its fields from the data transmitted in the `serializationStream` stream. It is important to note that no constructor is ever called on the object during deserialization."
+  summary: "Десериализует данные в предоставленный поток и воспроизводит граф объектов."
+  remarks: "Метод Deserialize считывает сведения о графе из потока и восстанавливает точную копию исходного графа. Топология графа сохраняется.       В процессе десериализации пустых объектов соответствующего типа и повторно заполняет его полей из данных, переданных в `serializationStream` потока. Важно отметить, что конструктор не когда-либо объекта во время десериализации вызывается."
   syntax:
     content: public object Deserialize (System.IO.Stream serializationStream);
     parameters:
     - id: serializationStream
       type: System.IO.Stream
-      description: "The stream that contains the data to deserialize."
+      description: "Поток, содержащий данные для десериализации."
     return:
       type: System.Object
-      description: "The top object of the deserialized graph."
+      description: "Верхний объект десериализованного графа."
   overload: System.Runtime.Serialization.IFormatter.Deserialize*
   exceptions: []
   platform:
@@ -109,17 +109,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Serializes an object, or graph of objects with the given root to the provided stream."
-  remarks: "The Serialize method automatically serializes the provided objects, and all objects connected to it, to the provided stream.       By default, the serialization process records an object&quot;s state by gathering the values of all its fields (public and private). These fields are saved to the stream along with information about the object such as the name qualified by the assembly for its type."
+  summary: "Сериализует объект или граф объектов с заданным корнем в указанный поток."
+  remarks: "Метод Serialize автоматически сериализует предоставленные объекты и все объекты, связанные с ним, в указанный поток.       По умолчанию в процессе сериализации записывается состояние объекта путем сбора значения его полей (открытого и закрытого). Эти поля сохраняются в поток, а также сведения об объекте, такие как имя с указанием сборки для его типа."
   syntax:
     content: public void Serialize (System.IO.Stream serializationStream, object graph);
     parameters:
     - id: serializationStream
       type: System.IO.Stream
-      description: "The stream where the formatter puts the serialized data. This stream can reference a variety of backing stores (such as files, network, memory, and so on)."
+      description: "Поток, в который форматер помещает сериализованные данные. Этот поток может ссылаться разнообразные запоминающих устройств (таких как файлы, сети, памяти и т. д)."
     - id: graph
       type: System.Object
-      description: "The object, or root of the object graph, to serialize. All child objects of this root object are automatically serialized."
+      description: "Объект или корень графа объекта для сериализации. Все дочерние объекты этого корневого объекта сериализуются автоматически."
   overload: System.Runtime.Serialization.IFormatter.Serialize*
   exceptions: []
   platform:
@@ -136,13 +136,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Gets or sets the <xref href=&quot;System.Runtime.Serialization.SurrogateSelector&quot;></xref> used by the current formatter."
-  remarks: "A <xref:System.Runtime.Serialization.ISerializationSurrogate> allows the user to specify an object best suited to handle the serialization of a particular object or class of objects. Think of it as an implementation of <xref:System.Runtime.Serialization.ISerializable> but provided by a different object."
+  summary: "Возвращает или задает <xref href=&quot;System.Runtime.Serialization.SurrogateSelector&quot;> </xref> используемые текущего модуля форматирования."
+  remarks: "Объект <xref:System.Runtime.Serialization.ISerializationSurrogate>дает пользователю возможность указать объект, наиболее подходящий для обработки сериализации конкретного объекта или класса объектов.</xref:System.Runtime.Serialization.ISerializationSurrogate> Представьте себе, как реализация <xref:System.Runtime.Serialization.ISerializable>, предоставленной другой объект.</xref:System.Runtime.Serialization.ISerializable>"
   syntax:
     content: public System.Runtime.Serialization.ISurrogateSelector SurrogateSelector { get; set; }
     return:
       type: System.Runtime.Serialization.ISurrogateSelector
-      description: "The <xref href=&quot;System.Runtime.Serialization.SurrogateSelector&quot;></xref> used by this formatter."
+      description: "<xref href=&quot;System.Runtime.Serialization.SurrogateSelector&quot;> </xref> Используется этого модуля форматирования."
   overload: System.Runtime.Serialization.IFormatter.SurrogateSelector*
   exceptions: []
   platform:

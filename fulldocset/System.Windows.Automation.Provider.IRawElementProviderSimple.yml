@@ -13,8 +13,8 @@ items:
   nameWithType: IRawElementProviderSimple
   fullName: System.Windows.Automation.Provider.IRawElementProviderSimple
   type: Interface
-  summary: "Provides methods and properties that expose basic information about a UI element."
-  remarks: "This interface can be implemented on UI Automation providers for simple elements such as buttons. It can also be implemented on providers that contribute additional properties or control patterns, or override existing properties or control patterns, on an element that already has a default provider.       Providers for complex elements must implement <xref:System.Windows.Automation.Provider.IRawElementProviderFragment> or <xref:System.Windows.Automation.Provider.IRawElementProviderFragmentRoot>."
+  summary: "Предоставляет методы и свойства, которые предоставляют основные сведения об элементе пользовательского интерфейса."
+  remarks: "Этот интерфейс можно реализовать на Поставщики автоматизации пользовательского интерфейса для простых элементов, таких как кнопки. Он также быть реализован для поставщиков, добавляющих дополнительные свойства или шаблоны элементов управления, или переопределить существующие свойства и шаблоны элементов управления, на элемент, который уже имеет поставщик по умолчанию.       Поставщики для сложных элементов следует реализовать <xref:System.Windows.Automation.Provider.IRawElementProviderFragment>или <xref:System.Windows.Automation.Provider.IRawElementProviderFragmentRoot>.</xref:System.Windows.Automation.Provider.IRawElementProviderFragmentRoot> </xref:System.Windows.Automation.Provider.IRawElementProviderFragment>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -39,7 +39,7 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Retrieves an object that provides support for a control pattern on a [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element."
+  summary: "Извлекает объект, который поддерживает шаблон элемента управления на [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] элемент."
   remarks: ''
   example:
   - "The following example shows an implementation of GetPatternProvider for a provider that supports only <xref:System.Windows.Automation.InvokePattern>.  \n  \n [!code-cs[UIAProvider_snip#101](~/add/codesnippet/csharp/UIAProvider/FragmentRoot.cs#101)]\n [!code-vb[UIAProvider_snip#101](~/add/codesnippet/visualbasic/UIAProviderVB/FragmentRoot.vb#101)]"
@@ -48,10 +48,10 @@ items:
     parameters:
     - id: patternId
       type: System.Int32
-      description: "Identifier of the pattern."
+      description: "Идентификатор шаблона."
     return:
       type: System.Object
-      description: "Object that implements the pattern interface, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the pattern is not supported."
+      description: "Объект, реализующий интерфейс шаблона, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если шаблон не поддерживается."
   overload: System.Windows.Automation.Provider.IRawElementProviderSimple.GetPatternProvider*
   exceptions: []
   platform:
@@ -68,8 +68,8 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Retrieves the value of a property supported by the UI Automation provider."
-  remarks: "A provider should return <xref:System.Windows.Automation.AutomationElementIdentifiers.NotSupported> only if it is explicitly hiding the property value and the request is not to be passed through to other providers."
+  summary: "Извлекает значение свойства, поддерживаемые поставщиком модели автоматизации пользовательского интерфейса."
+  remarks: "Поставщик должен возвращать <xref:System.Windows.Automation.AutomationElementIdentifiers.NotSupported>только в том случае, если она явно скрывает значение свойства и запрос не должен передаваться с другими поставщиками.</xref:System.Windows.Automation.AutomationElementIdentifiers.NotSupported>"
   example:
   - "The following code example shows an implementation of GetPropertyValue for a custom button control.  \n  \n [!code-cs[UIAProvider_snip#102](~/add/codesnippet/csharp/UIAProvider/FragmentRoot.cs#102)]\n [!code-vb[UIAProvider_snip#102](~/add/codesnippet/visualbasic/UIAProviderVB/FragmentRoot.vb#102)]"
   syntax:
@@ -77,10 +77,10 @@ items:
     parameters:
     - id: propertyId
       type: System.Int32
-      description: "The property identifier."
+      description: "Идентификатор свойства."
     return:
       type: System.Object
-      description: "The property value, or a <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the property is not supported by this provider, or <xref href=&quot;System.Windows.Automation.AutomationElementIdentifiers.NotSupported&quot;></xref> if it is not supported at all."
+      description: "Значение свойства или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если свойство не поддерживается этим поставщиком или <xref href=&quot;System.Windows.Automation.AutomationElementIdentifiers.NotSupported&quot;> </xref> если вообще не поддерживается."
   overload: System.Windows.Automation.Provider.IRawElementProviderSimple.GetPropertyValue*
   exceptions: []
   platform:
@@ -97,15 +97,15 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a base provider for this element."
-  remarks: "This property is the UI Automation provider for the window of a custom control. [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] uses this provider in combination with your provider implementation for a control hosted in a window. For example, the run-time identifier of the element is obtained from the host provider.       A host provider must be returned in any of the following cases:      -   This element is the root of a fragment.      -   The element is a simple element such as a pushbutton.      -   The provider is a repositioning placeholder.       In other cases, the property should return `null`."
+  summary: "Возвращает базовый поставщик для этого элемента."
+  remarks: "Это свойство является поставщик автоматизации пользовательского интерфейса для окна пользовательского элемента управления. [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)]использует этот поставщик в сочетании с реализацией пользовательского поставщика для элемента управления, размещенного в окне. Например идентификатор среды выполнения элемента берется из поставщика узла.       Этот поставщик должен быть возвращен в любом из следующих случаев:-этот элемент является корневым элементом фрагмента.      -Элемент является простой элемент, такой как кнопка.      -Поставщик — это репозиционирующим.       В других случаях это свойство должно возвращать `null`."
   example:
   - "The following example code shows an implementation of HostRawElementProvider for a fragment root that is hosted in a Windows form.  \n  \n [!code-cs[UIAProvider_snip#103](~/add/codesnippet/csharp/UIAProvider/FragmentRoot.cs#103)]\n [!code-vb[UIAProvider_snip#103](~/add/codesnippet/visualbasic/UIAProviderVB/FragmentRoot.vb#103)]"
   syntax:
     content: public System.Windows.Automation.Provider.IRawElementProviderSimple HostRawElementProvider { get; }
     return:
       type: System.Windows.Automation.Provider.IRawElementProviderSimple
-      description: "The base provider, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Базовый поставщик или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Automation.Provider.IRawElementProviderSimple.HostRawElementProvider*
   exceptions: []
   platform:
@@ -122,8 +122,8 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a value that specifies characteristics of the UI Automation provider; for example, whether it is a client-side or server-side provider."
-  remarks: '[!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] treats different types of providers differently. For example, events from server-side providers are broadcast to all listening UI Automation client processes, but events from client-side providers remain in that client process.'
+  summary: "Получает значение, указывающее характеристики поставщика автоматизации пользовательского интерфейса; Например будь то поставщик клиента или на стороне сервера."
+  remarks: '[!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)]по-разному обрабатывает различных типов поставщиков. Например события из поставщиков на стороне сервера рассылаются все прослушивания процессы клиента автоматизации пользовательского интерфейса, но событий из поставщиков на стороне клиента, остаются в клиентском процессе.'
   example:
   - "The following example code shows an implementation of ProviderOptions for a server-side UI Automation provider.  \n  \n [!code-cs[UIAProvider_snip#104](~/add/codesnippet/csharp/UIAProvider/FragmentRoot.cs#104)]\n [!code-vb[UIAProvider_snip#104](~/add/codesnippet/visualbasic/UIAProviderVB/FragmentRoot.vb#104)]"
   syntax:
