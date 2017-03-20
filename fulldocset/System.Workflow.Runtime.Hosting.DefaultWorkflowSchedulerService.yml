@@ -18,8 +18,8 @@ items:
   nameWithType: DefaultWorkflowSchedulerService
   fullName: System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService
   type: Class
-  summary: "Creates and manages the threads that run workflow instances on the workflow runtime engine."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       DefaultWorkflowSchedulerService is used by the workflow runtime engine by default. It includes default support for having multiple workflow instances queued in the runtime thread pool. If you want to control the thread that is responsible for executing the workflow, use <xref:System.Workflow.Runtime.Hosting.ManualWorkflowSchedulerService>."
+  summary: "Создает и управляет потоками, выполняющими экземпляры рабочих процессов на механизм среды выполнения рабочего процесса."
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]DefaultWorkflowSchedulerService используется подсистемой среды выполнения рабочего процесса по умолчанию. Эта роль по умолчанию поддерживает наличие нескольких экземпляров в очередь в пуле потоков среды выполнения рабочего процесса. Если вы хотите контролировать поток, который отвечает за выполнение рабочего процесса, используйте <xref:System.Workflow.Runtime.Hosting.ManualWorkflowSchedulerService>.</xref:System.Workflow.Runtime.Hosting.ManualWorkflowSchedulerService>"
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -77,21 +77,21 @@ items:
     parameters:
     - id: parameters
       type: System.Collections.Specialized.NameValueCollection
-      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;></xref> that holds initialization information."
+      description: "Объект <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;> </xref> , содержащий сведения об инициализации."
   overload: System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>parameters</code> contains a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>parameters</code>содержит пустую ссылку (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> в Visual Basic)."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One of the key values in the <code>parameters</code> collection contains a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>).       --or--       One of the key values in the <code>parameters</code> collection does not match the default key for <xref href=&quot;System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService&quot;></xref>."
+    description: "Одно из ключевых значений в <code> parameters </code> коллекции содержит пустую ссылку (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>).       Одно из ключевых значений в--или-- <code> parameters </code> коллекции не соответствует ключу по умолчанию для <xref href=&quot;System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService&quot;> </xref>."
   - type: System.FormatException
     commentId: T:System.FormatException
-    description: "One of the parameters cannot be converted to a double-precision floating point number that matches <xref:System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.MaxSimultaneousWorkflows*>."
+    description: "Один из параметров не может быть преобразован в число двойной точности с плавающей запятой, соответствующий <xref:System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.MaxSimultaneousWorkflows*>.</xref:System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.MaxSimultaneousWorkflows*>"
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<xref:System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.MaxSimultaneousWorkflows*> is less than 1."
+    description: "<xref:System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.MaxSimultaneousWorkflows*>-меньше 1.</xref:System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.MaxSimultaneousWorkflows*>"
   platform:
   - net462
 - uid: System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.#ctor(System.Int32)
@@ -106,19 +106,19 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService&quot;></xref> class by using the specified maximum number of workflow instances that the service can run simultaneously."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService&quot;> </xref> , используя указанное максимальное количество экземпляров рабочих процессов, которые службы могут выполняться одновременно."
   remarks: "Setting `maxSimultaneousWorkflows` to a high value might cause the .NET thread pool to starve. This could cause time-outs when a persistence service tries to complete a persistence transaction because <xref:System.Transactions.Transaction> objects also use the .NET thread pool.  \n  \n If not specified in a constructor or configuration file, the default value for `maxSimultaneousWorkflows` is 5 for a single-processor machine, and (int)(5 * Environment.ProcessorCount \\* .8) for a multiple-processor machine. Note that (int)(5 \\* Environment.ProcessorCount \\* .8) is not always the same as (int)(4 \\* Environment.ProcessorCount), because of the rules of integer arithmetic."
   syntax:
     content: public DefaultWorkflowSchedulerService (int maxSimultaneousWorkflows);
     parameters:
     - id: maxSimultaneousWorkflows
       type: System.Int32
-      description: "An integer that determines the maximum number of workflow instances that can be stored in the thread pool queue."
+      description: "Целое число, определяющее максимальное количество экземпляров рабочих процессов, которые могут храниться в очереди пула потоков."
   overload: System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.#ctor*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>maxSimultaneousWorkflows</code> is less than 1."
+    description: "<code>maxSimultaneousWorkflows</code>-меньше 1."
   platform:
   - net462
 - uid: System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.Cancel(System.Guid)
@@ -133,18 +133,18 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Cancels the specified existing workflow instance work item."
+  summary: "Отменяет заданный элемент рабочих существующего экземпляра рабочего процесса."
   syntax:
     content: protected override void Cancel (Guid timerId);
     parameters:
     - id: timerId
       type: System.Guid
-      description: "The <xref:System.Guid> associated with the existing scheduled work item to cancel."
+      description: "<xref:System.Guid>Связанные с существующие запланированный рабочий элемент для отмены.</xref:System.Guid>"
   overload: System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.Cancel*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>timerId</code> is an empty GUID."
+    description: "<code>timerId</code>является пустой GUID."
   platform:
   - net462
 - uid: System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.MaxSimultaneousWorkflows
@@ -159,13 +159,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Gets the maximum number of workflow instances that can be stored in the thread pool queue."
-  remarks: "The default value for this method is 5 for a single-processor machine, and (int)(5 * Environment.ProcessorCount \\* .8) for a multiple-processor machine. Note that (int)(5 \\* Environment.ProcessorCount \\* .8) is not always the same as (int)(4 \\* Environment.ProcessorCount), because of the rules of integer arithmetic."
+  summary: "Возвращает максимальное количество экземпляров рабочих процессов, которые могут храниться в очереди пула потоков."
+  remarks: "Значение по умолчанию для этого метода — 5 для однопроцессорного компьютера и (int) (5 * Environment.ProcessorCount \\* .8) для многопроцессорного компьютера. Обратите внимание, что (int) (5 \\* Environment.ProcessorCount \\* .8) не всегда является таким же, как (int) (4 \\* Environment.ProcessorCount), из-за правил целочисленных арифметических операций."
   syntax:
     content: public int MaxSimultaneousWorkflows { get; }
     return:
       type: System.Int32
-      description: "An integer that represents the maximum number of workflow instances that can be stored in the thread pool queue."
+      description: "Целое число, представляющее максимальное количество экземпляров рабочих процессов, которые могут храниться в очереди пула потоков."
   overload: System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.MaxSimultaneousWorkflows*
   exceptions: []
   platform:
@@ -182,8 +182,8 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Notifies the <xref href=&quot;System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService&quot;></xref> that a workflow instance has started to run."
-  remarks: "OnStarted creates a thread for the first work item in the list of items waiting to be included in the workflow instance thread pool."
+  summary: "Уведомляет <xref href=&quot;System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService&quot;> </xref> , начало выполнения экземпляра рабочего процесса."
+  remarks: "OnStarted создает поток для первого рабочего элемента в список элементов, ожидающих включения в пул потоков экземпляров рабочих процессов."
   syntax:
     content: protected override void OnStarted ();
     parameters: []
@@ -203,22 +203,22 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Adds a workflow instance to the pending work items queue using the specified workflow instance using the specified multicast delegate."
-  remarks: "Use the <xref:System.Threading.WaitCallback> constructor to create your delegate method to run in the new thread."
+  summary: "Добавляет экземпляр рабочего процесса в очередь ожидающих рабочих элементов, с помощью заданного экземпляра рабочего процесса с помощью заданного многоадресного делегата."
+  remarks: "Используйте <xref:System.Threading.WaitCallback>конструктор для создания метода делегата для выполнения в новом потоке.</xref:System.Threading.WaitCallback>"
   syntax:
     content: protected override void Schedule (System.Threading.WaitCallback callback, Guid workflowInstanceId);
     parameters:
     - id: callback
       type: System.Threading.WaitCallback
-      description: "A <xref href=&quot;System.Threading.WaitCallback&quot;></xref> multicast delegate that represents the method to run."
+      description: "Объект <xref href=&quot;System.Threading.WaitCallback&quot;> </xref> групповой делегат, представляющий выполняемый метод."
     - id: workflowInstanceId
       type: System.Guid
-      description: "A <xref:System.Guid> that represents the workflow instance."
+      description: "Объект <xref:System.Guid>, представляющий экземпляр рабочего процесса.</xref:System.Guid>"
   overload: System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.Schedule*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>callback</code> contains a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>callback</code>содержит пустую ссылку (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> в Visual Basic)."
   platform:
   - net462
 - uid: System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.Schedule(System.Threading.WaitCallback,System.Guid,System.DateTime,System.Guid)
@@ -233,31 +233,31 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Adds the specified workflow instance to the pending work item queue using the specified multicast delegate, <xref:System.DateTime> and GUIDs."
-  remarks: "Use the <xref:System.Threading.WaitCallback> constructor to create your delegate method to run in the new thread."
+  summary: "Добавляет заданный экземпляр рабочего процесса в очередь ожидающих рабочих элементов, с помощью заданного многоадресного делегата, <xref:System.DateTime>и GUID.</xref:System.DateTime>"
+  remarks: "Используйте <xref:System.Threading.WaitCallback>конструктор для создания метода делегата для выполнения в новом потоке.</xref:System.Threading.WaitCallback>"
   syntax:
     content: protected override void Schedule (System.Threading.WaitCallback callback, Guid workflowInstanceId, DateTime whenUtc, Guid timerId);
     parameters:
     - id: callback
       type: System.Threading.WaitCallback
-      description: "A <xref href=&quot;System.Threading.WaitCallback&quot;></xref> multicast delegate that represents the method to run."
+      description: "Объект <xref href=&quot;System.Threading.WaitCallback&quot;> </xref> групповой делегат, представляющий выполняемый метод."
     - id: workflowInstanceId
       type: System.Guid
-      description: "A <xref:System.Guid> that represents the workflow instance."
+      description: "Объект <xref:System.Guid>, представляющий экземпляр рабочего процесса.</xref:System.Guid>"
     - id: whenUtc
       type: System.DateTime
-      description: "The <xref:System.DateTime> that indicates the time to begin running the thread."
+      description: "<xref:System.DateTime>Указывает время начала выполнения потока.</xref:System.DateTime>"
     - id: timerId
       type: System.Guid
-      description: "A <xref:System.Guid> that represents the scheduled thread."
+      description: "Объект <xref:System.Guid>, представляющий запланированный поток.</xref:System.Guid>"
   overload: System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.Schedule*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>callback</code> contains a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>callback</code>содержит пустую ссылку (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> в Visual Basic)."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>workflowInstanceId</code> or <code>timerId</code> is an empty GUID."
+    description: "<code>workflowInstanceId</code>или <code>timerId</code> используется пустой GUID."
   platform:
   - net462
 - uid: System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService.Stop
@@ -272,7 +272,7 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Stops the currently running thread on the workflow instance and any timers that are running."
+  summary: "Останавливает экземпляр рабочего процесса и любые выполняемые таймеры в данный момент поток."
   syntax:
     content: protected override void Stop ();
     parameters: []
