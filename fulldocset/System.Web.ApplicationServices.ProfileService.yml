@@ -15,8 +15,8 @@ items:
   nameWithType: ProfileService
   fullName: System.Web.ApplicationServices.ProfileService
   type: Class
-  summary: "Enables access to ASP.NET user profiles through a Web service."
-  remarks: "The ProfileService class enables you to get and set a user&quot;s profile properties through a Windows Communication Foundation (WCF) service. You can keep custom information for users through profile properties. For information about profile properties, see [ASP.NET Profile Properties Overview](~/add/includes/ajax-current-ext-md.md).       The ProfileService class contains the following methods that should be accessed only through a WCF service:      -   <xref:System.Web.ApplicationServices.ProfileService.GetPropertiesForCurrentUser%2A>      -   <xref:System.Web.ApplicationServices.ProfileService.GetAllPropertiesForCurrentUser%2A>      -   <xref:System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser%2A>      -   <xref:System.Web.ApplicationServices.ProfileService.GetPropertiesMetadata%2A>       To call these methods, you must enable the profile service on the Web server and then connect a WCF-compatible client application to the Web service. For information about how to configure the profile service, see [How to: Enable the WCF Profile Service](~/add/includes/ajax-current-ext-md.md).       The <xref:System.Web.ApplicationServices.ProfileService.ValidatingProperties> event is raised when a user&quot;s profile properties are set. You can create an event handler for the <xref:System.Web.ApplicationServices.ProfileService.ValidatingProperties> event to validate property values or to dynamically change their values.       For an example of how to use the WCF profile service from a console application, see [Walkthrough: Using ASP.NET Application Services](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Обеспечивает доступ к профилям пользователей ASP.NET посредством веб-службы."
+  remarks: "Класс ProfileService позволяет получать и задавать свойства профиля пользователя через службы Windows Communication Foundation (WCF). Можно сохранить пользовательские данные для пользователей с помощью свойств профиля. Сведения о свойствах профиля см. в разделе [Общие сведения о свойствах профиля ASP.NET](~/add/includes/ajax-current-ext-md.md).       Класс ProfileService содержит следующие методы, которые должны быть доступны только через службы WCF:- <xref:System.Web.ApplicationServices.ProfileService.GetPropertiesForCurrentUser%2A>- <xref:System.Web.ApplicationServices.ProfileService.GetAllPropertiesForCurrentUser%2A>- <xref:System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser%2A>- <xref:System.Web.ApplicationServices.ProfileService.GetPropertiesMetadata%2A>вызов этих методов, необходимо включить эти службы на веб-сервере и затем подключить клиентское приложение WCF-совместимых веб-службы.</xref:System.Web.ApplicationServices.ProfileService.GetPropertiesMetadata%2A> </xref:System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser%2A> </xref:System.Web.ApplicationServices.ProfileService.GetAllPropertiesForCurrentUser%2A> </xref:System.Web.ApplicationServices.ProfileService.GetPropertiesForCurrentUser%2A> Сведения о настройке службы профилей см. в разделе [как: Включение службы профилей WCF](~/add/includes/ajax-current-ext-md.md).       <xref:System.Web.ApplicationServices.ProfileService.ValidatingProperties>Событие возникает при задании свойств профиля пользователя.</xref:System.Web.ApplicationServices.ProfileService.ValidatingProperties> Можно создать обработчик событий для <xref:System.Web.ApplicationServices.ProfileService.ValidatingProperties>событий для проверки значений свойств или динамически изменять их значения.</xref:System.Web.ApplicationServices.ProfileService.ValidatingProperties>       Пример использования службы профилей WCF в консольном приложении см. в разделе [Пошаговое руководство: использование служб приложений ASP.NET](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: >-
       [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode=System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Required)]
@@ -46,7 +46,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.ApplicationServices
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.ApplicationServices.ProfileService&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.Web.ApplicationServices.ProfileService&quot;> </xref> класса."
   syntax:
     content: public ProfileService ();
     parameters: []
@@ -66,17 +66,17 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.ApplicationServices
-  summary: "Retrieves all the profile properties and values that are available to the profile service for the current user."
-  remarks: "Use the GetAllPropertiesForCurrentUser method to retrieve all the user&quot;s profile properties through one Web service call. For example, you can call this method and then store the profile properties in the client application and retrieve values as needed. The GetAllPropertiesForCurrentUser method returns values only for the profile properties that have been configured to be accessed through a Web service. You set whether a profile property can be accessed through a Web service by setting either the <xref:System.Web.Configuration.ScriptingProfileServiceSection.ReadAccessProperties%2A> property or the <xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A> property to `true`."
+  summary: "Возвращает все свойства профиля и значений, доступных в службе профилей для текущего пользователя."
+  remarks: "Используйте метод GetAllPropertiesForCurrentUser для извлечения свойств профиля пользователя через один вызов веб-службы. Например можно вызвать этот метод и затем сохранить свойства профиля в клиентском приложении и извлекать значения, при необходимости. Метод GetAllPropertiesForCurrentUser возвращает значения только для свойств профиля, которые были настроены для доступа через веб-службу. Задать ли свойство профиля может осуществляться через веб-службы путем задания либо <xref:System.Web.Configuration.ScriptingProfileServiceSection.ReadAccessProperties%2A>свойство или <xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A>Свойства `true`.</xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A> </xref:System.Web.Configuration.ScriptingProfileServiceSection.ReadAccessProperties%2A>"
   syntax:
     content: public System.Collections.Generic.Dictionary<string,object> GetAllPropertiesForCurrentUser (bool authenticatedUserOnly);
     parameters:
     - id: authenticatedUserOnly
       type: System.Boolean
-      description: "A value that indicates whether properties are returned only for users who have been authenticated."
+      description: "Значение, указывающее, возвращаются ли свойства только для пользователей, которые прошли проверку подлинности."
     return:
       type: System.Collections.Generic.Dictionary{System.String,System.Object}
-      description: "The profile properties and values."
+      description: "Свойства профиля и значения."
   overload: System.Web.ApplicationServices.ProfileService.GetAllPropertiesForCurrentUser*
   exceptions: []
   platform:
@@ -93,25 +93,25 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.ApplicationServices
-  summary: "Retrieves the specified profile properties and values for the current user."
-  remarks: "To get specific profile property values for the current users, you use the GetPropertiesForCurrentUser method to specify which profile properties are retrieved. The GetPropertiesForCurrentUser method returns values only for profile properties that are configured for access through a Web service. You configure a profile property for access through a Web service by setting the <xref:System.Web.Configuration.ScriptingProfileServiceSection.ReadAccessProperties%2A> property or <xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A> property to `true`."
+  summary: "Возвращает свойства указанного профиля и значений для текущего пользователя."
+  remarks: "Для получения значений свойств конкретного профиля для текущих пользователей, чтобы указать свойства профиля, извлекаемые используется метод GetPropertiesForCurrentUser. Метод GetPropertiesForCurrentUser возвращает значения только для свойств профиля, которые настроены для доступа через веб-службы. Настройте свойства профиля для доступа через веб-службы, задав <xref:System.Web.Configuration.ScriptingProfileServiceSection.ReadAccessProperties%2A>свойство или <xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A>Свойства `true`.</xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A> </xref:System.Web.Configuration.ScriptingProfileServiceSection.ReadAccessProperties%2A>"
   syntax:
     content: public System.Collections.Generic.Dictionary<string,object> GetPropertiesForCurrentUser (System.Collections.Generic.IEnumerable<string> properties, bool authenticatedUserOnly);
     parameters:
     - id: properties
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: "A collection of string values that contains the names of the profile properties to retrieve."
+      description: "Коллекция строковых значений, содержащий имена свойств профиля, для извлечения."
     - id: authenticatedUserOnly
       type: System.Boolean
-      description: "A value that indicates whether properties are returned only for users who have been authenticated."
+      description: "Значение, указывающее, возвращаются ли свойства только для пользователей, которые прошли проверку подлинности."
     return:
       type: System.Collections.Generic.Dictionary{System.String,System.Object}
-      description: "The profile property information and values."
+      description: "Сведения о свойствах профиля и значения."
   overload: System.Web.ApplicationServices.ProfileService.GetPropertiesForCurrentUser*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <code>properties</code> parameter or an item in the <code>properties</code> collection is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code> properties </code> Параметр или элемент в <code> properties </code> коллекция <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.Web.ApplicationServices.ProfileService.GetPropertiesMetadata
@@ -126,14 +126,14 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.ApplicationServices
-  summary: "Retrieves information about the profile properties that are available through the profile service."
-  remarks: "Use the GetPropertiesMetadata method to retrieve information about profile properties from a client application that is compatible with the Windows Communication Framework (WCF). You can retrieve information such as the following:      -   The name and type of the properties.      -   Whether they are read-only.      -   Whether they can be accessed by users who have not been authenticated.      -   The default values for the properties.       After retrieving these values, a client application can take appropriate actions such as not trying to set a read-only property. The current user does not have to be authenticated in order to call the GetPropertiesMetadata method, because the properties apply to all users."
+  summary: "Возвращает сведения о свойствах профиля, доступных через службу профиля."
+  remarks: "Используйте метод GetPropertiesMetadata для получения сведений о свойствах профиля из клиентского приложения, совместимые с Windows Communication Framework (WCF). Можно также получить сведения примерно следующего вида:-имя и тип свойства.      -Ли они доступны только для чтения.      -Ли они обращаются пользователи, не прошедшие проверку подлинности.      -Значения по умолчанию для свойств.       После получения этих значений, клиентское приложение может выполнять соответствующие действия, например, не пытаться задать свойство только для чтения. Текущий пользователь не имеет проходить проверку подлинности для вызова метода GetPropertiesMetadata, так как свойства применяются ко всем пользователям."
   syntax:
     content: public System.Web.ApplicationServices.ProfilePropertyMetadata[] GetPropertiesMetadata ();
     parameters: []
     return:
       type: System.Web.ApplicationServices.ProfilePropertyMetadata[]
-      description: "An array of <xref href=&quot;System.Web.ApplicationServices.ProfilePropertyMetadata&quot;></xref> objects that contain information about the profile properties."
+      description: "Массив <xref href=&quot;System.Web.ApplicationServices.ProfilePropertyMetadata&quot;> </xref> объекты, содержащие сведения о свойствах профиля."
   overload: System.Web.ApplicationServices.ProfileService.GetPropertiesMetadata*
   exceptions: []
   platform:
@@ -150,20 +150,20 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.ApplicationServices
-  summary: "Sets the values of the specified properties in the user profile."
-  remarks: "You use the SetPropertiesForCurrentUser method to set a user&quot;s profile properties from an application that is compatible with the Windows Communication Foundation (WCF). The SetPropertiesForCurrentUser method returns any values that are not set, which might be for any one of the following reasons:      -   The specified profile property is read only (the <xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A> property for a specified profile property is not set to `true`).      -   The user profile does not have a profile property that has the matching name.      -   Validation of the value failed."
+  summary: "Задает значения указанных свойств в профиле пользователя."
+  remarks: "Метод SetPropertiesForCurrentUser используется для установки свойств профиля пользователя из приложения, совместимые с Windows Communication Foundation (WCF). Метод SetPropertiesForCurrentUser возвращает все значения, не заданы, которые могут использоваться в качестве любого из следующих причин:-указанного свойства профиля только для чтения ( <xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A>для указанного профиля свойства не задано значение `true`).</xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A>      -Профиль пользователя не имеет свойство профиля с соответствующим именем.      -Сбой при проверке значения."
   syntax:
     content: public System.Collections.ObjectModel.Collection<string> SetPropertiesForCurrentUser (System.Collections.Generic.IDictionary<string,object> values, bool authenticatedUserOnly);
     parameters:
     - id: values
       type: System.Collections.Generic.IDictionary{System.String,System.Object}
-      description: "A collection that contains names and values of the profile properties to set."
+      description: "Набор, содержащий имена и значения свойств профиля, для установки."
     - id: authenticatedUserOnly
       type: System.Boolean
-      description: "A value that indicates whether properties are set only for users who have been authenticated."
+      description: "Значение, указывающее, заданы ли свойства только для пользователей, которые прошли проверку подлинности."
     return:
       type: System.Collections.ObjectModel.Collection{System.String}
-      description: "The properties that were not set for the user profile, if any."
+      description: "Свойства, которые не были заданы для профиля пользователя, если таковые имеются."
   overload: System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser*
   exceptions: []
   platform:
@@ -180,15 +180,15 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.ApplicationServices
-  summary: "Occurs when a user&quot;s profile properties are set."
-  remarks: "You can create an event handler for the ValidatingProperties event to validate property values or to dynamically change their values. The ValidatingProperties event is raised when the <xref:System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser%2A> method is called. If the value for a property fails validation, add that property to the <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A> collection of the <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs> class. Any properties that are in the <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A> collection will not be saved to the user profile.       You can add and register the event handler in the Global.asax file."
+  summary: "Возникает, если свойства профиля пользователя."
+  remarks: "Можно создать обработчик событий для события ValidatingProperties для проверки значений свойств или динамически изменять их значения. Событие ValidatingProperties при <xref:System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser%2A>вызывается метод.</xref:System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser%2A> Значение для свойства не проходит проверку, добавьте это свойство в <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A>коллекцию <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs>класса.</xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs> </xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A> Все свойства, которые находятся в <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A>коллекции не будут сохранены в профиль пользователя.</xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A>       Можно добавить и регистрации обработчика событий в файле Global.asax."
   example:
   - "The following example shows an event handler for the ValidatingProperties event. When the value passed for `FirstName` property is empty or `null`, the `FirstName` property is added to the <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A> collection.  \n  \n [!code-vb[System.Web.ApplicationServices.ProfileService#1](~/add/codesnippet/visualbasic/e-system.web.application_2_1.asax)]\n [!code-cs[System.Web.ApplicationServices.ProfileService#1](~/add/codesnippet/csharp/e-system.web.application_2_1.asax)]"
   syntax:
     content: public static event EventHandler<System.Web.ApplicationServices.ValidatingPropertiesEventArgs> ValidatingProperties;
     return:
       type: System.EventHandler{System.Web.ApplicationServices.ValidatingPropertiesEventArgs}
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
