@@ -11,8 +11,8 @@ items:
   nameWithType: IClientChannelSinkStack
   fullName: System.Runtime.Remoting.Channels.IClientChannelSinkStack
   type: Interface
-  summary: "Provides functionality for a stack of client channel sinks that must be invoked during an asynchronous message response decoding."
-  remarks: "The IClientChannelSinkStack is used during processing of responses to asynchronous calls.       During a synchronous call, the <xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A?displayProperty=fullName> method is called when a message is outbound to the server. Each sink in the sink chain calls the <xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A> method on the next sink until the call reaches the transport sink at the end of the chain. From there the message is transported to the server.       When the formatter sink is called through the <xref:System.Runtime.Remoting.Messaging.IMessageSink.AsyncProcessMessage%2A> method, it dispatches the call asynchronously by calling <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest%2A> on the next channel sink. A stack of reply sinks is needed to process the response. Any sink that wants to process the response needs to push itself to the client channel sink stack inside of <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest%2A>."
+  summary: "Предоставляет функциональные возможности для стека клиента приемники каналов, который должен вызываться при декодировании асинхронного ответа."
+  remarks: "IClientChannelSinkStack используется во время обработки ответов на асинхронные вызовы.       Во время синхронного вызова <xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A?displayProperty=fullName>метод вызывается, когда сообщение является исходящим на сервер.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A?displayProperty=fullName> Каждый приемник в цепи приемников вызывает <xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A>метод для следующего приемника, пока вызов не достигает транспортного приемника в конце цепи.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A> Оттуда сообщение передается на сервер.       Когда приемник модуля форматирования вызывается через <xref:System.Runtime.Remoting.Messaging.IMessageSink.AsyncProcessMessage%2A>метод, он передает вызов асинхронно путем вызова <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest%2A>для следующего приемника канала.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest%2A> </xref:System.Runtime.Remoting.Messaging.IMessageSink.AsyncProcessMessage%2A> Стек приемников ответов необходим для обработки ответа. Любой приемник, который должен обработать ответ должен передать себя стека приемника канала клиента внутри <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest%2A>.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest%2A>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -34,21 +34,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Pops the information associated with all the sinks from the sink stack up to and including the specified sink."
+  summary: "Выводит сведения, связанные со всеми приемниками из стека приемника до и включая указанный приемник."
   syntax:
     content: public object Pop (System.Runtime.Remoting.Channels.IClientChannelSink sink);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IClientChannelSink
-      description: "The sink to remove and return from the sink stack."
+      description: "Чтобы удалить и вернуть из стека приемника приемник."
     return:
       type: System.Object
-      description: "Information generated on the request side and associated with the specified sink."
+      description: "Сведения, созданные на стороне запроса и связанные с указанным приемником."
   overload: System.Runtime.Remoting.Channels.IClientChannelSinkStack.Pop*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IClientChannelSinkStack.Push(System.Runtime.Remoting.Channels.IClientChannelSink,System.Object)
@@ -63,22 +63,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Pushes the specified sink and information associated with it onto the sink stack."
-  remarks: "The information generated on the request side and specified in the `state` parameter is returned in the `state` parameter of the <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse%2A> method on the corresponding sink."
+  summary: "Переносит указанный приемник и сведения, связанные с ним в стек приемника."
+  remarks: "Сведения, созданные на стороне запроса и указанные в `state` параметр возвращается в `state` параметр <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse%2A>метод в соответствующем приемнике.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse%2A>"
   syntax:
     content: public void Push (System.Runtime.Remoting.Channels.IClientChannelSink sink, object state);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IClientChannelSink
-      description: "The sink to push onto the sink stack."
+      description: "Чтобы поместить в стек приемника приемник."
     - id: state
       type: System.Object
-      description: "Information generated on the request side that is needed on the response side."
+      description: "Сведения, созданные на стороне запроса, которые требуются на стороне ответа."
   overload: System.Runtime.Remoting.Channels.IClientChannelSinkStack.Push*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Непосредственный вызывающий объект не имеет разрешения инфраструктуры."
   platform:
   - net462
 references:

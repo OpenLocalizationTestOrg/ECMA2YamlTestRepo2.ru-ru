@@ -11,8 +11,8 @@ items:
   nameWithType: IProfileNotification
   fullName: System.Workflow.Runtime.Tracking.IProfileNotification
   type: Interface
-  summary: "Provides a notification mechanism for a tracking service to inform the runtime tracking infrastructure about changes to the <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> for a particular workflow <xref:System.Type>."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       Tracking services manage the tracking profiles available to the runtime tracking infrastructure. A tracking service that implements IProfileNotification can provide notifications to the runtime tracking infrastructure when a <xref:System.Workflow.Runtime.Tracking.TrackingProfile> for a particular workflow <xref:System.Type> either changes or is no longer valid. The runtime tracking infrastructure subscribes to the <xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileUpdated> and <xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileRemoved> events and updates its cache when these events are raised. This decreases the number of requests for tracking profiles that the runtime tracking infrastructure makes to a tracking service. Note: the runtime tracking infrastructure still uses the overloaded <xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A> methods of the tracking service, but it does not call them as frequently."
+  summary: "Предоставляет механизм уведомлений для службы отслеживания для оповещения инфраструктуры отслеживания среды выполнения об изменениях в <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;> </xref> для конкретного рабочего процесса <xref:System.Type>.</xref:System.Type>"
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]Службы отслеживания управляют доступными инфраструктуре отслеживания среды выполнения профилями отслеживания. Служба отслеживания, который реализует IProfileNotification может предоставлять уведомления инфраструктуре отслеживания среды выполнения при <xref:System.Workflow.Runtime.Tracking.TrackingProfile>для конкретного рабочего процесса <xref:System.Type>изменяется или больше не действительна.</xref:System.Type> </xref:System.Workflow.Runtime.Tracking.TrackingProfile> Инфраструктура отслеживания среды выполнения подписывается на <xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileUpdated>и <xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileRemoved>события и обновляет свой кэш при возникновении этих событий.</xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileRemoved> </xref:System.Workflow.Runtime.Tracking.IProfileNotification.ProfileUpdated> Это уменьшает количество запросов профилей отслеживания, которые Инфраструктура отслеживания среды выполнения отправляет службе отслеживания. Замечание: инфраструктура отслеживания среды выполнения продолжает использовать перезагруженные <xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A>методы службы отслеживания, но не вызывает их так часто.</xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A>"
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -33,13 +33,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Occurs when a <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> for a specific workflow Type is removed."
-  remarks: "A tracking service can raise the ProfileRemoved event to inform the runtime tracking infrastructure that new instances of the workflow <xref:System.Type> specified in <xref:System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs> should not be tracked."
+  summary: "Происходит, когда <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;> </xref> для конкретного типа рабочего процесса."
+  remarks: "Служба отслеживания может вызывать событие ProfileRemoved для оповещения инфраструктуры отслеживания среды выполнения рабочего процесса, что новые экземпляры <xref:System.Type>указано в <xref:System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs>не должны отслеживаться.</xref:System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs> </xref:System.Type>"
   syntax:
     content: public event EventHandler<System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs> ProfileRemoved;
     return:
       type: System.EventHandler{System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs}
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462
@@ -55,13 +55,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Occurs when a <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> for a specific workflow <xref:System.Type> is updated."
-  remarks: "A tracking service can raise the ProfileUpdated event to inform the runtime tracking infrastructure that a new <xref:System.Workflow.Runtime.Tracking.TrackingProfile> is available for the indicated workflow <xref:System.Type>. The workflow <xref:System.Type> and the <xref:System.Workflow.Runtime.Tracking.TrackingProfile> are passed in a <xref:System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs>."
+  summary: "Происходит, когда <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;> </xref> для конкретного рабочего процесса <xref:System.Type>обновляется.</xref:System.Type>"
+  remarks: "Служба отслеживания может вызывать событие ProfileUpdated для оповещения инфраструктуры отслеживания среды выполнения, <xref:System.Workflow.Runtime.Tracking.TrackingProfile>для указанного рабочего процесса <xref:System.Type>.</xref:System.Type> </xref:System.Workflow.Runtime.Tracking.TrackingProfile> Рабочий процесс <xref:System.Type>и <xref:System.Workflow.Runtime.Tracking.TrackingProfile>передаются в <xref:System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs>.</xref:System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs> </xref:System.Workflow.Runtime.Tracking.TrackingProfile> </xref:System.Type>"
   syntax:
     content: public event EventHandler<System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs> ProfileUpdated;
     return:
       type: System.EventHandler{System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs}
-      description: "To be added."
+      description: "Для добавления."
   exceptions: []
   platform:
   - net462

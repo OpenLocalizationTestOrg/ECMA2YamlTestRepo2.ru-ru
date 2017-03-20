@@ -11,8 +11,8 @@ items:
   nameWithType: IDynamicPropertyTypeProvider
   fullName: System.Workflow.ComponentModel.IDynamicPropertyTypeProvider
   type: Interface
-  summary: "Provides a property type to the bind infrastructure. It is implemented by activities that contain a property of variable type, where the type can vary depending on other activity settings."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       This interface allows the parent activity to associate two properties and indicate to the bind infrastructure the type to be used in validating the bind. For example, you might have an activity with two properties, `TypeProperty` and `ValueProperty`, where `TypeProperty` specifies a valid type for the value of `ValueProperty`. In such a case, the parent activity implements the IDynamicPropertyTypeProvider interface."
+  summary: "Предоставляет тип свойства для инфраструктуры привязки. Реализуется действиями, имеющими свойства изменяющегося типа, когда тип может варьироваться в зависимости от других параметров действия."
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]Этот интерфейс позволяет родительскому действию сопоставить два свойства и указать для инфраструктуры привязки тип, который будет использоваться при проверке привязки. Например, возможно, действия с двумя свойствами `TypeProperty` и `ValueProperty`, где `TypeProperty` указывает действительный тип для значения `ValueProperty`. В таком случае родительское действие реализует интерфейс IDynamicPropertyTypeProvider."
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -33,20 +33,20 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Returns the access type for the specified property."
-  remarks: "Used at compile time to validate if the properties are correctly bound to one other. Without this interface, this information is inferred directly from property getter/setters."
+  summary: "Возвращает тип доступа для указанного свойства."
+  remarks: "Используется во время компиляции, чтобы проверить, что свойства правильно связаны друг с другом. Без данного интерфейса эта информация выводится непосредственно из методов задания и считывания свойства."
   syntax:
     content: public System.Workflow.ComponentModel.Compiler.AccessTypes GetAccessType (IServiceProvider serviceProvider, string propertyName);
     parameters:
     - id: serviceProvider
       type: System.IServiceProvider
-      description: "An object that implements <xref:System.IServiceProvider> to provide access to design time services if they are needed."
+      description: "Объект, реализующий интерфейс <xref:System.IServiceProvider>для предоставления доступа к службам времени разработки, если они требуются.</xref:System.IServiceProvider>"
     - id: propertyName
       type: System.String
-      description: "The name of the property."
+      description: "Имя свойства."
     return:
       type: System.Workflow.ComponentModel.Compiler.AccessTypes
-      description: "An <xref href=&quot;System.Workflow.ComponentModel.Compiler.AccessTypes&quot;></xref> enumeration value that denotes the access level of the property."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Compiler.AccessTypes&quot;> </xref> Значение перечисления, указывающее уровень доступа свойства."
   overload: System.Workflow.ComponentModel.IDynamicPropertyTypeProvider.GetAccessType*
   exceptions: []
   platform:
@@ -63,20 +63,20 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel
-  summary: "Returns the <xref:System.Type> of the specified property."
-  remarks: "Used at compile time to validate if the properties are correctly bound to one other."
+  summary: "Возвращает <xref:System.Type>указанного свойства.</xref:System.Type>"
+  remarks: "Используется во время компиляции, чтобы проверить, что свойства правильно связаны друг с другом."
   syntax:
     content: public Type GetPropertyType (IServiceProvider serviceProvider, string propertyName);
     parameters:
     - id: serviceProvider
       type: System.IServiceProvider
-      description: "An object that implements <xref:System.IServiceProvider> to provide access to design-time services if they are needed."
+      description: "Объект, реализующий интерфейс <xref:System.IServiceProvider>для предоставления доступа к службам времени разработки, при необходимости.</xref:System.IServiceProvider>"
     - id: propertyName
       type: System.String
-      description: "The name of the property."
+      description: "Имя свойства."
     return:
       type: System.Type
-      description: "The <xref:System.Type> for the property whose name is passed as the <code>propertyName </code>parameter."
+      description: "<xref:System.Type>Для свойства, имя которого передано в качестве <code> propertyName  </code>параметр.</xref:System.Type>"
   overload: System.Workflow.ComponentModel.IDynamicPropertyTypeProvider.GetPropertyType*
   exceptions: []
   platform:

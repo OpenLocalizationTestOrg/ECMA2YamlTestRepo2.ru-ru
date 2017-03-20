@@ -14,8 +14,8 @@ items:
   nameWithType: IOperationInvoker
   fullName: System.ServiceModel.Dispatcher.IOperationInvoker
   type: Interface
-  summary: "Declares methods that take an object and an array of parameters extracted from a message, invoke a method on that object with those parameters, and return the method&quot;s return value and output parameters."
-  remarks: "Implement the IOperationInvoker interface to control the conversion from an untyped object and array of parameters to a strongly-typed method call on that object. It has a synchronous <xref:System.ServiceModel.Dispatcher.IOperationInvoker.Invoke%2A> method, which takes an instance and set of inputs of type object and returns an object and a set of outputs of type object. It also has a <xref:System.ServiceModel.Dispatcher.IOperationInvoker.InvokeBegin%2A> and [InvokeEnd(Object, Object\\[\\], IAsyncResult)](assetId:///M:System.ServiceModel.Dispatcher.IOperationInvoker.InvokeEnd(System.Object,System.Object[]@,System.IAsyncResult)?qualifyHint=False&autoUpgrade=True) variant.  The <xref:System.ServiceModel.Dispatcher.IOperationInvoker.IsSynchronous%2A> property specifies whether the synchronous or asynchronous method should be used."
+  summary: "Объявляет методы, которые принимают объект и массив параметров, извлеченных из сообщения, вызвать метод для этого объекта с этими параметрами и получения возвращаемого значения метода и выходных параметров."
+  remarks: "Реализуйте интерфейс IOperationInvoker для управления преобразованием из не типизированного объекта и массива параметров для вызова строго типизированного метода для этого объекта. Имеет синхронный <xref:System.ServiceModel.Dispatcher.IOperationInvoker.Invoke%2A>метод, который берет экземпляр и набор входных данных объекта типа и возвращает объект и набор выходных данных объекта типа.</xref:System.ServiceModel.Dispatcher.IOperationInvoker.Invoke%2A> Он также имеет <xref:System.ServiceModel.Dispatcher.IOperationInvoker.InvokeBegin%2A>и [InvokeEnd (объекта, объект\\[\\], IAsyncResult)](assetId:///M:System.ServiceModel.Dispatcher.IOperationInvoker.InvokeEnd(System.Object,System.Object[]@,System.IAsyncResult)?qualifyHint=False&autoUpgrade=True) variant.</xref:System.ServiceModel.Dispatcher.IOperationInvoker.InvokeBegin%2A>  <xref:System.ServiceModel.Dispatcher.IOperationInvoker.IsSynchronous%2A>Свойство указывает, следует ли использовать метод синхронным или асинхронным.</xref:System.ServiceModel.Dispatcher.IOperationInvoker.IsSynchronous%2A>"
   syntax:
     content: public interface IOperationInvoker
   implements: []
@@ -33,14 +33,14 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Returns an &lt;xref:System.Array?displayProperty=fullName&gt; of parameter objects."
-  remarks: "Implement this to return an array of parameters for the operation. This array is filled by the formatter and passed back to the invoker when <xref:System.ServiceModel.Dispatcher.IOperationInvoker.Invoke%2A> is called."
+  summary: "Возвращает &lt;xref:System.Array?displayProperty=fullName&gt; объектов параметров."
+  remarks: "Реализуйте этот метод для возвращения массива параметров для операции. Этот массив заполняется средством форматирования и передается обратно вызывающему при <xref:System.ServiceModel.Dispatcher.IOperationInvoker.Invoke%2A>называется.</xref:System.ServiceModel.Dispatcher.IOperationInvoker.Invoke%2A>"
   syntax:
     content: public object[] AllocateInputs ();
     parameters: []
     return:
       type: System.Object[]
-      description: "The parameters that are to be used as arguments to the operation."
+      description: "Параметры, которые должны использоваться в качестве аргументов в операции."
   overload: System.ServiceModel.Dispatcher.IOperationInvoker.AllocateInputs*
   exceptions: []
   platform:
@@ -57,22 +57,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Returns an object and a set of output objects from an instance and set of input objects."
+  summary: "Возвращает объект и набор выходных данных объектов из экземпляра и набора входных значений объектов."
   syntax:
     content: public object Invoke (object instance, object[] inputs, out object[] outputs);
     parameters:
     - id: instance
       type: System.Object
-      description: "The object to be invoked."
+      description: "Вызываемый объект."
     - id: inputs
       type: System.Object[]
-      description: "The inputs to the method."
+      description: "Входные данные для метода."
     - id: outputs
       type: System.Object[]
-      description: "The outputs from the method."
+      description: "Выходные данные метода."
     return:
       type: System.Object
-      description: "The return value."
+      description: "Возвращаемое значение."
   overload: System.ServiceModel.Dispatcher.IOperationInvoker.Invoke*
   exceptions: []
   platform:
@@ -89,25 +89,25 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "An asynchronous implementation of the <xref:System.ServiceModel.Dispatcher.IOperationInvoker.Invoke*> method."
+  summary: "Асинхронная реализация <xref:System.ServiceModel.Dispatcher.IOperationInvoker.Invoke*>метода.</xref:System.ServiceModel.Dispatcher.IOperationInvoker.Invoke*>"
   syntax:
     content: public IAsyncResult InvokeBegin (object instance, object[] inputs, AsyncCallback callback, object state);
     parameters:
     - id: instance
       type: System.Object
-      description: "The object to be invoked."
+      description: "Вызываемый объект."
     - id: inputs
       type: System.Object[]
-      description: "The inputs to the method."
+      description: "Входные данные для метода."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback object."
+      description: "Объект асинхронного обратного вызова."
     - id: state
       type: System.Object
-      description: "Associated state data."
+      description: "Связанные данные состояния."
     return:
       type: System.IAsyncResult
-      description: "A &lt;xref:System.IAsyncResult?displayProperty=fullName&gt; used to complete the asynchronous call."
+      description: "Объект &lt;xref:System.IAsyncResult?displayProperty=fullName&gt; используется для завершения асинхронного вызова."
   overload: System.ServiceModel.Dispatcher.IOperationInvoker.InvokeBegin*
   exceptions: []
   platform:
@@ -124,22 +124,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "The asynchronous end method."
+  summary: "Метод асинхронного завершения."
   syntax:
     content: public object InvokeEnd (object instance, out object[] outputs, IAsyncResult result);
     parameters:
     - id: instance
       type: System.Object
-      description: "The object invoked."
+      description: "Вызываемый объект."
     - id: outputs
       type: System.Object[]
-      description: "The outputs from the method."
+      description: "Выходные данные метода."
     - id: result
       type: System.IAsyncResult
-      description: "The &lt;xref:System.IAsyncResult?displayProperty=fullName&gt; object."
+      description: "&lt;Xref:System.IAsyncResult?displayProperty=fullName&gt; объекта."
     return:
       type: System.Object
-      description: "The return value."
+      description: "Возвращаемое значение."
   overload: System.ServiceModel.Dispatcher.IOperationInvoker.InvokeEnd*
   exceptions: []
   platform:
@@ -156,13 +156,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Gets a value that specifies whether the <xref:System.ServiceModel.Dispatcher.IOperationInvoker.Invoke*> or <xref:System.ServiceModel.Dispatcher.IOperationInvoker.InvokeBegin*> method is called by the dispatcher."
-  remarks: "The default invoker dispatches messages to the synchronous operation by default. This value is cached by the dispatcher and therefore should not change over the lifetime of the object that implements <xref:System.ServiceModel.Dispatcher.IOperationInvoker>."
+  summary: "Возвращает значение, указывающее, является ли <> </> *настроек или <> </> *настроек метод вызывается диспетчером."
+  remarks: "Вызывающий по умолчанию передает сообщения синхронной операции по умолчанию. Это значение хранится в кэше диспетчера и поэтому не изменяется в течение времени существования объекта, который реализует <xref:System.ServiceModel.Dispatcher.IOperationInvoker>.</xref:System.ServiceModel.Dispatcher.IOperationInvoker>"
   syntax:
     content: public bool IsSynchronous { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the dispatcher invokes the synchronous operation; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если диспетчер вызывает синхронную операцию; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Dispatcher.IOperationInvoker.IsSynchronous*
   exceptions: []
   platform:

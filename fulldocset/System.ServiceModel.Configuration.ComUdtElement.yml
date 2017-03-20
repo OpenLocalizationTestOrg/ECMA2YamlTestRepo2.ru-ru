@@ -16,8 +16,8 @@ items:
   nameWithType: ComUdtElement
   fullName: System.ServiceModel.Configuration.ComUdtElement
   type: Class
-  summary: "Represents a User Defined Type (UDT) that is to be included in the service contract. This class cannot be inherited."
-  remarks: "The COM+ integration runtime creates services by inspecting the type library. When a COM+ component contains methods that pass a `VARIANT`, the system cannot determine the actual types to be passed prior to runtime. Therefore, when you attempt to pass a User Defined Type (UDT) within a `VARIANT`, it fails because it is not a known type for serialization.       To circumvent this problem, you can add the UDTs to the configuration file so that they can be included as known types on the appropriate service contract. In order to do so, you have to uniquely identify the UDT and the contract(s), that is, the original COM interface(s) that uses it.       The following example demonstrates adding two specific UDTs to the <`userDefinedTypes`> section of the configuration file for this purpose.       [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]       The attributes of the <`userDefinedType`> element are defined as follows:      -   `typeName`: an optional attribute that provides the readable type name. This is not used by the runtime but helps a reader to distinguish the types.      -   `typeLibID`: a GUID string that specifies the registered type library that defines the type.      -   `typeLibVersion`: a string that specifies the type library version that defines the type.      -   `typeDefID`: a GUID string that specifies the specific UDT type within the registered type library.       When the service is initialized, the COM+ integration runtime looks up the specified types and adds them to the known types collection for the specified contracts."
+  summary: "Представляет пользователем тип (UDT), включению в контракт службы. Этот класс не наследуется."
+  remarks: "Среда выполнения интеграции СОМ + создает службы путем проверки библиотеки типов. Если компонент COM + содержит методы, которые передают `VARIANT`, система не может определить фактические типы для передачи до среды выполнения. Таким образом, при попытке передать определяемый пользователем тип (UDT) в пределах `VARIANT`, происходит сбой, поскольку он не является известным типом для сериализации.       Для решения этой проблемы, можно добавить пользовательские типы в файле конфигурации, чтобы их можно было включить как известные типы в соответствующий контракт службы. Для этого необходимо однозначно определить определяемый пользователем тип и контракты, то есть исходные интерфейсы СОМ, которые его используют.       В следующем примере показано, как добавить два конкретных пользовательских типа в `userDefinedTypes`настроек файла конфигурации для этой цели.       [!code-cs[XpsCreate #XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent) ] атрибуты `userDefinedType`настроек элемент определяется следующим образом:- `typeName`: необязательный атрибут, содержащий отображаемое имя типа. Не используется средой выполнения, но помогает читателю различать типы.      - `typeLibID`: строка идентификатора GUID, указывающее зарегистрированной библиотеке типов, определяющей тип.      - `typeLibVersion`: строка, указывающая версию библиотеки типов, определяющей тип.      - `typeDefID`: строка идентификатора GUID, который указывает конкретный тип UDT в зарегистрированной библиотеке типов.       При инициализации службы среда выполнения интеграции COM + выполняет поиск по указанным типам и добавляет их в коллекцию известных типов для заданных контрактов."
   example:
   - "The following example demonstrates adding two specific UDTs to the <`userDefinedTypes`> section of the configuration file for this purpose.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -75,7 +75,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Configuration.ComUdtElement&quot;></xref> class."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.Configuration.ComUdtElement&quot;> </xref> класса."
   syntax:
     content: public ComUdtElement ();
     parameters: []
@@ -95,13 +95,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Configuration.ComUdtElement&quot;></xref> class with the specified GUID string."
+  summary: "Инициализирует новый экземпляр <xref href=&quot;System.ServiceModel.Configuration.ComUdtElement&quot;> </xref> класса с заданной строки GUID."
   syntax:
     content: public ComUdtElement (string typeDefID);
     parameters:
     - id: typeDefID
       type: System.String
-      description: "A GUID string that identifies the specific UDT type within the registered type library."
+      description: "Строка идентификатора GUID, которая идентифицирует конкретный тип UDT в зарегистрированной библиотеке типов."
   overload: System.ServiceModel.Configuration.ComUdtElement.#ctor*
   exceptions: []
   platform:
@@ -118,12 +118,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets the readable type name."
+  summary: "Возвращает или задает отображаемое имя типа."
   syntax:
     content: public string Name { get; set; }
     return:
       type: System.String
-      description: "The readable type name."
+      description: "Отображаемое имя типа."
   overload: System.ServiceModel.Configuration.ComUdtElement.Name*
   exceptions: []
   platform:
@@ -144,7 +144,7 @@ items:
     content: protected override System.Configuration.ConfigurationPropertyCollection Properties { get; }
     return:
       type: System.Configuration.ConfigurationPropertyCollection
-      description: "To be added."
+      description: "Для добавления."
   overload: System.ServiceModel.Configuration.ComUdtElement.Properties*
   exceptions: []
   platform:
@@ -161,12 +161,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets a GUID string that identifies the specific UDT type within the registered type library."
+  summary: "Возвращает или задает строку идентификатора GUID, которая идентифицирует конкретный тип UDT в зарегистрированной библиотеке типов."
   syntax:
     content: public string TypeDefID { get; set; }
     return:
       type: System.String
-      description: "The specific UDT type within the registered type library."
+      description: "Конкретный тип UDT в зарегистрированной библиотеке типов."
   overload: System.ServiceModel.Configuration.ComUdtElement.TypeDefID*
   exceptions: []
   platform:
@@ -183,12 +183,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets a GUID string that identifies the registered type library that defines the type."
+  summary: "Возвращает или задает строку идентификатора GUID, которая идентифицирует зарегистрированную библиотеку типов, определяющей тип."
   syntax:
     content: public string TypeLibID { get; set; }
     return:
       type: System.String
-      description: "The registered type library that defines the type."
+      description: "Зарегистрированной библиотеке типов, определяющей тип."
   overload: System.ServiceModel.Configuration.ComUdtElement.TypeLibID*
   exceptions: []
   platform:
@@ -205,12 +205,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Configuration
-  summary: "Gets or sets a string that identifies the type library version that defines the type."
+  summary: "Возвращает или задает строку, которая идентифицирует версию библиотеки типов, определяющей тип."
   syntax:
     content: public string TypeLibVersion { get; set; }
     return:
       type: System.String
-      description: "The type library version that defines the type."
+      description: "Версия библиотеки типов, определяющей тип."
   overload: System.ServiceModel.Configuration.ComUdtElement.TypeLibVersion*
   exceptions: []
   platform:

@@ -11,8 +11,8 @@ items:
   nameWithType: IProfferServiceContract
   fullName: System.AddIn.Contract.IProfferServiceContract
   type: Interface
-  summary: "Enables clients to provide custom services to components on which the contract is implemented."
-  remarks: "A component implements IProfferServiceContract to enable clients to offer services to the component. After a service has been offered to a component, other clients of the component can access the service. Components typically implement IProfferServiceContract on the same type on which they implement <xref:System.AddIn.Contract.IServiceProviderContract>.       Clients use the <xref:System.AddIn.Contract.IProfferServiceContract.ProfferService%2A> method to add an <xref:System.AddIn.Contract.IServiceProviderContract> to the set of service providers offered by a component. Clients use the <xref:System.AddIn.Contract.IProfferServiceContract.RevokeService%2A> method to remove an <xref:System.AddIn.Contract.IServiceProviderContract> from the set of service providers offered by a component."
+  summary: "Позволяет клиентам для предоставления пользовательских служб для компонентов, в которых реализуется контракт."
+  remarks: "Компонент реализует IProfferServiceContract, чтобы клиенты могли предложить услуги компонента. После предложения услуги компоненту, другие клиенты компонента можно получить доступ к службе. Компоненты, как правило, реализуется IProfferServiceContract на том же типе, на котором они реализуют <xref:System.AddIn.Contract.IServiceProviderContract>.</xref:System.AddIn.Contract.IServiceProviderContract>       Клиенты используют <xref:System.AddIn.Contract.IProfferServiceContract.ProfferService%2A>метод, чтобы добавить <xref:System.AddIn.Contract.IServiceProviderContract>в список поставщиков услуг, предложенных компонентом.</xref:System.AddIn.Contract.IServiceProviderContract> </xref:System.AddIn.Contract.IProfferServiceContract.ProfferService%2A> Клиенты используют <xref:System.AddIn.Contract.IProfferServiceContract.RevokeService%2A>метод для удаления <xref:System.AddIn.Contract.IServiceProviderContract>из набора поставщиков услуг, предложенных компонентом.</xref:System.AddIn.Contract.IServiceProviderContract> </xref:System.AddIn.Contract.IProfferServiceContract.RevokeService%2A>"
   syntax:
     content: 'public interface IProfferServiceContract : System.AddIn.Contract.IContract'
   implements:
@@ -31,17 +31,17 @@ items:
   assemblies:
   - System.AddIn.Contract
   namespace: System.AddIn.Contract
-  summary: "Adds a service to the set of services that can be accessed by clients of a component."
-  remarks: "The format of the `serviceIdentifier` parameter is defined by the <xref:System.AddIn.Contract.IProfferServiceContract> implementation. A uniform resource identifier (URI) is the recommended identifier."
+  summary: "Добавляет набор служб, доступных клиентам компонента службы."
+  remarks: "Формат `serviceIdentifier` определяется параметр <xref:System.AddIn.Contract.IProfferServiceContract>реализации.</xref:System.AddIn.Contract.IProfferServiceContract> Универсальный код ресурса (URI) является рекомендованным идентификатором."
   syntax:
     content: public void ProfferService (string serviceIdentifier, System.AddIn.Contract.IServiceProviderContract service);
     parameters:
     - id: serviceIdentifier
       type: System.String
-      description: "A string that identifies the service being offered."
+      description: "Строка, идентифицирующая предложенную услугу."
     - id: service
       type: System.AddIn.Contract.IServiceProviderContract
-      description: "An <xref href=&quot;System.AddIn.Contract.IServiceProviderContract&quot;></xref> that implements the service being offered."
+      description: "<xref href=&quot;System.AddIn.Contract.IServiceProviderContract&quot;> </xref> , Реализующий службу предлагаемой."
   overload: System.AddIn.Contract.IProfferServiceContract.ProfferService*
   exceptions: []
   platform:
@@ -58,14 +58,14 @@ items:
   assemblies:
   - System.AddIn.Contract
   namespace: System.AddIn.Contract
-  summary: "Removes a service from the set of services offered by a component."
-  remarks: "The format of the `serviceIdentifier` parameter is defined by the <xref:System.AddIn.Contract.IProfferServiceContract> implementation. A uniform resource identifier (URI) is the recommended identifier."
+  summary: "Удаляет службу из набор служб, предложенных компонентом."
+  remarks: "Формат `serviceIdentifier` определяется параметр <xref:System.AddIn.Contract.IProfferServiceContract>реализации.</xref:System.AddIn.Contract.IProfferServiceContract> Универсальный код ресурса (URI) является рекомендованным идентификатором."
   syntax:
     content: public void RevokeService (string serviceIdentifier);
     parameters:
     - id: serviceIdentifier
       type: System.String
-      description: "A string that identifies the service being revoked."
+      description: "Строка, идентифицирующая отмененную услугу."
   overload: System.AddIn.Contract.IProfferServiceContract.RevokeService*
   exceptions: []
   platform:

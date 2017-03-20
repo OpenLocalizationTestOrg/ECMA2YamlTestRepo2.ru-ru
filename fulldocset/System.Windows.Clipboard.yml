@@ -34,10 +34,10 @@ items:
   nameWithType: Clipboard
   fullName: System.Windows.Clipboard
   type: Class
-  summary: "Provides static methods that facilitate transferring data to and from the system Clipboard."
-  remarks: "All applications for [!INCLUDE[TLA#tla_mswin](~/add/includes/tlasharptla-mswin-md.md)] share the system Clipboard, so the contents are subject to change when you switch to another application.       For a list of predefined formats available to use with the Clipboard class, see the <xref:System.Windows.DataFormats> class.       **Security Alert:** For security purposes, the following points should be kept in mind.      -   Paste operations need to be user initiated (Ctrl-V, Paste Menu).      -   Copy can only be on user selected content.      -   On copy or cut, partial trust code puts plaintext and [!INCLUDE[TLA#tla_xaml](~/add/includes/tlasharptla-xaml-md.md)] on to the clipboard. Plaintext includes text, Unicode text, OEM (Object Exchange Model) text, and CSV (Comma-separated values).      -   On paste, [!INCLUDE[TLA#tla_winclient](~/add/includes/tlasharptla-winclient-md.md)] will paste in [!INCLUDE[TLA#tla_xaml](~/add/includes/tlasharptla-xaml-md.md)] if the source of that content is from a equally trusted or more trusted site. Specifically:          -   A partial trust application can paste [!INCLUDE[TLA#tla_xaml](~/add/includes/tlasharptla-xaml-md.md)] from a full trust application.          -   A partial trust application can paste [!INCLUDE[TLA#tla_xaml](~/add/includes/tlasharptla-xaml-md.md)] from a partial trust application.          -   A full trust application can paste XAML only from another fully trusted application.          -   A non-[!INCLUDE[TLA#tla_winclient](~/add/includes/tlasharptla-winclient-md.md)] full trust application can examine the ApplicationTrust format on the clipboard and sanitize the XAML if appropriate."
+  summary: "Предоставляет статические методы, способствующие передаче данных в и из буфера обмена системы."
+  remarks: "Все приложения для [!INCLUDE[TLA#tla_mswin](~/add/includes/tlasharptla-mswin-md.md)] общий системный буфер обмена, поэтому его содержимое может измениться при переходе в другое приложение.       Список стандартных форматов, доступных для использования с классом в буфер обмена см. в разделе <xref:System.Windows.DataFormats>класса.</xref:System.Windows.DataFormats>       **Предупреждение безопасности:** в целях безопасности следующие моменты следует иметь в виду.      -Операции вставки должны быть инициированы пользователем (Ctrl-V, меню вставки).      -Копии можно только на указанных пользователем содержимого.      -На, копировании или вырезании код с частичным доверием помещает открытого текста и [!INCLUDE[TLA#tla_xaml](~/add/includes/tlasharptla-xaml-md.md)] в буфер обмена. Открытый текст содержит текст, текст в кодировке Юникод, текст OEM (модель обмена объектами) и CSV (значения с разделителями запятыми).      -При вставке [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] будет вставлен в [!INCLUDE[TLA#tla_xaml](~/add/includes/tlasharptla-xaml-md.md)] — Если источник этого содержимого с сайта столь же или более высоким доверием. В частности: - приложение С частичным доверием может вставить [!INCLUDE[TLA#tla_xaml](~/add/includes/tlasharptla-xaml-md.md)] из приложение с полным доверием.          -Приложение с частичным доверием может вставить [!INCLUDE[TLA#tla_xaml](~/add/includes/tlasharptla-xaml-md.md)] из приложения с частичным доверием.          -Приложение с полным доверием может вставить XAML только из другого приложения, полностью доверенным.          -Значение, отличное от[!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] полный уровень доверия приложения можно проверить формат сохранения ApplicationTrust в буфер обмена и очистки XAML, если это необходимо."
   example:
-  - "The following example shows how to add data to the system Clipboard.  \n  \n [!code-cs[DragDrop_DragDropMiscCode#_SetData](~/add/codesnippet/CSharp/DragDropMiscCode/Window1.xaml.cs#_setdata)]\n [!code-vb[DragDrop_DragDropMiscCode#_SetData](~/add/codesnippet/VisualBasic/dragdropmisccode/window1.xaml.vb#_setdata)]"
+  - "The following example shows how to add data to the system Clipboard.  \n  \n [!code-cs[DragDrop_DragDropMiscCode#_SetData](~/add/codesnippet/csharp/DragDropMiscCode/Window1.xaml.cs#_setdata)]\n [!code-vb[DragDrop_DragDropMiscCode#_SetData](~/add/codesnippet/visualbasic/dragdropmisccode/window1.xaml.vb#_setdata)]"
   syntax:
     content: public static class Clipboard
   inheritance:
@@ -45,9 +45,7 @@ items:
   implements: []
   inheritedMembers: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.Clear
   id: Clear
   parent: System.Windows.Clipboard
@@ -60,17 +58,15 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Clears any data from the system Clipboard."
-  remarks: "Calling this method is equivalent to calling **OleSetClipboard**(**null**)."
+  summary: "Удаляет все данные из буфера обмена системы."
+  remarks: "Вызов этого метода эквивалентен вызову **OleSetClipboard**(**null**)."
   syntax:
     content: public static void Clear ();
     parameters: []
   overload: System.Windows.Clipboard.Clear*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.ContainsAudio
   id: ContainsAudio
   parent: System.Windows.Clipboard
@@ -83,20 +79,18 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Queries the Clipboard for the presence of data in the <see cref=&quot;F:System.Windows.DataFormats.WaveAudio&quot;></see> data format."
-  remarks: "This method returns `true` only if the specified data format exists natively on the Clipboard; this method does not check for the presence of auto-convertible data formats."
+  summary: "Запрашивает наличие данных в буфер обмена <xref href=&quot;System.Windows.DataFormats.WaveAudio&quot;> </xref> формат данных."
+  remarks: "Этот метод возвращает `true` только в том случае, если указанный формат данных имеется в буфер обмена; этот метод не проверяет наличие автоматически преобразуемые форматы данных."
   syntax:
     content: public static bool ContainsAudio ();
     parameters: []
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если в буфере обмена содержатся данные в <xref href=&quot;System.Windows.DataFormats.WaveAudio&quot;> </xref> формат данных; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Clipboard.ContainsAudio*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.ContainsData(System.String)
   id: ContainsData(System.String)
   parent: System.Windows.Clipboard
@@ -109,28 +103,26 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Queries the Clipboard for the presence of data in a specified data format."
-  remarks: "A query for the data format <xref:System.Windows.DataFormats.Bitmap> or <xref:System.Windows.DataFormats.FileDrop> will return `true` if the data can be automatically converted to the specified data format.  For other data formats, this method returns `true` only if the specified format is available natively on the Clipboard."
+  summary: "Запрашивает буфер обмена на наличие данных в указанном формате."
+  remarks: "Запрос для формата данных <xref:System.Windows.DataFormats.Bitmap>или <xref:System.Windows.DataFormats.FileDrop>вернет `true` Если данные могут быть автоматически преобразуются в указанный формат данных.</xref:System.Windows.DataFormats.FileDrop> </xref:System.Windows.DataFormats.Bitmap>  Для других форматов данных этот метод возвращает `true` только в том случае, если указанный формат доступен в буфере обмена."
   example:
-  - "The following example demonstrates the use of this method.  \n  \n [!code-cs[DragDrop_DragDropMiscCode#_ContainsDataGetData](~/add/codesnippet/CSharp/DragDropMiscCode/Window1.xaml.cs#_containsdatagetdata)]\n [!code-vb[DragDrop_DragDropMiscCode#_ContainsDataGetData](~/add/codesnippet/VisualBasic/dragdropmisccode/window1.xaml.vb#_containsdatagetdata)]"
+  - "The following example demonstrates the use of this method.  \n  \n [!code-cs[DragDrop_DragDropMiscCode#_ContainsDataGetData](~/add/codesnippet/csharp/DragDropMiscCode/Window1.xaml.cs#_containsdatagetdata)]\n [!code-vb[DragDrop_DragDropMiscCode#_ContainsDataGetData](~/add/codesnippet/visualbasic/dragdropmisccode/window1.xaml.vb#_containsdatagetdata)]"
   syntax:
     content: public static bool ContainsData (string format);
     parameters:
     - id: format
       type: System.String
-      description: "The format of the data to look for. See  for predefined formats."
+      description: "Формат данных для поиска. В разделе <xref href=&quot;System.Windows.DataFormats&quot;> </xref> для стандартных форматов."
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>При наличии данных в указанном формате в буфер обмена; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. См. заметки."
   overload: System.Windows.Clipboard.ContainsData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "\n    format is ."
+    description: "<code>format</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.ContainsFileDropList
   id: ContainsFileDropList
   parent: System.Windows.Clipboard
@@ -143,20 +135,18 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Queries the Clipboard for the presence of data in the <see cref=&quot;F:System.Windows.DataFormats.FileDrop&quot;></see> data format."
-  remarks: "This method returns `true` only if the specified data format exists natively or is available as an auto-convertible data format on the Clipboard; this method does not check for the presence of auto-convertible data formats."
+  summary: "Запрашивает наличие данных в буфер обмена <xref href=&quot;System.Windows.DataFormats.FileDrop&quot;> </xref> формат данных."
+  remarks: "Этот метод возвращает `true` только в том случае, если указанный формат данных существует в собственном коде или в формате автоматическим преобразованием данных в буфер обмена; этот метод не проверяет наличие автоматически преобразуемые форматы данных."
   syntax:
     content: public static bool ContainsFileDropList ();
     parameters: []
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если в буфере обмена содержатся данные в <xref href=&quot;System.Windows.DataFormats.FileDrop&quot;> </xref> формат данных; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Clipboard.ContainsFileDropList*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.ContainsImage
   id: ContainsImage
   parent: System.Windows.Clipboard
@@ -169,20 +159,18 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Queries the Clipboard for the presence of data in the <see cref=&quot;F:System.Windows.DataFormats.Bitmap&quot;></see> data format."
-  remarks: "This method returns `true` only if the specified data format exists natively or is available as an auto-convertible data format on the Clipboard; this method does not check for the presence of auto-convertible data formats.       A bitmap represents a computer graphic as an array of bits in memory, and these bits represent the attributes of the individual pixels in an image."
+  summary: "Запрашивает наличие данных в буфер обмена <xref href=&quot;System.Windows.DataFormats.Bitmap&quot;> </xref> формат данных."
+  remarks: "Этот метод возвращает `true` только в том случае, если указанный формат данных существует в собственном коде или в формате автоматическим преобразованием данных в буфер обмена; этот метод не проверяет наличие автоматически преобразуемые форматы данных.       Точечный рисунок представляет собой графическое изображение как массив битов в памяти, а эти биты представляют атрибуты отдельных точек изображения."
   syntax:
     content: public static bool ContainsImage ();
     parameters: []
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если в буфере обмена содержатся данные в <xref href=&quot;System.Windows.DataFormats.Bitmap&quot;> </xref> формат данных; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Clipboard.ContainsImage*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.ContainsText
   id: ContainsText
   parent: System.Windows.Clipboard
@@ -195,20 +183,18 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Queries the Clipboard for the presence of data in the <see cref=&quot;F:System.Windows.DataFormats.UnicodeText&quot;></see> format."
-  remarks: "This method returns `true` only if the specified data format exists natively on the Clipboard; this method does not check for the presence of auto-convertible data formats.       The <xref:System.Windows.DataFormats.UnicodeText> data format denotes 16-bit character encoded Unicode, also referred to as UTF-16, and USC-2."
+  summary: "Запрашивает наличие данных в буфер обмена <xref href=&quot;System.Windows.DataFormats.UnicodeText&quot;> </xref> формат."
+  remarks: "Этот метод возвращает `true` только в том случае, если указанный формат данных имеется в буфер обмена; этот метод не проверяет наличие автоматически преобразуемые форматы данных.       <xref:System.Windows.DataFormats.UnicodeText>Формат данных обозначает 16-разрядный символ в кодировке Юникод, также называют UTF-16 или USC-2.</xref:System.Windows.DataFormats.UnicodeText>"
   syntax:
     content: public static bool ContainsText ();
     parameters: []
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если в буфере обмена содержатся данные в <xref href=&quot;System.Windows.DataFormats.UnicodeText&quot;> </xref> формат данных; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Clipboard.ContainsText*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.ContainsText(System.Windows.TextDataFormat)
   id: ContainsText(System.Windows.TextDataFormat)
   parent: System.Windows.Clipboard
@@ -221,26 +207,24 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Queries the Clipboard for the presence of data in a text data format."
-  remarks: "This method returns `true` only if the specified data format exists natively in the data object; this method does not check for the presence of auto-convertible data formats."
+  summary: "Запрашивает буфер обмена на наличие данных в текстовом формате."
+  remarks: "Этот метод возвращает `true` только в том случае, если указанный формат данных имеется в объекте данных; этот метод не проверяет наличие автоматически преобразуемые форматы данных."
   syntax:
     content: public static bool ContainsText (System.Windows.TextDataFormat format);
     parameters:
     - id: format
       type: System.Windows.TextDataFormat
-      description: "A member of the  enumeration that specifies the text data format to query for."
+      description: "Член <xref href=&quot;System.Windows.TextDataFormat&quot;> </xref> перечисление, указывающее текстовый формат данных для запроса."
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если в буфере обмена содержатся данные в указанном формате; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Clipboard.ContainsText*
   exceptions:
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "\n    format does not specify a valid member of ."
+    description: "<code>format</code>не указывает допустимый элемент <xref href=&quot;System.Windows.TextDataFormat&quot;> </xref>."
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.Flush
   id: Flush
   parent: System.Windows.Clipboard
@@ -253,16 +237,14 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Permanently adds the data that is on the <see cref=&quot;T:System.Windows.Clipboard&quot;></see> so that it is available after the data&quot;s original application closes."
+  summary: "Окончательно добавляет данные, находящиеся на <xref href=&quot;System.Windows.Clipboard&quot;> </xref> , чтобы он становится доступным после данных исходное приложение закрывается."
   syntax:
     content: public static void Flush ();
     parameters: []
   overload: System.Windows.Clipboard.Flush*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.GetAudioStream
   id: GetAudioStream
   parent: System.Windows.Clipboard
@@ -275,20 +257,18 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Returns a stream of Clipboard data in the <see cref=&quot;F:System.Windows.DataFormats.WaveAudio&quot;></see> data format."
-  remarks: "This method returns a stream only if the specified format exists natively in the data object; this method does not return auto-convertible data."
+  summary: "Возвращает поток данных из буфера обмена в <xref href=&quot;System.Windows.DataFormats.WaveAudio&quot;> </xref> формат данных."
+  remarks: "Этот метод возвращает поток только в том случае, если указанный формат имеется в самом объекте данных; Этот метод не возвращает автоматически преобразуемые данные."
   syntax:
     content: public static System.IO.Stream GetAudioStream ();
     parameters: []
     return:
       type: System.IO.Stream
-      description: "To be added."
+      description: "Поток, содержащий данные в <xref href=&quot;System.Windows.DataFormats.WaveAudio&quot;> </xref> формат, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если буфера обмена не содержит данных в этом формате."
   overload: System.Windows.Clipboard.GetAudioStream*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.GetData(System.String)
   id: GetData(System.String)
   parent: System.Windows.Clipboard
@@ -301,28 +281,26 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Retrieves data in a specified format from the Clipboard."
+  summary: "Извлекает данные в указанном формате из буфера обмена."
   remarks: ''
   example:
-  - "The following example demonstrates the use of this method.  \n  \n [!code-cs[DragDrop_DragDropMiscCode#_ContainsDataGetData](~/add/codesnippet/CSharp/DragDropMiscCode/Window1.xaml.cs#_containsdatagetdata)]\n [!code-vb[DragDrop_DragDropMiscCode#_ContainsDataGetData](~/add/codesnippet/VisualBasic/dragdropmisccode/window1.xaml.vb#_containsdatagetdata)]"
+  - "The following example demonstrates the use of this method.  \n  \n [!code-cs[DragDrop_DragDropMiscCode#_ContainsDataGetData](~/add/codesnippet/csharp/DragDropMiscCode/Window1.xaml.cs#_containsdatagetdata)]\n [!code-vb[DragDrop_DragDropMiscCode#_ContainsDataGetData](~/add/codesnippet/visualbasic/dragdropmisccode/window1.xaml.vb#_containsdatagetdata)]"
   syntax:
     content: public static object GetData (string format);
     parameters:
     - id: format
       type: System.String
-      description: "A string that specifies the format of the data to retrieve. For a set of predefined data formats, see the  class."
+      description: "Строка, задающая формат извлекаемых данных. Набор предопределенных форматов данных см. в разделе <xref href=&quot;System.Windows.DataFormats&quot;> </xref> класса."
     return:
       type: System.Object
-      description: "To be added."
+      description: "Объект, содержащий данные в указанном формате, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если данные недоступны в указанном формате."
   overload: System.Windows.Clipboard.GetData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "\n    format is ."
+    description: "<code>format</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.GetDataObject
   id: GetDataObject
   parent: System.Windows.Clipboard
@@ -335,20 +313,18 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Returns a data object that represents the entire contents of the Clipboard."
-  remarks: "Access to data on the system Clipboard is enabled through a *data object*, that is, an object that implements the <xref:System.Windows.IDataObject> interface. A list of predefined formats is defined by the <xref:System.Windows.DataFormats> class.  Use the methods specified by <xref:System.Windows.IDataObject> and fields in <xref:System.Windows.DataFormats> to examine and extract the data from the data object.       To examine the formats of data on the system Clipboard, call <xref:System.Windows.IDataObject.GetFormats%2A> on the data object returned by this method.  To retrieve data from the system Clipboard, call <xref:System.Windows.IDataObject.GetData%2A> and specify the desired data format.       The system Clipboard is shared by all applications, so data on the Clipboard is subject to change by other applications."
+  summary: "Возвращает объект, который представляет все содержимое буфера обмена."
+  remarks: "Доступ к данным в системном буфере обмена осуществляется за счет *объект данных*, то есть объект, реализующий интерфейс <xref:System.Windows.IDataObject>интерфейс.</xref:System.Windows.IDataObject> Список стандартных форматов определяется <xref:System.Windows.DataFormats>класса.</xref:System.Windows.DataFormats>  Используйте методы, указанные <xref:System.Windows.IDataObject>и полей в <xref:System.Windows.DataFormats>для проверки и извлечения данных из объекта данных.</xref:System.Windows.DataFormats> </xref:System.Windows.IDataObject>       Чтобы изучить форматы данных в системном буфере обмена, вызовите <xref:System.Windows.IDataObject.GetFormats%2A>в объекте данных, возвращаемый этим методом.</xref:System.Windows.IDataObject.GetFormats%2A>  Чтобы получить данные из буфера обмена системы, вызовите <xref:System.Windows.IDataObject.GetData%2A>и укажите требуемый формат данных.</xref:System.Windows.IDataObject.GetData%2A>       Система, буфер обмена совместно используется всеми приложениями, поэтому данные в буфере обмена подлежит изменению другими приложениями."
   syntax:
     content: public static System.Windows.IDataObject GetDataObject ();
     parameters: []
     return:
       type: System.Windows.IDataObject
-      description: "To be added."
+      description: "Объект, который обеспечивает доступ ко всему содержимому системного буфера обмена, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если нет данных в буфере обмена."
   overload: System.Windows.Clipboard.GetDataObject*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.GetFileDropList
   id: GetFileDropList
   parent: System.Windows.Clipboard
@@ -361,19 +337,17 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Returns a string collection that contains a list of dropped files available on the Clipboard."
+  summary: "Возвращает коллекцию строк, содержащую список перенесенных файлов в буфере обмена."
   syntax:
     content: public static System.Collections.Specialized.StringCollection GetFileDropList ();
     parameters: []
     return:
       type: System.Collections.Specialized.StringCollection
-      description: "To be added."
+      description: "Коллекция строк, где каждая строка указывает имя файла в списке перенесенных файлов в буфере обмена, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если данные недоступны в этом формате."
   overload: System.Windows.Clipboard.GetFileDropList*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.GetImage
   id: GetImage
   parent: System.Windows.Clipboard
@@ -386,20 +360,18 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Returns a <see cref=&quot;T:System.Windows.Media.Imaging.BitmapSource&quot;></see> object from the Clipboard that contains data in the <see cref=&quot;F:System.Windows.DataFormats.Bitmap&quot;></see> format."
-  remarks: "This method returns a <xref:System.Windows.Media.Imaging.BitmapSource> object, either when data is available natively or when data can be auto-converted to the <xref:System.Windows.DataFormats.Bitmap> data format.       A bitmap represents a computer graphic as an array of bits in memory, and these bits represent the attributes of the individual pixels in an image."
+  summary: "Возвращает <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;> </xref> объектов из буфера обмена данными в <xref href=&quot;System.Windows.DataFormats.Bitmap&quot;> </xref> формат."
+  remarks: "Этот метод возвращает <xref:System.Windows.Media.Imaging.BitmapSource>объекта, если данные недоступны в собственном коде или данные могут быть автоматически преобразован для <xref:System.Windows.DataFormats.Bitmap>Формат данных.</xref:System.Windows.DataFormats.Bitmap> </xref:System.Windows.Media.Imaging.BitmapSource>       Точечный рисунок представляет собой графическое изображение как массив битов в памяти, а эти биты представляют атрибуты отдельных точек изображения."
   syntax:
     content: public static System.Windows.Media.Imaging.BitmapSource GetImage ();
     parameters: []
     return:
       type: System.Windows.Media.Imaging.BitmapSource
-      description: "To be added."
+      description: "Объект <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;> </xref> объект, содержащий данные в <xref href=&quot;System.Windows.DataFormats.Bitmap&quot;> </xref> формат, или <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Если данные недоступны в этом формате."
   overload: System.Windows.Clipboard.GetImage*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.GetText
   id: GetText
   parent: System.Windows.Clipboard
@@ -412,20 +384,18 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Returns a string containing the <see cref=&quot;F:System.Windows.DataFormats.UnicodeText&quot;></see> data on the Clipboard."
-  remarks: "The <xref:System.Windows.DataFormats.UnicodeText> data format denotes 16-bit character encoded Unicode, also referred to as UTF-16, and UCS-2."
+  summary: "Возвращает строку, содержащую <xref href=&quot;System.Windows.DataFormats.UnicodeText&quot;> </xref> данные в буфере обмена."
+  remarks: "<xref:System.Windows.DataFormats.UnicodeText>Формат данных обозначает 16-разрядный символ в кодировке Юникод, также называют UTF-16 или UCS-2.</xref:System.Windows.DataFormats.UnicodeText>"
   syntax:
     content: public static string GetText ();
     parameters: []
     return:
       type: System.String
-      description: "To be added."
+      description: "Строка, содержащая <xref href=&quot;System.Windows.DataFormats.UnicodeText&quot;> </xref> данные, или пустая строка, если не <xref href=&quot;System.Windows.DataFormats.UnicodeText&quot;> </xref> данные недоступны в буфере обмена."
   overload: System.Windows.Clipboard.GetText*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.GetText(System.Windows.TextDataFormat)
   id: GetText(System.Windows.TextDataFormat)
   parent: System.Windows.Clipboard
@@ -438,22 +408,20 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Returns a string containing text data on the Clipboard."
+  summary: "Возвращает строку, содержащую текстовые данные в буфер обмена."
   syntax:
     content: public static string GetText (System.Windows.TextDataFormat format);
     parameters:
     - id: format
       type: System.Windows.TextDataFormat
-      description: "A member of  that specifies the text data format to retrieve."
+      description: "Член <xref href=&quot;System.Windows.TextDataFormat&quot;> </xref> , задающий текстового формата данных для извлечения."
     return:
       type: System.String
-      description: "To be added."
+      description: "Строка, содержащая текстовые данные в указанном формате, или пустая строка, если нет соответствующих данных текст."
   overload: System.Windows.Clipboard.GetText*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.IsCurrent(System.Windows.IDataObject)
   id: IsCurrent(System.Windows.IDataObject)
   parent: System.Windows.Clipboard
@@ -466,31 +434,29 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Compares a specified data object to the contents of the Clipboard."
-  remarks: "Use this method to determine if a data object that was previously placed on the Clipboard is still present and unmodified."
+  summary: "Сравнивает указанный объект данных к содержимому буфера обмена."
+  remarks: "Используйте этот метод, чтобы определить, является ли объект, который ранее был помещен в буфер обмена, по-прежнему присутствует и без изменений."
   example:
-  - "The following example demonstrates the use of this method.  \n  \n [!code-cs[DragDrop_DragDropMiscCode#_SetDataObjectIsCurrent](~/add/codesnippet/CSharp/DragDropMiscCode/Window1.xaml.cs#_setdataobjectiscurrent)]\n [!code-vb[DragDrop_DragDropMiscCode#_SetDataObjectIsCurrent](~/add/codesnippet/VisualBasic/dragdropmisccode/window1.xaml.vb#_setdataobjectiscurrent)]"
+  - "The following example demonstrates the use of this method.  \n  \n [!code-cs[DragDrop_DragDropMiscCode#_SetDataObjectIsCurrent](~/add/codesnippet/csharp/DragDropMiscCode/Window1.xaml.cs#_setdataobjectiscurrent)]\n [!code-vb[DragDrop_DragDropMiscCode#_SetDataObjectIsCurrent](~/add/codesnippet/visualbasic/dragdropmisccode/window1.xaml.vb#_setdataobjectiscurrent)]"
   syntax:
     content: public static bool IsCurrent (System.Windows.IDataObject data);
     parameters:
     - id: data
       type: System.Windows.IDataObject
-      description: "A data object to compare to the contents of the system Clipboard."
+      description: "Объект данных для сравнения с содержимым буфера обмена системы."
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Если указанный объект данных соответствует перечню системный буфер обмена; в противном случае <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Clipboard.IsCurrent*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "\n    data is ."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Runtime.InteropServices.ExternalException
     commentId: T:System.Runtime.InteropServices.ExternalException
-    description: "An error occurred when accessing the Clipboard. The exception details will include an  that identifies the specific error; see <xref:System.Runtime.InteropServices.ErrorWrapper.ErrorCode%2A?displayProperty=fullName>."
+    description: "Произошла ошибка при доступе к в буфер обмена. Подробности исключения содержат <xref uid=&quot;langword_csharp_HResult&quot; name=&quot;HResult&quot; href=&quot;&quot;> </xref> , идентифицирующий конкретную ошибку; см. раздел &lt;xref:System.Runtime.InteropServices.ErrorWrapper.ErrorCode%2A?displayProperty=fullName&gt;."
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.SetAudio(System.Byte[])
   id: SetAudio(System.Byte[])
   parent: System.Windows.Clipboard
@@ -503,23 +469,21 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Stores audio data (<see cref=&quot;F:System.Windows.DataFormats.WaveAudio&quot;></see> data format) on the Clipboard.  The audio data is specified as a byte array."
-  remarks: "This method adds data with auto-conversion disabled."
+  summary: "Сохраняет звуковых данных (<xref href=&quot;System.Windows.DataFormats.WaveAudio&quot;> </xref> формат данных) в буфере обмена.  Звуковые данные указываются в виде массива байтов."
+  remarks: "Этот метод добавляет данные с отключенным автоматическим преобразованием."
   syntax:
     content: public static void SetAudio (byte[] audioBytes);
     parameters:
     - id: audioBytes
       type: System.Byte[]
-      description: "A byte array that contains audio data to store on the Clipboard."
+      description: "Массив байтов, содержащий звуковых данных для хранения в буфере обмена."
   overload: System.Windows.Clipboard.SetAudio*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "\n    audioBytes is ."
+    description: "<code>audioBytes</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.SetAudio(System.IO.Stream)
   id: SetAudio(System.IO.Stream)
   parent: System.Windows.Clipboard
@@ -532,23 +496,21 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Stores audio data (<see cref=&quot;F:System.Windows.DataFormats.WaveAudio&quot;></see> data format) on the Clipboard.  The audio data is specified as a stream."
-  remarks: "This method adds data with auto-conversion disabled."
+  summary: "Сохраняет звуковых данных (<xref href=&quot;System.Windows.DataFormats.WaveAudio&quot;> </xref> формат данных) в буфере обмена.  Звуковых данных, указанным в виде потока."
+  remarks: "Этот метод добавляет данные с отключенным автоматическим преобразованием."
   syntax:
     content: public static void SetAudio (System.IO.Stream audioStream);
     parameters:
     - id: audioStream
       type: System.IO.Stream
-      description: "A stream that contains audio data to store on the Clipboard."
+      description: "Поток, содержащий звуковых данных для хранения в буфере обмена."
   overload: System.Windows.Clipboard.SetAudio*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "\n    audioStream is ."
+    description: "<code>audioStream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.SetData(System.String,System.Object)
   id: SetData(System.String,System.Object)
   parent: System.Windows.Clipboard
@@ -561,25 +523,23 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Stores the specified data on the Clipboard in the specified format."
-  remarks: "This method adds data with auto-conversion enabled if the corresponding data format is <xref:System.Windows.DataFormats.FileDrop> or <xref:System.Windows.DataFormats.Bitmap>.  Otherwise, auto-conversion is disabled."
+  summary: "Сохраняет указанные данные в буфер обмена в указанном формате."
+  remarks: "Этот метод добавляет данные с включенным, если соответствующий формат данных <xref:System.Windows.DataFormats.FileDrop>или <xref:System.Windows.DataFormats.Bitmap>.</xref:System.Windows.DataFormats.Bitmap> </xref:System.Windows.DataFormats.FileDrop> автоматическим преобразованием  В противном случае автоматическое преобразование отключается."
   example:
-  - "The following example demonstrates the use of this method.  \n  \n [!code-cs[DragDrop_DragDropMiscCode#_SetData](~/add/codesnippet/CSharp/DragDropMiscCode/Window1.xaml.cs#_setdata)]\n [!code-vb[DragDrop_DragDropMiscCode#_SetData](~/add/codesnippet/VisualBasic/dragdropmisccode/window1.xaml.vb#_setdata)]"
+  - "The following example demonstrates the use of this method.  \n  \n [!code-cs[DragDrop_DragDropMiscCode#_SetData](~/add/codesnippet/csharp/DragDropMiscCode/Window1.xaml.cs#_setdata)]\n [!code-vb[DragDrop_DragDropMiscCode#_SetData](~/add/codesnippet/visualbasic/dragdropmisccode/window1.xaml.vb#_setdata)]"
   syntax:
     content: public static void SetData (string format, object data);
     parameters:
     - id: format
       type: System.String
-      description: "A string that specifies the format to use to store the data. See the  class for a set of predefined data formats."
+      description: "Строка, задающая формат, используемый для хранения данных. В разделе <xref href=&quot;System.Windows.DataFormats&quot;> </xref> класс для набора предопределенных форматов данных."
     - id: data
       type: System.Object
-      description: "An object representing the data to store on the Clipboard."
+      description: "Объект, представляющий данные для хранения в буфере обмена."
   overload: System.Windows.Clipboard.SetData*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.SetDataObject(System.Object)
   id: SetDataObject(System.Object)
   parent: System.Windows.Clipboard
@@ -592,26 +552,24 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Places a specified non-persistent data object on the system Clipboard."
-  remarks: "By default, data placed on the system Clipboard with <xref:System.Windows.Clipboard.SetDataObject%2A> is automatically cleared from the Clipboard when the application exits.      > [!NOTE] >  The default behavior of clearing the Clipboard on application exit might differ from other implementations, which might leave data on the Clipboard on application exit rather than clearing it by default.  Use the <xref:System.Windows.Clipboard.SetDataObject%2A> overload and specify the `copy` parameter as `true` if you do not want data cleared from the Clipboard on application exit.   >    >  <xref:System.Windows.DataObject> provides a basic implementation of the <xref:System.Windows.IDataObject> interface."
+  summary: "Помещает указанный непостоянный объект данных в системном буфере обмена."
+  remarks: "По умолчанию данные будут помещены в буфер обмена системы с <xref:System.Windows.Clipboard.SetDataObject%2A>автоматически удаляются из буфера обмена при выходе из приложения.</xref:System.Windows.Clipboard.SetDataObject%2A>      Настроек [!NOTE] настроек по умолчанию поведение очистки буфера обмена на выход из приложения могут отличаться от других реализаций, которые могут оставлять данные в буфере обмена при выходе из приложения, а не очищать их по умолчанию.  Используйте <xref:System.Windows.Clipboard.SetDataObject%2A>перегружать и укажите `copy` параметр как `true` Если данные удалены из буфера обмена на выход из приложения не требуется.</xref:System.Windows.Clipboard.SetDataObject%2A>   >> <xref:System.Windows.DataObject>предоставляет базовую реализацию <xref:System.Windows.IDataObject>интерфейса.</xref:System.Windows.IDataObject> </xref:System.Windows.DataObject>"
   syntax:
     content: public static void SetDataObject (object data);
     parameters:
     - id: data
       type: System.Object
-      description: "A data object (an object that implements ) to place on the system Clipboard."
+      description: "Объект данных (объект, реализующий интерфейс <xref href=&quot;System.Windows.IDataObject&quot;> </xref>) для размещения в системном буфере обмена."
   overload: System.Windows.Clipboard.SetDataObject*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "\n    data is ."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Runtime.InteropServices.ExternalException
     commentId: T:System.Runtime.InteropServices.ExternalException
-    description: "An error occurred when accessing the Clipboard. The exception details will include an  that identifies the specific error; see <xref:System.Runtime.InteropServices.ErrorWrapper.ErrorCode%2A?displayProperty=fullName>."
+    description: "Произошла ошибка при доступе к в буфер обмена. Подробности исключения содержат <xref uid=&quot;langword_csharp_HResult&quot; name=&quot;HResult&quot; href=&quot;&quot;> </xref> , идентифицирующий конкретную ошибку; см. раздел &lt;xref:System.Runtime.InteropServices.ErrorWrapper.ErrorCode%2A?displayProperty=fullName&gt;."
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.SetDataObject(System.Object,System.Boolean)
   id: SetDataObject(System.Object,System.Boolean)
   parent: System.Windows.Clipboard
@@ -624,31 +582,29 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Places a specified data object on the system Clipboard and accepts a Boolean parameter that indicates whether the data object should be left on the Clipboard when the application exits."
-  remarks: "<xref:System.Windows.DataObject> provides a basic implementation of the <xref:System.Windows.IDataObject> interface. <xref:System.Windows.Clipboard.IsCurrent%2A> determines the data object previously placed on the clipboard by the last <xref:System.Windows.Clipboard.SetDataObject%2A> call."
+  summary: "Помещает указанный объект данных в системном буфере обмена и принимает логический параметр, указывает ли объект данных должен оставаться в буфере обмена при выходе из приложения."
+  remarks: "<xref:System.Windows.DataObject>Предоставляет базовую реализацию <xref:System.Windows.IDataObject>интерфейса.</xref:System.Windows.IDataObject></xref:System.Windows.DataObject> <xref:System.Windows.Clipboard.IsCurrent%2A>Определяет объект данных, помещенный в буфер обмена при последнем <xref:System.Windows.Clipboard.SetDataObject%2A>вызовите.</xref:System.Windows.Clipboard.SetDataObject%2A></xref:System.Windows.Clipboard.IsCurrent%2A>"
   example:
-  - "The following example demonstrates the use of this method.  \n  \n [!code-cs[DragDrop_DragDropMiscCode#_SetDataObjectIsCurrent](~/add/codesnippet/CSharp/DragDropMiscCode/Window1.xaml.cs#_setdataobjectiscurrent)]\n [!code-vb[DragDrop_DragDropMiscCode#_SetDataObjectIsCurrent](~/add/codesnippet/VisualBasic/dragdropmisccode/window1.xaml.vb#_setdataobjectiscurrent)]"
+  - "The following example demonstrates the use of this method.  \n  \n [!code-cs[DragDrop_DragDropMiscCode#_SetDataObjectIsCurrent](~/add/codesnippet/csharp/DragDropMiscCode/Window1.xaml.cs#_setdataobjectiscurrent)]\n [!code-vb[DragDrop_DragDropMiscCode#_SetDataObjectIsCurrent](~/add/codesnippet/visualbasic/dragdropmisccode/window1.xaml.vb#_setdataobjectiscurrent)]"
   syntax:
     content: public static void SetDataObject (object data, bool copy);
     parameters:
     - id: data
       type: System.Object
-      description: "A data object (an object that implements ) to place on the system Clipboard."
+      description: "Объект данных (объект, реализующий интерфейс <xref href=&quot;System.Windows.IDataObject&quot;> </xref>) для размещения в системном буфере обмена."
     - id: copy
       type: System.Boolean
-      description: "\n     to leave the data on the system Clipboard when the application exits;  to clear the data from the system Clipboard when the application exits."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Чтобы оставить данные в системном буфере обмена при выходе из приложения; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> очистить данные из буфера обмена системы при завершении работы приложения."
   overload: System.Windows.Clipboard.SetDataObject*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "\n    data is ."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Runtime.InteropServices.ExternalException
     commentId: T:System.Runtime.InteropServices.ExternalException
-    description: "An error occured when accessing the Clipboard.  The exception details will include an  that identifies the specific error; see <xref:System.Runtime.InteropServices.ErrorWrapper.ErrorCode%2A?displayProperty=fullName>."
+    description: "Произошла ошибка при доступе к в буфер обмена.  Подробности исключения содержат <xref uid=&quot;langword_csharp_HResult&quot; name=&quot;HResult&quot; href=&quot;&quot;> </xref> , идентифицирующий конкретную ошибку; см. раздел &lt;xref:System.Runtime.InteropServices.ErrorWrapper.ErrorCode%2A?displayProperty=fullName&gt;."
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.SetFileDropList(System.Collections.Specialized.StringCollection)
   id: SetFileDropList(System.Collections.Specialized.StringCollection)
   parent: System.Windows.Clipboard
@@ -661,26 +617,24 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Stores <see cref=&quot;F:System.Windows.DataFormats.FileDrop&quot;></see> data on the Clipboard.  The dropped file list is specified as a string collection."
-  remarks: "This method adds data with auto-conversion enabled."
+  summary: "Магазины <xref href=&quot;System.Windows.DataFormats.FileDrop&quot;> </xref> данные в буфере обмена.  Список перенесенных файлов указывается в виде коллекции строк."
+  remarks: "Этот метод добавляет данные с включенным автоматическим преобразованием."
   syntax:
     content: public static void SetFileDropList (System.Collections.Specialized.StringCollection fileDropList);
     parameters:
     - id: fileDropList
       type: System.Collections.Specialized.StringCollection
-      description: "A string collection that contains the dropped file list to store in the data object."
+      description: "Коллекция строка, содержащая список перенесенных файлов для хранения в объекте данных."
   overload: System.Windows.Clipboard.SetFileDropList*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "\n    fileDropList is ."
+    description: "<code>fileDropList</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "\n    fileDropList contains zero strings, or the full path to file specified in the list cannot be resolved."
+    description: "<code>fileDropList</code>содержит нулевые строки или полный путь к файлу, указанному в списке не разрешается."
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.SetImage(System.Windows.Media.Imaging.BitmapSource)
   id: SetImage(System.Windows.Media.Imaging.BitmapSource)
   parent: System.Windows.Clipboard
@@ -693,20 +647,18 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Stores <see cref=&quot;F:System.Windows.DataFormats.Bitmap&quot;></see> data on the Clipboard.  The image data is specified as a <see cref=&quot;T:System.Windows.Media.Imaging.BitmapSource&quot;></see>."
-  remarks: "A bitmap represents a computer graphic as an array of bits in memory, and these bits represent the attributes of the individual pixels in an image.       This method adds data with auto-conversion enabled."
+  summary: "Магазины <xref href=&quot;System.Windows.DataFormats.Bitmap&quot;> </xref> данные в буфере обмена.  Данные изображения указываются в виде <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;> </xref>."
+  remarks: "Точечный рисунок представляет собой графическое изображение как массив битов в памяти, а эти биты представляют атрибуты отдельных точек изображения.       Этот метод добавляет данные с включенным автоматическим преобразованием."
   syntax:
     content: public static void SetImage (System.Windows.Media.Imaging.BitmapSource image);
     parameters:
     - id: image
       type: System.Windows.Media.Imaging.BitmapSource
-      description: "A  object that contains the image data to store on the Clipboard."
+      description: "Объект <xref href=&quot;System.Windows.Media.Imaging.BitmapSource&quot;> </xref> объект, содержащий данные изображения для хранения в буфере обмена."
   overload: System.Windows.Clipboard.SetImage*
   exceptions: []
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.SetText(System.String)
   id: SetText(System.String)
   parent: System.Windows.Clipboard
@@ -719,23 +671,21 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Stores <see cref=&quot;F:System.Windows.DataFormats.UnicodeText&quot;></see> data on the Clipboard."
-  remarks: "This data format denotes 16-bit character encoded Unicode, also referred to as UTF-16, and UCS-2.       This method adds data with auto-conversion disabled."
+  summary: "Магазины <xref href=&quot;System.Windows.DataFormats.UnicodeText&quot;> </xref> данные в буфере обмена."
+  remarks: "Этот формат данных обозначает 16-разрядный символ в кодировке Юникод, также называют UTF-16 или UCS-2.       Этот метод добавляет данные с отключенным автоматическим преобразованием."
   syntax:
     content: public static void SetText (string text);
     parameters:
     - id: text
       type: System.String
-      description: "A string that contains the  data to store on the Clipboard."
+      description: "Строка, содержащая <xref href=&quot;System.Windows.DataFormats.UnicodeText&quot;> </xref> данные для хранения в буфере обмена."
   overload: System.Windows.Clipboard.SetText*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "\n    text is ."
+    description: "<code>text</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 - uid: System.Windows.Clipboard.SetText(System.String,System.Windows.TextDataFormat)
   id: SetText(System.String,System.Windows.TextDataFormat)
   parent: System.Windows.Clipboard
@@ -748,30 +698,46 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Stores text data on the Clipboard in a specified text data format.  The <see cref=&quot;F:System.Windows.DataFormats.UnicodeText&quot;></see> data to store is specified as a string."
-  remarks: "This method adds data with auto-conversion disabled."
+  summary: "Сохраняет текстовые данные в буфер обмена в указанном формате.  <xref href=&quot;System.Windows.DataFormats.UnicodeText&quot;> </xref> Данные для хранения указываются в виде строки."
+  remarks: "Этот метод добавляет данные с отключенным автоматическим преобразованием."
   syntax:
     content: public static void SetText (string text, System.Windows.TextDataFormat format);
     parameters:
     - id: text
       type: System.String
-      description: "A string that contains the text data to store on the Clipboard."
+      description: "Строка, содержащая текстовые данные для хранения в буфере обмена."
     - id: format
       type: System.Windows.TextDataFormat
-      description: "A member of  that specifies the specific text data format to store."
+      description: "Член <xref href=&quot;System.Windows.TextDataFormat&quot;> </xref> , определяет формат данных определенного текста для хранения."
   overload: System.Windows.Clipboard.SetText*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "\n    text is ."
+    description: "<code>text</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
-  - net-11
-  - net-20
-  - netcore-10
+  - net462
 references:
 - uid: System.Object
   isExternal: false
   name: System.Object
+- uid: System.ArgumentNullException
+  isExternal: true
+  name: System.ArgumentNullException
+- uid: System.ComponentModel.InvalidEnumArgumentException
+  parent: System.ComponentModel
+  isExternal: false
+  name: InvalidEnumArgumentException
+  nameWithType: InvalidEnumArgumentException
+  fullName: System.ComponentModel.InvalidEnumArgumentException
+- uid: System.Runtime.InteropServices.ExternalException
+  parent: System.Runtime.InteropServices
+  isExternal: false
+  name: ExternalException
+  nameWithType: ExternalException
+  fullName: System.Runtime.InteropServices.ExternalException
+- uid: System.ArgumentException
+  isExternal: true
+  name: System.ArgumentException
 - uid: System.Windows.Clipboard.Clear
   parent: System.Windows.Clipboard
   isExternal: false
